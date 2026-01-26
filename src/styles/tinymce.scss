@@ -1,0 +1,18 @@
+@use "./abstracts" as *;
+@use "./properties/index";
+
+
+.mce-content-body {
+
+	font: {
+		family: var(--cwps-p-fontFamily);
+		size: var(--cwps-p-fontSize);
+	}
+	line-height: var(--cwps-p-lineHeight);
+
+	@include wizzy;
+
+	a {
+		@include hyperlink;
+	}
+}

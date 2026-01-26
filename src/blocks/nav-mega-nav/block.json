@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/nav-mega-nav",
+	"title": "Mega Nav",
+	"description": "",
+	"category": "cwps-nav-blocks",
+	"keywords": ["site", "header", "navigation"],
+	"parent": ["cwps/nav"],
+	"supports": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"link": {
+			"type": "object",
+			"default": {}
+		},
+		"imageId": {
+			"type": "integer",
+			"default": 0
+		},
+		"headline": {
+			"type": "string",
+			"default": ""
+		},
+		"intro": {
+			"type": "string",
+			"default": ""
+		},
+		"linksPerColumn": {
+			"type": "integer",
+			"default": 5
+		}
+	},
+	"render": "file:./render.php",
+	"style": "cwps-navMegaNav",
+	"editorScript": "file:./index.js"
+}

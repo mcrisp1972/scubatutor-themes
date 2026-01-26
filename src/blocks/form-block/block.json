@@ -1,0 +1,90 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/form-block",
+	"title": "Form Block",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "cwps/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			},
+			{
+				"name": "cwps/inner-block-wrap",
+				"attributes": {
+					"className": "wp-block-cwps-form-block__form-col cwps-form"
+				},
+				"innerBlocks": [
+					{
+						"name": "cwps/dummy-form"
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"viewScript": "cwps-animations",
+	"render": "file:./render.php",
+	"style": ["cwps-formBlock", "cwps-WPForms", "cwps-GForm"],
+	"editorScript": "file:./index.js"
+}

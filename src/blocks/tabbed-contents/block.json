@@ -1,0 +1,127 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/tabbed-contents",
+	"title": "Tabbed Contents",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"interactivity": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": ""
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableVerticalAlign": true
+			}
+		}
+	},
+	"example": {
+		"attributes": {},
+		"innerBlocks": [
+			{
+				"name": "cwps/body-text",
+				"attributes": {
+					"verticalAlign": "top",
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			},
+			{
+				"name": "cwps/tabbed-contents-tabs",
+				"innerBlocks": [
+					{
+						"name": "cwps/tabbed-contents-panel",
+						"attributes": {
+							"pillLabel": "Culpa"
+						},
+						"innerBlocks": [
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"content": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Ut id nisl quis enim dignissim sagittis. Quisque ut nisi. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Integer tincidunt."
+								}
+							},
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"content": "Exercitation qui Lorem sint id veniam nisi id aute occaecat ad pariatur enim laboris non. Esse proident reprehenderit ex proident esse laborum aliqua. Fugiat fugiat nostrud qui ex amet incididunt aute nulla consectetur qui nostrud in pariatur ullamco. Deserunt aliqua id pariatur nisi tempor anim. Ut ut voluptate eu veniam eu laborum enim occaecat.."
+								}
+							}
+						]
+					},
+					{
+						"name": "cwps/tabbed-contents-panel",
+						"attributes": {
+							"pillLabel": "Tempor"
+						}
+					},
+					{
+						"name": "cwps/tabbed-contents-panel",
+						"attributes": {
+							"pillLabel": "Ea irure"
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"viewScript": "cwps-animations",
+	"viewScriptModule": "file:./view.js",
+	"style": "cwps-tabbedContents",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

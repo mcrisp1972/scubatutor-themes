@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/accordion",
+	"title": "Accordion",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"interactivity": true
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"keepOpen": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"allowedBlocks": ["cwps/accordion-item"],
+	"usesContext": ["parentAutoCollapse"],
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Nulla pariatur cupidatat"
+				}
+			},
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Esse ea amet ea aliquip"
+				}
+			},
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Sint nulla anim laborum"
+				}
+			}
+		]
+	},
+	"style": "cwps-accordion",
+	"editorStyle": "cwps-accordion-editor",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

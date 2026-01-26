@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/tabbed-contents-tabs",
+	"title": "Tabbed Contents Tabs",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"inserter": false,
+		"lock": false
+	},
+	"attributes": {},
+	"providesContext": {
+		"cwps/activePanel": "activePanel"
+	},
+	"usesContext": ["revealAnimation", "revealSection", "introAlign"],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,206 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/paginated-listings",
+	"title": "Paginated Listings",
+	"description": "",
+	"category": "cwps-listing-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"multiple": false,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": false
+		},
+		"listLayout": {
+			"type": "string",
+			"default": "card"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderingOptions": {
+			"type": "object",
+			"default": false
+		},
+		"titleTag": {
+			"type": "string",
+			"default": "h3"
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Read More"
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"excerptLines": {
+			"type": "integer",
+			"default": 4
+		},
+		"titleLocation": {
+			"type": "string",
+			"default": "image"
+		},
+		"showByline": {
+			"type": "boolean",
+			"default": true
+		},
+		"postType": {
+			"type": "string",
+			"default": "post"
+		},
+		"baseTaxonomy": {
+			"type": "string",
+			"default": "category"
+		},
+		"baseTerm": {
+			"type": "string",
+			"default": "0"
+		},
+		"limit": {
+			"type": "integer",
+			"default": 12
+		},
+		"showTaxFilters": {
+			"type": "array",
+			"default": []
+		},
+		"showSorts": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSearchFields": {
+			"type": "array",
+			"default": []
+		},
+		"setHiddens": {
+			"type": "array",
+			"default": []
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableBackgroundImage": true,
+				"disableVerticalAlign": true
+			}
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "top"
+		},
+		"postTypes": {
+			"type": "object",
+			"default": {
+				"post": {
+					"name": "Articles",
+					"taxonomies": ["category"],
+					"sorts": ["date", "title"]
+				}
+			}
+		},
+		"orderbyOptions": {
+			"type": "object",
+			"default": {
+				"date": {
+					"label": "Date",
+					"order": "desc"
+				},
+				"title": {
+					"label": "A-Z",
+					"order": "asc"
+				},
+				"random": {
+					"label": "Random",
+					"order": "asc"
+				},
+				"event_date": {
+					"label": "Date",
+					"order": "asc"
+				},
+				"menu_order": {
+					"label": "Default",
+					"order": "desc"
+				}
+			}
+		},
+		"taxParams": {
+			"type": "object",
+			"default": {
+				"category": "categories"
+			}
+		}
+	},
+	"example": {
+		"attributes": {
+			"showExcerpt": false,
+			"listLayout": "masonry",
+			"limit": 6
+		},
+		"innerBlocks": [
+			{
+				"name": "cwps/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"render": "file:./render.php",
+	"style": ["cwps-post-filters", "cwps-post-listing", "cwps-page-navigation"],
+	"viewScript": ["file:./view.js", "cwps-animations"],
+	"editorScript": "file:./index.js"
+}

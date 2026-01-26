@@ -1,0 +1,116 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/stats",
+	"title": "Stats",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"textAlignment": {
+			"type": "string",
+			"default": "center"
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "cwps/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			},
+			{
+				"name": "cwps/stats-grid",
+				"innerBlocks": [
+					{
+						"name": "cwps/stats-item",
+						"attributes": {
+							"stat": "90",
+							"caption": "Vivamus elit leo"
+						}
+					},
+					{
+						"name": "cwps/stats-item",
+						"attributes": {
+							"stat": "100%",
+							"caption": "Aenean eiusmod porttitor"
+						}
+					},
+					{
+						"name": "cwps/stats-item",
+						"attributes": {
+							"stat": "33k",
+							"caption": "Dolor consectetur cillum"
+						}
+					},
+					{
+						"name": "cwps/stats-item",
+						"attributes": {
+							"stat": "25%",
+							"caption": "Proident culpa pariatur"
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"viewScript": "cwps-animations",
+	"render": "file:./render.php",
+	"style": "cwps-stats",
+	"editorScript": "file:./index.js"
+}

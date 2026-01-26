@@ -1,0 +1,238 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "mixins" as *;
+
+@mixin base-field() {
+	font: {
+		family: $font-form-fields;
+		size: 1rem;
+	}
+	letter-spacing: $letter-spacing-form-fields;
+	margin: 0;
+	color: var(--cwps-color-body);
+	border: 1px solid var(--cwps-color-body);
+	border-radius: $radius-small;
+	line-height: 1.5;
+	outline: none;
+	padding: {
+		top: var(--cwps-spacing-xxsmall);
+		left: var(--cwps-spacing-xsmall);
+		bottom: var(--cwps-spacing-xxsmall);
+		right: var(--cwps-spacing-xsmall);
+	}
+	transition: box-shadow $transition;
+	background-color: transparent;
+	@content;
+
+	&::placeholder {
+		color: var(--cwps-color-body);
+		opacity: 0.7;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		box-shadow: 0 0 0 1px var(--cwps-color-body);
+	}
+
+	&:user-invalid {
+		border-color: $error_color;
+	}
+
+	&:required:invalid {
+		//border-color: $error_color;
+	}
+
+	&:invalid {
+		// border: 1px solid blue;
+	}
+}
+
+@mixin form-label {
+
+	line-height: line-height(24px, 12px);
+	font: {
+		weight: 700;
+		size: to-rem(12px);
+	}
+	letter-spacing: 0.08rem;
+	color: var(--cwps-color-body);
+}
+
+@mixin text-field() {
+	@include base-field() {
+		max-width: 100%;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@content;
+	}
+
+	&[type="number"] {
+		padding-right: 0;
+	}
+}
+
+@mixin radio-button() {
+	display: inline-flex;
+	position: relative;
+	border: 1px solid var(--cwps-color-body);
+	outline: none;
+	transition: box-shadow $transition;
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+	cursor: pointer;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	@content;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 70%;
+		height: 70%;
+		transform: scale(0);
+		background-color: var(--cwps-color-body);
+		mask: {
+			image: url("#{$image_path}symbols/fa-circle.svg");
+			repeat: no-repeat;
+			position: center;
+			size: contain;
+		}
+		transition: transform $transition;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0 0 1px var(--cwps-color-body);
+	}
+
+	&:checked::before {
+		transform: scale(1);
+	}
+}
+
+@mixin checkbox() {
+	display: inline-flex;
+	position: relative;
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+	color: currentcolor;
+	width: 18px;
+	height: 18px;
+	border: 1px solid var(--cwps-color-body);
+	border-radius: $radius-small;
+	vertical-align: middle;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	transition: box-shadow $transition;
+	@content;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 80%;
+		height: 80%;
+		transform: scale(0);
+		background: var(--cwps-color-body);
+		mask: url("#{$image_path}symbols/fa-check.svg") center / contain no-repeat;
+		transition: transform $transition;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0 0 1px var(--cwps-color-body);
+	}
+
+	&:checked {
+
+		&::before {
+			transform: scale(1);
+		}
+	}
+}
+
+@mixin select-field() {
+	@include base-field() {
+		display: inline-block;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: {
+			image: $select-arrow-gradient;
+			size: $select-arrow-size;
+			position: $select-arrow-position;
+			repeat: no-repeat;
+		}
+		cursor: pointer;
+		padding-right: var(--cwps-spacing-small);
+		max-width: 100%;
+		text-transform: none;
+		@content;
+	}
+
+
+	&:-moz-focusring {
+		outline: none;
+	}
+}
+
+@mixin textarea {
+	@include base-field() {
+		display: block;
+		width: 100%;
+		outline: 0;
+		resize: vertical;
+		@content;
+	}
+}
+
+@mixin submit-button() {
+	display: inline-block;
+	-webkit-appearance: none;
+	font: {
+		family: $font-primary;
+		weight: 700;
+		size: 1rem;
+	}
+	background-color: var(--cwps-color-button);
+	text: {
+		transform: capitalize;
+		decoration: none;
+	}
+	color: var(--cwps-color-button-text);
+	border-radius: $radius-small;
+	border: 1px solid var(--cwps-color-button);
+	cursor: pointer;
+	margin: 0;
+	transition: border-radius $transition;
+	white-space: nowrap;
+	padding: 0 var(--cwps-spacing-xsmall);
+	line-height: 2;
+	@content;
+
+	&::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+	}
+
+	&:-moz-focusring {
+		//outline: 1px dotted purple;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		border-radius: 50px;
+	}
+}

@@ -1,0 +1,248 @@
+@use "../abstracts" as *;
+
+.cwps-listings {
+
+	&__results-header {
+		display: flex;
+		justify-content: space-between;
+		margin: var(--cwps-blockPadding) 0 var(--cwps-spacing-small);
+		align-items: flex-end;
+
+		@include mq("medium") {
+			gap: var(--cwps-spacing-small);
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__filters-mbl-open {
+		@include unstyle-button;
+		@include button;
+
+		@include mq("medium") {
+			display: none;
+		}
+	}
+
+	&__filters-mbl-close {
+		display: none;
+
+		.--open-filters & {
+			display: block;
+			position: absolute;
+			top: -30px;
+			right: 16px;
+			width: 24px;
+			height: 24px;
+			cursor: pointer;
+			background: var(--wp--preset--color--white);
+			mask: url(#{$image_path}symbols/fa-xmark.svg) center / contain no-repeat;
+			transition: scale $transition;
+
+			&:hover,
+			&:active,
+			&:focus {
+				scale: 1.3;
+			}
+
+			@include mq("medium") {
+				display: none;
+			}
+		}
+	}
+
+	&__filters-wrap {
+		position: fixed;
+		background: transparent;
+		transition: background-color 1s;
+		inset: auto 0 0 0;
+		height: 0;
+		overflow: hidden;
+
+		&.--open-filters {
+			top: 0;
+			height: unset;
+			background: var(--wp--custom--opacity--xdark);
+			z-index: 1;
+
+			@include mq("medium") {
+				position: static;
+				z-index: unset;
+				background-color: unset;
+			}
+		}
+
+		@include mq("medium") {
+			position: static;
+			overflow: unset;
+			height: unset;
+		}
+	}
+
+	&__filters-wrap-scroll {
+		transform: translateY(100%);
+		transition: transform 1s;
+
+		.--open-filters & {
+			position: absolute;
+			height: 60vh;
+			bottom: 0;
+			width: 100%;
+			background: var(--wp--preset--color--white);
+			transform: translateY(0);
+
+			@include mq("medium") {
+				position: static;
+				width: unset;
+				height: unset;
+				background: unset;
+			}
+		}
+
+		@include mq("medium") {
+			position: static;
+			transform: unset;
+			height: unset;
+			transition: unset;
+			width: unset;
+			background: unset;
+		}
+	}
+
+	&__filters-headline {
+		@include mq("medium") {
+			display: none;
+		}
+	}
+
+	&__filters {
+		display: flex;
+		padding: var(--cwps-spacing-small);
+		gap: var(--cwps-spacing-small);
+		flex-flow: column;
+		justify-content: flex-start;
+
+		.--open-filters & {
+			position: absolute;
+			overflow: auto;
+			inset: 0;
+			background: var(--cwps-color-background);
+		}
+
+		@include mq("medium") {
+			position: relative;
+			flex-flow: row;
+			justify-content: flex-end;
+			align-items: flex-end;
+			overflow: unset;
+			padding: 0;
+		}
+
+		&-count {
+			color: var(--cwps-color-body);
+
+			@include mq("large") {
+				flex: 1 1 auto;
+			}
+		}
+
+		&-filter {
+
+			label {
+				@include form-label;
+				display: block;
+				color: var(--cwps-color-body);
+			}
+		}
+
+		&-input-wrap {
+			width: fit-content;
+			min-width: 100%;
+			position: relative;
+			cursor: pointer;
+
+			&.--select {
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					background: var(--cwps-color-body);
+					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
+					transition: background-color $transition;
+					width: var(--cwps-spacing-small);
+					height: 100%;
+					right: 0;
+					pointer-events: none;
+				}
+
+				select {
+					cursor: pointer;
+					padding: 0 calc(var(--cwps-spacing-xsmall) + var(--cwps-spacing-xsmall) + var(--cwps-spacing-small)) 0 0;
+					width: 100%;
+				}
+			}
+
+			&.--date {
+
+				input[type="date"] {
+					position: relative;
+
+					&::-webkit-calendar-picker-indicator {
+						background: {
+							image: unset;
+							color: var(--cwps-color-body);
+						}
+						mask: url(~/assets/svgs/icons/fa-calendar.svg) center / contain no-repeat;
+						cursor: pointer;
+
+						&:hover {
+							background: var(--cwps-color-link);
+						}
+					}
+				}
+			}
+
+			&:hover {
+
+				&::before {
+					background: var(--cwps-color-link);
+				}
+			}
+		}
+
+		select,
+		input[type="date"] {
+			display: flex;
+			font: {
+				size: 1rem;
+				family: $font-primary;
+			}
+			line-height: 1.5;
+			appearance: none;
+			-webkit-appearance: none;
+			height: 44px;
+			border: none;
+			border-bottom: 1px solid var(--cwps-color-body);
+			border-radius: 0;
+			color: var(--cwps-color-body);
+			background: none;
+			padding: 0;
+			transition:
+				border $transition,
+				box-shadow $transition,
+				color $transition;
+
+			&:focus,
+			&:hover,
+			&:active {
+				border-bottom: 1px solid var(--cwps-color-link);
+				box-shadow: 0 1px 0 0 var(--cwps-color-link);
+				outline: none;
+				color: var(--cwps-color-body);
+			}
+		}
+	}
+}

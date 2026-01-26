@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/color-contrast-test",
+	"title": "Color Contrast Test",
+	"description": "Just for design needs, renders a post feed block using each color theme",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

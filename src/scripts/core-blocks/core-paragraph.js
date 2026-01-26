@@ -1,0 +1,21 @@
+import { addFilter } from '@wordpress/hooks';
+
+// Adds alignment options to core paragraph block
+addFilter(
+	'blocks.registerBlockType',
+	'cwps/paragraph_block_supports',
+	( props, name ) => {
+		if ( name !== 'core/paragraph' ) {
+			return props;
+		}
+
+		return {
+			...props,
+			supports: {
+				...props.supports,
+				align: [ 'wide' ],
+			},
+		};
+	},
+	900
+);

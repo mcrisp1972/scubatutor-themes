@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/nav-link",
+	"title": "Nav Link",
+	"description": "",
+	"category": "cwps-nav-blocks",
+	"keywords": ["site", "header", "navigation"],
+	"parent": ["cwps/nav"],
+	"supports": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"link": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

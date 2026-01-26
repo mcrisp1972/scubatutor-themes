@@ -1,0 +1,356 @@
+@use "../../abstracts" as *;
+
+// overrides packages.css
+.wc-block-components-title {
+
+	&.wc-block-components-title {
+		@include headline-s;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-checkout-step {
+
+	&__description,
+	&__heading-content {
+		@include micro-text;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-address-card {
+	border: 0;
+	padding: 0;
+	font-size: unset;
+}
+
+// overrides packages.css
+.wc-block-components-checkbox {
+
+	label {
+		@include micro-text;
+		gap: var(--cwps-spacing-small);
+	}
+
+	.wc-block-components-checkbox__input[type="checkbox"] {
+		margin: 0;
+		@include woo-checkbox;
+	}
+
+	.wc-block-components-checkbox__mark {
+		display: none;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-radio-control {
+
+	.wc-block-components-radio-control__input {
+		position: relative;
+		left: unset;
+		top: unset;
+		transform: unset;
+		flex-shrink: 0;
+		@include woo-radio;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-address-card__edit {
+	font-size: unset;
+	@include hyperlink;
+}
+
+// overrides checkout.css
+.wc-block-checkout__payment-method {
+
+	.wc-block-components-radio-control__option {
+		padding: {
+			right: 0;
+			left: 0;
+		}
+
+		.wc-block-components-radio-control__input {
+			left: unset;
+		}
+	}
+}
+
+// overrides checkout.css
+.wc-block-checkout__shipping-option {
+
+	.wc-block-components-radio-control__option {
+		padding: {
+			right: 0;
+			left: 0;
+		}
+	}
+}
+
+
+// overrides checkout.css
+.wc-block-components-radio-control-accordion-content {
+	@include micro-text;
+	padding: {
+		left: 0;
+		right: 0;
+		bottom: 1em;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-radio-control--highlight-checked {
+
+	.wc-block-components-radio-control-accordion-option--checked-option-highlighted,
+	label.wc-block-components-radio-control__option--checked-option-highlighted {
+		box-shadow: unset;
+		border-radius: 0;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-radio-control__option {
+	@include micro-text;
+	display: flex;
+	gap: var(--cwps-spacing-small);
+	align-items: center;
+	border-top: 1px solid var(--cwps-color-accent);
+
+	&:first-child {
+		border-top: 0;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-radio-control__label-group {
+	@include micro-text;
+}
+
+// overrides packages.css
+.wc-block-components-radio-control-accordion-option {
+	border-top: 1px solid var(--cwps-color-accent);
+}
+
+// overrides packages.css
+.wc-block-components-radio-control--highlight-checked::after {
+	border: none;
+}
+
+// overrides checkout.css
+.wc-block-checkout__terms.wc-block-checkout__terms--with-separator {
+	border-top: 1px solid var(--cwps-color-accent);
+	padding-top: 1em;
+}
+
+// overrides checkout.css
+.wc-block-components-form .wc-block-checkout__order-notes.wc-block-components-checkout-step {
+	margin-bottom: 1em;
+}
+
+// overrides checkout.css
+.wc-block-components-order-summary {
+
+	.wc-block-components-order-summary-item {
+		@include micro-text;
+		border-bottom: 1px solid var(--cwps-color-accent);
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	.wc-block-components-order-summary-item__description {
+		display: flex;
+		flex-direction: column;
+		gap: var(--cwps-spacing-xsmall);
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.wc-block-components-panel__content {
+		margin-top: var(--cwps-spacing-small);
+	}
+
+	.wc-block-components-order-summary__button-text {
+		@include headline-s;
+	}
+}
+
+// overrides checkout.css
+.wp-block-woocommerce-checkout-order-summary-totals-block {
+	padding-bottom: 16px;
+	border-top: 1px solid var(--cwps-color-accent);
+}
+
+// overrides checkout.css
+.wc-block-components-product-details {
+
+	&.wc-block-components-product-details {
+		margin: 0;
+	}
+
+	&__name {
+		font-weight: 600;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-product-badge {
+	border: 0;
+	padding: 0;
+	font-size: 0.7em;
+}
+
+// overrides checkout.css
+.wc-block-components-checkout-return-to-cart-button {
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--cwps-color-button);
+	}
+}
+
+// overrides packages.css
+.wc-block-components-totals-item__description {
+	@include micro-text;
+}
+
+// overrides checkout.css
+.wc-block-checkout__actions_row {
+
+	.wc-block-components-checkout-place-order-button {
+		@include woo-button;
+	}
+}
+
+.is-large .wc-block-checkout__sidebar {
+	top: var(--cwps-header-height);
+}
+
+// overrides packages.css
+.wc-block-components-panel__button {
+	display: flex;
+	justify-content: space-between;
+
+	> .wc-block-components-panel__button-icon {
+		position: static;
+		order: 2;
+		transform: unset;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-product-metadata {
+	@include micro-text;
+
+	p {
+		@include micro-text;
+	}
+
+	.wc-block-components-order-summary .wc-block-components-order-summary-item__description & {
+		margin: 0;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-order-summary,
+.wc-block-components-totals-coupon {
+
+	.wc-block-components-panel__button {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+// overrides packages.css
+.wc-block-components-totals-wrapper {
+	border-top: 1px solid var(--cwps-color-accent);
+}
+
+// overrides checkout.css
+.is-small .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+.is-medium .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+// overrides checkout.css
+.wc-block-components-totals-coupon__form {
+
+	.wc-block-components-totals-coupon__button {
+		@include woo-button {
+			padding: {
+				top: 0;
+				bottom: 0;
+			}
+		}
+	}
+}
+
+//overides checkout.css
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+	font-size: unset;
+}
+
+//overides checkout.css
+.wc-block-components-totals-discount .wc-block-components-totals-item__value {
+	color: unset;
+}
+
+//overides checkout.css
+.is-large .wp-block-woocommerce-checkout-order-summary-block {
+	border: none;
+	border-radius: unset;
+}
+
+//overides checkout.css
+.is-large .wc-block-components-sidebar .wc-block-components-panel {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+//overides checkout.css
+.is-large .wc-block-components-sidebar .wc-block-components-totals-coupon {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+//overides checkout.css
+.is-large .wc-block-components-sidebar .wc-block-components-totals-item {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+.wc-block-checkout-error {
+	padding: {
+		left: 0;
+		right: 0;
+	}
+}
+
+.wc-block-checkout-error .wc-block-checkout-error__image {
+	fill: var(--cwps-color-primary);
+}
+
+.wc-block-checkout-error .wp-block-button {
+	@include woo-button;
+}
+

@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+.wp-block-buttons {
+
+	.wp-block-button {
+
+		&__link {
+			@include button-primary;
+		}
+
+		&.is-style-secondary {
+
+			.wp-block-button__link {
+				border: 2px solid var(--cwps-color-button);
+				color: var(--cwps-color-button);
+				padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-small);
+				background: transparent;
+
+				&::after {
+					background: var(--cwps-color-button);
+				}
+			}
+		}
+
+		&.is-style-tertiary {
+
+			.wp-block-button__link {
+				border: none;
+				color: var(--cwps-color-button);
+				padding: 0;
+				background: transparent;
+
+				&::after {
+					background: var(--cwps-color-button);
+				}
+			}
+		}
+	}
+}

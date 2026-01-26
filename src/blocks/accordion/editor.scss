@@ -1,0 +1,20 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-accordion-item {
+
+	&.is-selected,
+	&.has-child-selected {
+
+		.wp-block-cwps-accordion-item__headline {
+
+			&::after {
+				mask-image: url(#{$image_path}symbols/fa-minus.svg);
+			}
+		}
+
+		.wp-block-cwps-accordion-item__body {
+			grid-template-rows: 1fr;
+			margin-bottom: var(--cwps-spacing-small);
+		}
+	}
+}

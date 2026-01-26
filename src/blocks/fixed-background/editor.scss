@@ -1,0 +1,12 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-fixed-background {
+	$sticky-height: calc(100vh - var(--cwps-admin-blockEditorAdminbar-height) - var(--cwps-admin-blockEditorToolbar-height) - var(--cwps-admin-blockEditorFooter-height));
+
+	position: relative;
+	overflow: hidden;
+
+	&__img {
+		height: calc(100vh + 48px) !important;
+	}
+}

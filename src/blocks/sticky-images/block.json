@@ -1,0 +1,99 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/sticky-images",
+	"title": "Sticky Images",
+	"description": "Multiple side image blocks with sticky images during scroll.",
+	"category": "cwps-custom-blocks",
+	"keywords": ["image", "sticky"],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"transitionMode": {
+			"type": "string",
+			"default": "scroll"
+		},
+		"imageLayout": {
+			"type": "string",
+			"default": "inner"
+		},
+		"imageCropPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"imageRadius": {
+			"type": "string",
+			"default": "small"
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "right"
+		},
+		"isExample": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"isExample": true
+		},
+		"innerBlocks": [
+			{
+				"name": "cwps/sticky-images-section",
+				"attributes": {
+					"sideImage": {
+						"source_url": "https://pd.w.org/2023/05/8616454d45ef02002.62343426-1536x1152.jpeg"
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "cwps/body-text",
+						"attributes": {
+							"eyebrow": "Cupidatat pariatur",
+							"headline": "Nulla Minim Est Do",
+							"cta": {
+								"title": "Consequat",
+								"link": { "url": "/" }
+							},
+							"cta2": {
+								"title": "Velit amet",
+								"link": { "url": "/" }
+							}
+						},
+						"innerBlocks": [
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js",
+	"style": "cwps-stickyImages",
+	"viewScript": "file:./view.js",
+	"editorStyle": "cwps-stickyImages-admin"
+}

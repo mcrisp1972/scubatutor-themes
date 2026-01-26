@@ -1,0 +1,158 @@
+@use "../abstracts" as *;
+
+.gform {
+
+	&_fields {
+		display: grid;
+		grid: {
+			template-columns: repeat(12, 1fr);
+			auto-rows: auto;
+		}
+		column-gap: 0;
+		row-gap: var(--cwps-spacing-small);
+		margin-bottom: var(--cwps-spacing-small);
+
+		@include mq("small") {
+			column-gap: var(--cwps-spacing-small);
+		}
+	}
+
+	&-field-label {
+		color: var(--cwps-color-body);
+	}
+
+	&-field-label--type-inline {
+		@include radio-cb-label;
+	}
+
+	&_submission_error {
+		@include micro-text;
+		text-transform: none;
+		margin-bottom: 0;
+	}
+}
+
+.gfield {
+	grid-column: span 12;
+
+	@include mq("small") {
+
+		&--width-full {
+			grid-column: span 12;
+		}
+
+		&--width-half {
+
+			grid-column: span 6;
+		}
+
+		&--width-quarter {
+			grid-column: span 3;
+		}
+
+		&--width-third {
+			grid-column: span 4;
+		}
+
+		&--width-two-thirds {
+			grid-column: span 8;
+		}
+
+		&--type-captcha {
+			grid-column: span 12;
+		}
+	}
+
+	&--type-choice {
+		border: none;
+		padding: 0;
+		margin: 0;
+
+		.gchoice {
+			display: flex;
+			align-items: center;
+			gap: var(--cwps-spacing-xsmall);
+		}
+	}
+
+	&--type-name {
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&--type-honeypot {
+		display: none !important;
+		position: absolute !important;
+		left: -9000px;
+	}
+
+	&_label {
+		@include form-label;
+		text-transform: none;
+	}
+
+	&.hidden_label {
+
+		.gfield_label {
+			display: none;
+		}
+	}
+
+
+	&_required {
+
+		&_asterisk {
+			color: $error_color;
+			margin-left: var(--cwps-spacing-xxsmall);
+		}
+
+	}
+
+	&_validation_message {
+		@include micro-text;
+		text-transform: none;
+		color: $error_color;
+	}
+
+	&_error {
+		border-color: $error_color;
+	}
+
+	input,
+	select {
+
+		&.small {
+			width: 200px;
+			max-width: 100%;
+		}
+
+		&.medium {
+			width: 400px;
+			max-width: 100%;
+		}
+
+		&.large {
+			width: 100%;
+		}
+	}
+
+}
+
+.ginput_complex {
+	display: flex;
+	flex-flow: row wrap;
+
+	.gform-grid-col {
+		flex: 1;
+		margin-left: var(--cwps-spacing-small);
+
+		&.name_first {
+			margin-left: 0;
+		}
+	}
+
+	input {
+		width: 100%;
+	}
+}

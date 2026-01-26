@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/image-link-grid",
+	"title": "Image Link Grid",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": ["links"],
+	"supports": {},
+	"parent": ["cwps/image-link-grid-block"],
+	"attributes": {},
+	"usesContext": ["gridLayout", "gridGap", "excerptLines"],
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

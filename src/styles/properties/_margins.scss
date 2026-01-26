@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+:root {
+	--cwps-spacing-xxlarge: var(--cwps-fluid-56-112);
+	--cwps-spacing-xlarge: var(--cwps-fluid-40-80);
+	--cwps-spacing-large: var(--cwps-fluid-32-48);
+	--cwps-spacing-medium: var(--cwps-fluid-24-32);
+	--cwps-spacing-small: 16px;
+	--cwps-spacing-xsmall: 8px;
+	--cwps-spacing-xxsmall: 4px;
+
+	--cwps-blockPadding: var(--cwps-fluid-40-80);
+
+	--cwps-open-content-spacing: 16px;
+	--cwps-open-headline-spacing: var(--cwps-fluid-24-32);
+}

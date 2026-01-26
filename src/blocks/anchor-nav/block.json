@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/anchor-nav",
+	"title": "Anchor Nav",
+	"description": "",
+	"category": "cwps-nav-blocks",
+	"keywords": [],
+	"supports": {
+		"spacing": {
+			"margin": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		}
+	},
+	"allowedBlocks": ["cwps/anchor-nav-item"],
+	"example": {
+		"attributes": {},
+		"innerBlocks": [
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Nulla pariatur cupidatat"
+				}
+			},
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Esse ea amet ea aliquip"
+				}
+			},
+			{
+				"name": "cwps/accordion-item",
+				"attributes": {
+					"headline": "Sint nulla anim laborum"
+				}
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"style": "cwps-anchorNav",
+	"editorStyle": "cwps-anchorNav-editor",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js"
+}

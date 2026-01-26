@@ -1,0 +1,52 @@
+$font-size: 16px;
+
+$font-primary: "Roboto", helvetica, arial, sans-serif;
+$font-headers: "Roboto", helvetica, arial, sans-serif;
+$font-form-fields: arial, sans-serif;
+
+$letter-spacing-form-fields: 0.5px;
+
+$image_path: "~/assets/svgs/";
+
+$sidebar-width-deduct: 212px;
+
+$line-height: 1.5;
+
+$transition: 0.2s ease-in;
+
+$breakpoints: (
+	// WP standard breakpoints
+	"huge":	1440px,
+	"wide":	1280px,
+	"large": 960px,
+	"medium": 782px,
+	"small": 600px,
+	"mobile": 480px,
+
+	// Custom Breakpoints
+	"sticky-admin-bar": 600px, // should equal small WP BP
+	"50-50": 782px, // currently equal to medium WP BP
+);
+
+$breakpoint-2-col: 623px;
+$breakpoint-2-col-max: 925px;
+$breakpoint-3-col: 926px;
+$breakpoint-3-col-max: 1235px;
+$breakpoint-4-col: 1236px;
+
+$radius-small: 3px;
+$radius-med: 6px;
+$radius-large: 20px;
+$radius-xlarge: 60px;
+
+
+$text-shadow: 0px 0px 2px #00000080;
+
+$error_color: var(--wp--preset--color--crimson-bolt);
+
+
+$select-arrow-gradient: linear-gradient(315deg, transparent 22%, var(--cwps-color-body) 22%, var(--cwps-color-body) 30%, transparent 30%), linear-gradient(45deg, transparent 22%, var(--cwps-color-body) 22%, var(--cwps-color-body) 30%, transparent 30%);
+
+$select-arrow-size: 12px 11.5px;
+
+$select-arrow-position: right var(--cwps-spacing-xsmall) top 8px;

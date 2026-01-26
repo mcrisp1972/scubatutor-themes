@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/social-shares",
+	"title": "Social Shares",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {},
+	"attributes": {
+		"exampleData": {
+			"type": "object",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"exampleData": {
+				"eventPrice": "500",
+				"allDay": true,
+				"eventDates": "2024-10-15",
+				"eventSpots": "12"
+			}
+		},
+		"viewportWidth": 1440
+	},
+	"style": "cwps-socialShares",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

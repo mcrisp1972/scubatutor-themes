@@ -1,0 +1,16 @@
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+._*
+*.sql
+
+# Node Modules #
+##########
+package-lock.json
+node_modules/
+
+
+# Build #
+build/

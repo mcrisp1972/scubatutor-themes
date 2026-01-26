@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/tabbed-contents-panel",
+	"title": "Tabbed Contents Panel",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"styles": [],
+	"supports": {},
+	"attributes": {
+		"pillLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": ["cwps/tabbed-contents-tabs"],
+	"usesContext": ["cwps/activePanel"],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

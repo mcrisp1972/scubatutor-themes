@@ -1,0 +1,163 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "typography" as *;
+@use "forms" as *;
+
+@mixin woo-button {
+	background-color: var(--cwps-color-button);
+	color: var(--cwps-color-button-text);
+	font: {
+		family: $font-primary;
+		size: var(--cwps-button-fontSize);
+		weight: 700;
+	}
+	text-transform: capitalize;
+	border-radius: $radius-small;
+	cursor: pointer;
+	transition: border-radius $transition;
+	@content;
+
+	&:hover,
+	&:active,
+	&:focus {
+		border-radius: 30px;
+	}
+
+	&:focus {
+		box-shadow: unset;
+		outline: none;
+	}
+}
+
+@mixin wc-block-cart-item__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: var(--cwps-spacing-xsmall);
+
+	.wc-block-components-product-name {
+		@include wc-block-components-product-name;
+	}
+
+	.wc-block-components-product-badge {
+		@include wc-block-components-product-badge;
+	}
+
+	.wc-block-components-product-metadata {
+		margin-bottom: 0;
+
+		&__description {
+
+			p {
+				@include micro-text;
+				margin: 0;
+			}
+		}
+	}
+
+	.wc-block-components-product-details {
+		@include micro-text;
+		margin: 0;
+
+		&__name {
+			font-weight: 600;
+		}
+	}
+
+	.wc-block-cart-item__quantity {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--cwps-spacing-xsmall);
+		align-self: unset;
+		padding: {
+			right: 0;
+			top: 0;
+		}
+
+		.wc-block-components-quantity-selector {
+			margin: 0;
+
+			&__input {
+				font: {
+					size: var(--cwps-p-s-fontSize);
+					family: $font-primary;
+					weight: 400;
+				}
+			}
+
+			.wc-block-components-quantity-selector__button {
+
+				&:not(:disabled) {
+					opacity: 1;
+
+					&:hover,
+					&:focus,
+					&:active {
+						color: var(--cwps-color-button);
+					}
+				}
+			}
+		}
+
+		.wc-block-cart-item__remove-link {
+			@include micro-text;
+			@include hyperlink;
+
+			&:hover,
+			&:active,
+			&:focus {
+				text-decoration: underline;
+				text-decoration-thickness: 3px;
+			}
+		}
+	}
+}
+
+@mixin wc-block-components-product-name {
+	@include headline-xs;
+	@include hyperlink;
+}
+
+@mixin wc-block-components-product-badge {
+	border: none;
+	padding: 0;
+	display: block;
+	@include micro-text;
+}
+
+@mixin woo-radio {
+	min-height: unset;
+	min-width: unset;
+	@include radio-button {
+		@content;
+	}
+
+	&:checked::before {
+		top: unset;
+		left: unset;
+	}
+}
+
+@mixin woo-checkbox() {
+	@include checkbox {
+		min-height: unset;
+		min-width: unset;
+		@content;
+	}
+
+	&::before {
+		top: unset;
+		left: unset;
+	}
+
+	&::after {
+		content: unset;
+	}
+
+	&:focus {
+		outline: unset;
+	}
+
+	svg {
+		display: none;
+	}
+}

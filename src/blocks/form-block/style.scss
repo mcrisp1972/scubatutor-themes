@@ -1,0 +1,16 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-form-block {
+	@include block-outer-wrap;
+
+	&__width {
+		@include block-inner-wrap-50-50;
+	}
+
+	&__form-col {
+
+		@include mq("50-50") {
+			flex: 0 1 50%;
+		}
+	}
+}

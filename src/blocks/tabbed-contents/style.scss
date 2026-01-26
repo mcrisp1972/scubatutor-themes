@@ -1,0 +1,71 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-tabbed-contents {
+	@include block-outer-wrap;
+
+	&__width {
+		@include block-inner-wrap-50-50( $allow-top-intro: true );
+	}
+}
+
+.wp-block-cwps-tabbed-contents-tabs {
+
+	@include mq("50-50") {
+		flex: 0 1 50%;
+	}
+
+	&__tabs {
+		display: flex;
+		flex-wrap: wrap;
+		border-bottom: 1px solid var(--cwps-color-accent);
+	}
+
+	&__tab {
+		@include unstyle-button;
+		padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-small);
+		border: 1px solid transparent;
+		border-bottom: unset;
+		color: var(--cwps-color-accent);
+		font-weight: 600;
+		transition: background-color $transition, color $transition, border-color $transition;
+
+		&.--is-selected {
+			background: var(--cwps-color-accent);
+			color: var(--cwps-color-background);
+
+			&:focus-visible {
+				background: none;
+				color: var(--cwps-color-accent);
+			}
+		}
+
+		&:hover,
+		&:focus {
+			border-color: var(--cwps-color-accent);
+		}
+	}
+
+	&__panels {
+		padding: var(--cwps-spacing-small) 0 0;
+
+		&:not(:has(.--active)) {
+
+			.wp-block-cwps-tabbed-contents-panel:first-child {
+				display: block;
+			}
+		}
+	}
+}
+
+.wp-block-cwps-tabbed-contents-panel {
+	display: none;
+	min-height: 60px;
+
+	&.--active {
+		display: block;
+	}
+
+	.--has-top-intro & {
+		max-width: var(--cwps-contentSize);
+	}
+}

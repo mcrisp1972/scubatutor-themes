@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+
+:root {
+	--cwps-p-fontFamily: #{$font-primary};
+	--cwps-p-lineHeight: 1.5;
+	--cwps-p-fontWeight: 400;
+
+	--cwps-button-fontSize: var(--cwps-fluid-16-18);
+	--cwps-p-fontSize: var(--cwps-fluid-16-18);
+	--cwps-p-l-fontSize: var(--cwps-fluid-18-20);
+	--cwps-p-s-fontSize: var(--cwps-fluid-14-16);
+
+	//headlines
+	--cwps-hl-fontFamily: #{$font-headers};
+	--cwps-hl-lineHeight: 1;
+	--cwps-hl-fontWeight: 700;
+	--cwps-hl-xxl-fontSize: var(--cwps-fluid-48-56);
+	--cwps-hl-xl-fontSize: var(--cwps-fluid-40-48);
+	--cwps-hl-l-fontSize: var(--cwps-fluid-32-40);
+	--cwps-hl-m-fontSize: var(--cwps-fluid-24-32);
+	--cwps-hl-s-fontSize: var(--cwps-fluid-20-24);
+	--cwps-hl-xs-fontSize: var(--cwps-fluid-18-20);
+
+	--cwps-excerpt-lines: 4;
+}

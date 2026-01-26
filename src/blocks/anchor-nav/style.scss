@@ -1,0 +1,65 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-anchor-nav {
+	position: sticky;
+	background: var(--cwps-color-background);
+	top: calc(var(--cwps-header-height) + var(--wp-admin--admin-bar--height, 0px));
+	z-index: 1;
+
+	&__list {
+		display: flex;
+		position: relative;
+		height: var(--cwps-anchor-menu-height);
+		gap: var(--cwps-spacing-small);
+		align-items: center;
+		list-style: none;
+		margin: 0;
+		overflow-x: scroll;
+		padding: 0 var(--cwps-wideSize-padding);
+
+		&::-webkit-scrollbar {
+			height: 8px;
+			background: transparent;
+			padding-bottom: 2px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: {
+				left: var(--cwps-wideSize-margin) solid transparent;
+				right: var(--cwps-wideSize-margin) solid transparent;
+			}
+			background: {
+				image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--cwps-color-link) 40%, var(--cwps-color-link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);
+				clip: padding-box;
+			}
+			transition: background-image $transition;
+
+			&:hover {
+				background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, var(--cwps-color-link) 30%, var(--cwps-color-link) 70%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 70%);
+			}
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		// Firefox
+		// scrollbar-width: thin; // "auto", "thin", or "none"
+		// scrollbar-color: red;
+	}
+
+	&__item {
+		display: flex;
+	}
+
+	&__link {
+		@include hyperlink;
+		text-decoration: none;
+		white-space: nowrap !important;
+		margin: 4px 0 0;
+
+		&.--current {
+			color: var(--cwps-color-body);
+		}
+	}
+}

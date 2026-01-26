@@ -1,0 +1,8 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-iframe-wrapper {
+
+	iframe {
+		pointer-events: none;
+	}
+}

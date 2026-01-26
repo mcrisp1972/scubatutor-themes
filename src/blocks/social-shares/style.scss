@@ -1,0 +1,60 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-cwps-social-shares {
+	position: relative;
+	padding: var(--cwps-spacing-small) 0;
+
+	&__social-links {
+		display: flex;
+		justify-content: flex-end;
+		gap: var(--cwps-spacing-xsmall);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__social-link {
+		display: block;
+		background: var(--cwps-color-link);
+		mask: {
+			repeat: no-repeat;
+			position: center;
+			size: contain;
+		}
+		transition: background-color $transition;
+		height: 30px;
+		width: 30px;
+
+		&:hover {
+			background: var(--cwps-color-body);
+		}
+
+		&.--twitter {
+			mask-image: url(#{$image_path}social/fa-x-twitter.svg);
+		}
+
+		&.--facebook {
+			mask-image: url(#{$image_path}social/fa-facebook-f.svg);
+		}
+
+		&.--youtube {
+			mask-image: url(#{$image_path}social/fa-youtube.svg);
+		}
+
+		&.--instagram {
+			mask-image: url(#{$image_path}social/fa-instagram.svg);
+		}
+
+		&.--pinterest {
+			mask-image: url(#{$image_path}social/fa-pinterest-p.svg);
+		}
+
+		&.--tiktok {
+			mask-image: url(#{$image_path}social/fa-tiktok.svg);
+		}
+
+		&.--linkedin {
+			mask-image: url(#{$image_path}social/fa-linkedin-in.svg);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@use "../../abstracts" as *;
+
+.wc-block-order-confirmation-totals {
+
+	table {
+		border: none;
+		border-radius: none;
+
+		th,
+		td {
+			padding: {
+				left: 0;
+				right: 0;
+			}
+			border-top: 1px solid var(--cwps-color-accent);
+		}
+
+		tfoot {
+
+			tr {
+
+				&:last-child {
+
+					th,
+					td {
+						border-bottom: 1px solid var(--cwps-color-accent);
+					}
+				}
+			}
+		}
+	}
+
+	.wc-item-meta {
+		@include micro-text;
+	}
+}

@@ -1,0 +1,27 @@
+.wp-block-pullquote {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	gap: var(--cwps-spacing-xsmall);
+
+	&:not(:first-child) {
+		margin-top: var(--cwps-open-content-spacing);
+	}
+
+	&::before,
+	&::after {
+		display: block;
+		color: var(--cwps-color-accent);
+		font-size: 5rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	&::before {
+		content: open-quote;
+	}
+
+	&::after {
+		content: close-quote;
+	}
+}

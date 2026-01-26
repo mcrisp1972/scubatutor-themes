@@ -1,0 +1,157 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/image-link-grid-block",
+	"title": "Image Link Grid Block",
+	"description": "",
+	"category": "cwps-custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"gridLayout": {
+			"type": "string",
+			"default": "3-col"
+		},
+		"gridGap": {
+			"type": "boolean",
+			"default": true
+		},
+		"excerptLines": {
+			"type": "integer",
+			"default": 4
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "top"
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableVerticalAlign": true,
+				"disableBackgroundImage": true
+			}
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "cwps/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			},
+			{
+				"name": "cwps/image-link-grid",
+				"innerBlocks": [
+					{
+						"name": "cwps/image-link-grid-item",
+						"attributes": {
+							"eyebrowOverride": "Eu do Lorem",
+							"titleOverride": "Deserunt sint non",
+							"imageOverride": {
+								"source_url": "https://pd.w.org/2024/11/545674ab2c37ed523.13344924-768x576.jpg"
+							}
+						}
+					},
+					{
+						"name": "cwps/image-link-grid-item",
+						"attributes": {
+							"eyebrowOverride": "Esse proident deserunt",
+							"titleOverride": "Quis deserunt aliqua",
+							"imageOverride": {
+								"source_url": "https://pd.w.org/2024/11/19567436fae362b39.71211119-768x1366.jpg"
+							}
+						}
+					},
+					{
+						"name": "cwps/image-link-grid-item",
+						"attributes": {
+							"eyebrowOverride": "Officia commodo sit",
+							"titleOverride": "Exercitation anim ad",
+							"imageOverride": {
+								"source_url": "https://pd.w.org/2024/11/298674aa6951329d5.88446929-768x576.jpeg"
+							}
+						}
+					},
+					{
+						"name": "cwps/image-link-grid-item",
+						"attributes": {
+							"eyebrowOverride": "Lorem sint mollit",
+							"titleOverride": "Anim quis commodo ex",
+							"imageOverride": {
+								"source_url": "https://pd.w.org/2024/11/8226747c91210db52.96035363-768x512.jpg"
+							}
+						}
+					},
+					{
+						"name": "cwps/image-link-grid-item",
+						"attributes": {
+							"eyebrowOverride": "Proident aliquip",
+							"titleOverride": "Est enim fugiat",
+							"imageOverride": {
+								"source_url": "https://pd.w.org/2024/11/1686743ce9d93bd35.81469742-768x432.jpeg"
+							}
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign",
+		"gridLayout": "gridLayout",
+		"gridGap": "gridGap",
+		"excerptLines": "excerptLines"
+	},
+	"viewScript": "cwps-animations",
+	"style": "cwps-imageLinkGridBlock",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

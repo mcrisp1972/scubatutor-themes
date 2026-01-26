@@ -1,0 +1,18 @@
+.wp-block-post-content {
+
+	> p,
+	> .wp-block-heading,
+	> .wp-block-list,
+	> .wp-block-buttons,
+	> figure,
+	> .wp-block-embed {
+
+		&:first-child {
+			margin-top: var(--cwps-spacing-xlarge);
+		}
+
+		&:last-child {
+			margin-bottom: var(--cwps-spacing-xlarge);
+		}
+	}
+}
