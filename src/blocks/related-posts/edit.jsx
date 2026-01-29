@@ -2,10 +2,10 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl, TextControl, RadioControl } from '@wordpress/components';
 import { useSelect, select } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
+import { applyFilters } from '@wordpress/hooks';
 import postTile from '../post-feed/postTile';
 import postFeedTemplate from '../post-feed/postFeedTemplate';
 import { templatePostType } from '../../scripts/modules/template-post-type';
-import { postTypeCats } from '../../scripts/modules/post-types';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -28,6 +28,8 @@ export default function Edit( props ) {
 	} = attributes;
 
 	const isTemplate = select( 'core/edit-site' ) !== undefined;
+
+	const postTypeCats = applyFilters( 'cwps.postTypeCats' );
 
 	const postType = useSelect(
 		( select ) => {

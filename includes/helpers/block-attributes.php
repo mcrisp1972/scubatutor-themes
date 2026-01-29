@@ -88,7 +88,7 @@ function layout_conditionals( $attributes ) {
 
 function alternate_theme( $attributes, $section ) {
 	$object = get_queried_object();
-	$json_string = file_get_contents( CWPS_THEME_DIR . '/color-themes.json' );
+	$json_string = file_get_contents( CWPS_CHILD_THEME_DIR . '/color-themes.json' );
 	$colors = json_decode( $json_string, true );
 
 	if ( is_object( $object ) && get_class( $object ) === 'WP_Post' ) {

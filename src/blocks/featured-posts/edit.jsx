@@ -1,5 +1,6 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl, TextControl, RadioControl } from '@wordpress/components';
+import { applyFilters } from '@wordpress/hooks';
 import { useSelect } from '@wordpress/data';
 import {
 	TagSelect,
@@ -11,7 +12,6 @@ import {
 } from '../../editor-controls';
 import postTile from '../post-feed/postTile';
 import postFeedTemplate from '../post-feed/postFeedTemplate';
-import { postTypeOptions } from '../../scripts/modules/post-types';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -29,6 +29,9 @@ export default function Edit( props ) {
 		postType,
 		posts,
 	} = attributes;
+
+
+	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
 
 	const postObjects = useSelect(
 		( select ) => {

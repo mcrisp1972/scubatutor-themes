@@ -1,8 +1,8 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { PanelBody, TextControl, TextareaControl, SelectControl, Spinner } from '@wordpress/components';
+import { applyFilters } from '@wordpress/hooks';
 import { PostPicker, ImageSelect, PlaceholderImage, OverlayOpacitySlider } from '../../editor-controls';
-import { postTypeOptions } from '../../scripts/modules/post-types';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -17,6 +17,8 @@ export default function Edit( props ) {
 		ctaOverride,
 		imageOpacity,
 	} = attributes;
+
+	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
 
 	const linkObj = useSelect(
 		( select ) => {

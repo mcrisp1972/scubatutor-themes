@@ -1,12 +1,13 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { PanelBody, SelectControl, TextControl, TextareaControl } from '@wordpress/components';
+import { applyFilters } from '@wordpress/hooks';
 import { PostPicker, ImageSelect } from '../../editor-controls';
-import { postTypeOptions } from '../../scripts/modules/post-types';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, context } = props;
 	const { postType, postId, linkImage, linkTitle, linkExcerpt } = attributes;
+	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
 
 	const linkObj = useSelect(
 		( select ) => {

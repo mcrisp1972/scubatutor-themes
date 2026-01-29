@@ -140,31 +140,7 @@ function cwps_block_categories( $categories ) {
 		)
 	);
 
-	array_unshift(
-		$categories,
-		array(
-			'slug' => 'cwps-course-blocks',
-			'title' => 'Course Blocks',
-		)
-	);
-
-	array_unshift(
-		$categories,
-		array(
-			'slug' => 'cwps-trip-blocks',
-			'title' => 'Trip Blocks',
-		)
-	);
-
-	array_unshift(
-		$categories,
-		array(
-			'slug' => 'cwps-staff-blocks',
-			'title' => 'Staff Blocks',
-		)
-	);
-
-	return $categories;
+	return apply_filters( 'cwps_block_categories', $categories );
 }
 
 add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\allowed_block_types', 99, 2 );
@@ -179,11 +155,7 @@ function allowed_block_types( $blocks, $editor_context ) {
 	if ( $editor_context->name !== 'core/edit-site' ) {
 		$blacklist[] = 'cwps/footer';
 		$blacklist[] = 'cwps/nav';
-		$blacklist[] = 'cwps/single-product-details';
 		$blacklist[] = 'cwps/search-listings';
-	} else {
-		$blacklist[] = 'cwps/staff-details';
-		$blacklist[] = 'cwps/course-details';
 	}
 
 	// editing a page
@@ -191,52 +163,11 @@ function allowed_block_types( $blocks, $editor_context ) {
 
 		if ( $editor_context->post->post_type !== 'page' ) {
 			$blacklist[] = 'cwps/paginated-listings';
-			$blacklist[] = 'cwps/paginated-products';
-			$blacklist[] = 'cwps/store-hero';
-		}
-
-		if ( $editor_context->post->post_type !== 'trip' ) {
-			$blacklist[] = 'cwps/trip-amenities';
-			$blacklist[] = 'cwps/trip-details';
-		}
-
-		if ( $editor_context->post->post_type !== 'staff' ) {
-			$blacklist[] = 'cwps/staff-details';
-		}
-
-		if ( $editor_context->post->post_type !== 'course' ) {
-			$blacklist[] = 'cwps/upcoming-classes';
-		}
-
-		if ( $editor_context->post->post_type !== 'class' ) {
-			$blacklist[] = 'cwps/class-schedule';
-		}
-
-		if ( $editor_context->post->post_type !== 'course' && $editor_context->post->post_type !== 'class' ) {
-			$blacklist[] = 'cwps/course-details';
-			$blacklist[] = 'cwps/class-description';
-			$blacklist[] = 'cwps/prerequisite-courses';
-		}
-
-		if ( $editor_context->post->post_type !== 'class' && $editor_context->post->post_type !== 'trip' ) {
-			$blacklist[] = 'cwps/booking-widget';
-			$blacklist[] = 'cwps/event-hero';
-		}
-
-		if ( $editor_context->post->post_type !== 'tribe_events' ) {
-			$blacklist[] = 'cwps/event-map';
 		}
 	}
 
 	// now unset plugin blocks
 	foreach ( array_keys( $blocks ) as $name ) {
-		// if( str_starts_with( $name, 'woocommerce/' ) ) {
-		// $blacklist[] = $name;
-		// }
-		// else if( str_starts_with( $name, 'woocommerce-payments/' ) ) {
-		// $blacklist[] = $name;
-		// }
-		// else
 
 		if ( str_starts_with( $name, 'tribe/' ) ) {
 			$blacklist[] = $name;
@@ -251,11 +182,12 @@ function allowed_block_types( $blocks, $editor_context ) {
 		}
 	}
 
+	$blacklist = apply_filters( 'cwps_block_blacklist', $blacklist, $editor_context );
+
 	foreach ( $blacklist as $name ) {
 		unset( $blocks[ $name ] );
 	}
 
-	// error_log( print_r( array_keys( $blocks ), 1 ) );
 	return array_keys( $blocks );
 }
 

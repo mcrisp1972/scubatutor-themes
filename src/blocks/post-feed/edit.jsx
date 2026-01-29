@@ -2,10 +2,10 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, RadioControl, SelectControl, ToggleControl, TextControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { decodeEntities } from '@wordpress/html-entities';
+import { applyFilters } from '@wordpress/hooks';
 import { TagSelect, ColorThemePanel, AnimationPanel, LabeledSpinner, TruncateControl } from '../../editor-controls';
 import postTile from './postTile';
 import postFeedTemplate from './postFeedTemplate';
-import { postTypeCats } from '../../scripts/modules/post-types';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -28,6 +28,8 @@ export default function Edit( props ) {
 		limit,
 		colorTheme,
 	} = attributes;
+
+	const postTypeCats = applyFilters( 'cwps.postTypeCats' );
 
 	const posts = useSelect(
 		( select ) => {

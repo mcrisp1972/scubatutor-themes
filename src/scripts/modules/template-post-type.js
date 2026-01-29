@@ -1,21 +1,8 @@
+import { applyFilters } from '@wordpress/hooks';
+
 export function templatePostType( template ) {
 	const n = template.lastIndexOf( '//' );
-	const clean = template.substring( n + 2 );
+	const clean = template.substring( n + 2 ).replace( 'single-', '' );
 
-	switch ( clean ) {
-		case 'single-class':
-			return 'course';
-		case 'single-course':
-			return 'course';
-		case 'single-staff':
-			return 'staff';
-		case 'single-trip':
-			return 'trip';
-		case 'single-tribe_events':
-			return 'tribe_events';
-		case 'single-product':
-			return 'product';
-		default:
-			return 'post';
-	}
+	return applyFilters( 'cwps.templatePostType', 'post', clean, template );
 }

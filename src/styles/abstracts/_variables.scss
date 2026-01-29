@@ -40,7 +40,7 @@ $radius-large: 20px;
 $radius-xlarge: 60px;
 
 
-$text-shadow: 0px 0px 2px #00000080;
+$text-shadow: 0px 0px 2px var(--wp--custom--opacity--dark);
 
 $error_color: var(--wp--preset--color--crimson-bolt);
 

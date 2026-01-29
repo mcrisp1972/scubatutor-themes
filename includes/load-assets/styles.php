@@ -9,7 +9,7 @@ function enqueue_styles() {
 	if ( is_admin() ) {
 		wp_enqueue_style( 'cwps-main-styles', CWPS_THEME_CSS_URL . 'block-editor.css', array( 'dashicons' ), CWPS_THEME_VER );
 	} else {
-		wp_enqueue_style( 'cwps-main-styles', CWPS_THEME_CSS_URL . 'front-end-layout.css', array( 'global-styles' ), CWPS_THEME_VER );
+		wp_enqueue_style( 'cwps-main-styles', CWPS_THEME_CSS_URL . 'main.css', array( 'global-styles' ), CWPS_THEME_VER );
 	}
 }
 

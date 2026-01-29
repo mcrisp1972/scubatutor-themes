@@ -14,11 +14,22 @@ define( 'CWPS_THEME_JS_URL', CWPS_THEME_URL . '/build/scripts/' );
 define( 'CWPS_THEME_CSS_URL', CWPS_THEME_URL . '/build/styles/' );
 define( 'CWPS_THEME_CSS_DIR', CWPS_THEME_DIR . '/build/styles/' );
 define( 'CWPS_THEME_BLOCKS_URL', CWPS_THEME_URL . '/build/blocks/' );
+define( 'CWPS_CHILD_THEME_DIR', get_stylesheet_directory() );
+define( 'CWPS_CHILD_THEME_URL', get_stylesheet_directory_uri() );
+define( 'CWPS_CHILD_IMAGES_URL', CWPS_CHILD_THEME_URL . '/assets/images/' );
+define( 'CWPS_CHILD_THEME_JS_URL', CWPS_CHILD_THEME_URL . '/build/scripts/' );
+define( 'CWPS_CHILD_THEME_CSS_URL', CWPS_CHILD_THEME_URL . '/build/styles/' );
+define( 'CWPS_CHILD_THEME_CSS_DIR', CWPS_CHILD_THEME_DIR . '/build/styles/' );
+define( 'CWPS_CHILD_THEME_BLOCKS_URL', CWPS_CHILD_THEME_URL . '/build/blocks/' );
 define( 'CWPS_STYLE_DEP', 'cwps-main-styles' );
 
 $asset_file = CWPS_THEME_DIR . '/build/styles/main.asset.php';
 $asset_version = file_exists( $asset_file ) ? require $asset_file : false;
 define( 'CWPS_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
+
+$asset_file = CWPS_CHILD_THEME_DIR . '/build/styles/main.asset.php';
+$asset_version = file_exists( $asset_file ) ? require $asset_file : false;
+define( 'CWPS_CHILD_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
 
 function cwps_include_files_in_folder( $folder ) {
 	if ( ! empty( $folder ) ) {

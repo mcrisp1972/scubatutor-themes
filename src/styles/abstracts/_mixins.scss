@@ -5,7 +5,6 @@
 	cursor: pointer;
 	text-decoration: underline;
 	color: var(--cwps-color-link);
-	// margin: 0;
 	transition: color $transition;
 	font-weight: 600;
 	@content;
@@ -46,8 +45,10 @@
 	&:active,
 	&:focus {
 		color: var(--cwps-color-link);
-		text-decoration: underline;
-		text-decoration-thickness: 2px;
+		text: {
+			decoration: underline;
+			decoration-thickness: 2px;
+		}
 	}
 }
 

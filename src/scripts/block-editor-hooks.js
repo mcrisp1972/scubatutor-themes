@@ -1,27 +1,20 @@
-import { registerPlugin } from '@wordpress/plugins';
-
-import { default as tripMetaPanels } from '../sidebar-panels/trip-meta-panel';
-
-import { default as themePanels } from '../sidebar-panels/theme-panel';
-
-import { default as classMetaPanels } from '../sidebar-panels/class-meta-panel';
-
-import { default as courseMetaPanels } from '../sidebar-panels/course-meta-panel';
-
+import { addFilter } from '@wordpress/hooks';
+import defaultColorThemes from '../../color-themes.json';
 import './core-blocks';
 
-registerPlugin( 'cwps-sidebar-class-meta', {
-	render: classMetaPanels,
+addFilter( 'cwps.colorThemes', 'cwps/color-themes', () => {
+    return defaultColorThemes;
 } );
 
-registerPlugin( 'cwps-sidebar-course-meta', {
-	render: courseMetaPanels,
+addFilter( 'cwps.postTypeOptions', 'cwps/post-type-options', () => {
+	return [
+		{ label: 'Post', value: 'post' },
+		{ label: 'Page', value: 'page' },
+	];
 } );
 
-registerPlugin( 'cwps-sidebar-trip-meta', {
-	render: tripMetaPanels,
-} );
-
-registerPlugin( 'cwps-sidebar-theme', {
-	render: themePanels,
+addFilter( 'cwps.postTypeCats', 'cwps/post-type-cats', () => {
+	return {
+		post: 'category',
+	};
 } );

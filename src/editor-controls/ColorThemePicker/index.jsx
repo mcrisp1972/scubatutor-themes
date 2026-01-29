@@ -1,6 +1,6 @@
 import { BaseControl, useBaseControlProps, Tooltip } from '@wordpress/components';
 import { Icon, check } from '@wordpress/icons';
-import colorThemes from '../../../color-themes.json';
+import { applyFilters } from '@wordpress/hooks';
 
 function ColorThemeOption( { theme, checked, onClick } ) {
 	return (
@@ -37,6 +37,9 @@ function ColorThemeOption( { theme, checked, onClick } ) {
 }
 
 function ColorThemePicker( { label, onChange, value } ) {
+	// Apply filter inside component so child theme filters are registered first
+	const colorThemes = applyFilters( 'cwps.colorThemes' );
+
 	const handleColorClick = ( slug ) => {
 		onChange( slug );
 	};

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { addQueryArgs } from '@wordpress/url';
 import { layoutConditionals } from '../../blocks/post-feed/layoutConditionals';
 
@@ -5,10 +6,7 @@ export default class filteredListings {
 	constructor( listings ) {
 		// eslint-disable-next-line no-undef
 		this.attr = listingAttributes;
-		this.enableBackbone = false;
-
 		this.urlParams = new URLSearchParams( window.location.search );
-
 		this.elements = {
 			parent: listings,
 			navBar: listings.querySelector( '.js-pageNav' ),
@@ -23,14 +21,11 @@ export default class filteredListings {
 			formSubmit: listings.querySelectorAll( '.js-formSubmit' ),
 			resultsCount: listings.querySelector( '.js-resultsCount' ),
 		};
-
 		this.setQueryParams();
-
 		this.postType = this.attr.postType;
 		this.numPages = 0;
 		this.numResults = 0;
 		this.totalResults = 0;
-
 		this.elements.navBar.addEventListener( 'click', this.turnPage.bind( this ) );
 
 		if ( this.elements.triggerFields ) {
@@ -47,7 +42,7 @@ export default class filteredListings {
 			} );
 		}
 
-		this.setCollection();
+		this.setRestPath();
 		this.getPosts();
 	}
 
@@ -113,46 +108,13 @@ export default class filteredListings {
 		}
 	}
 
-	setCollection() {
+	setRestPath() {
 		if ( this.postType === 'post' ) {
-			if ( this.enableBackbone ) {
-				this.collection = new wp.api.collections.Posts();
-			} else {
-				this.restPath = '/wp-json/wp/v2/posts';
-			}
-		} else if ( this.postType === 'trip' ) {
-			if ( this.enableBackbone ) {
-				this.collection = new wp.api.collections.Trip();
-			} else {
-				this.restPath = '/wp-json/wp/v2/trip';
-			}
-		} else if ( this.postType === 'course' ) {
-			if ( this.enableBackbone ) {
-				this.collection = new wp.api.collections.Course();
-			} else {
-				this.restPath = '/wp-json/wp/v2/course';
-			}
-		} else if ( this.postType === 'staff' ) {
-			if ( this.enableBackbone ) {
-				this.collection = new wp.api.collections.Staff();
-			} else {
-				this.restPath = '/wp-json/wp/v2/staff';
-			}
-		} else if ( this.postType === 'tribe_events' ) {
-			if ( this.enableBackbone ) {
-				this.collection = new wp.api.collections.Tribe_events();
-			} else {
-				this.restPath = '/wp-json/wp/v2/tribe_events';
-			}
+			this.restPath = '/wp-json/wp/v2/posts';
 		} else if ( this.postType === 'product' ) {
-			if ( this.enableBackbone ) {
-				const CustomPosts = wp.api.collections.Posts.extend( {
-					url: wpApiSettings.root + 'cwps/v1/product-search',
-				} );
-				this.collection = new CustomPosts();
-			} else {
-				this.restPath = '/wp-json/cwps/v1/product-search';
-			}
+			this.restPath = '/wp-json/cwps/v1/product-search';
+		} else {
+			this.restPath = '/wp-json/wp/v2/' + this.postType;
 		}
 	}
 
@@ -250,68 +212,40 @@ export default class filteredListings {
 			data: { ...this.queryParams, cacheBuster: new Date().getTime() },
 		};
 
-		if ( this.enableBackbone ) {
-			this.collection
-				.fetch( query )
-				.then( ( response, status, functions ) => {
-					this.elements.navBar.classList.remove( '--is-loading' );
-					this.numPages = functions.getResponseHeader( 'x-wp-totalpages' );
-					this.numResults = response.length;
-					this.totalResults = functions.getResponseHeader( 'x-wp-total' );
 
-					response.forEach( ( post ) => {
-						if ( this.postType === 'product' ) {
-							this.elements.list.innerHTML += this.renderProduct( post );
-						} else {
-							this.elements.list.innerHTML += this.renderItem( post );
-						}
-					} );
-
-					this.setPageLinks();
-
-					if ( this.elements.resultsCount ) {
-						this.setResultCount();
-					}
-				} )
-				.catch( ( err ) => {
-					// eslint-disable-next-line no-console
-					console.error( err );
-				} );
-		} else {
-			fetch( addQueryArgs( this.restPath, query.data ), {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-				},
+		fetch( addQueryArgs( this.restPath, query.data ), {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		} )
+			.then( ( response ) => {
+				this.numPages = response.headers.get( 'x-wp-totalpages' );
+				this.totalResults = response.headers.get( 'x-wp-total' );
+				return response.json();
 			} )
-				.then( ( response ) => {
-					this.numPages = response.headers.get( 'x-wp-totalpages' );
-					this.totalResults = response.headers.get( 'x-wp-total' );
-					return response.json();
-				} )
-				.then( ( data ) => {
-					this.elements.navBar.classList.remove( '--is-loading' );
-					this.numResults = data.length;
-					data.forEach( ( post ) => {
-						if ( this.postType === 'product' ) {
-							this.elements.list.innerHTML += this.renderProduct( post );
-						} else {
-							this.elements.list.innerHTML += this.renderItem( post );
-						}
-					} );
-					this.setPageLinks();
-					if ( this.elements.resultsCount ) {
-						this.setResultCount();
+			.then( ( data ) => {
+				this.elements.navBar.classList.remove( '--is-loading' );
+				this.numResults = data.length;
+				data.forEach( ( post ) => {
+					if ( this.postType === 'product' ) {
+						this.elements.list.innerHTML += this.renderProduct( post );
+					} else {
+						this.elements.list.innerHTML += this.renderItem( post );
 					}
-				} )
-				.catch( ( error ) => {
-					// eslint-disable-next-line no-console
-					console.error( error );
-					this.elements.navBar.classList.remove( '--is-loading' );
-					this.elements.list.innerHTML =
-						'<p>An error occurred while fetching the data. Please try again later.</p>';
 				} );
-		}
+				this.setPageLinks();
+				if ( this.elements.resultsCount ) {
+					this.setResultCount();
+				}
+			} )
+			.catch( ( error ) => {
+				// eslint-disable-next-line no-console
+				console.error( error );
+				this.elements.navBar.classList.remove( '--is-loading' );
+				this.elements.list.innerHTML =
+					'<p>An error occurred while fetching the data. Please try again later.</p>';
+			} );
 		return false;
 	}
 

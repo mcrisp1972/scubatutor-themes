@@ -1,6 +1,6 @@
 <?php
 
-$json_string = file_get_contents( CWPS_THEME_DIR . '/color-themes.json' );
+$json_string = file_get_contents( CWPS_CHILD_THEME_DIR . '/color-themes.json' );
 $colors = json_decode( $json_string, true );
 $color_options = array();
 foreach ( $colors as $color ) {
