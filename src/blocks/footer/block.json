@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/footer",
+	"title": "Site Footer",
+	"description": "All fields test block",
+	"category": "cwps-nav-blocks",
+	"keywords": ["site", "footer", "navigation"],
+	"supports": {
+		"multiple": false
+	},
+	"attributes": {
+		"showBusinessName": {
+			"type": "boolean",
+			"default": true
+		},
+		"showAddress": {
+			"type": "boolean",
+			"default": true
+		},
+		"showMapLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPhoneNumber": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEmail": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSocials": {
+			"type": "boolean",
+			"default": true
+		},
+		"showHours": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCookieBanner": {
+			"type": "boolean",
+			"default": true
+		},
+		"cookieBannerText": {
+			"type": "string",
+			"default": ""
+		},
+		"cookieBannerCloseText": {
+			"type": "string",
+			"default": "Understand"
+		},
+		"cookieBannerTheme": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"viewportWidth": 1440
+	},
+	"style": "cwps-footer",
+	"editorStyle": "cwps-footerAdmin",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

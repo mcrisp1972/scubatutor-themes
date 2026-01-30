@@ -76,6 +76,11 @@ function register_blocks() {
 		}
 	}
 
+	foreach ( apply_filters( 'cwps_unregistered_parent_blocks', array() ) as $block ) {
+		error_log($block);
+		unregister_block_type( $block );
+	}
+
 	// $block_paths = glob( CWPS_THEME_DIR . '/build/blocks/*/block.json' );
 
 	// foreach ( $block_paths as $block_path ) {

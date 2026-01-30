@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cwps/nav",
+	"title": "Site Nav Header",
+	"description": "All fields test block",
+	"category": "cwps-nav-blocks",
+	"keywords": ["site", "header", "navigation"],
+	"supports": {
+		"multiple": false,
+		"interactivity": true
+	},
+	"attributes": {
+		"logo": {
+			"type": "integer",
+			"default": 0
+		},
+		"useLogoColor": {
+			"type": "boolean",
+			"default": false
+		},
+		"showAccountIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCartIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPhoneLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"utilityLinks": {
+			"type": "array",
+			"default": []
+		},
+		"stickyStyle": {
+			"type": "string",
+			"default": "--reveal-down"
+		},
+		"dropdownSpeed": {
+			"type": "number",
+			"default": "0.2"
+		},
+		"isExample": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"isExample": true
+		},
+		"viewportWidth": 1440
+	},
+	"render": "file:./render.php",
+	"style": "cwps-siteHeader",
+	"editorStyle": "cwps-siteHeaderAdmin",
+	"viewScriptModule": "file:./view.js",
+	"editorScript": "file:./index.js"
+}
