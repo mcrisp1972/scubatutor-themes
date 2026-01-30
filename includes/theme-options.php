@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps_child\ThemeOptions;
+namespace cwps\ThemeOptions;
 
 const GROUP_CONTACT = 'cwps-contact-info';
 const GROUP_BANNERS = 'cwps-banners';
