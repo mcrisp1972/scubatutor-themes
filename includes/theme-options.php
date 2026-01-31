@@ -349,7 +349,7 @@ function add_options_page() {
 		$form_settings['tabs']['api-keys']['fields'] = $api_fields;
 	}
 
-	new \cwps\adminForms\CWPS_Settings_Form(
+	new \cwps\adminForms\Capitola_Settings_Form(
 		$form_settings
 	);
 }

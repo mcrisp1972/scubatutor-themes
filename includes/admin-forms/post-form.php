@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Post_Form extends CWPS_Fields {
+class Capitola_Post_Form extends Capitola_Fields {
     protected $fields;
     protected $post_type;
     protected $box_title;

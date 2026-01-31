@@ -2,7 +2,7 @@
 
 namespace cwps\pages\settings;
 
-use cwps\adminForms\CWPS_Settings_Form;
+use cwps\adminForms\Capitola_Settings_Form;
 
 const GROUP_PAGES = 'cwps-page-options';
 
@@ -10,7 +10,7 @@ add_action( 'init', __NAMESPACE__ . '\add_options_page' );
 
 function add_options_page() {
 
-	new CWPS_Settings_Form(
+	new Capitola_Settings_Form(
 		array(
 			'parent_slug' => 'edit.php?post_type=page',
 			'page_title' => 'Page Settings',

@@ -2,7 +2,7 @@
 
 namespace cwps\adminForms;
 
-class CWPS_Fields {
+class Capitola_Fields {
 
 	protected static function echo_field( $field, $value ) {
 

@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Menu_Form extends CWPS_Fields {
+class Capitola_Menu_Form extends Capitola_Fields {
 	public function __construct( $args ) {
 		$this->fields = $args['fields'];
 		$this->depth = $args['depth'];

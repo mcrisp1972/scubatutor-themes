@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Attachment_Form extends CWPS_Fields {
+class Capitola_Attachment_Form extends Capitola_Fields {
     protected $fields;
 
 	public function __construct( $args ) {

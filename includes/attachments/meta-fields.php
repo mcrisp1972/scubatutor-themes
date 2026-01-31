@@ -16,7 +16,7 @@ function add_media_fields() {
 		)
 	);
 
-	new \cwps\adminForms\CWPS_Attachment_Form(
+	new \cwps\adminForms\Capitola_Attachment_Form(
 		array(
 			'fields' => array(
 				array(

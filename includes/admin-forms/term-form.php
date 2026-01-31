@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Term_Form extends CWPS_Fields {
+class Capitola_Term_Form extends Capitola_Fields {
 
 	public static $term_thumb = array(
 		'id' => 'term_thumb_id',

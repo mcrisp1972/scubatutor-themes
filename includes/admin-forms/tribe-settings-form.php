@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Tribe_Settings_Form extends CWPS_Fields {
+class Capitola_Tribe_Settings_Form extends Capitola_Fields {
 	protected $tab_id;
 	protected $tab_label;
 	protected $position;
@@ -102,12 +102,12 @@ class CWPS_Tribe_Settings_Form extends CWPS_Fields {
 
 				if ( ! empty( $field['title'] ) ) :
 					?>
-					<h2><?= $field['title'] ?></h2>
+					<h2><?= esc_html( $field['title'] ) ?></h2>
 					<?php
 				endif;
 				if ( ! empty( $field['desc'] ) ) :
 					?>
-					<p><?= $field['desc'] ?></p>
+					<p><?= esc_html( $field['desc'] ) ?></p>
 				<?php endif; ?>
 					<table class="form-table" role="presentation"><tbody>
 				<?php
@@ -120,9 +120,9 @@ class CWPS_Tribe_Settings_Form extends CWPS_Fields {
 				$field = self::set_field_id( $field );
 
 				?>
-				<tr id="field-row-<?= $field['id'] ?>">
+				<tr id="field-row-<?= esc_attr( $field['id'] ) ?>">
 					<th scope="row">
-						<label for="<?= $field['id'] ?>"><?= $field['label'] ?></label>
+						<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
 					</th>
 					<td>
 					<?php self::echo_field( $field, $value ); ?>

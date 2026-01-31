@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_Settings_Form extends CWPS_Fields {
+class Capitola_Settings_Form extends Capitola_Fields {
     protected $parent_slug;
     protected $page_title;
     protected $menu_title;

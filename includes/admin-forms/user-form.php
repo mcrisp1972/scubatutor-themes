@@ -4,7 +4,7 @@ namespace cwps\adminForms;
 
 require_once 'fields.php';
 
-class CWPS_User_Form extends CWPS_Fields {
+class Capitola_User_Form extends Capitola_Fields {
 	protected $fields;
 
 	public function __construct( $args ) {
@@ -18,11 +18,11 @@ class CWPS_User_Form extends CWPS_Fields {
 		add_action( 'edit_user_profile_update', array( $this, 'save_user_fields' ) );
 	}
 
-	function edit_user_form( $user ) {
+	public function edit_user_form( $user ) {
 		foreach ( $this->fields as $field ) :
 			?>
 			<?php if ( $field['type'] === 'title' ) : ?>
-				<h2><?= $field['title'] ?></h2>
+				<h2><?= esc_html( $field['title'] ) ?></h2>
 				<table class="form-table">
 					<tbody>
 
@@ -34,9 +34,9 @@ class CWPS_User_Form extends CWPS_Fields {
 				$value = get_user_meta( $user->ID, $field['name'], true );
 				$field = self::set_field_id( $field );
 				?>
-				<tr class="form-field" id="field-row-<?= $field['id'] ?>">
+				<tr class="form-field" id="field-row-<?= esc_attr( $field['id'] ) ?>">
 					<th scope="row" valign="top">
-						<?= $field['label'] ?>
+						<?= esc_html( $field['label'] ) ?>
 					</th>
 					<td>
 						<?php self::echo_field( $field, $value ); ?>
@@ -47,7 +47,7 @@ class CWPS_User_Form extends CWPS_Fields {
 		endforeach;
 	}
 
-	function save_user_fields( $user_id ) {
+	public function save_user_fields( $user_id ) {
 
 		foreach ( $this->fields as $field ) {
 			if ( isset( $_POST[ $field['name'] ] ) ) {
