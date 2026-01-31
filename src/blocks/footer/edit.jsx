@@ -39,7 +39,7 @@ export default function Edit( props ) {
 			}
 			setThemeOptions( result );
 		} );
-	}, [] );
+	}, [ colorThemes ] );
 
 	useEffect( () => {
 		apiFetch( { path: '/' } ).then( ( result ) => {

@@ -53,7 +53,7 @@ export default function Edit( props ) {
 
 			return select( 'core' ).getEntityRecords( 'postType', postType, postArgs );
 		},
-		[ futureOnly, limit, order, orderBy, postCategory, postType ]
+		[ futureOnly, limit, order, orderBy, postCategory, postType, postTypeCats ]
 	);
 
 	const terms = useSelect(
@@ -64,7 +64,7 @@ export default function Edit( props ) {
 				order: 'asc',
 			} );
 		},
-		[ postType ]
+		[ postType, postTypeCats ]
 	);
 
 	return (

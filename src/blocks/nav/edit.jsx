@@ -63,7 +63,7 @@ export default function Edit( props ) {
 			}
 			setThemeOptions( result );
 		} );
-	}, [] );
+	}, [ colorThemes ] );
 
 	return (
 		<div

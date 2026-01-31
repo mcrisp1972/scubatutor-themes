@@ -9,7 +9,7 @@ registerPlugin( 'cwps-sidebar-theme', {
 } );
 
 addFilter( 'cwps.colorThemes', 'cwps/color-themes', () => {
-    return defaultColorThemes;
+	return defaultColorThemes;
 } );
 
 addFilter( 'cwps.postTypeOptions', 'cwps/post-type-options', () => {

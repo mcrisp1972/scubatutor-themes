@@ -30,7 +30,6 @@ export default function Edit( props ) {
 		posts,
 	} = attributes;
 
-
 	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
 
 	const postObjects = useSelect(

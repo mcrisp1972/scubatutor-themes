@@ -212,7 +212,6 @@ export default class filteredListings {
 			data: { ...this.queryParams, cacheBuster: new Date().getTime() },
 		};
 
-
 		fetch( addQueryArgs( this.restPath, query.data ), {
 			method: 'GET',
 			headers: {
