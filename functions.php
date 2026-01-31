@@ -22,6 +22,7 @@ define( 'CWPS_CHILD_THEME_CSS_URL', CWPS_CHILD_THEME_URL . '/build/styles/' );
 define( 'CWPS_CHILD_THEME_CSS_DIR', CWPS_CHILD_THEME_DIR . '/build/styles/' );
 define( 'CWPS_CHILD_THEME_BLOCKS_URL', CWPS_CHILD_THEME_URL . '/build/blocks/' );
 define( 'CWPS_STYLE_DEP', 'cwps-main-styles' );
+define( 'CWPS_WOO_ACTIVE', class_exists( 'woocommerce' ) ? true : false );
 
 $asset_file = CWPS_THEME_DIR . '/build/styles/main.asset.php';
 $asset_version = file_exists( $asset_file ) ? require $asset_file : false;

@@ -77,7 +77,6 @@ function register_blocks() {
 	}
 
 	foreach ( apply_filters( 'cwps_unregistered_parent_blocks', array() ) as $block ) {
-		error_log($block);
 		unregister_block_type( $block );
 	}
 

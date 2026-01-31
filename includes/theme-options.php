@@ -5,6 +5,7 @@ namespace cwps\ThemeOptions;
 const GROUP_CONTACT = 'cwps-contact-info';
 const GROUP_BANNERS = 'cwps-banners';
 const GROUP_SOCIALS = 'cwps-socials';
+const GROUP_GOOGLE = 'cwps-ga';
 const GROUP_API_KEYS = 'cwps-api-keys';
 const GROUP_COLOR_THEME = 'cwps-color-theme';
 
@@ -19,309 +20,337 @@ function add_options_page() {
 		$color_options[ $color['slug'] ] = $color['name'];
 	}
 
-	new \cwps\adminForms\CWPS_Settings_Form(
-		array(
-			'parent_slug' => 'options-general.php',
-			'page_title' => 'Theme Options',
-			'menu_title' => 'Theme Options',
-			'menu_slug' => 'cwps-theme-options',
-			'position' => 50,
-			'tabs' => array(
-				'business-info' => array(
-					'tab_label' => 'Business Info',
-					'fields_slug' => GROUP_CONTACT,
-					'fields' => array(
-						array(
-							'title' => 'Contact Info',
-							'type' => 'title',
-							'desc' => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
-						),
-						array(
-							'label' => 'Business Name',
-							'name' => 'cwps_contact[business_name]',
-							'option' => array( 'cwps_contact', 'business_name' ),
-							'size' => 'large',
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Address',
-							'name' => 'cwps_contact[address]',
-							'option' => array( 'cwps_contact', 'address' ),
-							'size' => 'large',
-							'type' => 'textarea',
-							'rows' => 4,
-						),
-						array(
-							'label' => 'Google Map Link',
-							'name' => 'cwps_contact[gmap_link]',
-							'option' => array( 'cwps_contact', 'gmap_link' ),
-							'size' => 'full',
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Phone',
-							'name' => 'cwps_contact[phone]',
-							'option' => array( 'cwps_contact', 'phone' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Email',
-							'name' => 'cwps_contact[email]',
-							'option' => array( 'cwps_contact', 'email' ),
-							'type' => 'text',
-						),
-						array(
-							'type' => 'sectionend',
-						),
-						array(
-							'label' => 'Hours',
-							'type' => 'title',
-							'desc' => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed.',
-						),
-						array(
-							'label' => 'Monday',
-							'name' => 'cwps_hours[Monday]',
-							'option' => array( 'cwps_hours', 'Monday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Tuesday',
-							'name' => 'cwps_hours[Tuesday]',
-							'option' => array( 'cwps_hours', 'Tuesday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Wednesday',
-							'name' => 'cwps_hours[Wednesday]',
-							'option' => array( 'cwps_hours', 'Wednesday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Thursday',
-							'name' => 'cwps_hours[Thursday]',
-							'option' => array( 'cwps_hours', 'Thursday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Friday',
-							'name' => 'cwps_hours[Friday]',
-							'option' => array( 'cwps_hours', 'Friday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Saturday',
-							'name' => 'cwps_hours[Saturday]',
-							'option' => array( 'cwps_hours', 'Saturday' ),
-							'type' => 'text',
-						),
-						array(
-							'label' => 'Sunday',
-							'name' => 'cwps_hours[Sunday]',
-							'option' => array( 'cwps_hours', 'Sunday' ),
-							'type' => 'text',
-						),
-						array(
-							'type' => 'sectionend',
-						),
+	$form_settings = array(
+		'parent_slug' => 'options-general.php',
+		'page_title' => 'Theme Options',
+		'menu_title' => 'Theme Options',
+		'menu_slug' => 'cwps-theme-options',
+		'position' => 50,
+		'tabs' => array(
+			'business-info' => array(
+				'tab_label' => 'Business Info',
+				'fields_slug' => GROUP_CONTACT,
+				'fields' => array(
+					array(
+						'title' => 'Contact Info',
+						'type' => 'title',
+						'desc' => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
 					),
-				),
-				'banners' => array(
-					'tab_label' => 'Banners',
-					'fields_slug' => GROUP_BANNERS,
-					'fields' => array(
-						array(
-							'title' => 'Notice Banner',
-							'type' => 'title',
-							'desc' => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
-						),
-						array(
-							'label' => 'Show Notice Banner',
-							'name' => 'cwps_notice_banner[display]',
-							'option' => array( 'cwps_notice_banner', 'display' ),
-							'type' => 'checkbox',
-						),
-						array(
-							'label' => 'Notice Banner',
-							'name' => 'cwps_notice_banner[message]',
-							'option' => array( 'cwps_notice_banner', 'message' ),
-							'type' => 'wysiwyg',
-							'mce_id' => 'banner-message-mce',
-							'rows' => 4,
-						),
-						array(
-							'label' => 'Banner Color',
-							'help' => 'Signifies important or urgency of the notice. Update is good for store updates like upcoming sales, new store hours, etc.. Alert is a severe notice, like temporary changes in business hours or online sales availability.',
-							'name' => 'cwps_notice_banner[type]',
-							'option' => array( 'cwps_notice_banner', 'type' ),
-							'type' => 'radio',
-							'options' => array(
-								'update' => 'Update',
-								'alert' => 'Alert',
-							),
-						),
-						array(
-							'type' => 'sectionend',
-						),
+					array(
+						'label' => 'Business Name',
+						'name' => 'cwps_contact[business_name]',
+						'option' => array( 'cwps_contact', 'business_name' ),
+						'size' => 'large',
+						'type' => 'text',
 					),
-				),
-				'socials' => array(
-					'tab_label' => 'Socials',
-					'fields_slug' => GROUP_SOCIALS,
-					'fields' => array(
-						array(
-							'title' => 'Allowed Social Shares',
-							'type' => 'title',
-							'desc' => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
-						),
-						array(
-							'label' => 'Facebook',
-							'name' => 'cwps_social_shares[facebook]',
-							'option' => array( 'cwps_social_shares', 'facebook' ),
-							'type' => 'checkbox',
-						),
-						array(
-							'label' => 'Twitter/X',
-							'name' => 'cwps_social_shares[twitter]',
-							'option' => array( 'cwps_social_shares', 'twitter' ),
-							'type' => 'checkbox',
-						),
-						array(
-							'label' => 'Pinterest',
-							'name' => 'cwps_social_shares[pinterest]',
-							'option' => array( 'cwps_social_shares', 'pinterest' ),
-							'type' => 'checkbox',
-						),
-						array(
-							'label' => 'LinkedIn',
-							'name' => 'cwps_social_shares[linkedin]',
-							'option' => array( 'cwps_social_shares', 'linkedin' ),
-							'type' => 'checkbox',
-						),
-						array(
-							'type' => 'sectionend',
-						),
-						array(
-							'title' => 'Social Links',
-							'type' => 'title',
-							'desc' => 'These are used in the footer and other sectiopns for links to your social network pages.',
-						),
-						array(
-							'label' => 'Facebook',
-							'name' => 'cwps_social_links[facebook]',
-							'option' => array( 'cwps_social_links', 'facebook' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Twitter/X',
-							'name' => 'cwps_social_links[twitter]',
-							'option' => array( 'cwps_social_links', 'twitter' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Instagram',
-							'name' => 'cwps_social_links[instagram]',
-							'option' => array( 'cwps_social_links', 'instagram' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Youtube',
-							'name' => 'cwps_social_links[youtube]',
-							'option' => array( 'cwps_social_links', 'youtube' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Tiktok',
-							'name' => 'cwps_social_links[tiktok]',
-							'option' => array( 'cwps_social_links', 'tiktok' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Pinterest',
-							'name' => 'cwps_social_links[pinterest]',
-							'option' => array( 'cwps_social_links', 'pinterest' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Linkedin',
-							'name' => 'cwps_social_links[linkedin]',
-							'option' => array( 'cwps_social_links', 'linkedin' ),
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'type' => 'sectionend',
-						),
+					array(
+						'label' => 'Address',
+						'name' => 'cwps_contact[address]',
+						'option' => array( 'cwps_contact', 'address' ),
+						'size' => 'large',
+						'type' => 'textarea',
+						'rows' => 4,
 					),
-				),
-				'api-keys' => array(
-					'tab_label' => 'API Keys',
-					'fields_slug' => GROUP_API_KEYS,
-					'fields' => array(
-						array(
-							'title' => 'API Keys',
-							'type' => 'title',
-							'desc' => 'This key is used to display Google Maps on the site.',
-						),
-						array(
-							'label' => 'Paid Google Maps API Key',
-							'name' => 'cwps_paid_google_maps_api',
-							'option' => 'cwps_paid_google_maps_api',
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'label' => 'Free Google Maps API Key',
-							'name' => 'cwps_free_google_maps_api',
-							'option' => 'cwps_free_google_maps_api',
-							'type' => 'text',
-							'size' => 'full',
-						),
-						array(
-							'type' => 'sectionend',
-						),
+					array(
+						'label' => 'Google Map Link',
+						'name' => 'cwps_contact[gmap_link]',
+						'option' => array( 'cwps_contact', 'gmap_link' ),
+						'size' => 'full',
+						'type' => 'text',
 					),
-				),
-				'color-themes' => array(
-					'tab_label' => 'Color Themes',
-					'fields_slug' => GROUP_COLOR_THEME,
-					'fields' => array(
-						array(
-							'title' => 'Default Color Themes',
-							'type' => 'title',
-							'desc' => 'These are the default color themes for the site. These can be overridden on individual pages.',
-						),
-						array(
-							'label' => 'Default Page Color Theme',
-							'name' => 'cwps_default_page_color_theme',
-							'option' => 'cwps_default_page_color_theme',
-							'type' => 'select',
-							'options' => $color_options,
-						),
-						// array(
-						// 'label' => 'Default Nav Color Theme',
-						// 'name' => 'cwps_default_nav_color_theme',
-						// 'option' => 'cwps_default_nav_color_theme',
-						// 'type' => 'select',
-						// ),
-						// array(
-						// 'label' => 'Default Footer Color Theme',
-						// 'name' => 'cwps_default_footer_color_theme',
-						// 'option' => 'cwps_default_footer_color_theme',
-						// 'type' => 'select',
-						// ),
-						array(
-							'type' => 'sectionend',
-						),
+					array(
+						'label' => 'Phone',
+						'name' => 'cwps_contact[phone]',
+						'option' => array( 'cwps_contact', 'phone' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Email',
+						'name' => 'cwps_contact[email]',
+						'option' => array( 'cwps_contact', 'email' ),
+						'type' => 'text',
+					),
+					array(
+						'type' => 'sectionend',
+					),
+					array(
+						'label' => 'Hours',
+						'type' => 'title',
+						'desc' => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed.',
+					),
+					array(
+						'label' => 'Monday',
+						'name' => 'cwps_hours[Monday]',
+						'option' => array( 'cwps_hours', 'Monday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Tuesday',
+						'name' => 'cwps_hours[Tuesday]',
+						'option' => array( 'cwps_hours', 'Tuesday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Wednesday',
+						'name' => 'cwps_hours[Wednesday]',
+						'option' => array( 'cwps_hours', 'Wednesday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Thursday',
+						'name' => 'cwps_hours[Thursday]',
+						'option' => array( 'cwps_hours', 'Thursday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Friday',
+						'name' => 'cwps_hours[Friday]',
+						'option' => array( 'cwps_hours', 'Friday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Saturday',
+						'name' => 'cwps_hours[Saturday]',
+						'option' => array( 'cwps_hours', 'Saturday' ),
+						'type' => 'text',
+					),
+					array(
+						'label' => 'Sunday',
+						'name' => 'cwps_hours[Sunday]',
+						'option' => array( 'cwps_hours', 'Sunday' ),
+						'type' => 'text',
+					),
+					array(
+						'type' => 'sectionend',
 					),
 				),
 			),
-		)
+			'banners' => array(
+				'tab_label' => 'Banners',
+				'fields_slug' => GROUP_BANNERS,
+				'fields' => array(
+					array(
+						'title' => 'Notice Banner',
+						'type' => 'title',
+						'desc' => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
+					),
+					array(
+						'label' => 'Show Notice Banner',
+						'name' => 'cwps_notice_banner[display]',
+						'option' => array( 'cwps_notice_banner', 'display' ),
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'Notice Banner',
+						'name' => 'cwps_notice_banner[message]',
+						'option' => array( 'cwps_notice_banner', 'message' ),
+						'type' => 'wysiwyg',
+						'mce_id' => 'banner-message-mce',
+						'rows' => 4,
+					),
+					array(
+						'label' => 'Banner Color',
+						'help' => 'Signifies important or urgency of the notice. Update is good for store updates like upcoming sales, new store hours, etc.. Alert is a severe notice, like temporary changes in business hours or online sales availability.',
+						'name' => 'cwps_notice_banner[type]',
+						'option' => array( 'cwps_notice_banner', 'type' ),
+						'type' => 'radio',
+						'options' => array(
+							'update' => 'Update',
+							'alert' => 'Alert',
+						),
+					),
+					array(
+						'type' => 'sectionend',
+					),
+				),
+			),
+			'socials' => array(
+				'tab_label' => 'Socials',
+				'fields_slug' => GROUP_SOCIALS,
+				'fields' => array(
+					array(
+						'title' => 'Allowed Social Shares',
+						'type' => 'title',
+						'desc' => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
+					),
+					array(
+						'label' => 'Facebook',
+						'name' => 'cwps_social_shares[facebook]',
+						'option' => array( 'cwps_social_shares', 'facebook' ),
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'Twitter/X',
+						'name' => 'cwps_social_shares[twitter]',
+						'option' => array( 'cwps_social_shares', 'twitter' ),
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'Pinterest',
+						'name' => 'cwps_social_shares[pinterest]',
+						'option' => array( 'cwps_social_shares', 'pinterest' ),
+						'type' => 'checkbox',
+					),
+					array(
+						'label' => 'LinkedIn',
+						'name' => 'cwps_social_shares[linkedin]',
+						'option' => array( 'cwps_social_shares', 'linkedin' ),
+						'type' => 'checkbox',
+					),
+					array(
+						'type' => 'sectionend',
+					),
+					array(
+						'title' => 'Social Links',
+						'type' => 'title',
+						'desc' => 'These are used in the footer and other sectiopns for links to your social network pages.',
+					),
+					array(
+						'label' => 'Facebook',
+						'name' => 'cwps_social_links[facebook]',
+						'option' => array( 'cwps_social_links', 'facebook' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Twitter/X',
+						'name' => 'cwps_social_links[twitter]',
+						'option' => array( 'cwps_social_links', 'twitter' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Instagram',
+						'name' => 'cwps_social_links[instagram]',
+						'option' => array( 'cwps_social_links', 'instagram' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Youtube',
+						'name' => 'cwps_social_links[youtube]',
+						'option' => array( 'cwps_social_links', 'youtube' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Tiktok',
+						'name' => 'cwps_social_links[tiktok]',
+						'option' => array( 'cwps_social_links', 'tiktok' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Pinterest',
+						'name' => 'cwps_social_links[pinterest]',
+						'option' => array( 'cwps_social_links', 'pinterest' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Linkedin',
+						'name' => 'cwps_social_links[linkedin]',
+						'option' => array( 'cwps_social_links', 'linkedin' ),
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'type' => 'sectionend',
+					),
+				),
+			),
+			'api-keys' => array(
+				'tab_label' => 'API Keys',
+				'fields_slug' => GROUP_API_KEYS,
+				'fields' => array(
+					array(
+						'title' => 'API Keys',
+						'type' => 'title',
+						'desc' => 'This key is used to display Google Maps on the site.',
+					),
+					array(
+						'label' => 'Paid Google Maps API Key',
+						'name' => 'cwps_paid_google_maps_api',
+						'option' => 'cwps_paid_google_maps_api',
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Free Google Maps API Key',
+						'name' => 'cwps_free_google_maps_api',
+						'option' => 'cwps_free_google_maps_api',
+						'type' => 'text',
+						'size' => 'full',
+					),
+					array(
+						'type' => 'sectionend',
+					),
+				),
+			),
+			'google' => array(
+				'tab_label' => 'Google Analytics',
+				'fields_slug' => GROUP_GOOGLE,
+				'fields' => array(
+					array(
+						'title' => 'Google Analytics Scripts',
+						'type' => 'title',
+					),
+					array(
+						'label' => 'Head Script',
+						'name' => 'cwps_google[head]',
+						'option' => array( 'cwps_google', 'head' ),
+						'type' => 'textarea',
+						'rows' => 4,
+						'size' => 'full',
+					),
+					array(
+						'label' => 'Body Script',
+						'name' => 'cwps_google[body]',
+						'option' => array( 'cwps_google', 'body' ),
+						'type' => 'textarea',
+						'rows' => 4,
+						'size' => 'full',
+					),
+					array(
+						'type' => 'sectionend',
+					),
+				),
+			),
+			'color-themes' => array(
+				'tab_label' => 'Color Themes',
+				'fields_slug' => GROUP_COLOR_THEME,
+				'fields' => array(
+					array(
+						'title' => 'Default Color Themes',
+						'type' => 'title',
+						'desc' => 'These are the default color themes for the site. These can be overridden on individual pages.',
+					),
+					array(
+						'label' => 'Default Page Color Theme',
+						'name' => 'cwps_default_page_color_theme',
+						'option' => 'cwps_default_page_color_theme',
+						'type' => 'select',
+						'options' => $color_options,
+					),
+					array(
+						'type' => 'sectionend',
+					),
+				),
+			),
+		),
+	);
+
+	$child_api_fields = apply_filters( 'cwps_child_theme_options_fields', array() );
+	if ( ! empty( $child_api_fields ) ) {
+		$api_fields = $form_settings['tabs']['api-keys']['fields'];
+		$last_field = array_pop( $api_fields );
+		$api_fields = array_merge( $api_fields, $child_api_fields );
+		$api_fields[] = $last_field;
+		$form_settings['tabs']['api-keys']['fields'] = $api_fields;
+	}
+
+	new \cwps\adminForms\CWPS_Settings_Form(
+		$form_settings
 	);
 }
 
@@ -561,6 +590,18 @@ function register_theme_settings() {
 			'type' => 'string',
 			'show_in_rest' => true,
 			'default' => '',
+		)
+	);
+
+	register_setting(
+		GROUP_GOOGLE,
+		'cwps_google',
+		array(
+			'type' => 'object',
+			'default' => array(
+				'head' => '',
+				'body' => '',
+			),
 		)
 	);
 }
