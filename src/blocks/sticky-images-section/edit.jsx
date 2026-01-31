@@ -50,7 +50,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<div
 				className="wp-block-cwps-sticky-images__mobile-imageratio"
-				style={ { '--cwps-objectPosition': imageCropPosition } }
+				style={ { '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ sideImage.source_url ? (
 					<>

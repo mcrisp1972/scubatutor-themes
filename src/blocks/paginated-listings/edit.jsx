@@ -404,7 +404,7 @@ export default function Edit( props ) {
 				{ !! posts && posts.length > 0 && (
 					<div
 						className={ `cwps-listings__list --${ listLayout }` }
-						style={ { '--cwps-excerpt-lines': excerptLines } }
+						style={ { '--capitola-excerpt-lines': excerptLines } }
 					>
 						{ posts.map( ( i ) => {
 							return (

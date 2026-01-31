@@ -17,7 +17,7 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 	}
 
 	.wp-block-cwps-body-text {
@@ -143,9 +143,9 @@
 	}
 
 	.wp-block-cwps-small-image-slider__caption {
-		@include contentSize($top: var(--cwps-spacing-small));
+		@include contentSize($top: var(--capitola-spacing-small));
 		text-align: center;
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 
 		span {
 			animation: small-image-slider--fadeIn 3s;

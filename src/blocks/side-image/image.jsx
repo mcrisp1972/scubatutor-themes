@@ -10,7 +10,7 @@ export function Image( { imageObject, imageRatioClass = '', radiusClass = '', fe
 			<>
 				<img
 					className={ `${ imageRatioClass } ${ radiusClass }` }
-					style={ { '--cwps-objectPosition': props.attributes.imageCropPosition } }
+					style={ { '--capitola-objectPosition': props.attributes.imageCropPosition } }
 					src={ imageObject.source_url }
 					alt=""
 				/>

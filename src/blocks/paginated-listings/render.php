@@ -96,7 +96,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				</div>
 			</div>
 		</div>
-		<div class="cwps-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--cwps-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
+		<div class="cwps-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--capitola-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
 		</div>
 		<?php get_template_part( 'template-parts/pagination' ); ?>
 	</div>

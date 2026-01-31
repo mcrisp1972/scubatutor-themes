@@ -216,7 +216,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': rearImageHeight,
 							'--image-width': rearImageWidth,
-							'--cwps-objectPosition': rearImageCropPosition,
+							'--capitola-objectPosition': rearImageCropPosition,
 						} }
 					>
 						{ rearImage?.source_url ? <img src={ rearImage?.source_url } alt="" /> : <PlaceholderImage /> }
@@ -228,7 +228,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': frontImageHeight,
 							'--image-width': frontImageWidth,
-							'--cwps-objectPosition': frontImageCropPosition,
+							'--capitola-objectPosition': frontImageCropPosition,
 						} }
 					>
 						{ frontImage?.source_url ? <img src={ frontImage.source_url } alt="" /> : <PlaceholderImage /> }

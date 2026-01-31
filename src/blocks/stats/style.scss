@@ -13,7 +13,7 @@
 	position: relative;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: var(--cwps-spacing-large);
+	gap: var(--capitola-spacing-large);
 	container: {
 		name: stats-grid;
 		type: inline-size;
@@ -25,16 +25,16 @@
 }
 
 .wp-block-cwps-stats-item {
-	$two-column: calc(50% - (var(--cwps-spacing-large) / 2));
-	$three-column: calc((100% / 3) - ((var(--cwps-spacing-large) * 2) / 3));
-	$four-column: calc(25% - ((var(--cwps-spacing-large) * 3) / 4));
+	$two-column: calc(50% - (var(--capitola-spacing-large) / 2));
+	$three-column: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
+	$four-column: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
 
 	display: flex;
 	text-align: center;
 	flex: 0 0 100%;
 	flex-flow: column;
 	align-items: center;
-	gap: var(--cwps-spacing-small);
+	gap: var(--capitola-spacing-small);
 
 	.--item-align-left & {
 		align-items: flex-start;
@@ -42,11 +42,11 @@
 	}
 
 	@container stats-grid (width > 400px) {
-		flex-basis: calc(50% - (var(--cwps-spacing-large) / 2));
+		flex-basis: calc(50% - (var(--capitola-spacing-large) / 2));
 	}
 
 	@container stats-grid (width > 600px) {
-		flex-basis: calc((100% / 3) - ((var(--cwps-spacing-large) * 2) / 3));
+		flex-basis: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
 
 		.--count-1 & {
 			flex-basis: $two-column;
@@ -58,7 +58,7 @@
 	}
 
 	@container stats-grid (width > 800px) {
-		flex-basis: calc(25% - ((var(--cwps-spacing-large) * 3) / 4));
+		flex-basis: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
 
 		.--count-1 & {
 			flex-basis: $two-column;
@@ -74,7 +74,7 @@
 	}
 
 	.wp-block-cwps-stats-item__caption {
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 		margin: 0;
 	}
 }

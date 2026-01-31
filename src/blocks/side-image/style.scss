@@ -1,9 +1,9 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-cwps-side-image {
-	background: var(--cwps-color-background);
-	padding-top: var(--cwps-blockPadding);
-	padding-bottom: var(--cwps-blockPadding);
+	background: var(--capitola-color-background);
+	padding-top: var(--capitola-blockPadding);
+	padding-bottom: var(--capitola-blockPadding);
 
 	&:has(.--side-bg-img),
 	&.--has-animation {
@@ -22,7 +22,7 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 
 		@include mq("50-50") {
 			flex-flow: row;
@@ -63,7 +63,7 @@
 
 			&.--sticky {
 				position: sticky;
-				top: calc(var(--cwps-header-height) + var(--cwps-blockPadding) + var(--wp-admin--admin-bar--height, 0px));
+				top: calc(var(--capitola-header-height) + var(--capitola-blockPadding) + var(--wp-admin--admin-bar--height, 0px));
 			}
 		}
 	}
@@ -96,7 +96,7 @@
 		overflow: hidden;
 		object: {
 			fit: cover;
-			position: var(--cwps-objectPosition);
+			position: var(--capitola-objectPosition);
 		}
 	}
 
@@ -129,10 +129,10 @@
 		&.--side-bg-img {
 
 			.wp-block-cwps-body-text {
-				padding: 0 var(--cwps-gutter);
+				padding: 0 var(--capitola-gutter);
 
 				@include mq("50-50") {
-					padding: var(--cwps-blockPadding) var(--cwps-wideSize-padding) var(--cwps-blockPadding) 0;
+					padding: var(--capitola-blockPadding) var(--capitola-wideSize-padding) var(--capitola-blockPadding) 0;
 				}
 			}
 
@@ -142,7 +142,7 @@
 
 					@include mq("50-50") {
 						padding: {
-							left: var(--cwps-wideSize-padding);
+							left: var(--capitola-wideSize-padding);
 							right: 0;
 						}
 					}
@@ -153,8 +153,8 @@
 
 	figcaption {
 		@include micro-text;
-		color: var(--cwps-color-body);
-		margin: var(--cwps-spacing-xsmall) 0 0;
+		color: var(--capitola-color-body);
+		margin: var(--capitola-spacing-xsmall) 0 0;
 	}
 
 	.--has-small-radius {

@@ -4,7 +4,7 @@
 @mixin hyperlink {
 	cursor: pointer;
 	text-decoration: underline;
-	color: var(--cwps-color-link);
+	color: var(--capitola-color-link);
 	transition: color $transition;
 	font-weight: 600;
 	@content;
@@ -12,7 +12,7 @@
 	&:hover,
 	&:focus,
 	&:active {
-		color: var(--cwps-color-link-hover);
+		color: var(--capitola-color-link-hover);
 		text-decoration-thickness: 3px;
 	}
 }
@@ -20,7 +20,7 @@
 @mixin unstyle-button {
 	font: {
 		family: $font-primary;
-		size: var(--cwps-p-fontSize);
+		size: var(--capitola-p-fontSize);
 	}
 	border: none;
 	background: none;
@@ -36,7 +36,7 @@
 }
 
 @mixin nav-link {
-	color: var(--cwps-color-body);
+	color: var(--capitola-color-body);
 	transition: all $transition;
 	text-decoration: none;
 	@content;
@@ -44,7 +44,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		color: var(--cwps-color-link);
+		color: var(--capitola-color-link);
 		text: {
 			decoration: underline;
 			decoration-thickness: 2px;
@@ -56,15 +56,15 @@
 	@include unstyle-link;
 	font: {
 		family: $font-primary;
-		size: var(--cwps-button-fontSize);
+		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
-	background: var(--cwps-color-button);
+	background: var(--capitola-color-button);
 	text-decoration: none;
-	padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-small);
-	color: var(--cwps-color-button-text);
+	padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
+	color: var(--capitola-color-button-text);
 	border-radius: $radius-small;
-	border: 2px solid var(--cwps-color-button);
+	border: 2px solid var(--capitola-color-button);
 	cursor: pointer;
 	line-height: 1.15;
 	margin: 0;
@@ -83,7 +83,7 @@
 
 	@include button {
 		display: flex;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		align-items: center;
 		@content;
 	}
@@ -93,7 +93,7 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: var(--cwps-color-button-text);
+		background: var(--capitola-color-button-text);
 		mask: url("#{$image_path}arrows/fa-chevron-right.svg") center / contain no-repeat;
 		transition: background-color $transition, transform $transition;
 	}
@@ -120,23 +120,23 @@
 	@include unstyle-link;
 	font: {
 		family: $font-primary;
-		size: var(--cwps-button-fontSize);
+		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
 	text-decoration: none;
-	padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-small);
+	padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
 	border-radius: $radius-small;
-	border: 2px solid var(--cwps-color-button);
+	border: 2px solid var(--capitola-color-button);
 	cursor: pointer;
 	line-height: 1.15;
 	margin: 0;
 	transition: border-radius $transition;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--cwps-spacing-xsmall);
+	gap: var(--capitola-spacing-xsmall);
 	align-items: center;
 	background: transparent;
-	color: var(--cwps-color-button);
+	color: var(--capitola-color-button);
 	@content;
 
 	&::after {
@@ -144,7 +144,7 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: var(--cwps-color-button);
+		background: var(--capitola-color-button);
 		mask: url(~/assets/svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
 		transition: transform $transition;
 	}
@@ -153,7 +153,7 @@
 	&:active,
 	&:focus {
 		@include cta-hover {
-			color: var(--cwps-color-button);
+			color: var(--capitola-color-button);
 		}
 	}
 }
@@ -162,7 +162,7 @@
 	@include unstyle-link;
 	font: {
 		family: $font-primary;
-		size: var(--cwps-button-fontSize);
+		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
 	text-decoration: none;
@@ -171,12 +171,12 @@
 	margin: 0;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--cwps-spacing-xsmall);
+	gap: var(--capitola-spacing-xsmall);
 	align-items: center;
 	background: transparent;
 	border: none;
 	padding: 0;
-	color: var(--cwps-color-button);
+	color: var(--capitola-color-button);
 	@content;
 
 	&::after {
@@ -185,7 +185,7 @@
 		width: 12px;
 		height: 16px;
 		mask: url(#{$image_path}arrows/fa-chevron-right.svg) center / contain no-repeat;
-		background: var(--cwps-color-button);
+		background: var(--capitola-color-button);
 		transition: transform $transition;
 	}
 
@@ -201,7 +201,7 @@
 
 @mixin cta-hover {
 	border-radius: 50px;
-	color: var(--cwps-color-button-text);
+	color: var(--capitola-color-button-text);
 	@content;
 
 	&::after {
@@ -212,8 +212,8 @@
 @mixin cta-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--cwps-spacing-small);
-	margin: var(--cwps-spacing-small) 0 0;
+	gap: var(--capitola-spacing-small);
+	margin: var(--capitola-spacing-small) 0 0;
 }
 
 // apply to the .swiper class Button classnames are output by this mixin
@@ -226,7 +226,7 @@
 			width: var(--swiper-button-size);
 			height: var(--swiper-button-size);
 			cursor: pointer;
-			background-color: var(--cwps-color-button);
+			background-color: var(--capitola-color-button);
 			display: flex;
 			border-radius: var(--swiper-button-size);
 			justify-content: center;
@@ -244,7 +244,7 @@
 			&::after {
 				content: "";
 				display: block;
-				background-color: var(--cwps-color-button-text);
+				background-color: var(--capitola-color-button-text);
 				mask: {
 					image: url("#{$image_path}arrows/fa-angle-left.svg");
 					repeat: no-repeat;
@@ -332,13 +332,13 @@
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	gap: var(--cwps-spacing-xxsmall);
+	gap: var(--capitola-spacing-xxsmall);
 	@content;
 
 	&::after {
 		content: "";
 		display: block;
-		background: var(--cwps-color-link);
+		background: var(--capitola-color-link);
 		mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
 		height: 1em;
 		width: 20px;
@@ -351,13 +351,13 @@
 		text-decoration: none;
 
 		&::after {
-			transform: translateX(var(--cwps-spacing-xxsmall));
+			transform: translateX(var(--capitola-spacing-xxsmall));
 		}
 	}
 }
 
 @mixin contentSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
-	width: var(--cwps-contentSize-padded);
+	width: var(--capitola-contentSize-padded);
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
 	} @else if $right == $left {
@@ -368,7 +368,7 @@
 }
 
 @mixin wideSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
-	width: var(--cwps-wideSize-padded);
+	width: var(--capitola-wideSize-padded);
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
 	} @else if $right == $left {
@@ -380,7 +380,7 @@
 
 @mixin truncate-lines {
 	display: -webkit-box;
-	-webkit-line-clamp: var(--cwps-excerpt-lines);
+	-webkit-line-clamp: var(--capitola-excerpt-lines);
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -393,7 +393,7 @@
 
 	&::before {
 		content: "";
-		background: var(--cwps-color-accent);
+		background: var(--capitola-color-accent);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -488,18 +488,18 @@
 
 @mixin block-outer-wrap {
 	position: relative;
-	background: var(--cwps-color-background);
+	background: var(--capitola-color-background);
 	overflow: hidden;
 	padding: {
-		top: var(--cwps-blockPadding);
-		bottom: var(--cwps-blockPadding);
+		top: var(--capitola-blockPadding);
+		bottom: var(--capitola-blockPadding);
 	}
 }
 
 @mixin block-inner-wrap( $reverse-mobile: false ) {
 	position: relative;
 	display: flex;
-	gap: var(--cwps-blockPadding);
+	gap: var(--capitola-blockPadding);
 	@if $reverse-mobile {
 		flex-flow: column-reverse;
 	} @else {

@@ -34,7 +34,7 @@ export default function postFeedTemplate( props, items, cardTemplate ) {
 				<Swiper
 					className="cwps-listings__sidescroll"
 					wrapperClass="cwps-listings__list --sidescroll"
-					style={ { '--cwps-excerpt-lines': attributes.excerptLines } }
+					style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
 					modules={ [ Navigation, Pagination ] }
 					navigation={ {
 						nextEl: navigationNextRef.current,
@@ -78,7 +78,7 @@ export default function postFeedTemplate( props, items, cardTemplate ) {
 				<div className="cwps-listings__sidescroll">
 					<div
 						className={ `cwps-listings__list --${ listLayout }` }
-						style={ { '--cwps-excerpt-lines': attributes.excerptLines } }
+						style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
 					>
 						{ items.map( ( i, index ) => {
 							return (

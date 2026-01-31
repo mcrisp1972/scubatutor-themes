@@ -28,7 +28,7 @@ if ( CAPITOLA_WOO_ACTIVE ) {
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => $attributes['stickyStyle'],
-		'style' => '--cwps-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
+		'style' => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
 		'data-wp-interactive' => 'cwps-nav',
 		'data-wp-init' => 'callbacks.init',
 		'data-wp-on-window--resize' => 'actions.handleResize',

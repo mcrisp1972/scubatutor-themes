@@ -21,7 +21,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<a <?= wp_kses_data( $wrapper_attributes ) ?> href="<?= esc_url( get_the_permalink( $attributes['postId'] ) ) ?>" style="--cwps-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>;">
+<a <?= wp_kses_data( $wrapper_attributes ) ?> href="<?= esc_url( get_the_permalink( $attributes['postId'] ) ) ?>" style="--capitola-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>;">
 	<?= wp_get_attachment_image( $image_id, 'large' ) ?>
 	<div class="wp-block-cwps-image-link-grid-item__opacity-layer"></div>
 	<div class="wp-block-cwps-image-link-grid-item__text-content">

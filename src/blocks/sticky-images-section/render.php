@@ -10,7 +10,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <div <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<figure class="wp-block-cwps-sticky-images__mobile-imageratio" style="--cwps-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
+	<figure class="wp-block-cwps-sticky-images__mobile-imageratio" style="--capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
 		<?= wp_get_attachment_image( $attributes['sideImage']['id'], 'large' ) ?>
 		<?php if ( $attributes['showCaption'] ) : ?>
 			<?php $caption = $attributes['captionOverride'] ?: wp_get_attachment_caption( $attributes['sideImage']['id'] ); ?>

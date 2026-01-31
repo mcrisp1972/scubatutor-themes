@@ -55,7 +55,7 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div
 				className="wp-block-cwps-bg-image-text__imagewrap"
-				style={ { '--cwps-objectPosition': imageCropPosition } }
+				style={ { '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ backgroundImage.source_url ? (
 					<img src={ backgroundImage.source_url } alt="" />

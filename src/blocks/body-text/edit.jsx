@@ -124,7 +124,7 @@ export default function Edit( props ) {
 			{ !! backgroundImage.source_url && (
 				<div
 					className="wp-block-cwps-body-text__bg-image"
-					style={ { '--cwps-overlayOpacity': imageOpacity, '--cwps-objectPosition': imageCropPosition } }
+					style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
 				>
 					<img src={ backgroundImage.source_url } alt="" />
 				</div>

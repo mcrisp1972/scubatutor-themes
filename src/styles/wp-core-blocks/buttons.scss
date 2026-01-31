@@ -11,13 +11,13 @@
 		&.is-style-secondary {
 
 			.wp-block-button__link {
-				border: 2px solid var(--cwps-color-button);
-				color: var(--cwps-color-button);
-				padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-small);
+				border: 2px solid var(--capitola-color-button);
+				color: var(--capitola-color-button);
+				padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
 				background: transparent;
 
 				&::after {
-					background: var(--cwps-color-button);
+					background: var(--capitola-color-button);
 				}
 			}
 		}
@@ -26,12 +26,12 @@
 
 			.wp-block-button__link {
 				border: none;
-				color: var(--cwps-color-button);
+				color: var(--capitola-color-button);
 				padding: 0;
 				background: transparent;
 
 				&::after {
-					background: var(--cwps-color-button);
+					background: var(--capitola-color-button);
 				}
 			}
 		}

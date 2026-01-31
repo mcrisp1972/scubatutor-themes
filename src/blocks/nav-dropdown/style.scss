@@ -36,9 +36,9 @@
 			position: absolute;
 			top: 100%;
 			min-width: 100%;
-			background: var(--cwps-color-background);
+			background: var(--capitola-color-background);
 			border-radius: 0 0 6px 6px;
-			transition: grid-template-rows var(--cwps-dropdownSpeed);
+			transition: grid-template-rows var(--capitola-dropdownSpeed);
 
 			&.--right-align {
 				right: 0;

@@ -6,7 +6,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'id' => $attributes['anchor'],
 		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-		'style' => '--cwps-excerpt-lines: ' . $attributes['excerptLines'] . ';',
+		'style' => '--capitola-excerpt-lines: ' . $attributes['excerptLines'] . ';',
 	)
 );
 

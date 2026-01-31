@@ -7,7 +7,7 @@
 		@include mq("50-50") {
 
 			&.--sticky {
-				top: var(--cwps-blockPadding);
+				top: var(--capitola-blockPadding);
 			}
 		}
 

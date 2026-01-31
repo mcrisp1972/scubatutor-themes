@@ -10,7 +10,7 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-				style: { '--cwps-excerpt-lines': excerptLines },
+				style: { '--capitola-excerpt-lines': excerptLines },
 			} ) }
 		>
 			<InspectorControls group="settings">

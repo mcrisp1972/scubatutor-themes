@@ -34,7 +34,7 @@ $cta_2 = \cwps\helpers\stringHelpers\render_link( $attributes['cta2'], 'wp-block
 
 <div <?= wp_kses_data( $wrapper_attributes ) ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
-		<div class="wp-block-cwps-body-text__bg-image <?= esc_attr( $parallax_class ) ?>" style="--cwps-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>; --cwps-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
+		<div class="wp-block-cwps-body-text__bg-image <?= esc_attr( $parallax_class ) ?>" style="--capitola-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>; --capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
 			<?= wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ) ?>
 		</div>
 	<?php endif; ?>

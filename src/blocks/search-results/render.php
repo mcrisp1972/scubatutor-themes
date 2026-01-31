@@ -30,7 +30,7 @@ $search_string = esc_attr( get_query_var( 's', '' ) );
 				We found <?= $wp_query->found_posts ?> <?= $not_singular ?> in your search.
 			</div>
 		</div>
-		<div class="cwps-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--cwps-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
+		<div class="cwps-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--capitola-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :

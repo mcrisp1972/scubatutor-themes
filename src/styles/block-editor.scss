@@ -5,26 +5,26 @@
 @use "../editor-controls";
 
 :root {
-	--cwps-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0);
-	--cwps-admin-blockEditorToolbar-height: 60px;
-	--cwps-admin-blockEditorFooter-height: 0;
+	--capitola-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0);
+	--capitola-admin-blockEditorToolbar-height: 60px;
+	--capitola-admin-blockEditorFooter-height: 0;
 }
 
 body {
 
 	&.is-fullscreen-mode {
-		--cwps-admin-blockEditorAdminbar-height: 0;
+		--capitola-admin-blockEditorAdminbar-height: 0;
 	}
 }
 
 .editor-editor-interface {
 
 	&.is-distraction-free {
-		--cwps-admin-blockEditorToolbar-height: 0;
+		--capitola-admin-blockEditorToolbar-height: 0;
 	}
 
 	&.has-footer {
-		--cwps-admin-blockEditorFooter-height: 25px;
+		--capitola-admin-blockEditorFooter-height: 25px;
 	}
 }
 
@@ -51,5 +51,5 @@ body {
 
 p.block-no-preview {
 	border: 2px solid var(--wp-admin-theme-color);
-	padding: var(--cwps-spacing-large);
+	padding: var(--capitola-spacing-large);
 }

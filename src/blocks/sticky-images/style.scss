@@ -1,23 +1,23 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-cwps-sticky-images {
-	$sticky-height: calc(100vh - var(--cwps-header-height) - var(--wp-admin--admin-bar--height, 0px));
-	$sticky-top: calc(var(--cwps-header-height) + var(--wp-admin--admin-bar--height, 0px));
+	$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
+	$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
-	--sticky-height: calc(100vh - var(--cwps-header-height) - var(--wp-admin--admin-bar--height, 0px));
-	--sticky-top: calc(var(--cwps-header-height) + var(--wp-admin--admin-bar--height, 0px));
+	--sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
+	--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
 	:has(.wp-block-cwps-anchor-nav) & {
-		$sticky-height: calc(100vh - var(--cwps-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--cwps-anchor-menu-height));
-		$sticky-top: calc(var(--cwps-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--cwps-anchor-menu-height));
+		$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
+		$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
 
-		--sticky-height: calc(100vh - var(--cwps-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--cwps-anchor-menu-height));
-		--sticky-top: calc(var(--cwps-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--cwps-anchor-menu-height));
+		--sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
+		--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
 	}
 
 	position: relative;
-	background: var(--cwps-color-background);
-	padding-top: var(--cwps-blockPadding);
+	background: var(--capitola-color-background);
+	padding-top: var(--capitola-blockPadding);
 
 	&.--layout-full {
 		padding-top: 0;
@@ -30,7 +30,7 @@
 	&__width {
 		display: flex;
 		position: relative;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 		flex-flow: column;
 
 		@include mq("medium") {
@@ -73,7 +73,7 @@
 			position: sticky;
 			top: var(--sticky-top);
 			height: var(--sticky-height);
-			padding: var(--cwps-blockPadding) 0;
+			padding: var(--capitola-blockPadding) 0;
 
 			.--layout-full & {
 				padding: 0;
@@ -106,7 +106,7 @@
 			height: 100%;
 			object: {
 				fit: cover;
-				position: var(--cwps-objectPosition);
+				position: var(--capitola-objectPosition);
 			}
 		}
 	}
@@ -136,7 +136,7 @@
 			height: 100%;
 			object: {
 				fit: cover;
-				position: var(--cwps-objectPosition);
+				position: var(--capitola-objectPosition);
 			}
 		}
 	}
@@ -160,7 +160,7 @@
 	&__image-caption {
 		position: absolute;
 		inset: auto 0 0 0;
-		padding: var(--cwps-spacing-xxlarge) var(--cwps-spacing-medium) var(--cwps-spacing-medium);
+		padding: var(--capitola-spacing-xxlarge) var(--capitola-spacing-medium) var(--capitola-spacing-medium);
 		background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
 		color: var(--wp--preset--color--white);
 		text-align: center;
@@ -170,19 +170,19 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 
 		@include mq("medium") {
 			gap: unset;
 			flex: 1 0 0;
 
 			.--layout-full & {
-				padding-right: var(--cwps-wideSize-padding);
+				padding-right: var(--capitola-wideSize-padding);
 			}
 
 			.--layout-full.--intro-left & {
 				padding: {
-					left: var(--cwps-wideSize-padding);
+					left: var(--capitola-wideSize-padding);
 					right: 0;
 				}
 			}
@@ -192,19 +192,19 @@
 	&__body-section {
 		display: flex;
 		flex-flow: column;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 		justify-content: flex-start;
-		background: var(--cwps-color-background);
+		background: var(--capitola-color-background);
 		padding: 0;
 
 		&:last-child {
-			padding-bottom: var(--cwps-blockPadding);
+			padding-bottom: var(--capitola-blockPadding);
 		}
 
 		@include mq("medium") {
 			position: sticky;
 			height: var(--sticky-height);
-			padding: var(--cwps-blockPadding) 0;
+			padding: var(--capitola-blockPadding) 0;
 			justify-content: center;
 
 			.--has-fade-transition & {
@@ -243,13 +243,13 @@
 
 				&::-webkit-scrollbar-thumb {
 					background: {
-						image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--cwps-color-link) 40%, var(--cwps-color-link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);
+						image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--capitola-color-link) 40%, var(--capitola-color-link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);
 						clip: padding-box;
 					}
 					transition: background-image $transition;
 
 					&:hover {
-						background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, var(--cwps-color-link) 30%, var(--cwps-color-link) 70%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 70%);
+						background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, var(--capitola-color-link) 30%, var(--capitola-color-link) 70%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 70%);
 					}
 				}
 
@@ -262,7 +262,7 @@
 
 	.wp-block-cwps-body-text {
 		justify-content: flex-start;
-		flex: 0 0 calc(50% - (var(--cwps-blockPadding) / 2));
+		flex: 0 0 calc(50% - (var(--capitola-blockPadding) / 2));
 
 		@include mq("medium") {
 			justify-content: center;

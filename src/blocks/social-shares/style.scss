@@ -2,12 +2,12 @@
 
 .wp-block-cwps-social-shares {
 	position: relative;
-	padding: var(--cwps-spacing-small) 0;
+	padding: var(--capitola-spacing-small) 0;
 
 	&__social-links {
 		display: flex;
 		justify-content: flex-end;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -15,7 +15,7 @@
 
 	&__social-link {
 		display: block;
-		background: var(--cwps-color-link);
+		background: var(--capitola-color-link);
 		mask: {
 			repeat: no-repeat;
 			position: center;
@@ -26,7 +26,7 @@
 		width: 30px;
 
 		&:hover {
-			background: var(--cwps-color-body);
+			background: var(--capitola-color-body);
 		}
 
 		&.--twitter {

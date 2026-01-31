@@ -12,7 +12,7 @@
 
 	&__width {
 		display: flex;
-		gap: var(--cwps-spacing-medium);
+		gap: var(--capitola-spacing-medium);
 		align-items: flex-start;
 	}
 }
@@ -22,7 +22,7 @@
 	display: flex;
 	flex: 1 1 0;
 	flex-flow: column;
-	gap: var(--cwps-spacing-small);
+	gap: var(--capitola-spacing-small);
 
 	.--staggered & {
 

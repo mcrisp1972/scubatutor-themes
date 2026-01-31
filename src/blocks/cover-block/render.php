@@ -25,7 +25,7 @@ $cta_2 = \cwps\helpers\stringHelpers\render_link( $attributes['cta2'], 'wp-block
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-cover-block__image <?= esc_attr( $parallax_class ) ?>" style="--cwps-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>; --cwps-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
+	<div class="wp-block-cwps-cover-block__image <?= esc_attr( $parallax_class ) ?>" style="--capitola-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>; --capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
 		<?php if ( $attributes['backgroundImage']['id'] ) : ?>
 			<?= wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ) ?>
 		<?php endif; ?>

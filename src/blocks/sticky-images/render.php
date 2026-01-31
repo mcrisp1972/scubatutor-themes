@@ -24,7 +24,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="wp-block-cwps-sticky-images__image-column">
 			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-cwps-sticky-images__imagewrap js-stickyImagesImage">
-					<div class="wp-block-cwps-sticky-images__imageratio" style="--cwps-objectPosition: <?= esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ) ?>;">
+					<div class="wp-block-cwps-sticky-images__imageratio" style="--capitola-objectPosition: <?= esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ) ?>;">
 						<?= wp_get_attachment_image( $image['id'], 'large' ) ?>
 						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php $caption = $block->inner_blocks[ $key ]->attributes['captionOverride'] ?: wp_get_attachment_caption( $image ); ?>

@@ -69,7 +69,7 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: 'alignfull',
-				style: { '--cwps-dropdownSpeed': `${ dropdownSpeed }s` },
+				style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s` },
 			} ) }
 		>
 			<InspectorControls>

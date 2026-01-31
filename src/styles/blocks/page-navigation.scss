@@ -14,8 +14,8 @@
 .cwps-page-nav {
 	display: flex;
 	justify-content: center;
-	gap: var(--cwps-spacing-xsmall);
-	margin: var(--cwps-spacing-small) 0 0;
+	gap: var(--capitola-spacing-xsmall);
+	margin: var(--capitola-spacing-small) 0 0;
 
 	&.--hidden {
 		display: none;
@@ -28,15 +28,15 @@
 		list-style-type: none;
 
 		@include mq("medium") {
-			gap: var(--cwps-spacing-xsmall);
+			gap: var(--capitola-spacing-xsmall);
 		}
 	}
 
 	&__button {
 		display: flex;
-		border: 1px solid var(--cwps-color-button);
+		border: 1px solid var(--capitola-color-button);
 		border-radius: $radius-small;
-		color: var(--cwps-color-button-text);
+		color: var(--capitola-color-button-text);
 		justify-content: center;
         align-items: center;
 		font: {
@@ -50,8 +50,8 @@
 			align: center;
 			decoration: none;
 		}
-		background: var(--cwps-color-button);
-		padding: 0 var(--cwps-spacing-xsmall) 0;
+		background: var(--capitola-color-button);
+		padding: 0 var(--capitola-spacing-xsmall) 0;
 		transition:
 			background-color $transition,
 			color $transition;
@@ -59,13 +59,13 @@
 		&.--next,
 		&.--prev {
 			position: relative;
-			gap: var(--cwps-spacing-xxsmall);
+			gap: var(--capitola-spacing-xxsmall);
 
 			&::after {
 				content: "";
-				background: var(--cwps-color-button-text);
+				background: var(--capitola-color-button-text);
 				mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
-				width: var(--cwps-spacing-small);
+				width: var(--capitola-spacing-small);
 				height: 1em;
 				transition:
 					background-color $transition,
@@ -77,7 +77,7 @@
 			&:active {
 
 				&::after {
-					background: var(--cwps-color-button);
+					background: var(--capitola-color-button);
 					transform: translateX(4px);
 				}
 			}
@@ -110,7 +110,7 @@
 			&.--current {
 				display: flex;
 				background: none;
-				color: var(--cwps-color-button);
+				color: var(--capitola-color-button);
 
 				&:hover {
 					cursor: default;
@@ -133,8 +133,8 @@
 				&:hover,
 				&:active,
 				&:focus {
-					background: var(--cwps-color-button);
-					color: var(--cwps-color-button-text);
+					background: var(--capitola-color-button);
+					color: var(--capitola-color-button-text);
 					outline: none;
 				}
 			}
@@ -153,7 +153,7 @@
 		&:hover:not([disabled]),
 		&:active {
 			background: none;
-			color: var(--cwps-color-button);
+			color: var(--capitola-color-button);
 			cursor: pointer;
 			border-radius: $radius-small;
 			outline: none;
@@ -175,7 +175,7 @@
 			position: absolute;
 			height: 60px;
 			width: 60px;
-			background: var(--cwps-color-body);
+			background: var(--capitola-color-body);
 			mask: url(#{$image_path}utility/fa-spinner.svg) center / contain no-repeat;
 			animation: rotation 2s infinite linear;
 			top: -80px;

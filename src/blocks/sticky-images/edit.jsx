@@ -121,7 +121,7 @@ export default function Edit( props ) {
 								<div
 									className="wp-block-cwps-sticky-images__imageratio"
 									style={ {
-										'--cwps-objectPosition': innerBlocks[ index ].attributes.imageCropPosition,
+										'--capitola-objectPosition': innerBlocks[ index ].attributes.imageCropPosition,
 									} }
 								>
 									{ image.source_url ? (

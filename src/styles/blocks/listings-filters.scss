@@ -5,11 +5,11 @@
 	&__results-header {
 		display: flex;
 		justify-content: space-between;
-		margin: var(--cwps-blockPadding) 0 var(--cwps-spacing-small);
+		margin: var(--capitola-blockPadding) 0 var(--capitola-spacing-small);
 		align-items: flex-end;
 
 		@include mq("medium") {
-			gap: var(--cwps-spacing-small);
+			gap: var(--capitola-spacing-small);
 		}
 
 		&:first-child {
@@ -119,8 +119,8 @@
 
 	&__filters {
 		display: flex;
-		padding: var(--cwps-spacing-small);
-		gap: var(--cwps-spacing-small);
+		padding: var(--capitola-spacing-small);
+		gap: var(--capitola-spacing-small);
 		flex-flow: column;
 		justify-content: flex-start;
 
@@ -128,7 +128,7 @@
 			position: absolute;
 			overflow: auto;
 			inset: 0;
-			background: var(--cwps-color-background);
+			background: var(--capitola-color-background);
 		}
 
 		@include mq("medium") {
@@ -141,7 +141,7 @@
 		}
 
 		&-count {
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 
 			@include mq("large") {
 				flex: 1 1 auto;
@@ -153,7 +153,7 @@
 			label {
 				@include form-label;
 				display: block;
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 			}
 		}
 
@@ -169,10 +169,10 @@
 					content: "";
 					display: block;
 					position: absolute;
-					background: var(--cwps-color-body);
+					background: var(--capitola-color-body);
 					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 					transition: background-color $transition;
-					width: var(--cwps-spacing-small);
+					width: var(--capitola-spacing-small);
 					height: 100%;
 					right: 0;
 					pointer-events: none;
@@ -180,7 +180,7 @@
 
 				select {
 					cursor: pointer;
-					padding: 0 calc(var(--cwps-spacing-xsmall) + var(--cwps-spacing-xsmall) + var(--cwps-spacing-small)) 0 0;
+					padding: 0 calc(var(--capitola-spacing-xsmall) + var(--capitola-spacing-xsmall) + var(--capitola-spacing-small)) 0 0;
 					width: 100%;
 				}
 			}
@@ -193,13 +193,13 @@
 					&::-webkit-calendar-picker-indicator {
 						background: {
 							image: unset;
-							color: var(--cwps-color-body);
+							color: var(--capitola-color-body);
 						}
 						mask: url(~/assets/svgs/icons/fa-calendar.svg) center / contain no-repeat;
 						cursor: pointer;
 
 						&:hover {
-							background: var(--cwps-color-link);
+							background: var(--capitola-color-link);
 						}
 					}
 				}
@@ -208,7 +208,7 @@
 			&:hover {
 
 				&::before {
-					background: var(--cwps-color-link);
+					background: var(--capitola-color-link);
 				}
 			}
 		}
@@ -225,9 +225,9 @@
 			-webkit-appearance: none;
 			height: 44px;
 			border: none;
-			border-bottom: 1px solid var(--cwps-color-body);
+			border-bottom: 1px solid var(--capitola-color-body);
 			border-radius: 0;
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 			background: none;
 			padding: 0;
 			transition:
@@ -238,10 +238,10 @@
 			&:focus,
 			&:hover,
 			&:active {
-				border-bottom: 1px solid var(--cwps-color-link);
-				box-shadow: 0 1px 0 0 var(--cwps-color-link);
+				border-bottom: 1px solid var(--capitola-color-link);
+				box-shadow: 0 1px 0 0 var(--capitola-color-link);
 				outline: none;
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 			}
 		}
 	}

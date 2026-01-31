@@ -13,7 +13,7 @@
 	position: relative;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: var(--cwps-spacing-large);
+	gap: var(--capitola-spacing-large);
 	container: {
 		name: icon-grid;
 		type: inline-size;
@@ -25,9 +25,9 @@
 }
 
 .wp-block-cwps-icon-item {
-	$two-column: calc(50% - (var(--cwps-spacing-large) / 2));
-	$three-column: calc((100% / 3) - ((var(--cwps-spacing-large) * 2) / 3));
-	$four-column: calc(25% - ((var(--cwps-spacing-large) * 3) / 4));
+	$two-column: calc(50% - (var(--capitola-spacing-large) / 2));
+	$three-column: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
+	$four-column: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
 	display: flex;
 	flex-flow: column;
 	text-align: center;
@@ -81,28 +81,28 @@
 
 		.--has-icon-background & {
 			border-radius: 50%;
-			background: var(--cwps-color-tile-background);
+			background: var(--capitola-color-tile-background);
 		}
 	}
 
 	&__icon {
-		mask: var(--cwps-icon-image) center / contain no-repeat;
-		background: var(--cwps-color-tile-background);
+		mask: var(--capitola-icon-image) center / contain no-repeat;
+		background: var(--capitola-color-tile-background);
 		height: 100%;
 		width: 100%;
 
 		.--has-icon-background & {
 			height: 50%;
 			width: 50%;
-			background: var(--cwps-color-tile-body);
+			background: var(--capitola-color-tile-body);
 		}
 	}
 
 	&__title {
-		margin: var(--cwps-spacing-small) 0 0;
+		margin: var(--capitola-spacing-small) 0 0;
 	}
 
 	&__caption {
-		margin: var(--cwps-spacing-xsmall) 0 0 0;
+		margin: var(--capitola-spacing-xsmall) 0 0 0;
 	}
 }

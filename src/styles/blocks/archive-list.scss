@@ -6,7 +6,7 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--cwps-blockPadding);
+		gap: var(--capitola-blockPadding);
 
 		.--paginated & {
 			gap: unset;
@@ -14,23 +14,23 @@
 	}
 
 	&__body {
-		margin: 0 0 var(--cwps-spacing-medium);
+		margin: 0 0 var(--capitola-spacing-medium);
 	}
 
 	&__scroll-buttons {
 		--swiper-button-size: 32px;
 		display: flex;
 		position: relative;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		justify-content: center;
 		align-items: center;
-		margin: var(--cwps-spacing-small) 0 0;
+		margin: var(--capitola-spacing-small) 0 0;
 
 		.swiper {
 			@include swiper-button(false);
 
 			&-pagination {
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 			}
 		}
 	}
@@ -48,7 +48,7 @@
 		display: grid;
 		position: relative;
 		grid: auto / 1fr;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 
 		&.--row {
 
@@ -68,7 +68,7 @@
 						min-height: 100%;
 
 						&.--contain {
-							border: 1px solid var(--cwps-color-background);
+							border: 1px solid var(--capitola-color-background);
 							border-radius: 6px 0 0 6px;
 						}
 					}
@@ -118,7 +118,7 @@
 
 			.cwps-result {
 				flex: 0 0 275px;
-				margin: 0 var(--cwps-spacing-xsmall) 0 0;
+				margin: 0 var(--capitola-spacing-xsmall) 0 0;
 
 				&:last-of-type {
 					margin-right: 0;
@@ -213,10 +213,10 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			gap: var(--cwps-spacing-medium);
+			gap: var(--capitola-spacing-medium);
 
 			.cwps-result {
-				--cwps-color-background: var(--wp--preset--color--white);
+				--capitola-color-background: var(--wp--preset--color--white);
 				flex-basis: 150px;
 
 				&__link {
@@ -246,7 +246,7 @@
 			&.--sidescroll {
 
 				.cwps-result {
-					margin: 0 var(--cwps-spacing-medium) 0 0;
+					margin: 0 var(--capitola-spacing-medium) 0 0;
 
 					&:last-of-type {
 						margin-right: 0;
@@ -265,7 +265,7 @@
 		&-head {
 			display: flex;
 			flex-wrap: wrap;
-			gap: var(--cwps-spacing-small) var(--cwps-spacing-large);
+			gap: var(--capitola-spacing-small) var(--capitola-spacing-large);
 		}
 
 		&-headline {
@@ -286,14 +286,14 @@
 				border: none;
 				outline: none;
 				cursor: pointer;
-				background: var(--cwps-color-body);
+				background: var(--capitola-color-body);
 				mask: url(#{$image_path}utility/fa-magnifying-glass.svg) center / contain no-repeat;
 				transition: background-color $transition;
 
 				&:hover,
 				&:focus,
 				&:active {
-					background: var(--cwps-color-button);
+					background: var(--capitola-color-button);
 				}
 			}
 
@@ -301,13 +301,13 @@
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
-				border: 1px solid var(--cwps-color-body);
+				border: 1px solid var(--capitola-color-body);
 				flex: 0 1 100%;
 				height: 40px;
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 				font-size: 1.25rem;
 				letter-spacing: 0.8px;
-				padding: 0 0 0 var(--cwps-spacing-small);
+				padding: 0 0 0 var(--capitola-spacing-small);
 				border-radius: 4px;
 				background: transparent;
 
@@ -325,20 +325,20 @@
 		}
 
 		&-count {
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 			flex: 0 0 100%;
-			margin: 0 0 var(--cwps-spacing-small);
+			margin: 0 0 var(--capitola-spacing-small);
 		}
 	}
 }
 
 .cwps-result {
-	--cwps-color-accent: var(--cwps-color-tile-primary);
-	--cwps-color-body: var(--cwps-color-tile-body);
-	--cwps-color-background: var(--cwps-color-tile-background);
+	--capitola-color-accent: var(--capitola-color-tile-primary);
+	--capitola-color-body: var(--capitola-color-tile-body);
+	--capitola-color-background: var(--capitola-color-tile-background);
 	display: flex;
 	position: relative;
-	background: var(--cwps-color-background);
+	background: var(--capitola-color-background);
 	overflow: hidden;
 	border-radius: $radius-med;
 	justify-content: flex-start;
@@ -357,7 +357,7 @@
 
 			.--cta {
 				@include cta-hover {
-					color: var(--cwps-color-body);
+					color: var(--capitola-color-body);
 				}
 			}
 
@@ -372,10 +372,10 @@
 			.cwps-result__content {
 
 				.cwps-result__cta.--cta.--tertiary {
-					color: var(--cwps-color-tile-primary);
+					color: var(--capitola-color-tile-primary);
 
 					&::after {
-						background: var(--cwps-color-tile-primary);
+						background: var(--capitola-color-tile-primary);
 					}
 				}
 			}
@@ -390,13 +390,13 @@
 		align-items: center;
 		justify-content: center;
 		flex-flow: column;
-		padding: var(--cwps-spacing-medium);
+		padding: var(--capitola-spacing-medium);
 		height: 300px;
 		text-decoration: none !important;
 		background: var(--wp--preset--color--white);
 
 		&.--contain {
-			border: 1px solid var(--cwps-color-background);
+			border: 1px solid var(--capitola-color-background);
 			border-bottom: none;
 			border-radius: 5px 5px 0 0;
 
@@ -437,15 +437,15 @@
 		display: flex;
 		flex-flow: column;
 		flex: 1 1 auto;
-		gap: var(--cwps-spacing-small);
+		gap: var(--capitola-spacing-small);
 		text-decoration: none;
-		padding: var(--cwps-spacing-small);
+		padding: var(--capitola-spacing-small);
 
 		.cwps-result__cta.--cta {
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 
 			&::after {
-				background: var(--cwps-color-body);
+				background: var(--capitola-color-body);
 			}
 		}
 	}
@@ -458,7 +458,7 @@
 	&__thumb-subtitle {
 		position: relative;
 		text-align: center;
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 	}
 
 	&__thumb-cat {
@@ -466,27 +466,27 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: var(--cwps-spacing-xsmall);
+		padding: var(--capitola-spacing-xsmall);
 	}
 
 	&__body-cat {
-		margin: 0 0 var(--cwps-spacing-xxsmall);
+		margin: 0 0 var(--capitola-spacing-xxsmall);
 	}
 
 	&__title {
-		color: var(--cwps-color-tile-primary);
+		color: var(--capitola-color-tile-primary);
 	}
 
 	&__subtitle {
 		@include micro-text;
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 	}
 
 	&__byline {
 		@include micro-text;
 		display: flex;
-		color: var(--cwps-color-body);
-		gap: var(--cwps-spacing-small);
+		color: var(--capitola-color-body);
+		gap: var(--capitola-spacing-small);
 		flex: 0 1 auto;
 		align-items: center;
 
@@ -508,28 +508,28 @@
 
 	&__thumb-cta {
 		position: relative;
-		margin: var(--cwps-spacing-small) 0 0;
+		margin: var(--capitola-spacing-small) 0 0;
 		align-self: center;
 	}
 
 	// increasing specificity to override root p
 	.cwps-result__excerpt {
 		@include micro-text;
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 		@include truncate-lines;
 		margin: 0;
 	}
 
 	&__product-meta {
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 
 		&-detail {
 			display: flex;
-			gap: var(--cwps-spacing-xsmall);
+			gap: var(--capitola-spacing-xsmall);
 
 			&.star-rating {
 				@include star-rating {
-					margin: var(--cwps-spacing-xsmall) 0 0;
+					margin: var(--capitola-spacing-xsmall) 0 0;
 				}
 
 				&::before {
@@ -553,10 +553,10 @@
 			weight: 700;
 			size: to-rem(12px);
 		}
-		padding: 0 var(--cwps-spacing-xsmall);
+		padding: 0 var(--capitola-spacing-xsmall);
 		text-align: center;
-		top: var(--cwps-spacing-xsmall);
-		left: var(--cwps-spacing-xsmall);
+		top: var(--capitola-spacing-xsmall);
+		left: var(--capitola-spacing-xsmall);
 		border-radius: 100%;
 		background: #059af4;
 		color: var(--wp--preset--color--white);

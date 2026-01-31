@@ -9,30 +9,30 @@
 	}
 	letter-spacing: $letter-spacing-form-fields;
 	margin: 0;
-	color: var(--cwps-color-body);
-	border: 1px solid var(--cwps-color-body);
+	color: var(--capitola-color-body);
+	border: 1px solid var(--capitola-color-body);
 	border-radius: $radius-small;
 	line-height: 1.5;
 	outline: none;
 	padding: {
-		top: var(--cwps-spacing-xxsmall);
-		left: var(--cwps-spacing-xsmall);
-		bottom: var(--cwps-spacing-xxsmall);
-		right: var(--cwps-spacing-xsmall);
+		top: var(--capitola-spacing-xxsmall);
+		left: var(--capitola-spacing-xsmall);
+		bottom: var(--capitola-spacing-xxsmall);
+		right: var(--capitola-spacing-xsmall);
 	}
 	transition: box-shadow $transition;
 	background-color: transparent;
 	@content;
 
 	&::placeholder {
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 		opacity: 0.7;
 	}
 
 	&:focus,
 	&:hover,
 	&:active {
-		box-shadow: 0 0 0 1px var(--cwps-color-body);
+		box-shadow: 0 0 0 1px var(--capitola-color-body);
 	}
 
 	&:user-invalid {
@@ -56,7 +56,7 @@
 		size: to-rem(12px);
 	}
 	letter-spacing: 0.08rem;
-	color: var(--cwps-color-body);
+	color: var(--capitola-color-body);
 }
 
 @mixin text-field() {
@@ -76,7 +76,7 @@
 @mixin radio-button() {
 	display: inline-flex;
 	position: relative;
-	border: 1px solid var(--cwps-color-body);
+	border: 1px solid var(--capitola-color-body);
 	outline: none;
 	transition: box-shadow $transition;
 	-webkit-appearance: none;
@@ -97,7 +97,7 @@
 		width: 70%;
 		height: 70%;
 		transform: scale(0);
-		background-color: var(--cwps-color-body);
+		background-color: var(--capitola-color-body);
 		mask: {
 			image: url("#{$image_path}symbols/fa-circle.svg");
 			repeat: no-repeat;
@@ -110,7 +110,7 @@
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: 0 0 0 1px var(--cwps-color-body);
+		box-shadow: 0 0 0 1px var(--capitola-color-body);
 	}
 
 	&:checked::before {
@@ -127,7 +127,7 @@
 	color: currentcolor;
 	width: 18px;
 	height: 18px;
-	border: 1px solid var(--cwps-color-body);
+	border: 1px solid var(--capitola-color-body);
 	border-radius: $radius-small;
 	vertical-align: middle;
 	cursor: pointer;
@@ -143,7 +143,7 @@
 		width: 80%;
 		height: 80%;
 		transform: scale(0);
-		background: var(--cwps-color-body);
+		background: var(--capitola-color-body);
 		mask: url("#{$image_path}symbols/fa-check.svg") center / contain no-repeat;
 		transition: transform $transition;
 	}
@@ -151,7 +151,7 @@
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: 0 0 0 1px var(--cwps-color-body);
+		box-shadow: 0 0 0 1px var(--capitola-color-body);
 	}
 
 	&:checked {
@@ -175,7 +175,7 @@
 			repeat: no-repeat;
 		}
 		cursor: pointer;
-		padding-right: var(--cwps-spacing-small);
+		padding-right: var(--capitola-spacing-small);
 		max-width: 100%;
 		text-transform: none;
 		@content;
@@ -205,19 +205,19 @@
 		weight: 700;
 		size: 1rem;
 	}
-	background-color: var(--cwps-color-button);
+	background-color: var(--capitola-color-button);
 	text: {
 		transform: capitalize;
 		decoration: none;
 	}
-	color: var(--cwps-color-button-text);
+	color: var(--capitola-color-button-text);
 	border-radius: $radius-small;
-	border: 1px solid var(--cwps-color-button);
+	border: 1px solid var(--capitola-color-button);
 	cursor: pointer;
 	margin: 0;
 	transition: border-radius $transition;
 	white-space: nowrap;
-	padding: 0 var(--cwps-spacing-xsmall);
+	padding: 0 var(--capitola-spacing-xsmall);
 	line-height: 2;
 	@content;
 

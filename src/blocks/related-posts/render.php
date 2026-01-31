@@ -17,7 +17,7 @@ if ( $results && $results->have_posts() ) : ?>
 		<div class="cwps-listings__width alignwide <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
 			<?= wp_kses_post( $content ) ?>
 			<div class="cwps-listings__sidescroll swiper">
-				<div class="cwps-listings__list swiper-wrapper --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--cwps-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
+				<div class="cwps-listings__list swiper-wrapper --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--capitola-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
 					<?php
 					while ( $results->have_posts() ) :
 						$results->the_post();

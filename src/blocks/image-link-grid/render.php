@@ -11,7 +11,7 @@ $classes = array(
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'style' => '--cwps-excerpt-lines: ' . $block->context['excerptLines'] . ';',
+		'style' => '--capitola-excerpt-lines: ' . $block->context['excerptLines'] . ';',
 	)
 );
 

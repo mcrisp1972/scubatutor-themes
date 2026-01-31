@@ -120,7 +120,7 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div
 				className="wp-block-cwps-cover-block__image"
-				style={ { '--cwps-overlayOpacity': imageOpacity, '--cwps-objectPosition': imageCropPosition } }
+				style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ imageObject?.source_url ? (
 					<img src={ imageObject.source_url } alt="" />

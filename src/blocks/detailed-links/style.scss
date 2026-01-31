@@ -19,10 +19,10 @@
 	display: flex;
 	flex-flow: row;
 	align-items: flex-start;
-	gap: var(--cwps-spacing-small);
-	padding: 0 0 var(--cwps-spacing-small);
-	margin: var(--cwps-spacing-small) 0 0;
-	border-bottom: 1px solid var(--cwps-color-accent);
+	gap: var(--capitola-spacing-small);
+	padding: 0 0 var(--capitola-spacing-small);
+	margin: var(--capitola-spacing-small) 0 0;
+	border-bottom: 1px solid var(--capitola-color-accent);
 
 	&:has(a:hover),
 	&:has(a:focus),
@@ -56,19 +56,19 @@
 	&__body {
 		display: flex;
 		flex-flow: column;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		flex: 1 0 0;
 	}
 
 	&__title {
 		@include unstyle-link;
 		display: flex;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		width: 100%;
 		align-items: flex-start;
 		justify-content: space-between;
-		font-weight: var(--cwps-hl-fontWeight);
-		color: var(--cwps-color-link);
+		font-weight: var(--capitola-hl-fontWeight);
+		color: var(--capitola-color-link);
 		transition: color $transition;
 
 		&::after {
@@ -76,17 +76,17 @@
 			height: 1em;
 			flex: 0 0 30px;
 			mask: url(#{$image_path}arrows/fa-arrow-right.svg) center right / contain no-repeat;
-			background: var(--cwps-color-link);
+			background: var(--capitola-color-link);
 			transition: background-color $transition, scale $transition;
 		}
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: var(--cwps-color-link-hover);
+			color: var(--capitola-color-link-hover);
 
 			&::after {
-				background: var(--cwps-color-link-hover);
+				background: var(--capitola-color-link-hover);
 				scale: 1.1;
 			}
 		}

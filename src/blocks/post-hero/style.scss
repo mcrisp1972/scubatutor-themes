@@ -1,10 +1,10 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-cwps-post-hero {
-	padding: var(--cwps-spacing-medium) 0;
+	padding: var(--capitola-spacing-medium) 0;
 	display: flex;
 	flex-flow: column;
-	gap: var(--cwps-spacing-large);
+	gap: var(--capitola-spacing-large);
 
 	&__hero {
 		order: 1;
@@ -55,8 +55,8 @@
 	&__byline {
 		@include micro-text;
 		display: flex;
-		color: var(--cwps-color-body);
-		gap: var(--cwps-spacing-xsmall);
+		color: var(--capitola-color-body);
+		gap: var(--capitola-spacing-xsmall);
 		align-items: flex-start;
 
 		&-img-wrap {
@@ -77,7 +77,7 @@
 	&__social-links {
 		display: flex;
 		justify-content: flex-end;
-		gap: var(--cwps-spacing-xsmall);
+		gap: var(--capitola-spacing-xsmall);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -91,7 +91,7 @@
 		display: block;
 		height: 30px;
 		width: 30px;
-		background: var(--cwps-color-link);
+		background: var(--capitola-color-link);
 		mask: {
 			repeat: no-repeat;
 			position: center;
@@ -100,7 +100,7 @@
 		transition: background-color $transition;
 
 		&:hover {
-			background: var(--cwps-color-body);
+			background: var(--capitola-color-body);
 		}
 
 		&.--twitter {

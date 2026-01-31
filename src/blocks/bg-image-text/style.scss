@@ -20,7 +20,7 @@
 			height: 100%;
 			object: {
 				fit: cover;
-				position: var(--cwps-objectPosition);
+				position: var(--capitola-objectPosition);
 			}
 		}
 
@@ -40,14 +40,14 @@
 		}
 
 		.wp-block-cwps-body-text {
-			padding: 320px var(--cwps-gutter) var(--cwps-blockPadding) var(--cwps-gutter);
+			padding: 320px var(--capitola-gutter) var(--capitola-blockPadding) var(--capitola-gutter);
 
 			@include mq("medium") {
 				margin: {
 					left: auto;
 					right: 0;
 				}
-				padding: var(--cwps-blockPadding) var(--cwps-wideSize-padding) var(--cwps-blockPadding) 0;
+				padding: var(--capitola-blockPadding) var(--capitola-wideSize-padding) var(--capitola-blockPadding) 0;
 			}
 		}
 
@@ -61,7 +61,7 @@
 					}
 					padding: {
 						right: 0;
-						left: var(--cwps-wideSize-padding);
+						left: var(--capitola-wideSize-padding);
 					}
 				}
 			}
@@ -84,14 +84,14 @@
 
 	.wp-block-cwps-body-text__grid {
 		position: relative;
-		padding: var(--cwps-spacing-large);
+		padding: var(--capitola-spacing-large);
 		overflow: hidden;
 
 		&::before {
 			content: "";
 			position: absolute;
 			inset: 0;
-			background: var(--cwps-color-background);
+			background: var(--capitola-color-background);
 			opacity: 0.8;
 		}
 	}

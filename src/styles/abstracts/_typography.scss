@@ -4,12 +4,12 @@
 
 @mixin headline-xxl {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-xxl-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xxl-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -18,12 +18,12 @@
 
 @mixin headline-xl {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-xl-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xl-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -32,12 +32,12 @@
 
 @mixin headline-l {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-l-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-l-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -46,12 +46,12 @@
 
 @mixin headline-m {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-m-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-m-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -60,12 +60,12 @@
 
 @mixin headline-s {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-s-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-s-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -74,12 +74,12 @@
 
 @mixin headline-xs {
 	font: {
-		family: var(--cwps-hl-fontFamily);
-		size: var(--cwps-hl-xs-fontSize);
-		weight: var(--cwps-hl-fontWeight);
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xs-fontSize);
+		weight: var(--capitola-hl-fontWeight);
 	}
-	line-height: var(--cwps-hl-lineHeight);
-	color: var(--cwps-color-headline);
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
 		bottom: 0;
@@ -87,12 +87,12 @@
 }
 
 @mixin regular-text {
-	font-size: var(--cwps-p-fontSize);
-	line-height: var(--cwps-p-lineHeight);
+	font-size: var(--capitola-p-fontSize);
+	line-height: var(--capitola-p-lineHeight);
 }
 
 @mixin micro-text {
-	font-size: var(--cwps-p-s-fontSize);
+	font-size: var(--capitola-p-s-fontSize);
 }
 
 @mixin eyebrow {
@@ -102,7 +102,7 @@
 	}
 	line-height: line-height(16px, 14px);
 	letter-spacing: to-rem(1px);
-	color: var(--cwps-color-body);
+	color: var(--capitola-color-body);
 	// letter-spacing: ;
 	text-transform: uppercase;
 	margin-bottom: 0;
@@ -117,7 +117,7 @@
 }
 
 @mixin wizzy {
-	color: var(--cwps-color-body);
+	color: var(--capitola-color-body);
 
 	p,
 	ul,
@@ -126,7 +126,7 @@
 	img,
 	table {
 		margin: {
-			top: var(--cwps-open-content-spacing);
+			top: var(--capitola-open-content-spacing);
 			bottom: 0;
 		}
 
@@ -137,6 +137,6 @@
 
 	ul,
 	ol {
-		padding-left: var(--cwps-spacing-small);
+		padding-left: var(--capitola-spacing-small);
 	}
 }

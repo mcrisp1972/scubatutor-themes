@@ -32,7 +32,7 @@
 			width: 100%;
 			object: {
 				fit: cover;
-				position: var(--cwps-objectPosition);
+				position: var(--capitola-objectPosition);
 			}
 		}
 
@@ -48,7 +48,7 @@
 			position: absolute;
 			inset: 0;
 			background: var(--wp--custom--opacity--solid);
-			opacity: var(--cwps-overlayOpacity);
+			opacity: var(--capitola-overlayOpacity);
 		}
 	}
 
@@ -64,27 +64,27 @@
 		&.--align-right {
 
 			@include mq("large") {
-				width: calc(var(--cwps-wideSize-padded) / 2);
+				width: calc(var(--capitola-wideSize-padded) / 2);
 			}
 		}
 
 		&.--align-left {
 
 			@include mq("large") {
-				margin-left: var(--cwps-wideSize-padding);
+				margin-left: var(--capitola-wideSize-padding);
 			}
 		}
 
 		&.--align-right {
 
 			@include mq("large") {
-				margin-right: var(--cwps-wideSize-padding);
+				margin-right: var(--capitola-wideSize-padding);
 			}
 		}
 	}
 
 	&__eyebrow {
-		margin: 0 0 var(--cwps-spacing-xsmall);
+		margin: 0 0 var(--capitola-spacing-xsmall);
 
 		.--align-left &,
 		.--align-right & {
@@ -109,7 +109,7 @@
 
 	&__caption {
 		text-align: center;
-		margin: var(--cwps-spacing-small) 0 0;
+		margin: var(--capitola-spacing-small) 0 0;
 
 		.--align-left &,
 		.--align-right & {

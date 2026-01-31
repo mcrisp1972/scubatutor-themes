@@ -44,7 +44,7 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: '--theme-image-overlay',
-				style: { '--cwps-overlayOpacity': imageOpacity },
+				style: { '--capitola-overlayOpacity': imageOpacity },
 			} ) }
 		>
 			<InspectorControls>

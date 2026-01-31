@@ -32,7 +32,7 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: 'alignfull',
-				style: { '--cwps-excerpt-lines': excerptLines },
+				style: { '--capitola-excerpt-lines': excerptLines },
 			} ) }
 		>
 			<div className="wp-block-cwps-image-link-grid__width">

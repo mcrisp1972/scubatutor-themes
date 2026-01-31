@@ -1,16 +1,16 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-cwps-nav {
-	--cwps-dropdownSpeed: 0.2s;
-	--cwps-nav-link-fontSize: #{to-rem(20px)};
+	--capitola-dropdownSpeed: 0.2s;
+	--capitola-nav-link-fontSize: #{to-rem(20px)};
 	position: relative;
 	z-index: 100;
-	background: var(--cwps-color-background);
+	background: var(--capitola-color-background);
 	height: 0;
 	width: 100%;
 
 	@include mq("large") {
-		--cwps-nav-link-fontSize: #{to-rem(16px)};
+		--capitola-nav-link-fontSize: #{to-rem(16px)};
 	}
 
 	&.--is-shown {
@@ -46,8 +46,8 @@
 
 	&.--sticky-nav.--reveal-down {
 		position: fixed;
-		top: calc(var(--cwps-header-height) * -1);
-		transform: translateY(var(--cwps-header-height));
+		top: calc(var(--capitola-header-height) * -1);
+		transform: translateY(var(--capitola-header-height));
 		transition: transform 1s;
 		z-index: 1100; // calculated for woo form overlays
 
@@ -62,26 +62,26 @@
 	}
 
 	&__banner {
-		background: var(--cwps-color-background);
+		background: var(--capitola-color-background);
 
 		&.--theme-alert {
-			--cwps-color-background: #b00;
-			--cwps-color-body: var(--wp--preset--color--white);
+			--capitola-color-background: #b00;
+			--capitola-color-body: var(--wp--preset--color--white);
 		}
 
 		&.--theme-update {
-			--cwps-color-background: #f5d904;
-			--cwps-color-body: var(--wp--preset--color--black);
+			--capitola-color-background: #f5d904;
+			--capitola-color-body: var(--wp--preset--color--black);
 		}
 
 		&-body {
 			display: flex;
-			gap: var(--cwps-spacing-small);
+			gap: var(--capitola-spacing-small);
 			padding: {
-				top: var(--cwps-spacing-small);
-				bottom: var(--cwps-spacing-small);
+				top: var(--capitola-spacing-small);
+				bottom: var(--capitola-spacing-small);
 			}
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 
 			p {
 				margin: 0;
@@ -117,7 +117,7 @@
 			padding: 0;
 			flex: 0 0 25px;
 			cursor: pointer;
-			background: var(--cwps-color-body);
+			background: var(--capitola-color-body);
 			mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
 			transition: scale $transition;
 
@@ -138,8 +138,8 @@
 	}
 
 	&__background {
-		background: var(--cwps-color-background);
-		height: var(--cwps-header-height);
+		background: var(--capitola-color-background);
+		height: var(--capitola-header-height);
 	}
 
 	&__grid {
@@ -148,8 +148,8 @@
 		align-items: center;
 		height: 100%;
 		padding: {
-			top: var(--cwps-spacing-xsmall);
-			bottom: var(--cwps-spacing-xsmall);
+			top: var(--capitola-spacing-xsmall);
+			bottom: var(--capitola-spacing-xsmall);
 		}
 
 		@include mq("large") {
@@ -163,14 +163,14 @@
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
-		gap: var(--cwps-spacing-small);
+		gap: var(--capitola-spacing-small);
 		order: 2;
-		margin: var(--cwps-spacing-xlarge) 0 0;
+		margin: var(--capitola-spacing-xlarge) 0 0;
 		padding: 0;
 		list-style: none;
 
 		@include mq("large") {
-			margin-top: var(--cwps-spacing-xsmall);
+			margin-top: var(--capitola-spacing-xsmall);
 			order: 0;
 			flex-flow: row;
 
@@ -189,20 +189,20 @@
 			weight: 600;
 			size: to-rem(14px);
 		}
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 	}
 
 	&__utility-menu-item-link {
 		@include nav-link {
 			display: block;
-			color: var(--cwps-color-link);
+			color: var(--capitola-color-link);
 			background: none;
 		}
 
 		&:hover,
 		&:focus,
 		&:active {
-			color: var(--cwps-color-body);
+			color: var(--capitola-color-body);
 			text-decoration: none;
 		}
 
@@ -210,14 +210,14 @@
 		&.--phone {
 			display: flex;
 			position: relative;
-			gap: var(--cwps-spacing-xsmall);
+			gap: var(--capitola-spacing-xsmall);
 			align-items: center;
 
 			&::before {
 				content: "";
 				height: 12px;
 				width: 12px;
-				background: var(--cwps-color-link);
+				background: var(--capitola-color-link);
 				mask: {
 					repeat: no-repeat;
 					position: center;
@@ -245,7 +245,7 @@
 			&:active {
 
 				&::before {
-					background-color: var(--cwps-color-body);
+					background-color: var(--capitola-color-body);
 				}
 			}
 		}
@@ -265,13 +265,13 @@
 				repeat: no-repeat;
 				size: contain;
 			}
-			background: var(--cwps-color-link);
+			background: var(--capitola-color-link);
 			height: 100%;
 			transition: background-color $transition;
 
 			&:hover,
 			&:focus {
-				background: var(--cwps-color-link-hover);
+				background: var(--capitola-color-link-hover);
 			}
 
 			img {
@@ -283,7 +283,7 @@
 			grid-column: 1;
 
 			&.--has-svg-mask {
-				height: calc(100% - (var(--cwps-spacing-xsmall) * 2));
+				height: calc(100% - (var(--capitola-spacing-xsmall) * 2));
 			}
 		}
 
@@ -299,11 +299,11 @@
 		position: fixed;
 		flex-flow: column;
 		inset: var(--wp-admin--admin-bar--height, 0) 0 0 0;
-		padding: calc(var(--cwps-header-height) + var(--cwps-spacing-medium)) var(--cwps-gutter) 0;
+		padding: calc(var(--capitola-header-height) + var(--capitola-spacing-medium)) var(--capitola-gutter) 0;
 		overflow: auto;
 		clip-path: circle(0.3% at 100% 0);
 		transition: clip-path 0.5s ease-in;
-		background: var(--cwps-color-background);
+		background: var(--capitola-color-background);
 		z-index: -1;
 
 		.--is-shown & {
@@ -345,12 +345,12 @@
 	&__menu-items {
 		list-style: none;
 		margin: 0;
-		padding: var(--cwps-spacing-large) 0 0;
+		padding: var(--capitola-spacing-large) 0 0;
 
 		@include mq("large") {
 			display: flex;
 			align-items: center;
-			gap: var(--cwps-spacing-small);
+			gap: var(--capitola-spacing-small);
 			padding: 0;
 		}
 	}
@@ -359,10 +359,10 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		color: var(--cwps-color-body);
+		color: var(--capitola-color-body);
 
 		+ .wp-block-cwps-nav__menu-item {
-			margin-top: var(--cwps-spacing-small);
+			margin-top: var(--capitola-spacing-small);
 
 			@include mq("large") {
 				margin-top: 0;
@@ -371,11 +371,11 @@
 
 		@include mq("large") {
 			align-items: center;
-			gap: var(--cwps-spacing-xsmall);
+			gap: var(--capitola-spacing-xsmall);
 			height: 100%;
 
 			.--shrink-utility & {
-				padding-bottom: var(--cwps-spacing-xsmall);
+				padding-bottom: var(--capitola-spacing-xsmall);
 			}
 
 			&:hover {
@@ -383,7 +383,7 @@
 				.wp-block-cwps-nav__menu-item-caret {
 
 					@include mq("large") {
-						background: var(--cwps-color-link-hover);
+						background: var(--capitola-color-link-hover);
 					}
 				}
 			}
@@ -394,7 +394,7 @@
 				.wp-block-cwps-nav__menu-item-caret {
 
 					@include mq("large") {
-						background: var(--cwps-color-link-hover);
+						background: var(--capitola-color-link-hover);
 					}
 				}
 			}
@@ -407,7 +407,7 @@
 			flex: 0 0 20px;
 			height: 20px;
 			cursor: pointer;
-			background: var(--cwps-color-link);
+			background: var(--capitola-color-link);
 			mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 			transform: rotate(-90deg);
 			transition: background-color $transition, transform $transition;
@@ -415,7 +415,7 @@
 			&:hover,
 			&:focus,
 			&:active {
-				background: var(--cwps-color-link-hover);
+				background: var(--capitola-color-link-hover);
 			}
 
 			@include mq("large") {
@@ -434,7 +434,7 @@
 				display: block;
 				width: 20px;
 				height: 1em;
-				background: var(--cwps-color-link);
+				background: var(--capitola-color-link);
 				mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 				transition: background-color $transition;
 			}
@@ -446,9 +446,9 @@
 		display: block;
 		font: {
 			weight: 600;
-			size: var(--cwps-nav-link-fontSize);
+			size: var(--capitola-nav-link-fontSize);
 		}
-		color: var(--cwps-color-link);
+		color: var(--capitola-color-link);
 		transition: color $transition;
 		text-decoration: none;
 
@@ -457,25 +457,25 @@
 			&:hover,
 			&:active,
 			&:focus {
-				color: var(--cwps-color-link-hover);
+				color: var(--capitola-color-link-hover);
 			}
 		}
 	}
 
 	.wp-block-cwps-nav-sublink {
 		display: flex;
-		margin-top: var(--cwps-spacing-small);
+		margin-top: var(--capitola-spacing-small);
 
 		@include mq("large") {
 			margin-top: 0;
 			padding: 0;
 
 			&:first-child {
-				padding-top: var(--cwps-spacing-small);
+				padding-top: var(--capitola-spacing-small);
 			}
 
 			&:last-child {
-				padding-bottom: var(--cwps-spacing-small);
+				padding-bottom: var(--capitola-spacing-small);
 			}
 		}
 
@@ -486,13 +486,13 @@
 					size: to-rem(16px);
 					weight: 500;
 				}
-				padding-left: var(--cwps-gutter);
+				padding-left: var(--capitola-gutter);
 			}
 
 			@include mq("large") {
 				display: block;
-				font-size: var(--cwps-nav-link-fontSize);
-				padding: var(--cwps-spacing-xsmall) var(--cwps-spacing-medium);
+				font-size: var(--capitola-nav-link-fontSize);
+				padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-medium);
 			}
 		}
 	}
@@ -515,7 +515,7 @@
 		.burger-line {
 			height: 3px;
 			width: 100%;
-			background: var(--cwps-color-link);
+			background: var(--capitola-color-link);
 			border-radius: 3px;
 			transition: background-color $transition, transform 1s, opacity 1s, transform-origin 1s;
 		}
@@ -524,7 +524,7 @@
 		&:focus {
 
 			.burger-line {
-				background: var(--cwps-color-link-hover);
+				background: var(--capitola-color-link-hover);
 			}
 		}
 
@@ -542,7 +542,7 @@
 			position: relative;
 			width: 24px;
 			height: 24px;
-			background: var(--cwps-color-link);
+			background: var(--capitola-color-link);
 			mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
 			transition: background-color $transition;
 			cursor: pointer;
@@ -550,7 +550,7 @@
 			&:hover,
 			&:focus,
 			&:active {
-				background: var(--cwps-color-link-hover);
+				background: var(--capitola-color-link-hover);
 			}
 		}
 	}
@@ -580,7 +580,7 @@
 			inset: 0;
 			height: 100vh;
 			z-index: 999999999;
-			background: var(--cwps-color-background);
+			background: var(--capitola-color-background);
 			clip-path: circle(0.3% at 100% 0);
 			transition: clip-path 0.5s ease-in;
 		}
@@ -618,14 +618,14 @@
 				border: none;
 				outline: none;
 				cursor: pointer;
-				background: var(--cwps-color-body);
+				background: var(--capitola-color-body);
 				mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
 				transition: background-color $transition;
 
 				&:hover,
 				&:active,
 				&:focus {
-					background: var(--cwps-color-link);
+					background: var(--capitola-color-link);
 				}
 			}
 		}
@@ -635,7 +635,7 @@
 
 			@include mq("large") {
 				display: block;
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 			}
 		}
 
@@ -644,7 +644,7 @@
 			position: relative;
 			border: none;
 			width: 100%;
-			max-width: var(--cwps-wideSize);
+			max-width: var(--capitola-wideSize);
 			margin: 0 auto;
 
 			.search-icon {
@@ -654,14 +654,14 @@
 				height: 25px;
 				align-self: center;
 				margin-left: -25px;
-				background: var(--cwps-color-body);
+				background: var(--capitola-color-body);
 				mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
 				transition: background-color $transition;
 
 				&:hover,
 				&:focus,
 				&:active {
-					background: var(--cwps-color-link);
+					background: var(--capitola-color-link);
 				}
 			}
 
@@ -672,10 +672,10 @@
 				border: none;
 				flex: 1 0 0;
 				height: 60px;
-				color: var(--cwps-color-body);
+				color: var(--capitola-color-body);
 				font-size: 1.25rem;
 				letter-spacing: 0.8px;
-				background: transparent linear-gradient(90deg, var(--cwps-color-accent) 0%, var(--cwps-color-accent) 50%, var(--cwps-color-body) 50%, var(--cwps-color-body) 100%) no-repeat scroll 100% 100% / 200% 4px padding-box border-box;
+				background: transparent linear-gradient(90deg, var(--capitola-color-accent) 0%, var(--capitola-color-accent) 50%, var(--capitola-color-body) 50%, var(--capitola-color-body) 100%) no-repeat scroll 100% 100% / 200% 4px padding-box border-box;
 				transition: background-position $transition;
 
 				&::-webkit-search-decoration,
@@ -686,7 +686,7 @@
 				}
 
 				&::placeholder {
-					color: var(--cwps-color-body);
+					color: var(--capitola-color-body);
 					opacity: 0.8;
 				}
 

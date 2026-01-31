@@ -13,7 +13,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-bg-image-text__imagewrap <?= esc_attr( $parallax_class ) ?>" style="--cwps-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
+	<div class="wp-block-cwps-bg-image-text__imagewrap <?= esc_attr( $parallax_class ) ?>" style="--capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
 		<?= wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ) ?>
 	</div>
 	<div class="wp-block-cwps-bg-image-text__width --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro <?= esc_attr( $radius_class ) ?>">
