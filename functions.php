@@ -1,38 +1,38 @@
 <?php
 /**
- * CrispSCUBAtheme functions and definitions
+ * Capitola functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package crispscubatheme
+ * @package capitola
  */
 
-define( 'CWPS_THEME_DIR', get_template_directory() );
-define( 'CWPS_THEME_URL', get_template_directory_uri() );
-define( 'CWPS_IMAGES_URL', CWPS_THEME_URL . '/assets/images/' );
-define( 'CWPS_THEME_JS_URL', CWPS_THEME_URL . '/build/scripts/' );
-define( 'CWPS_THEME_CSS_URL', CWPS_THEME_URL . '/build/styles/' );
-define( 'CWPS_THEME_CSS_DIR', CWPS_THEME_DIR . '/build/styles/' );
-define( 'CWPS_THEME_BLOCKS_URL', CWPS_THEME_URL . '/build/blocks/' );
-define( 'CWPS_CHILD_THEME_DIR', get_stylesheet_directory() );
-define( 'CWPS_CHILD_THEME_URL', get_stylesheet_directory_uri() );
-define( 'CWPS_CHILD_IMAGES_URL', CWPS_CHILD_THEME_URL . '/assets/images/' );
-define( 'CWPS_CHILD_THEME_JS_URL', CWPS_CHILD_THEME_URL . '/build/scripts/' );
-define( 'CWPS_CHILD_THEME_CSS_URL', CWPS_CHILD_THEME_URL . '/build/styles/' );
-define( 'CWPS_CHILD_THEME_CSS_DIR', CWPS_CHILD_THEME_DIR . '/build/styles/' );
-define( 'CWPS_CHILD_THEME_BLOCKS_URL', CWPS_CHILD_THEME_URL . '/build/blocks/' );
-define( 'CWPS_STYLE_DEP', 'cwps-main-styles' );
-define( 'CWPS_WOO_ACTIVE', class_exists( 'woocommerce' ) ? true : false );
+define( 'CAPITOLA_THEME_DIR', get_template_directory() );
+define( 'CAPITOLA_THEME_URL', get_template_directory_uri() );
+define( 'CAPITOLA_IMAGES_URL', CAPITOLA_THEME_URL . '/assets/images/' );
+define( 'CAPITOLA_JS_URL', CAPITOLA_THEME_URL . '/build/scripts/' );
+define( 'CAPITOLA_CSS_URL', CAPITOLA_THEME_URL . '/build/styles/' );
+define( 'CAPITOLA_CSS_DIR', CAPITOLA_THEME_DIR . '/build/styles/' );
+define( 'CAPITOLA_BLOCKS_URL', CAPITOLA_THEME_URL . '/build/blocks/' );
+define( 'CAPITOLA_CHILD_THEME_DIR', get_stylesheet_directory() );
+define( 'CAPITOLA_CHILD_THEME_URL', get_stylesheet_directory_uri() );
+define( 'CAPITOLA_CHILD_IMAGES_URL', CAPITOLA_CHILD_THEME_URL . '/assets/images/' );
+define( 'CAPITOLA_CHILD_JS_URL', CAPITOLA_CHILD_THEME_URL . '/build/scripts/' );
+define( 'CAPITOLA_CHILD_CSS_URL', CAPITOLA_CHILD_THEME_URL . '/build/styles/' );
+define( 'CAPITOLA_CHILD_CSS_DIR', CAPITOLA_CHILD_THEME_DIR . '/build/styles/' );
+define( 'CAPITOLA_CHILD_BLOCKS_URL', CAPITOLA_CHILD_THEME_URL . '/build/blocks/' );
+define( 'CAPITOLA_STYLE_DEP', 'cwps-main-styles' );
+define( 'CAPITOLA_WOO_ACTIVE', class_exists( 'woocommerce' ) ? true : false );
 
-$asset_file = CWPS_THEME_DIR . '/build/styles/main.asset.php';
+$asset_file = CAPITOLA_THEME_DIR . '/build/styles/main.asset.php';
 $asset_version = file_exists( $asset_file ) ? require $asset_file : false;
-define( 'CWPS_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
+define( 'CAPITOLA_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
 
-$asset_file = CWPS_CHILD_THEME_DIR . '/build/styles/main.asset.php';
+$asset_file = CAPITOLA_CHILD_THEME_DIR . '/build/styles/main.asset.php';
 $asset_version = file_exists( $asset_file ) ? require $asset_file : false;
-define( 'CWPS_CHILD_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
+define( 'CAPITOLA_CHILD_THEME_VER', $asset_version ? $asset_version['version'] : wp_get_theme()->get( 'Version' ) );
 
-function cwps_include_files_in_folder( $folder ) {
+function capitola_include_files_in_folder( $folder ) {
 	if ( ! empty( $folder ) ) {
 		foreach ( glob( __DIR__ . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . '*' ) as $path ) {
 			if ( is_dir( $path ) ) {
@@ -45,9 +45,9 @@ function cwps_include_files_in_folder( $folder ) {
 	}
 }
 
-require_once CWPS_THEME_DIR . '/includes/autoloader.php';
+require_once CAPITOLA_THEME_DIR . '/includes/autoloader.php';
 
-cwps_include_files_in_folder( 'includes' );
+capitola_include_files_in_folder( 'includes' );
 
 // doesn't work
 // register_activation_hook( __FILE__, 'cwps\Activate\activate' );

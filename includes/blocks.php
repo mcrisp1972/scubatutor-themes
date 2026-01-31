@@ -64,7 +64,7 @@ add_action( 'init', __NAMESPACE__ . '\register_blocks' );
 
 function register_blocks() {
 
-	foreach ( glob( CWPS_THEME_DIR . '/build/blocks/*' ) as $path ) {
+	foreach ( glob( CAPITOLA_THEME_DIR . '/build/blocks/*' ) as $path ) {
 		if ( is_dir( $path ) && file_exists( $path . '/block.json' ) ) {
 			register_block_type( $path . '/block.json' );
 
@@ -80,7 +80,7 @@ function register_blocks() {
 		unregister_block_type( $block );
 	}
 
-	// $block_paths = glob( CWPS_THEME_DIR . '/build/blocks/*/block.json' );
+	// $block_paths = glob( CAPITOLA_THEME_DIR . '/build/blocks/*/block.json' );
 
 	// foreach ( $block_paths as $block_path ) {
 	// $block_dir = dirname( $block_path );
@@ -94,8 +94,8 @@ function register_blocks() {
 	// }
 
 	// wp_register_block_types_from_metadata_collection(
-	// CWPS_THEME_DIR . '/build/blocks',
-	// CWPS_THEME_DIR . '/build/blocks-manifest.php'
+	// CAPITOLA_THEME_DIR . '/build/blocks',
+	// CAPITOLA_THEME_DIR . '/build/blocks-manifest.php'
 	// );
 }
 

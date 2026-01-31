@@ -5,5 +5,5 @@ namespace cwps\backgroundImage;
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 
 function register_assets() {
-	wp_register_style( 'cwps-backgroundImage', CWPS_THEME_BLOCKS_URL . 'bg-image-text/style-index.css', array( CWPS_STYLE_DEP ), CWPS_THEME_VER );
+	wp_register_style( 'cwps-backgroundImage', CAPITOLA_BLOCKS_URL . 'bg-image-text/style-index.css', array( CAPITOLA_STYLE_DEP ), CAPITOLA_THEME_VER );
 }

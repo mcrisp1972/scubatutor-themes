@@ -46,7 +46,7 @@ const glob = require('glob');
 const path = require('path');
 
 // update this to the theme path, used for css url paths
-const themeURL = '/wp-content/themes/crisp-base-theme/build/';
+const themeURL = '/wp-content/themes/capitola/build/';
 
 /*
 from https://github.com/WordPress/gutenberg/blob/trunk/packages/scripts/config/webpack.config.js

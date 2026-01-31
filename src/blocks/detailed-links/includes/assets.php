@@ -5,5 +5,5 @@ namespace cwps\cwpsSideDetailedLinkList;
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets', 9999 );
 
 function register_assets() {
-	wp_register_style( 'cwps-sideDetailedLinkList', CWPS_THEME_BLOCKS_URL . 'detailed-links/style-index.css', array( CWPS_STYLE_DEP ), CWPS_THEME_VER );
+	wp_register_style( 'cwps-sideDetailedLinkList', CAPITOLA_BLOCKS_URL . 'detailed-links/style-index.css', array( CAPITOLA_STYLE_DEP ), CAPITOLA_THEME_VER );
 }

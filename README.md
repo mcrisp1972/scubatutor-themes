@@ -1,4 +1,4 @@
-# crisp-base-theme
+# capitola
 test
 
 test 2

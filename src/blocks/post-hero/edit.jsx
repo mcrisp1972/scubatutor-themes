@@ -4,7 +4,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { date } from '@wordpress/date';
 import { PanelBody, ToggleControl, RadioControl } from '@wordpress/components';
 import { useSelect, select } from '@wordpress/data';
-import { TagSelect } from '../../../../crisp-base-theme/src/editor-controls';
+import { TagSelect } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

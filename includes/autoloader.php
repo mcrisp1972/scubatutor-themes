@@ -11,7 +11,7 @@ function autoloader( $class_name ) {
 
 	$parts = explode( '_', $class_name );
 	$file = 'class-';
-	$file_path = CWPS_THEME_DIR . '/inc/';
+	$file_path = CAPITOLA_THEME_DIR . '/inc/';
 
 	if ( count( $parts ) === 2 ) {
 		if ( is_dir( $file_path . $parts[1] . '/' ) ) {

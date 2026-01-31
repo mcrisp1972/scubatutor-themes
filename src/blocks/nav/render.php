@@ -15,13 +15,13 @@ if ( $myaccount_page_id ) {
 
 $banner = get_option( 'cwps_notice_banner' );
 
-if ( CWPS_WOO_ACTIVE ) {
+if ( CAPITOLA_WOO_ACTIVE ) {
 	$cart = WC()->cart;
 	$cart_count = WC()->cart ? $cart->get_cart_contents_count() : 0;
 	remove_filter( 'the_title', 'wc_page_endpoint_title' );
 }
 
-if ( CWPS_WOO_ACTIVE ) {
+if ( CAPITOLA_WOO_ACTIVE ) {
 	add_filter( 'the_title', 'wc_page_endpoint_title' );
 }
 
@@ -90,12 +90,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							<a href="tel:<?= esc_attr( \cwps\helpers\stringHelpers\phone_link_number( $contact_phone ) ) ?>" class="wp-block-cwps-nav__utility-menu-item-link --phone"><?= esc_html( $contact_phone ) ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $attributes['showAccountIcon'] && CWPS_WOO_ACTIVE ) : ?>
+					<?php if ( $attributes['showAccountIcon'] && CAPITOLA_WOO_ACTIVE ) : ?>
 						<li class="wp-block-cwps-nav__utility-menu-item">
 							<a href="<?= esc_url( $myaccount_page_url ) ?>" class="wp-block-cwps-nav__utility-menu-item-link --account">Account</a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $attributes['showCartIcon'] && CWPS_WOO_ACTIVE && ( ! is_cart() && ! is_checkout() && WC()->cart->get_cart_contents_count() ) ) : ?>
+					<?php if ( $attributes['showCartIcon'] && CAPITOLA_WOO_ACTIVE && ( ! is_cart() && ! is_checkout() && WC()->cart->get_cart_contents_count() ) ) : ?>
 						<li class="wp-block-cwps-nav__utility-menu-item">
 							<?php
 								echo wp_kses_post(

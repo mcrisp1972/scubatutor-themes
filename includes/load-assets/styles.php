@@ -7,15 +7,15 @@ add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_styles', 1 );
 function enqueue_styles() {
 
 	if ( is_admin() ) {
-		wp_enqueue_style( 'cwps-main-styles', CWPS_THEME_CSS_URL . 'block-editor.css', array( 'dashicons' ), CWPS_THEME_VER );
+		wp_enqueue_style( 'cwps-main-styles', CAPITOLA_CSS_URL . 'block-editor.css', array( 'dashicons' ), CAPITOLA_THEME_VER );
 	} else {
-		wp_enqueue_style( 'cwps-main-styles', CWPS_THEME_CSS_URL . 'main.css', array( 'global-styles' ), CWPS_THEME_VER );
+		wp_enqueue_style( 'cwps-main-styles', CAPITOLA_CSS_URL . 'main.css', array( 'global-styles' ), CAPITOLA_THEME_VER );
 	}
 }
 
 function register_core_block_styles() {
 
-	$files = glob( CWPS_THEME_CSS_DIR . 'wp-core-blocks/*.css' );
+	$files = glob( CAPITOLA_CSS_DIR . 'wp-core-blocks/*.css' );
 
 	foreach ( $files as $file ) {
 
@@ -27,9 +27,9 @@ function register_core_block_styles() {
 				'core/' . $filename,
 				array(
 					'handle' => 'cwps-core-blocks-' . $filename,
-					'src'    => CWPS_THEME_CSS_URL . '/wp-core-blocks/' . $filename . '.css',
-					'path'   => CWPS_THEME_CSS_DIR . '/wp-core-blocks/' . $filename . '.css',
-					'ver'    => CWPS_THEME_VER,
+					'src'    => CAPITOLA_CSS_URL . '/wp-core-blocks/' . $filename . '.css',
+					'path'   => CAPITOLA_CSS_DIR . '/wp-core-blocks/' . $filename . '.css',
+					'ver'    => CAPITOLA_THEME_VER,
 				)
 			);
 		}

@@ -1,4 +1,4 @@
-import Cookies from '../../../../crisp-base-theme/src/scripts/modules/cookies';
+import Cookies from '../../scripts/modules/cookies';
 
 class cookieConsent {
 	constructor() {

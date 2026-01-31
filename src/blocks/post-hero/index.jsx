@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
-import { dominoMask } from '../../../../crisp-base-theme/src/editor-icons';
+import { dominoMask } from '../../editor-icons';
 import Edit from './edit';
 import './style.scss';
 

@@ -13,7 +13,7 @@ $terms = new WP_Term_Query(
 foreach ( $terms->terms as $term_id ) {
 	if ( get_term_meta( $term_id, 'icon_source', true ) === 'icon-library' ) {
 		$icon = get_term_meta( $term_id, 'icon', true );
-		$src = $icon ? CWPS_THEME_URL . '/assets/svgs/icons/' . $icon : '';
+		$src = $icon ? CAPITOLA_THEME_URL . '/assets/svgs/icons/' . $icon : '';
 	} else {
 		$image = get_term_meta( $term_id, 'image', true );
 		$src = $image ? wp_get_attachment_image_src( $image, 'full' ) : '';

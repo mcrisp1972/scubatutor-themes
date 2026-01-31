@@ -4,7 +4,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { applyFilters } from '@wordpress/hooks';
 import { autop } from '@wordpress/autop';
 import { useEffect, useState } from '@wordpress/element';
-import { ColorThemePicker } from '../../../../crisp-base-theme/src/editor-controls';
+import { ColorThemePicker } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

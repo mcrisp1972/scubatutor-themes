@@ -2,7 +2,7 @@ import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpres
 import { useSelect } from '@wordpress/data';
 import { PanelBody, ToggleControl, TextControl, RadioControl, RangeControl, Spinner } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
-import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '../../../../crisp-base-theme/src/editor-controls';
+import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '../../editor-controls';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 import { useState, useEffect } from '@wordpress/element';

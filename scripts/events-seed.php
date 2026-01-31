@@ -2,7 +2,7 @@
 
 use cwps\LoremIpsum;
 
-require_once CWPS_THEME_DIR . '/scripts/lorem-ipsum.php';
+require_once CAPITOLA_THEME_DIR . '/scripts/lorem-ipsum.php';
 
 // query media library for images that have meta value
 $args = array(
