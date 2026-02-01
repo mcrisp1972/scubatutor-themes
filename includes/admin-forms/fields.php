@@ -69,7 +69,7 @@ class Fields {
 
 		?>
 			<input type="text" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
-			<?= esc_html( self::help( $field ) ) ?>
+			<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -86,7 +86,7 @@ class Fields {
 
 		?>
 			<input type="date" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
-			<?= esc_html( self::help( $field ) ) ?>
+			<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -102,7 +102,7 @@ class Fields {
 					<option value="<?= esc_attr( $option_value ) ?>" <?= selected( $option_value, $value ) ?>><?= esc_html( $option_text ) ?></option>
 				<?php endforeach; ?>
 			</select>
-			<?= esc_html( self::help( $field ) ) ?>
+			<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -113,10 +113,8 @@ class Fields {
 			'full' => 'large-text',
 		);
 		?>
-			<textarea id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ) ?> <?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ) ?>">
-				<?= esc_html( $value ) ?>
-			</textarea>
-			<?= esc_html( self::help( $field ) ) ?>
+			<textarea id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ) ?> <?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ) ?>"><?= esc_html( $value ) ?></textarea>
+			<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -142,7 +140,7 @@ class Fields {
 				</label>
 			<?php endforeach; ?>
 		</fieldset>
-		<?= esc_html( self::help( $field ) ) ?>
+		<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -171,7 +169,7 @@ class Fields {
 				'option_none_value' => 0,
 			)
 		);
-		echo esc_html( self::help( $field ) );
+		echo wp_kses_post( self::help( $field ) );
 	}
 
 	protected static function term_select( $field, $value ) {
@@ -188,7 +186,7 @@ class Fields {
 				'option_none_value' => 0,
 			)
 		);
-		echo esc_html( self::help( $field ) );
+		echo wp_kses_post( self::help( $field ) );
 	}
 
 	public static function image( $field, $value ) {
@@ -228,7 +226,7 @@ class Fields {
 					<?= esc_html( $video_title ?? '' ) ?>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectLinkRow">
-					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= esc_html( $link ?? '' ) ?></span>
+					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= wp_kses_post( $link ?? '' ) ?></span>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectSizeRow">
 					<span class="image-select-field__meta-label">File Size:</span> <span class="js-imageSelectSizeValue"><?= esc_html( $filesize ?? '' ) ?></span>
@@ -240,7 +238,7 @@ class Fields {
 			</div>
 			<input type="hidden" name="<?= esc_attr( $field['name'] ) ?>" class="js-value" value="<?= esc_attr( $value ) ?>">
 		</div>
-		<?= esc_html( self::help( $field ) ) ?>
+		<?= wp_kses_post( self::help( $field ) ) ?>
 		<?php
 	}
 
