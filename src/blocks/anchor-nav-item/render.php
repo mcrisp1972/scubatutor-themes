@@ -5,5 +5,5 @@ $anchor_link = str_starts_with( $attributes['anchor'], '#' ) ? $attributes['anch
 ?>
 
 <li class="wp-block-capitola-anchor-nav__item">
-	<a class="wp-block-capitola-anchor-nav__link" href="<?= esc_url( $anchor_link ) ?>"><?= esc_html( $attributes ['label'] ) ?></a>
+	<a class="wp-block-capitola-anchor-nav__link" href="<?= esc_url( $anchor_link ); ?>"><?= esc_html( $attributes ['label'] ); ?></a>
 </li>

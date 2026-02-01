@@ -60,7 +60,7 @@ function extend_rest_endpoint() {
 		array( 'post' ),
 		'cta_label',
 		array(
-			'get_callback' => function ( $post ) {
+			'get_callback' => function () {
 				return apply_filters( 'capitola_post_cta_label', '' );
 			},
 		)
@@ -72,7 +72,7 @@ function extend_rest_endpoint() {
 			$params = $request->get_params();
 
 			if ( $params['filtered_listings'] && isset( $args['tax_query'] ) ) {
-				$key = array_search( 'category', array_column( $args['tax_query'], 'taxonomy' ) );
+				$key = array_search( 'category', array_column( $args['tax_query'], 'taxonomy' ), true );
 				if ( $key !== false ) {
 					$args['tax_query'][ $key ]['include_children'] = true;
 				}

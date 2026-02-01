@@ -10,7 +10,7 @@ function extend_rest_endpoint() {
 		array( 'page' ),
 		'cta_label',
 		array(
-			'get_callback' => function ( $post ) {
+			'get_callback' => function () {
 				return apply_filters( 'capitola_page_cta_label', '' );
 			},
 		)

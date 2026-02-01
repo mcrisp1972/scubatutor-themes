@@ -94,11 +94,11 @@ function alternate_theme( $attributes, $section ) {
 	if ( is_object( $object ) && get_class( $object ) === 'WP_Post' ) {
 		$use_default = get_post_meta( $object->ID, 'useDefColorTheme', true );
 		$theme = $use_default ? get_option( 'capitola_default_page_color_theme' ) : get_post_meta( $object->ID, 'pageColorTheme', true );
-		$key = array_search( $theme, array_column( $colors, 'slug' ) );
+		$key = array_search( $theme, array_column( $colors, 'slug' ), true );
 		$attributes['colorTheme'] = $colors[ $key ][ $section ];
 	} else {
 		$theme = get_option( 'capitola_default_page_color_theme' );
-		$key = array_search( $theme, array_column( $colors, 'slug' ) );
+		$key = array_search( $theme, array_column( $colors, 'slug' ), true );
 		$attributes['colorTheme'] = $colors[ $key ][ $section ];
 	}
 	return $attributes;

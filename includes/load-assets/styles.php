@@ -36,20 +36,3 @@ function register_core_block_styles() {
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\register_core_block_styles' );
-
-// add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\wpforms_scripts', 90 );
-// add_action( 'wp_footer', __NAMESPACE__ . '\wpforms_scripts', 90 );
-
-// function wpforms_scripts() {
-
-// wp_dequeue_style( 'wpforms-full' );
-// wp_dequeue_style( 'wpforms-base' );
-// wp_deregister_style( 'wpforms-full' );
-// wp_deregister_style( 'wpforms-base' );
-
-// wp_dequeue_style( 'wpforms-full-css' );
-// wp_dequeue_style( 'wpforms-base-css' );
-// wp_dequeue_style( 'wpforms-choicesjs' );
-// wp_deregister_style( 'wpforms-choicesjs' );
-
-// }

@@ -14,8 +14,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<section <?= wp_kses_data( $wrapper_attributes ) ?>>
+<section <?= wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-accordion__list">
-		<?= wp_kses_post( $content ) ?>
+		<?= wp_kses_post( $content ); ?>
 	</div>
 </section>

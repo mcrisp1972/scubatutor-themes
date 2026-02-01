@@ -48,18 +48,3 @@ function capitola_include_files_in_folder( $folder ) {
 require_once CAPITOLA_THEME_DIR . '/includes/autoloader.php';
 
 capitola_include_files_in_folder( 'includes' );
-
-// doesn't work
-// register_activation_hook( __FILE__, 'Capitola\Activate\activate' );
-
-
-// add_action( 'admin_enqueue_scripts', 'display_admin_enqueued_stylesheets' );
-// function display_admin_enqueued_stylesheets() {
-// global $wp_styles; // Access the global WP_Styles object
-// echo '<pre>'; // Use <pre> for formatted output
-// print_r( $wp_styles->queue ); // Print the queue of enqueued stylesheets
-// echo '</pre>';
-
-
-// error_log(print_r($wp_styles, 1));
-// }

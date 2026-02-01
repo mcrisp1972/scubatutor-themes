@@ -13,11 +13,10 @@ function tax_thumb_col_head( $columns ) {
 }
 
 function tax_thumb_col( $c, $column_name, $term_id ) {
-	switch ( $column_name ) {
-		case 'capitola-tax-img':
-			$image_id = get_term_meta( $term_id, 'term_thumb_id', true );
-			$image = wp_get_attachment_image( $image_id, array( '40', '40' ) );
-			return ( $image ) ? $image : '';
-			break;
+	if ( 'capitola-tax-img' === $column_name ) {
+		$image_id = get_term_meta( $term_id, 'term_thumb_id', true );
+		$image = wp_get_attachment_image( $image_id, array( '40', '40' ) );
+		return ( $image ) ? $image : '';
 	}
+	return $c;
 }
