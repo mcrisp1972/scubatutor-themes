@@ -55,8 +55,8 @@
 		"viewportWidth": 1440
 	},
 	"render": "file:./render.php",
-	"style": "cwps-siteHeader",
-	"editorStyle": "cwps-siteHeaderAdmin",
+	"style": "cwps-nav",
+	"editorStyle": "cwps-navAdmin",
 	"viewScriptModule": "file:./view.js",
 	"editorScript": "file:./index.js"
 }
