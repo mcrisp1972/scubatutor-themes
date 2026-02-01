@@ -37,7 +37,7 @@ function capitola_include_files_in_folder( $folder ) {
 		foreach ( glob( __DIR__ . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . '*' ) as $path ) {
 			if ( is_dir( $path ) ) {
 				$subdir = str_replace( __DIR__ . DIRECTORY_SEPARATOR, '', $path );
-				cwps_include_files_in_folder( $subdir );
+				capitola_include_files_in_folder( $subdir );
 			} elseif ( preg_match( '/\.php$/', $path ) ) {
 				require_once $path;
 			}
