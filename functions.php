@@ -50,7 +50,7 @@ require_once CAPITOLA_THEME_DIR . '/includes/autoloader.php';
 capitola_include_files_in_folder( 'includes' );
 
 // doesn't work
-// register_activation_hook( __FILE__, 'cwps\Activate\activate' );
+// register_activation_hook( __FILE__, 'Capitola\Activate\activate' );
 
 
 // add_action( 'admin_enqueue_scripts', 'display_admin_enqueued_stylesheets' );

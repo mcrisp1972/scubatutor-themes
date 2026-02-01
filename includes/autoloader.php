@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\autoloader;
+namespace Capitola\Autoloader;
 
 // phpcs:ignoreFile WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 

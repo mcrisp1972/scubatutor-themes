@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\ThemeOptions;
+namespace Capitola\ThemeOptions;
 
 const GROUP_CONTACT = 'cwps-contact-info';
 const GROUP_BANNERS = 'cwps-banners';
@@ -349,7 +349,7 @@ function add_options_page() {
 		$form_settings['tabs']['api-keys']['fields'] = $api_fields;
 	}
 
-	new \cwps\adminForms\Capitola_Settings_Form(
+	new \Capitola\Admin_Forms\Settings_Form(
 		$form_settings
 	);
 }

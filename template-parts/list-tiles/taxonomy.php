@@ -3,7 +3,7 @@
 $attributes = $args['attributes'];
 $conditionals = $args['conditionals'];
 
-$image_id = \cwps\helpers\images\term_thumb_id( $args['term'] );
+$image_id = \Capitola\Helpers\Images\term_thumb_id( $args['term'] );
 
 ?>
 

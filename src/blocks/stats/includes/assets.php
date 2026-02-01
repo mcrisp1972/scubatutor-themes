@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\stats;
+namespace Capitola\Blocks\Stats;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

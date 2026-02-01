@@ -1,6 +1,6 @@
 <?php
 
-$parallax_class = \cwps\helpers\blockAttributes\parallax_img_class( ( $attributes['imageParallax'] ) );
+$parallax_class = \Capitola\Helpers\Block_Attributes\parallax_img_class( ( $attributes['imageParallax'] ) );
 $radius_class = $attributes['introRadius'] !== 'none' ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
 
 $wrapper_attributes = get_block_wrapper_attributes(

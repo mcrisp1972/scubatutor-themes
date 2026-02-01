@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\Permalinks;
+namespace Capitola\Permalinks;
 
 // phpcs:ignoreFile WordPress.Security.NonceVerification.Missing
 

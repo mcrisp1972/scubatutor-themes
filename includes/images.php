@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\Images;
+namespace Capitola\Images;
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\image_sizes' );
 
@@ -26,7 +26,7 @@ function thumbnail_id( $thumbnail_id, $post ) {
 	}
 
 	if ( ! $thumbnail_id ) {
-		return \cwps\helpers\images\post_image_id( $post );
+		return \Capitola\Helpers\Images\post_image_id( $post );
 	}
 }
 

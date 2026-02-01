@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\fullWidthSlider;
+namespace Capitola\Blocks\Full_Width_Slider;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

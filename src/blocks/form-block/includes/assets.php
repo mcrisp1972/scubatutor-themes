@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\formBlock;
+namespace Capitola\Blocks\Form_Block;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

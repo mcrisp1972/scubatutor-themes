@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\helpers\registrations;
+namespace Capitola\Helpers\Registrations;
 
 function post_type_labels( $singular, $plural ) {
 }

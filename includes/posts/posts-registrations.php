@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\posts\registrations;
+namespace Capitola\Post_Types\Posts\Registrations;
 
 add_filter( 'register_post_type_args', __NAMESPACE__ . '\edit_post_registration', 99, 2 );
 

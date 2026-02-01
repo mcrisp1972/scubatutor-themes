@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\accordionWithIntro;
+namespace Capitola\Blocks\Accordion_With_Intro;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

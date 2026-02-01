@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_Settings_Form extends Capitola_Fields {
+class Settings_Form extends Fields {
     protected $parent_slug;
     protected $page_title;
     protected $menu_title;

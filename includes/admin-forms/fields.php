@@ -1,8 +1,8 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
-class Capitola_Fields {
+class Fields {
 
 	protected static function echo_field( $field, $value ) {
 
@@ -68,8 +68,8 @@ class Capitola_Fields {
 		$class = $size_class[ $field['size'] ?? 'medium' ] . ' ' . ( $field['class'] ?? '' );
 
 		?>
-			<input type="text" id="<?= $field['id'] ?>" class="<?= $class ?>" name="<?= $field['name'] ?>" value="<?= $value ?>" />
-			<?= self::help( $field ) ?>
+			<input type="text" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
+			<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -85,24 +85,24 @@ class Capitola_Fields {
 		$class = $size_class[ $field['size'] ?? 'medium' ] . ' ' . ( $field['class'] ?? '' );
 
 		?>
-			<input type="date" id="<?= $field['id'] ?>" class="<?= $class ?>" name="<?= $field['name'] ?>" value="<?= $value ?>" />
-			<?= self::help( $field ) ?>
+			<input type="date" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
+			<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 
 	protected static function select( $field, $value ) {
 		?>
-			<select id="<?= $field['id'] ?>" class="<?= $field['class'] ?? '' ?>" name="<?= $field['name'] ?>">
+			<select id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>">
 				<option value="" <?= selected( '' ) ?>>Select One</option>
 				<?php
 				foreach ( $field['options'] as $v => $l ) :
 					$option_value = is_array( $l ) ? $l['value'] : $v;
 					$option_text = is_array( $l ) ? $l['label'] : $l;
 					?>
-					<option value="<?= $option_value ?>" <?= selected( $option_value, $value ) ?>><?= $option_text ?></option>
+					<option value="<?= esc_attr( $option_value ) ?>" <?= selected( $option_value, $value ) ?>><?= esc_html( $option_text ) ?></option>
 				<?php endforeach; ?>
 			</select>
-			<?= self::help( $field ) ?>
+			<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -113,8 +113,10 @@ class Capitola_Fields {
 			'full' => 'large-text',
 		);
 		?>
-			<textarea id="<?= $field['id'] ?>" class="<?= $size_class[ $field['size'] ?? 'large' ] ?> <?= $field['class'] ?? '' ?>" name="<?= $field['name'] ?>" rows="<?= $field['rows'] ?? 3 ?>"><?= $value ?></textarea>
-			<?= self::help( $field ) ?>
+			<textarea id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ) ?> <?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ) ?>">
+				<?= esc_html( $value ) ?>
+			</textarea>
+			<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -123,8 +125,8 @@ class Capitola_Fields {
 			?>
 			<label>
 		<?php endif; ?>
-			<input type="checkbox" id="<?= $field['id'] ?>" name="<?= $field['name'] ?>" value="1" <?= checked( $value ) ?>/>
-			<?= ! empty( $field['help'] ) ? $field['help'] : '' ?>
+			<input type="checkbox" id="<?= esc_attr( $field['id'] ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="1" <?= checked( $value ) ?>/>
+			<?= ! empty( $field['help'] ) ? esc_html( $field['help'] ) : '' ?>
 		<?php if ( ! empty( $field['help'] ) ) : ?>
 			</label>
 		<?php endif; ?>
@@ -133,12 +135,14 @@ class Capitola_Fields {
 
 	public static function radio( $field, $value ) {
 		?>
-		<fieldset <?= isset( $field['class'] ) ? 'class="' . $field['class'] . '"' : '' ?>>
+		<fieldset <?= isset( $field['class'] ) ? 'class="' . esc_attr( $field['class'] ) . '"' : '' ?>>
 			<?php foreach ( $field['options'] as $k => $label ) : ?>
-				<label style="display: block;"><input type="radio" name="<?= $field['name'] ?>" value="<?= $k ?>" <?= checked( $value, $k, false ) ?>> <?= $label ?></label>
+				<label style="display: block;"><input type="radio" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $k ) ?>" <?= checked( $value, $k, false ) ?>>
+					<?= esc_html( $label ) ?>
+				</label>
 			<?php endforeach; ?>
 		</fieldset>
-		<?= self::help( $field ) ?>
+		<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 
@@ -159,15 +163,15 @@ class Capitola_Fields {
 	protected static function page_select( $field, $value ) {
 		wp_dropdown_pages(
 			array(
-				'selected' => $value,
-				'name' => $field['name'],
-				'id'  => $field['id'] ?? '',
-				'class' => $field['class'] ?? '',
+				'selected' => esc_attr( $value ),
+				'name' => esc_attr( $field['name'] ),
+				'id'  => esc_attr( $field['id'] ?? '' ),
+				'class' => esc_attr( $field['class'] ?? '' ),
 				'show_option_none' => 'Select',
 				'option_none_value' => 0,
 			)
 		);
-		echo self::help( $field );
+		echo esc_html( self::help( $field ) );
 	}
 
 	protected static function term_select( $field, $value ) {
@@ -184,7 +188,7 @@ class Capitola_Fields {
 				'option_none_value' => 0,
 			)
 		);
-		echo self::help( $field );
+		echo esc_html( self::help( $field ) );
 	}
 
 	public static function image( $field, $value ) {
@@ -215,28 +219,28 @@ class Capitola_Fields {
 		}
 
 		?>
-		<div class="image-select-field js-imageSelect <?= $field['class'] ?? '' ?> <?= ( $value ? ' --has-value' : '' ) ?>" data-media-type="<?= ! empty( $field['type'] ) ? $field['type'] : 'image' ?>">
-			<div class="image-select-field__img-wrap <?= $image_class ?? '' ?>">
-				<img src="<?= $src ?? '' ?>">
+		<div class="image-select-field js-imageSelect <?= esc_attr( $field['class'] ?? '' ) ?> <?= ( $value ? ' --has-value' : '' ) ?>" data-media-type="<?= ! empty( $field['type'] ) ? esc_attr( $field['type'] ) : 'image' ?>">
+			<div class="image-select-field__img-wrap <?= esc_attr( $image_class ) ?? '' ?>">
+				<img src="<?= esc_attr( $src ) ?? '' ?>">
 			</div>
 			<div class="image-select-field__right-col">
 				<div class="image-select-field__meta-row image-select-field__title-row js-imageSelectTitleRow" >
-					<?= $video_title ?? '' ?>
+					<?= esc_html( $video_title ?? '' ) ?>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectLinkRow">
-					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= $link ?? '' ?></span>
+					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= esc_html( $link ?? '' ) ?></span>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectSizeRow">
-					<span class="image-select-field__meta-label">File Size:</span> <span class="js-imageSelectSizeValue"><?= $filesize ?? '' ?></span>
+					<span class="image-select-field__meta-label">File Size:</span> <span class="js-imageSelectSizeValue"><?= esc_html( $filesize ?? '' ) ?></span>
 				</div>
 				<div class="image-select-field__button-wrap">
 					<input class="js-selectImage button" type="button" value="Select/Upload" />
 					<input class="image-select-field__remove js-remove button" type="button" value="Remove" />
 				</div>
 			</div>
-			<input type="hidden" name="<?= $field['name'] ?>" class="js-value" value="<?= $value ?>">
+			<input type="hidden" name="<?= esc_attr( $field['name'] ) ?>" class="js-value" value="<?= esc_attr( $value ) ?>">
 		</div>
-		<?= self::help( $field ) ?>
+		<?= esc_html( self::help( $field ) ) ?>
 		<?php
 	}
 

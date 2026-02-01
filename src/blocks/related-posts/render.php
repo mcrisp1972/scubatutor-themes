@@ -1,9 +1,9 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 $has_slider = ( $attributes['listLayout'] === 'sidescroll' );
 
-$results = \cwps\relatedPosts\query_related_posts( $attributes );
+$results = \Capitola\Blocks\Related_Posts\query_related_posts( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -26,7 +26,7 @@ if ( $results && $results->have_posts() ) : ?>
 							get_post_type(),
 							array(
 								'attributes' => $attributes,
-								'conditionals' => \cwps\helpers\blockAttributes\layout_conditionals( $attributes ),
+								'conditionals' => \Capitola\Helpers\Block_Attributes\layout_conditionals( $attributes ),
 							)
 						);
 					endwhile;

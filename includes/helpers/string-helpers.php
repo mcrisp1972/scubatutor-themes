@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\helpers\stringHelpers;
+namespace Capitola\Helpers\String_Helpers;
 
 function phone_link_number( $phone_number ) {
 	return preg_replace( '/[^0-9]/', '', $phone_number );

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\threeLinkCardsWithIntro;
+namespace Capitola\Blocks\Three_Link_Cards_With_Intro;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

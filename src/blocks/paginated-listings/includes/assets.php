@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\paginatedListings;
+namespace Capitola\Blocks\Paginated_Listings;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

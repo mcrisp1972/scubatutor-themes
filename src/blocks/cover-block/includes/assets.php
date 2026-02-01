@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\coverBlock;
+namespace Capitola\Blocks\Cover_Block;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets', 99 );
 

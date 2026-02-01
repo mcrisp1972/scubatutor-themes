@@ -1,10 +1,10 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 
 $has_slider = ( $attributes['listLayout'] === 'sidescroll' );
 
-$results = \cwps\postFeed\query_post_listings( $attributes );
+$results = \Capitola\Blocks\Post_Feed\query_post_listings( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -28,7 +28,7 @@ if ( $results->have_posts() ) :
 							get_post_type(),
 							array(
 								'attributes' => $attributes,
-								'conditionals' => \cwps\helpers\blockAttributes\layout_conditionals( $attributes ),
+								'conditionals' => \Capitola\Helpers\Block_Attributes\layout_conditionals( $attributes ),
 							)
 						);
 					endwhile;

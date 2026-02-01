@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\socialShares;
+namespace Capitola\Blocks\Social_Shares;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

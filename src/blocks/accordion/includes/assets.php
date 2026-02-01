@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\cwpsAccordion;
+namespace Capitola\Blocks\Accordion;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

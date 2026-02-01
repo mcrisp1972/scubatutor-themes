@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\TinyMCE;
+namespace Capitola\Tiny_Mce;
 
 function color_palette( $init ) {
 

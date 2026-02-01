@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\openContent;
+namespace Capitola\Blocks\Open_Content;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

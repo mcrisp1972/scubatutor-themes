@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\loadAssets\emojis;
+namespace Capitola\Load_Assets\Emojis;
 
 // remove emoji scripts
 add_action( 'init', __NAMESPACE__ . '\disable_emojis', 99 );

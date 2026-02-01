@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\navDropdown;
+namespace Capitola\Blocks\Nav_Dropdown;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

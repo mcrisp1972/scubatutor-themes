@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\loadAssets\styles;
+namespace Capitola\Load_Assets\Styles;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_styles', 1 );
 

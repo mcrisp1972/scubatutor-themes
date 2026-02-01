@@ -3,7 +3,7 @@
 $contact_info = get_option( 'cwps_contact' );
 $contact_phone = $contact_info['phone'];
 
-$attributes = \cwps\helpers\blockAttributes\alternate_theme( $attributes, 'headerTheme' );
+$attributes = \Capitola\Helpers\Block_Attributes\alternate_theme( $attributes, 'headerTheme' );
 
 $logo_object = $attributes['logo'] ? wp_get_attachment_metadata( $attributes['logo'] ) : false;
 
@@ -87,7 +87,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<?php endforeach; ?>
 					<?php if ( $attributes['showPhoneLink'] ) : ?>
 						<li class="wp-block-cwps-nav__utility-menu-item">
-							<a href="tel:<?= esc_attr( \cwps\helpers\stringHelpers\phone_link_number( $contact_phone ) ) ?>" class="wp-block-cwps-nav__utility-menu-item-link --phone"><?= esc_html( $contact_phone ) ?></a>
+							<a href="tel:<?= esc_attr( \Capitola\Helpers\String_Helpers\phone_link_number( $contact_phone ) ) ?>" class="wp-block-cwps-nav__utility-menu-item-link --phone"><?= esc_html( $contact_phone ) ?></a>
 						</li>
 					<?php endif; ?>
 					<?php if ( $attributes['showAccountIcon'] && CAPITOLA_WOO_ACTIVE ) : ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\loadAssets\adminForms;
+namespace Capitola\Load_Assets\Admin_Forms;
 
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_form_assets' );
 

@@ -6,7 +6,7 @@ if ( empty( $attributes['title'] ) ) {
 
 $submenu_id = 'submenu-' . wp_unique_id();
 
-$main_link = \cwps\helpers\stringHelpers\render_link( $attributes, 'wp-block-cwps-nav__menu-item-link' );
+$main_link = \Capitola\Helpers\String_Helpers\render_link( $attributes, 'wp-block-cwps-nav__menu-item-link' );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\helpers\images;
+namespace Capitola\Helpers\Images;
 
 function post_image_id( $post ) {
 

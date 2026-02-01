@@ -1,6 +1,6 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 
 $args = array(
 	'parent' => 0,
@@ -36,7 +36,7 @@ if ( $results->get_terms() ) : ?>
 							array(
 								'attributes' => $attributes,
 								'term' => $term_obj,
-								'conditionals' => \cwps\helpers\blockAttributes\layout_conditionals( $attributes ),
+								'conditionals' => \Capitola\Helpers\Block_Attributes\layout_conditionals( $attributes ),
 							)
 						);
 						endforeach;

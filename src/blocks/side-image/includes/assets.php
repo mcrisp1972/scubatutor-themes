@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\sideImage;
+namespace Capitola\Blocks\Side_Image;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

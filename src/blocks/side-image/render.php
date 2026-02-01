@@ -12,9 +12,9 @@ if ( ! $attributes['sideImage']['id'] && $attributes['isHeroVariation'] ) {
 	$attributes['sideImage']['id'] = get_post_thumbnail_id();
 }
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes, $attributes['imageLayout'] === 'full' );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes, $attributes['imageLayout'] === 'full' );
 
-$parallax_class = \cwps\helpers\blockAttributes\parallax_img_class( ( $attributes['imageParallax'] && $attributes['imageLayout'] === 'full' ) );
+$parallax_class = \Capitola\Helpers\Block_Attributes\parallax_img_class( ( $attributes['imageParallax'] && $attributes['imageLayout'] === 'full' ) );
 
 $sticky_class = $attributes['stickyImage'] && $attributes['imageLayout'] === 'inner' && $attributes['verticalAlign'] === 'top' ? ' --sticky' : '';
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\posts\themeFilters;
+namespace Capitola\Post_Types\Posts\Theme_Filters;
 
 add_filter( 'cwps_related_post_query', __NAMESPACE__ . '\related_posts_query_args', 5 );
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_Post_Form extends Capitola_Fields {
+class Post_Form extends Fields {
     protected $fields;
     protected $post_type;
     protected $box_title;

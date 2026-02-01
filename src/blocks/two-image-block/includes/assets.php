@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\twoImageBlock;
+namespace Capitola\Blocks\Two_Image_Block;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

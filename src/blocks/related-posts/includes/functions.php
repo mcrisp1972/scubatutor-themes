@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\relatedPosts;
+namespace Capitola\Blocks\Related_Posts;
 
 function query_related_posts( $attributes ) {
 

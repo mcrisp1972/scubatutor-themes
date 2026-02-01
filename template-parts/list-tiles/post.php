@@ -12,13 +12,7 @@ $excerpt = get_the_excerpt();
 
 $image_id = get_post_thumbnail_id( get_the_ID() );
 
-$category = \cwps\helpers\stringHelpers\get_post_term_name( get_the_ID() );
-
-$date = '';
-
-if ( get_post_type() === 'trip' ) {
-	$date = \cwps\trips\functions\trip_date( get_the_ID(), true );
-}
+$category = \Capitola\Helpers\String_Helpers\get_post_term_name( get_the_ID() );
 
 ?>
 
@@ -34,11 +28,6 @@ if ( get_post_type() === 'trip' ) {
 					<<?= tag_escape( $attributes['titleTag'] ) ?> class="cwps-result__thumb-title --hl-s">
 						<?= esc_html( get_the_title() ) ?>
 					</<?= tag_escape( $attributes['titleTag'] ) ?>>
-					<?php if ( $date ) : ?>
-						<div class="cwps-result__thumb-subtitle">
-							<?= esc_html( $date ) ?>
-						</div>
-					<?php endif; ?>
 				<?php endif; ?>
 				<?php if ( $attributes['ctaText'] && $conditionals['ctaLocation'] === 'image' ) : ?>
 					<span class="cwps-result__thumb-cta --cta --tertiary">
@@ -65,11 +54,6 @@ if ( get_post_type() === 'trip' ) {
 							<?= esc_html( get_the_title() ) ?>
 						</<?= tag_escape( $attributes['titleTag'] ) ?> >
 					</div>
-					<?php if ( $date ) : ?>
-						<div class="cwps-result__subtitle">
-							<?= esc_html( $date ) ?>
-						</div>
-					<?php endif; ?>
 					<?php
 				endif;
 				if ( $excerpt && $conditionals['showExcerpt'] ) :

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\supports\comments;
+namespace Capitola\Supports\Comments;
 
 function show_if_comments_enabled( $post_id ) {
 	$allowed_post_types = apply_filters( 'cwps_comments_allowed_post_types', array() );

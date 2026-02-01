@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\fixedBackground;
+namespace Capitola\Blocks\Fixed_Background;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

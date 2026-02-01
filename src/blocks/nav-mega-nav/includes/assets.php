@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\navMegaNav;
+namespace Capitola\Blocks\Nav_Mega_Nav;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

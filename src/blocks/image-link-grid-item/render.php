@@ -2,7 +2,7 @@
 
 $post_obj = get_post( $attributes['postId'] );
 
-$subtitle = $attributes['eyebrowOverride'] ? $attributes['eyebrowOverride'] : \cwps\helpers\stringHelpers\page_parent_label( $attributes['postId'] );
+$subtitle = $attributes['eyebrowOverride'] ? $attributes['eyebrowOverride'] : \Capitola\Helpers\String_Helpers\page_parent_label( $attributes['postId'] );
 
 $post_title = $attributes['titleOverride'] ? $attributes['titleOverride'] : get_the_title( $attributes['postId'] );
 

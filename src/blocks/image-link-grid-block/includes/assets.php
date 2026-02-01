@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\imageLinkGridBlock;
+namespace Capitola\Blocks\Image_Link_Grid_Block;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\filters\postExcerpts;
+namespace Capitola\Filters\Post_Excerpts;
 
 add_post_type_support( 'page', 'excerpt' );
 

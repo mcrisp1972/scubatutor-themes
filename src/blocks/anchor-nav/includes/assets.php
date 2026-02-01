@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\cwpsAnchorNav;
+namespace Capitola\Blocks\Anchor_Nav;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

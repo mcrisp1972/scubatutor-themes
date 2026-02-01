@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\lightboxGallery;
+namespace Capitola\Blocks\Lightbox_Gallery;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

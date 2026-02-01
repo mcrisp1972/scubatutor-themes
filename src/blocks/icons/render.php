@@ -1,6 +1,6 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'id' => $attributes['anchor'],

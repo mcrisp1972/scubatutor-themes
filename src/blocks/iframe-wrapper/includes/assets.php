@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\iframeWrapper;
+namespace Capitola\Blocks\Iframe_Wrapper;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

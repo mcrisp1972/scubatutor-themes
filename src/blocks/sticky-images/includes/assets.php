@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\stickyImages;
+namespace Capitola\Blocks\Sticky_Images;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

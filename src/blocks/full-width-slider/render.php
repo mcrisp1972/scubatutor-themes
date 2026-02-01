@@ -5,7 +5,7 @@ $autoplay = $attributes['autoplay'] ? ' data-autoplay=1' : '';
 
 $navigation = $attributes['navigation'] === 'thumbnails' || $attributes['navigation'] === 'arrows' ? 'arrows' : 'bullets';
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 
 $radius_class = $attributes['sliderRadius'] !== 'none' ? ' --has-' . $attributes['sliderRadius'] . '-radius' : '';
 
@@ -29,7 +29,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<div class="swiper-wrapper">
 						<?php
 						foreach ( $attributes['slides'] as $slide ) :
-							$cta = \cwps\helpers\stringHelpers\render_link( $slide['link'], 'wp-block-cwps-full-width-slider__slide-cta --cta --tertiary' );
+							$cta = \Capitola\Helpers\String_Helpers\render_link( $slide['link'], 'wp-block-cwps-full-width-slider__slide-cta --cta --tertiary' );
 							?>
 							<figure class="swiper-slide<?= esc_attr( $aspect_ratio ) ?> --theme-image-overlay">
 								<?= wp_get_attachment_image( $slide['image']['id'], 'large' ) ?>

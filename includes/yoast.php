@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\yoast;
+namespace Capitola\Yoast;
 
 add_filter( 'wpseo_primary_term_taxonomies', '__return_empty_array' );
 

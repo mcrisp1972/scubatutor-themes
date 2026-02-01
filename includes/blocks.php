@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\Blocks;
+namespace Capitola\Blocks;
 
 const BLACKLIST = array(
 	'core/archives',

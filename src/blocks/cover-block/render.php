@@ -9,7 +9,7 @@ if ( ! $attributes['backgroundImage']['id'] && $attributes['isHeroVariation'] ) 
 }
 
 $hero_class = $attributes['isHeroVariation'] ? '--hero-height' : '';
-$parallax_class = \cwps\helpers\blockAttributes\parallax_img_class( ( $attributes['imageParallax'] ) );
+$parallax_class = \Capitola\Helpers\Block_Attributes\parallax_img_class( ( $attributes['imageParallax'] ) );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -18,9 +18,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-$cta_1 = \cwps\helpers\stringHelpers\render_link( $attributes['cta'], 'wp-block-cwps-cover-block__cta --cta --secondary' );
+$cta_1 = \Capitola\Helpers\String_Helpers\render_link( $attributes['cta'], 'wp-block-cwps-cover-block__cta --cta --secondary' );
 
-$cta_2 = \cwps\helpers\stringHelpers\render_link( $attributes['cta2'], 'wp-block-cwps-cover-block__cta --cta --tertiary' );
+$cta_2 = \Capitola\Helpers\String_Helpers\render_link( $attributes['cta2'], 'wp-block-cwps-cover-block__cta --cta --tertiary' );
 
 ?>
 

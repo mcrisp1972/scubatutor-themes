@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_Term_Form extends Capitola_Fields {
+class Term_Form extends Fields {
 
 	public static $term_thumb = array(
 		'id' => 'term_thumb_id',

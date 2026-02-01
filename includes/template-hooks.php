@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\TemplateHooks;
+namespace Capitola\Template_Hooks;
 
 add_filter( 'body_class', __NAMESPACE__ . '\add_body_theme_class', 1, 99 );
 

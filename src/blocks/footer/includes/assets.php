@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\footer;
+namespace Capitola\Blocks\Footer;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets', 99 );
 

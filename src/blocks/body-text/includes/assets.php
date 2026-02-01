@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\cwpsBlockBodyText;
+namespace Capitola\Blocks\Block_Body_Text;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

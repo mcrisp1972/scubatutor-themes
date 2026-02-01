@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\filters\securityHeaders;
+namespace Capitola\Filters\Security_Headers;
 
 function add_security_headers( $headers ) {
 	if ( ! is_admin() ) {

@@ -2,7 +2,7 @@
 
 $contact_info = get_option( 'cwps_contact' );
 
-$attributes = \cwps\helpers\blockAttributes\alternate_theme( $attributes, 'footerTheme' );
+$attributes = \Capitola\Helpers\Block_Attributes\alternate_theme( $attributes, 'footerTheme' );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -29,7 +29,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<a class="wp-block-cwps-footer__contact-link --map" href="<?= esc_url( $contact_info['gmap_link'] ) ?>" target="_blank">Directions</a>
 				<?php endif; ?>
 				<?php if ( $attributes['showPhoneNumber'] ) : ?>
-					<a class="wp-block-cwps-footer__contact-link --phone" href="tel:<?= esc_attr( \cwps\helpers\stringHelpers\phone_link_number( $contact_info['phone'] ) ) ?>"><?= esc_html( $contact_info['phone'] ) ?></a>
+					<a class="wp-block-cwps-footer__contact-link --phone" href="tel:<?= esc_attr( \Capitola\Helpers\String_Helpers\phone_link_number( $contact_info['phone'] ) ) ?>"><?= esc_html( $contact_info['phone'] ) ?></a>
 				<?php endif; ?>
 				<?php if ( $attributes['showEmail'] ) : ?>
 					<a class="wp-block-cwps-footer__contact-link --email" href="mailto:<?= esc_attr( $contact_info['email'] ) ?>"><?= esc_html( $contact_info['email'] ) ?></a>

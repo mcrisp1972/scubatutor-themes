@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\blocks\smallImageSliderSlider;
+namespace Capitola\Blocks\Small_Image_Slider;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\attachments\fields;
+namespace Capitola\Attachments\Fields;
 
 add_action( 'init', __NAMESPACE__ . '\add_media_fields', 99 );
 
@@ -16,7 +16,7 @@ function add_media_fields() {
 		)
 	);
 
-	new \cwps\adminForms\Capitola_Attachment_Form(
+	new \Capitola\Admin_Forms\Attachment_Form(
 		array(
 			'fields' => array(
 				array(

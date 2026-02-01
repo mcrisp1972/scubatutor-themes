@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_Menu_Form extends Capitola_Fields {
+class Menu_Form extends Fields {
 	public function __construct( $args ) {
 		$this->fields = $args['fields'];
 		$this->depth = $args['depth'];

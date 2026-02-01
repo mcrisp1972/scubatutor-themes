@@ -2,7 +2,7 @@
 
 $theme_class = $attributes['colorThemeBody'] ? ' --theme-' . $attributes['colorTheme'] : ' --theme-image-overlay';
 $align_class = $attributes['introAlign'] ? ' --align-' . $attributes['introAlign'] : '';
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 $radius_class = $attributes['introRadius'] !== 'none' && $attributes['colorThemeBody'] ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
 
 $wrapper_attributes = get_block_wrapper_attributes(

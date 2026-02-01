@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\tabbedContents;
+namespace Capitola\Blocks\Tabbed_Contents;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

@@ -19,7 +19,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-$main_link = \cwps\helpers\stringHelpers\render_link( $attributes, 'wp-block-cwps-nav__menu-item-link' );
+$main_link = \Capitola\Helpers\String_Helpers\render_link( $attributes, 'wp-block-cwps-nav__menu-item-link' );
 
 ?>
 

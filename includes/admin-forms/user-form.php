@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_User_Form extends Capitola_Fields {
+class User_Form extends Fields {
 	protected $fields;
 
 	public function __construct( $args ) {

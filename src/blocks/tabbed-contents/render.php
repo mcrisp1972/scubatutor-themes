@@ -3,7 +3,7 @@
 // Ensure the Interactivity API is loaded
 wp_enqueue_script_module( '@wordpress/interactivity' );
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $attributes );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(

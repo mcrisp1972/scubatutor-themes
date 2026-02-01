@@ -1,10 +1,10 @@
 <?php
 
-namespace cwps\adminForms;
+namespace Capitola\Admin_Forms;
 
 require_once 'fields.php';
 
-class Capitola_Tribe_Settings_Form extends Capitola_Fields {
+class Tribe_Settings_Form extends Fields {
 	protected $tab_id;
 	protected $tab_label;
 	protected $position;

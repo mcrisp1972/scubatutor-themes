@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\sideImage;
+namespace Capitola\Blocks\Side_Image;
 
 function is_valid_iframe( $iframe ) {
 	return preg_match( '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i', $iframe );

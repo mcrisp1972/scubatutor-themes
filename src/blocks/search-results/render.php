@@ -40,7 +40,7 @@ $search_string = esc_attr( get_query_var( 's', '' ) );
 						get_post_type(),
 						array(
 							'attributes' => $attributes,
-							'conditionals' => \cwps\helpers\blockAttributes\layout_conditionals( $attributes ),
+							'conditionals' => \Capitola\Helpers\Block_Attributes\layout_conditionals( $attributes ),
 						)
 					);
 				endwhile;

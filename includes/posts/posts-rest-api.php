@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\posts\restApi;
+namespace Capitola\Post_Types\Posts\Rest_Api;
 
 add_action( 'rest_api_init', __NAMESPACE__ . '\extend_rest_endpoint' );
 

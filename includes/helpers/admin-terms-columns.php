@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\AdminTermsListings;
+namespace Capitola\Admin_Terms_Listings;
 
 function tax_thumb_col_head( $columns ) {
 	$new_columns = array();

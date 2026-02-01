@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\helpers\blockAttributes;
+namespace Capitola\Helpers\Block_Attributes;
 
 function parallax_img_class( $condition ) {
 	return $condition ? '--img-parallax js-imgParallax' : '';

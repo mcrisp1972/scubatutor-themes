@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\simpleSpacer;
+namespace Capitola\Blocks\Simple_Spacer;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

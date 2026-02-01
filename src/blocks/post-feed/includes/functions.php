@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\postFeed;
+namespace Capitola\Blocks\Post_Feed;
 
 function query_post_listings( $attributes ) {
 

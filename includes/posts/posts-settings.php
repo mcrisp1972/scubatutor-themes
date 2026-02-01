@@ -1,8 +1,8 @@
 <?php
 
-namespace cwps\posts\settings;
+namespace Capitola\Post_Types\Posts\Settings;
 
-use cwps\adminForms\Capitola_Settings_Form;
+use Capitola\Admin_Forms\Settings_Form;
 
 const GROUP_POSTS = 'cwps-post-options';
 
@@ -10,7 +10,7 @@ add_action( 'init', __NAMESPACE__ . '\add_options_page' );
 
 function add_options_page() {
 
-	new Capitola_Settings_Form(
+	new Settings_Form(
 		array(
 			'parent_slug' => 'edit.php',
 			'page_title' => 'Blog Settings',

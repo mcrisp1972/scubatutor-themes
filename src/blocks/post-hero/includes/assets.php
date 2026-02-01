@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\postHero;
+namespace Capitola\Blocks\Post_Hero;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
 

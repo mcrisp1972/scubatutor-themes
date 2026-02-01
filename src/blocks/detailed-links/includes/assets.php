@@ -1,6 +1,6 @@
 <?php
 
-namespace cwps\cwpsSideDetailedLinkList;
+namespace Capitola\Blocks\Side_Detailed_Link_List;
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets', 9999 );
 

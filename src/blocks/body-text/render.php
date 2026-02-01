@@ -1,6 +1,6 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $block->context );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $block->context );
 
 $image_bg_class = $attributes['backgroundImage']['id'] ? ' --has-bg-image --theme-image-overlay' : '';
 
@@ -14,7 +14,7 @@ $intro_align_class = $block->context['introAlign'] === 'top' && $attributes['tex
 
 $justify_class = $attributes['verticalAlign'] === 'top' ? ' --justify-top' : '';
 
-$parallax_class = \cwps\helpers\blockAttributes\parallax_img_class( ( $attributes['imageParallax'] ) );
+$parallax_class = \Capitola\Helpers\Block_Attributes\parallax_img_class( ( $attributes['imageParallax'] ) );
 
 if ( ! $attributes['eyebrow'] && ! $attributes['headline'] && ! $content && ! $attributes['cta'] && ! $attributes['cta2'] ) {
 	return;
@@ -26,9 +26,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-$cta_1 = \cwps\helpers\stringHelpers\render_link( $attributes['cta'], 'wp-block-cwps-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --secondary' : '' ) );
+$cta_1 = \Capitola\Helpers\String_Helpers\render_link( $attributes['cta'], 'wp-block-cwps-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --secondary' : '' ) );
 
-$cta_2 = \cwps\helpers\stringHelpers\render_link( $attributes['cta2'], 'wp-block-cwps-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --tertiary' : ' --secondary' ) );
+$cta_2 = \Capitola\Helpers\String_Helpers\render_link( $attributes['cta2'], 'wp-block-cwps-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --tertiary' : ' --secondary' ) );
 
 ?>
 

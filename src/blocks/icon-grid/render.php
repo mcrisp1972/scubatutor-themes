@@ -1,6 +1,6 @@
 <?php
 
-$animations = \cwps\helpers\blockAttributes\animation_attributes( $block->context );
+$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $block->context );
 
 $count = count( $block->inner_blocks );
 
