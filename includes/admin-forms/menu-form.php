@@ -17,14 +17,11 @@ class Menu_Form extends Fields {
 	}
 
 	public function menu_fields( $id, $menu_item, $depth, $args, $current_object_id ) {
-
-		// just for future debug use
-		// $menu_id = isset( $_REQUEST['menu'] ) ? (int) $_REQUEST['menu'] : 0;
-
 		// this seems to reliably get the correct current menu
 		$menu_id = absint( get_user_option( 'nav_menu_recently_edited' ) );
 
-		if ( $menu_id == $this->menu_id && $depth == $this->depth ) {
+		if ( (int) $menu_id === (int) $this->menu_id && (int) $depth === (int) $this->depth ) {
+			wp_nonce_field( 'capitola_menu_form', 'capitola_menu_nonce' );
 
 			foreach ( $this->fields as $field ) :
 				$value = get_post_meta( $id, $field['name'], true );
@@ -35,9 +32,9 @@ class Menu_Form extends Fields {
 					$field['mce_id'] = $field['id'] . '-' . $id;
 				}
 				?>
-				<div style="margin-top: 8px;" id="field-row-<?= $field['id'] ?>">
+				<div style="margin-top: 8px;" id="field-row-<?= esc_attr( $field['id'] ) ?>">
 					<div>
-						<label for="<?= $field['id'] ?>"><?= $field['label'] ?></label>
+						<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
 					</div>
 					<?php self::echo_field( $field, $value ); ?>
 				</div>
@@ -47,18 +44,25 @@ class Menu_Form extends Fields {
 	}
 
 	public function save_menu_meta( $menu_id, $menu_item_db_id, $args ) {
-        // phpcs:ignoreFile WordPress.Security.NonceVerification.Missing
-		if ( $menu_id == $this->menu_id ) {
+		$nonce = isset( $_POST['capitola_menu_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['capitola_menu_nonce'] ) ) : '';
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'capitola_menu_form' ) ) {
+			return;
+		}
+		if ( (int) $menu_id === (int) $this->menu_id ) {
+			$post_data = filter_input_array( INPUT_POST, FILTER_UNSAFE_RAW );
 
 			foreach ( $this->fields as $field ) {
-				if ( isset( $_POST[ $field['name'] ][ $menu_item_db_id ] ) ) {
-					if ( $_POST[ $field['name'] ][ $menu_item_db_id ] ) {
-						update_post_meta( $menu_item_db_id, $field['name'], $_POST[ $field['name'] ][ $menu_item_db_id ] );
+				$field_name = isset( $field['name'] ) ? sanitize_key( $field['name'] ) : '';
+				if ( $field_name && is_array( $post_data ) && isset( $post_data[ $field_name ] ) && is_array( $post_data[ $field_name ] ) && array_key_exists( $menu_item_db_id, $post_data[ $field_name ] ) ) {
+					$raw_value = wp_unslash( $post_data[ $field_name ][ $menu_item_db_id ] );
+					$value = is_array( $raw_value ) ? array_map( 'sanitize_text_field', $raw_value ) : sanitize_text_field( $raw_value );
+					if ( $value ) {
+						update_post_meta( $menu_item_db_id, $field_name, $value );
 					} else {
-						delete_post_meta( $menu_item_db_id, $field['name'] );
+						delete_post_meta( $menu_item_db_id, $field_name );
 					}
-				} elseif ( $field['type'] === 'checkbox' ) {
-					delete_post_meta( $menu_item_db_id, $field['name'] );
+				} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+					delete_post_meta( $menu_item_db_id, $field_name );
 				}
 			}
 		}

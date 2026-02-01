@@ -5,14 +5,14 @@ namespace Capitola\Admin_Forms;
 require_once 'fields.php';
 
 class Settings_Form extends Fields {
-    protected $parent_slug;
-    protected $page_title;
-    protected $menu_title;
-    protected $menu_slug;
-    protected $icon_url;
-    protected $menu_position;
-    protected $fields;
-    protected $tabs;
+	protected $parent_slug;
+	protected $page_title;
+	protected $menu_title;
+	protected $menu_slug;
+	protected $icon_url;
+	protected $menu_position;
+	protected $fields;
+	protected $tabs;
 
 	public function __construct( $settings ) {
 		$this->parent_slug = $settings['parent_slug'] ?? false;
@@ -53,26 +53,41 @@ class Settings_Form extends Fields {
 	}
 
 	public function page_callback() {
-        // phpcs:ignoreFile WordPress.Security.NonceVerification.Recommended
-        // phpcs:ignoreFile WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		if ( isset( $_SERVER['REQUEST_METHOD'] ) && $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+			$nonce = isset( $_POST['capitola_settings_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['capitola_settings_nonce'] ) ) : '';
+			if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'capitola_settings_form' ) ) {
+				wp_die( esc_html__( 'Security check failed. Please refresh the page and try again.', 'capitola' ) );
+			}
+		}
 
-		$current_tab = ! empty( $_GET['tab'] ) ? wp_unslash( $_GET['tab'] ) : ( $this->tabs ? array_key_first( $this->tabs ) : '' );
+		$current_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : ( $this->tabs ? array_key_first( $this->tabs ) : '' );
+		$current_page = ! empty( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : $this->menu_slug;
 		?>
 		<div class="wrap">
-            <!-- <div id="test-app"></div> -->
-			<h1><?php echo get_admin_page_title(); ?></h1>
+			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 			<h2 class="nav-tab-wrapper">
 				<?php
 				if ( $this->tabs ) :
 					foreach ( $this->tabs as $slug => $tab ) :
 						?>
-						<a class="nav-tab <?= $current_tab === $slug ? 'nav-tab-active' : '' ?>" href="?page=<?php echo $_GET['page']; ?>&tab=<?= wp_unslash( $slug ) ?>"><?= $tab['tab_label'] ?></a>
+						<?php
+						$tab_slug = sanitize_text_field( $slug );
+						$tab_url = add_query_arg(
+							array(
+								'page' => $current_page,
+								'tab'  => $tab_slug,
+							),
+							admin_url( 'admin.php' )
+						);
+						?>
+						<a class="nav-tab <?= $current_tab === $slug ? 'nav-tab-active' : '' ?>" href="<?php echo esc_url( $tab_url ); ?>"><?php echo esc_html( $tab['tab_label'] ); ?></a>
 						<?php
 					endforeach;
 				endif;
 				?>
 			</h2>
 			<form method="post" action="options.php">
+				<?php wp_nonce_field( 'capitola_settings_form', 'capitola_settings_nonce' ); ?>
 				<?php
 				if ( $this->tabs ) {
 					settings_fields( $this->tabs[ $current_tab ]['fields_slug'] );
@@ -99,12 +114,12 @@ class Settings_Form extends Fields {
 
 				if ( ! empty( $field['title'] ) ) :
 					?>
-					<h2><?= $field['title'] ?></h2>
+					<h2><?= esc_html( $field['title'] ) ?></h2>
 					<?php
 				endif;
 				if ( ! empty( $field['desc'] ) ) :
 					?>
-					<p><?= $field['desc'] ?></p>
+					<p><?= esc_html( $field['desc'] ) ?></p>
 				<?php endif; ?>
 					<table class="form-table" role="presentation"><tbody>
 				<?php
@@ -117,9 +132,9 @@ class Settings_Form extends Fields {
 				$field = self::set_field_id( $field );
 
 				?>
-				<tr id="field-row-<?= $field['id'] ?>">
+				<tr id="field-row-<?= esc_attr( $field['id'] ) ?>">
 					<th scope="row">
-						<label for="<?= $field['id'] ?>"><?= $field['label'] ?></label>
+						<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
 					</th>
 					<td>
 					<?php self::echo_field( $field, $value ); ?>

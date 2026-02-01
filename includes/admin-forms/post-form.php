@@ -5,10 +5,10 @@ namespace Capitola\Admin_Forms;
 require_once 'fields.php';
 
 class Post_Form extends Fields {
-    protected $fields;
-    protected $post_type;
-    protected $box_title;
-    protected $box_id;
+	protected $fields;
+	protected $post_type;
+	protected $box_title;
+	protected $box_id;
 
 	public function __construct( $args ) {
 		$this->fields = $args['fields'];
@@ -26,6 +26,7 @@ class Post_Form extends Fields {
 
 	public function meta_box( $post ) {
 		?>
+		<?php wp_nonce_field( 'capitola_post_form', 'capitola_post_nonce' ); ?>
 		<table class="form-table" role="presentation">
 			<tbody>
 				<?php
@@ -52,18 +53,25 @@ class Post_Form extends Fields {
 	}
 
 	public function save_meta( $post_id, $post ) {
-        // phpcs:ignoreFile WordPress.Security.NonceVerification.Missing
+		$nonce = isset( $_POST['capitola_post_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['capitola_post_nonce'] ) ) : '';
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'capitola_post_form' ) ) {
+			return;
+		}
+		$post_data = filter_input_array( INPUT_POST, FILTER_UNSAFE_RAW );
 
 		foreach ( $this->fields as $field ) {
+			$field_name = isset( $field['name'] ) ? sanitize_key( $field['name'] ) : '';
 
-			if ( isset( $_POST[ $field['name'] ] ) ) {
-				if ( sanitize_text_field( wp_unslash( $_POST[ $field['name'] ] ) ) ) {
-					update_post_meta( $post_id, $field['name'], sanitize_text_field( wp_unslash( $_POST[ $field['name'] ] ) ) );
+			if ( $field_name && is_array( $post_data ) && array_key_exists( $field_name, $post_data ) ) {
+				$raw_value = wp_unslash( $post_data[ $field_name ] );
+				$value = is_array( $raw_value ) ? array_map( 'sanitize_text_field', $raw_value ) : sanitize_text_field( $raw_value );
+				if ( $value ) {
+					update_post_meta( $post_id, $field_name, $value );
 				} else {
-					delete_post_meta( $post_id, $field['name'] );
+					delete_post_meta( $post_id, $field_name );
 				}
-			} elseif ( $field['type'] === 'checkbox' ) {
-				delete_post_meta( $post_id, $field['name'] );
+			} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+				delete_post_meta( $post_id, $field_name );
 			}
 		}
 	}

@@ -5,7 +5,11 @@
 	"title": "Site Nav Header",
 	"description": "All fields test block",
 	"category": "nav-blocks",
-	"keywords": ["site", "header", "navigation"],
+	"keywords": [
+		"site",
+		"header",
+		"navigation"
+	],
 	"supports": {
 		"multiple": false,
 		"interactivity": true
