@@ -7,7 +7,7 @@ export default function Edit( props ) {
 	return (
 		<div { ...useBlockProps() }>
 			<RichText
-				className="wp-block-cwps-accordion-item__headline --hl-s"
+				className="wp-block-capitola-accordion-item__headline --hl-s"
 				value={ headline }
 				allowedFormats={ [] }
 				placeholder="Headline..."
@@ -15,11 +15,11 @@ export default function Edit( props ) {
 					setAttributes( { headline: value } );
 				} }
 			/>
-			<div className="wp-block-cwps-accordion-item__body">
+			<div className="wp-block-capitola-accordion-item__body">
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: 'wp-block-cwps-accordion-item__body-wrap',
+							className: 'wp-block-capitola-accordion-item__body-wrap',
 						},
 						{
 							allowedBlocks: [

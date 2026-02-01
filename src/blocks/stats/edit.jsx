@@ -30,17 +30,17 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-stats__width alignwide --has-${ introAlign }-intro --item-align-${ textAlignment }`,
+						className: `wp-block-capitola-stats__width alignwide --has-${ introAlign }-intro --item-align-${ textAlignment }`,
 					},
 					{
 						template: [
 							[
-								'cwps/body-text',
+								'capitola/body-text',
 								{
-									className: 'wp-block-cwps-stats__body',
+									className: 'wp-block-capitola-stats__body',
 								},
 							],
-							[ 'cwps/stats-grid' ],
+							[ 'capitola/stats-grid' ],
 						],
 						templateLock: 'all',
 					}

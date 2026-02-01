@@ -5,7 +5,7 @@ import { BaseControl, useBaseControlProps } from '@wordpress/components';
 function LinkSelect( { label, value, onChange, onRemove } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
-		className: 'cwps-sidebar-link-control',
+		className: 'capitola-sidebar-link-control',
 		__nextHasNoMarginBottom: true,
 	} );
 

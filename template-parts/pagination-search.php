@@ -34,23 +34,23 @@ if ( $total_pages <= 6 ) {
 
 ?>
 
-<nav class="cwps-page-nav js-pageNav">
+<nav class="capitola-page-nav js-pageNav">
 	<?php if ( $current_page === 1 ) : ?>
-		<span class="cwps-page-nav__button --prev" disabled>Prev</span>
+		<span class="capitola-page-nav__button --prev" disabled>Prev</span>
 	<?php else : ?>
-		<a href="<?= esc_url( '/page/' . ( $current_page - 1 ) . '/?s=' . $search_string ) ?>" class="cwps-page-nav__button --prev">Prev</a>
+		<a href="<?= esc_url( '/page/' . ( $current_page - 1 ) . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --prev">Prev</a>
 	<?php endif; ?>
-	<ul class="cwps-page-nav__page-numbers js-navPageNumbers">
+	<ul class="capitola-page-nav__page-numbers js-navPageNumbers">
 		<?php
 		foreach ( $pagination_values as $p ) :
 			if ( $p == '...' ) :
 				?>
 				<li>
-					<button class="cwps-page-nav__button --number --dots" type="button" disabled>....</button>
+					<button class="capitola-page-nav__button --number --dots" type="button" disabled>....</button>
 				</li>
 			<?php else : ?>
 				<li>
-					<a href="<?= esc_url( '/page/' . $p . '/?s=' . $search_string ) ?>" class="cwps-page-nav__button --number <?= ( $p === $current_page ? '--current' : '' ) ?>" data-page="<?= esc_attr( $p ) ?>"><?= esc_html( $p ) ?></a>
+					<a href="<?= esc_url( '/page/' . $p . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --number <?= ( $p === $current_page ? '--current' : '' ) ?>" data-page="<?= esc_attr( $p ) ?>"><?= esc_html( $p ) ?></a>
 				</li>
 				<?php
 			endif;
@@ -58,8 +58,8 @@ if ( $total_pages <= 6 ) {
 		?>
 	</ul>
 	<?php if ( $current_page === $total_pages ) : ?>
-		<span class="cwps-page-nav__button --next" disabled>Next</span>
+		<span class="capitola-page-nav__button --next" disabled>Next</span>
 	<?php else : ?>
-		<a href="<?= esc_url( '/page/' . ( $current_page + 1 ) . '/?s=' . $search_string ) ?>" class="cwps-page-nav__button --next">Next</a>
+		<a href="<?= esc_url( '/page/' . ( $current_page + 1 ) . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --next">Next</a>
 	<?php endif; ?>
 </nav>

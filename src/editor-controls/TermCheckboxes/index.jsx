@@ -26,7 +26,7 @@ function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 	}
 
 	const { baseControlProps } = useBaseControlProps( {
-		className: 'cwps-term-checkboxes',
+		className: 'capitola-term-checkboxes',
 		label,
 		__nextHasNoMarginBottom: true,
 	} );

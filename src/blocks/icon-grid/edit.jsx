@@ -17,9 +17,9 @@ export default function Edit( props ) {
 					className: `${ innerBlockCount < 4 ? ' --count-' + innerBlockCount : '' } `,
 				} ),
 				{
-					defaultBlock: { name: 'cwps/icon-item' },
-					allowedBlocks: [ 'cwps/icon-item' ],
-					template: [ [ 'cwps/icon-item' ] ],
+					defaultBlock: { name: 'capitola/icon-item' },
+					allowedBlocks: [ 'capitola/icon-item' ],
+					template: [ [ 'capitola/icon-item' ] ],
 					templateLock: false,
 					directInsert: true,
 					orientation: 'horizontal',

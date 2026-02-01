@@ -19,10 +19,10 @@ function ImageSelectButton( { value, onSelect, allowedTypes = [ 'image' ], label
 						<ConditionalWrap
 							condition={ flexWrap }
 							wrap={ ( children ) => {
-								return <div className="cwps-image-select-button__outer-flex-wrap">{ children }</div>;
+								return <div className="capitola-image-select-button__outer-flex-wrap">{ children }</div>;
 							} }
 						>
-							<Button variant="primary" className="cwps-image-select-button" onClick={ open }>
+							<Button variant="primary" className="capitola-image-select-button" onClick={ open }>
 								{ label
 									? label
 									: typeof value === 'object'

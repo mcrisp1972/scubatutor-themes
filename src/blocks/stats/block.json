@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/stats",
+	"name": "capitola/stats",
 	"title": "Stats",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -46,7 +46,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -69,31 +69,31 @@
 				]
 			},
 			{
-				"name": "cwps/stats-grid",
+				"name": "capitola/stats-grid",
 				"innerBlocks": [
 					{
-						"name": "cwps/stats-item",
+						"name": "capitola/stats-item",
 						"attributes": {
 							"stat": "90",
 							"caption": "Vivamus elit leo"
 						}
 					},
 					{
-						"name": "cwps/stats-item",
+						"name": "capitola/stats-item",
 						"attributes": {
 							"stat": "100%",
 							"caption": "Aenean eiusmod porttitor"
 						}
 					},
 					{
-						"name": "cwps/stats-item",
+						"name": "capitola/stats-item",
 						"attributes": {
 							"stat": "33k",
 							"caption": "Dolor consectetur cillum"
 						}
 					},
 					{
-						"name": "cwps/stats-item",
+						"name": "capitola/stats-item",
 						"attributes": {
 							"stat": "25%",
 							"caption": "Proident culpa pariatur"
@@ -109,8 +109,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
-	"style": "cwps-stats",
+	"style": "capitola-stats",
 	"editorScript": "file:./index.js"
 }

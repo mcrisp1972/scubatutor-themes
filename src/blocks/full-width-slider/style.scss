@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-full-width-slider {
+.wp-block-capitola-full-width-slider {
 	@include block-outer-wrap;
 
 	&:has(.--sticky) {
@@ -15,13 +15,13 @@
 			grid-template-columns: calc(50% - (var(--capitola-blockPadding) / 2)) calc(50% - (var(--capitola-blockPadding) / 2));
 			align-items: center;
 
-			&:has(.wp-block-cwps-body-text.--justify-top) {
+			&:has(.wp-block-capitola-body-text.--justify-top) {
 				align-items: start;
 			}
 
 			&.--has-right-intro {
 
-				.wp-block-cwps-body-text {
+				.wp-block-capitola-body-text {
 					grid: {
 						row: 1;
 						column: 2;

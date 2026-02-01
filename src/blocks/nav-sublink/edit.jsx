@@ -70,7 +70,7 @@ export default function Edit( props ) {
 				</Popover>
 			) }
 			<RichText
-				className="wp-block-cwps-nav-sublink__link"
+				className="wp-block-capitola-nav-sublink__link"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder="Link Text..."
@@ -80,12 +80,12 @@ export default function Edit( props ) {
 				onSplit={ ( value, isOriginal ) => {
 					let block;
 					if ( isOriginal ) {
-						block = createBlock( 'cwps/nav-sublink', {
+						block = createBlock( 'capitola/nav-sublink', {
 							...attributes,
 						} );
 						block.clientId = clientId;
 					} else {
-						block = createBlock( 'cwps/nav-sublink' );
+						block = createBlock( 'capitola/nav-sublink' );
 					}
 					return block;
 				} }

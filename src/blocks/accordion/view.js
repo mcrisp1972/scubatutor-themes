@@ -1,6 +1,6 @@
 import { store, getContext } from '@wordpress/interactivity';
 
-store( 'cwps-accordion', {
+store( 'capitola-accordion', {
 	state: {
 		get isOpen() {
 			const context = getContext();

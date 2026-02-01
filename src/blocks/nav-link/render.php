@@ -1,11 +1,11 @@
 <?php
 
-$rendered_link = \Capitola\Helpers\String_Helpers\render_link( $attributes, 'wp-block-cwps-nav__menu-item-link' );
+$rendered_link = \Capitola\Helpers\String_Helpers\render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
 
 if ( $rendered_link ) :
 	$wrapper_attributes = get_block_wrapper_attributes(
 		array(
-			'class' => 'wp-block-cwps-nav__menu-item',
+			'class' => 'wp-block-capitola-nav__menu-item',
 		)
 	);
 

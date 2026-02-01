@@ -19,20 +19,20 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-form-block__width alignwide',
+						className: 'wp-block-capitola-form-block__width alignwide',
 					},
 					{
 						template: [
 							[
-								'cwps/body-text',
+								'capitola/body-text',
 								{
-									className: 'wp-block-cwps-form-block__body',
+									className: 'wp-block-capitola-form-block__body',
 								},
 							],
 							[
-								'cwps/inner-block-wrap',
+								'capitola/inner-block-wrap',
 								{
-									className: 'wp-block-cwps-form-block__form-col cwps-form',
+									className: 'wp-block-capitola-form-block__form-col capitola-form',
 									allowedBlocks: [ 'gravityforms/form', 'wpforms/form-selector' ],
 								},
 							],

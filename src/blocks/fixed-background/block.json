@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/fixed-background",
+	"name": "capitola/fixed-background",
 	"title": "Fixed Background",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["product"],
 	"supports": {
 		"anchor": true,
@@ -86,7 +86,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -119,7 +119,7 @@
 	},
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
-	"style": "cwps-fixedBackground",
-	"editorStyle": "cwps-fixedBackground-editor",
-	"viewScript": ["cwps-animations", "file:./view.js"]
+	"style": "capitola-fixed-background",
+	"editorStyle": "capitola-fixed-background-editor",
+	"viewScript": ["capitola-animations", "file:./view.js"]
 }

@@ -1,14 +1,14 @@
-.wp-block-cwps-nav {
+.wp-block-capitola-nav {
 	height: auto;
 
-	&:has(.wp-block-cwps-nav-dropdown.is-selected),
-	&:has(.wp-block-cwps-nav-mega-nav.is-selected),
-	&:has(.wp-block-cwps-nav-dropdown.has-child-selected),
-	&:has(.wp-block-cwps-nav-mega-nav.has-child-selected) {
+	&:has(.wp-block-capitola-nav-dropdown.is-selected),
+	&:has(.wp-block-capitola-nav-mega-nav.is-selected),
+	&:has(.wp-block-capitola-nav-dropdown.has-child-selected),
+	&:has(.wp-block-capitola-nav-mega-nav.has-child-selected) {
 		height: 800px;
 	}
 
-	.wp-block-cwps-nav-mega-nav {
+	.wp-block-capitola-nav-mega-nav {
 
 		&__sub-menu {
 			position: fixed;
@@ -20,7 +20,7 @@
 
 			&:hover {
 
-				.wp-block-cwps-nav-mega-nav__sub-menu {
+				.wp-block-capitola-nav-mega-nav__sub-menu {
 					grid-template-rows: 0fr;
 				}
 			}
@@ -29,19 +29,19 @@
 		&.is-selected,
 		&.has-child-selected {
 
-			.wp-block-cwps-nav-mega-nav__sub-menu {
+			.wp-block-capitola-nav-mega-nav__sub-menu {
 				grid-template-rows: 1fr;
 			}
 		}
 	}
 
-	.wp-block-cwps-nav-dropdown {
+	.wp-block-capitola-nav-dropdown {
 
 		&:not(.is-selected):not(.has-child-selected) {
 
 			&:hover {
 
-				.wp-block-cwps-nav-dropdown__sub-menu {
+				.wp-block-capitola-nav-dropdown__sub-menu {
 					grid-template-rows: 0fr;
 				}
 			}
@@ -50,7 +50,7 @@
 		&.is-selected,
 		&.has-child-selected {
 
-			.wp-block-cwps-nav-dropdown__sub-menu {
+			.wp-block-capitola-nav-dropdown__sub-menu {
 				grid-template-rows: 1fr;
 			}
 		}

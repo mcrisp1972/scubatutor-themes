@@ -34,12 +34,12 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: `wp-block-cwps-two-image-block__width alignwide --has-${ introAlign }-intro ${
+			className: `wp-block-capitola-two-image-block__width alignwide --has-${ introAlign }-intro ${
 				verticalAlign === 'top' ? ' --align-top' : ''
 			}`,
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -207,10 +207,10 @@ export default function Edit( props ) {
 			<div { ...innerBlocksProps }>
 				{ children }
 				<div
-					className={ `wp-block-cwps-two-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition }` }
+					className={ `wp-block-capitola-two-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition }` }
 				>
 					<figure
-						className={ `wp-block-cwps-two-image-block__rear-image ${
+						className={ `wp-block-capitola-two-image-block__rear-image ${
 							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
 						}` }
 						style={ {
@@ -222,7 +222,7 @@ export default function Edit( props ) {
 						{ rearImage?.source_url ? <img src={ rearImage?.source_url } alt="" /> : <PlaceholderImage /> }
 					</figure>
 					<figure
-						className={ `wp-block-cwps-two-image-block__front-image ${
+						className={ `wp-block-capitola-two-image-block__front-image ${
 							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
 						}` }
 						style={ {

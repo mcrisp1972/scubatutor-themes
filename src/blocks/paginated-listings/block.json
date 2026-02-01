@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/paginated-listings",
+	"name": "capitola/paginated-listings",
 	"title": "Paginated Listings",
 	"description": "",
-	"category": "cwps-listing-blocks",
+	"category": "listing-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -168,7 +168,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -200,7 +200,7 @@
 		"introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
-	"style": ["cwps-post-filters", "cwps-post-listing", "cwps-page-navigation"],
-	"viewScript": ["file:./view.js", "cwps-animations"],
+	"style": ["capitola-post-filters", "capitola-post-listing", "capitola-page-navigation"],
+	"viewScript": ["file:./view.js", "capitola-animations"],
 	"editorScript": "file:./index.js"
 }

@@ -4,28 +4,28 @@ import { applyFilters } from '@wordpress/hooks';
 
 function ColorThemeOption( { theme, checked, onClick } ) {
 	return (
-		<div className="cwps-theme-picker__option-wrapper">
+		<div className="capitola-theme-picker__option-wrapper">
 			<Tooltip text={ theme.name }>
 				<button
 					type="button"
-					className={ `cwps-theme-picker__option ${ checked ? '--checked' : '' }` }
+					className={ `capitola-theme-picker__option ${ checked ? '--checked' : '' }` }
 					onClick={ onClick }
 				>
-					<div className="cwps-theme-picker__option-swatch">
+					<div className="capitola-theme-picker__option-swatch">
 						<div
-							className="cwps-theme-picker__option-bg"
+							className="capitola-theme-picker__option-bg"
 							style={ { backgroundColor: theme.palette.background } }
 						></div>
 						<div
-							className="cwps-theme-picker__option-primary"
+							className="capitola-theme-picker__option-primary"
 							style={ { backgroundColor: theme.palette.primary } }
 						/>
 						<div
-							className="cwps-theme-picker__option-secondary"
+							className="capitola-theme-picker__option-secondary"
 							style={ { backgroundColor: theme.palette.secondary } }
 						></div>
 						{ checked && (
-							<div className="cwps-theme-picker__option-selected">
+							<div className="capitola-theme-picker__option-selected">
 								<Icon icon={ check } />
 							</div>
 						) }
@@ -38,7 +38,7 @@ function ColorThemeOption( { theme, checked, onClick } ) {
 
 function ColorThemePicker( { label, onChange, value } ) {
 	// Apply filter inside component so child theme filters are registered first
-	const colorThemes = applyFilters( 'cwps.colorThemes' );
+	const colorThemes = applyFilters( 'capitola.colorThemes' );
 
 	const handleColorClick = ( slug ) => {
 		onChange( slug );
@@ -48,8 +48,8 @@ function ColorThemePicker( { label, onChange, value } ) {
 
 	return (
 		<BaseControl { ...baseControlProps }>
-			<div className="cwps-theme-picker">
-				<div className="cwps-theme-picker__swatches">
+			<div className="capitola-theme-picker">
+				<div className="capitola-theme-picker__swatches">
 					{ colorThemes.map( ( theme, index ) => {
 						if ( theme.palette ) {
 							return (

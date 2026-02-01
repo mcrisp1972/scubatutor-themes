@@ -20,10 +20,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 if ( $results && $results->have_posts() ) : ?>
 	<section <?= wp_kses_data( $wrapper_attributes ) ?>>
-		<div class="cwps-listings__width alignwide <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
+		<div class="capitola-listings__width alignwide <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
 			<?= wp_kses_post( $content ) ?>
-			<div class="cwps-listings__sidescroll swiper">
-				<div class="cwps-listings__list swiper-wrapper --<?= esc_attr( $attributes['listLayout'] ) ?>">
+			<div class="capitola-listings__sidescroll swiper">
+				<div class="capitola-listings__list swiper-wrapper --<?= esc_attr( $attributes['listLayout'] ) ?>">
 					<?php
 					while ( $results->have_posts() ) :
 						$results->the_post();
@@ -39,7 +39,7 @@ if ( $results && $results->have_posts() ) : ?>
 					?>
 				</div>
 				<?php if ( $has_slider ) : ?>
-					<div class="cwps-listings__scroll-buttons">
+					<div class="capitola-listings__scroll-buttons">
 						<button class="swiper-button-prev" aria-label="scroll left"></button>
 						<?php if ( $attributes['showSlideCount'] ) : ?>
 							<div class="swiper-pagination"></div>

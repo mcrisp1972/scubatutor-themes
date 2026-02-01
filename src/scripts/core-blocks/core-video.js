@@ -2,7 +2,7 @@ import { addFilter } from '@wordpress/hooks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/video_block_supports',
+	'capitola/video_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/video' ) {
 			return props;

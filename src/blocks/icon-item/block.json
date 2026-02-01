@@ -1,13 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/icon-item",
+	"name": "capitola/icon-item",
 	"title": "Icon Item",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {},
-	"parent": ["cwps/icon-grid"],
+	"parent": ["capitola/icon-grid"],
 	"attributes": {
 		"icon": {
 			"type": "string",

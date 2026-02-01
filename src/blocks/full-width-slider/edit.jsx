@@ -46,10 +46,10 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: `wp-block-cwps-full-width-slider__width alignwide --has-${ introAlign }-intro`,
+			className: `wp-block-capitola-full-width-slider__width alignwide --has-${ introAlign }-intro`,
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -126,8 +126,8 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div className={ `wp-block-cwps-full-width-slider__sliders ${ stickyClass }` }>
-					<div className="wp-block-cwps-full-width-slider__main">
+				<div className={ `wp-block-capitola-full-width-slider__sliders ${ stickyClass }` }>
+					<div className="wp-block-capitola-full-width-slider__main">
 						<Swiper
 							key={ transition }
 							className={ radiusClass }
@@ -205,7 +205,7 @@ export default function Edit( props ) {
 												/>
 											) }
 											{ slide.image.id !== 0 && (
-												<div className="wp-block-cwps-full-width-slider__slide-caption">
+												<div className="wp-block-capitola-full-width-slider__slide-caption">
 													<RichText
 														tagName="p"
 														value={ slide.caption }
@@ -222,7 +222,7 @@ export default function Edit( props ) {
 														} }
 													/>
 													<CtaControl
-														className="wp-block-cwps-full-width-slider__slide-cta --cta --tertiary"
+														className="wp-block-capitola-full-width-slider__slide-cta --cta --tertiary"
 														value={ slide.link }
 														placeholder="Link..."
 														onChange={ ( value ) => {
@@ -291,7 +291,7 @@ export default function Edit( props ) {
 						</Swiper>
 					</div>
 					{ navigation === 'thumbnails' && (
-						<div className="wp-block-cwps-full-width-slider__thumbs">
+						<div className="wp-block-capitola-full-width-slider__thumbs">
 							<Swiper
 								modules={ [ Thumbs ] }
 								slidesPerView={ slides.length < 6 ? slides.length : 6 }

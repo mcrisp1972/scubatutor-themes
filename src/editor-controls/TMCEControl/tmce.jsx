@@ -125,7 +125,7 @@ export default function ClassicEdit( props ) {
 						toolbar4: '',
 						content_css: false,
 						fixed_toolbar_container: `#toolbar-${ editorId }`,
-						content_style: '.cwps-tiny-mce-control ul { list-style:disc;padding-left:14px; }',
+						content_style: '.capitola-tiny-mce-control ul { list-style:disc;padding-left:14px; }',
 						setup: onSetup,
 					},
 				} );

@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/nav-mega-nav",
+	"name": "capitola/nav-mega-nav",
 	"title": "Mega Nav",
 	"description": "",
-	"category": "cwps-nav-blocks",
+	"category": "nav-blocks",
 	"keywords": ["site", "header", "navigation"],
-	"parent": ["cwps/nav"],
+	"parent": ["capitola/nav"],
 	"supports": {},
 	"attributes": {
 		"title": {
@@ -35,6 +35,6 @@
 		}
 	},
 	"render": "file:./render.php",
-	"style": "cwps-navMegaNav",
+	"style": "capitola-nav-mega-nav",
 	"editorScript": "file:./index.js"
 }

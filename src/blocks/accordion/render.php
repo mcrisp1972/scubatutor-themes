@@ -3,7 +3,7 @@
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'id' => $attributes['anchor'],
-		'data-wp-interactive' => 'cwps-accordion',
+		'data-wp-interactive' => 'capitola-accordion',
 		'data-wp-context' => wp_json_encode(
 			array(
 				'keepOpen' => $attributes['keepOpen'],
@@ -15,7 +15,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-accordion__list">
+	<div class="wp-block-capitola-accordion__list">
 		<?= wp_kses_post( $content ) ?>
 	</div>
 </section>

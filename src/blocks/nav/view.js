@@ -40,7 +40,7 @@ function handleFocusTrap( event ) {
 	}
 }
 
-const { state } = store( 'cwps-nav', {
+const { state } = store( 'capitola-nav', {
 	state: {
 		showBanner: ! cookies.getCookie( 'hide_banner' ),
 		searchOpen: false,

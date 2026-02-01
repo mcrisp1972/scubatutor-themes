@@ -1,13 +1,13 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-nav-dropdown {
+.wp-block-capitola-nav-dropdown {
 
 	@include mq("large") {
 		position: relative;
 
 		&:hover {
 
-			.wp-block-cwps-nav-dropdown__sub-menu {
+			.wp-block-capitola-nav-dropdown__sub-menu {
 				grid-template-rows: 1fr;
 			}
 		}

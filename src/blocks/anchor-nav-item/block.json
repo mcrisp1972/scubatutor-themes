@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/anchor-nav-item",
+	"name": "capitola/anchor-nav-item",
 	"title": "Anchor Nav Item",
 	"description": "",
-	"category": "cwps-custom-blocks",
-	"parent": ["cwps/anchor-nav"],
+	"category": "custom-blocks",
+	"parent": ["capitola/anchor-nav"],
 	"supports": {},
 	"attributes": {
 		"label": {

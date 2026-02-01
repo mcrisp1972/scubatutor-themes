@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/detailed-links",
+	"name": "capitola/detailed-links",
 	"title": "Detailed Links",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -54,7 +54,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -77,10 +77,10 @@
 				]
 			},
 			{
-				"name": "cwps/detailed-links-list",
+				"name": "capitola/detailed-links-list",
 				"innerBlocks": [
 					{
-						"name": "cwps/detailed-links-item",
+						"name": "capitola/detailed-links-item",
 						"attributes": {
 							"linkImage": {
 								"source_url": "https://pd.w.org/2025/07/3686b56bb5654b3.99596342-768x543.jpg"
@@ -90,7 +90,7 @@
 						}
 					},
 					{
-						"name": "cwps/detailed-links-item",
+						"name": "capitola/detailed-links-item",
 						"attributes": {
 							"linkImage": {
 								"source_url": "https://pd.w.org/2025/07/89686b5514040159.33508500-768x432.jpg"
@@ -100,7 +100,7 @@
 						}
 					},
 					{
-						"name": "cwps/detailed-links-item",
+						"name": "capitola/detailed-links-item",
 						"attributes": {
 							"linkImage": {
 								"source_url": "https://pd.w.org/2025/06/30685e94efbcbdb2.81046047-768x576.jpeg"
@@ -121,8 +121,8 @@
 		"showImage": "showImage",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
-	"style": "cwps-sideDetailedLinkList",
+	"viewScript": "capitola-animations",
+	"style": "capitola-side-detailed-link-list",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

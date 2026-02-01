@@ -22,13 +22,13 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-accordion__list',
+						className: 'wp-block-capitola-accordion__list',
 						'data-auto-collapse': keepOpen ? '1' : '0',
 					},
 					{
-						defaultBlock: { name: 'cwps/accordion-item' },
-						allowedBlocks: [ 'cwps/accordion-item' ],
-						template: [ [ 'cwps/accordion-item' ] ],
+						defaultBlock: { name: 'capitola/accordion-item' },
+						allowedBlocks: [ 'capitola/accordion-item' ],
+						template: [ [ 'capitola/accordion-item' ] ],
 						templateLock: false,
 						directInsert: true,
 					}

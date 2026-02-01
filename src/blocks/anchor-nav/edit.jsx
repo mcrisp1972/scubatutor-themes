@@ -10,16 +10,16 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } initialOpen={ true } />
 			</InspectorControls>
 
-			<div className="wp-block-cwps-anchor-nav__width">
+			<div className="wp-block-capitola-anchor-nav__width">
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: 'wp-block-cwps-anchor-nav__list',
+							className: 'wp-block-capitola-anchor-nav__list',
 						},
 						{
-							defaultBlock: { name: 'cwps/anchor-nav-item' },
-							allowedBlocks: [ 'cwps/anchor-nav-item' ],
-							template: [ [ 'cwps/anchor-nav-item' ] ],
+							defaultBlock: { name: 'capitola/anchor-nav-item' },
+							allowedBlocks: [ 'capitola/anchor-nav-item' ],
+							template: [ [ 'capitola/anchor-nav-item' ] ],
 							directInsert: true,
 						}
 					) }

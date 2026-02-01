@@ -62,7 +62,7 @@ export function Iframe( { iframeCode, radiusClass } ) {
 
 	return (
 		<div
-			className={ `wp-block-cwps-side-image__iframe-wrap ${ radiusClass }` }
+			className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
 			style={ { aspectRatio: iFrameAspect( iframeCode ) } }
 		>
 			<iframe { ...parseIframeAttributes( iframeCode ) } />

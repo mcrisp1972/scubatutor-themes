@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/open-content",
+	"name": "capitola/open-content",
 	"title": "Open Content Layout",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -54,6 +54,6 @@
 		"viewportWidth": 1440
 	},
 	"render": "file:./render.php",
-	"style": ["cwps-openContent"],
+	"style": ["capitola-open-content"],
 	"editorScript": "file:./index.js"
 }

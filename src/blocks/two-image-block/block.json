@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/two-image-block",
+	"name": "capitola/two-image-block",
 	"title": "Two Image Block",
 	"description": "Displays two overlapping images with side content.",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["links"],
 	"supports": {
 		"anchor": true,
@@ -115,7 +115,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -146,8 +146,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
-	"style": "cwps-twoImageBlock"
+	"style": "capitola-two-image-block"
 }

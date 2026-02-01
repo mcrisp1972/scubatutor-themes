@@ -14,11 +14,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <div <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<button class="wp-block-cwps-accordion-item__headline --hl-s" type="button" aria-label="Toggle Accordion" data-wp-on--click="actions.toggle" data-wp-bind--aria-expanded="state.isOpen">
+	<button class="wp-block-capitola-accordion-item__headline --hl-s" type="button" aria-label="Toggle Accordion" data-wp-on--click="actions.toggle" data-wp-bind--aria-expanded="state.isOpen">
 		<?= esc_html( $attributes['headline'] ) ?>
 	</button>
-	<div class="wp-block-cwps-accordion-item__body" data-wp-bind--inert="!state.isOpen">
-		<div class="wp-block-cwps-accordion-item__body-wrap">
+	<div class="wp-block-capitola-accordion-item__body" data-wp-bind--inert="!state.isOpen">
+		<div class="wp-block-capitola-accordion-item__body-wrap">
 			<?= wp_kses_post( $content ) ?>
 		</div>
 	</div>

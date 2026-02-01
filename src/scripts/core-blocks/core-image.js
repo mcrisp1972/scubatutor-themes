@@ -3,7 +3,7 @@ import { registerBlockStyle } from '@wordpress/blocks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/image_block_supports',
+	'capitola/image_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/image' ) {
 			return props;

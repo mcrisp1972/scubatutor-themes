@@ -27,7 +27,7 @@ The component renders several action buttons based on the current context:
 - **Condition**: Shown when `allowNull` is true OR there's more than one row
 - **Action**: Removes the current row from the repeater array
 - **Icon**: Trash icon
-- **CSS Class**: `cwps-repeater-controls__button --delete`
+- **CSS Class**: `capitola-repeater-controls__button --delete`
 
 ### Move Buttons
 - **Move Before**: Moves current row up/left (shown when not first row)

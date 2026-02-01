@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-fixed-background {
+.wp-block-capitola-fixed-background {
 	$sticky-height: calc(100vh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
 
 	position: relative;

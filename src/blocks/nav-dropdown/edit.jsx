@@ -9,7 +9,7 @@ export default function Edit( props ) {
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-cwps-nav__menu-item' } ) }>
+		<div { ...useBlockProps( { className: 'wp-block-capitola-nav__menu-item' } ) }>
 			<InspectorControls>
 				<PanelBody title="Dropdown Settings" initialOpen={ true }>
 					<TextControl
@@ -81,7 +81,7 @@ export default function Edit( props ) {
 				</Popover>
 			) }
 			<RichText
-				className="wp-block-cwps-nav__menu-item-link"
+				className="wp-block-capitola-nav__menu-item-link"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder="Link Text..."
@@ -89,18 +89,18 @@ export default function Edit( props ) {
 					setAttributes( { title: value } );
 				} }
 			/>
-			<button type="button" className="wp-block-cwps-nav__menu-item-toggle"></button>
-			<div className="wp-block-cwps-nav__menu-item-caret"></div>
-			<div className={ `wp-block-cwps-nav-dropdown__sub-menu ${ alignment }` }>
-				<div className="wp-block-cwps-nav-dropdown__sub-menu-height">
+			<button type="button" className="wp-block-capitola-nav__menu-item-toggle"></button>
+			<div className="wp-block-capitola-nav__menu-item-caret"></div>
+			<div className={ `wp-block-capitola-nav-dropdown__sub-menu ${ alignment }` }>
+				<div className="wp-block-capitola-nav-dropdown__sub-menu-height">
 					<div
 						{ ...useInnerBlocksProps(
 							{
-								className: 'wp-block-cwps-nav-dropdown__sub-menu-items',
+								className: 'wp-block-capitola-nav-dropdown__sub-menu-items',
 							},
 							{
-								defaultBlock: { name: 'cwps/nav-sublink' },
-								allowedBlocks: [ 'cwps/nav-sublink' ],
+								defaultBlock: { name: 'capitola/nav-sublink' },
+								allowedBlocks: [ 'capitola/nav-sublink' ],
 								directInsert: true,
 							}
 						) }

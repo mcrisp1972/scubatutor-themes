@@ -16,41 +16,41 @@ $category = \Capitola\Helpers\String_Helpers\get_post_term_name( get_the_ID() );
 
 ?>
 
-<article class="cwps-result swiper-slide">
-	<a class="cwps-result__link" href="<?= esc_url( get_permalink() ) ?>">
-		<div class="cwps-result__image-col --theme-image-overlay">
+<article class="capitola-result swiper-slide">
+	<a class="capitola-result__link" href="<?= esc_url( get_permalink() ) ?>">
+		<div class="capitola-result__image-col --theme-image-overlay">
 			<?= wp_get_attachment_image( $image_id, 'large' ) ?>
 			<?php if ( $conditionals['titleLocation'] === 'image' || $conditionals['ctaLocation'] === 'image' ) : ?>
 				<div class="__opacity-layer"></div>
 			<?php endif; ?>
-			<div class="cwps-result__thumb-content">
+			<div class="capitola-result__thumb-content">
 				<?php if ( $conditionals['titleLocation'] === 'image' ) : ?>
-					<<?= tag_escape( $attributes['titleTag'] ) ?> class="cwps-result__thumb-title --hl-s">
+					<<?= tag_escape( $attributes['titleTag'] ) ?> class="capitola-result__thumb-title --hl-s">
 						<?= esc_html( get_the_title() ) ?>
 					</<?= tag_escape( $attributes['titleTag'] ) ?>>
 				<?php endif; ?>
 				<?php if ( $attributes['ctaText'] && $conditionals['ctaLocation'] === 'image' ) : ?>
-					<span class="cwps-result__thumb-cta --cta --tertiary">
+					<span class="capitola-result__thumb-cta --cta --tertiary">
 						<?= esc_html( $attributes['ctaText'] ) ?>
 					</span>
 				<?php endif; ?>
 			</div>
 			<?php if ( $category && $conditionals['titleLocation'] === 'image' ) : ?>
-				<div class="cwps-result__thumb-cat">
+				<div class="capitola-result__thumb-cat">
 					<?= esc_html( $category ) ?>
 				</div>
 			<?php endif; ?>
 		</div>
 		<?php if ( $conditionals['hasBottom'] ) : ?>
-			<div class="cwps-result__content">
+			<div class="capitola-result__content">
 				<?php if ( $conditionals['titleLocation'] === 'body' ) : ?>
 					<div>
 						<?php if ( $category ) : ?>
-							<div class="cwps-result__body-cat --eyebrow">
+							<div class="capitola-result__body-cat --eyebrow">
 								<?= esc_html( $category ) ?>
 							</div>
 						<?php endif; ?>
-						<<?= tag_escape( $attributes['titleTag'] ) ?> class="cwps-result__title --hl-s">
+						<<?= tag_escape( $attributes['titleTag'] ) ?> class="capitola-result__title --hl-s">
 							<?= esc_html( get_the_title() ) ?>
 						</<?= tag_escape( $attributes['titleTag'] ) ?> >
 					</div>
@@ -58,7 +58,7 @@ $category = \Capitola\Helpers\String_Helpers\get_post_term_name( get_the_ID() );
 				endif;
 				if ( $excerpt && $conditionals['showExcerpt'] ) :
 					?>
-					<p class="cwps-result__excerpt">
+					<p class="capitola-result__excerpt">
 						<?= esc_html( $excerpt ) ?>
 					</p>
 					<?php
@@ -69,19 +69,19 @@ $category = \Capitola\Helpers\String_Helpers\get_post_term_name( get_the_ID() );
 					$name = esc_html( get_the_author_meta( 'display_name' ) );
 					$author_image = wp_get_attachment_image_src( $author_image, 'thumbnail' );
 					?>
-					<div class="cwps-result__byline">
+					<div class="capitola-result__byline">
 						<?php if ( $author_image ) : ?>
-							<div class="cwps-result__byline-img-wrap">
+							<div class="capitola-result__byline-img-wrap">
 								<img src="<?= esc_url( $author_image[0] ) ?>" alt="<?= esc_html( $name ) ?>"/>
 							</div>
 						<?php endif; ?>
-						<div class="cwps-result__byline-date"><?= esc_html( $name ) ?><br><?= esc_html( get_the_date( "M jS 'y" ) ) ?></div>
+						<div class="capitola-result__byline-date"><?= esc_html( $name ) ?><br><?= esc_html( get_the_date( "M jS 'y" ) ) ?></div>
 					</div>
 					<?php
 				endif;
 				if ( $attributes['ctaText'] && $conditionals['ctaLocation'] === 'body' ) :
 					?>
-					<div class="cwps-result__cta --cta --tertiary">
+					<div class="capitola-result__cta --cta --tertiary">
 						<?= esc_html( $attributes['ctaText'] ) ?>
 					</div>
 				<?php endif; ?>

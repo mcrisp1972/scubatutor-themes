@@ -47,7 +47,7 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 
 	const buttonRow = ( index ) => {
 		return (
-			<div className="cwps-repeater__button-row">
+			<div className="capitola-repeater__button-row">
 				{ deleteButton( index ) }
 				{ index !== 0 && upButton( index ) }
 				{ index !== props.attributes[ attribute ].length - 1 && downButton( index ) }
@@ -58,7 +58,7 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const deleteButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --delete"
+				className="capitola-repeater__button --delete"
 				title="Delete Row"
 				onClick={ () => {
 					return removeRow( index );
@@ -72,7 +72,7 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const upButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --up"
+				className="capitola-repeater__button --up"
 				onClick={ () => {
 					return moveUp( index );
 				} }
@@ -86,7 +86,7 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const downButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --down"
+				className="capitola-repeater__button --down"
 				onClick={ () => {
 					return moveDown( index );
 				} }
@@ -124,16 +124,16 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 
 	const { baseControlProps } = useBaseControlProps( {
 		label: pluralLabel,
-		className: `cwps-repeater${ isFlat ? ' --flat' : '' }`,
+		className: `capitola-repeater${ isFlat ? ' --flat' : '' }`,
 		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>
 			{ help && <Tip>{ help }</Tip> }
-			<div className="cwps-repeater__inner-flex">{ repeaterFields }</div>
+			<div className="capitola-repeater__inner-flex">{ repeaterFields }</div>
 			<Button
-				className="cwps-repeater__add-button"
+				className="capitola-repeater__add-button"
 				onClick={ addRow.bind( this ) }
 				text={ `Add ${ label }` }
 				variant="secondary"

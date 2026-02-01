@@ -3,7 +3,7 @@
 namespace Capitola\Supports\Comments;
 
 function show_if_comments_enabled( $post_id ) {
-	$allowed_post_types = apply_filters( 'cwps_comments_allowed_post_types', array() );
+	$allowed_post_types = apply_filters( 'capitola_comments_allowed_post_types', array() );
 	$post_type = get_post_type( $post_id );
 	if ( in_array( $post_type, $allowed_post_types ) && post_type_supports( $post_type, 'comments' ) ) {
 		return true;
@@ -14,7 +14,7 @@ function show_if_comments_enabled( $post_id ) {
 function admin_disable_comments() {
 	// Redirect any user trying to access comments page
 	global $pagenow;
-	$allowed_post_types = apply_filters( 'cwps_comments_allowed_post_types', array() );
+	$allowed_post_types = apply_filters( 'capitola_comments_allowed_post_types', array() );
 
 	if ( $pagenow === 'edit-comments.php' ) {
 		wp_safe_redirect( admin_url() );

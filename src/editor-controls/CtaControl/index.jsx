@@ -61,10 +61,10 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 			</div>
 			{ isVisible && (
 				<Popover anchor={ popoverAnchor } variant="toolbar" onClose={ toggleVisible }>
-					<div className="cwps-cta-popover" style={ { padding: '16px' } }>
+					<div className="capitola-cta-popover" style={ { padding: '16px' } }>
 						<TextControl
 							label="Button Text"
-							className="cwps-cta-popover__title"
+							className="capitola-cta-popover__title"
 							value={ titleValue }
 							onChange={ ( value ) => {
 								setTitleValue( value );

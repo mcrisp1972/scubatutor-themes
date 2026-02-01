@@ -1,9 +1,9 @@
 <?php
 
-namespace Cwps\Hooks\Google_Analytics;
+namespace Capitola\Hooks\Google_Analytics;
 
 function head_script() {
-	$ga_script = get_option( 'cwps_google' );
+	$ga_script = get_option( 'capitola_google' );
 	if ( $ga_script['head'] ) {
 		echo $ga_script['head'];
 	}
@@ -12,7 +12,7 @@ function head_script() {
 add_action( 'wp_head', __NAMESPACE__ . '\head_script', 1 );
 
 function after_body_open_tag() {
-	$ga_script = get_option( 'cwps_google' );
+	$ga_script = get_option( 'capitola_google' );
 	if ( $ga_script['body'] ) {
 		echo $ga_script['body'];
 	}

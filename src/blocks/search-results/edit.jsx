@@ -39,7 +39,7 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: `alignfull cwps-listings is-layout-constrained has-global-padding js-paginatedListings --theme-${ colorTheme }`,
+				className: `alignfull capitola-listings is-layout-constrained has-global-padding js-paginatedListings --theme-${ colorTheme }`,
 			} ) }
 		>
 			<InspectorControls group="settings">
@@ -123,10 +123,10 @@ export default function Edit( props ) {
 				</PanelBody>
 				<ColorThemePanel props={ props } />
 			</InspectorControls>
-			<div className="cwps-listings__width alignwide">
-				<div className="cwps-listings__search-head">
+			<div className="capitola-listings__width alignwide">
+				<div className="capitola-listings__search-head">
 					<RichText
-						className="cwps-listings__headline --hl-l"
+						className="capitola-listings__headline --hl-l"
 						value={ headline }
 						allowedFormats={ [] }
 						placeholder="Headline..."
@@ -134,7 +134,7 @@ export default function Edit( props ) {
 							setAttributes( { headline: value } );
 						} }
 					/>
-					<form className="cwps-listings__search-form" action="/">
+					<form className="capitola-listings__search-form" action="/">
 						<input
 							type="search"
 							name="s"
@@ -144,15 +144,15 @@ export default function Edit( props ) {
 						/>
 						<button type="button" className="search-icon" />
 					</form>
-					<div className="cwps-listings__search-count">We found # results in your search.</div>
+					<div className="capitola-listings__search-count">We found # results in your search.</div>
 				</div>
 				{ ! posts && <div className="--spinner" /> }
 				{ posts && posts.length === 0 && 'No Posts Found' }
 				{ posts && posts.length > 0 && (
-					<div className={ 'cwps-listings__list --' + listLayout }>
+					<div className={ 'capitola-listings__list --' + listLayout }>
 						{ posts.map( ( i, index ) => {
 							return (
-								<article key={ index } className="cwps-result">
+								<article key={ index } className="capitola-result">
 									{ postTile(
 										attributes,
 										layoutConditionals( { ...attributes, ...{ postType: i.type } } ),
@@ -164,15 +164,15 @@ export default function Edit( props ) {
 						} ) }
 					</div>
 				) }
-				<div className="cwps-page-nav js-pageNav">
-					<button className="cwps-page-nav__button --next js-navPrev" disabled="">
+				<div className="capitola-page-nav js-pageNav">
+					<button className="capitola-page-nav__button --next js-navPrev" disabled="">
 						Prev
 					</button>
-					<ul className="cwps-page-nav__page-numbers js-navPageNumbers">
-						<li className="cwps-page-nav__button --number --current">1</li>
+					<ul className="capitola-page-nav__page-numbers js-navPageNumbers">
+						<li className="capitola-page-nav__button --number --current">1</li>
 						<li>
 							<button
-								className="cwps-page-nav__button --number js-navPageNum"
+								className="capitola-page-nav__button --number js-navPageNum"
 								data-page="2"
 								type="button"
 							>
@@ -181,7 +181,7 @@ export default function Edit( props ) {
 						</li>
 						<li>
 							<button
-								className="cwps-page-nav__button --number js-navPageNum"
+								className="capitola-page-nav__button --number js-navPageNum"
 								data-page="3"
 								type="button"
 							>
@@ -190,7 +190,7 @@ export default function Edit( props ) {
 						</li>
 						<li>
 							<button
-								className="cwps-page-nav__button --number js-navPageNum"
+								className="capitola-page-nav__button --number js-navPageNum"
 								data-page="4"
 								type="button"
 							>
@@ -198,7 +198,7 @@ export default function Edit( props ) {
 							</button>
 						</li>
 					</ul>
-					<button className="cwps-page-nav__button --prev js-navNext">Next</button>
+					<button className="capitola-page-nav__button --prev js-navNext">Next</button>
 				</div>
 			</div>
 		</div>

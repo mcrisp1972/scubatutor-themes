@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/featured-posts",
+	"name": "capitola/featured-posts",
 	"title": "Featured Posts",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -101,8 +101,8 @@
 		"introAlign": "introAlign",
 		"isExample": "isExample"
 	},
-	"style": "cwps-post-listing",
-	"viewScript": ["cwps-listing-sidescroll", "cwps-animations"],
+	"style": "capitola-post-listing",
+	"viewScript": ["capitola-listing-sidescroll", "capitola-animations"],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

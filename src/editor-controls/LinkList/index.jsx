@@ -109,10 +109,10 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 			</div>
 			{ isVisible && (
 				<Popover anchor={ popoverAnchor } variant="toolbar" onClose={ toggleVisible }>
-					<div className="cwps-cta-popover" style={ { padding: '16px' } }>
+					<div className="capitola-cta-popover" style={ { padding: '16px' } }>
 						<TextControl
 							label="Link Text"
-							className="cwps-cta-popover__title"
+							className="capitola-cta-popover__title"
 							value={ linksObj[ index ].title }
 							onChange={ ( value ) => {
 								const newValue = [ ...linksObj ];
@@ -243,10 +243,10 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 			) }
 			{ isVisible && (
 				<Popover anchor={ popoverAnchor } variant="toolbar" onClose={ toggleVisible }>
-					<div className="cwps-cta-popover" style={ { padding: '16px' } }>
+					<div className="capitola-cta-popover" style={ { padding: '16px' } }>
 						<TextControl
 							label="Link Text"
-							className="cwps-cta-popover__title"
+							className="capitola-cta-popover__title"
 							value={ newTitle }
 							onChange={ ( value ) => {
 								setNewTitle( value );

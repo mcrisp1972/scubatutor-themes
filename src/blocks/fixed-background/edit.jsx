@@ -24,7 +24,7 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: `wp-block-cwps-fixed-background__img js-background-image ${
+			className: `wp-block-capitola-fixed-background__img js-background-image ${
 				introAlign ? ' --align-' + introAlign : ''
 			} ${ ! desktopImage.id ? ' --no-image' : '' }`,
 			style: desktopImage.source_url
@@ -34,7 +34,7 @@ export default function Edit( props ) {
 				: {},
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -112,7 +112,7 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
-				<div className="wp-block-cwps-fixed-background__opacity" style={ { opacity: imageOpacity } } />
+				<div className="wp-block-capitola-fixed-background__opacity" style={ { opacity: imageOpacity } } />
 				{ children }
 			</div>
 		</div>

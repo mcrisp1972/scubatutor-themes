@@ -17,7 +17,7 @@ jQuery( document ).ready( function ( $ ) {
 		if ( parseInt( newNumberOfTags ) > parseInt( numberOfTags ) ) {
 			numberOfTags = newNumberOfTags;
 
-			$( '#addtag .js-imageSelect.cwps-add-clear' ).each( function () {
+			$( '#addtag .js-imageSelect.capitola-add-clear' ).each( function () {
 				$( this ).removeClass( '--has-value' );
 				$( this ).find( '.js-value' ).val( '0' );
 				$( this ).find( '.js-imageSelectLinkValue' ).text( '' );
@@ -25,7 +25,7 @@ jQuery( document ).ready( function ( $ ) {
 				$( this ).find( '.js-imageSelectTitleRow' ).text( '' );
 			} );
 
-			$( '#addtag select.cwps-add-clear' ).each( function () {
+			$( '#addtag select.capitola-add-clear' ).each( function () {
 				$( this ).val( $( this ).find( 'option:first' ).val() );
 			} );
 		}

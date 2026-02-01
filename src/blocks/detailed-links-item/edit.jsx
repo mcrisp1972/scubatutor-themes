@@ -7,7 +7,7 @@ import { PostPicker, ImageSelect } from '../../editor-controls';
 export default function Edit( props ) {
 	const { attributes, setAttributes, context } = props;
 	const { postType, postId, linkImage, linkTitle, linkExcerpt } = attributes;
-	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
+	const postTypeOptions = applyFilters( 'capitola.postTypeOptions' );
 
 	const linkObj = useSelect(
 		( select ) => {
@@ -92,16 +92,16 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			{ context.showImage && (
-				<div className="wp-block-cwps-detailed-links-item__image">
+				<div className="wp-block-capitola-detailed-links-item__image">
 					{ imageUrl && <img src={ imageUrl } alt="" /> }
 				</div>
 			) }
-			<div className="wp-block-cwps-detailed-links-item__body">
-				<div className="wp-block-cwps-detailed-links-item__title --hl-s">
+			<div className="wp-block-capitola-detailed-links-item__body">
+				<div className="wp-block-capitola-detailed-links-item__title --hl-s">
 					{ !! linkTitle ? linkTitle : linkObj?.title.raw }
 				</div>
 				{ !! context.showExcerpt && (
-					<p className="wp-block-cwps-detailed-links-item__excerpt">
+					<p className="wp-block-capitola-detailed-links-item__excerpt">
 						{ !! linkExcerpt ? linkExcerpt : linkObj?.excerpt.raw }
 					</p>
 				) }

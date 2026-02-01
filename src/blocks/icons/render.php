@@ -10,7 +10,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-icons__width alignwide --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro <?= $attributes['iconBackground'] ? ' --has-icon-background' : '' ?> --item-align-<?= esc_attr( $attributes['textAlignment'] ) ?> <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
+	<div class="wp-block-capitola-icons__width alignwide --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro <?= $attributes['iconBackground'] ? ' --has-icon-background' : '' ?> --item-align-<?= esc_attr( $attributes['textAlignment'] ) ?> <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
 		<?= wp_kses_post( $content ) ?>
 	</div>
 </section>

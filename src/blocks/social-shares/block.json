@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/social-shares",
+	"name": "capitola/social-shares",
 	"title": "Social Shares",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {},
 	"attributes": {
@@ -24,7 +24,7 @@
 		},
 		"viewportWidth": 1440
 	},
-	"style": "cwps-socialShares",
+	"style": "capitola-social-shares",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"
 }

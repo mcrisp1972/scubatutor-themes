@@ -87,7 +87,7 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: `wp-block-cwps-side-image__width ${
+			className: `wp-block-capitola-side-image__width ${
 				imageLayout === 'full' ? 'alignfull --side-bg-img' : 'alignwide --inset-img'
 			}
          --has-${ introAlign }-intro
@@ -96,8 +96,8 @@ export default function Edit( props ) {
 		{
 			template: [
 				isHeroVariation
-					? [ 'cwps/body-text', { isHeroVariation: true, headlineTag: 'h1' } ]
-					: [ 'cwps/body-text' ],
+					? [ 'capitola/body-text', { isHeroVariation: true, headlineTag: 'h1' } ]
+					: [ 'capitola/body-text' ],
 			],
 			templateLock: 'all',
 		}
@@ -280,9 +280,9 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
-				<div className={ 'wp-block-cwps-side-image__imagewrap' + stickyClass }>
+				<div className={ 'wp-block-capitola-side-image__imagewrap' + stickyClass }>
 					{ imageLayout === 'inner' ? (
-						<figure className="wp-block-cwps-side-image__imageratio">
+						<figure className="wp-block-capitola-side-image__imageratio">
 							{ mediaType === 'video' && (
 								<Video
 									videoObject={ videoObject }

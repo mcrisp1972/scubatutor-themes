@@ -1,6 +1,6 @@
 import { store, getContext } from '@wordpress/interactivity';
 
-store( 'cwps-tabbed-contents', {
+store( 'capitola-tabbed-contents', {
 	state: {
 		get isSelected() {
 			const context = getContext();

@@ -22,7 +22,7 @@ export default function Edit( props ) {
 		cookieBannerCloseText,
 		cookieBannerTheme,
 	} = attributes;
-	const colorThemes = applyFilters( 'cwps.colorThemes' );
+	const colorThemes = applyFilters( 'capitola.colorThemes' );
 
 	const [ themeOptions, setThemeOptions ] = useState( null );
 	const [ colorTheme, setColorTheme ] = useState( '' );
@@ -32,7 +32,7 @@ export default function Edit( props ) {
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
 			const key = colorThemes.findIndex( ( color ) => {
-				return color.slug === result.cwps_default_page_color_theme;
+				return color.slug === result.capitola_default_page_color_theme;
 			} );
 			if ( key !== -1 ) {
 				setColorTheme( colorThemes[ key ].footerTheme );
@@ -133,55 +133,55 @@ export default function Edit( props ) {
 						) }
 					</PanelBody>
 				</InspectorControls>
-				<div className="wp-block-cwps-footer__grid alignwide">
+				<div className="wp-block-capitola-footer__grid alignwide">
 					<div
 						{ ...useInnerBlocksProps(
 							{
-								className: 'wp-block-cwps-footer__menus',
+								className: 'wp-block-capitola-footer__menus',
 							},
 							{
-								defaultBlock: { name: 'cwps/footer-link-column' },
-								allowedBlocks: [ 'cwps/footer-link-column' ],
-								template: [ [ 'cwps/footer-link-column' ] ],
+								defaultBlock: { name: 'capitola/footer-link-column' },
+								allowedBlocks: [ 'capitola/footer-link-column' ],
+								template: [ [ 'capitola/footer-link-column' ] ],
 								orientation: 'horizontal',
 								directInsert: true,
 							}
 						) }
 					/>
-					<div className="wp-block-cwps-footer__contact">
-						<div className="wp-block-cwps-footer__contact-info">
+					<div className="wp-block-capitola-footer__contact">
+						<div className="wp-block-capitola-footer__contact-info">
 							{ showBusinessName && themeOptions !== null && (
-								<div>{ themeOptions.cwps_contact.business_name }</div>
+								<div>{ themeOptions.capitola_contact.business_name }</div>
 							) }
 							{ showAddress && themeOptions !== null && (
 								<div
-									dangerouslySetInnerHTML={ { __html: autop( themeOptions.cwps_contact.address ) } }
+									dangerouslySetInnerHTML={ { __html: autop( themeOptions.capitola_contact.address ) } }
 								/>
 							) }
 							{ showMapLink && (
-								<div className="wp-block-cwps-footer__contact-link --map">Directions</div>
+								<div className="wp-block-capitola-footer__contact-link --map">Directions</div>
 							) }
 							{ showPhoneNumber && themeOptions !== null && (
-								<div className="wp-block-cwps-footer__contact-link --phone">
-									{ themeOptions.cwps_contact.phone }
+								<div className="wp-block-capitola-footer__contact-link --phone">
+									{ themeOptions.capitola_contact.phone }
 								</div>
 							) }
 							{ showEmail && themeOptions !== null && (
-								<div className="wp-block-cwps-footer__contact-link --email">
-									{ themeOptions.cwps_contact.email }
+								<div className="wp-block-capitola-footer__contact-link --email">
+									{ themeOptions.capitola_contact.email }
 								</div>
 							) }
 						</div>
 						{ showHours && themeOptions !== null && (
-							<div className="wp-block-cwps-footer__hours">
-								{ Object.keys( themeOptions.cwps_hours ).map( ( key ) => {
-									if ( themeOptions.cwps_hours[ key ] ) {
+							<div className="wp-block-capitola-footer__hours">
+								{ Object.keys( themeOptions.capitola_hours ).map( ( key ) => {
+									if ( themeOptions.capitola_hours[ key ] ) {
 										return (
 											<div key={ key }>
 												<strong>{ key }: </strong>
 												<span>
-													{ themeOptions.cwps_hours[ key ]
-														? themeOptions.cwps_hours[ key ]
+													{ themeOptions.capitola_hours[ key ]
+														? themeOptions.capitola_hours[ key ]
 														: 'Closed' }{ ' ' }
 												</span>
 											</div>
@@ -192,12 +192,12 @@ export default function Edit( props ) {
 							</div>
 						) }
 						{ showSocials && themeOptions !== null && (
-							<div className="wp-block-cwps-footer__social-links">
-								{ Object.keys( themeOptions.cwps_social_links ).map( ( key ) => {
-									if ( themeOptions.cwps_social_links[ key ] ) {
+							<div className="wp-block-capitola-footer__social-links">
+								{ Object.keys( themeOptions.capitola_social_links ).map( ( key ) => {
+									if ( themeOptions.capitola_social_links[ key ] ) {
 										return (
 											<div key={ key }>
-												<span className={ `wp-block-cwps-footer__social-link --${ key }` } />
+												<span className={ `wp-block-capitola-footer__social-link --${ key }` } />
 											</div>
 										);
 									}
@@ -208,18 +208,18 @@ export default function Edit( props ) {
 					</div>
 				</div>
 				{ siteInfo !== null && (
-					<div className="wp-block-cwps-footer__copyright">
+					<div className="wp-block-capitola-footer__copyright">
 						&copy;{ year }, <span dangerouslySetInnerHTML={ { __html: `${ siteInfo.name }` } } />
 					</div>
 				) }
 			</div>
 			{ showCookieBanner && (
 				<div
-					className={ `cwps-cookie-consent is-layout-constrained has-global-padding --theme-${ cookieBannerTheme }` }
+					className={ `capitola-cookie-consent is-layout-constrained has-global-padding --theme-${ cookieBannerTheme }` }
 				>
-					<div className="cwps-cookie-consent__body alignwide">
+					<div className="capitola-cookie-consent__body alignwide">
 						<RichText
-							className="cwps-cookie-consent__notice"
+							className="capitola-cookie-consent__notice"
 							value={ cookieBannerText }
 							placeholder="Message..."
 							allowedFormats={ [ 'core/link' ] }
@@ -228,7 +228,7 @@ export default function Edit( props ) {
 							} }
 						/>
 						<RichText
-							className="cwps-cookie-consent__cta --cta"
+							className="capitola-cookie-consent__cta --cta"
 							value={ cookieBannerCloseText }
 							placeholder="Dismiss Text..."
 							allowedFormats={ [] }

@@ -14,7 +14,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-fixed-background__img js-background-image <?= esc_attr( $align_class ) ?>">
+	<div class="wp-block-capitola-fixed-background__img js-background-image <?= esc_attr( $align_class ) ?>">
 		<picture>
 			<?php if ( $attributes['desktopImage']['id'] ) : ?>
 				<source media="(min-width: 1024px)" srcset="<?= esc_url( wp_get_attachment_image_url( $attributes['desktopImage']['id'], 'full' ) ) ?>">
@@ -26,7 +26,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				<img src="<?= esc_url( ( $attributes['mobileImage']['id'] ? wp_get_attachment_image_url( $attributes['mobileImage']['id'], 'medium_large' ) : '' ) ) ?>">
 			<?php endif; ?>
 		</picture>
-		<div class="wp-block-cwps-fixed-background__opacity" style="opacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>"></div>
+		<div class="wp-block-capitola-fixed-background__opacity" style="opacity: <?= esc_attr( $attributes['imageOpacity'] ) ?>"></div>
 		<?= wp_kses_post( $content ) ?>
 	</div>
 </section>

@@ -27,16 +27,16 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div className="wp-block-cwps-icon-item__icon-wrapper">
+			<div className="wp-block-capitola-icon-item__icon-wrapper">
 				<div
-					className="wp-block-cwps-icon-item__icon"
+					className="wp-block-capitola-icon-item__icon"
 					style={ {
 						maskImage: `url(/wp-content/themes/${ themeObj?.stylesheet }/assets/svgs/icons/${ icon }.svg)`,
 					} }
 				></div>
 			</div>
 			<RichText
-				className="wp-block-cwps-icon-item__title --hl-s"
+				className="wp-block-capitola-icon-item__title --hl-s"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder="Title..."
@@ -46,7 +46,7 @@ export default function Edit( props ) {
 			/>
 			<RichText
 				tagName="p"
-				className="wp-block-cwps-icon-item__caption --micro-text"
+				className="wp-block-capitola-icon-item__caption --micro-text"
 				value={ caption }
 				allowedFormats={ [] }
 				placeholder="Caption..."

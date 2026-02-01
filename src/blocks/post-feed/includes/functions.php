@@ -19,12 +19,12 @@ function query_post_listings( $attributes ) {
 		'order' => $order_bys[ $attributes['orderBy'] ],
 	);
 
-	$args = apply_filters( "cwps_{$attributes['postType']}_listings_query_args", $args, $attributes );
+	$args = apply_filters( "capitola_{$attributes['postType']}_listings_query_args", $args, $attributes );
 
 	if ( ! empty( $attributes['postCategory'] ) ) {
 		$args['tax_query'] = array(
 			array(
-				'taxonomy' => apply_filters( "cwps_related_{$attributes['postType']}_query_tax", false ),
+				'taxonomy' => apply_filters( "capitola_related_{$attributes['postType']}_query_tax", false ),
 				'field' => 'term_id',
 				'terms' => $attributes['postCategory'],
 				'compare' => 'IN',

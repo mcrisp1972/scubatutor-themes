@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/form-block",
+	"name": "capitola/form-block",
 	"title": "Form Block",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -42,7 +42,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -65,13 +65,13 @@
 				]
 			},
 			{
-				"name": "cwps/inner-block-wrap",
+				"name": "capitola/inner-block-wrap",
 				"attributes": {
-					"className": "wp-block-cwps-form-block__form-col cwps-form"
+					"className": "wp-block-capitola-form-block__form-col capitola-form"
 				},
 				"innerBlocks": [
 					{
-						"name": "cwps/dummy-form"
+						"name": "capitola/dummy-form"
 					}
 				]
 			}
@@ -83,8 +83,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
-	"style": ["cwps-formBlock", "cwps-WPForms", "cwps-GForm"],
+	"style": ["capitola-form-block", "capitola-wp-forms", "capitola-GForm"],
 	"editorScript": "file:./index.js"
 }

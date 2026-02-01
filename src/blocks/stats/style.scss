@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-stats {
+.wp-block-capitola-stats {
 	@include block-outer-wrap;
 
 	&__width {
@@ -8,7 +8,7 @@
 	}
 }
 
-.wp-block-cwps-stats-grid {
+.wp-block-capitola-stats-grid {
 	display: flex;
 	position: relative;
 	flex-wrap: wrap;
@@ -24,7 +24,7 @@
 	}
 }
 
-.wp-block-cwps-stats-item {
+.wp-block-capitola-stats-item {
 	$two-column: calc(50% - (var(--capitola-spacing-large) / 2));
 	$three-column: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
 	$four-column: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
@@ -73,7 +73,7 @@
 		}
 	}
 
-	.wp-block-cwps-stats-item__caption {
+	.wp-block-capitola-stats-item__caption {
 		color: var(--capitola-color-body);
 		margin: 0;
 	}

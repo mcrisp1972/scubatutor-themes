@@ -13,16 +13,16 @@ registerBlockType( metadata, {
 		to: [
 			{
 				type: 'block',
-				blocks: [ 'cwps/nav-dropdown' ],
+				blocks: [ 'capitola/nav-dropdown' ],
 				transform: ( attributes ) => {
-					return createBlock( 'cwps/nav-dropdown', attributes );
+					return createBlock( 'capitola/nav-dropdown', attributes );
 				},
 			},
 			{
 				type: 'block',
-				blocks: [ 'cwps/nav-mega-nav' ],
+				blocks: [ 'capitola/nav-mega-nav' ],
 				transform: ( attributes ) => {
-					return createBlock( 'cwps/nav-mega-nav', attributes );
+					return createBlock( 'capitola/nav-mega-nav', attributes );
 				},
 			},
 		],

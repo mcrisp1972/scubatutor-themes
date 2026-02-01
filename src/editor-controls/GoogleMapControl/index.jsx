@@ -22,7 +22,7 @@ function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
 	}
 
 	return (
-		<BaseControl { ...baseControlProps } className="cwps-map-control">
+		<BaseControl { ...baseControlProps } className="capitola-map-control">
 			{ ! isLoaded ? (
 				<h1>Loading...</h1>
 			) : (

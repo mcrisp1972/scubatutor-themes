@@ -2,12 +2,12 @@
 
 namespace Capitola\ThemeOptions;
 
-const GROUP_CONTACT = 'cwps-contact-info';
-const GROUP_BANNERS = 'cwps-banners';
-const GROUP_SOCIALS = 'cwps-socials';
-const GROUP_GOOGLE = 'cwps-ga';
-const GROUP_API_KEYS = 'cwps-api-keys';
-const GROUP_COLOR_THEME = 'cwps-color-theme';
+const GROUP_CONTACT = 'capitola-contact-info';
+const GROUP_BANNERS = 'capitola-banners';
+const GROUP_SOCIALS = 'capitola-socials';
+const GROUP_GOOGLE = 'capitola-ga';
+const GROUP_API_KEYS = 'capitola-api-keys';
+const GROUP_COLOR_THEME = 'capitola-color-theme';
 
 add_action( 'init', __NAMESPACE__ . '\add_options_page', 99 );
 
@@ -24,7 +24,7 @@ function add_options_page() {
 		'parent_slug' => 'options-general.php',
 		'page_title' => 'Theme Options',
 		'menu_title' => 'Theme Options',
-		'menu_slug' => 'cwps-theme-options',
+		'menu_slug' => 'capitola-theme-options',
 		'position' => 50,
 		'tabs' => array(
 			'business-info' => array(
@@ -38,36 +38,36 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Business Name',
-						'name' => 'cwps_contact[business_name]',
-						'option' => array( 'cwps_contact', 'business_name' ),
+						'name' => 'capitola_contact[business_name]',
+						'option' => array( 'capitola_contact', 'business_name' ),
 						'size' => 'large',
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Address',
-						'name' => 'cwps_contact[address]',
-						'option' => array( 'cwps_contact', 'address' ),
+						'name' => 'capitola_contact[address]',
+						'option' => array( 'capitola_contact', 'address' ),
 						'size' => 'large',
 						'type' => 'textarea',
 						'rows' => 4,
 					),
 					array(
 						'label' => 'Google Map Link',
-						'name' => 'cwps_contact[gmap_link]',
-						'option' => array( 'cwps_contact', 'gmap_link' ),
+						'name' => 'capitola_contact[gmap_link]',
+						'option' => array( 'capitola_contact', 'gmap_link' ),
 						'size' => 'full',
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Phone',
-						'name' => 'cwps_contact[phone]',
-						'option' => array( 'cwps_contact', 'phone' ),
+						'name' => 'capitola_contact[phone]',
+						'option' => array( 'capitola_contact', 'phone' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Email',
-						'name' => 'cwps_contact[email]',
-						'option' => array( 'cwps_contact', 'email' ),
+						'name' => 'capitola_contact[email]',
+						'option' => array( 'capitola_contact', 'email' ),
 						'type' => 'text',
 					),
 					array(
@@ -80,44 +80,44 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Monday',
-						'name' => 'cwps_hours[Monday]',
-						'option' => array( 'cwps_hours', 'Monday' ),
+						'name' => 'capitola_hours[Monday]',
+						'option' => array( 'capitola_hours', 'Monday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Tuesday',
-						'name' => 'cwps_hours[Tuesday]',
-						'option' => array( 'cwps_hours', 'Tuesday' ),
+						'name' => 'capitola_hours[Tuesday]',
+						'option' => array( 'capitola_hours', 'Tuesday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Wednesday',
-						'name' => 'cwps_hours[Wednesday]',
-						'option' => array( 'cwps_hours', 'Wednesday' ),
+						'name' => 'capitola_hours[Wednesday]',
+						'option' => array( 'capitola_hours', 'Wednesday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Thursday',
-						'name' => 'cwps_hours[Thursday]',
-						'option' => array( 'cwps_hours', 'Thursday' ),
+						'name' => 'capitola_hours[Thursday]',
+						'option' => array( 'capitola_hours', 'Thursday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Friday',
-						'name' => 'cwps_hours[Friday]',
-						'option' => array( 'cwps_hours', 'Friday' ),
+						'name' => 'capitola_hours[Friday]',
+						'option' => array( 'capitola_hours', 'Friday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Saturday',
-						'name' => 'cwps_hours[Saturday]',
-						'option' => array( 'cwps_hours', 'Saturday' ),
+						'name' => 'capitola_hours[Saturday]',
+						'option' => array( 'capitola_hours', 'Saturday' ),
 						'type' => 'text',
 					),
 					array(
 						'label' => 'Sunday',
-						'name' => 'cwps_hours[Sunday]',
-						'option' => array( 'cwps_hours', 'Sunday' ),
+						'name' => 'capitola_hours[Sunday]',
+						'option' => array( 'capitola_hours', 'Sunday' ),
 						'type' => 'text',
 					),
 					array(
@@ -136,14 +136,14 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Show Notice Banner',
-						'name' => 'cwps_notice_banner[display]',
-						'option' => array( 'cwps_notice_banner', 'display' ),
+						'name' => 'capitola_notice_banner[display]',
+						'option' => array( 'capitola_notice_banner', 'display' ),
 						'type' => 'checkbox',
 					),
 					array(
 						'label' => 'Notice Banner',
-						'name' => 'cwps_notice_banner[message]',
-						'option' => array( 'cwps_notice_banner', 'message' ),
+						'name' => 'capitola_notice_banner[message]',
+						'option' => array( 'capitola_notice_banner', 'message' ),
 						'type' => 'wysiwyg',
 						'mce_id' => 'banner-message-mce',
 						'rows' => 4,
@@ -151,8 +151,8 @@ function add_options_page() {
 					array(
 						'label' => 'Banner Color',
 						'help' => 'Signifies important or urgency of the notice. Update is good for store updates like upcoming sales, new store hours, etc.. Alert is a severe notice, like temporary changes in business hours or online sales availability.',
-						'name' => 'cwps_notice_banner[type]',
-						'option' => array( 'cwps_notice_banner', 'type' ),
+						'name' => 'capitola_notice_banner[type]',
+						'option' => array( 'capitola_notice_banner', 'type' ),
 						'type' => 'radio',
 						'options' => array(
 							'update' => 'Update',
@@ -175,26 +175,26 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Facebook',
-						'name' => 'cwps_social_shares[facebook]',
-						'option' => array( 'cwps_social_shares', 'facebook' ),
+						'name' => 'capitola_social_shares[facebook]',
+						'option' => array( 'capitola_social_shares', 'facebook' ),
 						'type' => 'checkbox',
 					),
 					array(
 						'label' => 'Twitter/X',
-						'name' => 'cwps_social_shares[twitter]',
-						'option' => array( 'cwps_social_shares', 'twitter' ),
+						'name' => 'capitola_social_shares[twitter]',
+						'option' => array( 'capitola_social_shares', 'twitter' ),
 						'type' => 'checkbox',
 					),
 					array(
 						'label' => 'Pinterest',
-						'name' => 'cwps_social_shares[pinterest]',
-						'option' => array( 'cwps_social_shares', 'pinterest' ),
+						'name' => 'capitola_social_shares[pinterest]',
+						'option' => array( 'capitola_social_shares', 'pinterest' ),
 						'type' => 'checkbox',
 					),
 					array(
 						'label' => 'LinkedIn',
-						'name' => 'cwps_social_shares[linkedin]',
-						'option' => array( 'cwps_social_shares', 'linkedin' ),
+						'name' => 'capitola_social_shares[linkedin]',
+						'option' => array( 'capitola_social_shares', 'linkedin' ),
 						'type' => 'checkbox',
 					),
 					array(
@@ -207,50 +207,50 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Facebook',
-						'name' => 'cwps_social_links[facebook]',
-						'option' => array( 'cwps_social_links', 'facebook' ),
+						'name' => 'capitola_social_links[facebook]',
+						'option' => array( 'capitola_social_links', 'facebook' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Twitter/X',
-						'name' => 'cwps_social_links[twitter]',
-						'option' => array( 'cwps_social_links', 'twitter' ),
+						'name' => 'capitola_social_links[twitter]',
+						'option' => array( 'capitola_social_links', 'twitter' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Instagram',
-						'name' => 'cwps_social_links[instagram]',
-						'option' => array( 'cwps_social_links', 'instagram' ),
+						'name' => 'capitola_social_links[instagram]',
+						'option' => array( 'capitola_social_links', 'instagram' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Youtube',
-						'name' => 'cwps_social_links[youtube]',
-						'option' => array( 'cwps_social_links', 'youtube' ),
+						'name' => 'capitola_social_links[youtube]',
+						'option' => array( 'capitola_social_links', 'youtube' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Tiktok',
-						'name' => 'cwps_social_links[tiktok]',
-						'option' => array( 'cwps_social_links', 'tiktok' ),
+						'name' => 'capitola_social_links[tiktok]',
+						'option' => array( 'capitola_social_links', 'tiktok' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Pinterest',
-						'name' => 'cwps_social_links[pinterest]',
-						'option' => array( 'cwps_social_links', 'pinterest' ),
+						'name' => 'capitola_social_links[pinterest]',
+						'option' => array( 'capitola_social_links', 'pinterest' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Linkedin',
-						'name' => 'cwps_social_links[linkedin]',
-						'option' => array( 'cwps_social_links', 'linkedin' ),
+						'name' => 'capitola_social_links[linkedin]',
+						'option' => array( 'capitola_social_links', 'linkedin' ),
 						'type' => 'text',
 						'size' => 'full',
 					),
@@ -270,15 +270,15 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Paid Google Maps API Key',
-						'name' => 'cwps_paid_google_maps_api',
-						'option' => 'cwps_paid_google_maps_api',
+						'name' => 'capitola_paid_google_maps_api',
+						'option' => 'capitola_paid_google_maps_api',
 						'type' => 'text',
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Free Google Maps API Key',
-						'name' => 'cwps_free_google_maps_api',
-						'option' => 'cwps_free_google_maps_api',
+						'name' => 'capitola_free_google_maps_api',
+						'option' => 'capitola_free_google_maps_api',
 						'type' => 'text',
 						'size' => 'full',
 					),
@@ -297,16 +297,16 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Head Script',
-						'name' => 'cwps_google[head]',
-						'option' => array( 'cwps_google', 'head' ),
+						'name' => 'capitola_google[head]',
+						'option' => array( 'capitola_google', 'head' ),
 						'type' => 'textarea',
 						'rows' => 4,
 						'size' => 'full',
 					),
 					array(
 						'label' => 'Body Script',
-						'name' => 'cwps_google[body]',
-						'option' => array( 'cwps_google', 'body' ),
+						'name' => 'capitola_google[body]',
+						'option' => array( 'capitola_google', 'body' ),
 						'type' => 'textarea',
 						'rows' => 4,
 						'size' => 'full',
@@ -327,8 +327,8 @@ function add_options_page() {
 					),
 					array(
 						'label' => 'Default Page Color Theme',
-						'name' => 'cwps_default_page_color_theme',
-						'option' => 'cwps_default_page_color_theme',
+						'name' => 'capitola_default_page_color_theme',
+						'option' => 'capitola_default_page_color_theme',
 						'type' => 'select',
 						'options' => $color_options,
 					),
@@ -340,7 +340,7 @@ function add_options_page() {
 		),
 	);
 
-	$child_api_fields = apply_filters( 'cwps_child_theme_options_fields', array() );
+	$child_api_fields = apply_filters( 'capitola_child_theme_options_fields', array() );
 	if ( ! empty( $child_api_fields ) ) {
 		$api_fields = $form_settings['tabs']['api-keys']['fields'];
 		$last_field = array_pop( $api_fields );
@@ -359,7 +359,7 @@ add_action( 'init', __NAMESPACE__ . '\register_theme_settings' );
 function register_theme_settings() {
 	register_setting(
 		GROUP_CONTACT,
-		'cwps_contact',
+		'capitola_contact',
 		array(
 			'type' => 'object',
 			'show_in_rest' => array(
@@ -396,7 +396,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_CONTACT,
-		'cwps_hours',
+		'capitola_hours',
 		array(
 			'type' => 'object',
 			'show_in_rest' => array(
@@ -441,7 +441,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_BANNERS,
-		'cwps_notice_banner',
+		'capitola_notice_banner',
 		array(
 			'type' => 'object',
 			'show_in_rest' => array(
@@ -476,7 +476,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_SOCIALS,
-		'cwps_social_shares',
+		'capitola_social_shares',
 		array(
 			'type' => 'object',
 			'show_in_rest' => array(
@@ -520,7 +520,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_SOCIALS,
-		'cwps_social_links',
+		'capitola_social_links',
 		array(
 			'type' => 'object',
 			'show_in_rest' => array(
@@ -565,7 +565,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_API_KEYS,
-		'cwps_paid_google_maps_api',
+		'capitola_paid_google_maps_api',
 		array(
 			'type' => 'string',
 			'show_in_rest' => true,
@@ -575,7 +575,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_API_KEYS,
-		'cwps_free_google_maps_api',
+		'capitola_free_google_maps_api',
 		array(
 			'type' => 'string',
 			'show_in_rest' => true,
@@ -585,7 +585,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_COLOR_THEME,
-		'cwps_default_page_color_theme',
+		'capitola_default_page_color_theme',
 		array(
 			'type' => 'string',
 			'show_in_rest' => true,
@@ -595,7 +595,7 @@ function register_theme_settings() {
 
 	register_setting(
 		GROUP_GOOGLE,
-		'cwps_google',
+		'capitola_google',
 		array(
 			'type' => 'object',
 			'default' => array(

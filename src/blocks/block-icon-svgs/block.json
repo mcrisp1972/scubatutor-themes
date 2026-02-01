@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/block-icon-svgs",
+	"name": "capitola/block-icon-svgs",
 	"title": "Block Icon SVG Library",
 	"description": "Just for design needs, lists available SVGs for use as block icons",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true

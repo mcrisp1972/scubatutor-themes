@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/tabbed-contents",
+	"name": "capitola/tabbed-contents",
 	"title": "Tabbed Contents",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -50,7 +50,7 @@
 		"attributes": {},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"verticalAlign": "top",
 					"eyebrow": "Cupidatat pariatur",
@@ -74,10 +74,10 @@
 				]
 			},
 			{
-				"name": "cwps/tabbed-contents-tabs",
+				"name": "capitola/tabbed-contents-tabs",
 				"innerBlocks": [
 					{
-						"name": "cwps/tabbed-contents-panel",
+						"name": "capitola/tabbed-contents-panel",
 						"attributes": {
 							"pillLabel": "Culpa"
 						},
@@ -97,13 +97,13 @@
 						]
 					},
 					{
-						"name": "cwps/tabbed-contents-panel",
+						"name": "capitola/tabbed-contents-panel",
 						"attributes": {
 							"pillLabel": "Tempor"
 						}
 					},
 					{
-						"name": "cwps/tabbed-contents-panel",
+						"name": "capitola/tabbed-contents-panel",
 						"attributes": {
 							"pillLabel": "Ea irure"
 						}
@@ -119,9 +119,9 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"viewScriptModule": "file:./view.js",
-	"style": "cwps-tabbedContents",
+	"style": "capitola-tabbed-contents",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

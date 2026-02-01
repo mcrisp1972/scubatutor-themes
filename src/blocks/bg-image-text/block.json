@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/bg-image-text",
+	"name": "capitola/bg-image-text",
 	"title": "Background Image with Content Box",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["links"],
 	"supports": {
 		"anchor": true,
@@ -72,7 +72,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -103,8 +103,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
-	"style": "cwps-backgroundImage"
+	"style": "capitola-background-image"
 }

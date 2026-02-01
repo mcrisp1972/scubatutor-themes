@@ -2,7 +2,7 @@ import { addFilter } from '@wordpress/hooks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/pullquote_block_supports',
+	'capitola/pullquote_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/pullquote' ) {
 			return props;

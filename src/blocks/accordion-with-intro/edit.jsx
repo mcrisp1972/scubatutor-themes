@@ -41,12 +41,12 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-accordion-with-intro__width alignwide ${
+						className: `wp-block-capitola-accordion-with-intro__width alignwide ${
 							stickyIntro ? '--sticky-intro' : ''
 						}`,
 					},
 					{
-						template: [ [ 'cwps/body-text', { verticalAlign: 'top' } ], [ 'cwps/accordion' ] ],
+						template: [ [ 'capitola/body-text', { verticalAlign: 'top' } ], [ 'capitola/accordion' ] ],
 						templateLock: 'all',
 					}
 				) }

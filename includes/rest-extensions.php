@@ -6,8 +6,8 @@ add_action( 'rest_api_init', __NAMESPACE__ . '\post_add_image' );
 
 function post_add_image() {
 
-	$post_types = apply_filters( 'cwps_rest_post_types_has_image', array( 'post', 'page' ) );
-	$taxonomies = apply_filters( 'cwps_rest_tax_has_image', array( 'category' ) );
+	$post_types = apply_filters( 'capitola_rest_post_types_has_image', array( 'post', 'page' ) );
+	$taxonomies = apply_filters( 'capitola_rest_tax_has_image', array( 'category' ) );
 
 	register_rest_field(
 		$post_types,

@@ -8,9 +8,9 @@ export default function Edit( props ) {
 	const { sideImage, imageCropPosition, showCaption, captionOverride } = attributes;
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
-		useBlockProps( { className: 'wp-block-cwps-sticky-images__body-section' } ),
+		useBlockProps( { className: 'wp-block-capitola-sticky-images__body-section' } ),
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -49,7 +49,7 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<div
-				className="wp-block-cwps-sticky-images__mobile-imageratio"
+				className="wp-block-capitola-sticky-images__mobile-imageratio"
 				style={ { '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ sideImage.source_url ? (

@@ -2,10 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"version": "0.1.0",
-	"name": "cwps/lightbox-gallery",
+	"name": "capitola/lightbox-gallery",
 	"title": "Lightbox Gallery",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"attributes": {
 		"anchor": {
@@ -65,7 +65,7 @@
 		},
 		"viewportWidth": 1440
 	},
-	"style": "cwps-lightboxGallery",
+	"style": "capitola-lightbox-gallery",
 	"viewScript": "file:./view.js",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"

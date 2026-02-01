@@ -7,7 +7,7 @@ foreach ( $colors as $color ) {
 	echo wp_kses_post(
 		render_block(
 			array(
-				'blockName' => 'cwps/post-feed',
+				'blockName' => 'capitola/post-feed',
 				'attrs' => array(
 					'colorTheme' => $color['slug'],
 					'limit' => 4,
@@ -16,7 +16,7 @@ foreach ( $colors as $color ) {
 				),
 				'innerBlocks' => array(
 					array(
-						'blockName' => 'cwps/body-text',
+						'blockName' => 'capitola/body-text',
 						'attrs' => array(
 							'headline' => $color['name'],
 							'cta' => array(

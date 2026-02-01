@@ -15,10 +15,10 @@ export default function postFeedTemplate( props, items, cardTemplate ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'cwps-listings__width alignwide',
+			className: 'capitola-listings__width alignwide',
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -32,8 +32,8 @@ export default function postFeedTemplate( props, items, cardTemplate ) {
 				<p className="--block-notice">No Results Found. The block will not be displayed.</p>
 			) : hasSlider ? (
 				<Swiper
-					className="cwps-listings__sidescroll"
-					wrapperClass="cwps-listings__list --sidescroll"
+					className="capitola-listings__sidescroll"
+					wrapperClass="capitola-listings__list --sidescroll"
 					style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
 					modules={ [ Navigation, Pagination ] }
 					navigation={ {
@@ -63,26 +63,26 @@ export default function postFeedTemplate( props, items, cardTemplate ) {
 				>
 					{ items.map( ( i ) => {
 						return (
-							<SwiperSlide key={ i.id } className="cwps-result">
+							<SwiperSlide key={ i.id } className="capitola-result">
 								{ cardTemplate( attributes, layoutConditionals( attributes ), i ) }
 							</SwiperSlide>
 						);
 					} ) }
-					<div className="cwps-listings__scroll-buttons">
+					<div className="capitola-listings__scroll-buttons">
 						<button ref={ navigationPrevRef } className="swiper-button-prev" aria-label="scroll-left" />
 						{ showSlideCount && <div ref={ paginationRef } className="swiper-pagination" /> }
 						<button ref={ navigationNextRef } className="swiper-button-next" aria-label="scroll-right" />
 					</div>
 				</Swiper>
 			) : (
-				<div className="cwps-listings__sidescroll">
+				<div className="capitola-listings__sidescroll">
 					<div
-						className={ `cwps-listings__list --${ listLayout }` }
+						className={ `capitola-listings__list --${ listLayout }` }
 						style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
 					>
 						{ items.map( ( i, index ) => {
 							return (
-								<article key={ index } className="cwps-result">
+								<article key={ index } className="capitola-result">
 									{ cardTemplate( attributes, layoutConditionals( attributes ), i, index ) }
 								</article>
 							);

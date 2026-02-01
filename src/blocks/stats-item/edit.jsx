@@ -7,7 +7,7 @@ export default function Edit( props ) {
 	return (
 		<div { ...useBlockProps() }>
 			<RichText
-				className="wp-block-cwps-stats-item__stat --hl-xl"
+				className="wp-block-capitola-stats-item__stat --hl-xl"
 				value={ stat }
 				allowedFormats={ [] }
 				placeholder="Stat..."
@@ -17,7 +17,7 @@ export default function Edit( props ) {
 			/>
 			<RichText
 				tagName="p"
-				className="wp-block-cwps-stats-item__caption --micro-text"
+				className="wp-block-capitola-stats-item__caption --micro-text"
 				value={ caption }
 				allowedFormats={ [] }
 				placeholder="Caption..."

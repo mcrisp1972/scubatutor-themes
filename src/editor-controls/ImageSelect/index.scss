@@ -1,4 +1,4 @@
-.cwps-image-select {
+.capitola-image-select {
 	position: relative;
 
 	&__preview,
@@ -38,7 +38,7 @@
 	&:focus-within,
 	&:hover {
 
-		.cwps-image-select__actions {
+		.capitola-image-select__actions {
 			opacity: 1;
 		}
 	}

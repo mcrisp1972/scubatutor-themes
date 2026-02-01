@@ -6,7 +6,7 @@ export default function Edit( props ) {
 	const { attributes, setAttributes, clientId, context } = props;
 	const { pillLabel } = attributes;
 
-	const activeClass = context[ 'cwps/activePanel' ] === clientId ? '--active' : '';
+	const activeClass = context[ 'capitola/activePanel' ] === clientId ? '--active' : '';
 
 	const innerBlockCount = useSelect( ( select ) => {
 		return select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;

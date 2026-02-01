@@ -41,19 +41,19 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-icons__width alignwide --has-${ introAlign }-intro ${
+						className: `wp-block-capitola-icons__width alignwide --has-${ introAlign }-intro ${
 							iconBackground ? '--has-icon-background' : ''
 						} --item-align-${ textAlignment }`,
 					},
 					{
 						template: [
 							[
-								'cwps/body-text',
+								'capitola/body-text',
 								{
-									className: 'wp-block-cwps-icons__body',
+									className: 'wp-block-capitola-icons__body',
 								},
 							],
-							[ 'cwps/icon-grid' ],
+							[ 'capitola/icon-grid' ],
 						],
 						templateLock: 'all',
 					}

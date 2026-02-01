@@ -20,7 +20,7 @@ export default function themePanels() {
 
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
-			setDefaultPageTheme( result.cwps_default_page_color_theme );
+			setDefaultPageTheme( result.capitola_default_page_color_theme );
 		} );
 	}, [] );
 
@@ -40,7 +40,7 @@ export default function themePanels() {
 	}
 
 	return (
-		<PluginDocumentSettingPanel name="cwps-sidebar-theme" title={ 'Color Options' }>
+		<PluginDocumentSettingPanel name="capitola-sidebar-theme" title={ 'Color Options' }>
 			<Flex direction="column" gap="16px">
 				<ToggleControl
 					label="Use Default Page Color Theme"

@@ -119,7 +119,7 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div
-				className="wp-block-cwps-cover-block__image"
+				className="wp-block-capitola-cover-block__image"
 				style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ imageObject?.source_url ? (
@@ -130,9 +130,9 @@ export default function Edit( props ) {
 					<PlaceholderImage hasBgColor={ false } />
 				) }
 			</div>
-			<div className={ `wp-block-cwps-cover-block__body --align-${ introAlign }` }>
+			<div className={ `wp-block-capitola-cover-block__body --align-${ introAlign }` }>
 				<RichText
-					className="wp-block-cwps-cover-block__eyebrow --eyebrow"
+					className="wp-block-capitola-cover-block__eyebrow --eyebrow"
 					value={ eyebrow }
 					allowedFormats={ [] }
 					placeholder="Eyebrow..."
@@ -141,7 +141,7 @@ export default function Edit( props ) {
 					} }
 				/>
 				<RichText
-					className="wp-block-cwps-cover-block__headline --hl-xxl"
+					className="wp-block-capitola-cover-block__headline --hl-xxl"
 					value={ headline }
 					allowedFormats={ [] }
 					placeholder={ postTitle ? postTitle : 'Headline...' }
@@ -152,23 +152,23 @@ export default function Edit( props ) {
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: 'wp-block-cwps-cover-block__caption',
+							className: 'wp-block-capitola-cover-block__caption',
 						},
 						{
 							allowedBlocks: [ 'core/paragraph' ],
 						}
 					) }
 				/>
-				<div className="wp-block-cwps-cover-block__ctas">
+				<div className="wp-block-capitola-cover-block__ctas">
 					<CtaControl
-						className="wp-block-cwps-cover-block__cta --cta --secondary"
+						className="wp-block-capitola-cover-block__cta --cta --secondary"
 						value={ cta }
 						onChange={ ( value ) => {
 							setAttributes( { cta: value } );
 						} }
 					/>
 					<CtaControl
-						className="wp-block-cwps-cover-block__cta --cta --tertiary"
+						className="wp-block-capitola-cover-block__cta --cta --tertiary"
 						value={ cta2 }
 						onChange={ ( value ) => {
 							setAttributes( { cta2: value } );

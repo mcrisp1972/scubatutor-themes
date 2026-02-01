@@ -20,7 +20,7 @@ export default function Edit( props ) {
 		dropdownSpeed,
 		isExample,
 	} = attributes;
-	const colorThemes = applyFilters( 'cwps.colorThemes' );
+	const colorThemes = applyFilters( 'capitola.colorThemes' );
 	const [ themeOptions, setThemeOptions ] = useState( null );
 	const [ colorTheme, setColorTheme ] = useState( '' );
 	const [ wooActive, setWooActive ] = useState( null );
@@ -34,13 +34,13 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'wp-block-cwps-nav__menu-items',
+			className: 'wp-block-capitola-nav__menu-items',
 		},
 		{
-			defaultBlock: { name: 'cwps/nav-link' },
-			template: [ [ 'cwps/nav-link' ] ],
+			defaultBlock: { name: 'capitola/nav-link' },
+			template: [ [ 'capitola/nav-link' ] ],
 			orientation: 'horizontal',
-			allowedBlocks: [ 'cwps/nav-link', 'cwps/nav-dropdown', 'cwps/nav-mega-nav' ],
+			allowedBlocks: [ 'capitola/nav-link', 'capitola/nav-dropdown', 'capitola/nav-mega-nav' ],
 			directInsert: true,
 		}
 	);
@@ -56,7 +56,7 @@ export default function Edit( props ) {
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
 			const key = colorThemes.findIndex( ( color ) => {
-				return color.slug === result.cwps_default_page_color_theme;
+				return color.slug === result.capitola_default_page_color_theme;
 			} );
 			if ( key !== -1 ) {
 				setColorTheme( colorThemes[ key ].headerTheme );
@@ -152,7 +152,7 @@ export default function Edit( props ) {
 							setAttributes( { showPhoneLink: state } );
 						} }
 						help={
-							themeOptions?.cwps_contact.phone
+							themeOptions?.capitola_contact.phone
 								? ''
 								: 'Link will not appear unless you enter a contact phone number in the theme options.'
 						}
@@ -199,14 +199,14 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<nav
-				className={ `wp-block-cwps-nav__background is-layout-constrained has-global-padding --theme-${ colorTheme }` }
+				className={ `wp-block-capitola-nav__background is-layout-constrained has-global-padding --theme-${ colorTheme }` }
 			>
-				<div className="wp-block-cwps-nav__grid alignwide">
+				<div className="wp-block-capitola-nav__grid alignwide">
 					{ imageObject !== undefined &&
 						imageObject.mime_type.startsWith( 'image/svg' ) &&
 						! useLogoColor && (
 							<div
-								className="wp-block-cwps-nav__logo --has-svg-mask"
+								className="wp-block-capitola-nav__logo --has-svg-mask"
 								style={ {
 									aspectRatio:
 										imageObject.media_details.width + '/' + imageObject.media_details.height,
@@ -218,44 +218,44 @@ export default function Edit( props ) {
 							</div>
 						) }
 					{ imageObject !== undefined && useLogoColor && (
-						<div className="wp-block-cwps-nav__logo">
+						<div className="wp-block-capitola-nav__logo">
 							<img src={ imageObject.source_url } className="custom-logo" alt="" />
 						</div>
 					) }
-					{ ( isExample || ! logo ) && <div className="wp-block-cwps-nav__logo" /> }
-					<div className="wp-block-cwps-nav__menu">
-						<ul className="wp-block-cwps-nav__utility-menu">
+					{ ( isExample || ! logo ) && <div className="wp-block-capitola-nav__logo" /> }
+					<div className="wp-block-capitola-nav__menu">
+						<ul className="wp-block-capitola-nav__utility-menu">
 							{ utilityLinks.map( ( item, index ) => {
 								return (
-									<li key={ index } className="wp-block-cwps-nav__utility-menu-item">
-										<div className="wp-block-cwps-nav__utility-menu-item-link">{ item.title }</div>
+									<li key={ index } className="wp-block-capitola-nav__utility-menu-item">
+										<div className="wp-block-capitola-nav__utility-menu-item-link">{ item.title }</div>
 									</li>
 								);
 							} ) }
 							{ wooActive && showAccountIcon && (
-								<li className="wp-block-cwps-nav__utility-menu-item">
-									<div className="wp-block-cwps-nav__utility-menu-item-link --account">Account</div>
+								<li className="wp-block-capitola-nav__utility-menu-item">
+									<div className="wp-block-capitola-nav__utility-menu-item-link --account">Account</div>
 								</li>
 							) }
 							{ wooActive && showCartIcon && (
-								<li className="wp-block-cwps-nav__utility-menu-item">
-									<div className="wp-block-cwps-nav__utility-menu-item-link --cart">Cart</div>
+								<li className="wp-block-capitola-nav__utility-menu-item">
+									<div className="wp-block-capitola-nav__utility-menu-item-link --cart">Cart</div>
 								</li>
 							) }
-							{ showPhoneLink && themeOptions?.cwps_contact.phone && (
-								<li className="wp-block-cwps-nav__utility-menu-item">
-									<div className="wp-block-cwps-nav__utility-menu-item-link --phone">
-										{ themeOptions.cwps_contact.phone }
+							{ showPhoneLink && themeOptions?.capitola_contact.phone && (
+								<li className="wp-block-capitola-nav__utility-menu-item">
+									<div className="wp-block-capitola-nav__utility-menu-item-link --phone">
+										{ themeOptions.capitola_contact.phone }
 									</div>
 								</li>
 							) }
 						</ul>
 						<div { ...innerBlocksProps }>
 							{ children }
-							<div className="wp-block-cwps-nav__search-trigger" />
+							<div className="wp-block-capitola-nav__search-trigger" />
 						</div>
 					</div>
-					<button className="wp-block-cwps-nav__hamburger" type="button">
+					<button className="wp-block-capitola-nav__hamburger" type="button">
 						<div className="burger-line"></div>
 						<div className="burger-line"></div>
 						<div className="burger-line"></div>

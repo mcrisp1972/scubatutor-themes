@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/search-listings",
+	"name": "capitola/search-listings",
 	"title": "Search Listings",
 	"description": "",
-	"category": "cwps-listing-blocks",
+	"category": "listing-blocks",
 	"keywords": [],
 	"supports": {
 		"multiple": false
@@ -79,6 +79,6 @@
 		"viewportWidth": 1440
 	},
 	"render": "file:./render.php",
-	"style": ["cwps-post-listing", "cwps-page-navigation"],
+	"style": ["capitola-post-listing", "capitola-page-navigation"],
 	"editorScript": "file:./index.js"
 }

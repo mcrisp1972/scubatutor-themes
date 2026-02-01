@@ -29,7 +29,7 @@ export default function Edit( props ) {
 
 	const isTemplate = select( 'core/edit-site' ) !== undefined;
 
-	const postTypeCats = applyFilters( 'cwps.postTypeCats' );
+	const postTypeCats = applyFilters( 'capitola.postTypeCats' );
 
 	const postType = useSelect(
 		( select ) => {
@@ -106,7 +106,7 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: `cwps-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+				className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 			} ) }
 		>
 			<InspectorControls group="settings">

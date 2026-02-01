@@ -1,15 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/image-link-grid-item",
+	"name": "capitola/image-link-grid-item",
 	"title": "Image Link Grid Item",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["links"],
 	"supports": {
 		"anchor": true
 	},
-	"parent": ["cwps/image-link-grid"],
+	"parent": ["capitola/image-link-grid"],
 	"attributes": {
 		"anchor": {
 			"type": "string",

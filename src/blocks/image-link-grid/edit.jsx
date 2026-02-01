@@ -35,18 +35,18 @@ export default function Edit( props ) {
 				style: { '--capitola-excerpt-lines': excerptLines },
 			} ) }
 		>
-			<div className="wp-block-cwps-image-link-grid__width">
+			<div className="wp-block-capitola-image-link-grid__width">
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: `wp-block-cwps-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
+							className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
 								gridGap ? '--grid-gap' : ''
 							}`,
 						},
 						{
-							defaultBlock: { name: 'cwps/image-link-grid-item' },
-							allowedBlocks: [ 'cwps/image-link-grid-item' ],
-							template: [ [ 'cwps/image-link-grid-item' ] ],
+							defaultBlock: { name: 'capitola/image-link-grid-item' },
+							allowedBlocks: [ 'capitola/image-link-grid-item' ],
+							template: [ [ 'capitola/image-link-grid-item' ] ],
 							templateLock: false,
 							directInsert: true,
 							orientation: 'horizontal',

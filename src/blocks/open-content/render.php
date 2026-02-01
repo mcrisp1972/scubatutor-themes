@@ -9,8 +9,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-open-content__width alignwide is-layout-constrained">
-		<div class="wp-block-cwps-open-content__content --justify-<?= esc_attr( $attributes['contentJustify'] ) ?> --align-<?= esc_attr( $attributes['textAlign'] ) ?>">
+	<div class="wp-block-capitola-open-content__width alignwide is-layout-constrained">
+		<div class="wp-block-capitola-open-content__content --justify-<?= esc_attr( $attributes['contentJustify'] ) ?> --align-<?= esc_attr( $attributes['textAlign'] ) ?>">
 			<?= wp_kses_post( $content ) ?>
 		</div>
 	</div>

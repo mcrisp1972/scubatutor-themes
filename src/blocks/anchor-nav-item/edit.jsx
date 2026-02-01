@@ -6,7 +6,7 @@ export default function Edit( props ) {
 	const { label, anchor } = attributes;
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-cwps-anchor-nav__item' } ) }>
+		<div { ...useBlockProps( { className: 'wp-block-capitola-anchor-nav__item' } ) }>
 			<InspectorControls>
 				<PanelBody title="Link Settings" initialOpen={ true }>
 					<TextControl
@@ -26,7 +26,7 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<RichText
-				className="wp-block-cwps-anchor-nav__link"
+				className="wp-block-capitola-anchor-nav__link"
 				value={ label }
 				placeholder="Link..."
 				onChange={ ( value ) => {

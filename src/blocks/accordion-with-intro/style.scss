@@ -1,13 +1,13 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-accordion-with-intro {
+.wp-block-capitola-accordion-with-intro {
 	@include block-outer-wrap;
 
 	&__width {
 		@include block-inner-wrap-50-50;
 	}
 
-	.wp-block-cwps-accordion {
+	.wp-block-capitola-accordion {
 
 		@include mq("50-50") {
 			flex: 0 1 50%;

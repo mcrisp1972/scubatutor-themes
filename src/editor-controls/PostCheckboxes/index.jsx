@@ -26,7 +26,7 @@ function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
 	}
 
 	const { baseControlProps } = useBaseControlProps( {
-		className: 'cwps-post-checkboxes',
+		className: 'capitola-post-checkboxes',
 		label,
 		__nextHasNoMarginBottom: true,
 	} );

@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-body-text {
+.wp-block-capitola-body-text {
 	display: flex;
 	position: relative;
 	flex-flow: column;
@@ -204,7 +204,7 @@
 				}
 			}
 
-			.--is-top-intro:not(.--is-centered-intro):not(:has(.wp-block-cwps-body-text__headline)) & {
+			.--is-top-intro:not(.--is-centered-intro):not(:has(.wp-block-capitola-body-text__headline)) & {
 				grid-row: 3;
 				align-self: start;
 				margin-top: var(--capitola-spacing-small);

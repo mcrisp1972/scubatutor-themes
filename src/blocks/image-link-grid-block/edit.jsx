@@ -53,10 +53,10 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-image-link-grid-block__width',
+						className: 'wp-block-capitola-image-link-grid-block__width',
 					},
 					{
-						template: [ [ 'cwps/body-text' ], [ 'cwps/image-link-grid' ] ],
+						template: [ [ 'capitola/body-text' ], [ 'capitola/image-link-grid' ] ],
 						templateLock: 'all',
 					}
 				) }

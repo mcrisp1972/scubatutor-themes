@@ -105,21 +105,21 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div
-				className={ `wp-block-cwps-sticky-images__width ${
+				className={ `wp-block-capitola-sticky-images__width ${
 					imageLayout === 'full' ? 'alignfull' : 'alignwide'
 				}` }
 			>
-				<div className="wp-block-cwps-sticky-images__image-column">
+				<div className="wp-block-capitola-sticky-images__image-column">
 					{ imageValues.map( ( image, index ) => {
 						return (
 							<div
 								key={ index }
-								className={ `wp-block-cwps-sticky-images__imagewrap ${
+								className={ `wp-block-capitola-sticky-images__imagewrap ${
 									isExample ? 'is-example' : ''
 								}` }
 							>
 								<div
-									className="wp-block-cwps-sticky-images__imageratio"
+									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
 										'--capitola-objectPosition': innerBlocks[ index ].attributes.imageCropPosition,
 									} }
@@ -139,7 +139,7 @@ export default function Edit( props ) {
 											) }
 											{ innerBlocks[ index ].attributes.showCaption && (
 												<RichText
-													className="wp-block-cwps-sticky-images__image-caption --micro-text"
+													className="wp-block-capitola-sticky-images__image-caption --micro-text"
 													value={ innerBlocks[ index ].attributes.captionOverride }
 													allowedFormats={ [] }
 													placeholder={ imageCaptions[ image.id ] }
@@ -172,12 +172,12 @@ export default function Edit( props ) {
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: `wp-block-cwps-sticky-images__body-column --align-${ verticalAlign }`,
+							className: `wp-block-capitola-sticky-images__body-column --align-${ verticalAlign }`,
 						},
 						{
-							defaultBlock: { name: 'cwps/sticky-images-section' },
-							allowedBlocks: [ 'cwps/sticky-images-section' ],
-							template: [ [ 'cwps/sticky-images-section' ] ],
+							defaultBlock: { name: 'capitola/sticky-images-section' },
+							allowedBlocks: [ 'capitola/sticky-images-section' ],
+							template: [ [ 'capitola/sticky-images-section' ] ],
 							directInsert: true,
 						}
 					) }

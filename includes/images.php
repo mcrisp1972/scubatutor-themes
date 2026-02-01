@@ -21,7 +21,7 @@ function thumbnail_id( $thumbnail_id, $post ) {
 		$post = get_post( $post );
 	}
 
-	if ( ! in_array( $post->post_type, apply_filters( 'cwps_filtered_feat_img_post_types', array( 'page', 'post' ) ) ) ) {
+	if ( ! in_array( $post->post_type, apply_filters( 'capitola_filtered_feat_img_post_types', array( 'page', 'post' ) ) ) ) {
 		return $thumbnail_id;
 	}
 

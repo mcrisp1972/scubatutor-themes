@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/full-width-slider",
+	"name": "capitola/full-width-slider",
 	"title": "Full Width Slider",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["links"],
 	"supports": {
 		"anchor": true,
@@ -97,7 +97,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -129,7 +129,7 @@
 		"introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
-	"style": ["swiper", "cwps-fullWidthSlider"],
-	"viewScript": ["file:./view.js", "cwps-animations"],
+	"style": ["swiper", "capitola-full-width-slider"],
+	"viewScript": ["file:./view.js", "capitola-animations"],
 	"editorScript": "file:./index.js"
 }

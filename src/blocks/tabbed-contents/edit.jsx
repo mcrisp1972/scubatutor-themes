@@ -24,10 +24,10 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-tabbed-contents__width alignwide --has-${ introAlign }-intro`,
+						className: `wp-block-capitola-tabbed-contents__width alignwide --has-${ introAlign }-intro`,
 					},
 					{
-						template: [ [ 'cwps/body-text', { verticalAlign: 'top' } ], [ 'cwps/tabbed-contents-tabs' ] ],
+						template: [ [ 'capitola/body-text', { verticalAlign: 'top' } ], [ 'capitola/tabbed-contents-tabs' ] ],
 						templateLock: 'all',
 					}
 				) }

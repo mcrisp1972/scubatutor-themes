@@ -3,7 +3,7 @@ import { registerBlockStyle } from '@wordpress/blocks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/button_block_supports',
+	'capitola/button_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/button' ) {
 			return props;

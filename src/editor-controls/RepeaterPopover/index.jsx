@@ -51,7 +51,7 @@ function RepeaterPopover( {
 	function DeleteButton() {
 		return (
 			<Button
-				className="cwps-repeater-popover__toolbar-button --delete"
+				className="capitola-repeater-popover__toolbar-button --delete"
 				title="Delete Row"
 				onClick={ () => {
 					removeRow( index );
@@ -66,7 +66,7 @@ function RepeaterPopover( {
 	function MoveBeforeButton() {
 		return (
 			<Button
-				className="cwps-repeater-popover__toolbar-button --up"
+				className="capitola-repeater-popover__toolbar-button --up"
 				onClick={ () => {
 					moveBefore( index );
 					toggleVisible();
@@ -81,7 +81,7 @@ function RepeaterPopover( {
 	function MoveAfterButton() {
 		return (
 			<Button
-				className="cwps-repeater-popover__toolbar-button --down"
+				className="capitola-repeater-popover__toolbar-button --down"
 				onClick={ () => {
 					moveAfter( index );
 					toggleVisible();
@@ -96,7 +96,7 @@ function RepeaterPopover( {
 	function AddBeforeButton() {
 		return (
 			<Button
-				className={ `cwps-repeater-popover__toolbar-button --add-before ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-popover__toolbar-button --add-before ${ vertical ? '--vertical' : '' }` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index, 0, { ...newValues } );
@@ -111,7 +111,7 @@ function RepeaterPopover( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `cwps-repeater-popover__toolbar-button --add-after ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-popover__toolbar-button --add-after ${ vertical ? '--vertical' : '' }` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );
@@ -146,7 +146,7 @@ function RepeaterPopover( {
 					render={ ( { open } ) => {
 						return (
 							<Button
-								className="cwps-repeater-popover__toolbar-button --image"
+								className="capitola-repeater-popover__toolbar-button --image"
 								onClick={ () => {
 									setIsMediaModalOpen( true );
 									open();
@@ -165,7 +165,7 @@ function RepeaterPopover( {
 	return (
 		<>
 			<div
-				className={ `cwps-repeater-popover__trigger ${ fullButton ? '--full-button' : '' }` }
+				className={ `capitola-repeater-popover__trigger ${ fullButton ? '--full-button' : '' }` }
 				role="button"
 				tabIndex={ 0 }
 				ref={ setPopoverAnchor }
@@ -181,7 +181,7 @@ function RepeaterPopover( {
 					variant="toolbar"
 					placement={ fullButton ? 'top-start' : 'top-end' }
 					className={
-						isMediaModalOpen ? 'cwps-repeater-popover --media-modal-open' : 'cwps-repeater-popover'
+						isMediaModalOpen ? 'capitola-repeater-popover --media-modal-open' : 'capitola-repeater-popover'
 					}
 					onClose={ () => {
 						if ( ! isMediaModalOpen ) {
@@ -189,7 +189,7 @@ function RepeaterPopover( {
 						}
 					} }
 				>
-					<div className="cwps-repeater-popover__toolbar" style={ style }>
+					<div className="capitola-repeater-popover__toolbar" style={ style }>
 						{ ( allowNull || props.attributes[ attribute ].length > 1 ) && <DeleteButton /> }
 						{ index !== 0 && <MoveBeforeButton /> }
 						{ index !== props.attributes[ attribute ].length - 1 && <MoveAfterButton /> }
@@ -198,7 +198,7 @@ function RepeaterPopover( {
 						{ onImageChange ? imageButton( index ) : null }
 					</div>
 					{ children && (
-						<div className="cwps-repeater-popover__fields">
+						<div className="capitola-repeater-popover__fields">
 							{ children }
 							<Button variant="primary" onClick={ toggleVisible } style={ { alignSelf: 'flex-start' } }>
 								Close

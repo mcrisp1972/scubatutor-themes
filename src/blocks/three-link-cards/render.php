@@ -10,7 +10,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-three-link-cards__width alignwide --layout-<?= esc_attr( $attributes['introAlign'] ) ?> <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
+	<div class="wp-block-capitola-three-link-cards__width alignwide --layout-<?= esc_attr( $attributes['introAlign'] ) ?> <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
 		<?= wp_kses_post( $content ) ?>
 	</div>
 </section>

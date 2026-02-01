@@ -12,23 +12,23 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-small-image-slider__width alignfull is-layout-constrained has-global-padding <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
+	<div class="wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
 		<?= wp_kses_post( $content ) ?>
-		<div class="wp-block-cwps-small-image-slider__slider-parent">
-			<div class="wp-block-cwps-small-image-slider__swiper swiper<?= ( $attributes['aspectRatio'] === 'square' ? ' --square' : ' --landscape' ) ?>"<?= ( $attributes['autoplay'] ? ' data-autoplay="1"' : '' ) ?>>
-				<div class="wp-block-cwps-small-image-slider__swiper-wrapper swiper-wrapper <?= $attributes['grayscaleInactive'] ? ' --grayscale-inactive' : '' ?>">
+		<div class="wp-block-capitola-small-image-slider__slider-parent">
+			<div class="wp-block-capitola-small-image-slider__swiper swiper<?= ( $attributes['aspectRatio'] === 'square' ? ' --square' : ' --landscape' ) ?>"<?= ( $attributes['autoplay'] ? ' data-autoplay="1"' : '' ) ?>>
+				<div class="wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper <?= $attributes['grayscaleInactive'] ? ' --grayscale-inactive' : '' ?>">
 					<?php foreach ( $attributes['slides'] as $slide ) : ?>
-						<figure class="wp-block-cwps-small-image-slider__swiper-slide swiper-slide" data-caption="<?= esc_attr( $slide['caption'] ) ?>">
+						<figure class="wp-block-capitola-small-image-slider__swiper-slide swiper-slide" data-caption="<?= esc_attr( $slide['caption'] ) ?>">
 							<?= wp_get_attachment_image( $slide['image']['id'], 'large' ); ?>
 						</figure>
 					<?php endforeach; ?>
 				</div>
-				<div class="wp-block-cwps-small-image-slider__nav-buttons">
+				<div class="wp-block-capitola-small-image-slider__nav-buttons">
 					<button class="swiper-button-next"></button>
 					<button class="swiper-button-prev"></button>
 				</div>
 			</div>
-			<p class="wp-block-cwps-small-image-slider__caption">
+			<p class="wp-block-capitola-small-image-slider__caption">
 				<?= esc_html( $attributes['slides'][0]['caption'] ) ?>
 			</p>
 		</div>

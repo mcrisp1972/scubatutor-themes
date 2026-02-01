@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-accordion {
+.wp-block-capitola-accordion {
 
 	&__list {
 		display: flex;
@@ -8,7 +8,7 @@
 	}
 }
 
-.wp-block-cwps-accordion-item {
+.wp-block-capitola-accordion-item {
 	border-bottom: 1px solid var(--capitola-color-accent);
 
 	&__headline {
@@ -38,12 +38,12 @@
 
 	&:first-of-type {
 
-		.wp-block-cwps-accordion-item__headline {
+		.wp-block-capitola-accordion-item__headline {
 			margin-top: 0;
 		}
 	}
 
-	button.wp-block-cwps-accordion-item__headline {
+	button.wp-block-capitola-accordion-item__headline {
 		@include unstyle-button;
 		font-size: var(--capitola-hl-s-fontSize);
 		text-align: left;

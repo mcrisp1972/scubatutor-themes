@@ -76,7 +76,7 @@ function register_blocks() {
 		}
 	}
 
-	foreach ( apply_filters( 'cwps_unregistered_parent_blocks', array() ) as $block ) {
+	foreach ( apply_filters( 'capitola_unregistered_parent_blocks', array() ) as $block ) {
 		unregister_block_type( $block );
 	}
 
@@ -100,14 +100,14 @@ function register_blocks() {
 }
 
 // add Dive Shop category and Template category
-add_filter( 'block_categories_all', __NAMESPACE__ . '\cwps_block_categories' );
+add_filter( 'block_categories_all', __NAMESPACE__ . '\capitola_block_categories' );
 
-function cwps_block_categories( $categories ) {
+function capitola_block_categories( $categories ) {
 
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'cwps-nav-blocks',
+			'slug' => 'nav-blocks',
 			'title' => 'Navigation',
 		)
 	);
@@ -115,7 +115,7 @@ function cwps_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'cwps-hero-blocks',
+			'slug' => 'hero-blocks',
 			'title' => 'Heroes',
 		)
 	);
@@ -123,7 +123,7 @@ function cwps_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'cwps-listing-blocks',
+			'slug' => 'listing-blocks',
 			'title' => 'Listing Blocks',
 		)
 	);
@@ -131,7 +131,7 @@ function cwps_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'cwps-custom-blocks',
+			'slug' => 'custom-blocks',
 			'title' => 'Custom Blocks',
 		)
 	);
@@ -139,12 +139,12 @@ function cwps_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'cwps_block_templates',
+			'slug' => 'block_templates',
 			'title' => 'Templates',
 		)
 	);
 
-	return apply_filters( 'cwps_block_categories', $categories );
+	return apply_filters( 'capitola_block_categories', $categories );
 }
 
 add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\allowed_block_types', 99, 2 );
@@ -157,16 +157,16 @@ function allowed_block_types( $blocks, $editor_context ) {
 
 	// only allow header and footer to be inserted in site editor
 	if ( $editor_context->name !== 'core/edit-site' ) {
-		$blacklist[] = 'cwps/footer';
-		$blacklist[] = 'cwps/nav';
-		$blacklist[] = 'cwps/search-listings';
+		$blacklist[] = 'capitola/footer';
+		$blacklist[] = 'capitola/nav';
+		$blacklist[] = 'capitola/search-listings';
 	}
 
 	// editing a page
 	if ( $editor_context->name !== 'core/edit-site' && isset( $editor_context->post->post_type ) ) {
 
 		if ( $editor_context->post->post_type !== 'page' ) {
-			$blacklist[] = 'cwps/paginated-listings';
+			$blacklist[] = 'capitola/paginated-listings';
 		}
 	}
 
@@ -186,7 +186,7 @@ function allowed_block_types( $blocks, $editor_context ) {
 		}
 	}
 
-	$blacklist = apply_filters( 'cwps_block_blacklist', $blacklist, $editor_context );
+	$blacklist = apply_filters( 'capitola_block_blacklist', $blacklist, $editor_context );
 
 	foreach ( $blacklist as $name ) {
 		unset( $blocks[ $name ] );

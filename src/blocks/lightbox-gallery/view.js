@@ -43,27 +43,27 @@ class lightboxGallery {
 
 	openLightbox = function () {
 		const elem = `
-      <div id="js-lighboxModal" class="wp-block-cwps-lightbox-gallery__lightbox">
-        <button type="button" class="wp-block-cwps-lightbox-gallery__lightbox-close js-close" aria-label="Close Lightbox"></button>
-        <div class="wp-block-cwps-lightbox-gallery__lightbox-content swiper js-lightboxContent">
-          <div class="wp-block-cwps-lightbox-gallery__lightbox-slides swiper-wrapper">
+      <div id="js-lighboxModal" class="wp-block-capitola-lightbox-gallery__lightbox">
+        <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-close js-close" aria-label="Close Lightbox"></button>
+        <div class="wp-block-capitola-lightbox-gallery__lightbox-content swiper js-lightboxContent">
+          <div class="wp-block-capitola-lightbox-gallery__lightbox-slides swiper-wrapper">
             ${ this.images
 				.map( ( image ) => {
 					return `
-                  <figure class="wp-block-cwps-lightbox-gallery__lightbox-grid swiper-slide">
-                    <div class="wp-block-cwps-lightbox-gallery__lightbox-img-wrap">
+                  <figure class="wp-block-capitola-lightbox-gallery__lightbox-grid swiper-slide">
+                    <div class="wp-block-capitola-lightbox-gallery__lightbox-img-wrap">
                       <img src="${ image.largeSrc }" alt="${ image.alt }">
                     </div>
-                    <figcaption class="wp-block-cwps-lightbox-gallery__lightbox-caption">${ image.caption }</figcaption>
+                    <figcaption class="wp-block-capitola-lightbox-gallery__lightbox-caption">${ image.caption }</figcaption>
                   </figure>
                   `;
 				} )
 				.join( '' ) }
           </div>
-          <div class="wp-block-cwps-lightbox-gallery__lightbox-nav">
-            <button type="button" class="wp-block-cwps-lightbox-gallery__lightbox-nav-prev swiper-button-prev" aria-label="Previous"></button>
-            <div class="wp-block-cwps-lightbox-gallery__lightbox-page-count swiper-pagination"></div>
-            <button type="button" class="wp-block-cwps-lightbox-gallery__lightbox-nav-next swiper-button-next" aria-label="Next"></button>
+          <div class="wp-block-capitola-lightbox-gallery__lightbox-nav">
+            <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-prev swiper-button-prev" aria-label="Previous"></button>
+            <div class="wp-block-capitola-lightbox-gallery__lightbox-page-count swiper-pagination"></div>
+            <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-next swiper-button-next" aria-label="Next"></button>
           </div>
         </div>
       </div>`;

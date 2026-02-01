@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/accordion-with-intro",
+	"name": "capitola/accordion-with-intro",
 	"title": "Accordion With Intro",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -49,7 +49,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -72,22 +72,22 @@
 				]
 			},
 			{
-				"name": "cwps/accordion",
+				"name": "capitola/accordion",
 				"innerBlocks": [
 					{
-						"name": "cwps/accordion-item",
+						"name": "capitola/accordion-item",
 						"attributes": {
 							"headline": "Proident commodo fugiat"
 						}
 					},
 					{
-						"name": "cwps/accordion-item",
+						"name": "capitola/accordion-item",
 						"attributes": {
 							"headline": "Qui nulla reprehenderit"
 						}
 					},
 					{
-						"name": "cwps/accordion-item",
+						"name": "capitola/accordion-item",
 						"attributes": {
 							"headline": "Exercitation nostrud ad"
 						}
@@ -103,8 +103,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
-	"style": "cwps-accordionWithIntro",
+	"viewScript": "capitola-animations",
+	"style": "capitola-accordion-with-intro",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

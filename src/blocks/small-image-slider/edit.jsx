@@ -23,10 +23,10 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'wp-block-cwps-small-image-slider__width alignfull is-layout-constrained has-global-padding',
+			className: 'wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding',
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -74,13 +74,13 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div className="wp-block-cwps-small-image-slider__slider-parent">
+				<div className="wp-block-capitola-small-image-slider__slider-parent">
 					<Swiper
 						key={ aspectRatio }
-						className={ `wp-block-cwps-small-image-slider__swiper swiper ${
+						className={ `wp-block-capitola-small-image-slider__swiper swiper ${
 							aspectRatio === 'square' ? ' --square' : ' --landscape'
 						}` }
-						wrapperClass={ `wp-block-cwps-small-image-slider__swiper-wrapper swiper-wrapper ${
+						wrapperClass={ `wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper ${
 							grayscaleInactive ? ' --grayscale-inactive' : ''
 						}` }
 						modules={ [ Navigation ] }
@@ -113,7 +113,7 @@ export default function Edit( props ) {
 								return (
 									<SwiperSlide
 										key={ index }
-										className={ `wp-block-cwps-small-image-slider__swiper-slide swiper-slide ${
+										className={ `wp-block-capitola-small-image-slider__swiper-slide swiper-slide ${
 											aspectRatio === 'square' ? '--square' : ''
 										}` }
 									>
@@ -168,14 +168,14 @@ export default function Edit( props ) {
 									</SwiperSlide>
 								);
 							} ) }
-						<div className="wp-block-cwps-small-image-slider__nav-buttons">
+						<div className="wp-block-capitola-small-image-slider__nav-buttons">
 							<div ref={ navigationNextRef } className="swiper-button-next" />
 							<div ref={ navigationPrevRef } className="swiper-button-prev" />
 						</div>
 					</Swiper>
 					{ !! slides[ swiperIndex ] && (
 						<RichText
-							className="wp-block-cwps-small-image-slider__caption"
+							className="wp-block-capitola-small-image-slider__caption"
 							value={ slides[ swiperIndex ].caption }
 							placeholder="Caption..."
 							onChange={ ( value ) => {

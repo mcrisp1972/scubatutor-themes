@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-bg-image-text {
+.wp-block-capitola-bg-image-text {
 	position: relative;
 	overflow: hidden;
 
@@ -39,7 +39,7 @@
 			display: flex;
 		}
 
-		.wp-block-cwps-body-text {
+		.wp-block-capitola-body-text {
 			padding: 320px var(--capitola-gutter) var(--capitola-blockPadding) var(--capitola-gutter);
 
 			@include mq("medium") {
@@ -53,7 +53,7 @@
 
 		&.--has-left-intro {
 
-			.wp-block-cwps-body-text {
+			.wp-block-capitola-body-text {
 				@include mq("medium") {
 					margin: {
 						left: 0;
@@ -69,20 +69,20 @@
 
 		&.--has-small-radius {
 
-			.wp-block-cwps-body-text__grid {
+			.wp-block-capitola-body-text__grid {
 				border-radius: $radius-med;
 			}
 		}
 
 		&.--has-medium-radius {
 
-			.wp-block-cwps-body-text__grid {
+			.wp-block-capitola-body-text__grid {
 				border-radius: $radius-large;
 			}
 		}
 	}
 
-	.wp-block-cwps-body-text__grid {
+	.wp-block-capitola-body-text__grid {
 		position: relative;
 		padding: var(--capitola-spacing-large);
 		overflow: hidden;

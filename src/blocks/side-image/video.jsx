@@ -15,7 +15,7 @@ export function Video( { radiusClass, videoObject, props } ) {
 		if ( videoSource === 'youtube' ) {
 			return (
 				<div
-					className={ `wp-block-cwps-side-image__iframe-wrap ${ radiusClass }` }
+					className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
 					style={ { aspectRatio: '560/315' } }
 				>
 					<iframe
@@ -33,7 +33,7 @@ export function Video( { radiusClass, videoObject, props } ) {
 
 		return (
 			<div
-				className={ `wp-block-cwps-side-image__iframe-wrap ${ radiusClass }` }
+				className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
 				style={ { aspectRatio: '640/360' } }
 			>
 				<iframe

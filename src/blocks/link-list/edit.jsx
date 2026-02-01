@@ -9,7 +9,7 @@ export default function Edit( props ) {
 	return (
 		<ul { ...useBlockProps() }>
 			<LinkList
-				linkClass="wp-block-cwps-link-list__link --hyperlink"
+				linkClass="wp-block-capitola-link-list__link --hyperlink"
 				value={ links }
 				disableAdd={ isExample }
 				onChange={ ( value ) => {

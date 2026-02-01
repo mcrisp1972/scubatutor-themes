@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/cover-block",
+	"name": "capitola/cover-block",
 	"title": "Cover Block",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["product"],
 	"supports": {
 		"anchor": true,
@@ -73,7 +73,7 @@
 		{
 			"name": "background-image-hero",
 			"title": "Background Image Hero",
-			"category": "cwps-hero-blocks",
+			"category": "hero-blocks",
 			"attributes": {
 				"isHeroVariation": true,
 				"headlineTag": "h1"
@@ -111,8 +111,8 @@
 		],
 		"viewportWidth": 1440
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
-	"style": "cwps-coverBlock"
+	"style": "capitola-cover-block"
 }

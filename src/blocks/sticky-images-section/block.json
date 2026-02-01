@@ -1,15 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/sticky-images-section",
+	"name": "capitola/sticky-images-section",
 	"title": "Sticky Images Section",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["image", "sticky"],
 	"supports": {
 		"anchor": true
 	},
-	"parent": ["cwps/sticky-images"],
+	"parent": ["capitola/sticky-images"],
 	"attributes": {
 		"anchor": {
 			"type": "string",

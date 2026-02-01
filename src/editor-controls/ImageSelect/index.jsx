@@ -38,7 +38,7 @@ function ImageSelect( { label, value, onChange } ) {
 					allowedTypes={ [ 'image' ] }
 					render={ ( { open } ) => {
 						return (
-							<div className="cwps-image-select">
+							<div className="capitola-image-select">
 								{ ! imageUrl && !! imageId && (
 									<div>
 										<Spinner />
@@ -47,7 +47,7 @@ function ImageSelect( { label, value, onChange } ) {
 								{ ( !! imageUrl || ! imageId ) && (
 									<Button
 										className={
-											imageId === 0 ? 'cwps-image-select__toggle' : 'cwps-image-select__preview'
+											imageId === 0 ? 'capitola-image-select__toggle' : 'capitola-image-select__preview'
 										}
 										onClick={ open }
 									>
@@ -60,15 +60,15 @@ function ImageSelect( { label, value, onChange } ) {
 									</Button>
 								) }
 								{ imageUrl && imageId && (
-									<Flex className="components-h-stack cwps-image-select__actions" gap="8px">
+									<Flex className="components-h-stack capitola-image-select__actions" gap="8px">
 										<Button
-											className="components-button cwps-image-select__action is-next-40px-default-size"
+											className="components-button capitola-image-select__action is-next-40px-default-size"
 											onClick={ open }
 										>
 											Replace
 										</Button>
 										<Button
-											className="components-button cwps-image-select__action is-next-40px-default-size"
+											className="components-button capitola-image-select__action is-next-40px-default-size"
 											onClick={ () => {
 												onChange( emptyObject );
 											} }

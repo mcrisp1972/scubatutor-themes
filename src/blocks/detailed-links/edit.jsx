@@ -52,10 +52,10 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-detailed-links__width alignwide',
+						className: 'wp-block-capitola-detailed-links__width alignwide',
 					},
 					{
-						template: [ [ 'cwps/body-text' ], [ 'cwps/detailed-links-list' ] ],
+						template: [ [ 'capitola/body-text' ], [ 'capitola/detailed-links-list' ] ],
 						templateLock: 'all',
 					}
 				) }

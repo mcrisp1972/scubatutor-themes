@@ -27,11 +27,11 @@ export default function Edit( props ) {
 					) }
 				</ToolbarGroup>
 			</BlockControls>
-			<div className="wp-block-cwps-open-content__width alignwide is-layout-constrained">
+			<div className="wp-block-capitola-open-content__width alignwide is-layout-constrained">
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: `wp-block-cwps-open-content__content --justify-${ contentJustify } --align-${ textAlign }`,
+							className: `wp-block-capitola-open-content__content --justify-${ contentJustify } --align-${ textAlign }`,
 						},
 						{
 							allowedBlocks: [

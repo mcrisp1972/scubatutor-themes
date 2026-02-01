@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/accordion-item",
+	"name": "capitola/accordion-item",
 	"title": "Accordion Item",
 	"description": "",
-	"category": "cwps-custom-blocks",
-	"parent": ["cwps/accordion"],
+	"category": "custom-blocks",
+	"parent": ["capitola/accordion"],
 	"supports": {},
 	"attributes": {
 		"headline": {

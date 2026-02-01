@@ -1,13 +1,13 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-sticky-images {
+.wp-block-capitola-sticky-images {
 	$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
 	$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
 	--sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
 	--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
-	:has(.wp-block-cwps-anchor-nav) & {
+	:has(.wp-block-capitola-anchor-nav) & {
 		$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
 		$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
 
@@ -222,17 +222,17 @@
 
 		@include mq("medium") {
 
-			.wp-block-cwps-body-text {
+			.wp-block-capitola-body-text {
 				height: 100%;
 			}
 
-			.wp-block-cwps-body-text__grid {
+			.wp-block-capitola-body-text__grid {
 				display: flex;
 				flex-flow: column;
 				overflow: hidden;
 			}
 
-			.wp-block-cwps-body-text__intro {
+			.wp-block-capitola-body-text__intro {
 				overflow: auto;
 
 				&::-webkit-scrollbar {
@@ -260,7 +260,7 @@
 		}
 	}
 
-	.wp-block-cwps-body-text {
+	.wp-block-capitola-body-text {
 		justify-content: flex-start;
 		flex: 0 0 calc(50% - (var(--capitola-blockPadding) / 2));
 
@@ -271,7 +271,7 @@
 
 	&.--layout-full { /* stylelint-disable-line no-duplicate-selectors */
 
-		.wp-block-cwps-body-text {
+		.wp-block-capitola-body-text {
 			padding: {
 				left: var(--wp--style--root--padding-left);
 				right: var(--wp--style--root--padding-right);

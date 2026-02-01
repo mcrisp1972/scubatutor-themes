@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/post-hero",
+	"name": "capitola/post-hero",
 	"title": "Post Hero",
 	"description": "",
-	"category": "cwps-hero-blocks",
+	"category": "hero-blocks",
 	"keywords": [],
 	"supports": {
 		"multiple": false,
@@ -55,7 +55,7 @@
 		},
 		"viewportWidth": 1440
 	},
-	"style": "cwps-postHero",
+	"style": "capitola-post-hero",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"
 }

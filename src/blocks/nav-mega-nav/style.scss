@@ -1,16 +1,16 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-nav-mega-nav {
+.wp-block-capitola-nav-mega-nav {
 
 	@include mq("large") {
 
-		.wp-block-cwps-nav-sublink__link {
+		.wp-block-capitola-nav-sublink__link {
 			padding: 0;
 		}
 
 		&:hover {
 
-			.wp-block-cwps-nav-mega-nav__sub-menu {
+			.wp-block-capitola-nav-mega-nav__sub-menu {
 				grid-template-rows: 1fr;
 			}
 		}
@@ -81,12 +81,12 @@
 
 	&__headline {
 
-		+ .wp-block-cwps-nav-mega-nav__intro {
+		+ .wp-block-capitola-nav-mega-nav__intro {
 			margin-top: var(--capitola-spacing-small);
 		}
 	}
 
-	.wp-block-cwps-nav-mega-nav__intro {
+	.wp-block-capitola-nav-mega-nav__intro {
 		width: var(--capitola-contentSize-padded);
 	}
 
@@ -147,7 +147,7 @@
 				grid-template-rows: repeat(10, auto);
 			}
 
-			.wp-block-cwps-nav-sublink {
+			.wp-block-capitola-nav-sublink {
 
 				&:first-child {
 					padding-top: 0;

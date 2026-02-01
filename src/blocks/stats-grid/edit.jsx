@@ -17,9 +17,9 @@ export default function Edit( props ) {
 					className: `${ innerBlockCount < 4 ? ` --count-${ innerBlockCount }` : '' }`,
 				} ),
 				{
-					defaultBlock: { name: 'cwps/stats-item' },
-					allowedBlocks: [ 'cwps/stats-item' ],
-					template: [ [ 'cwps/stats-item' ] ],
+					defaultBlock: { name: 'capitola/stats-item' },
+					allowedBlocks: [ 'capitola/stats-item' ],
+					template: [ [ 'capitola/stats-item' ] ],
 					templateLock: false,
 					directInsert: true,
 				}

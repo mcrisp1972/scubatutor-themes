@@ -43,17 +43,17 @@ function VideoSelect( { label, value, onChange } ) {
 					allowedTypes={ [ 'video' ] }
 					render={ ( { open } ) => {
 						return (
-							<div className="cwps-video-select">
+							<div className="capitola-video-select">
 								{ ! videoObj?.source_url && !! videoId ? (
 									<div>
 										<Spinner />
 									</div>
 								) : ! videoId ? (
-									<Button className="cwps-video-select__toggle" onClick={ open }>
+									<Button className="capitola-video-select__toggle" onClick={ open }>
 										Choose a video
 									</Button>
 								) : (
-									<div className="cwps-video-select__preview">
+									<div className="capitola-video-select__preview">
 										<div>
 											<strong>Title: </strong>
 											{ videoObj?.title?.raw }
@@ -73,17 +73,17 @@ function VideoSelect( { label, value, onChange } ) {
 									</div>
 								) }
 								{ videoObj?.source_url && videoId && (
-									<Flex className="components-h-stack cwps-video-select__actions" gap="8px">
+									<Flex className="components-h-stack capitola-video-select__actions" gap="8px">
 										<Button
 											variant="primary"
-											className="components-button cwps-video-select__action is-next-40px-default-size"
+											className="components-button capitola-video-select__action is-next-40px-default-size"
 											onClick={ open }
 										>
 											Replace
 										</Button>
 										<Button
 											variant="secondary"
-											className="components-button cwps-video-select__action is-next-40px-default-size"
+											className="components-button capitola-video-select__action is-next-40px-default-size"
 											onClick={ () => {
 												onChange( emptyObject );
 											} }

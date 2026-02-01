@@ -6,7 +6,7 @@ import { ColorThemePanel } from '../../editor-controls';
 const themedBlocks = [ 'core/column', 'core/group' ];
 
 // Add colorTheme attribute to core column block
-addFilter( 'blocks.registerBlockType', 'cwps/column_block_attributes', ( props, name ) => {
+addFilter( 'blocks.registerBlockType', 'capitola/column_block_attributes', ( props, name ) => {
 	if ( ! themedBlocks.includes( name ) ) {
 		return props;
 	}
@@ -26,7 +26,7 @@ addFilter( 'blocks.registerBlockType', 'cwps/column_block_attributes', ( props, 
 // Add ColorThemePanel to inspector controls and handle theme changes
 addFilter(
 	'editor.BlockEdit',
-	'cwps/column_block_inspector_controls',
+	'capitola/column_block_inspector_controls',
 	createHigherOrderComponent( ( BlockEdit ) => {
 		return ( props ) => {
 			if ( ! themedBlocks.includes( props.name ) ) {

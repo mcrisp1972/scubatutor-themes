@@ -37,7 +37,7 @@ function RepeaterControls( {
 	function DeleteButton() {
 		return (
 			<Button
-				className="cwps-repeater-controls__button --delete"
+				className="capitola-repeater-controls__button --delete"
 				title="Delete Row"
 				onClick={ () => {
 					return removeRow( index );
@@ -51,7 +51,7 @@ function RepeaterControls( {
 	function MoveBeforeButton() {
 		return (
 			<Button
-				className="cwps-repeater-controls__button --up"
+				className="capitola-repeater-controls__button --up"
 				onClick={ () => {
 					return moveBefore( index );
 				} }
@@ -65,7 +65,7 @@ function RepeaterControls( {
 	function MoveAfterButton() {
 		return (
 			<Button
-				className="cwps-repeater-controls__button --down"
+				className="capitola-repeater-controls__button --down"
 				onClick={ () => {
 					return moveAfter( index );
 				} }
@@ -79,7 +79,7 @@ function RepeaterControls( {
 	function AddBeforeButton() {
 		return (
 			<Button
-				className={ `cwps-repeater-controls__button --add-before ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-controls__button --add-before ${ vertical ? '--vertical' : '' }` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index, 0, { ...newValues } );
@@ -93,7 +93,7 @@ function RepeaterControls( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `cwps-repeater-controls__button --add-after ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-controls__button --add-after ${ vertical ? '--vertical' : '' }` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );
@@ -117,7 +117,7 @@ function RepeaterControls( {
 					render={ ( { open } ) => {
 						return (
 							<Button
-								className="cwps-repeater-controls__button --image"
+								className="capitola-repeater-controls__button --image"
 								onClick={ open }
 								title="Set Image"
 							>
@@ -131,7 +131,7 @@ function RepeaterControls( {
 	}
 
 	return (
-		<div className="cwps-repeater-controls" style={ style }>
+		<div className="capitola-repeater-controls" style={ style }>
 			{ ( allowNull || props.attributes[ attribute ].length > 1 ) && <DeleteButton /> }
 			{ index !== 0 && <MoveBeforeButton /> }
 			{ index !== props.attributes[ attribute ].length - 1 && <MoveAfterButton /> }

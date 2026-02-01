@@ -38,10 +38,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-side-image__width <?= $attributes['imageLayout'] === 'inner' ? 'alignwide' : 'alignfull' ?> <?= esc_attr( $class ) ?><?= esc_attr( $animations['block-class'] ) ?><?= ( $attributes['verticalAlign'] === 'top' ? ' --align-top' : '' ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
-		<div class="wp-block-cwps-side-image__imagewrap <?= esc_attr( $sticky_class ) ?> <?= esc_attr( $parallax_class ) ?>" style="--capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
+	<div class="wp-block-capitola-side-image__width <?= $attributes['imageLayout'] === 'inner' ? 'alignwide' : 'alignfull' ?> <?= esc_attr( $class ) ?><?= esc_attr( $animations['block-class'] ) ?><?= ( $attributes['verticalAlign'] === 'top' ? ' --align-top' : '' ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
+		<div class="wp-block-capitola-side-image__imagewrap <?= esc_attr( $sticky_class ) ?> <?= esc_attr( $parallax_class ) ?>" style="--capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ) ?>;">
 			<?php if ( $attributes['imageLayout'] === 'inner' ) : ?>
-				<figure class="wp-block-cwps-side-image__imageratio <?= esc_attr( $animations['figure-class'] ) ?>" <?= wp_kses_data( $animations['figure-data'] ) ?>>
+				<figure class="wp-block-capitola-side-image__imageratio <?= esc_attr( $animations['figure-class'] ) ?>" <?= wp_kses_data( $animations['figure-data'] ) ?>>
 			<?php endif; ?>
 			<?php
 			get_template_part(

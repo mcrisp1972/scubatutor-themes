@@ -89,10 +89,10 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'cwps-listings__width alignwide',
+			className: 'capitola-listings__width alignwide',
 		},
 		{
-			template: [ [ 'cwps/body-text' ] ],
+			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
 		}
 	);
@@ -100,7 +100,7 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: `alignfull cwps-listings --paginated is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+				className: `alignfull capitola-listings --paginated is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 			} ) }
 		>
 			<InspectorControls group="settings">
@@ -345,16 +345,16 @@ export default function Edit( props ) {
 
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div className="cwps-listings__results-header">
-					<div className="cwps-listings__filters-count js-resultsCount">Showing #-# of # results</div>
-					<div className="cwps-listings__filters">
+				<div className="capitola-listings__results-header">
+					<div className="capitola-listings__filters-count js-resultsCount">Showing #-# of # results</div>
+					<div className="capitola-listings__filters">
 						{ showSearchFields.map( ( slug ) => {
 							return (
-								<div key={ slug } className="cwps-listings__filters-filter">
+								<div key={ slug } className="capitola-listings__filters-filter">
 									<label htmlFor={ slug }>{ postTypes[ postType ].searchParams[ slug ].label }</label>
 									<div
 										className={
-											'cwps-listings__filters-input-wrap --' +
+											'capitola-listings__filters-input-wrap --' +
 											postTypes[ postType ].searchParams[ slug ].type
 										}
 									>
@@ -377,9 +377,9 @@ export default function Edit( props ) {
 								} )
 								.map( ( tax ) => {
 									return (
-										<div key={ tax.slug } className="cwps-listings__filters-filter">
+										<div key={ tax.slug } className="capitola-listings__filters-filter">
 											<label htmlFor={ tax.slug }>{ tax.labels.singular_name }</label>
-											<div className="cwps-listings__filters-input-wrap --select">
+											<div className="capitola-listings__filters-input-wrap --select">
 												<select name={ tax.slug }>
 													<option>All { tax.labels.name }</option>
 												</select>
@@ -388,9 +388,9 @@ export default function Edit( props ) {
 									);
 								} ) }
 						{ showSorts && (
-							<div className="cwps-listings__filters-filter">
+							<div className="capitola-listings__filters-filter">
 								<label htmlFor="orderby">Order</label>
-								<div className="cwps-listings__filters-input-wrap --select">
+								<div className="capitola-listings__filters-input-wrap --select">
 									<select name="orderby">
 										<option>{ orderbyOptions[ orderBy ].label }</option>
 									</select>
@@ -403,35 +403,35 @@ export default function Edit( props ) {
 				{ !! posts && posts.length === 0 && 'No Posts Found' }
 				{ !! posts && posts.length > 0 && (
 					<div
-						className={ `cwps-listings__list --${ listLayout }` }
+						className={ `capitola-listings__list --${ listLayout }` }
 						style={ { '--capitola-excerpt-lines': excerptLines } }
 					>
 						{ posts.map( ( i ) => {
 							return (
-								<div key={ i.id } className="cwps-result">
+								<div key={ i.id } className="capitola-result">
 									{ postTile( attributes, layoutConditionals( attributes ), i ) }
 								</div>
 							);
 						} ) }
 					</div>
 				) }
-				<div className="cwps-page-nav">
-					<button className="cwps-page-nav__button --next js-navPrev" disabled="">
+				<div className="capitola-page-nav">
+					<button className="capitola-page-nav__button --next js-navPrev" disabled="">
 						Prev
 					</button>
-					<div className="cwps-page-nav__page-numbers js-navPageNumbers">
-						<span className="cwps-page-nav__button --number --current">1</span>
-						<button className="cwps-page-nav__button --number js-navPageNum" data-page="2" type="button">
+					<div className="capitola-page-nav__page-numbers js-navPageNumbers">
+						<span className="capitola-page-nav__button --number --current">1</span>
+						<button className="capitola-page-nav__button --number js-navPageNum" data-page="2" type="button">
 							2
 						</button>
-						<button className="cwps-page-nav__button --number js-navPageNum" data-page="3" type="button">
+						<button className="capitola-page-nav__button --number js-navPageNum" data-page="3" type="button">
 							3
 						</button>
-						<button className="cwps-page-nav__button --number js-navPageNum" data-page="4" type="button">
+						<button className="capitola-page-nav__button --number js-navPageNum" data-page="4" type="button">
 							4
 						</button>
 					</div>
-					<button className="cwps-page-nav__button --prev js-navNext">Next</button>
+					<button className="capitola-page-nav__button --prev js-navNext">Next</button>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <div <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-three-link-cards-grid__width">
+	<div class="wp-block-capitola-three-link-cards-grid__width">
 		<?= wp_kses_post( $content ) ?>
 	</div>
 </div>

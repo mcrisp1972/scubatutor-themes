@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 
-.wp-block-cwps-lightbox-gallery {
+.wp-block-capitola-lightbox-gallery {
 	position: relative;
 	margin: 0;
 
@@ -55,7 +55,7 @@
 		&:focus,
 		&:active {
 
-			.wp-block-cwps-lightbox-gallery__main-image-hover {
+			.wp-block-capitola-lightbox-gallery__main-image-hover {
 				opacity: 1;
 			}
 		}
@@ -258,6 +258,6 @@
 	}
 }
 
-body:has(.wp-block-cwps-lightbox-gallery__lightbox) {
+body:has(.wp-block-capitola-lightbox-gallery__lightbox) {
 	overflow: hidden;
 }

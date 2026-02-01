@@ -8,20 +8,20 @@ export default function Edit() {
 
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
-			setSocials( result.cwps_social_shares );
+			setSocials( result.capitola_social_shares );
 		} );
 	}, [] );
 
 	return (
 		<div { ...useBlockProps( { className: 'alignwide' } ) }>
 			{ !! socials && (
-				<div className="wp-block-cwps-social-shares__social-links">
+				<div className="wp-block-capitola-social-shares__social-links">
 					{ Object.keys( socials ).map( ( key ) => {
 						if ( socials[ key ] === 1 ) {
 							return (
 								<div
 									key={ key }
-									className={ 'wp-block-cwps-social-shares__social-link --' + key }
+									className={ 'wp-block-capitola-social-shares__social-link --' + key }
 								></div>
 							);
 						}

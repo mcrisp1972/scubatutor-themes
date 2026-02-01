@@ -1,6 +1,6 @@
 @use "../abstracts" as *;
 
-.cwps-form {
+.capitola-form {
 
 	input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]) {
 		@include text-field;

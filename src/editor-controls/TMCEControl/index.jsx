@@ -11,7 +11,7 @@ function TMCEControl( props ) {
 			key={ baseControlProps.id }
 			id={ baseControlProps.id }
 			label={ label }
-			className="cwps-tiny-mce-control"
+			className="capitola-tiny-mce-control"
 			__nextHasNoMarginBottom
 		>
 			<ClassicEdit content={ value } onChange={ onChange } editorId={ baseControlProps.id } />

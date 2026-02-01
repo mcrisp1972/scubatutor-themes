@@ -17,7 +17,7 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-cwps-nav__menu-item' } ) }>
+		<div { ...useBlockProps( { className: 'wp-block-capitola-nav__menu-item' } ) }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl
@@ -96,7 +96,7 @@ export default function Edit( props ) {
 				</Popover>
 			) }
 			<RichText
-				className="wp-block-cwps-nav__menu-item-link"
+				className="wp-block-capitola-nav__menu-item-link"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder="Link Text..."
@@ -104,12 +104,12 @@ export default function Edit( props ) {
 					setAttributes( { title: value } );
 				} }
 			/>
-			<div className="wp-block-cwps-nav__menu-item-caret"></div>
-			<div className="wp-block-cwps-nav-mega-nav__sub-menu">
-				<div className="wp-block-cwps-nav-mega-nav__sub-menu-height">
-					<div className="wp-block-cwps-nav-mega-nav__head">
+			<div className="wp-block-capitola-nav__menu-item-caret"></div>
+			<div className="wp-block-capitola-nav-mega-nav__sub-menu">
+				<div className="wp-block-capitola-nav-mega-nav__sub-menu-height">
+					<div className="wp-block-capitola-nav-mega-nav__head">
 						<RichText
-							className="wp-block-cwps-nav-mega-nav__headline --hl-m"
+							className="wp-block-capitola-nav-mega-nav__headline --hl-m"
 							value={ headline }
 							allowedFormats={ [] }
 							placeholder="Headline..."
@@ -118,7 +118,7 @@ export default function Edit( props ) {
 							} }
 						/>
 						<RichText
-							className="wp-block-cwps-nav-mega-nav__intro"
+							className="wp-block-capitola-nav-mega-nav__intro"
 							value={ intro }
 							placeholder="Intro..."
 							onChange={ ( value ) => {
@@ -129,17 +129,17 @@ export default function Edit( props ) {
 					<div
 						{ ...useInnerBlocksProps(
 							{
-								className: 'wp-block-cwps-nav-mega-nav__sub-menu-items --row-limit-' + linksPerColumn,
+								className: 'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' + linksPerColumn,
 							},
 							{
-								defaultBlock: { name: 'cwps/nav-sublink' },
-								allowedBlocks: [ 'cwps/nav-sublink' ],
+								defaultBlock: { name: 'capitola/nav-sublink' },
+								allowedBlocks: [ 'capitola/nav-sublink' ],
 								directInsert: true,
 							}
 						) }
 					/>
 					{ !! imageObject && (
-						<div className="wp-block-cwps-nav-mega-nav__image">
+						<div className="wp-block-capitola-nav-mega-nav__image">
 							<img src={ imageObject.source_url } alt="" />
 						</div>
 					) }

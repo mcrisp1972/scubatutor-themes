@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-anchor-nav {
+.wp-block-capitola-anchor-nav {
 	position: sticky;
 	background: var(--capitola-color-background);
 	top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));

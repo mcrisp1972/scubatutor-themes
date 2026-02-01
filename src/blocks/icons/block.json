@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/icons",
+	"name": "capitola/icons",
 	"title": "Icons",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -50,7 +50,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "cwps/body-text",
+				"name": "capitola/body-text",
 				"attributes": {
 					"eyebrow": "Cupidatat pariatur",
 					"headline": "Nulla Minim Est Do",
@@ -73,10 +73,10 @@
 				]
 			},
 			{
-				"name": "cwps/icon-grid",
+				"name": "capitola/icon-grid",
 				"innerBlocks": [
 					{
-						"name": "cwps/icon-item",
+						"name": "capitola/icon-item",
 						"attributes": {
 							"icon": "fa-award",
 							"title": "Porttitor consectetur",
@@ -84,7 +84,7 @@
 						}
 					},
 					{
-						"name": "cwps/icon-item",
+						"name": "capitola/icon-item",
 						"attributes": {
 							"icon": "fa-sun-solid",
 							"title": "Leo sed leo vivamus",
@@ -92,7 +92,7 @@
 						}
 					},
 					{
-						"name": "cwps/icon-item",
+						"name": "capitola/icon-item",
 						"attributes": {
 							"icon": "fa-plane",
 							"title": "Elit leo elit ipsum elit",
@@ -100,7 +100,7 @@
 						}
 					},
 					{
-						"name": "cwps/icon-item",
+						"name": "capitola/icon-item",
 						"attributes": {
 							"icon": "fa-burger",
 							"title": "Elementum vivamus",
@@ -117,8 +117,8 @@
 		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
-	"viewScript": "cwps-animations",
+	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
-	"style": ["cwps-icons"],
+	"style": ["capitola-icons"],
 	"editorScript": "file:./index.js"
 }

@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/nav-sublink",
+	"name": "capitola/nav-sublink",
 	"title": "Nav Submenu Link",
 	"description": "",
-	"category": "cwps-nav-blocks",
+	"category": "nav-blocks",
 	"keywords": ["site", "header", "navigation"],
-	"parent": ["cwps/nav-dropdown", "cwps/nav-mega-nav", "cwps/footer-link-column"],
+	"parent": ["capitola/nav-dropdown", "capitola/nav-mega-nav", "capitola/footer-link-column"],
 	"supports": {},
 	"attributes": {
 		"title": {

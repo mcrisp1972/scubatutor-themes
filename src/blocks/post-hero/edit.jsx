@@ -68,7 +68,7 @@ export default function Edit( props ) {
 
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
-			setSocials( result.cwps_social_shares );
+			setSocials( result.capitola_social_shares );
 		} );
 	}, [] );
 
@@ -127,16 +127,16 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			{ showFeaturedImage && (
-				<div className="wp-block-cwps-post-hero__hero">
-					<div className="wp-block-cwps-post-hero__image">
+				<div className="wp-block-capitola-post-hero__hero">
+					<div className="wp-block-capitola-post-hero__image">
 						{ imageObject !== undefined && <img src={ imageObject.source_url } alt="" /> }
 					</div>
 				</div>
 			) }
-			{ isTemplate && <div className="wp-block-cwps-post-hero__title --hl-xl">Post Title</div> }
+			{ isTemplate && <div className="wp-block-capitola-post-hero__title --hl-xl">Post Title</div> }
 			{ ! isTemplate && (
 				<RichText
-					className="wp-block-cwps-post-hero__title --hl-xxl"
+					className="wp-block-capitola-post-hero__title --hl-xxl"
 					placeholder={ postTitle ? postTitle : 'Headline...' }
 					value={ headline }
 					onChange={ ( value ) => {
@@ -144,14 +144,14 @@ export default function Edit( props ) {
 					} }
 				/>
 			) }
-			<div className="wp-block-cwps-post-hero__details">
-				<div className="wp-block-cwps-post-hero__byline">
+			<div className="wp-block-capitola-post-hero__details">
+				<div className="wp-block-capitola-post-hero__byline">
 					{ ( isTemplate || postType === 'post' ) && showByline && (
 						<>
-							<div className="wp-block-cwps-post-hero__byline-img-wrap">
+							<div className="wp-block-capitola-post-hero__byline-img-wrap">
 								{ authorImage !== undefined && <img src={ authorImage.source_url } alt="" /> }
 							</div>
-							<div className="wp-block-cwps-post-hero__byline-date">
+							<div className="wp-block-capitola-post-hero__byline-date">
 								<div>{ !! authorObject ? authorObject.name : '' }</div>
 								<div>{ ! isTemplate ? date( "M jS 'y", postObject.date ) : 'Publish Date' }</div>
 							</div>
@@ -159,13 +159,13 @@ export default function Edit( props ) {
 					) }
 				</div>
 				{ showSocials && !! socials && (
-					<div className="wp-block-cwps-post-hero__social-links">
+					<div className="wp-block-capitola-post-hero__social-links">
 						{ Object.keys( socials ).map( ( key ) => {
 							if ( socials[ key ] === 1 ) {
 								return (
 									<div
 										key={ key }
-										className={ `wp-block-cwps-post-hero__social-link --${ key }` }
+										className={ `wp-block-capitola-post-hero__social-link --${ key }` }
 									></div>
 								);
 							}

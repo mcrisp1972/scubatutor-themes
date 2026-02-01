@@ -7,7 +7,7 @@ export default function Edit( props ) {
 	const { link, headline } = attributes;
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-cwps-footer__menu' } ) }>
+		<div { ...useBlockProps( { className: 'wp-block-capitola-footer__menu' } ) }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl
@@ -36,7 +36,7 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<RichText
-				className="wp-block-cwps-footer__top-link"
+				className="wp-block-capitola-footer__top-link"
 				value={ headline }
 				allowedFormats={ [] }
 				placeholder="Column Headline..."
@@ -48,12 +48,12 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-footer__menu-items',
+						className: 'wp-block-capitola-footer__menu-items',
 					},
 					{
-						defaultBlock: { name: 'cwps/nav-sublink' },
-						allowedBlocks: [ 'cwps/nav-sublink' ],
-						template: [ [ 'cwps/nav-sublink' ] ],
+						defaultBlock: { name: 'capitola/nav-sublink' },
+						allowedBlocks: [ 'capitola/nav-sublink' ],
+						template: [ [ 'capitola/nav-sublink' ] ],
 						directInsert: true,
 					}
 				) }

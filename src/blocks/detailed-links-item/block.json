@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/detailed-links-item",
+	"name": "capitola/detailed-links-item",
 	"title": "Detailed Link List Item",
 	"description": "",
-	"category": "cwps-custom-blocks",
-	"parent": ["cwps/detailed-links-list"],
+	"category": "custom-blocks",
+	"parent": ["capitola/detailed-links-list"],
 	"supports": {
 		"anchor": false
 	},

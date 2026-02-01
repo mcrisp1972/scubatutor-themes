@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/sticky-images",
+	"name": "capitola/sticky-images",
 	"title": "Sticky Images",
 	"description": "Multiple side image blocks with sticky images during scroll.",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": ["image", "sticky"],
 	"supports": {
 		"anchor": true,
@@ -56,7 +56,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "cwps/sticky-images-section",
+				"name": "capitola/sticky-images-section",
 				"attributes": {
 					"sideImage": {
 						"source_url": "https://pd.w.org/2023/05/8616454d45ef02002.62343426-1536x1152.jpeg"
@@ -64,7 +64,7 @@
 				},
 				"innerBlocks": [
 					{
-						"name": "cwps/body-text",
+						"name": "capitola/body-text",
 						"attributes": {
 							"eyebrow": "Cupidatat pariatur",
 							"headline": "Nulla Minim Est Do",
@@ -93,7 +93,7 @@
 	},
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
-	"style": "cwps-stickyImages",
+	"style": "capitola-sticky-images",
 	"viewScript": "file:./view.js",
-	"editorStyle": "cwps-stickyImages-admin"
+	"editorStyle": "capitola-sticky-images-editor"
 }

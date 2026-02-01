@@ -36,7 +36,7 @@ export default function edit( { attributes, setAttributes, onReplace, clientId }
 					let block;
 
 					if ( isOriginal || value ) {
-						block = createBlock( 'cwps/eyebrow', {
+						block = createBlock( 'capitola/eyebrow', {
 							...attributes,
 							content: value,
 						} );

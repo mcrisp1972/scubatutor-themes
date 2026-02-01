@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/dummy-form",
+	"name": "capitola/dummy-form",
 	"title": "Dummy Form",
 	"description": "Used only for block previews",
 	"supports": {

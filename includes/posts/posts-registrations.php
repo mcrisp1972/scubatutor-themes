@@ -10,7 +10,7 @@ function edit_post_registration( $args, $post_type ) {
 
 		// add template
 		$args['template'] = array(
-			array( 'cwps/post-hero' ),
+			array( 'capitola/post-hero' ),
 		);
 
 		// disable archive

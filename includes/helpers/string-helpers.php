@@ -120,7 +120,7 @@ function page_parent_label( $post_id ) {
 function get_post_term_name( $post ) {
 	$post_type = get_post_type( $post );
 
-	$taxonomy = apply_filters( "cwps_{$post_type}_base_taxonomy", false );
+	$taxonomy = apply_filters( "capitola_{$post_type}_base_taxonomy", false );
 
 	if ( ! $taxonomy ) {
 		return false;

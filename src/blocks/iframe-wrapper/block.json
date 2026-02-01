@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/iframe-wrapper",
-	"title": "iFrame wrapper",
+	"name": "capitola/iframe-wrapper",
+	"title": "iFrame Wrapper",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"anchor": true,
@@ -33,7 +33,7 @@
 	},
 	"example": {},
 	"render": "file:./render.php",
-	"style": "cwps-iframeWrapper",
-	"editorStyle": "cwps-iframeWrapperEdit",
+	"style": "capitola-iframe-wrapper",
+	"editorStyle": "capitola-iframe-wrapper-editor",
 	"editorScript": "file:./index.js"
 }

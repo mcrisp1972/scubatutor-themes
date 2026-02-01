@@ -9,7 +9,7 @@ export default function Edit( props ) {
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-cwps-nav__menu-item' } ) }>
+		<div { ...useBlockProps( { className: 'wp-block-capitola-nav__menu-item' } ) }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl
@@ -69,7 +69,7 @@ export default function Edit( props ) {
 				</Popover>
 			) }
 			<RichText
-				className="wp-block-cwps-nav__menu-item-link"
+				className="wp-block-capitola-nav__menu-item-link"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder="Link Text..."

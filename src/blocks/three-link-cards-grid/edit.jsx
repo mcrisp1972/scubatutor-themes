@@ -32,15 +32,15 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-cwps-three-link-cards-grid__width',
+						className: 'wp-block-capitola-three-link-cards-grid__width',
 					},
 					{
-						// defaultBlock: { name: 'cwps/three-link-card' },
-						// allowedBlocks: [ 'cwps/three-link-card' ],
+						// defaultBlock: { name: 'capitola/three-link-card' },
+						// allowedBlocks: [ 'capitola/three-link-card' ],
 						template: [
-							[ 'cwps/three-link-card' ],
-							[ 'cwps/three-link-card' ],
-							[ 'cwps/three-link-card' ],
+							[ 'capitola/three-link-card' ],
+							[ 'capitola/three-link-card' ],
+							[ 'capitola/three-link-card' ],
 						],
 						templateLock: 'all',
 						directInsert: false,

@@ -5,7 +5,7 @@ gsap.registerPlugin( ScrollTrigger );
 
 class anchorBar {
 	constructor( element ) {
-		const links = element.querySelectorAll( '.wp-block-cwps-anchor-nav__link' );
+		const links = element.querySelectorAll( '.wp-block-capitola-anchor-nav__link' );
 		const targets = [];
 
 		links.forEach( ( link ) => {

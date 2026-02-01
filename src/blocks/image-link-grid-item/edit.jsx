@@ -18,7 +18,7 @@ export default function Edit( props ) {
 		imageOpacity,
 	} = attributes;
 
-	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
+	const postTypeOptions = applyFilters( 'capitola.postTypeOptions' );
 
 	const linkObj = useSelect(
 		( select ) => {
@@ -137,22 +137,22 @@ export default function Edit( props ) {
 			) : (
 				<PlaceholderImage hasBgColor={ false } />
 			) }
-			<div className="wp-block-cwps-image-link-grid-item__opacity-layer"></div>
-			<div className="wp-block-cwps-image-link-grid-item__text-content">
-				<div className="wp-block-cwps-image-link-grid-item__title-wrap">
-					<div className="wp-block-cwps-image-link-grid-item__subtitle --eyebrow">
+			<div className="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
+			<div className="wp-block-capitola-image-link-grid-item__text-content">
+				<div className="wp-block-capitola-image-link-grid-item__title-wrap">
+					<div className="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
 						{ eyebrowOverride ? eyebrowOverride : linkTag }
 					</div>
-					<div className="wp-block-cwps-image-link-grid-item__title --hl-s">
+					<div className="wp-block-capitola-image-link-grid-item__title --hl-s">
 						{ titleOverride ? titleOverride : linkObj?.title.raw }
 					</div>
 				</div>
-				<div className="wp-block-cwps-image-link-grid-item__excerpt-wrap">
-					<div className="wp-block-cwps-image-link-grid-item__excerpt">
+				<div className="wp-block-capitola-image-link-grid-item__excerpt-wrap">
+					<div className="wp-block-capitola-image-link-grid-item__excerpt">
 						{ excerptOverride ? excerptOverride : linkObj?.excerpt.raw }
 					</div>
 					{ ( ctaOverride || linkObj?.cta_label ) && (
-						<div className="wp-block-cwps-image-link-grid-item__cta --cta --tertiary">
+						<div className="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
 							{ ctaOverride ? ctaOverride : linkObj?.cta_label }
 						</div>
 					) }

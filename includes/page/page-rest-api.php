@@ -11,7 +11,7 @@ function extend_rest_endpoint() {
 		'cta_label',
 		array(
 			'get_callback' => function ( $post ) {
-				return apply_filters( 'cwps_page_cta_label', '' );
+				return apply_filters( 'capitola_page_cta_label', '' );
 			},
 		)
 	);

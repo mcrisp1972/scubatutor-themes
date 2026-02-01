@@ -18,8 +18,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-image-link-grid__width">
-		<div class="wp-block-cwps-image-link-grid__grid --theme-image-overlay --layout-<?= esc_attr( $block->context['gridLayout'] . ' ' . implode( ' ', $classes ) . ' ' . ( $block->context['gridGap'] ? '--grid-gap' : '' ) ) ?>">
+	<div class="wp-block-capitola-image-link-grid__width">
+		<div class="wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-<?= esc_attr( $block->context['gridLayout'] . ' ' . implode( ' ', $classes ) . ' ' . ( $block->context['gridGap'] ? '--grid-gap' : '' ) ) ?>">
 			<?= wp_kses_post( $content ) ?>
 		</div>
 	</div>

@@ -10,7 +10,7 @@ function add_body_theme_class( $classes ) {
 
 	if ( is_object( $object ) && get_class( $object ) == 'WP_Post' ) {
 		$use_default = get_post_meta( $object->ID, 'useDefColorTheme', true );
-		$default_theme = get_option( 'cwps_default_page_color_theme' );
+		$default_theme = get_option( 'capitola_default_page_color_theme' );
 		$page_theme = get_post_meta( $object->ID, 'pageColorTheme', true );
 		$applied = $use_default || ! $page_theme ? $default_theme : $page_theme;
 		$classes[] = '--theme-' . $applied;

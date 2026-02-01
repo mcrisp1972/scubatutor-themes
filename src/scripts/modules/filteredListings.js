@@ -112,7 +112,7 @@ export default class filteredListings {
 		if ( this.postType === 'post' ) {
 			this.restPath = '/wp-json/wp/v2/posts';
 		} else if ( this.postType === 'product' ) {
-			this.restPath = '/wp-json/cwps/v1/product-search';
+			this.restPath = '/wp-json/capitola/v1/product-search';
 		} else {
 			this.restPath = '/wp-json/wp/v2/' + this.postType;
 		}
@@ -277,14 +277,14 @@ export default class filteredListings {
 			paginationIndexes.forEach( ( index ) => {
 				if ( index === '...' ) {
 					this.elements.navPageNumbers.innerHTML +=
-						'<li class="cwps-page-nav__button --number --dots" disabled>....</li>';
+						'<li class="capitola-page-nav__button --number --dots" disabled>....</li>';
 				} else if ( index == this.queryParams.page ) {
 					this.elements.navPageNumbers.innerHTML +=
-						'<li class="cwps-page-nav__button --number --current">' + index + '</li>';
+						'<li class="capitola-page-nav__button --number --current">' + index + '</li>';
 				} else {
 					this.elements.navPageNumbers.innerHTML += `
           <li>
-            <button class="cwps-page-nav__button --number js-navPageNum" data-page="${ index }" type="button">
+            <button class="capitola-page-nav__button --number js-navPageNum" data-page="${ index }" type="button">
               ${ index }
             </button>
           </li>
@@ -344,22 +344,22 @@ export default class filteredListings {
 	renderItem( itemData ) {
 		const conditionals = layoutConditionals( this.attr );
 		const card = `
-    <article class="cwps-result swiper-slide">
-      <a class="cwps-result__link" href="${ itemData.link }">
-        <div class="cwps-result__image-col --theme-image-overlay">
+    <article class="capitola-result swiper-slide">
+      <a class="capitola-result__link" href="${ itemData.link }">
+        <div class="capitola-result__image-col --theme-image-overlay">
           ${ itemData.image_html.large }
           ${ conditionals.titleLocation === 'image' ? `<div class="__opacity-layer"></div>` : '' }
-          <div class="cwps-result__thumb-content">
+          <div class="capitola-result__thumb-content">
             ${
 				conditionals.titleLocation === 'image'
 					? `
-              <${ this.attr.titleTag } class="cwps-result__thumb-title --hl-s">
+              <${ this.attr.titleTag } class="capitola-result__thumb-title --hl-s">
                 ${ itemData.title.rendered }
               </${ this.attr.titleTag }>
               ${
 					itemData.event_dates
 						? `
-                <div class="cwps-result__thumb-subtitle">
+                <div class="capitola-result__thumb-subtitle">
                   ${ itemData.event_dates }
                 </div>`
 						: ''
@@ -369,14 +369,14 @@ export default class filteredListings {
 			}
             ${
 				this.attr.ctaText && conditionals.ctaLocation === 'image'
-					? `<span class="cwps-result__thumb-cta --cta --tertiary">${ this.attr.ctaText }</span>`
+					? `<span class="capitola-result__thumb-cta --cta --tertiary">${ this.attr.ctaText }</span>`
 					: ''
 			}
           </div>
           ${
 				itemData.category_name && conditionals.titleLocation === 'image'
 					? `
-            <div class="cwps-result__thumb-cat">
+            <div class="capitola-result__thumb-cat">
               ${ itemData.category_name }
             </div>`
 					: ''
@@ -385,7 +385,7 @@ export default class filteredListings {
         ${
 			conditionals.hasBottom
 				? `
-          <div class="cwps-result__content">
+          <div class="capitola-result__content">
             ${
 				conditionals.titleLocation === 'body'
 					? `
@@ -393,17 +393,17 @@ export default class filteredListings {
                 <div>
                 ${
 					itemData.category_name
-						? `<div class="cwps-result__body-cat --eyebrow">${ itemData.category_name }</div>`
+						? `<div class="capitola-result__body-cat --eyebrow">${ itemData.category_name }</div>`
 						: ''
 				}
-              <${ this.attr.titleTag } class="cwps-result__title --hl-s">
+              <${ this.attr.titleTag } class="capitola-result__title --hl-s">
                 ${ itemData.title.rendered }
               </${ this.attr.titleTag }>
               </div>
               ${
 					itemData.event_dates
 						? `
-                <div class="cwps-result__subtitle">
+                <div class="capitola-result__subtitle">
                   ${ itemData.event_dates }
                 </div>`
 						: ''
@@ -412,28 +412,28 @@ export default class filteredListings {
 			}
             ${
 				itemData.excerpt.rendered && this.attr.showExcerpt
-					? `<p class="cwps-result__excerpt">
+					? `<p class="capitola-result__excerpt">
                 ${ itemData.excerpt.rendered }
               </p>`
 					: ''
 			}
             ${
 				conditionals.showByline
-					? `<div class="cwps-result__byline">
+					? `<div class="capitola-result__byline">
                 ${
 					itemData.byline.author_image
-						? `<div class="cwps-result__byline-img-wrap">
+						? `<div class="capitola-result__byline-img-wrap">
                     <img src="${ itemData.byline.author_image }" alt="${ itemData.byline.name }"/>
                   </div>`
 						: ``
 				}
-                <div class="cwps-result__byline-date">${ itemData.byline.name }<br>${ itemData.byline.date }</div>
+                <div class="capitola-result__byline-date">${ itemData.byline.name }<br>${ itemData.byline.date }</div>
               </div>`
 					: ''
 			}
             ${
 				this.attr.ctaText && conditionals.ctaLocation === 'body'
-					? `<div class="cwps-result__cta --cta --tertiary">
+					? `<div class="capitola-result__cta --cta --tertiary">
                 ${ this.attr.ctaText }
               </div>`
 					: ''
@@ -448,37 +448,37 @@ export default class filteredListings {
 
 	renderProduct( itemData ) {
 		const card = `
-      <article class="cwps-result">
-        <a class="cwps-result__link --contain" href="${ itemData.link }" aria-label="${ itemData.post_title }">
-          <div class="cwps-result__image-col --contain">
+      <article class="capitola-result">
+        <a class="capitola-result__link --contain" href="${ itemData.link }" aria-label="${ itemData.post_title }">
+          <div class="capitola-result__image-col --contain">
             ${ itemData.image_html }
-            ${ itemData.on_sale ? `<span class="cwps-result__badge">Sale!</span>` : '' }
+            ${ itemData.on_sale ? `<span class="capitola-result__badge">Sale!</span>` : '' }
           </div>
-          <div class="cwps-result__content --product-grid">
-            <${ this.attr.titleTag } class="cwps-result__title --hl-s">
+          <div class="capitola-result__content --product-grid">
+            <${ this.attr.titleTag } class="capitola-result__title --hl-s">
               ${ itemData.post_title }
             </${ this.attr.titleTag }>
-            <div class="cwps-result__product-meta">
+            <div class="capitola-result__product-meta">
               ${
-					this.attr.showBrand && itemData.cwps_brand
-						? `<div class="cwps-result__product-meta-detail">
+					this.attr.showBrand && itemData.capitola_brand
+						? `<div class="capitola-result__product-meta-detail">
                   <span>
-                    ${ itemData.cwps_brand }
+                    ${ itemData.capitola_brand }
                   </span>
                 </div>`
 						: ''
 				}
               ${
 					this.attr.showPartNumber && itemData.part_number
-						? `<div class="cwps-result__product-meta-detail">
+						? `<div class="capitola-result__product-meta-detail">
                   ${ this.attr.partNumberPrefix ? '<span>' + this.attr.partNumberPrefix + '</span>' : '' }
                   <span>${ itemData.part_number }</span>
                 </div>`
 						: ''
 				}
               ${
-					this.attr.showMSRP && itemData.cwps_msrp_range
-						? `<div class="cwps-result__product-meta-detail">
+					this.attr.showMSRP && itemData.capitola_msrp_range
+						? `<div class="capitola-result__product-meta-detail">
                   ${
 						this.attr.msrpPrefix
 							? `<span>
@@ -486,13 +486,13 @@ export default class filteredListings {
                     </span>`
 							: ''
 					}
-                  <span>${ itemData.cwps_msrp_range }</span>
+                  <span>${ itemData.capitola_msrp_range }</span>
                 </div>`
 						: ''
 				}
-              <div class="cwps-result__product-meta-detail">
+              <div class="capitola-result__product-meta-detail">
                 ${
-					this.attr.ourPricePrefix && this.attr.showMSRP && itemData.cwps_msrp_range
+					this.attr.ourPricePrefix && this.attr.showMSRP && itemData.capitola_msrp_range
 						? `<span>${ this.attr.ourPricePrefix }
                   </span>`
 						: ''
@@ -501,18 +501,18 @@ export default class filteredListings {
               </div>
               ${
 					this.attr.showRating && itemData.rating
-						? `<div class="cwps-result__product-meta-detail star-rating" role="img" aria-label="Rated ${ itemData.rating } out of 5" data-rating="${ itemData.rating }"></div>`
+						? `<div class="capitola-result__product-meta-detail star-rating" role="img" aria-label="Rated ${ itemData.rating } out of 5" data-rating="${ itemData.rating }"></div>`
 						: ''
 				}
             </div>
             ${
 				this.attr.showExcerpt && itemData.short_description
-					? `<p class="cwps-result__excerpt">
+					? `<p class="capitola-result__excerpt">
                 ${ itemData.short_description }
               </p>`
 					: ''
 			}
-            ${ this.attr.ctaText ? `<div class="cwps-result__cta --cta --tertiary">${ this.attr.ctaText }</div>` : '' }
+            ${ this.attr.ctaText ? `<div class="capitola-result__cta --cta --tertiary">${ this.attr.ctaText }</div>` : '' }
           </div>
         </a>
       </article>

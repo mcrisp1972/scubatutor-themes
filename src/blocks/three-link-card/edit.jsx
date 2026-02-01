@@ -9,7 +9,7 @@ export default function Edit( props ) {
 
 	const { postType, postId, image, title, imageRadius } = attributes;
 
-	const postTypeOptions = applyFilters( 'cwps.postTypeOptions' );
+	const postTypeOptions = applyFilters( 'capitola.postTypeOptions' );
 
 	const linkObj = useSelect(
 		( select ) => {
@@ -56,7 +56,7 @@ export default function Edit( props ) {
 					<RadiusToolbar props={ props } attribute="imageRadius" />
 				</ToolbarGroup>
 			</BlockControls>
-			<div className={ `wp-block-cwps-three-link-card__image  ${ radiusClass }` }>
+			<div className={ `wp-block-capitola-three-link-card__image  ${ radiusClass }` }>
 				{ !! renderedImage ? (
 					<>
 						<img src={ renderedImage } alt="" />
@@ -88,7 +88,7 @@ export default function Edit( props ) {
 				) }
 			</div>
 			<RichText
-				className="wp-block-cwps-three-link-card__title --hl-s"
+				className="wp-block-capitola-three-link-card__title --hl-s"
 				value={ title }
 				allowedFormats={ [] }
 				placeholder={ linkObj?.title.raw || 'Title...' }

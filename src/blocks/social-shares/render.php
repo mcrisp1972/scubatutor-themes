@@ -1,6 +1,6 @@
 <?php
 
-$socials = get_option( 'cwps_social_shares' );
+$socials = get_option( 'capitola_social_shares' );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -10,7 +10,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<ul class="wp-block-cwps-social-shares__social-links">
+	<ul class="wp-block-capitola-social-shares__social-links">
 		<?php
 		foreach ( $socials as $k => $v ) :
 			$social_link = '';
@@ -33,7 +33,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			if ( $social_link ) :
 				?>
 				<li>
-					<a class="wp-block-cwps-social-shares__social-link --<?= esc_attr( $k ) ?>" href="<?= esc_url( $social_link ) ?>" target="_blank" aria-label="<?= esc_attr( $k ) ?>"></a>
+					<a class="wp-block-capitola-social-shares__social-link --<?= esc_attr( $k ) ?>" href="<?= esc_url( $social_link ) ?>" target="_blank" aria-label="<?= esc_attr( $k ) ?>"></a>
 				</li>
 			<?php endif; ?>
 		<?php endforeach; ?>

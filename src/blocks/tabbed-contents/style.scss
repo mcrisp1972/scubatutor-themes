@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-tabbed-contents {
+.wp-block-capitola-tabbed-contents {
 	@include block-outer-wrap;
 
 	&__width {
@@ -8,7 +8,7 @@
 	}
 }
 
-.wp-block-cwps-tabbed-contents-tabs {
+.wp-block-capitola-tabbed-contents-tabs {
 
 	@include mq("50-50") {
 		flex: 0 1 50%;
@@ -50,14 +50,14 @@
 
 		&:not(:has(.--active)) {
 
-			.wp-block-cwps-tabbed-contents-panel:first-child {
+			.wp-block-capitola-tabbed-contents-panel:first-child {
 				display: block;
 			}
 		}
 	}
 }
 
-.wp-block-cwps-tabbed-contents-panel {
+.wp-block-capitola-tabbed-contents-panel {
 	display: none;
 	min-height: 60px;
 

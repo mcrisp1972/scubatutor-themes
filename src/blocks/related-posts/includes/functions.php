@@ -27,8 +27,8 @@ function query_related_posts( $attributes ) {
 
 			if ( $post ) {
 
-				$args = apply_filters( "cwps_related_{$post->post_type}_query", $args, $post );
-				$tax = apply_filters( "cwps_related_{$post->post_type}_query_tax", false );
+				$args = apply_filters( "capitola_related_{$post->post_type}_query", $args, $post );
+				$tax = apply_filters( "capitola_related_{$post->post_type}_query_tax", false );
 			}
 
 			if ( ! empty( $tax ) ) {

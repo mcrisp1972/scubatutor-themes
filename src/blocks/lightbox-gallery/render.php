@@ -24,7 +24,7 @@ foreach ( $attributes['images'] as $image ) {
 	);
 }
 
-wp_localize_script( 'cwps-lightbox-gallery-view-script', 'lightboxGalleryImages', $image_data );
+wp_localize_script( 'capitola-lightbox-gallery-view-script', 'lightboxGalleryImages', $image_data );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -36,8 +36,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <figure <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-lightbox-gallery__inner-wrap<?= $attributes['isSticky'] ? ' --is-sticky' : '' ?>">
-		<button type="button" class="wp-block-cwps-lightbox-gallery__main-image js-largeImageLink">
+	<div class="wp-block-capitola-lightbox-gallery__inner-wrap<?= $attributes['isSticky'] ? ' --is-sticky' : '' ?>">
+		<button type="button" class="wp-block-capitola-lightbox-gallery__main-image js-largeImageLink">
 			<?=
 			wp_get_attachment_image(
 				$attributes['images'][0]['id'],
@@ -49,11 +49,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				)
 			)
 			?>
-			<div class="wp-block-cwps-lightbox-gallery__main-image-hover"></div>
+			<div class="wp-block-capitola-lightbox-gallery__main-image-hover"></div>
 		</button>
-		<div class="wp-block-cwps-lightbox-gallery__thumbnails js-lightboxThumbs">
+		<div class="wp-block-capitola-lightbox-gallery__thumbnails js-lightboxThumbs">
 			<?php foreach ( $image_data as $index => $image ) : ?>
-				<button type="button" class="wp-block-cwps-lightbox-gallery__thumbnail <?= $index === 0 ? '--is-selected' : '' ?> js-thumbImageLink" aria-label="Select Image" data-index="<?= esc_attr( $index ) ?>">
+				<button type="button" class="wp-block-capitola-lightbox-gallery__thumbnail <?= $index === 0 ? '--is-selected' : '' ?> js-thumbImageLink" aria-label="Select Image" data-index="<?= esc_attr( $index ) ?>">
 					<img src="<?= esc_url( $image['smallSrc'] ) ?>" alt="<?= esc_attr( $image['alt'] ) ?>"/>
 				</button>
 			<?php endforeach; ?>

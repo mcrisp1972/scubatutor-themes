@@ -2,7 +2,7 @@ import { addFilter } from '@wordpress/hooks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/gallery_block_supports',
+	'capitola/gallery_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/gallery' ) {
 			return props;

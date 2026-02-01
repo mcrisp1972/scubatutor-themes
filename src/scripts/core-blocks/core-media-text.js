@@ -2,7 +2,7 @@ import { addFilter } from '@wordpress/hooks';
 
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/media-text_block_supports',
+	'capitola/media-text_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/media-text' ) {
 			return props;

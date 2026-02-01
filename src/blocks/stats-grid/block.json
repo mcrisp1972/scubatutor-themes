@@ -1,15 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/stats-grid",
+	"name": "capitola/stats-grid",
 	"title": "Stats Grid",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"lock": false
 	},
-	"parent": ["cwps/stats"],
+	"parent": ["capitola/stats"],
 	"attributes": {},
 	"usesContext": ["revealAnimation", "revealSection", "introAlign"],
 	"render": "file:./render.php",

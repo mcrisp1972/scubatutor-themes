@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-fixed-background {
+.wp-block-capitola-fixed-background {
 	position: relative;
 	overflow: hidden;
 
@@ -21,7 +21,7 @@
 
 		&.--align-center {
 
-			.wp-block-cwps-body-text__grid {
+			.wp-block-capitola-body-text__grid {
 				align-items: center;
 				text-align: center;
 			}
@@ -55,7 +55,7 @@
 		}
 	}
 
-	.wp-block-cwps-body-text {
+	.wp-block-capitola-body-text {
 		display: flex;
 		flex-flow: column;
 		gap: var(--capitola-spacing-small);
@@ -67,7 +67,7 @@
 		}
 	}
 
-	.wp-block-cwps-body-text__grid {
+	.wp-block-capitola-body-text__grid {
 		display: flex;
 		position: relative;
 		flex-flow: column;
@@ -86,7 +86,7 @@
 
 	&.--theme-image-overlay {
 
-		.wp-block-cwps-body-text__grid {
+		.wp-block-capitola-body-text__grid {
 			padding: 0;
 			border-radius: 0;
 
@@ -94,11 +94,11 @@
 				background-color: unset;
 			}
 
-			.wp-block-cwps-body-text__cta:not(.--secondary) {
+			.wp-block-capitola-body-text__cta:not(.--secondary) {
 				@include button-secondary;
 			}
 
-			.wp-block-cwps-body-text__cta.--secondary {
+			.wp-block-capitola-body-text__cta.--secondary {
 				@include button-tertiary;
 			}
 		}
@@ -106,14 +106,14 @@
 
 	&.--has-small-radius {
 
-		.wp-block-cwps-body-text__grid {
+		.wp-block-capitola-body-text__grid {
 			border-radius: $radius-med;
 		}
 	}
 
 	&.--has-medium-radius {
 
-		.wp-block-cwps-body-text__grid {
+		.wp-block-capitola-body-text__grid {
 			border-radius: $radius-large;
 		}
 	}

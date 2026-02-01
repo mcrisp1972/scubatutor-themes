@@ -21,7 +21,7 @@ define( 'CAPITOLA_CHILD_JS_URL', CAPITOLA_CHILD_THEME_URL . '/build/scripts/' );
 define( 'CAPITOLA_CHILD_CSS_URL', CAPITOLA_CHILD_THEME_URL . '/build/styles/' );
 define( 'CAPITOLA_CHILD_CSS_DIR', CAPITOLA_CHILD_THEME_DIR . '/build/styles/' );
 define( 'CAPITOLA_CHILD_BLOCKS_URL', CAPITOLA_CHILD_THEME_URL . '/build/blocks/' );
-define( 'CAPITOLA_STYLE_DEP', 'cwps-main-styles' );
+define( 'CAPITOLA_STYLE_DEP', 'capitola-main-styles' );
 define( 'CAPITOLA_WOO_ACTIVE', class_exists( 'woocommerce' ) ? true : false );
 
 $asset_file = CAPITOLA_THEME_DIR . '/build/styles/main.asset.php';

@@ -43,7 +43,7 @@ class Term_Form extends Fields {
 		foreach ( $this->fields as $field ) :
 			$field = self::set_field_id( $field );
 			$field['class'] = $field['class'] ?? '';
-			$field['class'] .= ' cwps-add-clear';
+			$field['class'] .= ' capitola-add-clear';
 			?>
 			<div id="field-row-<?= $field['id'] ?>" class="form-field">
 				<label for="<?= $field['id'] ?>"><?= $field['label'] ?></label>

@@ -1,10 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/tabbed-contents-panel",
+	"name": "capitola/tabbed-contents-panel",
 	"title": "Tabbed Contents Panel",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"styles": [],
 	"supports": {},
@@ -14,8 +14,8 @@
 			"default": ""
 		}
 	},
-	"parent": ["cwps/tabbed-contents-tabs"],
-	"usesContext": ["cwps/activePanel"],
+	"parent": ["capitola/tabbed-contents-tabs"],
+	"usesContext": ["capitola/activePanel"],
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"
 }

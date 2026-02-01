@@ -193,7 +193,7 @@ class Fields {
 
 	public static function image( $field, $value ) {
 		wp_enqueue_media();
-		wp_enqueue_script( 'cwps-admin-js' );
+		wp_enqueue_script( 'capitola-admin-js' );
 
 		if ( $value ) {
 

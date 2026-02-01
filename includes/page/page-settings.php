@@ -4,7 +4,7 @@ namespace Capitola\Post_Types\Pages\Settings;
 
 use Capitola\Admin_Forms\Settings_Form;
 
-const GROUP_PAGES = 'cwps-page-options';
+const GROUP_PAGES = 'capitola-page-options';
 
 add_action( 'init', __NAMESPACE__ . '\add_options_page' );
 
@@ -24,8 +24,8 @@ function add_options_page() {
 				array(
 					'id' => 'post-fallback-img',
 					'label' => 'Fallback Image',
-					'name' => 'cwps_page_default_image',
-					'option' => 'cwps_page_default_image',
+					'name' => 'capitola_page_default_image',
+					'option' => 'capitola_page_default_image',
 					'type' => 'image',
 					'help' => 'Sets the fallback featured image if no image is set at the post or term level.',
 				),
@@ -42,7 +42,7 @@ add_action( 'init', __NAMESPACE__ . '\register_settings' );
 function register_settings() {
 	register_setting(
 		GROUP_PAGES,
-		'cwps_page_default_image',
+		'capitola_page_default_image',
 		array(
 			'type' => 'integer',
 			'show_in_rest' => false,

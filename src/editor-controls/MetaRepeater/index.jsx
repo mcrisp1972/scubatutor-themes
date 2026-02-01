@@ -67,7 +67,7 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 
 	const buttonRow = ( index ) => {
 		return (
-			<div className="cwps-repeater__button-row">
+			<div className="capitola-repeater__button-row">
 				{ deleteButton( index ) }
 				{ index !== 0 && upButton( index ) }
 				{ index !== postMeta[ metaKey ].length - 1 && downButton( index ) }
@@ -78,7 +78,7 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const deleteButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --delete"
+				className="capitola-repeater__button --delete"
 				title="Delete Row"
 				onClick={ () => {
 					return removeRow( index );
@@ -92,7 +92,7 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const upButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --up"
+				className="capitola-repeater__button --up"
 				onClick={ () => {
 					return moveUp( index );
 				} }
@@ -106,7 +106,7 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const downButton = ( index ) => {
 		return (
 			<Button
-				className="cwps-repeater__button --down"
+				className="capitola-repeater__button --down"
 				onClick={ () => {
 					return moveDown( index );
 				} }
@@ -121,7 +121,7 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 
 	const { baseControlProps } = useBaseControlProps( {
 		label: pluralLabel,
-		className: `cwps-repeater${ isFlat ? ' --flat' : '' }`,
+		className: `capitola-repeater${ isFlat ? ' --flat' : '' }`,
 		__nextHasNoMarginBottom: true,
 	} );
 
@@ -133,14 +133,14 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 				<Fragment key={ index }>
 					{ ! isFlat && (
 						<PanelBody title={ label + ' ' + ( index + 1 ) } initialOpen={ true }>
-							<div className="cwps-repeater__field-wrap">
+							<div className="capitola-repeater__field-wrap">
 								{ fields( index ) }
 								{ buttonRow( index ) }
 							</div>
 						</PanelBody>
 					) }
 					{ isFlat && (
-						<div className="cwps-repeater__field-wrap">
+						<div className="capitola-repeater__field-wrap">
 							{ fields( index ) }
 							{ buttonRow( index ) }
 						</div>
@@ -152,11 +152,11 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 
 	return (
 		<BaseControl { ...baseControlProps }>
-			<div className="cwps-repeater__main-flex">
+			<div className="capitola-repeater__main-flex">
 				{ help && <Tip>{ help }</Tip> }
-				<div className="cwps-repeater__inner-flex">{ repeaterFields }</div>
+				<div className="capitola-repeater__inner-flex">{ repeaterFields }</div>
 				<Button
-					className="cwps-repeater__add-button"
+					className="capitola-repeater__add-button"
 					onClick={ addRow.bind( this ) }
 					text={ `Add ${ label }` }
 					variant="secondary"

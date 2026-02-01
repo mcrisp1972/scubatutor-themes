@@ -19,10 +19,10 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-three-link-cards__width alignwide --layout-${ introAlign }`,
+						className: `wp-block-capitola-three-link-cards__width alignwide --layout-${ introAlign }`,
 					},
 					{
-						template: [ [ 'cwps/body-text' ], [ 'cwps/three-link-cards-grid' ] ],
+						template: [ [ 'capitola/body-text' ], [ 'capitola/three-link-cards-grid' ] ],
 						templateLock: 'all',
 					}
 				) }

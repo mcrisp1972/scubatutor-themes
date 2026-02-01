@@ -123,15 +123,15 @@ export default function Edit( props ) {
 			</BlockControls>
 			{ !! backgroundImage.source_url && (
 				<div
-					className="wp-block-cwps-body-text__bg-image"
+					className="wp-block-capitola-body-text__bg-image"
 					style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
 				>
 					<img src={ backgroundImage.source_url } alt="" />
 				</div>
 			) }
-			<div className="wp-block-cwps-body-text__grid">
+			<div className="wp-block-capitola-body-text__grid">
 				<RichText
-					className="wp-block-cwps-body-text__eyebrow --eyebrow"
+					className="wp-block-capitola-body-text__eyebrow --eyebrow"
 					value={ eyebrow }
 					allowedFormats={ [] }
 					placeholder="Eyebrow..."
@@ -140,7 +140,7 @@ export default function Edit( props ) {
 					} }
 				/>
 				<RichText
-					className="wp-block-cwps-body-text__headline --hl-l"
+					className="wp-block-capitola-body-text__headline --hl-l"
 					value={ headline }
 					placeholder={ postTitle ? postTitle : 'Headline...' }
 					allowedFormats={ [] }
@@ -151,7 +151,7 @@ export default function Edit( props ) {
 				<div
 					{ ...useInnerBlocksProps(
 						{
-							className: 'wp-block-cwps-body-text__intro',
+							className: 'wp-block-capitola-body-text__intro',
 						},
 						{
 							allowedBlocks: bodyTextOptions?.allowedInnerBlocks
@@ -161,10 +161,10 @@ export default function Edit( props ) {
 						}
 					) }
 				/>
-				<div className="wp-block-cwps-body-text__ctas">
+				<div className="wp-block-capitola-body-text__ctas">
 					<CtaControl
 						className={
-							'wp-block-cwps-body-text__cta --cta' + ( backgroundImage.source_url ? ' --secondary' : '' )
+							'wp-block-capitola-body-text__cta --cta' + ( backgroundImage.source_url ? ' --secondary' : '' )
 						}
 						value={ cta }
 						onChange={ ( value ) => {
@@ -173,7 +173,7 @@ export default function Edit( props ) {
 					/>
 					<CtaControl
 						className={
-							'wp-block-cwps-body-text__cta --cta' +
+							'wp-block-capitola-body-text__cta --cta' +
 							( backgroundImage.source_url ? ' --tertiary' : ' --secondary' )
 						}
 						value={ cta2 }

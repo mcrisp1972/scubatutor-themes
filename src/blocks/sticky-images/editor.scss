@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-sticky-images {
+.wp-block-capitola-sticky-images {
 	$sticky-height: calc(100vh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
 
 	&__imagewrap {

@@ -13,7 +13,7 @@ add_filter(
 		} else {
 			$tax = get_taxonomy( $taxonomy );
 			if ( count( $tax->object_type ) === 1 && isset( $tax->object_type[0] ) ) {
-				$page_id = get_option( 'cwps_' . $tax->object_type[0] . '_listing_page' );
+				$page_id = get_option( 'capitola_' . $tax->object_type[0] . '_listing_page' );
 
 				if ( $page_id ) {
 						$termlink = get_permalink( $page_id ) . '?' . ( $taxonomy === 'category' ? 'categories' : $taxonomy ) . '=' . $term->term_id;

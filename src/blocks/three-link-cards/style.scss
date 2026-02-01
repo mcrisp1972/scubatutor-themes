@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-three-link-cards {
+.wp-block-capitola-three-link-cards {
 	@include block-outer-wrap;
 
 	&__width {
@@ -8,7 +8,7 @@
 	}
 }
 
-.wp-block-cwps-three-link-cards-grid {
+.wp-block-capitola-three-link-cards-grid {
 
 	&__width {
 		display: flex;
@@ -17,7 +17,7 @@
 	}
 }
 
-.wp-block-cwps-three-link-card {
+.wp-block-capitola-three-link-card {
 	@include unstyle-link;
 	display: flex;
 	flex: 1 1 0;
@@ -80,12 +80,12 @@
 	}
 }
 
-a.wp-block-cwps-three-link-card {
+a.wp-block-capitola-three-link-card {
 
 	&:hover,
 	&:focus {
 
-		.wp-block-cwps-three-link-card__image {
+		.wp-block-capitola-three-link-card__image {
 
 			img {
 				scale: 1.1;

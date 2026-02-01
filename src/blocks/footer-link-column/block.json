@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/footer-link-column",
+	"name": "capitola/footer-link-column",
 	"title": "Footer Link Column",
 	"description": "",
-	"category": "cwps-nav-blocks",
+	"category": "nav-blocks",
 	"keywords": ["site", "footer", "navigation"],
-	"parent": ["cwps/footer"],
+	"parent": ["capitola/footer"],
 	"supports": {},
 	"attributes": {
 		"headline": {

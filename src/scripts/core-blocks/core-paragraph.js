@@ -3,7 +3,7 @@ import { addFilter } from '@wordpress/hooks';
 // Adds alignment options to core paragraph block
 addFilter(
 	'blocks.registerBlockType',
-	'cwps/paragraph_block_supports',
+	'capitola/paragraph_block_supports',
 	( props, name ) => {
 		if ( name !== 'core/paragraph' ) {
 			return props;

@@ -20,16 +20,16 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-sticky-images__width <?= $attributes['imageLayout'] === 'full' ? 'alignfull' : 'alignwide' ?>  js-stickyImagesContainer">
-		<div class="wp-block-cwps-sticky-images__image-column">
+	<div class="wp-block-capitola-sticky-images__width <?= $attributes['imageLayout'] === 'full' ? 'alignfull' : 'alignwide' ?>  js-stickyImagesContainer">
+		<div class="wp-block-capitola-sticky-images__image-column">
 			<?php foreach ( $images as $key => $image ) : ?>
-				<div class="wp-block-cwps-sticky-images__imagewrap js-stickyImagesImage">
-					<div class="wp-block-cwps-sticky-images__imageratio" style="--capitola-objectPosition: <?= esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ) ?>;">
+				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
+					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?= esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ) ?>;">
 						<?= wp_get_attachment_image( $image['id'], 'large' ) ?>
 						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php $caption = $block->inner_blocks[ $key ]->attributes['captionOverride'] ?: wp_get_attachment_caption( $image ); ?>
 							<?php if ( $caption ) : ?>
-								<div class="wp-block-cwps-sticky-images__image-caption --micro-text">
+								<div class="wp-block-capitola-sticky-images__image-caption --micro-text">
 								<?= esc_html( $caption ) ?>
 								</div>
 							<?php endif; ?>
@@ -38,7 +38,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<div class="wp-block-cwps-sticky-images__body-column --align-<?= esc_attr( $attributes['verticalAlign'] ) ?>">
+		<div class="wp-block-capitola-sticky-images__body-column --align-<?= esc_attr( $attributes['verticalAlign'] ) ?>">
 			<?= wp_kses_post( $content ) ?>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 @use "../../styles/abstracts" as *;
 
-.wp-block-cwps-nav {
+.wp-block-capitola-nav {
 	--capitola-dropdownSpeed: 0.2s;
 	--capitola-nav-link-fontSize: #{to-rem(20px)};
 	position: relative;
@@ -361,7 +361,7 @@
 		flex-wrap: wrap;
 		color: var(--capitola-color-body);
 
-		+ .wp-block-cwps-nav__menu-item {
+		+ .wp-block-capitola-nav__menu-item {
 			margin-top: var(--capitola-spacing-small);
 
 			@include mq("large") {
@@ -380,7 +380,7 @@
 
 			&:hover {
 
-				.wp-block-cwps-nav__menu-item-caret {
+				.wp-block-capitola-nav__menu-item-caret {
 
 					@include mq("large") {
 						background: var(--capitola-color-link-hover);
@@ -391,7 +391,7 @@
 			&:has(a:active),
 			&:has(a:focus) {
 
-				.wp-block-cwps-nav__menu-item-caret {
+				.wp-block-capitola-nav__menu-item-caret {
 
 					@include mq("large") {
 						background: var(--capitola-color-link-hover);
@@ -462,7 +462,7 @@
 		}
 	}
 
-	.wp-block-cwps-nav-sublink {
+	.wp-block-capitola-nav-sublink {
 		display: flex;
 		margin-top: var(--capitola-spacing-small);
 
@@ -700,6 +700,6 @@
 }
 
 body:has(.search-modal.--is-open),
-body:has(.wp-block-cwps-nav.--is-shown) {
+body:has(.wp-block-capitola-nav.--is-shown) {
 	overflow: hidden;
 }

@@ -21,20 +21,20 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-cwps-full-width-slider__width alignwide <?= esc_attr( $animations['block-class'] ) ?> --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro" <?= wp_kses_data( $animations['block-data'] ) ?>>
+	<div class="wp-block-capitola-full-width-slider__width alignwide <?= esc_attr( $animations['block-class'] ) ?> --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro" <?= wp_kses_data( $animations['block-data'] ) ?>>
 		<?= wp_kses_post( $content ) ?>
-		<div class="wp-block-cwps-full-width-slider__sliders <?= esc_attr( $sticky_class ) ?>">
-			<div class="wp-block-cwps-full-width-slider__main">
+		<div class="wp-block-capitola-full-width-slider__sliders <?= esc_attr( $sticky_class ) ?>">
+			<div class="wp-block-capitola-full-width-slider__main">
 				<div class="swiper <?= esc_attr( $radius_class ) ?> js-mainSlider <?= esc_attr( $animations['figure-class'] ) ?>" <?= wp_kses_data( $animations['figure-data'] ) ?>  <?= wp_kses_data( $autoplay ) ?> data-navigation="<?= esc_attr( $navigation ) ?>" data-transition="<?= esc_attr( $attributes['transition'] ) ?>">
 					<div class="swiper-wrapper">
 						<?php
 						foreach ( $attributes['slides'] as $slide ) :
-							$cta = \Capitola\Helpers\String_Helpers\render_link( $slide['link'], 'wp-block-cwps-full-width-slider__slide-cta --cta --tertiary' );
+							$cta = \Capitola\Helpers\String_Helpers\render_link( $slide['link'], 'wp-block-capitola-full-width-slider__slide-cta --cta --tertiary' );
 							?>
 							<figure class="swiper-slide<?= esc_attr( $aspect_ratio ) ?> --theme-image-overlay">
 								<?= wp_get_attachment_image( $slide['image']['id'], 'large' ) ?>
 								<?php if ( $slide['caption'] || $cta ) : ?>
-									<div class="wp-block-cwps-full-width-slider__slide-caption">
+									<div class="wp-block-capitola-full-width-slider__slide-caption">
 										<?php if ( $slide['caption'] || $cta ) : ?>
 											<figcaption>
 												<?php if ( $slide['caption'] ) : ?>
@@ -57,7 +57,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<?php endif; ?>
 				</div>
 				<?php if ( $attributes['navigation'] === 'thumbnails' ) : ?>
-					<div class="wp-block-cwps-full-width-slider__thumbs">
+					<div class="wp-block-capitola-full-width-slider__thumbs">
 						<div class="swiper js-sliderThumbs">
 							<div class="swiper-wrapper">
 								<?php foreach ( $attributes['slides'] as $slide ) : ?>

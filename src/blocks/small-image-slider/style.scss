@@ -11,7 +11,7 @@
 	}
 }
 
-.wp-block-cwps-small-image-slider {
+.wp-block-capitola-small-image-slider {
 	@include block-outer-wrap;
 
 	&__width {
@@ -20,7 +20,7 @@
 		gap: var(--capitola-blockPadding);
 	}
 
-	.wp-block-cwps-body-text {
+	.wp-block-capitola-body-text {
 		max-width: var(--wp--style--global--wide-size);
 		width: 100%;
 	}
@@ -142,7 +142,7 @@
 		}
 	}
 
-	.wp-block-cwps-small-image-slider__caption {
+	.wp-block-capitola-small-image-slider__caption {
 		@include contentSize($top: var(--capitola-spacing-small));
 		text-align: center;
 		color: var(--capitola-color-body);

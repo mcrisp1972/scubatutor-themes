@@ -4,7 +4,7 @@ import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 
 class smallImageSlider {
 	constructor( slider ) {
-		const swiperWrap = slider.closest( '.wp-block-cwps-small-image-slider' );
+		const swiperWrap = slider.closest( '.wp-block-capitola-small-image-slider' );
 		const swiperMain = slider;
 
 		this.swiper = new Swiper( swiperMain, {
@@ -29,7 +29,7 @@ class smallImageSlider {
 						const current = this.swiper.slides[ this.swiper.realIndex ];
 						const caption = current.dataset.caption;
 						const captionContainer = swiperWrap.querySelector(
-							'.wp-block-cwps-small-image-slider__caption'
+							'.wp-block-capitola-small-image-slider__caption'
 						);
 						const span = document.createElement( 'span' );
 						span.innerText = caption;
@@ -41,7 +41,7 @@ class smallImageSlider {
 	}
 }
 
-const blocks = document.querySelectorAll( '.wp-block-cwps-small-image-slider .swiper' );
+const blocks = document.querySelectorAll( '.wp-block-capitola-small-image-slider .swiper' );
 
 if ( blocks ) {
 	blocks.forEach( ( block ) => {

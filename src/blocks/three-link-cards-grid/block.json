@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cwps/three-link-cards-grid",
+	"name": "capitola/three-link-cards-grid",
 	"title": "Three Link Cards Grid",
 	"description": "",
-	"category": "cwps-custom-blocks",
+	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {
 		"lock": false,
 		"inserter": false
 	},
-	"parent": ["cwps/three-link-cards"],
+	"parent": ["capitola/three-link-cards"],
 	"attributes": {
 		"staggered": {
 			"type": "boolean",

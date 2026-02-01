@@ -54,7 +54,7 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div
-				className="wp-block-cwps-bg-image-text__imagewrap"
+				className="wp-block-capitola-bg-image-text__imagewrap"
 				style={ { '--capitola-objectPosition': imageCropPosition } }
 			>
 				{ backgroundImage.source_url ? (
@@ -66,10 +66,10 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: `wp-block-cwps-bg-image-text__width --has-${ introAlign }-intro ${ radiusClass }`,
+						className: `wp-block-capitola-bg-image-text__width --has-${ introAlign }-intro ${ radiusClass }`,
 					},
 					{
-						template: [ [ 'cwps/body-text' ] ],
+						template: [ [ 'capitola/body-text' ] ],
 						templateLock: 'all',
 					}
 				) }

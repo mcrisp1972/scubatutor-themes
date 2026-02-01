@@ -9,16 +9,16 @@ $excerpt = $attributes['linkExcerpt'] ? $attributes['linkExcerpt'] : get_post_fi
 ?>
 <article <?= wp_kses_data( get_block_wrapper_attributes() ) ?>>
 	<?php if ( ! empty( $block->context['showImage'] ) && $image_id ) : ?>
-		<figure class="wp-block-cwps-detailed-links-item__image">
+		<figure class="wp-block-capitola-detailed-links-item__image">
 			<?= wp_get_attachment_image( $image_id, 'medium' ) ?>
 		</figure>
 	<?php endif; ?>
-	<div class="wp-block-cwps-detailed-links-item__body">
-		<a class="wp-block-cwps-detailed-links-item__title --hl-s" href="<?= esc_url( get_the_permalink( $attributes['postId'] ) ) ?>">
+	<div class="wp-block-capitola-detailed-links-item__body">
+		<a class="wp-block-capitola-detailed-links-item__title --hl-s" href="<?= esc_url( get_the_permalink( $attributes['postId'] ) ) ?>">
 			<?= esc_html( $attributes['linkTitle'] ? $attributes['linkTitle'] : get_the_title( $attributes['postId'] ) ) ?>
 		</a>
 		<?php if ( $excerpt && ! empty( $block->context['showExcerpt'] ) ) : ?>
-			<p class="wp-block-cwps-detailed-links-item__excerpt">
+			<p class="wp-block-capitola-detailed-links-item__excerpt">
 				<?= esc_html( $excerpt ) ?>
 			</p>
 		<?php endif; ?>

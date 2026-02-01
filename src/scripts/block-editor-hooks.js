@@ -4,22 +4,22 @@ import { default as themePanels } from './sidebar-panels/theme-panel';
 import defaultColorThemes from '../../color-themes.json';
 import './core-blocks';
 
-registerPlugin( 'cwps-sidebar-theme', {
+registerPlugin( 'capitola-sidebar-theme', {
 	render: themePanels,
 } );
 
-addFilter( 'cwps.colorThemes', 'cwps/color-themes', () => {
+addFilter( 'capitola.colorThemes', 'capitola/color-themes', () => {
 	return defaultColorThemes;
 } );
 
-addFilter( 'cwps.postTypeOptions', 'cwps/post-type-options', () => {
+addFilter( 'capitola.postTypeOptions', 'capitola/post-type-options', () => {
 	return [
 		{ label: 'Post', value: 'post' },
 		{ label: 'Page', value: 'page' },
 	];
 } );
 
-addFilter( 'cwps.postTypeCats', 'cwps/post-type-cats', () => {
+addFilter( 'capitola.postTypeCats', 'capitola/post-type-cats', () => {
 	return {
 		post: 'category',
 	};
