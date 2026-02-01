@@ -2,7 +2,7 @@
 
 namespace Capitola\Blocks\Nav;
 
-add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets' );
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\register_assets', 10 );
 
 function register_assets() {
 
