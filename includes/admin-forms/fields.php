@@ -69,7 +69,9 @@ class Fields {
 
 		?>
 			<input type="text" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php if ( self::help( $field ) ) : ?>
+				<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php endif; ?>
 		<?php
 	}
 
@@ -86,7 +88,9 @@ class Fields {
 
 		?>
 			<input type="date" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php if ( self::help( $field ) ) : ?>
+				<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php endif; ?>
 		<?php
 	}
 
@@ -102,7 +106,9 @@ class Fields {
 					<option value="<?= esc_attr( $option_value ) ?>" <?= selected( $option_value, $value ) ?>><?= esc_html( $option_text ) ?></option>
 				<?php endforeach; ?>
 			</select>
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php if ( self::help( $field ) ) : ?>
+				<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php endif; ?>
 		<?php
 	}
 
@@ -114,7 +120,9 @@ class Fields {
 		);
 		?>
 			<textarea id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ) ?> <?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ) ?>"><?= esc_html( $value ) ?></textarea>
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php if ( self::help( $field ) ) : ?>
+				<?= wp_kses_post( self::help( $field ) ) ?>
+			<?php endif; ?>
 		<?php
 	}
 
@@ -124,7 +132,7 @@ class Fields {
 			<label>
 		<?php endif; ?>
 			<input type="checkbox" id="<?= esc_attr( $field['id'] ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="1" <?= checked( $value ) ?>/>
-			<?= ! empty( $field['help'] ) ? esc_html( $field['help'] ) : '' ?>
+			<?= ! empty( $field['help'] ) ? wp_kses_post( $field['help'] ) : '' ?>
 		<?php if ( ! empty( $field['help'] ) ) : ?>
 			</label>
 		<?php endif; ?>
@@ -140,7 +148,9 @@ class Fields {
 				</label>
 			<?php endforeach; ?>
 		</fieldset>
-		<?= wp_kses_post( self::help( $field ) ) ?>
+		<?php if ( self::help( $field ) ) : ?>
+			<?= wp_kses_post( self::help( $field ) ) ?>
+		<?php endif; ?>
 		<?php
 	}
 
@@ -169,7 +179,9 @@ class Fields {
 				'option_none_value' => 0,
 			)
 		);
-		echo wp_kses_post( self::help( $field ) );
+		if ( self::help( $field ) ) :
+			echo wp_kses_post( self::help( $field ) );
+		endif;
 	}
 
 	protected static function term_select( $field, $value ) {
@@ -186,7 +198,9 @@ class Fields {
 				'option_none_value' => 0,
 			)
 		);
-		echo wp_kses_post( self::help( $field ) );
+		if ( self::help( $field ) ) :
+			echo wp_kses_post( self::help( $field ) );
+		endif;
 	}
 
 	public static function image( $field, $value ) {
@@ -238,7 +252,9 @@ class Fields {
 			</div>
 			<input type="hidden" name="<?= esc_attr( $field['name'] ) ?>" class="js-value" value="<?= esc_attr( $value ) ?>">
 		</div>
-		<?= wp_kses_post( self::help( $field ) ) ?>
+		<?php if ( self::help( $field ) ) : ?>
+			<?= wp_kses_post( self::help( $field ) ) ?>
+		<?php endif; ?>
 		<?php
 	}
 
