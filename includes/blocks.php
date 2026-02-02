@@ -59,7 +59,7 @@ const BLACKLIST = array(
 	'core/verse',
 );
 
-// register theme blocks
+// register theme blocks.
 add_action( 'init', __NAMESPACE__ . '\register_blocks' );
 
 function register_blocks() {
@@ -79,27 +79,9 @@ function register_blocks() {
 	foreach ( apply_filters( 'capitola_unregistered_parent_blocks', array() ) as $block ) {
 		unregister_block_type( $block );
 	}
-
-	// $block_paths = glob( CAPITOLA_THEME_DIR . '/build/blocks/*/block.json' );
-
-	// foreach ( $block_paths as $block_path ) {
-	// $block_dir = dirname( $block_path );
-	// $includes_dir = $block_dir . '/includes';
-
-	// if ( is_dir( $includes_dir ) ) {
-	// foreach ( glob( $includes_dir . '/*.php' ) as $file ) {
-	// require_once $file;
-	// }
-	// }
-	// }
-
-	// wp_register_block_types_from_metadata_collection(
-	// CAPITOLA_THEME_DIR . '/build/blocks',
-	// CAPITOLA_THEME_DIR . '/build/blocks-manifest.php'
-	// );
 }
 
-// add Dive Shop category and Template category
+// add Dive Shop category and Template category.
 add_filter( 'block_categories_all', __NAMESPACE__ . '\capitola_block_categories' );
 
 function capitola_block_categories( $categories ) {
@@ -150,27 +132,27 @@ function capitola_block_categories( $categories ) {
 add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\allowed_block_types', 99, 2 );
 
 function allowed_block_types( $blocks, $editor_context ) {
-	// unregister_block_type function does not work for core blocks, we have to use this filter
+	// unregister_block_type function does not work for core blocks, we have to use this filter.
 	$blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
 
 	$blacklist = array();
 
-	// only allow header and footer to be inserted in site editor
-	if ( $editor_context->name !== 'core/edit-site' ) {
+	// only allow header and footer to be inserted in site editor.
+	if ( 'core/edit-site' !== $editor_context->name ) {
 		$blacklist[] = 'capitola/footer';
 		$blacklist[] = 'capitola/nav';
 		$blacklist[] = 'capitola/search-listings';
 	}
 
-	// editing a page
-	if ( $editor_context->name !== 'core/edit-site' && isset( $editor_context->post->post_type ) ) {
+	// editing a page.
+	if ( 'core/edit-site' !== $editor_context->name && isset( $editor_context->post->post_type ) ) {
 
-		if ( $editor_context->post->post_type !== 'page' ) {
+		if ( 'page' !== $editor_context->post->post_type ) {
 			$blacklist[] = 'capitola/paginated-listings';
 		}
 	}
 
-	// now unset plugin blocks
+	// now unset plugin blocks.
 	foreach ( array_keys( $blocks ) as $name ) {
 
 		if ( str_starts_with( $name, 'tribe/' ) ) {
@@ -205,5 +187,5 @@ function disable_inserter( $metadata ) {
 	return $metadata;
 }
 
-// disables block store that appears often when searching for a block
+// disables block store that appears often when searching for a block.
 remove_action( 'enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets' );

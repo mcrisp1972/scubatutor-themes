@@ -1,23 +1,27 @@
 <?php
 
-$contact_info = get_option( 'capitola_contact' );
-$contact_phone = $contact_info['phone'];
+use function Capitola\Helpers\String_Helpers\phone_link_number;
+use function Capitola\Helpers\Block_Attributes\alternate_theme;
 
-$attributes = \Capitola\Helpers\Block_Attributes\alternate_theme( $attributes, 'headerTheme' );
+$capitola_contact_info = get_option( 'capitola_contact' );
+$capitola_contact_phone = $capitola_contact_info['phone'];
 
-$logo_object = $attributes['logo'] ? wp_get_attachment_metadata( $attributes['logo'] ) : false;
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
+$attributes = alternate_theme( $attributes, 'headerTheme' );
 
-$myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );
+$capitola_logo_object = $attributes['logo'] ? wp_get_attachment_metadata( $attributes['logo'] ) : false;
 
-if ( $myaccount_page_id ) {
-	$myaccount_page_url = get_permalink( $myaccount_page_id );
+$capitola_myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );
+
+if ( $capitola_myaccount_page_id ) {
+	$capitola_myaccount_page_url = get_permalink( $capitola_myaccount_page_id );
 }
 
-$banner = get_option( 'capitola_notice_banner' );
+$capitola_banner = get_option( 'capitola_notice_banner' );
 
 if ( CAPITOLA_WOO_ACTIVE ) {
-	$cart = WC()->cart;
-	$cart_count = WC()->cart ? $cart->get_cart_contents_count() : 0;
+	$capitola_cart = WC()->cart;
+	$capitola_cart_count = WC()->cart ? $capitola_cart->get_cart_contents_count() : 0;
 	remove_filter( 'the_title', 'wc_page_endpoint_title' );
 }
 
@@ -25,44 +29,48 @@ if ( CAPITOLA_WOO_ACTIVE ) {
 	add_filter( 'the_title', 'wc_page_endpoint_title' );
 }
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'class' => $attributes['stickyStyle'],
-		'style' => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
-		'data-wp-interactive' => 'capitola-nav',
-		'data-wp-init' => 'callbacks.init',
-		'data-wp-on-window--resize' => 'actions.handleResize',
-		'data-wp-on-document--scroll' => 'actions.handleScroll',
-		'data-wp-class----sticky-nav' => 'state.isSticky',
-		'data-wp-class----is-shown' => 'state.mobileNavOpen',
-		'data-wp-on--keydown' => 'actions.handleFocusTrapKeydown',
-		'data-wp-watch' => 'callbacks.watchMobileNavOpen',
+?>
+<div
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'class' => $attributes['stickyStyle'],
+			'style' => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
+			'data-wp-interactive' => 'capitola-nav',
+			'data-wp-init' => 'callbacks.init',
+			'data-wp-on-window--resize' => 'actions.handleResize',
+			'data-wp-on-document--scroll' => 'actions.handleScroll',
+			'data-wp-class----sticky-nav' => 'state.isSticky',
+			'data-wp-class----is-shown' => 'state.mobileNavOpen',
+			'data-wp-on--keydown' => 'actions.handleFocusTrapKeydown',
+			'data-wp-watch' => 'callbacks.watchMobileNavOpen',
+		)
 	)
 );
-
 ?>
-<div <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<?php if ( $banner['display'] && $banner['message'] ) : ?>
-		<div id="js-headerBanner" class="wp-block-capitola-nav__banner alignfull is-layout-constrained has-global-padding --theme-<?= esc_attr( $banner['type'] ) ?>" data-wp-class----is-hidden="!state.showBanner">
+>
+	<?php if ( $capitola_banner['display'] && $capitola_banner['message'] ) : ?>
+		<div id="js-headerBanner" class="wp-block-capitola-nav__banner alignfull is-layout-constrained has-global-padding --theme-<?= esc_attr( $capitola_banner['type'] ); ?>" data-wp-class----is-hidden="!state.showBanner">
 			<div class="wp-block-capitola-nav__banner-body alignwide">
 				<div class="wp-block-capitola-nav__banner-notice">
-					<?= wp_kses_post( $banner['message'] ) ?>
+					<?= wp_kses_post( $capitola_banner['message'] ); ?>
 				</div>
 				<button aria-label="close alert banner" class="wp-block-capitola-nav__banner-close" type="button" data-wp-on--click="actions.hideBanner"></button>
 			</div>
 		</div>
 	<?php endif; ?>
 
-	<nav class="wp-block-capitola-nav__background alignfull is-layout-constrained has-global-padding  --theme-<?= esc_attr( $attributes['colorTheme'] ) ?>">
+	<nav class="wp-block-capitola-nav__background alignfull is-layout-constrained has-global-padding  --theme-<?= esc_attr( $attributes['colorTheme'] ); ?>">
 		<div class="wp-block-capitola-nav__grid alignwide">
-			<?php if ( ! empty( $logo_object ) ) : ?>
-				<?php if ( str_starts_with( $logo_object['sizes']['medium']['mime-type'], 'image/svg' ) && ! $attributes['useLogoColor'] ) : ?>
-					<a class="wp-block-capitola-nav__logo --has-svg-mask js-trapMobile" href="<?= esc_url( get_home_url() ) ?>" style="aspect-ratio: <?= esc_attr( $logo_object['width'] . '/' . $logo_object['height'] ) ?>;--mask-image: url(<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ) ?>);" aria-label="home">
-						<img src="<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ) ?>" class="custom-logo" alt="<?= esc_attr( get_bloginfo( 'name', 'display' ) ) ?>" height="<?= esc_attr( $logo_object['height'] ) ?>" width="<?= esc_attr( $logo_object['width'] ) ?>"/>
+			<?php if ( ! empty( $capitola_logo_object ) ) : ?>
+				<?php if ( str_starts_with( $capitola_logo_object['sizes']['medium']['mime-type'], 'image/svg' ) && ! $attributes['useLogoColor'] ) : ?>
+					<a class="wp-block-capitola-nav__logo --has-svg-mask js-trapMobile" href="<?= esc_url( get_home_url() ); ?>" style="aspect-ratio: <?= esc_attr( $capitola_logo_object['width'] . '/' . $capitola_logo_object['height'] ); ?>;--mask-image: url(<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>);" aria-label="home">
+						<img src="<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>" class="custom-logo" alt="<?= esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" height="<?= esc_attr( $capitola_logo_object['height'] ); ?>" width="<?= esc_attr( $capitola_logo_object['width'] ); ?>"/>
 					</a>
 				<?php else : ?>
-					<a class="wp-block-capitola-nav__logo js-trapMobile" href="<?= esc_url( get_home_url() ) ?>" aria-label="home">
-						<img src="<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ) ?>" class="custom-logo" alt="<?= esc_attr( get_bloginfo( 'name', 'display' ) ) ?>"/>
+					<a class="wp-block-capitola-nav__logo js-trapMobile" href="<?= esc_url( get_home_url() ); ?>" aria-label="home">
+						<img src="<?= esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>" class="custom-logo" alt="<?= esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"/>
 					</a>
 				<?php endif; ?>
 			<?php endif; ?>
@@ -78,21 +86,21 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					</div>
 				</div>
 				<ul class="wp-block-capitola-nav__utility-menu">
-					<?php foreach ( $attributes['utilityLinks'] as $item ) : ?>
-						<?php if ( ! empty( $item['link']['url'] ) ) : ?>
+					<?php foreach ( $attributes['utilityLinks'] as $capitola_item ) : ?>
+						<?php if ( ! empty( $capitola_item['link']['url'] ) ) : ?>
 							<li class="wp-block-capitola-nav__utility-menu-item">
-								<a class="wp-block-capitola-nav__utility-menu-item-link" href="<?= esc_url( $item['link']['url'] ) ?>"<?= ( ! empty( $item['link']['opensInNewtab'] ) ? ' target="_blank"' : '' ) ?>><?= esc_html( $item['title'] ) ?></a>
+								<a class="wp-block-capitola-nav__utility-menu-item-link" href="<?= esc_url( $capitola_item['link']['url'] ); ?>"<?= ( ! empty( $capitola_item['link']['opensInNewtab'] ) ? ' target="_blank"' : '' ); ?>><?= esc_html( $capitola_item['title'] ); ?></a>
 							</li>
 						<?php endif; ?>
 					<?php endforeach; ?>
 					<?php if ( $attributes['showPhoneLink'] ) : ?>
 						<li class="wp-block-capitola-nav__utility-menu-item">
-							<a href="tel:<?= esc_attr( \Capitola\Helpers\String_Helpers\phone_link_number( $contact_phone ) ) ?>" class="wp-block-capitola-nav__utility-menu-item-link --phone"><?= esc_html( $contact_phone ) ?></a>
+							<a href="tel:<?= esc_attr( phone_link_number( $capitola_contact_phone ) ); ?>" class="wp-block-capitola-nav__utility-menu-item-link --phone"><?= esc_html( $capitola_contact_phone ); ?></a>
 						</li>
 					<?php endif; ?>
 					<?php if ( $attributes['showAccountIcon'] && CAPITOLA_WOO_ACTIVE ) : ?>
 						<li class="wp-block-capitola-nav__utility-menu-item">
-							<a href="<?= esc_url( $myaccount_page_url ) ?>" class="wp-block-capitola-nav__utility-menu-item-link --account">Account</a>
+							<a href="<?= esc_url( $capitola_myaccount_page_url ); ?>" class="wp-block-capitola-nav__utility-menu-item-link --account">Account</a>
 						</li>
 					<?php endif; ?>
 					<?php if ( $attributes['showCartIcon'] && CAPITOLA_WOO_ACTIVE && ( ! is_cart() && ! is_checkout() && WC()->cart->get_cart_contents_count() ) ) : ?>
@@ -111,7 +119,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<?php endif; ?>
 				</ul>
 				<ul class="wp-block-capitola-nav__menu-items" data-wp-on--click="actions.toggleSubmenu">
-					<?= wp_kses_post( $content ) ?>
+					<?= wp_kses_post( $content ); ?>
 					<li class="wp-block-capitola-nav__menu-item">
 						<button class="wp-block-capitola-nav__search-trigger" type="button" aria-label="open search" data-wp-on--click="actions.openSearch"></button>
 					</li>

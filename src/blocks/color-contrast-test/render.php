@@ -1,15 +1,15 @@
 <?php
 
-$json_string = file_get_contents( CAPITOLA_CHILD_THEME_DIR . '/color-themes.json' );
-$colors = json_decode( $json_string, true );
-$color_options = array();
-foreach ( $colors as $color ) {
+$capitola_json_string = file_get_contents( CAPITOLA_CHILD_THEME_DIR . '/color-themes.json' );
+$capitola_colors = json_decode( $json_string, true );
+$capitola_color_options = array();
+foreach ( $capitola_colors as $capitola_color ) {
 	echo wp_kses_post(
 		render_block(
 			array(
 				'blockName' => 'capitola/post-feed',
 				'attrs' => array(
-					'colorTheme' => $color['slug'],
+					'colorTheme' => $capitola_color['slug'],
 					'limit' => 4,
 					'titleLocation' => 'body',
 					'showByline' => false,
@@ -18,7 +18,7 @@ foreach ( $colors as $color ) {
 					array(
 						'blockName' => 'capitola/body-text',
 						'attrs' => array(
-							'headline' => $color['name'],
+							'headline' => $capitola_color['name'],
 							'cta' => array(
 								'title' => 'CTA',
 								'url' => '/',

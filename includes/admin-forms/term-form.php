@@ -44,8 +44,8 @@ class Term_Form extends Fields {
 			$field['class'] = $field['class'] ?? '';
 			$field['class'] .= ' capitola-add-clear';
 			?>
-			<div id="field-row-<?= esc_attr( $field['id'] ) ?>" class="form-field">
-				<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
+			<div id="field-row-<?= esc_attr( $field['id'] ); ?>" class="form-field">
+				<label for="<?= esc_attr( $field['id'] ); ?>"><?= esc_html( $field['label'] ); ?></label>
 				<?php self::ECHO_FIELD( $field, $field['default'] ?? '' ); ?>
 			</div>
 			<?php
@@ -58,9 +58,9 @@ class Term_Form extends Fields {
 			$field = self::set_field_id( $field );
 			$value = self::FIELD_VALUE( $field, $term, 0 );
 			?>
-			<tr class="form-field" id="field-row-<?= esc_attr( $field['id'] ) ?>">
+			<tr class="form-field" id="field-row-<?= esc_attr( $field['id'] ); ?>">
 				<th scope="row" valign="top">
-					<?= esc_html( $field['label'] ) ?>
+					<?= esc_html( $field['label'] ); ?>
 				</th>
 				<td>
 					<?php self::echo_field( $field, $value ); ?>
@@ -86,7 +86,7 @@ class Term_Form extends Fields {
 				} else {
 					delete_term_meta( $term_id, $field_name );
 				}
-			} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+			} elseif ( $field_name && 'checkbox' === $field['type'] ) {
 				delete_term_meta( $term_id, $field_name );
 			}
 		}

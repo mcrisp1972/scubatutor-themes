@@ -1,16 +1,22 @@
 <?php
 
-$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $block->context );
+use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$count = count( $block->inner_blocks );
+$capitola_animations = animation_attributes( $block->context );
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'class' => $animations['figure-class'] . ( $count < 4 ? ' --count-' . $count : '' ),
-	)
-);
+$capitola_count = count( $block->inner_blocks );
 
 ?>
-<div <?= wp_kses_data( $wrapper_attributes ) ?> <?= wp_kses_data( $animations['figure-data'] ) ?>>
-	<?= wp_kses_post( $content ) ?>
+<div
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'class' => $capitola_animations['figure-class'] . ( $capitola_count < 4 ? ' --count-' . $capitola_count : '' ),
+		)
+	)
+);
+?>
+<?= wp_kses_data( $capitola_animations['figure-data'] ); ?>>
+	<?= wp_kses_post( $content ); ?>
 </div>

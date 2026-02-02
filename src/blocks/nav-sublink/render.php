@@ -1,11 +1,12 @@
 <?php
 
-$rendered_link = \Capitola\Helpers\String_Helpers\render_link( $attributes, 'wp-block-capitola-nav-sublink__link' );
+use function Capitola\Helpers\String_Helpers\render_link;
 
-if ( $rendered_link ) :
-	$wrapper_attributes = get_block_wrapper_attributes();
+$capitola_rendered_link = render_link( $attributes, 'wp-block-capitola-nav-sublink__link' );
+
+if ( $capitola_rendered_link ) :
 	?>
-	<li <?= wp_kses_data( $wrapper_attributes ) ?>>
-		<?= wp_kses_post( $rendered_link ) ?>
+	<li <?= wp_kses_data( get_block_wrapper_attributes() ); ?>>
+		<?= wp_kses_post( $capitola_rendered_link ); ?>
 	</li>
 <?php endif; ?>

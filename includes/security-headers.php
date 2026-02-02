@@ -8,7 +8,7 @@ function add_security_headers( $headers ) {
 		$headers['Referrer-Policy'] = 'no-referrer-when-downgrade';
 		$headers['X-Content-Type-Options'] = 'nosniff';
 
-		// From MDN's CSP doc: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#using_the_html_meta_element
+		// From MDN's CSP doc: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#using_the_html_meta_element.
 
 		$headers['Content-Security-Policy'] = "default-src https: 'unsafe-eval' 'unsafe-inline'; font-src 'self' data: https:; img-src 'self' data: https:;";
 

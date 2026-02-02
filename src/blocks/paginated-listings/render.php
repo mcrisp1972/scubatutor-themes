@@ -1,32 +1,38 @@
 <?php
 
-$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
+use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$has_filters = $attributes['showSearchFields'] || $attributes['showTaxFilters'] || $attributes['showSorts'];
+$capitola_animations = animation_attributes( $attributes );
+
+$capitola_has_filters = $attributes['showSearchFields'] || $attributes['showTaxFilters'] || $attributes['showSorts'];
 
 wp_localize_script( 'capitola-paginated-listings-view-script', 'listingAttributes', $attributes );
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'id' => $attributes['anchor'],
-		'class' => 'capitola-listings --paginated alignfull is-layout-constrained has-global-padding js-paginatedListings --theme-' . $attributes['colorTheme'],
-	)
-);
-
 ?>
 
-<section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="capitola-listings__width alignwide <?= esc_attr( $animations['block-class'] ) ?>" <?= wp_kses_data( $animations['block-data'] ) ?>>
-		<?= wp_kses_post( $content ) ?>
+<section
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'id' => $attributes['anchor'],
+			'class' => 'capitola-listings --paginated alignfull is-layout-constrained has-global-padding js-paginatedListings --theme-' . $attributes['colorTheme'],
+		)
+	)
+);
+?>
+>
+	<div class="capitola-listings__width alignwide <?= esc_attr( $capitola_animations['block-class'] ); ?>" <?= wp_kses_data( $capitola_animations['block-data'] ); ?>>
+		<?= wp_kses_post( $content ); ?>
 		<div class="capitola-listings__results-header">
 			<div class="capitola-listings__filters-count js-resultsCount"></div>
-			<?php if ( $has_filters ) : ?>
+			<?php if ( $capitola_has_filters ) : ?>
 				<button type="button" class="capitola-listings__filters-mbl-open js-toggleFilters" aria-label="Open Filters">Filter Results</button>
 			<?php endif; ?>
 			<div class="capitola-listings__filters-wrap js-filters">
 				<div class="capitola-listings__filters-wrap-scroll">
 					<?php
-					if ( $has_filters ) :
+					if ( $capitola_has_filters ) :
 						?>
 						<button type="button" class="capitola-listings__filters-mbl-close js-toggleFilters" aria-label="Close Filters"></button>
 					<?php endif; ?>
@@ -36,41 +42,41 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							Filter Results
 						</div>
 						<?php
-						foreach ( $attributes['setHiddens'] as $name ) :
-							$hidden = $attributes['postTypes'][ $attributes['postType'] ]['hiddenParams'][ $name ];
+						foreach ( $attributes['setHiddens'] as $capitola_hidden_name ) :
+							$capitola_hidden = $attributes['postTypes'][ $attributes['postType'] ]['hiddenParams'][ $capitola_hidden_name ];
 							?>
-							<input type="hidden" class="js-filter" name="<?= esc_attr( $name ) ?>" value="<?= esc_attr( $hidden['default'] ) ?>"/>
+							<input type="hidden" class="js-filter" name="<?= esc_attr( $capitola_hidden_name ); ?>" value="<?= esc_attr( $capitola_hidden['default'] ); ?>"/>
 						<?php endforeach; ?>
 
 						<?php
-						foreach ( $attributes['showSearchFields'] as $field ) :
-							$options = $attributes['postTypes'][ $attributes['postType'] ]['searchParams'][ $field ];
+						foreach ( $attributes['showSearchFields'] as $capitola_search_field ) :
+							$capitola_options = $attributes['postTypes'][ $attributes['postType'] ]['searchParams'][ $capitola_search_field ];
 							?>
 							<div class="capitola-listings__filters-filter">
-								<label for="paginated-listing-<?= esc_attr( $field ) ?>"><?= esc_html( $options['label'] ) ?></label>
-								<div class="capitola-listings__filters-input-wrap --<?= esc_attr( $options['type'] ) ?>">
-									<input id="paginated-listing-<?= esc_attr( $field ) ?>" type="<?= esc_attr( $options['type'] ) ?>" name="<?= esc_attr( $field ) ?>" class="js-autoFilter"/>
+								<label for="paginated-listing-<?= esc_attr( $capitola_search_field ); ?>"><?= esc_html( $capitola_options['label'] ); ?></label>
+								<div class="capitola-listings__filters-input-wrap --<?= esc_attr( $capitola_options['type'] ); ?>">
+									<input id="paginated-listing-<?= esc_attr( $capitola_search_field ); ?>" type="<?= esc_attr( $capitola_options['type'] ); ?>" name="<?= esc_attr( $capitola_search_field ); ?>" class="js-autoFilter"/>
 								</div>
 							</div>
 						<?php endforeach; ?>
 
 						<?php
-						foreach ( $attributes['showTaxFilters'] as $tax_filter ) :
-							$labels = get_taxonomy_labels( get_taxonomy( $tax_filter ) );
+						foreach ( $attributes['showTaxFilters'] as $capitola_tax_filter ) :
+							$capitola_labels = get_taxonomy_labels( get_taxonomy( $capitola_tax_filter ) );
 							?>
 							<div class="capitola-listings__filters-filter">
-								<label for="paginated-listing-<?= esc_attr( $tax_filter ) ?>"><?= esc_html( $labels->singular_name ) ?></label>
+								<label for="paginated-listing-<?= esc_attr( $capitola_tax_filter ); ?>"><?= esc_html( $capitola_labels->singular_name ); ?></label>
 								<div class="capitola-listings__filters-input-wrap --select">
 									<?php
 									wp_dropdown_categories(
 										array(
 											'hierarchical' => true,
-											'name' => $attributes['taxParams'][ $tax_filter ],
-											'id' => 'paginated-listing-' . $tax_filter,
+											'name' => $attributes['taxParams'][ $capitola_tax_filter ],
+											'id' => 'paginated-listing-' . $capitola_tax_filter,
 											'class' => 'js-autoFilter js-filter',
 											'orderby' => 'name',
-											'taxonomy' => $tax_filter,
-											'include' => $attributes['baseTerm'] ? array_merge( array( $attributes['baseTerm'] ), get_term_children( $attributes['baseTerm'], $tax_filter ) ) : array(),
+											'taxonomy' => $capitola_tax_filter,
+											'include' => $attributes['baseTerm'] ? array_merge( array( $attributes['baseTerm'] ), get_term_children( $attributes['baseTerm'], $capitola_tax_filter ) ) : array(),
 											'show_option_all' => $attributes['baseTerm'] ? false : 'Show All',
 										)
 									)
@@ -83,20 +89,20 @@ $wrapper_attributes = get_block_wrapper_attributes(
 								<label for="listings-sort">Order</label>
 								<div class="capitola-listings__filters-input-wrap --select">
 									<select id="listings-sort" name="orderby" class="js-filter js-autoFilter">
-										<?php foreach ( $attributes['postTypes'][ $attributes['postType'] ]['sorts'] as $sort ) : ?>
-											<option value="<?= esc_attr( $sort ) ?>" <?= selected( $sort, $attributes['orderBy'] ) ?>><?= esc_html( $attributes['orderbyOptions'][ $sort ]['label'] ) ?></option>
+										<?php foreach ( $attributes['postTypes'][ $attributes['postType'] ]['sorts'] as $capitola_sort ) : ?>
+											<option value="<?= esc_attr( $capitola_sort ); ?>" <?= selected( $capitola_sort, $attributes['orderBy'] ); ?>><?= esc_html( $attributes['orderbyOptions'][ $capitola_sort ]['label'] ); ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
 							</div>
 						<?php else : ?>
-							<input type="hidden" name="orderby" value="<?= esc_attr( $attributes['orderBy'] ) ?>" class="js-filter"/>
+							<input type="hidden" name="orderby" value="<?= esc_attr( $attributes['orderBy'] ); ?>" class="js-filter"/>
 						<?php endif; ?>
 					</form>
 				</div>
 			</div>
 		</div>
-		<div class="capitola-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ) ?>" style="--capitola-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ) ?>;">
+		<div class="capitola-listings__list js-list --<?= esc_attr( $attributes['listLayout'] ); ?>" style="--capitola-excerpt-lines: <?= esc_attr( $attributes['excerptLines'] ); ?>;">
 		</div>
 		<?php get_template_part( 'template-parts/pagination' ); ?>
 	</div>

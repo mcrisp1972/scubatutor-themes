@@ -1,46 +1,47 @@
 <?php
 
-$aspect_ratio = ' --' . $attributes['aspectRatio'];
-$autoplay = $attributes['autoplay'] ? ' data-autoplay=1' : '';
+use function Capitola\Helpers\String_Helpers\render_link;
 
-$navigation = $attributes['navigation'] === 'thumbnails' || $attributes['navigation'] === 'arrows' ? 'arrows' : 'bullets';
+$capitola_navigation = 'thumbnails' === $attributes['navigation'] || 'arrows' === $attributes['navigation'] ? 'arrows' : 'bullets';
 
-$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
+$capitola_animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
 
-$radius_class = $attributes['sliderRadius'] !== 'none' ? ' --has-' . $attributes['sliderRadius'] . '-radius' : '';
-
-$sticky_class = $attributes['stickySlider'] ? ' --sticky' : '';
-
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'id' => $attributes['anchor'],
-		'class' => 'js-fullWidthSlider alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-	)
-);
+$capitola_radius_class = 'none' !== $attributes['sliderRadius'] ? ' --has-' . $attributes['sliderRadius'] . '-radius' : '';
 
 ?>
 
-<section <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<div class="wp-block-capitola-full-width-slider__width alignwide <?= esc_attr( $animations['block-class'] ) ?> --has-<?= esc_attr( $attributes['introAlign'] ) ?>-intro" <?= wp_kses_data( $animations['block-data'] ) ?>>
-		<?= wp_kses_post( $content ) ?>
-		<div class="wp-block-capitola-full-width-slider__sliders <?= esc_attr( $sticky_class ) ?>">
+<section
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'id' => $attributes['anchor'],
+			'class' => 'js-fullWidthSlider alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
+		)
+	)
+);
+?>
+>
+	<div class="wp-block-capitola-full-width-slider__width alignwide <?= esc_attr( $capitola_animations['block-class'] ); ?> --has-<?= esc_attr( $attributes['introAlign'] ); ?>-intro" <?= wp_kses_data( $capitola_animations['block-data'] ); ?>>
+		<?= wp_kses_post( $content ); ?>
+		<div class="wp-block-capitola-full-width-slider__sliders <?= esc_attr( $attributes['stickySlider'] ? ' --sticky' : '' ); ?>">
 			<div class="wp-block-capitola-full-width-slider__main">
-				<div class="swiper <?= esc_attr( $radius_class ) ?> js-mainSlider <?= esc_attr( $animations['figure-class'] ) ?>" <?= wp_kses_data( $animations['figure-data'] ) ?>  <?= wp_kses_data( $autoplay ) ?> data-navigation="<?= esc_attr( $navigation ) ?>" data-transition="<?= esc_attr( $attributes['transition'] ) ?>">
+				<div class="swiper <?= esc_attr( $capitola_radius_class ); ?> js-mainSlider <?= esc_attr( $capitola_animations['figure-class'] ); ?>" <?= wp_kses_data( $capitola_animations['figure-data'] ); ?>  <?= wp_kses_data( $attributes['autoplay'] ? ' data-autoplay=1' : '' ); ?> data-navigation="<?= esc_attr( $capitola_navigation ); ?>" data-transition="<?= esc_attr( $attributes['transition'] ); ?>">
 					<div class="swiper-wrapper">
 						<?php
-						foreach ( $attributes['slides'] as $slide ) :
-							$cta = \Capitola\Helpers\String_Helpers\render_link( $slide['link'], 'wp-block-capitola-full-width-slider__slide-cta --cta --tertiary' );
+						foreach ( $attributes['slides'] as $capitola_slide ) :
+							$capitola_cta = render_link( $capitola_slide['link'], 'wp-block-capitola-full-width-slider__slide-cta --cta --tertiary' );
 							?>
-							<figure class="swiper-slide<?= esc_attr( $aspect_ratio ) ?> --theme-image-overlay">
-								<?= wp_get_attachment_image( $slide['image']['id'], 'large' ) ?>
-								<?php if ( $slide['caption'] || $cta ) : ?>
+							<figure class="swiper-slide<?= esc_attr( ' --' . $attributes['aspectRatio'] ); ?> --theme-image-overlay">
+								<?= wp_get_attachment_image( $capitola_slide['image']['id'], 'large' ); ?>
+								<?php if ( $capitola_slide['caption'] || $capitola_cta ) : ?>
 									<div class="wp-block-capitola-full-width-slider__slide-caption">
-										<?php if ( $slide['caption'] || $cta ) : ?>
+										<?php if ( $capitola_slide['caption'] || $capitola_cta ) : ?>
 											<figcaption>
-												<?php if ( $slide['caption'] ) : ?>
-													<p><?= esc_html( $slide['caption'] ) ?></p>
+												<?php if ( $capitola_slide['caption'] ) : ?>
+													<p><?= esc_html( $capitola_slide['caption'] ); ?></p>
 												<?php endif; ?>
-												<?= wp_kses_post( $cta ) ?>
+												<?= wp_kses_post( $capitola_cta ); ?>
 											</figcaption>
 										<?php endif; ?>
 									</div>
@@ -48,21 +49,21 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							</figure>
 						<?php endforeach; ?>
 					</div>
-					<?php if ( $navigation === 'arrows' ) : ?>
+					<?php if ( 'arrows' === $capitola_navigation ) : ?>
 						<button type="button" class="swiper-button-next" aria-label="Previous Slide"></button>
 						<button type="button" class="swiper-button-prev" aria-label="Next Slide"></button>
 					<?php endif; ?>
-					<?php if ( $navigation === 'bullets' ) : ?>
+					<?php if ( 'bullets' === $capitola_navigation ) : ?>
 						<div class="swiper-pagination"></div>
 					<?php endif; ?>
 				</div>
-				<?php if ( $attributes['navigation'] === 'thumbnails' ) : ?>
+				<?php if ( 'thumbnails' === $attributes['navigation'] ) : ?>
 					<div class="wp-block-capitola-full-width-slider__thumbs">
 						<div class="swiper js-sliderThumbs">
 							<div class="swiper-wrapper">
-								<?php foreach ( $attributes['slides'] as $slide ) : ?>
+								<?php foreach ( $attributes['slides'] as $capitola_slide ) : ?>
 									<div class="swiper-slide">
-										<?= wp_get_attachment_image( $slide['image']['id'], 'medium' ) ?>
+										<?= wp_get_attachment_image( $capitola_slide['image']['id'], 'medium' ); ?>
 									</div>
 								<?php endforeach; ?>
 							</div>

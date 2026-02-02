@@ -34,10 +34,10 @@ class Post_Form extends Fields {
 					$value = self::FIELD_VALUE( $field, $post );
 					$field = self::set_field_id( $field );
 					?>
-					<tr id="field-row-<?= esc_attr( $field['id'] ) ?>">
+					<tr id="field-row-<?= esc_attr( $field['id'] ); ?>">
 						<th scope="row">
-							<label for="<?= esc_attr( $field['id'] ) ?>">
-								<?= esc_html( $field['label'] ) ?>
+							<label for="<?= esc_attr( $field['id'] ); ?>">
+								<?= esc_html( $field['label'] ); ?>
 							</label>
 						</th>
 						<td>
@@ -70,7 +70,7 @@ class Post_Form extends Fields {
 				} else {
 					delete_post_meta( $post_id, $field_name );
 				}
-			} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+			} elseif ( $field_name && 'checkbox' === $field['type'] ) {
 				delete_post_meta( $post_id, $field_name );
 			}
 		}

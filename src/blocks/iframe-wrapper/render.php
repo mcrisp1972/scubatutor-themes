@@ -1,19 +1,24 @@
 <?php
 
-$iframe_pattern = '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i';
+$capitola_iframe_pattern = '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i';
 
-if ( ! preg_match( $iframe_pattern, $attributes['iframeHtml'] ) ) {
+if ( ! preg_match( $capitola_iframe_pattern, $attributes['iframeHtml'] ) ) {
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
 	$attributes['iframeHtml'] = 'HTML is not valid';
 }
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'id' => $attributes['anchor'],
-		'class' => '--' . $attributes['aspectRatio'] . ' align' . $attributes['align'],
+?>
+<figure
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'id' => $attributes['anchor'],
+			'class' => '--' . $attributes['aspectRatio'] . ' align' . $attributes['align'],
+		)
 	)
 );
-
 ?>
-<figure <?= wp_kses_data( $wrapper_attributes ) ?>>
-	<?= $attributes['iframeHtml'] // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+>
+	<?= $attributes['iframeHtml']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </figure>

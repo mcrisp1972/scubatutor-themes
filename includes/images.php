@@ -30,7 +30,7 @@ function thumbnail_id( $thumbnail_id, $post ) {
 	}
 }
 
-// eager load only the first image
+// eager load only the first 2 images.
 add_filter(
 	'wp_omit_loading_attr_threshold',
 	function () {

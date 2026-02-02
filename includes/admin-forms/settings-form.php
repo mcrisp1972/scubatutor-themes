@@ -53,7 +53,7 @@ class Settings_Form extends Fields {
 	}
 
 	public function page_callback() {
-		if ( isset( $_SERVER['REQUEST_METHOD'] ) && $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+		if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 			$nonce = isset( $_POST['capitola_settings_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['capitola_settings_nonce'] ) ) : '';
 			if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'capitola_settings_form' ) ) {
 				wp_die( esc_html__( 'Security check failed. Please refresh the page and try again.', 'capitola' ) );
@@ -80,7 +80,7 @@ class Settings_Form extends Fields {
 							admin_url( 'admin.php' )
 						);
 						?>
-						<a class="nav-tab <?= $current_tab === $slug ? 'nav-tab-active' : '' ?>" href="<?php echo esc_url( $tab_url ); ?>"><?php echo esc_html( $tab['tab_label'] ); ?></a>
+						<a class="nav-tab <?= $current_tab === $slug ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( $tab_url ); ?>"><?php echo esc_html( $tab['tab_label'] ); ?></a>
 						<?php
 					endforeach;
 				endif;
@@ -110,20 +110,20 @@ class Settings_Form extends Fields {
 
 		foreach ( $fields as $field ) {
 
-			if ( $field['type'] === 'title' ) {
+			if ( 'title' === $field['type'] ) {
 
 				if ( ! empty( $field['title'] ) ) :
 					?>
-					<h2><?= esc_html( $field['title'] ) ?></h2>
+					<h2><?= esc_html( $field['title'] ); ?></h2>
 					<?php
 				endif;
 				if ( ! empty( $field['desc'] ) ) :
 					?>
-					<p><?= esc_html( $field['desc'] ) ?></p>
+					<p><?= esc_html( $field['desc'] ); ?></p>
 				<?php endif; ?>
 					<table class="form-table" role="presentation"><tbody>
 				<?php
-			} elseif ( $field['type'] === 'sectionend' ) {
+			} elseif ( 'sectionend' === $field['type'] ) {
 				?>
 				</tbody></table>
 				<?php
@@ -132,9 +132,9 @@ class Settings_Form extends Fields {
 				$field = self::set_field_id( $field );
 
 				?>
-				<tr id="field-row-<?= esc_attr( $field['id'] ) ?>">
+				<tr id="field-row-<?= esc_attr( $field['id'] ); ?>">
 					<th scope="row">
-						<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
+						<label for="<?= esc_attr( $field['id'] ); ?>"><?= esc_html( $field['label'] ); ?></label>
 					</th>
 					<td>
 					<?php self::echo_field( $field, $value ); ?>

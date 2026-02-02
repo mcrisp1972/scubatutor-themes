@@ -68,9 +68,9 @@ class Fields {
 		$class = $size_class[ $field['size'] ?? 'medium' ] . ' ' . ( $field['class'] ?? '' );
 
 		?>
-			<input type="text" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
+			<input type="text" id="<?= esc_attr( $field['id'] ); ?>" class="<?= esc_attr( $class ); ?>" name="<?= esc_attr( $field['name'] ); ?>" value="<?= esc_attr( $value ); ?>" />
 			<?php if ( self::help( $field ) ) : ?>
-				<?= wp_kses_post( self::help( $field ) ) ?>
+				<?= wp_kses_post( self::help( $field ) ); ?>
 			<?php endif; ?>
 		<?php
 	}
@@ -87,27 +87,27 @@ class Fields {
 		$class = $size_class[ $field['size'] ?? 'medium' ] . ' ' . ( $field['class'] ?? '' );
 
 		?>
-			<input type="date" id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $class ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $value ) ?>" />
+			<input type="date" id="<?= esc_attr( $field['id'] ); ?>" class="<?= esc_attr( $class ); ?>" name="<?= esc_attr( $field['name'] ); ?>" value="<?= esc_attr( $value ); ?>" />
 			<?php if ( self::help( $field ) ) : ?>
-				<?= wp_kses_post( self::help( $field ) ) ?>
+				<?= wp_kses_post( self::help( $field ) ); ?>
 			<?php endif; ?>
 		<?php
 	}
 
 	protected static function select( $field, $value ) {
 		?>
-			<select id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>">
-				<option value="" <?= selected( '' ) ?>>Select One</option>
+			<select id="<?= esc_attr( $field['id'] ); ?>" class="<?= esc_attr( $field['class'] ?? '' ); ?>" name="<?= esc_attr( $field['name'] ); ?>">
+				<option value="" <?= selected( '' ); ?>>Select One</option>
 				<?php
 				foreach ( $field['options'] as $v => $l ) :
 					$option_value = is_array( $l ) ? $l['value'] : $v;
 					$option_text = is_array( $l ) ? $l['label'] : $l;
 					?>
-					<option value="<?= esc_attr( $option_value ) ?>" <?= selected( $option_value, $value ) ?>><?= esc_html( $option_text ) ?></option>
+					<option value="<?= esc_attr( $option_value ); ?>" <?= selected( $option_value, $value ); ?>><?= esc_html( $option_text ); ?></option>
 				<?php endforeach; ?>
 			</select>
 			<?php if ( self::help( $field ) ) : ?>
-				<?= wp_kses_post( self::help( $field ) ) ?>
+				<?= wp_kses_post( self::help( $field ) ); ?>
 			<?php endif; ?>
 		<?php
 	}
@@ -119,9 +119,9 @@ class Fields {
 			'full' => 'large-text',
 		);
 		?>
-			<textarea id="<?= esc_attr( $field['id'] ) ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ) ?> <?= esc_attr( $field['class'] ?? '' ) ?>" name="<?= esc_attr( $field['name'] ) ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ) ?>"><?= esc_html( $value ) ?></textarea>
+			<textarea id="<?= esc_attr( $field['id'] ); ?>" class="<?= esc_attr( $size_class[ $field['size'] ?? 'large' ] ); ?> <?= esc_attr( $field['class'] ?? '' ); ?>" name="<?= esc_attr( $field['name'] ); ?>" rows="<?= esc_attr( $field['rows'] ?? 3 ); ?>"><?= esc_html( $value ); ?></textarea>
 			<?php if ( self::help( $field ) ) : ?>
-				<?= wp_kses_post( self::help( $field ) ) ?>
+				<?= wp_kses_post( self::help( $field ) ); ?>
 			<?php endif; ?>
 		<?php
 	}
@@ -131,8 +131,8 @@ class Fields {
 			?>
 			<label>
 		<?php endif; ?>
-			<input type="checkbox" id="<?= esc_attr( $field['id'] ) ?>" name="<?= esc_attr( $field['name'] ) ?>" value="1" <?= checked( $value ) ?>/>
-			<?= ! empty( $field['help'] ) ? wp_kses_post( $field['help'] ) : '' ?>
+			<input type="checkbox" id="<?= esc_attr( $field['id'] ); ?>" name="<?= esc_attr( $field['name'] ); ?>" value="1" <?= checked( $value ); ?>/>
+			<?= ! empty( $field['help'] ) ? wp_kses_post( $field['help'] ) : ''; ?>
 		<?php if ( ! empty( $field['help'] ) ) : ?>
 			</label>
 		<?php endif; ?>
@@ -141,15 +141,15 @@ class Fields {
 
 	public static function radio( $field, $value ) {
 		?>
-		<fieldset <?= isset( $field['class'] ) ? 'class="' . esc_attr( $field['class'] ) . '"' : '' ?>>
+		<fieldset <?= isset( $field['class'] ) ? 'class="' . esc_attr( $field['class'] ) . '"' : ''; ?>>
 			<?php foreach ( $field['options'] as $k => $label ) : ?>
-				<label style="display: block;"><input type="radio" name="<?= esc_attr( $field['name'] ) ?>" value="<?= esc_attr( $k ) ?>" <?= checked( $value, $k, false ) ?>>
-					<?= esc_html( $label ) ?>
+				<label style="display: block;"><input type="radio" name="<?= esc_attr( $field['name'] ); ?>" value="<?= esc_attr( $k ); ?>" <?= checked( $value, $k, false ); ?>>
+					<?= esc_html( $label ); ?>
 				</label>
 			<?php endforeach; ?>
 		</fieldset>
 		<?php if ( self::help( $field ) ) : ?>
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?= wp_kses_post( self::help( $field ) ); ?>
 		<?php endif; ?>
 		<?php
 	}
@@ -231,29 +231,29 @@ class Fields {
 		}
 
 		?>
-		<div class="image-select-field js-imageSelect <?= esc_attr( $field['class'] ?? '' ) ?> <?= ( $value ? ' --has-value' : '' ) ?>" data-media-type="<?= ! empty( $field['type'] ) ? esc_attr( $field['type'] ) : 'image' ?>">
-			<div class="image-select-field__img-wrap <?= esc_attr( $image_class ) ?? '' ?>">
-				<img src="<?= esc_attr( $src ) ?? '' ?>">
+		<div class="image-select-field js-imageSelect <?= esc_attr( $field['class'] ?? '' ); ?> <?= ( $value ? ' --has-value' : '' ); ?>" data-media-type="<?= ! empty( $field['type'] ) ? esc_attr( $field['type'] ) : 'image'; ?>">
+			<div class="image-select-field__img-wrap <?= esc_attr( $image_class ) ?? ''; ?>">
+				<img src="<?= esc_attr( $src ) ?? ''; ?>">
 			</div>
 			<div class="image-select-field__right-col">
 				<div class="image-select-field__meta-row image-select-field__title-row js-imageSelectTitleRow" >
-					<?= esc_html( $video_title ?? '' ) ?>
+					<?= esc_html( $video_title ?? '' ); ?>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectLinkRow">
-					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= wp_kses_post( $link ?? '' ) ?></span>
+					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?= wp_kses_post( $link ?? '' ); ?></span>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectSizeRow">
-					<span class="image-select-field__meta-label">File Size:</span> <span class="js-imageSelectSizeValue"><?= esc_html( $filesize ?? '' ) ?></span>
+					<span class="image-select-field__meta-label">File Size:</span> <span class="js-imageSelectSizeValue"><?= esc_html( $filesize ?? '' ); ?></span>
 				</div>
 				<div class="image-select-field__button-wrap">
 					<input class="js-selectImage button" type="button" value="Select/Upload" />
 					<input class="image-select-field__remove js-remove button" type="button" value="Remove" />
 				</div>
 			</div>
-			<input type="hidden" name="<?= esc_attr( $field['name'] ) ?>" class="js-value" value="<?= esc_attr( $value ) ?>">
+			<input type="hidden" name="<?= esc_attr( $field['name'] ); ?>" class="js-value" value="<?= esc_attr( $value ); ?>">
 		</div>
 		<?php if ( self::help( $field ) ) : ?>
-			<?= wp_kses_post( self::help( $field ) ) ?>
+			<?= wp_kses_post( self::help( $field ) ); ?>
 		<?php endif; ?>
 		<?php
 	}

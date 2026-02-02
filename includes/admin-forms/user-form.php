@@ -22,12 +22,12 @@ class User_Form extends Fields {
 		wp_nonce_field( 'capitola_user_form', 'capitola_user_nonce' );
 		foreach ( $this->fields as $field ) :
 			?>
-			<?php if ( $field['type'] === 'title' ) : ?>
-				<h2><?= esc_html( $field['title'] ) ?></h2>
+			<?php if ( 'title' === $field['type'] ) : ?>
+				<h2><?= esc_html( $field['title'] ); ?></h2>
 				<table class="form-table">
 					<tbody>
 
-			<?php elseif ( $field['type'] === 'sectionend' ) : ?>
+			<?php elseif ( 'sectionend' === $field['type'] ) : ?>
 					</tbody>
 				</table>
 				<?php
@@ -35,9 +35,9 @@ class User_Form extends Fields {
 				$value = get_user_meta( $user->ID, $field['name'], true );
 				$field = self::set_field_id( $field );
 				?>
-				<tr class="form-field" id="field-row-<?= esc_attr( $field['id'] ) ?>">
+				<tr class="form-field" id="field-row-<?= esc_attr( $field['id'] ); ?>">
 					<th scope="row" valign="top">
-						<?= esc_html( $field['label'] ) ?>
+						<?= esc_html( $field['label'] ); ?>
 					</th>
 					<td>
 						<?php self::echo_field( $field, $value ); ?>
@@ -65,7 +65,7 @@ class User_Form extends Fields {
 				} else {
 					delete_user_meta( $user_id, $field_name );
 				}
-			} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+			} elseif ( $field_name && 'checkbox' === $field['type'] ) {
 				delete_user_meta( $user_id, $field_name );
 			}
 		}

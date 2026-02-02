@@ -6,14 +6,14 @@ add_filter( 'register_post_type_args', __NAMESPACE__ . '\edit_post_registration'
 
 function edit_post_registration( $args, $post_type ) {
 
-	if ( $post_type === 'post' ) {
+	if ( 'post' === $post_type ) {
 
-		// add template
+		// add template.
 		$args['template'] = array(
 			array( 'capitola/post-hero' ),
 		);
 
-		// disable archive
+		// disable archive.
 		$args['has_archive'] = false;
 	}
 

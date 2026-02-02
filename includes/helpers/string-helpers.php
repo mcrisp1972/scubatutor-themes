@@ -25,14 +25,14 @@ function date_time_range( $start, $end, $all_day = false ) {
 	$start_meridiem = date( 'a', $start_timestamp );
 	$end_meridiem = $end ? date( 'a', $end_timestamp ) : $start_meridiem;
 
-	// start and end are the same, or no end date, or dates are the same and it's all day
+	// start and end are the same, or no end date, or dates are the same and it's all day.
 	if ( ! $end || $end === $start || ( $start_date === $end_date && $all_day ) ) {
 		$string = $start_month . ' ' . $start_day;
 		if ( $current_year !== $end_year ) {
 			$string .= ' ' . $end_year;
 		}
 		if ( ! $all_day ) {
-			$string .= date( ', g' . ( $start_minute !== '00' ? ':i' : '' ) . 'a', $start_timestamp );
+			$string .= date( ', g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a', $start_timestamp );
 		}
 		return $string;
 	} elseif ( $start_date === $end_date ) {
@@ -41,8 +41,8 @@ function date_time_range( $start, $end, $all_day = false ) {
 			$string .= ' ' . $end_year;
 		}
 		if ( ! $all_day ) {
-			$start_time_format = 'g' . ( $start_minute !== '00' ? ':i' : '' ) . ( $start_meridiem !== $end_meridiem ? 'a' : '' );
-			$end_time_format = 'g' . ( $start_minute !== '00' ? ':i' : '' ) . 'a';
+			$start_time_format = 'g' . ( '00' !== $start_minute ? ':i' : '' ) . ( $start_meridiem !== $end_meridiem ? 'a' : '' );
+			$end_time_format = 'g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a';
 			$string .= ', ' . date( $start_time_format, $start_timestamp ) . '-' . date( $end_time_format, $end_timestamp );
 		}
 		return $string;
@@ -52,19 +52,19 @@ function date_time_range( $start, $end, $all_day = false ) {
 			$string .= ' ' . $start_year;
 		}
 		if ( ! $all_day ) {
-			$start_time_format = ', g' . ( $start_minute !== '00' ? ':i' : '' ) . 'a';
+			$start_time_format = ', g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a';
 			$string .= date( $start_time_format, $start_timestamp );
 		}
 		$string .= ' - ' . $end_month . ' ' . $end_day;
 		if ( ! $all_day ) {
-			$end_time_format = ', g' . ( $end_minute !== '00' ? ':i' : '' ) . 'a';
+			$end_time_format = ', g' . ( '00' !== $end_minute ? ':i' : '' ) . 'a';
 			$string .= date( $end_time_format, $end_timestamp );
 		}
 		return $string;
 	}
 }
 
-// returns the target attribute for block attributes storing link data
+// returns the target attribute for block attributes storing link data.
 function link_target( $link_object ) {
 	if ( ! empty( $link_object['target'] ) || ! empty( $link_object['opensInNewTab'] ) ) {
 		return ' target="_blank" ';
@@ -72,7 +72,7 @@ function link_target( $link_object ) {
 	return '';
 }
 
-// returns the href attribute for block attributes storing link data
+// returns the href attribute for block attributes storing link data.
 function link_href( $link_object ) {
 	if ( ! empty( $link_object['url'] ) ) {
 		if ( ! empty( $link_object['id'] ) ) {
@@ -83,7 +83,7 @@ function link_href( $link_object ) {
 	return '';
 }
 
-// returns the href and target attributes for block attributes storing link data
+// returns the href and target attributes for block attributes storing link data.
 function link_attributes( $link_object ) {
 	$url = link_href( $link_object );
 	if ( $url ) {
@@ -105,12 +105,12 @@ function render_link( $attribute, $classname ) {
 
 function page_parent_label( $post_id ) {
 	$post_type = get_post_type( $post_id );
-	if ( $post_type === 'page' ) {
+	if ( 'page' === $post_type ) {
 		$parent_id = wp_get_post_parent_id( $post_id );
 		if ( $parent_id ) {
 			return get_the_title( $parent_id );
 		}
-	} elseif ( $post_type !== 'post' ) {
+	} elseif ( 'post' !== $post_type ) {
 		$featured_link_type_obj = get_post_type_object( $post_type );
 		return $featured_link_type_obj->labels->name;
 	}

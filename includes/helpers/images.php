@@ -11,7 +11,7 @@ function post_image_id( $post ) {
 	$id = apply_filters( "capitola_{$post->post_type}_fallback_image_id", false, $post );
 
 	if ( ! $id ) {
-		$taxonomy = apply_filters( "capitola_{$post->post_type}_base_taxonomy", $post->post_type === 'post' ? 'category' : false );
+		$taxonomy = apply_filters( "capitola_{$post->post_type}_base_taxonomy", 'post' === $post->post_type ? 'category' : false );
 
 		if ( $taxonomy ) {
 			$terms = get_the_terms( $post, $taxonomy );
@@ -44,7 +44,7 @@ function term_thumb_id( $object ) {
 	}
 
 	if ( ! $thumb_id ) {
-		$post_type = apply_filters( "capitola_{$object->taxonomy}_tax_post_type", $object->taxonomy === 'category' ? 'post' : false );
+		$post_type = apply_filters( "capitola_{$object->taxonomy}_tax_post_type", 'category' === $object->taxonomy ? 'post' : false );
 		$post_type = get_post_type_object( $post_type );
 
 		if ( $post_type ) {

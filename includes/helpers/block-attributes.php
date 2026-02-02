@@ -6,7 +6,7 @@ function parallax_img_class( $condition ) {
 	return $condition ? '--img-parallax js-imgParallax' : '';
 }
 
-// built block animation values
+// built block animation values.
 function animation_attributes( $attributes, $force_body = false ) {
 	$direction = ! empty( $attributes['introAlign'] ) ? $attributes['introAlign'] : 'top';
 	$gsap_data = array(
@@ -31,11 +31,11 @@ function animation_attributes( $attributes, $force_body = false ) {
 
 	if ( ! empty( $block_animation ) ) {
 		$class = ' js-revealAnimation';
-		if ( $block_animation === 'fadeslide' ) {
-			if ( $block_animation_section === 'figure' && $intro_align ) {
-				$data = $gsap_data[ 'fade' . ( $intro_align === 'right' ? 'left' : 'right' ) ];
+		if ( 'fadeslide' === $block_animation ) {
+			if ( 'figure' === $block_animation_section && $intro_align ) {
+				$data = $gsap_data[ 'fade' . ( 'right' === $intro_align ? 'left' : 'right' ) ];
 			} elseif ( $intro_align ) {
-				$data = $gsap_data[ 'fade' . ( $intro_align === 'top' ? 'left' : $intro_align ) ];
+				$data = $gsap_data[ 'fade' . ( 'top' === $intro_align ? 'left' : $intro_align ) ];
 			}
 		} else {
 			$data = $gsap_data[ $block_animation ];
@@ -43,10 +43,10 @@ function animation_attributes( $attributes, $force_body = false ) {
 
 		if ( $block_animation_section ) {
 
-			if ( $block_animation_section === 'block' ) {
+			if ( 'block' === $block_animation_section ) {
 				$array['block-class'] = $class;
 				$array['block-data'] = $data;
-			} elseif ( $block_animation_section === 'figure' ) {
+			} elseif ( 'figure' === $block_animation_section ) {
 				$array['figure-class'] = $class;
 				$array['figure-data'] = $data;
 			} else {
@@ -69,19 +69,18 @@ function animation_attributes( $attributes, $force_body = false ) {
 	return $array;
 }
 
-// used
 function layout_conditionals( $attributes ) {
-	$show_excerpt = $attributes['listLayout'] === 'row' ? 1 : $attributes['showExcerpt'];
-	$show_byline = isset( $attributes['postType'] ) && $attributes['postType'] === 'post' && ! empty( $attributes['showByline'] ) ? 1 : 0;
-	$title_location = $attributes['listLayout'] === 'row' ? 'body' : $attributes['titleLocation'];
-	$cta_location = ( $show_excerpt || $title_location === 'body' ) && ! $show_byline ? 'body' : 'image';
+	$show_excerpt = 'row' === $attributes['listLayout'] ? 1 : $attributes['showExcerpt'];
+	$show_byline = isset( $attributes['postType'] ) && 'post' === $attributes['postType'] && ! empty( $attributes['showByline'] ) ? 1 : 0;
+	$title_location = 'row' === $attributes['listLayout'] ? 'body' : $attributes['titleLocation'];
+	$cta_location = ( $show_excerpt || 'body' === $title_location ) && ! $show_byline ? 'body' : 'image';
 
 	return array(
 		'showExcerpt' => $show_excerpt,
 		'showByline' => $show_byline,
 		'titleLocation' => $title_location,
 		'ctaLocation' => $cta_location,
-		'hasBottom' => $show_excerpt || $title_location === 'body' || $show_byline,
+		'hasBottom' => $show_excerpt || 'body' === $title_location || $show_byline,
 
 	);
 }

@@ -2,7 +2,7 @@
 
 namespace Capitola\Load_Assets\Emojis;
 
-// remove emoji scripts
+// remove emoji scripts.
 add_action( 'init', __NAMESPACE__ . '\disable_emojis', 99 );
 
 function disable_emojis() {
@@ -20,7 +20,9 @@ function disable_emojis() {
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
 		/** This filter is documented in wp-includes/formatting.php */
+		// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core filter.
 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+		// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$urls = array_diff( $urls, array( $emoji_svg_url ) );
 	}
 

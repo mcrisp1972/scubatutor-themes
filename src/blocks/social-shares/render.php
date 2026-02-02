@@ -1,39 +1,43 @@
 <?php
 
-$socials = get_option( 'capitola_social_shares' );
-
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'class' => 'alignwide',
-	)
-);
+$capitola_socials = get_option( 'capitola_social_shares' );
 
 ?>
-<section <?= wp_kses_data( $wrapper_attributes ) ?>>
+<section
+<?=
+wp_kses_data(
+	get_block_wrapper_attributes(
+		array(
+			'class' => 'alignwide',
+		)
+	)
+);
+?>
+>
 	<ul class="wp-block-capitola-social-shares__social-links">
 		<?php
-		foreach ( $socials as $k => $v ) :
-			$social_link = '';
-			if ( $v ) {
-				switch ( $k ) {
+		foreach ( $capitola_socials as $capitola_social_slug => $capitola_social_enabled ) :
+			$capitola_social_link = '';
+			if ( $capitola_social_enabled ) {
+				switch ( $capitola_social_slug ) {
 					case 'facebook':
-						$social_link = 'http://www.facebook.com/share.php?u=' . urlencode( get_permalink() );
+						$capitola_social_link = 'http://www.facebook.com/share.php?u=' . rawurlencode( get_permalink() );
 						break;
 					case 'twitter':
-						$social_link = 'http://twitter.com/share?url=' . urlencode( get_permalink() );
+						$capitola_social_link = 'http://twitter.com/share?url=' . rawurlencode( get_permalink() );
 						break;
 					case 'pinterest':
-						$social_link = 'http://pinterest.com/pin/create/link/?url=' . urlencode( get_permalink() );
+						$capitola_social_link = 'http://pinterest.com/pin/create/link/?url=' . rawurlencode( get_permalink() );
 						break;
 					case 'linkedin':
-						$social_link = 'https://www.linkedin.com/shareArticle?mini=true&url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '&summary=' . urlencode( get_the_excerpt() ) . '&source=' . urlencode( get_home_url() );
+						$capitola_social_link = 'https://www.linkedin.com/shareArticle?mini=true&url=' . rawurlencode( get_permalink() ) . '&title=' . rawurlencode( get_the_title() ) . '&summary=' . rawurlencode( get_the_excerpt() ) . '&source=' . rawurlencode( get_home_url() );
 						break;
 				}
 			}
-			if ( $social_link ) :
+			if ( $capitola_social_link ) :
 				?>
 				<li>
-					<a class="wp-block-capitola-social-shares__social-link --<?= esc_attr( $k ) ?>" href="<?= esc_url( $social_link ) ?>" target="_blank" aria-label="<?= esc_attr( $k ) ?>"></a>
+					<a class="wp-block-capitola-social-shares__social-link --<?= esc_attr( $capitola_social_slug ); ?>" href="<?= esc_url( $capitola_social_link ); ?>" target="_blank" aria-label="<?= esc_attr( $capitola_social_slug ); ?>"></a>
 				</li>
 			<?php endif; ?>
 		<?php endforeach; ?>

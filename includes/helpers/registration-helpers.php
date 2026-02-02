@@ -42,7 +42,7 @@ function post_labels( $singular, $plural ) {
 
 function default_post_type_args( $singular, $plural, $slug, $args = array() ) {
 
-	// when using custom svgs for icons, make sure fill color is #0073aa
+	// when using custom svgs for icons, make sure fill color is #0073aa.
 
 	return array_merge(
 		array(
@@ -103,12 +103,12 @@ function filter_taxonomy_args( $singular, $plural ) {
 
 	return array(
 		'labels' => taxonomy_labels( $singular, $plural ),
-		'public' => false, // disables archive pages, hides from site map
-		'show_ui' => true, // allows editors to add and edit terms
-		'show_in_menu' => true, // adds the taxonopmy to the related post type admin menu
+		'public' => false, // disables archive pages, hides from site map.
+		'show_ui' => true, // allows editors to add and edit terms.
+		'show_in_menu' => true, // adds the taxonopmy to the related post type admin menu.
 		'show_in_rest'  => true,
-		'show_admin_column' => true, // adds taxonomy to the post type admin list table
-		'hierarchical' => true, // allows parent/child relationships, with checkbox selection
+		'show_admin_column' => true, // adds taxonomy to the post type admin list table.
+		'hierarchical' => true, // allows parent/child relationships, with checkbox selection.
 		'query_var' => false,
 		'rewrite' => false,
 	);

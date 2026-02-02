@@ -119,7 +119,7 @@
 				<element value="Capitola_"/>
 			</property>
 		</properties>
-        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound"/>
+        <!-- <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound"/> -->
 	</rule>
 
     <rule ref="WordPress">
@@ -131,15 +131,15 @@
         <exclude name="Squiz.Commenting.FileComment.WrongStyle" />
         <exclude name="Squiz.Commenting.FunctionComment.Missing" />
         <exclude name="Squiz.Commenting.FunctionComment.WrongStyle"/>
-        <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+        <!-- <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/> -->
         <exclude name="Squiz.Commenting.VariableComment.Missing"/>
         <!-- <exclude name="Squiz.PHP.EmbeddedPhp.ShortOpenEchoNoSemicolon"/> -->
         <exclude name="WordPress.DateTime.RestrictedFunctions.date_date"/>
-        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
-        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
-        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound"/>
-        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
-        <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+        <!-- <exclude name="WordPress.Files.FileName.InvalidClassFileName"/> -->
+        <!-- <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/> -->
+        <!-- <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound"/>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/> -->
+        <!-- <exclude name="WordPress.PHP.YodaConditions.NotYoda"/> -->
         <!-- <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/> -->
         <exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
         <exclude name="WordPress.WP.I18n.TextDomainMismatch"/>

@@ -17,7 +17,7 @@ class Menu_Form extends Fields {
 	}
 
 	public function menu_fields( $id, $menu_item, $depth, $args, $current_object_id ) {
-		// this seems to reliably get the correct current menu
+		// this seems to reliably get the correct current menu.
 		$menu_id = absint( get_user_option( 'nav_menu_recently_edited' ) );
 
 		if ( (int) $menu_id === (int) $this->menu_id && (int) $depth === (int) $this->depth ) {
@@ -28,13 +28,13 @@ class Menu_Form extends Fields {
 				$field = self::set_field_id( $field );
 				$field['id'] .= '-' . $id;
 				$field['name'] .= '[' . $id . ']';
-				if ( $field['type'] === 'wysiwyg' ) {
+				if ( 'wysiwyg' === $field['type'] ) {
 					$field['mce_id'] = $field['id'] . '-' . $id;
 				}
 				?>
-				<div style="margin-top: 8px;" id="field-row-<?= esc_attr( $field['id'] ) ?>">
+				<div style="margin-top: 8px;" id="field-row-<?= esc_attr( $field['id'] ); ?>">
 					<div>
-						<label for="<?= esc_attr( $field['id'] ) ?>"><?= esc_html( $field['label'] ) ?></label>
+						<label for="<?= esc_attr( $field['id'] ); ?>"><?= esc_html( $field['label'] ); ?></label>
 					</div>
 					<?php self::echo_field( $field, $value ); ?>
 				</div>
@@ -61,7 +61,7 @@ class Menu_Form extends Fields {
 					} else {
 						delete_post_meta( $menu_item_db_id, $field_name );
 					}
-				} elseif ( $field_name && $field['type'] === 'checkbox' ) {
+				} elseif ( $field_name && 'checkbox' === $field['type'] ) {
 					delete_post_meta( $menu_item_db_id, $field_name );
 				}
 			}

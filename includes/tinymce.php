@@ -15,7 +15,7 @@ function color_palette( $init ) {
 	}
 
 	$init['textcolor_map'] = '[' . implode( ',', $custom_colors ) . ']';
-	$init['textcolor_rows'] = 6; // Adjust rows if adding many colors
+	$init['textcolor_rows'] = 6; // Adjust rows if adding many colors.
 	return $init;
 }
 

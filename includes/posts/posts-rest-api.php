@@ -73,7 +73,7 @@ function extend_rest_endpoint() {
 
 			if ( $params['filtered_listings'] && isset( $args['tax_query'] ) ) {
 				$key = array_search( 'category', array_column( $args['tax_query'], 'taxonomy' ), true );
-				if ( $key !== false ) {
+				if ( false !== $key ) {
 					$args['tax_query'][ $key ]['include_children'] = true;
 				}
 			}

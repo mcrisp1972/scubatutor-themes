@@ -48,7 +48,7 @@ function post_add_image_html( $post, $field_name, $request ) {
 
 	$image_id = get_post_thumbnail_id( $post['id'] );
 	return array(
-		// 'thumbnail' => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
+		'thumbnail' => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
 		'medium-large' => $image_id ? wp_get_attachment_image( $image_id, 'medium_large' ) : '',
 		'large' => $image_id ? wp_get_attachment_image( $image_id, 'large' ) : '',
 	);
