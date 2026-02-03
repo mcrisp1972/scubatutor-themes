@@ -12,22 +12,11 @@
 
 	<file>.</file>
 
-	<!-- Exclude WP Core folders and files from being checked. -->
-	<exclude-pattern>/docroot/wp-admin/*</exclude-pattern>
-	<exclude-pattern>/docroot/wp-includes/*</exclude-pattern>
-	<exclude-pattern>/docroot/wp-*.php</exclude-pattern>
-	<exclude-pattern>/docroot/index.php</exclude-pattern>
-	<exclude-pattern>/docroot/xmlrpc.php</exclude-pattern>
-	<exclude-pattern>/docroot/wp-content/plugins/*</exclude-pattern>
-
-	<!-- Exclude the Composer Vendor directory. -->
-	<exclude-pattern>/vendor/*</exclude-pattern>
+	<!-- Exclude the build directory. -->
+	<exclude-pattern>/build/*</exclude-pattern>
 
 	<!-- Exclude the Node Modules directory. -->
 	<exclude-pattern>/node_modules/*</exclude-pattern>
-
-	<!-- Exclude minified Javascript files. -->
-	<exclude-pattern>*.min.js</exclude-pattern>
 
 	<!-- Strip the filepaths down to the relevant bit. -->
 	<arg name="basepath" value="."/>
@@ -107,8 +96,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="my-textdomain"/>
-				<element value="library-textdomain"/>
+				<element value="capitola"/>
 			</property>
 		</properties>
 	</rule>
@@ -123,42 +111,8 @@
 	</rule>
 
     <rule ref="WordPress">
-        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
-        <exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound"/>
-        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
-        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
-        <exclude name="Squiz.Commenting.FileComment.WrongStyle" />
-        <exclude name="Squiz.Commenting.FunctionComment.Missing" />
-        <exclude name="Squiz.Commenting.FunctionComment.WrongStyle"/>
-        <!-- <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/> -->
-        <exclude name="Squiz.Commenting.VariableComment.Missing"/>
-        <!-- <exclude name="Squiz.PHP.EmbeddedPhp.ShortOpenEchoNoSemicolon"/> -->
-        <exclude name="WordPress.DateTime.RestrictedFunctions.date_date"/>
-        <!-- <exclude name="WordPress.Files.FileName.InvalidClassFileName"/> -->
-        <!-- <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/> -->
-        <!-- <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound"/>
-        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/> -->
-        <!-- <exclude name="WordPress.PHP.YodaConditions.NotYoda"/> -->
-        <!-- <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/> -->
-        <exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
-        <exclude name="WordPress.WP.I18n.TextDomainMismatch"/>
-        <exclude name="Universal.Operators.DisallowShortTernary.Found"/>
-        <exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames.objectFound"/>
     </rule>
-
-    <rule ref="WordPress-Core">
-		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
-        <exclude name="Generic.Formatting.MultipleStatementAlignment"/>
-        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed"/>
-		<exclude name="PSR12.Files.FileHeader.IncorrectOrder"/>
-        <exclude name="Squiz.Commenting.FileComment.Missing"/>
-        <exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
-        <exclude name="WordPress.Files.FileName"/>
-	</rule>
-
-
-
 
 	<!--
 	#############################################################################

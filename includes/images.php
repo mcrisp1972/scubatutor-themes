@@ -2,15 +2,29 @@
 
 namespace Capitola\Images;
 
-add_action( 'after_setup_theme', __NAMESPACE__ . '\image_sizes' );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Registers custom image sizes.
+ *
+ * @return void
+ */
 function image_sizes() {
 	add_image_size( 'small', 300 );
 	add_image_size( 'med-thumb', 300, 300, true );
 }
 
-add_filter( 'post_thumbnail_id', __NAMESPACE__ . '\thumbnail_id', 2, 99 );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\image_sizes' );
 
+/**
+ * Filters the post thumbnail ID with fallbacks.
+ *
+ * @param int|false    $thumbnail_id Thumbnail ID.
+ * @param int|\WP_Post $post         Post ID or object.
+ * @return int|false
+ */
 function thumbnail_id( $thumbnail_id, $post ) {
 
 	if ( $thumbnail_id ) {
@@ -29,6 +43,8 @@ function thumbnail_id( $thumbnail_id, $post ) {
 		return \Capitola\Helpers\Images\post_image_id( $post );
 	}
 }
+
+add_filter( 'post_thumbnail_id', __NAMESPACE__ . '\thumbnail_id', 10, 2 );
 
 // eager load only the first 2 images.
 add_filter(

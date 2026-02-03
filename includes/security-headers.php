@@ -2,10 +2,20 @@
 
 namespace Capitola\Filters\Security_Headers;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Adds security headers to non-admin responses.
+ *
+ * @param array $headers Existing headers.
+ * @return array
+ */
 function add_security_headers( $headers ) {
 	if ( ! is_admin() ) {
 		// This is the default value, the same as if it were not set.
-		$headers['Referrer-Policy'] = 'no-referrer-when-downgrade';
+		$headers['Referrer-Policy']        = 'no-referrer-when-downgrade';
 		$headers['X-Content-Type-Options'] = 'nosniff';
 
 		// From MDN's CSP doc: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#using_the_html_meta_element.

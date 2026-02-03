@@ -1,65 +1,64 @@
 <?php
 
-$search_string = rawurlencode( get_query_var( 's', 1 ) );
-
 global $wp_query;
-$total_pages = $wp_query->max_num_pages;
-$found_posts = $wp_query->found_posts;
-$current_page = ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 );
-$pagination_values = array();
 
-if ( ! $total_pages ) {
-	$pagination_values[] = 1;
+$capitola_search_string     = sanitize_text_field( get_query_var( 's', 1 ) );
+$capitola_total_pages       = $wp_query->max_num_pages;
+$capitola_current_page      = ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 );
+$capitola_pagination_values = array();
+
+if ( ! $capitola_total_pages ) {
+	$capitola_pagination_values[] = 1;
 }
 
 
-if ( $total_pages <= 6 ) {
-	for ( $i = 1; $i <= $total_pages; $i++ ) {
-		$pagination_values[] = $i;
+if ( $capitola_total_pages <= 6 ) {
+	for ( $capitola_i = 1; $capitola_i <= $capitola_total_pages; $capitola_i++ ) {
+		$capitola_pagination_values[] = $capitola_i;
 	}
-} elseif ( ( $current_page + 5 ) < $total_pages ) {
-	$pagination_values[] = $current_page;
-	$pagination_values[] = ( $current_page + 1 );
-	$pagination_values[] = ( $current_page + 2 );
-	$pagination_values[] = '...';
-	$pagination_values[] = ( $total_pages - 2 );
-	$pagination_values[] = ( $total_pages - 1 );
-	$pagination_values[] = ( $total_pages );
+} elseif ( ( $capitola_current_page + 5 ) < $capitola_total_pages ) {
+	$capitola_pagination_values[] = $capitola_current_page;
+	$capitola_pagination_values[] = ( $capitola_current_page + 1 );
+	$capitola_pagination_values[] = ( $capitola_current_page + 2 );
+	$capitola_pagination_values[] = '...';
+	$capitola_pagination_values[] = ( $capitola_total_pages - 2 );
+	$capitola_pagination_values[] = ( $capitola_total_pages - 1 );
+	$capitola_pagination_values[] = ( $capitola_total_pages );
 } else {
-	for ( $i = $total_pages; $i >= ( $total_pages - 5 ); $i-- ) {
-		array_unshift( $pagination_values, $i );
+	for ( $capitola_i = $capitola_total_pages; $capitola_i >= ( $capitola_total_pages - 5 ); $capitola_i-- ) {
+		array_unshift( $capitola_pagination_values, $capitola_i );
 	}
-	array_unshift( $pagination_values, '...' );
+	array_unshift( $capitola_pagination_values, '...' );
 }
 
 ?>
 
 <nav class="capitola-page-nav js-pageNav">
-	<?php if ( $current_page === 1 ) : ?>
+	<?php if ( 1 === $capitola_current_page ) : ?>
 		<span class="capitola-page-nav__button --prev" disabled>Prev</span>
 	<?php else : ?>
-		<a href="<?= esc_url( '/page/' . ( $current_page - 1 ) . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --prev">Prev</a>
+		<a href="<?php echo esc_url( '/page/' . ( $capitola_current_page - 1 ) . '/?s=' . rawurlencode( $capitola_search_string ) ); ?>" class="capitola-page-nav__button --prev">Prev</a>
 	<?php endif; ?>
 	<ul class="capitola-page-nav__page-numbers js-navPageNumbers">
 		<?php
-		foreach ( $pagination_values as $p ) :
-			if ( $p == '...' ) :
+		foreach ( $capitola_pagination_values as $capitola_p ) :
+			if ( '...' === $capitola_p ) :
 				?>
 				<li>
 					<button class="capitola-page-nav__button --number --dots" type="button" disabled>....</button>
 				</li>
 			<?php else : ?>
 				<li>
-					<a href="<?= esc_url( '/page/' . $p . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --number <?= ( $p === $current_page ? '--current' : '' ) ?>" data-page="<?= esc_attr( $p ) ?>"><?= esc_html( $p ) ?></a>
+					<a href="<?php echo esc_url( '/page/' . $capitola_p . '/?s=' . rawurlencode( $capitola_search_string ) ); ?>" class="capitola-page-nav__button --number <?php echo ( $capitola_p === $capitola_current_page ? '--current' : '' ); ?>" data-page="<?php echo esc_attr( $capitola_p ); ?>"><?php echo esc_html( $capitola_p ); ?></a>
 				</li>
 				<?php
 			endif;
 		endforeach;
 		?>
 	</ul>
-	<?php if ( $current_page === $total_pages ) : ?>
+	<?php if ( $capitola_current_page === $capitola_total_pages ) : ?>
 		<span class="capitola-page-nav__button --next" disabled>Next</span>
 	<?php else : ?>
-		<a href="<?= esc_url( '/page/' . ( $current_page + 1 ) . '/?s=' . $search_string ) ?>" class="capitola-page-nav__button --next">Next</a>
+		<a href="<?php echo esc_url( '/page/' . ( $capitola_current_page + 1 ) . '/?s=' . rawurlencode( $capitola_search_string ) ); ?>" class="capitola-page-nav__button --next">Next</a>
 	<?php endif; ?>
 </nav>

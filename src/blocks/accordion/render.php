@@ -1,12 +1,18 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
 <section
-<?php echo wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'id' => $attributes['anchor'],
+			'id'                  => $attributes['anchor'],
 			'data-wp-interactive' => 'capitola-accordion',
-			'data-wp-context' => wp_json_encode(
+			'data-wp-context'     => wp_json_encode(
 				array(
-					'keepOpen' => $attributes['keepOpen'],
+					'keepOpen'     => $attributes['keepOpen'],
 					'activeItemId' => null,
 				)
 			),
@@ -16,6 +22,6 @@
 ?>
 >
 	<div class="wp-block-capitola-accordion__list">
-		<?= wp_kses_post( $content ); ?>
+		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

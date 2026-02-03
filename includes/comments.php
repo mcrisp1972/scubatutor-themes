@@ -2,15 +2,30 @@
 
 namespace Capitola\Supports\Comments;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Checks whether comments are enabled for a post.
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
 function show_if_comments_enabled( $post_id ) {
 	$allowed_post_types = apply_filters( 'capitola_comments_allowed_post_types', array() );
-	$post_type = get_post_type( $post_id );
+	$post_type          = get_post_type( $post_id );
 	if ( in_array( $post_type, $allowed_post_types, true ) && post_type_supports( $post_type, 'comments' ) ) {
 		return true;
 	}
 	return false;
 }
 
+/**
+ * Disables comments in the admin for disallowed post types.
+ *
+ * @return void
+ */
 function admin_disable_comments() {
 	// Redirect any user trying to access comments page.
 	global $pagenow;
@@ -43,13 +58,18 @@ add_action(
 	}
 );
 
-// Remove comments links from admin bar.
-add_action( 'wp_before_admin_bar_render', __NAMESPACE__ . '\remove_comments' );
-
+/**
+ * Removes the comments menu from the admin bar.
+ *
+ * @return void
+ */
 function remove_comments() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu( 'comments' );
 }
+
+// Remove comments links from admin bar.
+add_action( 'wp_before_admin_bar_render', __NAMESPACE__ . '\remove_comments' );
 
 // Close comments on the front-end.
 add_filter(

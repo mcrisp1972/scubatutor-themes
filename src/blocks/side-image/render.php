@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\Block_Attributes\parallax_img_class;
 
@@ -35,42 +39,42 @@ if ( 'inner' === $attributes['imageLayout'] && $attributes['showCaption'] ) {
 ?>
 
 <section
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'id' => $attributes['anchor'],
+			'id'    => $attributes['anchor'],
 			'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( $capitola_animations['block-class'] || $capitola_animations['body-class'] || $capitola_animations['figure-class'] ? ' --has-animation' : '' ),
 		)
 	)
 );
 ?>
 >
-	<div class="wp-block-capitola-side-image__width <?= 'inner' === $attributes['imageLayout'] ? 'alignwide' : 'alignfull'; ?> <?= esc_attr( $capitola_class ); ?><?= esc_attr( $capitola_animations['block-class'] ); ?><?= ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" <?= wp_kses_data( $capitola_animations['block-data'] ); ?>>
-		<div class="wp-block-capitola-side-image__imagewrap <?= esc_attr( $capitola_sticky_class . ' ' . $capitola_parallax_class ); ?>" style="--capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ); ?>;">
+	<div class="wp-block-capitola-side-image__width <?php echo 'inner' === $attributes['imageLayout'] ? 'alignwide' : 'alignfull'; ?> <?php echo esc_attr( $capitola_class ); ?><?php echo esc_attr( $capitola_animations['block-class'] ); ?><?php echo ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+		<div class="wp-block-capitola-side-image__imagewrap <?php echo esc_attr( $capitola_sticky_class . ' ' . $capitola_parallax_class ); ?>" style="--capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
 			<?php if ( 'inner' === $attributes['imageLayout'] ) : ?>
-				<figure class="wp-block-capitola-side-image__imageratio <?= esc_attr( $capitola_animations['figure-class'] ); ?>" <?= wp_kses_data( $capitola_animations['figure-data'] ); ?>>
+				<figure class="wp-block-capitola-side-image__imageratio <?php echo esc_attr( $capitola_animations['figure-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['figure-data'] ); ?>>
 			<?php endif; ?>
 			<?php
 			get_template_part(
 				'build/blocks/side-image/template-parts/' . $attributes['mediaType'],
 				'',
 				array(
-					'attributes' => $attributes,
+					'attributes'  => $attributes,
 					'image_ratio' => 'inner' === $attributes['imageLayout'] && ! $attributes['isIframeVariation'] && ! $attributes['isVideoVariation'] ? '--' . $attributes['imageRatio'] : '',
-					'radius' => 'inner' === $attributes['imageLayout'] && $attributes['imageRadius'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '',
+					'radius'      => 'inner' === $attributes['imageLayout'] && $attributes['imageRadius'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '',
 				)
 			);
 			?>
 			<?php if ( $capitola_caption ) : ?>
 				<figcaption>
-					<?= esc_html( $capitola_caption ); ?>
+					<?php echo esc_html( $capitola_caption ); ?>
 				</figcaption>
 			<?php endif; ?>
 			<?php if ( 'inner' === $attributes['imageLayout'] ) : ?>
 				</figure>
 			<?php endif; ?>
 		</div>
-		<?= wp_kses_post( $content ); ?>
+		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

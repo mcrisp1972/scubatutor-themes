@@ -2,8 +2,15 @@
 
 namespace Capitola\Load_Assets\Styles;
 
-add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_styles', 1 );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Enqueues front-end and editor styles.
+ *
+ * @return void
+ */
 function enqueue_styles() {
 
 	if ( is_admin() ) {
@@ -13,6 +20,13 @@ function enqueue_styles() {
 	}
 }
 
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_styles', 1 );
+
+/**
+ * Registers custom styles for core blocks.
+ *
+ * @return void
+ */
 function register_core_block_styles() {
 
 	$files = glob( CAPITOLA_CSS_DIR . 'wp-core-blocks/*.css' );
@@ -35,4 +49,5 @@ function register_core_block_styles() {
 		}
 	}
 }
+
 add_action( 'init', __NAMESPACE__ . '\register_core_block_styles' );

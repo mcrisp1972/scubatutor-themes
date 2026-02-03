@@ -1,5 +1,10 @@
 <?php
+
 namespace Capitola\Blocks\Body_Text;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\String_Helpers\render_link;
@@ -31,8 +36,8 @@ $capitola_cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text
 ?>
 
 <div
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
 			'class' => $capitola_intro_position_class . $capitola_intro_align_class . $capitola_bg_class . $capitola_justify_class,
@@ -42,30 +47,30 @@ wp_kses_data(
 ?>
 >
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
-		<div class="wp-block-capitola-body-text__bg-image <?= esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?= esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?= esc_attr( $attributes['imageCropPosition'] ); ?>;">
-			<?= wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
+		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
+			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>
-	<div class="wp-block-capitola-body-text__grid <?= esc_attr( $capitola_animations['body-class'] ); ?>" <?= wp_kses_data( $capitola_animations['body-data'] ); ?>>
+	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $capitola_animations['body-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['body-data'] ); ?>>
 		<?php if ( $attributes['eyebrow'] ) : ?>
 			<div class="wp-block-capitola-body-text__eyebrow --eyebrow">
-				<?= esc_html( $attributes['eyebrow'] ); ?>
+				<?php echo esc_html( $attributes['eyebrow'] ); ?>
 			</div>
 		<?php endif; ?>
 		<?php if ( $attributes['headline'] ) : ?>
-			<<?= tag_escape( $attributes['headlineTag'] ); ?> class="wp-block-capitola-body-text__headline --hl-l">
-				<?= esc_html( $attributes['headline'] ); ?>
-			</<?= tag_escape( $attributes['headlineTag'] ); ?>>
+			<<?php echo tag_escape( $attributes['headlineTag'] ); ?> class="wp-block-capitola-body-text__headline --hl-l">
+				<?php echo esc_html( $attributes['headline'] ); ?>
+			</<?php echo tag_escape( $attributes['headlineTag'] ); ?>>
 		<?php endif; ?>
 		<?php if ( $content ) : ?>
 			<div class="wp-block-capitola-body-text__intro">
-				<?= wp_kses_post( $content ); ?>
+				<?php echo wp_kses_post( $content ); ?>
 			</div>
 		<?php endif; ?>
 		<?php if ( $capitola_cta_1 || $capitola_cta_2 ) : ?>
 			<div class="wp-block-capitola-body-text__ctas">
-				<?= wp_kses_post( $capitola_cta_1 ); ?>
-				<?= wp_kses_post( $capitola_cta_2 ); ?>
+				<?php echo wp_kses_post( $capitola_cta_1 ); ?>
+				<?php echo wp_kses_post( $capitola_cta_2 ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

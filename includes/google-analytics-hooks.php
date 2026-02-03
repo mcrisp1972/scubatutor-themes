@@ -2,11 +2,20 @@
 
 namespace Capitola\Hooks\Google_Analytics;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Outputs Google Analytics script in the head.
+ *
+ * @return void
+ */
 function head_script() {
 	$ga_script = get_option( 'capitola_google' );
 	if ( is_array( $ga_script ) && ! empty( $ga_script['head'] ) ) {
 		$allowed = array(
-			'script'  => array(
+			'script'   => array(
 				'src'   => true,
 				'async' => true,
 				'defer' => true,
@@ -21,18 +30,23 @@ function head_script() {
 
 add_action( 'wp_head', __NAMESPACE__ . '\head_script', 1 );
 
+/**
+ * Outputs Google Analytics script after the body tag.
+ *
+ * @return void
+ */
 function after_body_open_tag() {
 	$ga_script = get_option( 'capitola_google' );
 	if ( is_array( $ga_script ) && ! empty( $ga_script['body'] ) ) {
 		$allowed = array(
-			'script'  => array(
+			'script'   => array(
 				'src'   => true,
 				'async' => true,
 				'defer' => true,
 				'type'  => true,
 				'id'    => true,
 			),
-			'iframe' => array(
+			'iframe'   => array(
 				'src'    => true,
 				'height' => true,
 				'width'  => true,

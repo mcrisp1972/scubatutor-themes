@@ -2,19 +2,26 @@
 
 namespace Capitola\ThemeOptions;
 
-const GROUP_CONTACT = 'capitola-contact-info';
-const GROUP_BANNERS = 'capitola-banners';
-const GROUP_SOCIALS = 'capitola-socials';
-const GROUP_GOOGLE = 'capitola-ga';
-const GROUP_API_KEYS = 'capitola-api-keys';
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+const GROUP_CONTACT     = 'capitola-contact-info';
+const GROUP_BANNERS     = 'capitola-banners';
+const GROUP_SOCIALS     = 'capitola-socials';
+const GROUP_GOOGLE      = 'capitola-ga';
+const GROUP_API_KEYS    = 'capitola-api-keys';
 const GROUP_COLOR_THEME = 'capitola-color-theme';
 
-add_action( 'init', __NAMESPACE__ . '\add_options_page', 99 );
-
+/**
+ * Registers the theme options page.
+ *
+ * @return void
+ */
 function add_options_page() {
 
-	$json_string = file_get_contents( get_stylesheet_directory() . '/color-themes.json' );
-	$colors = json_decode( $json_string, true );
+	$json_string   = file_get_contents( get_stylesheet_directory() . '/color-themes.json' );
+	$colors        = json_decode( $json_string, true );
 	$color_options = array();
 	foreach ( $colors as $color ) {
 		$color_options[ $color['slug'] ] = $color['name'];
@@ -22,141 +29,141 @@ function add_options_page() {
 
 	$form_settings = array(
 		'parent_slug' => 'options-general.php',
-		'page_title' => 'Theme Options',
-		'menu_title' => 'Theme Options',
-		'menu_slug' => 'capitola-theme-options',
-		'position' => 50,
-		'tabs' => array(
+		'page_title'  => 'Theme Options',
+		'menu_title'  => 'Theme Options',
+		'menu_slug'   => 'capitola-theme-options',
+		'position'    => 50,
+		'tabs'        => array(
 			'business-info' => array(
-				'tab_label' => 'Business Info',
+				'tab_label'   => 'Business Info',
 				'fields_slug' => GROUP_CONTACT,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'Contact Info',
-						'type' => 'title',
-						'desc' => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
+						'type'  => 'title',
+						'desc'  => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
 					),
 					array(
-						'label' => 'Business Name',
-						'name' => 'capitola_contact[business_name]',
+						'label'  => 'Business Name',
+						'name'   => 'capitola_contact[business_name]',
 						'option' => array( 'capitola_contact', 'business_name' ),
-						'size' => 'large',
-						'type' => 'text',
+						'size'   => 'large',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Address',
-						'name' => 'capitola_contact[address]',
+						'label'  => 'Address',
+						'name'   => 'capitola_contact[address]',
 						'option' => array( 'capitola_contact', 'address' ),
-						'size' => 'large',
-						'type' => 'textarea',
-						'rows' => 4,
+						'size'   => 'large',
+						'type'   => 'textarea',
+						'rows'   => 4,
 					),
 					array(
-						'label' => 'Google Map Link',
-						'name' => 'capitola_contact[gmap_link]',
+						'label'  => 'Google Map Link',
+						'name'   => 'capitola_contact[gmap_link]',
 						'option' => array( 'capitola_contact', 'gmap_link' ),
-						'size' => 'full',
-						'type' => 'text',
+						'size'   => 'full',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Phone',
-						'name' => 'capitola_contact[phone]',
+						'label'  => 'Phone',
+						'name'   => 'capitola_contact[phone]',
 						'option' => array( 'capitola_contact', 'phone' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Email',
-						'name' => 'capitola_contact[email]',
+						'label'  => 'Email',
+						'name'   => 'capitola_contact[email]',
 						'option' => array( 'capitola_contact', 'email' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 					array(
 						'label' => 'Hours',
-						'type' => 'title',
-						'desc' => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed.',
+						'type'  => 'title',
+						'desc'  => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed.',
 					),
 					array(
-						'label' => 'Monday',
-						'name' => 'capitola_hours[Monday]',
+						'label'  => 'Monday',
+						'name'   => 'capitola_hours[Monday]',
 						'option' => array( 'capitola_hours', 'Monday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Tuesday',
-						'name' => 'capitola_hours[Tuesday]',
+						'label'  => 'Tuesday',
+						'name'   => 'capitola_hours[Tuesday]',
 						'option' => array( 'capitola_hours', 'Tuesday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Wednesday',
-						'name' => 'capitola_hours[Wednesday]',
+						'label'  => 'Wednesday',
+						'name'   => 'capitola_hours[Wednesday]',
 						'option' => array( 'capitola_hours', 'Wednesday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Thursday',
-						'name' => 'capitola_hours[Thursday]',
+						'label'  => 'Thursday',
+						'name'   => 'capitola_hours[Thursday]',
 						'option' => array( 'capitola_hours', 'Thursday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Friday',
-						'name' => 'capitola_hours[Friday]',
+						'label'  => 'Friday',
+						'name'   => 'capitola_hours[Friday]',
 						'option' => array( 'capitola_hours', 'Friday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Saturday',
-						'name' => 'capitola_hours[Saturday]',
+						'label'  => 'Saturday',
+						'name'   => 'capitola_hours[Saturday]',
 						'option' => array( 'capitola_hours', 'Saturday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
-						'label' => 'Sunday',
-						'name' => 'capitola_hours[Sunday]',
+						'label'  => 'Sunday',
+						'name'   => 'capitola_hours[Sunday]',
 						'option' => array( 'capitola_hours', 'Sunday' ),
-						'type' => 'text',
+						'type'   => 'text',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 				),
 			),
-			'banners' => array(
-				'tab_label' => 'Banners',
+			'banners'       => array(
+				'tab_label'   => 'Banners',
 				'fields_slug' => GROUP_BANNERS,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'Notice Banner',
-						'type' => 'title',
-						'desc' => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
+						'type'  => 'title',
+						'desc'  => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
 					),
 					array(
-						'label' => 'Show Notice Banner',
-						'name' => 'capitola_notice_banner[display]',
+						'label'  => 'Show Notice Banner',
+						'name'   => 'capitola_notice_banner[display]',
 						'option' => array( 'capitola_notice_banner', 'display' ),
-						'type' => 'checkbox',
+						'type'   => 'checkbox',
 					),
 					array(
-						'label' => 'Notice Banner',
-						'name' => 'capitola_notice_banner[message]',
+						'label'  => 'Notice Banner',
+						'name'   => 'capitola_notice_banner[message]',
 						'option' => array( 'capitola_notice_banner', 'message' ),
-						'type' => 'wysiwyg',
+						'type'   => 'wysiwyg',
 						'mce_id' => 'banner-message-mce',
-						'rows' => 4,
+						'rows'   => 4,
 					),
 					array(
-						'label' => 'Banner Color',
-						'help' => 'Signifies important or urgency of the notice. Update is good for store updates like upcoming sales, new store hours, etc.. Alert is a severe notice, like temporary changes in business hours or online sales availability.',
-						'name' => 'capitola_notice_banner[type]',
-						'option' => array( 'capitola_notice_banner', 'type' ),
-						'type' => 'radio',
+						'label'   => 'Banner Color',
+						'help'    => 'Signifies important or urgency of the notice. Update is good for store updates like upcoming sales, new store hours, etc.. Alert is a severe notice, like temporary changes in business hours or online sales availability.',
+						'name'    => 'capitola_notice_banner[type]',
+						'option'  => array( 'capitola_notice_banner', 'type' ),
+						'type'    => 'radio',
 						'options' => array(
 							'update' => 'Update',
-							'alert' => 'Alert',
+							'alert'  => 'Alert',
 						),
 					),
 					array(
@@ -164,172 +171,172 @@ function add_options_page() {
 					),
 				),
 			),
-			'socials' => array(
-				'tab_label' => 'Socials',
+			'socials'       => array(
+				'tab_label'   => 'Socials',
 				'fields_slug' => GROUP_SOCIALS,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'Allowed Social Shares',
-						'type' => 'title',
-						'desc' => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
+						'type'  => 'title',
+						'desc'  => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
 					),
 					array(
-						'label' => 'Facebook',
-						'name' => 'capitola_social_shares[facebook]',
+						'label'  => 'Facebook',
+						'name'   => 'capitola_social_shares[facebook]',
 						'option' => array( 'capitola_social_shares', 'facebook' ),
-						'type' => 'checkbox',
+						'type'   => 'checkbox',
 					),
 					array(
-						'label' => 'Twitter/X',
-						'name' => 'capitola_social_shares[twitter]',
+						'label'  => 'Twitter/X',
+						'name'   => 'capitola_social_shares[twitter]',
 						'option' => array( 'capitola_social_shares', 'twitter' ),
-						'type' => 'checkbox',
+						'type'   => 'checkbox',
 					),
 					array(
-						'label' => 'Pinterest',
-						'name' => 'capitola_social_shares[pinterest]',
+						'label'  => 'Pinterest',
+						'name'   => 'capitola_social_shares[pinterest]',
 						'option' => array( 'capitola_social_shares', 'pinterest' ),
-						'type' => 'checkbox',
+						'type'   => 'checkbox',
 					),
 					array(
-						'label' => 'LinkedIn',
-						'name' => 'capitola_social_shares[linkedin]',
+						'label'  => 'LinkedIn',
+						'name'   => 'capitola_social_shares[linkedin]',
 						'option' => array( 'capitola_social_shares', 'linkedin' ),
-						'type' => 'checkbox',
+						'type'   => 'checkbox',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 					array(
 						'title' => 'Social Links',
-						'type' => 'title',
-						'desc' => 'These are used in the footer and other sectiopns for links to your social network pages.',
+						'type'  => 'title',
+						'desc'  => 'These are used in the footer and other sectiopns for links to your social network pages.',
 					),
 					array(
-						'label' => 'Facebook',
-						'name' => 'capitola_social_links[facebook]',
+						'label'  => 'Facebook',
+						'name'   => 'capitola_social_links[facebook]',
 						'option' => array( 'capitola_social_links', 'facebook' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Twitter/X',
-						'name' => 'capitola_social_links[twitter]',
+						'label'  => 'Twitter/X',
+						'name'   => 'capitola_social_links[twitter]',
 						'option' => array( 'capitola_social_links', 'twitter' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Instagram',
-						'name' => 'capitola_social_links[instagram]',
+						'label'  => 'Instagram',
+						'name'   => 'capitola_social_links[instagram]',
 						'option' => array( 'capitola_social_links', 'instagram' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Youtube',
-						'name' => 'capitola_social_links[youtube]',
+						'label'  => 'Youtube',
+						'name'   => 'capitola_social_links[youtube]',
 						'option' => array( 'capitola_social_links', 'youtube' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Tiktok',
-						'name' => 'capitola_social_links[tiktok]',
+						'label'  => 'Tiktok',
+						'name'   => 'capitola_social_links[tiktok]',
 						'option' => array( 'capitola_social_links', 'tiktok' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Pinterest',
-						'name' => 'capitola_social_links[pinterest]',
+						'label'  => 'Pinterest',
+						'name'   => 'capitola_social_links[pinterest]',
 						'option' => array( 'capitola_social_links', 'pinterest' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Linkedin',
-						'name' => 'capitola_social_links[linkedin]',
+						'label'  => 'Linkedin',
+						'name'   => 'capitola_social_links[linkedin]',
 						'option' => array( 'capitola_social_links', 'linkedin' ),
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 				),
 			),
-			'api-keys' => array(
-				'tab_label' => 'API Keys',
+			'api-keys'      => array(
+				'tab_label'   => 'API Keys',
 				'fields_slug' => GROUP_API_KEYS,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'API Keys',
-						'type' => 'title',
-						'desc' => 'This key is used to display Google Maps on the site.',
+						'type'  => 'title',
+						'desc'  => 'This key is used to display Google Maps on the site.',
 					),
 					array(
-						'label' => 'Paid Google Maps API Key',
-						'name' => 'capitola_paid_google_maps_api',
+						'label'  => 'Paid Google Maps API Key',
+						'name'   => 'capitola_paid_google_maps_api',
 						'option' => 'capitola_paid_google_maps_api',
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Free Google Maps API Key',
-						'name' => 'capitola_free_google_maps_api',
+						'label'  => 'Free Google Maps API Key',
+						'name'   => 'capitola_free_google_maps_api',
 						'option' => 'capitola_free_google_maps_api',
-						'type' => 'text',
-						'size' => 'full',
+						'type'   => 'text',
+						'size'   => 'full',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 				),
 			),
-			'google' => array(
-				'tab_label' => 'Google Analytics',
+			'google'        => array(
+				'tab_label'   => 'Google Analytics',
 				'fields_slug' => GROUP_GOOGLE,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'Google Analytics Scripts',
-						'type' => 'title',
+						'type'  => 'title',
 					),
 					array(
-						'label' => 'Head Script',
-						'name' => 'capitola_google[head]',
+						'label'  => 'Head Script',
+						'name'   => 'capitola_google[head]',
 						'option' => array( 'capitola_google', 'head' ),
-						'type' => 'textarea',
-						'rows' => 4,
-						'size' => 'full',
+						'type'   => 'textarea',
+						'rows'   => 4,
+						'size'   => 'full',
 					),
 					array(
-						'label' => 'Body Script',
-						'name' => 'capitola_google[body]',
+						'label'  => 'Body Script',
+						'name'   => 'capitola_google[body]',
 						'option' => array( 'capitola_google', 'body' ),
-						'type' => 'textarea',
-						'rows' => 4,
-						'size' => 'full',
+						'type'   => 'textarea',
+						'rows'   => 4,
+						'size'   => 'full',
 					),
 					array(
 						'type' => 'sectionend',
 					),
 				),
 			),
-			'color-themes' => array(
-				'tab_label' => 'Color Themes',
+			'color-themes'  => array(
+				'tab_label'   => 'Color Themes',
 				'fields_slug' => GROUP_COLOR_THEME,
-				'fields' => array(
+				'fields'      => array(
 					array(
 						'title' => 'Default Color Themes',
-						'type' => 'title',
-						'desc' => 'These are the default color themes for the site. These can be overridden on individual pages.',
+						'type'  => 'title',
+						'desc'  => 'These are the default color themes for the site. These can be overridden on individual pages.',
 					),
 					array(
-						'label' => 'Default Page Color Theme',
-						'name' => 'capitola_default_page_color_theme',
-						'option' => 'capitola_default_page_color_theme',
-						'type' => 'select',
+						'label'   => 'Default Page Color Theme',
+						'name'    => 'capitola_default_page_color_theme',
+						'option'  => 'capitola_default_page_color_theme',
+						'type'    => 'select',
 						'options' => $color_options,
 					),
 					array(
@@ -342,10 +349,10 @@ function add_options_page() {
 
 	$child_api_fields = apply_filters( 'capitola_child_theme_options_fields', array() );
 	if ( ! empty( $child_api_fields ) ) {
-		$api_fields = $form_settings['tabs']['api-keys']['fields'];
-		$last_field = array_pop( $api_fields );
-		$api_fields = array_merge( $api_fields, $child_api_fields );
-		$api_fields[] = $last_field;
+		$api_fields                                  = $form_settings['tabs']['api-keys']['fields'];
+		$last_field                                  = array_pop( $api_fields );
+		$api_fields                                  = array_merge( $api_fields, $child_api_fields );
+		$api_fields[]                                = $last_field;
 		$form_settings['tabs']['api-keys']['fields'] = $api_fields;
 	}
 
@@ -354,42 +361,47 @@ function add_options_page() {
 	);
 }
 
-add_action( 'init', __NAMESPACE__ . '\register_theme_settings' );
+add_action( 'init', __NAMESPACE__ . '\add_options_page' );
 
+/**
+ * Registers theme settings.
+ *
+ * @return void
+ */
 function register_theme_settings() {
 	register_setting(
 		GROUP_CONTACT,
 		'capitola_contact',
 		array(
-			'type' => 'object',
+			'type'         => 'object',
 			'show_in_rest' => array(
 				'schema' => array(
-					'type' => 'object',
+					'type'       => 'object',
 					'properties' => array(
 						'business_name' => array(
 							'type' => 'string',
 						),
-						'address' => array(
+						'address'       => array(
 							'type' => 'string',
 						),
-						'gmap_link' => array(
+						'gmap_link'     => array(
 							'type' => 'string',
 						),
-						'phone' => array(
+						'phone'         => array(
 							'type' => 'string',
 						),
-						'email' => array(
+						'email'         => array(
 							'type' => 'string',
 						),
 					),
 				),
 			),
-			'default' => array(
+			'default'      => array(
 				'business_name' => '',
-				'address' => '',
-				'gmap_link' => '',
-				'phone' => '',
-				'email' => '',
+				'address'       => '',
+				'gmap_link'     => '',
+				'phone'         => '',
+				'email'         => '',
 			),
 		)
 	);
@@ -398,43 +410,43 @@ function register_theme_settings() {
 		GROUP_CONTACT,
 		'capitola_hours',
 		array(
-			'type' => 'object',
+			'type'         => 'object',
 			'show_in_rest' => array(
 				'schema' => array(
-					'type' => 'object',
+					'type'       => 'object',
 					'properties' => array(
-						'Monday' => array(
+						'Monday'    => array(
 							'type' => 'string',
 						),
-						'Tuesday' => array(
+						'Tuesday'   => array(
 							'type' => 'string',
 						),
 						'Wednesday' => array(
 							'type' => 'string',
 						),
-						'Thursday' => array(
+						'Thursday'  => array(
 							'type' => 'string',
 						),
-						'Friday' => array(
+						'Friday'    => array(
 							'type' => 'string',
 						),
-						'Saturday' => array(
+						'Saturday'  => array(
 							'type' => 'string',
 						),
-						'Sunday' => array(
+						'Sunday'    => array(
 							'type' => 'string',
 						),
 					),
 				),
 			),
-			'default' => array(
-				'Monday' => '',
-				'Tuesday' => '',
+			'default'      => array(
+				'Monday'    => '',
+				'Tuesday'   => '',
 				'Wednesday' => '',
-				'Thursday' => '',
-				'Friday' => '',
-				'Saturday' => '',
-				'Sunday' => '',
+				'Thursday'  => '',
+				'Friday'    => '',
+				'Saturday'  => '',
+				'Sunday'    => '',
 			),
 		)
 	);
@@ -443,10 +455,10 @@ function register_theme_settings() {
 		GROUP_BANNERS,
 		'capitola_notice_banner',
 		array(
-			'type' => 'object',
-			'show_in_rest' => array(
+			'type'              => 'object',
+			'show_in_rest'      => array(
 				'schema' => array(
-					'type' => 'object',
+					'type'       => 'object',
 					'properties' => array(
 						'display' => array(
 							'type' => 'integer',
@@ -454,7 +466,7 @@ function register_theme_settings() {
 						'message' => array(
 							'type' => 'string',
 						),
-						'type' => array(
+						'type'    => array(
 							'type' => 'string',
 						),
 					),
@@ -466,10 +478,10 @@ function register_theme_settings() {
 				}
 				return $value;
 			},
-			'default' => array(
+			'default'           => array(
 				'display' => 0,
 				'message' => '',
-				'type' => 'update',
+				'type'    => 'update',
 			),
 		)
 	);
@@ -478,39 +490,39 @@ function register_theme_settings() {
 		GROUP_SOCIALS,
 		'capitola_social_shares',
 		array(
-			'type' => 'object',
-			'show_in_rest' => array(
+			'type'              => 'object',
+			'show_in_rest'      => array(
 				'schema' => array(
-					'type' => 'object',
+					'type'       => 'object',
 					'properties' => array(
-						'facebook' => array(
+						'facebook'  => array(
 							'type' => 'integer',
 						),
-						'twitter' => array(
+						'twitter'   => array(
 							'type' => 'integer',
 						),
 						'pinterest' => array(
 							'type' => 'integer',
 						),
-						'linkedin' => array(
+						'linkedin'  => array(
 							'type' => 'integer',
 						),
 					),
 				),
 			),
-			'default' => array(
-				'facebook' => 1,
-				'twitter' => 1,
+			'default'           => array(
+				'facebook'  => 1,
+				'twitter'   => 1,
 				'pinterest' => 1,
-				'linkedin' => 1,
+				'linkedin'  => 1,
 			),
 			'sanitize_callback' => function ( $value ) {
 				return array_merge(
 					array(
-						'facebook' => 0,
-						'twitter' => 0,
+						'facebook'  => 0,
+						'twitter'   => 0,
 						'pinterest' => 0,
-						'linkedin' => 0,
+						'linkedin'  => 0,
 					),
 					$value
 				);
@@ -522,43 +534,43 @@ function register_theme_settings() {
 		GROUP_SOCIALS,
 		'capitola_social_links',
 		array(
-			'type' => 'object',
+			'type'         => 'object',
 			'show_in_rest' => array(
 				'schema' => array(
-					'type' => 'object',
+					'type'       => 'object',
 					'properties' => array(
-						'facebook' => array(
+						'facebook'  => array(
 							'type' => 'string',
 						),
-						'twitter' => array(
+						'twitter'   => array(
 							'type' => 'string',
 						),
 						'instagram' => array(
 							'type' => 'string',
 						),
-						'youtube' => array(
+						'youtube'   => array(
 							'type' => 'string',
 						),
-						'tiktok' => array(
+						'tiktok'    => array(
 							'type' => 'string',
 						),
 						'pinterest' => array(
 							'type' => 'string',
 						),
-						'linkedin' => array(
+						'linkedin'  => array(
 							'type' => 'string',
 						),
 					),
 				),
 			),
-			'default' => array(
-				'facebook' => '',
-				'twitter' => '',
+			'default'      => array(
+				'facebook'  => '',
+				'twitter'   => '',
 				'instagram' => '',
-				'youtube' => '',
-				'tiktok' => '',
+				'youtube'   => '',
+				'tiktok'    => '',
 				'pinterest' => '',
-				'linkedin' => '',
+				'linkedin'  => '',
 			),
 		)
 	);
@@ -567,9 +579,9 @@ function register_theme_settings() {
 		GROUP_API_KEYS,
 		'capitola_paid_google_maps_api',
 		array(
-			'type' => 'string',
+			'type'         => 'string',
 			'show_in_rest' => true,
-			'default' => '',
+			'default'      => '',
 		)
 	);
 
@@ -577,9 +589,9 @@ function register_theme_settings() {
 		GROUP_API_KEYS,
 		'capitola_free_google_maps_api',
 		array(
-			'type' => 'string',
+			'type'         => 'string',
 			'show_in_rest' => true,
-			'default' => '',
+			'default'      => '',
 		)
 	);
 
@@ -587,9 +599,9 @@ function register_theme_settings() {
 		GROUP_COLOR_THEME,
 		'capitola_default_page_color_theme',
 		array(
-			'type' => 'string',
+			'type'         => 'string',
 			'show_in_rest' => true,
-			'default' => '',
+			'default'      => '',
 		)
 	);
 
@@ -597,7 +609,7 @@ function register_theme_settings() {
 		GROUP_GOOGLE,
 		'capitola_google',
 		array(
-			'type' => 'object',
+			'type'    => 'object',
 			'default' => array(
 				'head' => '',
 				'body' => '',
@@ -605,3 +617,5 @@ function register_theme_settings() {
 		)
 	);
 }
+
+add_action( 'init', __NAMESPACE__ . '\register_theme_settings' );

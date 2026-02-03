@@ -2,6 +2,10 @@
 
 namespace Capitola\Autoloader;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:ignoreFile WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 
 function autoloader( $class_name ) {

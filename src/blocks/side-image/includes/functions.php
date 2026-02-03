@@ -2,10 +2,26 @@
 
 namespace Capitola\Blocks\Side_Image;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Checks whether a string contains a valid iframe tag.
+ *
+ * @param string $iframe Iframe HTML string.
+ * @return int|false
+ */
 function is_valid_iframe( $iframe ) {
 	return preg_match( '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i', $iframe );
 }
 
+/**
+ * Calculates the aspect ratio from iframe markup.
+ *
+ * @param string $iframe Iframe HTML string.
+ * @return float
+ */
 function iframe_aspect_ratio( $iframe ) {
 	$iframe_aspect_ratio = 16 / 9;
 
@@ -14,8 +30,8 @@ function iframe_aspect_ratio( $iframe ) {
 	preg_match( '/height=["\']?(\d+)["\']?/i', $iframe, $height_match );
 
 	if ( isset( $width_match[1] ) && isset( $height_match[1] ) ) {
-		$iframe_width  = (int) $width_match[1];
-		$iframe_height = (int) $height_match[1];
+		$iframe_width        = (int) $width_match[1];
+		$iframe_height       = (int) $height_match[1];
 		$iframe_aspect_ratio = $iframe_width / $iframe_height;
 	}
 	return $iframe_aspect_ratio;

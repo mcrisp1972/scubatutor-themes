@@ -1,88 +1,84 @@
 <?php
 
-$attributes = $args['attributes'];
+use function Capitola\Helpers\String_Helpers\get_post_term_name;
 
-if ( ! isset( $attributes['postType'] ) ) {
-	$attributes['postType'] = get_post_type();
+if ( ! isset( $args['attributes']['postType'] ) ) {
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
+	$args['attributes']['postType'] = get_post_type();
 }
 
-$conditionals = $args['conditionals'];
+$capitola_excerpt = get_the_excerpt();
 
-$excerpt = get_the_excerpt();
-
-$image_id = get_post_thumbnail_id( get_the_ID() );
-
-$category = \Capitola\Helpers\String_Helpers\get_post_term_name( get_the_ID() );
+$capitola_category_name = get_post_term_name( get_the_ID() );
 
 ?>
 
 <article class="capitola-result swiper-slide">
-	<a class="capitola-result__link" href="<?= esc_url( get_permalink() ) ?>">
+	<a class="capitola-result__link" href="<?php echo esc_url( get_permalink() ); ?>">
 		<div class="capitola-result__image-col --theme-image-overlay">
-			<?= wp_get_attachment_image( $image_id, 'large' ) ?>
-			<?php if ( $conditionals['titleLocation'] === 'image' || $conditionals['ctaLocation'] === 'image' ) : ?>
+			<?php echo wp_get_attachment_image( get_post_thumbnail_id( get_the_ID() ), 'large' ); ?>
+			<?php if ( 'image' === $args['conditionals']['titleLocation'] || 'image' === $args['conditionals']['ctaLocation'] ) : ?>
 				<div class="__opacity-layer"></div>
 			<?php endif; ?>
 			<div class="capitola-result__thumb-content">
-				<?php if ( $conditionals['titleLocation'] === 'image' ) : ?>
-					<<?= tag_escape( $attributes['titleTag'] ) ?> class="capitola-result__thumb-title --hl-s">
-						<?= esc_html( get_the_title() ) ?>
-					</<?= tag_escape( $attributes['titleTag'] ) ?>>
+				<?php if ( 'image' === $args['conditionals']['titleLocation'] ) : ?>
+					<<?php echo tag_escape( $args['attributes']['titleTag'] ); ?> class="capitola-result__thumb-title --hl-s">
+						<?php echo esc_html( get_the_title() ); ?>
+					</<?php echo tag_escape( $args['attributes']['titleTag'] ); ?>>
 				<?php endif; ?>
-				<?php if ( $attributes['ctaText'] && $conditionals['ctaLocation'] === 'image' ) : ?>
+				<?php if ( $args['attributes']['ctaText'] && 'image' === $args['conditionals']['ctaLocation'] ) : ?>
 					<span class="capitola-result__thumb-cta --cta --tertiary">
-						<?= esc_html( $attributes['ctaText'] ) ?>
+						<?php echo esc_html( $args['attributes']['ctaText'] ); ?>
 					</span>
 				<?php endif; ?>
 			</div>
-			<?php if ( $category && $conditionals['titleLocation'] === 'image' ) : ?>
+			<?php if ( $capitola_category_name && 'image' === $args['conditionals']['titleLocation'] ) : ?>
 				<div class="capitola-result__thumb-cat">
-					<?= esc_html( $category ) ?>
+					<?php echo esc_html( $capitola_category_name ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
-		<?php if ( $conditionals['hasBottom'] ) : ?>
+		<?php if ( $args['conditionals']['hasBottom'] ) : ?>
 			<div class="capitola-result__content">
-				<?php if ( $conditionals['titleLocation'] === 'body' ) : ?>
+				<?php if ( 'body' === $args['conditionals']['titleLocation'] ) : ?>
 					<div>
-						<?php if ( $category ) : ?>
+						<?php if ( $capitola_category_name ) : ?>
 							<div class="capitola-result__body-cat --eyebrow">
-								<?= esc_html( $category ) ?>
+								<?php echo esc_html( $capitola_category_name ); ?>
 							</div>
 						<?php endif; ?>
-						<<?= tag_escape( $attributes['titleTag'] ) ?> class="capitola-result__title --hl-s">
-							<?= esc_html( get_the_title() ) ?>
-						</<?= tag_escape( $attributes['titleTag'] ) ?> >
+						<<?php echo tag_escape( $args['attributes']['titleTag'] ); ?> class="capitola-result__title --hl-s">
+							<?php echo esc_html( get_the_title() ); ?>
+						</<?php echo tag_escape( $args['attributes']['titleTag'] ); ?> >
 					</div>
 					<?php
 				endif;
-				if ( $excerpt && $conditionals['showExcerpt'] ) :
+				if ( $capitola_excerpt && $args['conditionals']['showExcerpt'] ) :
 					?>
 					<p class="capitola-result__excerpt">
-						<?= esc_html( $excerpt ) ?>
+						<?php echo esc_html( $capitola_excerpt ); ?>
 					</p>
 					<?php
 				endif;
-				if ( $conditionals['showByline'] ) :
-					$author_id = get_the_author_meta( 'ID' );
-					$author_image = get_user_meta( $author_id, 'userProfilePhoto', true );
-					$name = esc_html( get_the_author_meta( 'display_name' ) );
-					$author_image = wp_get_attachment_image_src( $author_image, 'thumbnail' );
+				if ( $args['conditionals']['showByline'] ) :
+					$capitola_author_image_id = get_user_meta( get_the_author_meta( 'ID' ), 'userProfilePhoto', true );
+					$capitola_name            = esc_html( get_the_author_meta( 'display_name' ) );
+					$capitola_author_image    = wp_get_attachment_image_src( $capitola_author_image_id, 'thumbnail' );
 					?>
 					<div class="capitola-result__byline">
-						<?php if ( $author_image ) : ?>
+						<?php if ( $capitola_author_image ) : ?>
 							<div class="capitola-result__byline-img-wrap">
-								<img src="<?= esc_url( $author_image[0] ) ?>" alt="<?= esc_html( $name ) ?>"/>
+								<img src="<?php echo esc_url( $capitola_author_image[0] ); ?>" alt="<?php echo esc_html( $capitola_name ); ?>"/>
 							</div>
 						<?php endif; ?>
-						<div class="capitola-result__byline-date"><?= esc_html( $name ) ?><br><?= esc_html( get_the_date( "M jS 'y" ) ) ?></div>
+						<div class="capitola-result__byline-date"><?php echo esc_html( $capitola_name ); ?><br><?php echo esc_html( get_the_date( "M jS 'y" ) ); ?></div>
 					</div>
 					<?php
 				endif;
-				if ( $attributes['ctaText'] && $conditionals['ctaLocation'] === 'body' ) :
+				if ( $args['attributes']['ctaText'] && 'body' === $args['conditionals']['ctaLocation'] ) :
 					?>
 					<div class="capitola-result__cta --cta --tertiary">
-						<?= esc_html( $attributes['ctaText'] ) ?>
+						<?php echo esc_html( $args['attributes']['ctaText'] ); ?>
 					</div>
 				<?php endif; ?>
 			</div>

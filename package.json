@@ -10,6 +10,8 @@
 		"lint:js": "wp-scripts lint-js",
 		"lint:js:fix": "wp-scripts lint-js --fix",
 		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:php": "phpcs -p -s --report=full --extensions=php --standard=.phpcs.xml .",
+		"lint:php:fix": "phpcbf --extensions=php --standard=.phpcs.xml .",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",

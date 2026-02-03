@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
 $capitola_animations = animation_attributes( $block->context );
@@ -8,8 +12,8 @@ $capitola_count = count( $block->inner_blocks );
 
 ?>
 <div
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
 			'class' => 'alignfull ' . ( $capitola_count < 4 ? ' --count-' . $capitola_count : '' ) . $capitola_animations['figure-class'],
@@ -17,6 +21,6 @@ wp_kses_data(
 	)
 );
 ?>
-<?= wp_kses_data( $capitola_animations['figure-data'] ); ?>>
-	<?= wp_kses_post( $content ); ?>
+<?php echo wp_kses_data( $capitola_animations['figure-data'] ); ?>>
+	<?php echo wp_kses_post( $content ); ?>
 </div>

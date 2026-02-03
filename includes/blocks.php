@@ -2,6 +2,10 @@
 
 namespace Capitola\Blocks;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 const BLACKLIST = array(
 	'core/archives',
 	'core/avatar',
@@ -59,9 +63,11 @@ const BLACKLIST = array(
 	'core/verse',
 );
 
-// register theme blocks.
-add_action( 'init', __NAMESPACE__ . '\register_blocks' );
-
+/**
+ * Registers theme blocks and their includes.
+ *
+ * @return void
+ */
 function register_blocks() {
 
 	foreach ( glob( CAPITOLA_THEME_DIR . '/build/blocks/*' ) as $path ) {
@@ -81,15 +87,20 @@ function register_blocks() {
 	}
 }
 
-// add Dive Shop category and Template category.
-add_filter( 'block_categories_all', __NAMESPACE__ . '\capitola_block_categories' );
+add_action( 'init', __NAMESPACE__ . '\register_blocks' );
 
+/**
+ * Adds custom block categories.
+ *
+ * @param array $categories Existing block categories.
+ * @return array
+ */
 function capitola_block_categories( $categories ) {
 
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'nav-blocks',
+			'slug'  => 'nav-blocks',
 			'title' => 'Navigation',
 		)
 	);
@@ -97,7 +108,7 @@ function capitola_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'hero-blocks',
+			'slug'  => 'hero-blocks',
 			'title' => 'Heroes',
 		)
 	);
@@ -105,7 +116,7 @@ function capitola_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'listing-blocks',
+			'slug'  => 'listing-blocks',
 			'title' => 'Listing Blocks',
 		)
 	);
@@ -113,7 +124,7 @@ function capitola_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'custom-blocks',
+			'slug'  => 'custom-blocks',
 			'title' => 'Custom Blocks',
 		)
 	);
@@ -121,7 +132,7 @@ function capitola_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug' => 'block_templates',
+			'slug'  => 'block_templates',
 			'title' => 'Templates',
 		)
 	);
@@ -129,8 +140,15 @@ function capitola_block_categories( $categories ) {
 	return apply_filters( 'capitola_block_categories', $categories );
 }
 
-add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\allowed_block_types', 99, 2 );
+add_filter( 'block_categories_all', __NAMESPACE__ . '\capitola_block_categories' );
 
+/**
+ * Filters allowed block types by editor context.
+ *
+ * @param array|bool $blocks         Allowed blocks list or true for all.
+ * @param object     $editor_context Editor context.
+ * @return array
+ */
 function allowed_block_types( $blocks, $editor_context ) {
 	// unregister_block_type function does not work for core blocks, we have to use this filter.
 	$blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
@@ -177,8 +195,14 @@ function allowed_block_types( $blocks, $editor_context ) {
 	return array_keys( $blocks );
 }
 
-add_filter( 'block_type_metadata', __NAMESPACE__ . '\disable_inserter' );
+add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\allowed_block_types', 99, 2 );
 
+/**
+ * Disables inserter for blacklisted core blocks.
+ *
+ * @param array $metadata Block metadata.
+ * @return array
+ */
 function disable_inserter( $metadata ) {
 	if ( in_array( $metadata['name'], BLACKLIST, true ) ) {
 		$metadata['supports']['inserter'] = false;
@@ -186,6 +210,8 @@ function disable_inserter( $metadata ) {
 
 	return $metadata;
 }
+
+add_filter( 'block_type_metadata', __NAMESPACE__ . '\disable_inserter' );
 
 // disables block store that appears often when searching for a block.
 remove_action( 'enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets' );

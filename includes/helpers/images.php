@@ -2,6 +2,16 @@
 
 namespace Capitola\Helpers\Images;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Returns the resolved image ID for a post, with term and post type fallback images if no featured image is set for the post.
+ *
+ * @param int|\WP_Post $post Post ID or object.
+ * @return int|false
+ */
 function post_image_id( $post ) {
 
 	if ( gettype( $post ) !== 'object' ) {
@@ -29,22 +39,28 @@ function post_image_id( $post ) {
 	return $id;
 }
 
-function term_thumb_id( $object ) {
+/**
+ * Returns the thumbnail image ID for a term, with a post type fallback if the term has no set image.
+ *
+ * @param int|array|\WP_Term $tax_object Term ID, term array, or term object.
+ * @return int|false
+ */
+function term_thumb_id( $tax_object ) {
 
-	if ( is_numeric( $object ) ) {
-		$object = get_term( $object );
-	} elseif ( is_array( $object ) ) {
-		$object = get_term( $object['id'] );
+	if ( is_numeric( $tax_object ) ) {
+		$tax_object = get_term( $tax_object );
+	} elseif ( is_array( $tax_object ) ) {
+		$tax_object = get_term( $tax_object['id'] );
 	}
 
-	$thumb_id = get_term_meta( $object->term_id, apply_filters( "capitola_{$object->taxonomy}_thumb_meta_name", 'term_thumb_id' ), true );
+	$thumb_id = get_term_meta( $tax_object->term_id, apply_filters( "capitola_{$tax_object->taxonomy}_thumb_meta_name", 'term_thumb_id' ), true );
 
-	if ( ! $thumb_id && $object->parent ) {
-		return term_thumb_id( $object->parent );
+	if ( ! $thumb_id && $tax_object->parent ) {
+		return term_thumb_id( $tax_object->parent );
 	}
 
 	if ( ! $thumb_id ) {
-		$post_type = apply_filters( "capitola_{$object->taxonomy}_tax_post_type", 'category' === $object->taxonomy ? 'post' : false );
+		$post_type = apply_filters( "capitola_{$tax_object->taxonomy}_tax_post_type", 'category' === $tax_object->taxonomy ? 'post' : false );
 		$post_type = get_post_type_object( $post_type );
 
 		if ( $post_type ) {

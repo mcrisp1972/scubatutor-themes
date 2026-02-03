@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use function Capitola\Helpers\String_Helpers\render_link;
 
 if ( empty( $attributes['title'] ) ) {
@@ -11,28 +15,28 @@ $capitola_main_link = render_link( $attributes, 'wp-block-capitola-nav__menu-ite
 ?>
 
 <li
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'class' => 'wp-block-capitola-nav__menu-item',
-			'data-wp-context' => wp_json_encode(
+			'class'                    => 'wp-block-capitola-nav__menu-item',
+			'data-wp-context'          => wp_json_encode(
 				array(
 					'isSubmenuOpen' => false,
-					'submenuId' => 'submenu-' . wp_unique_id(),
+					'submenuId'     => 'submenu-' . wp_unique_id(),
 				)
 			),
 			'data-wp-class----is-open' => 'context.isSubmenuOpen',
-			'data-wp-watch' => 'callbacks.watchOpenSubmenu',
+			'data-wp-watch'            => 'callbacks.watchOpenSubmenu',
 		)
 	)
 );
 ?>
 >
 	<?php if ( $capitola_main_link ) : ?>
-		<?= wp_kses_post( $capitola_main_link ); ?>
+		<?php echo wp_kses_post( $capitola_main_link ); ?>
 	<?php else : ?>
-		<div class="wp-block-capitola-nav__menu-item-link --no-hover"><?= esc_html( $attributes['title'] ); ?></div>
+		<div class="wp-block-capitola-nav__menu-item-link --no-hover"><?php echo esc_html( $attributes['title'] ); ?></div>
 	<?php endif; ?>
 	<button type="button" class="wp-block-capitola-nav__menu-item-toggle" aria-label="expand submenu" tabindex="-1" data-wp-on--click="actions.toggleSubmenu" data-wp-class----is-open="context.isSubmenuOpen"></button>
 	<div class="wp-block-capitola-nav__menu-item-caret"></div>
@@ -42,22 +46,22 @@ wp_kses_data(
 				<div class="wp-block-capitola-nav-mega-nav__head">
 					<?php if ( $attributes['headline'] ) : ?>
 						<div class="wp-block-capitola-nav-mega-nav__headline --hl-m">
-							<?= esc_html( $attributes['headline'] ); ?>
+							<?php echo esc_html( $attributes['headline'] ); ?>
 						</div>
 					<?php endif; ?>
 					<?php if ( $attributes['intro'] ) : ?>
 						<p class="wp-block-capitola-nav-mega-nav__intro">
-							<?= wp_kses_post( $attributes['intro'] ); ?>
+							<?php echo wp_kses_post( $attributes['intro'] ); ?>
 						</p>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
-			<ul class="wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-<?= esc_attr( $attributes['linksPerColumn'] ); ?>">
-				<?= wp_kses_post( $content ); ?>
+			<ul class="wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-<?php echo esc_attr( $attributes['linksPerColumn'] ); ?>">
+				<?php echo wp_kses_post( $content ); ?>
 			</ul>
 			<?php if ( $attributes['imageId'] ) : ?>
 				<div class="wp-block-capitola-nav-mega-nav__image">
-					<?= wp_get_attachment_image( $attributes['imageId'], 'medium_large', false, array( 'loading' => 'lazy' ) ); ?>
+					<?php echo wp_get_attachment_image( $attributes['imageId'], 'medium_large', false, array( 'loading' => 'lazy' ) ); ?>
 				</div>
 			<?php endif; ?>
 		</div>

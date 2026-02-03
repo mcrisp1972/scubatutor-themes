@@ -2,8 +2,17 @@
 
 namespace Capitola\Post_Types\Posts\Registrations;
 
-add_filter( 'register_post_type_args', __NAMESPACE__ . '\edit_post_registration', 99, 2 );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Adjusts post type registration arguments for posts.
+ *
+ * @param array  $args      Post type args.
+ * @param string $post_type Post type name.
+ * @return array
+ */
 function edit_post_registration( $args, $post_type ) {
 
 	if ( 'post' === $post_type ) {
@@ -20,8 +29,13 @@ function edit_post_registration( $args, $post_type ) {
 	return $args;
 }
 
-add_action( 'init', __NAMESPACE__ . '\register_post_meta' );
+add_filter( 'register_post_type_args', __NAMESPACE__ . '\edit_post_registration', 10, 2 );
 
+/**
+ * Registers post and term meta used by the theme.
+ *
+ * @return void
+ */
 function register_post_meta() {
 
 	register_meta(
@@ -52,10 +66,10 @@ function register_post_meta() {
 		'category',
 		'term_thumb_id',
 		array(
-			'type' => 'integer',
-			'default' => 0,
+			'type'         => 'integer',
+			'default'      => 0,
 			'show_in_rest' => true,
-			'single' => true,
+			'single'       => true,
 		)
 	);
 
@@ -63,10 +77,12 @@ function register_post_meta() {
 		'category',
 		'term_page_id',
 		array(
-			'type' => 'integer',
-			'default' => 0,
+			'type'         => 'integer',
+			'default'      => 0,
 			'show_in_rest' => true,
-			'single' => true,
+			'single'       => true,
 		)
 	);
 }
+
+add_action( 'init', __NAMESPACE__ . '\register_post_meta' );

@@ -1,11 +1,15 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $capitola_socials = get_option( 'capitola_social_shares' );
 
 ?>
 <section
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
 			'class' => 'alignwide',
@@ -37,7 +41,7 @@ wp_kses_data(
 			if ( $capitola_social_link ) :
 				?>
 				<li>
-					<a class="wp-block-capitola-social-shares__social-link --<?= esc_attr( $capitola_social_slug ); ?>" href="<?= esc_url( $capitola_social_link ); ?>" target="_blank" aria-label="<?= esc_attr( $capitola_social_slug ); ?>"></a>
+					<a class="wp-block-capitola-social-shares__social-link --<?php echo esc_attr( $capitola_social_slug ); ?>" href="<?php echo esc_url( $capitola_social_link ); ?>" target="_blank" aria-label="<?php echo esc_attr( $capitola_social_slug ); ?>"></a>
 				</li>
 			<?php endif; ?>
 		<?php endforeach; ?>

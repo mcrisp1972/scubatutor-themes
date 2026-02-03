@@ -2,9 +2,47 @@
 
 namespace Capitola\Load_Assets\Emojis;
 
-// remove emoji scripts.
-add_action( 'init', __NAMESPACE__ . '\disable_emojis', 99 );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Removes emoji plugin from TinyMCE.
+ *
+ * @param array $plugins TinyMCE plugins.
+ * @return array
+ */
+function disable_emojis_tinymce( $plugins ) {
+	if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+	} else {
+		return array();
+	}
+}
+
+/**
+ * Removes emoji DNS prefetch hints.
+ *
+ * @param array  $urls          Resource hint URLs.
+ * @param string $relation_type Relation type.
+ * @return array
+ */
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
+		/** This filter is documented in wp-includes/formatting.php */
+		// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core filter.
+		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+		$urls          = array_diff( $urls, array( $emoji_svg_url ) );
+	}
+
+	return $urls;
+}
+
+/**
+ * Disables emoji scripts, styles, and filters.
+ *
+ * @return void
+ */
 function disable_emojis() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -17,22 +55,4 @@ function disable_emojis() {
 	add_filter( 'wp_resource_hints', __NAMESPACE__ . '\disable_emojis_remove_dns_prefetch', 10, 2 );
 }
 
-function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-	if ( 'dns-prefetch' === $relation_type ) {
-		/** This filter is documented in wp-includes/formatting.php */
-		// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core filter.
-		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
-		// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-		$urls = array_diff( $urls, array( $emoji_svg_url ) );
-	}
-
-	return $urls;
-}
-
-function disable_emojis_tinymce( $plugins ) {
-	if ( is_array( $plugins ) ) {
-		return array_diff( $plugins, array( 'wpemoji' ) );
-	} else {
-		return array();
-	}
-}
+add_action( 'init', __NAMESPACE__ . '\disable_emojis', 99 );

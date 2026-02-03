@@ -232,7 +232,7 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ postFeedTemplate( props, relatedPosts, postTile ) }
+			{ postFeedTemplate( { ...props, attributes: { ...attributes, postType } }, relatedPosts, postTile ) }
 		</div>
 	);
 }

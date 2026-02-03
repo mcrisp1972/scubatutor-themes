@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $capitola_iframe_pattern = '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i';
 
 if ( ! preg_match( $capitola_iframe_pattern, $attributes['iframeHtml'] ) ) {
@@ -9,16 +13,16 @@ if ( ! preg_match( $capitola_iframe_pattern, $attributes['iframeHtml'] ) ) {
 
 ?>
 <figure
-<?=
-wp_kses_data(
+<?php
+echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'id' => $attributes['anchor'],
+			'id'    => $attributes['anchor'],
 			'class' => '--' . $attributes['aspectRatio'] . ' align' . $attributes['align'],
 		)
 	)
 );
 ?>
 >
-	<?= $attributes['iframeHtml']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	<?php echo $attributes['iframeHtml']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </figure>
