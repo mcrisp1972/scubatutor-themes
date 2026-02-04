@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_classes = array(
+$classes = array(
 	'odd_children_class'         => count( $block->inner_blocks ) % 2 !== 0 ? ' --odd-children' : '',
 	'two_thirds_first_class'     => ( count( $block->inner_blocks ) + 1 ) % 3 === 0 ? ' --two-thirds-first' : '',
 	'two_thirds_first_two_class' => ( count( $block->inner_blocks ) + 2 ) % 3 === 0 ? ' --two-thirds-first --two-thirds-second' : '',
@@ -27,7 +27,7 @@ echo wp_kses_data(
 ?>
 >
 	<div class="wp-block-capitola-image-link-grid__width">
-		<div class="wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-<?php echo esc_attr( $block->context['gridLayout'] . ' ' . implode( ' ', $capitola_classes ) . ' ' . ( $block->context['gridGap'] ? '--grid-gap' : '' ) ); ?>">
+		<div class="wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-<?php echo esc_attr( $block->context['gridLayout'] . ' ' . implode( ' ', $classes ) . ' ' . ( $block->context['gridGap'] ? '--grid-gap' : '' ) ); ?>">
 			<?php echo wp_kses_post( $content ); ?>
 		</div>
 	</div>

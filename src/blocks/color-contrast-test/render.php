@@ -4,19 +4,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_colors        = wp_json_file_decode(
+$colors        = wp_json_file_decode(
 	CAPITOLA_CHILD_THEME_DIR . '/color-themes.json',
 	array( 'associative' => true )
 );
-$capitola_colors        = is_array( $capitola_colors ) ? $capitola_colors : array();
-$capitola_color_options = array();
-foreach ( $capitola_colors as $capitola_color ) {
+$colors        = is_array( $colors ) ? $colors : array();
+$color_options = array();
+foreach ( $colors as $color ) {
 	echo wp_kses_post(
 		render_block(
 			array(
 				'blockName'    => 'capitola/post-feed',
 				'attrs'        => array(
-					'colorTheme'    => $capitola_color['slug'],
+					'colorTheme'    => $color['slug'],
 					'limit'         => 4,
 					'titleLocation' => 'body',
 					'showByline'    => false,
@@ -25,7 +25,7 @@ foreach ( $capitola_colors as $capitola_color ) {
 					array(
 						'blockName'    => 'capitola/body-text',
 						'attrs'        => array(
-							'headline'   => $capitola_color['name'],
+							'headline'   => $color['name'],
 							'cta'        => array(
 								'title' => 'CTA',
 								'url'   => '/',

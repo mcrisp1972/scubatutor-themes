@@ -1,13 +1,13 @@
 <?php
 
-$capitola_card_title = get_the_title( $attributes['postId'] );
+$card_title = get_the_title( $attributes['postId'] );
 if ( ! empty( $attributes['title'] ) ) {
-	$capitola_card_title = $attributes['title'];
+	$card_title = $attributes['title'];
 }
 
-$capitola_image_id = get_post_thumbnail_id( $attributes['postId'] );
+$image_id = get_post_thumbnail_id( $attributes['postId'] );
 if ( ! empty( $attributes['image']['id'] ) ) {
-	$capitola_image_id = $attributes['image']['id'];
+	$image_id = $attributes['image']['id'];
 }
 
 ?>
@@ -24,9 +24,9 @@ if ( ! empty( $attributes['image']['id'] ) ) {
 	?>
 	>
 		<div class="wp-block-capitola-three-link-card__image <?php echo esc_attr( $attributes['imageRadius'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '' ); ?>">
-			<?php echo wp_get_attachment_image( $capitola_image_id, 'medium_large' ); ?>
+			<?php echo wp_get_attachment_image( $image_id, 'medium_large' ); ?>
 		</div>
 		<div class="wp-block-capitola-three-link-card__title --hl-s">
-			<?php echo esc_html( $capitola_card_title ); ?>
+			<?php echo esc_html( $card_title ); ?>
 		</div>
 	</<?php echo $attributes['postId'] ? 'a' : 'div'; ?>>

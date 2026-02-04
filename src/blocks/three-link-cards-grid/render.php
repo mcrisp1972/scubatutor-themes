@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_staggered_class = $attributes['staggered'] ? ' --staggered' : '';
-$capitola_parallax_class  = $attributes['staggered'] && $attributes['parallax'] ? ' --parallax-scrolling js-threeCardParallax' : '';
+$staggered_class = $attributes['staggered'] ? ' --staggered' : '';
+$parallax_class  = $attributes['staggered'] && $attributes['parallax'] ? ' --parallax-scrolling js-threeCardParallax' : '';
 
 ?>
 
@@ -14,7 +14,7 @@ $capitola_parallax_class  = $attributes['staggered'] && $attributes['parallax'] 
 echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'class' => 'alignfull' . $capitola_staggered_class . $capitola_parallax_class,
+			'class' => 'alignfull' . $staggered_class . $parallax_class,
 		)
 	)
 );

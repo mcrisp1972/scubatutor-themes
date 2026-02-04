@@ -10,7 +10,7 @@ if ( empty( $attributes['title'] ) ) {
 	return;
 }
 
-$capitola_main_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
+$main_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
 
 ?>
 
@@ -33,8 +33,8 @@ echo wp_kses_data(
 );
 ?>
 >
-	<?php if ( $capitola_main_link ) : ?>
-		<?php echo wp_kses_post( $capitola_main_link ); ?>
+	<?php if ( $main_link ) : ?>
+		<?php echo wp_kses_post( $main_link ); ?>
 	<?php else : ?>
 		<div class="wp-block-capitola-nav__menu-item-link --no-hover"><?php echo esc_html( $attributes['title'] ); ?></div>
 	<?php endif; ?>

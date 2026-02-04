@@ -6,10 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$capitola_theme_class  = $attributes['colorThemeBody'] ? ' --theme-' . $attributes['colorTheme'] : ' --theme-image-overlay';
-$capitola_align_class  = $attributes['introAlign'] ? ' --align-' . $attributes['introAlign'] : '';
-$capitola_animations   = animation_attributes( $attributes );
-$capitola_radius_class = 'none' !== $attributes['introRadius'] && $attributes['colorThemeBody'] ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
+$theme_class  = $attributes['colorThemeBody'] ? ' --theme-' . $attributes['colorTheme'] : ' --theme-image-overlay';
+$align_class  = $attributes['introAlign'] ? ' --align-' . $attributes['introAlign'] : '';
+$animations   = animation_attributes( $attributes );
+$radius_class = 'none' !== $attributes['introRadius'] && $attributes['colorThemeBody'] ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
 
 ?>
 
@@ -19,13 +19,13 @@ echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
 			'id'    => $attributes['anchor'],
-			'class' => 'alignfull ' . $capitola_theme_class . $capitola_radius_class,
+			'class' => 'alignfull ' . $theme_class . $radius_class,
 		)
 	)
 );
 ?>
 >
-	<div class="wp-block-capitola-fixed-background__img js-background-image <?php echo esc_attr( $capitola_align_class ); ?>">
+	<div class="wp-block-capitola-fixed-background__img js-background-image <?php echo esc_attr( $align_class ); ?>">
 		<picture>
 			<?php if ( $attributes['desktopImage']['id'] ) : ?>
 				<source media="(min-width: 1024px)" srcset="<?php echo esc_url( wp_get_attachment_image_url( $attributes['desktopImage']['id'], 'full' ) ); ?>">

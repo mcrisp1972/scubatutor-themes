@@ -19,11 +19,11 @@ echo wp_kses_data(
 );
 ?>
 >
-	<?php foreach ( $attributes['links'] as $capitola_link_obj ) : ?>
-		<?php $capitola_html = render_link( $capitola_link_obj, 'wp-block-capitola-link-list__link', false ); ?>
-		<?php if ( $capitola_html ) : ?>
+	<?php foreach ( $attributes['links'] as $link_obj ) : ?>
+		<?php $html = render_link( $link_obj, 'wp-block-capitola-link-list__link', false ); ?>
+		<?php if ( $html ) : ?>
 			<li class="wp-block-capitola-link-list__line">
-				<?php echo wp_kses_post( $capitola_html ); ?>
+				<?php echo wp_kses_post( $html ); ?>
 			</li>
 		<?php endif; ?>
 	<?php endforeach; ?>

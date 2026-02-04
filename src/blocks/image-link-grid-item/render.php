@@ -6,17 +6,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\String_Helpers\page_parent_label;
 
-$capitola_subtitle = $attributes['eyebrowOverride'] ? $attributes['eyebrowOverride'] : page_parent_label( $attributes['postId'] );
+$subtitle = $attributes['eyebrowOverride'] ? $attributes['eyebrowOverride'] : page_parent_label( $attributes['postId'] );
 
-$capitola_post_title = $attributes['titleOverride'] ? $attributes['titleOverride'] : get_the_title( $attributes['postId'] );
+$post_title = $attributes['titleOverride'] ? $attributes['titleOverride'] : get_the_title( $attributes['postId'] );
 
-$capitola_excerpt = $attributes['excerptOverride'] ? $attributes['excerptOverride'] : get_the_excerpt( $attributes['postId'] );
+$excerpt = $attributes['excerptOverride'] ? $attributes['excerptOverride'] : get_the_excerpt( $attributes['postId'] );
 
-$capitola_cta_label = $attributes['ctaOverride'] ? $attributes['ctaOverride'] : apply_filters( 'capitola_' . get_post_type( $attributes['postId'] ) . '_cta_label', '' );
+$cta_label = $attributes['ctaOverride'] ? $attributes['ctaOverride'] : apply_filters( 'capitola_' . get_post_type( $attributes['postId'] ) . '_cta_label', '' );
 
-$capitola_image_id = $attributes['imageOverride']['id'];
-if ( ! $capitola_image_id ) {
-	$capitola_image_id = get_post_thumbnail_id( $attributes['postId'] );
+$image_id = $attributes['imageOverride']['id'];
+if ( ! $image_id ) {
+	$image_id = get_post_thumbnail_id( $attributes['postId'] );
 }
 
 ?>
@@ -33,25 +33,25 @@ echo wp_kses_data(
 );
 ?>
 href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>;">
-	<?php echo wp_get_attachment_image( $capitola_image_id, 'large' ); ?>
+	<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
 	<div class="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
 	<div class="wp-block-capitola-image-link-grid-item__text-content">
 		<div class="wp-block-capitola-image-link-grid-item__title-wrap">
-			<?php if ( $capitola_subtitle ) : ?>
+			<?php if ( $subtitle ) : ?>
 				<div class="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
-					<?php echo esc_html( $capitola_subtitle ); ?>
+					<?php echo esc_html( $subtitle ); ?>
 				</div>
 			<?php endif; ?>
-			<div class="wp-block-capitola-image-link-grid-item__title --hl-s"><?php echo esc_html( $capitola_post_title ); ?></div>
+			<div class="wp-block-capitola-image-link-grid-item__title --hl-s"><?php echo esc_html( $post_title ); ?></div>
 		</div>
 		<div class="wp-block-capitola-image-link-grid-item__excerpt-wrap">
-			<?php if ( $capitola_excerpt ) : ?>
+			<?php if ( $excerpt ) : ?>
 				<p class="wp-block-capitola-image-link-grid-item__excerpt">
-					<?php echo esc_html( $capitola_excerpt ); ?>
+					<?php echo esc_html( $excerpt ); ?>
 				</p>
 			<?php endif; ?>
 			<div class="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
-				<?php echo esc_html( $capitola_cta_label ); ?>
+				<?php echo esc_html( $cta_label ); ?>
 			</div>
 		</div>
 	</div>

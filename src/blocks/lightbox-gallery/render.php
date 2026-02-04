@@ -5,10 +5,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( $attributes['useFeaturedImage'] && get_the_ID() ) {
-	$capitola_featured_image_id = get_post_thumbnail_id( get_the_ID() );
+	$featured_image_id = get_post_thumbnail_id( get_the_ID() );
 
-	if ( $capitola_featured_image_id ) {
-		array_unshift( $attributes['images'], array( 'id' => $capitola_featured_image_id ) );
+	if ( $featured_image_id ) {
+		array_unshift( $attributes['images'], array( 'id' => $featured_image_id ) );
 	}
 }
 
@@ -16,19 +16,19 @@ if ( ! $attributes['images'] ) {
 	return;
 }
 
-$capitola_image_data = array();
+$image_data = array();
 
-foreach ( $attributes['images'] as $capitola_image ) {
-	$capitola_image_data[] = array(
-		'smallSrc' => wp_get_attachment_image_url( $capitola_image['id'], 'small' ),
-		'medSrc'   => wp_get_attachment_image_url( $capitola_image['id'], 'medium_large' ),
-		'largeSrc' => wp_get_attachment_image_url( $capitola_image['id'], 'large' ),
-		'alt'      => trim( get_post_meta( $capitola_image['id'], '_wp_attachment_image_alt', true ) ),
-		'caption'  => trim( wp_get_attachment_caption( $capitola_image['id'] ) ),
+foreach ( $attributes['images'] as $image ) {
+	$image_data[] = array(
+		'smallSrc' => wp_get_attachment_image_url( $image['id'], 'small' ),
+		'medSrc'   => wp_get_attachment_image_url( $image['id'], 'medium_large' ),
+		'largeSrc' => wp_get_attachment_image_url( $image['id'], 'large' ),
+		'alt'      => trim( get_post_meta( $image['id'], '_wp_attachment_image_alt', true ) ),
+		'caption'  => trim( wp_get_attachment_caption( $image['id'] ) ),
 	);
 }
 
-wp_localize_script( 'capitola-lightbox-gallery-view-script', 'lightboxGalleryImages', $capitola_image_data );
+wp_localize_script( 'capitola-lightbox-gallery-view-script', 'lightboxGalleryImages', $image_data );
 
 ?>
 
@@ -60,9 +60,9 @@ echo wp_kses_data(
 			<div class="wp-block-capitola-lightbox-gallery__main-image-hover"></div>
 		</button>
 		<div class="wp-block-capitola-lightbox-gallery__thumbnails js-lightboxThumbs">
-			<?php foreach ( $capitola_image_data as $capitola_index => $capitola_image ) : ?>
-				<button type="button" class="wp-block-capitola-lightbox-gallery__thumbnail <?php echo 0 === $capitola_index ? '--is-selected' : ''; ?> js-thumbImageLink" aria-label="Select Image" data-index="<?php echo esc_attr( $capitola_index ); ?>">
-					<img src="<?php echo esc_url( $capitola_image['smallSrc'] ); ?>" alt="<?php echo esc_attr( $capitola_image['alt'] ); ?>"/>
+			<?php foreach ( $image_data as $index => $image ) : ?>
+				<button type="button" class="wp-block-capitola-lightbox-gallery__thumbnail <?php echo 0 === $index ? '--is-selected' : ''; ?> js-thumbImageLink" aria-label="Select Image" data-index="<?php echo esc_attr( $index ); ?>">
+					<img src="<?php echo esc_url( $image['smallSrc'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"/>
 				</button>
 			<?php endforeach; ?>
 		</div>

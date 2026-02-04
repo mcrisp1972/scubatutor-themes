@@ -7,10 +7,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\Block_Attributes\layout_conditionals;
 
-$capitola_animations = animation_attributes( $attributes );
-$capitola_has_slider = ( 'sidescroll' === $attributes['listLayout'] );
+$animations = animation_attributes( $attributes );
+$has_slider = ( 'sidescroll' === $attributes['listLayout'] );
 
-$capitola_results = new WP_Query(
+$results = new WP_Query(
 	array(
 		'post_type' => $attributes['postType'],
 		'post__in'  => wp_list_pluck( $attributes['posts'], 'post_id' ),
@@ -18,26 +18,26 @@ $capitola_results = new WP_Query(
 	)
 );
 
-if ( $capitola_results && $capitola_results->have_posts() ) : ?>
+if ( $results && $results->have_posts() ) : ?>
 	<section
 	<?php
 	echo wp_kses_data(
 		get_block_wrapper_attributes(
 			array(
 				'id'    => $attributes['anchor'],
-				'class' => 'alignfull is-layout-constrained has-global-padding ' . ( $capitola_has_slider ? 'js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
+				'class' => 'alignfull is-layout-constrained has-global-padding ' . ( $has_slider ? 'js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
 			)
 		)
 	);
 	?>
 	>
-		<div class="capitola-listings__width alignwide <?php echo esc_attr( $capitola_animations['block-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+		<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 			<?php echo wp_kses_post( $content ); ?>
 			<div class="capitola-listings__sidescroll swiper">
 				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>">
 					<?php
-					while ( $capitola_results->have_posts() ) :
-						$capitola_results->the_post();
+					while ( $results->have_posts() ) :
+						$results->the_post();
 						get_template_part(
 							'template-parts/list-tiles/post',
 							get_post_type(),
@@ -49,7 +49,7 @@ if ( $capitola_results && $capitola_results->have_posts() ) : ?>
 					endwhile;
 					?>
 				</div>
-				<?php if ( $capitola_has_slider ) : ?>
+				<?php if ( $has_slider ) : ?>
 					<div class="capitola-listings__scroll-buttons">
 						<button class="swiper-button-prev" aria-label="scroll left"></button>
 						<?php if ( $attributes['showSlideCount'] ) : ?>

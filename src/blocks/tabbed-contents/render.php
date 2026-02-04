@@ -9,7 +9,7 @@ use function Capitola\Helpers\Block_Attributes\animation_attributes;
 // Ensure the Interactivity API is loaded.
 wp_enqueue_script_module( '@wordpress/interactivity' );
 
-$capitola_animations = animation_attributes( $attributes );
+$animations = animation_attributes( $attributes );
 
 ?>
 <section
@@ -26,7 +26,7 @@ echo wp_kses_data(
 );
 ?>
 >
-	<div class="wp-block-capitola-tabbed-contents__width alignwide <?php echo esc_attr( $capitola_animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-tabbed-contents__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

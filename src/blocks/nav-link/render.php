@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\String_Helpers\render_link;
 
-$capitola_rendered_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
+$rendered_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
 
-if ( $capitola_rendered_link ) :
+if ( $rendered_link ) :
 
 	?>
 	<li
@@ -22,7 +22,7 @@ if ( $capitola_rendered_link ) :
 	);
 	?>
 	>
-		<?php echo wp_kses_post( $capitola_rendered_link ); ?>
+		<?php echo wp_kses_post( $rendered_link ); ?>
 	</li>
 
 <?php endif; ?>

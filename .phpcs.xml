@@ -93,23 +93,6 @@
 	-->
 	<config name="minimum_wp_version" value="6.0"/>
 
-	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" type="array">
-				<element value="capitola"/>
-			</property>
-		</properties>
-	</rule>
-
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-		<properties>
-			<property name="prefixes" type="array">
-				<element value="Capitola_"/>
-			</property>
-		</properties>
-        <!-- <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound"/> -->
-	</rule>
-
     <rule ref="WordPress">
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
     </rule>

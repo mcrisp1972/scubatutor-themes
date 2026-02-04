@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$capitola_caption = $attributes['captionOverride'];
-if ( ! $capitola_caption ) {
-	$capitola_caption = wp_get_attachment_caption( $attributes['sideImage']['id'] );
+$caption = $attributes['captionOverride'];
+if ( ! $caption ) {
+	$caption = wp_get_attachment_caption( $attributes['sideImage']['id'] );
 }
 ?>
 
@@ -24,9 +24,9 @@ echo wp_kses_data(
 	<figure class="wp-block-capitola-sticky-images__mobile-imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
 		<?php echo wp_get_attachment_image( $attributes['sideImage']['id'], 'large' ); ?>
 		<?php if ( $attributes['showCaption'] ) : ?>
-			<?php if ( $capitola_caption ) : ?>
+			<?php if ( $caption ) : ?>
 				<figcaption class="wp-block-capitola-sticky-images__image-caption --micro-text">
-					<?php echo esc_html( $capitola_caption ); ?>
+					<?php echo esc_html( $caption ); ?>
 				</figcaption>
 			<?php endif; ?>
 		<?php endif; ?>

@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$capitola_animations = animation_attributes( $attributes );
+$animations = animation_attributes( $attributes );
 
 ?>
 
@@ -22,14 +22,14 @@ echo wp_kses_data(
 );
 ?>
 >
-	<div class="wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding <?php echo esc_attr( $capitola_animations['block-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="wp-block-capitola-small-image-slider__slider-parent">
 			<div class="wp-block-capitola-small-image-slider__swiper swiper<?php echo ( 'square' === $attributes['aspectRatio'] ? ' --square' : ' --landscape' ); ?>"<?php echo ( $attributes['autoplay'] ? ' data-autoplay="1"' : '' ); ?>>
 				<div class="wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper <?php echo $attributes['grayscaleInactive'] ? ' --grayscale-inactive' : ''; ?>">
-					<?php foreach ( $attributes['slides'] as $capitola_slide ) : ?>
-						<figure class="wp-block-capitola-small-image-slider__swiper-slide swiper-slide" data-caption="<?php echo esc_attr( $capitola_slide['caption'] ); ?>">
-							<?php echo wp_get_attachment_image( $capitola_slide['image']['id'], 'large' ); ?>
+					<?php foreach ( $attributes['slides'] as $slide ) : ?>
+						<figure class="wp-block-capitola-small-image-slider__swiper-slide swiper-slide" data-caption="<?php echo esc_attr( $slide['caption'] ); ?>">
+							<?php echo wp_get_attachment_image( $slide['image']['id'], 'large' ); ?>
 						</figure>
 					<?php endforeach; ?>
 				</div>

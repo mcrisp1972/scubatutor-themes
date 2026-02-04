@@ -4,10 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_iframe_pattern = '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i';
+$iframe_pattern = '/<iframe[^>]*>([\s\S]*?)<\/iframe>/i';
 
-if ( ! preg_match( $capitola_iframe_pattern, $attributes['iframeHtml'] ) ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
+if ( ! preg_match( $iframe_pattern, $attributes['iframeHtml'] ) ) {
 	$attributes['iframeHtml'] = 'HTML is not valid';
 }
 

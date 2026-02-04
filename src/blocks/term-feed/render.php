@@ -7,10 +7,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\Block_Attributes\layout_conditionals;
 
-$capitola_animations = animation_attributes( $attributes );
-$capitola_has_slider = ( 'sidescroll' === $attributes['listLayout'] );
+$animations = animation_attributes( $attributes );
+$has_slider = ( 'sidescroll' === $attributes['listLayout'] );
 
-$capitola_results = new WP_Term_Query(
+$results = new WP_Term_Query(
 	array(
 		'parent'     => 0,
 		'taxonomy'   => $attributes['taxonomy'],
@@ -21,38 +21,38 @@ $capitola_results = new WP_Term_Query(
 	)
 );
 
-if ( $capitola_results->get_terms() ) : ?>
+if ( $results->get_terms() ) : ?>
 	<section
 	<?php
 	echo wp_kses_data(
 		get_block_wrapper_attributes(
 			array(
 				'id'    => $attributes['anchor'],
-				'class' => 'capitola-listings alignfull is-layout-constrained has-global-padding' . ( $capitola_has_slider ? 'js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
+				'class' => 'capitola-listings alignfull is-layout-constrained has-global-padding' . ( $has_slider ? 'js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
 			)
 		)
 	);
 	?>
 				>
-		<div class="capitola-listings__width alignwide<?php echo esc_attr( $capitola_animations['block-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+		<div class="capitola-listings__width alignwide<?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 			<?php echo wp_kses_post( $content ); ?>
 			<div class="capitola-listings__sidescroll swiper">
 				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--capitola-excerpt-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 					<?php
-					foreach ( $capitola_results->get_terms() as $capitola_term_obj ) :
+					foreach ( $results->get_terms() as $term_obj ) :
 						get_template_part(
 							'template-parts/list-tiles/taxonomy',
 							'',
 							array(
 								'attributes'   => $attributes,
-								'term'         => $capitola_term_obj,
+								'term'         => $term_obj,
 								'conditionals' => layout_conditionals( $attributes ),
 							)
 						);
 						endforeach;
 					?>
 				</div>
-				<?php if ( $capitola_has_slider ) : ?>
+				<?php if ( $has_slider ) : ?>
 					<div class="capitola-listings__scroll-buttons">
 						<button class="swiper-button-prev" aria-label="scroll-left"></button>
 						<?php if ( $attributes['showSlideCount'] ) : ?>

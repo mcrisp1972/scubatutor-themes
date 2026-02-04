@@ -30,7 +30,6 @@ function disable_emojis_tinymce( $plugins ) {
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
 		/** This filter is documented in wp-includes/formatting.php */
-		// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core filter.
 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
 		$urls          = array_diff( $urls, array( $emoji_svg_url ) );
 	}

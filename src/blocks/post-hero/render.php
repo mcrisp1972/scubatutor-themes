@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_socials          = get_option( 'capitola_social_shares' );
-$capitola_author_id        = get_the_author_meta( 'ID' );
-$capitola_author_image     = get_user_meta( $capitola_author_id, 'userProfilePhoto', true );
-$capitola_author_name      = esc_html( get_the_author_meta( 'display_name' ) );
-$capitola_author_image_src = $capitola_author_image ? wp_get_attachment_image_src( $capitola_author_image, 'thumbnail' ) : false;
-$capitola_image_id         = $attributes['featuredImage'] ? $attributes['featuredImage'] : get_post_thumbnail_id();
+$socials          = get_option( 'capitola_social_shares' );
+$author_id        = get_the_author_meta( 'ID' );
+$author_image     = get_user_meta( $author_id, 'userProfilePhoto', true );
+$author_name      = esc_html( get_the_author_meta( 'display_name' ) );
+$author_image_src = $author_image ? wp_get_attachment_image_src( $author_image, 'thumbnail' ) : false;
+$image_id         = $attributes['featuredImage'] ? $attributes['featuredImage'] : get_post_thumbnail_id();
 
 ?>
 
@@ -24,10 +24,10 @@ echo wp_kses_data(
 );
 ?>
 >
-	<?php if ( $attributes['showFeaturedImage'] && $capitola_image_id ) : ?>
+	<?php if ( $attributes['showFeaturedImage'] && $image_id ) : ?>
 		<div class="wp-block-capitola-post-hero__hero">
 			<div class="wp-block-capitola-post-hero__image">
-				<?php echo wp_get_attachment_image( $capitola_image_id, 'large', false, array( 'loading' => 'eager' ) ); ?>
+				<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'loading' => 'eager' ) ); ?>
 			</div>
 		</div>
 	<?php endif; ?>
@@ -38,13 +38,13 @@ echo wp_kses_data(
 		<div class="wp-block-capitola-post-hero__byline">
 		<?php if ( get_post_type() === 'post' ) : ?>
 			<?php if ( $attributes['showByline'] ) : ?>
-				<?php if ( $capitola_author_image_src ) : ?>
+				<?php if ( $author_image_src ) : ?>
 					<div class="wp-block-capitola-post-hero__byline-img-wrap">
-						<img src="<?php echo esc_url( $capitola_author_image_src[0] ); ?>" alt="<?php echo esc_attr( $capitola_author_name ); ?>"/>
+						<img src="<?php echo esc_url( $author_image_src[0] ); ?>" alt="<?php echo esc_attr( $author_name ); ?>"/>
 					</div>
 				<?php endif; ?>
 				<div class="wp-block-capitola-post-hero__byline-date">
-					<div><?php echo esc_html( $capitola_author_name ); ?></div>
+					<div><?php echo esc_html( $author_name ); ?></div>
 					<div><?php echo get_the_date( "M jS 'y" ); ?></div>
 				</div>
 			<?php endif; ?>
@@ -53,29 +53,29 @@ echo wp_kses_data(
 		<?php if ( $attributes['showSocials'] ) : ?>
 			<ul class="wp-block-capitola-post-hero__social-links">
 				<?php
-				foreach ( $capitola_socials as $capitola_social_slug => $capitola_social_enabled ) :
-					$capitola_social_link = '';
-					if ( $capitola_social_enabled ) {
+				foreach ( $socials as $social_slug => $social_enabled ) :
+					$social_link = '';
+					if ( $social_enabled ) {
 						switch ( $k ) {
 							case 'facebook':
-								$capitola_social_link = 'http://www.facebook.com/share.php?u=' . rawurlencode( get_permalink() );
+								$social_link = 'http://www.facebook.com/share.php?u=' . rawurlencode( get_permalink() );
 								break;
 							case 'twitter':
-								$capitola_social_link = 'http://twitter.com/share?url=' . rawurlencode( get_permalink() );
+								$social_link = 'http://twitter.com/share?url=' . rawurlencode( get_permalink() );
 								break;
 							case 'pinterest':
-								$capitola_social_link = 'http://pinterest.com/pin/create/link/?url=' . rawurlencode( get_permalink() );
+								$social_link = 'http://pinterest.com/pin/create/link/?url=' . rawurlencode( get_permalink() );
 								break;
 							case 'linkedin':
-								$capitola_social_link = 'https://www.linkedin.com/shareArticle?mini=true&url=' . rawurlencode( get_permalink() ) . '&title=' . rawurlencode( get_the_title() ) . '&summary=' . rawurlencode( get_the_excerpt() ) . '&source=' . rawurlencode( get_home_url() );
+								$social_link = 'https://www.linkedin.com/shareArticle?mini=true&url=' . rawurlencode( get_permalink() ) . '&title=' . rawurlencode( get_the_title() ) . '&summary=' . rawurlencode( get_the_excerpt() ) . '&source=' . rawurlencode( get_home_url() );
 								break;
 						}
 					}
 
-					if ( $capitola_social_link ) :
+					if ( $social_link ) :
 						?>
 						<li>
-							<a class="wp-block-capitola-post-hero__social-link --<?php echo esc_attr( $capitola_social_slug ); ?>" href="<?php echo esc_url( $capitola_social_link ); ?>" target="_blank" aria-label="<?php echo esc_attr( $capitola_social_slug ); ?>"></a>
+							<a class="wp-block-capitola-post-hero__social-link --<?php echo esc_attr( $social_slug ); ?>" href="<?php echo esc_url( $social_link ); ?>" target="_blank" aria-label="<?php echo esc_attr( $social_slug ); ?>"></a>
 						</li>
 					<?php endif; ?>
 				<?php endforeach; ?>

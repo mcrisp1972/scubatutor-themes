@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$capitola_animations = animation_attributes( $attributes );
+$animations = animation_attributes( $attributes );
 
 ?>
 <section
@@ -21,7 +21,7 @@ echo wp_kses_data(
 );
 ?>
 >
-	<div class="wp-block-capitola-stats__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo esc_attr( $capitola_animations['block-class'] ); ?> --item-align-<?php echo esc_attr( $attributes['textAlignment'] ); ?>" <?php echo wp_kses_data( $capitola_animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-stats__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo esc_attr( $animations['block-class'] ); ?> --item-align-<?php echo esc_attr( $attributes['textAlignment'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

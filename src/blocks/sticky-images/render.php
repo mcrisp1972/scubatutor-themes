@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$capitola_images = array_map(
+$images = array_map(
 	function ( $inner_block ) {
 		return $inner_block->attributes['sideImage'];
 	},
@@ -26,20 +26,20 @@ echo wp_kses_data(
 >
 	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?>  js-stickyImagesContainer">
 		<div class="wp-block-capitola-sticky-images__image-column">
-			<?php foreach ( $capitola_images as $capitola_key => $capitola_image ) : ?>
+			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
-					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $capitola_key ]->attributes['imageCropPosition'] ); ?>;">
-						<?php echo wp_get_attachment_image( $capitola_image['id'], 'large' ); ?>
-						<?php if ( $block->inner_blocks[ $capitola_key ]->attributes['showCaption'] ) : ?>
+					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ); ?>;">
+						<?php echo wp_get_attachment_image( $image['id'], 'large' ); ?>
+						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php
-							$capitola_caption = $block->inner_blocks[ $capitola_key ]->attributes['captionOverride'];
-							if ( ! $capitola_caption ) {
-								$capitola_caption = wp_get_attachment_caption( $capitola_image );
+							$caption = $block->inner_blocks[ $key ]->attributes['captionOverride'];
+							if ( ! $caption ) {
+								$caption = wp_get_attachment_caption( $image );
 							}
 							?>
-							<?php if ( $capitola_caption ) : ?>
+							<?php if ( $caption ) : ?>
 								<div class="wp-block-capitola-sticky-images__image-caption --micro-text">
-								<?php echo esc_html( $capitola_caption ); ?>
+								<?php echo esc_html( $caption ); ?>
 								</div>
 							<?php endif; ?>
 						<?php endif; ?>

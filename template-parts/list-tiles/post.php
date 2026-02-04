@@ -3,13 +3,12 @@
 use function Capitola\Helpers\String_Helpers\get_post_term_name;
 
 if ( ! isset( $args['attributes']['postType'] ) ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
 	$args['attributes']['postType'] = get_post_type();
 }
 
-$capitola_excerpt = get_the_excerpt();
+$excerpt = get_the_excerpt();
 
-$capitola_category_name = get_post_term_name( get_the_ID() );
+$category_name = get_post_term_name( get_the_ID() );
 
 ?>
 
@@ -32,9 +31,9 @@ $capitola_category_name = get_post_term_name( get_the_ID() );
 					</span>
 				<?php endif; ?>
 			</div>
-			<?php if ( $capitola_category_name && 'image' === $args['conditionals']['titleLocation'] ) : ?>
+			<?php if ( $category_name && 'image' === $args['conditionals']['titleLocation'] ) : ?>
 				<div class="capitola-result__thumb-cat">
-					<?php echo esc_html( $capitola_category_name ); ?>
+					<?php echo esc_html( $category_name ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -42,9 +41,9 @@ $capitola_category_name = get_post_term_name( get_the_ID() );
 			<div class="capitola-result__content">
 				<?php if ( 'body' === $args['conditionals']['titleLocation'] ) : ?>
 					<div>
-						<?php if ( $capitola_category_name ) : ?>
+						<?php if ( $category_name ) : ?>
 							<div class="capitola-result__body-cat --eyebrow">
-								<?php echo esc_html( $capitola_category_name ); ?>
+								<?php echo esc_html( $category_name ); ?>
 							</div>
 						<?php endif; ?>
 						<<?php echo tag_escape( $args['attributes']['titleTag'] ); ?> class="capitola-result__title --hl-s">
@@ -53,25 +52,25 @@ $capitola_category_name = get_post_term_name( get_the_ID() );
 					</div>
 					<?php
 				endif;
-				if ( $capitola_excerpt && $args['conditionals']['showExcerpt'] ) :
+				if ( $excerpt && $args['conditionals']['showExcerpt'] ) :
 					?>
 					<p class="capitola-result__excerpt">
-						<?php echo esc_html( $capitola_excerpt ); ?>
+						<?php echo esc_html( $excerpt ); ?>
 					</p>
 					<?php
 				endif;
 				if ( $args['conditionals']['showByline'] ) :
-					$capitola_author_image_id = get_user_meta( get_the_author_meta( 'ID' ), 'userProfilePhoto', true );
-					$capitola_name            = esc_html( get_the_author_meta( 'display_name' ) );
-					$capitola_author_image    = wp_get_attachment_image_src( $capitola_author_image_id, 'thumbnail' );
+					$author_image_id = get_user_meta( get_the_author_meta( 'ID' ), 'userProfilePhoto', true );
+					$name            = esc_html( get_the_author_meta( 'display_name' ) );
+					$author_image    = wp_get_attachment_image_src( $author_image_id, 'thumbnail' );
 					?>
 					<div class="capitola-result__byline">
-						<?php if ( $capitola_author_image ) : ?>
+						<?php if ( $author_image ) : ?>
 							<div class="capitola-result__byline-img-wrap">
-								<img src="<?php echo esc_url( $capitola_author_image[0] ); ?>" alt="<?php echo esc_html( $capitola_name ); ?>"/>
+								<img src="<?php echo esc_url( $author_image[0] ); ?>" alt="<?php echo esc_html( $name ); ?>"/>
 							</div>
 						<?php endif; ?>
-						<div class="capitola-result__byline-date"><?php echo esc_html( $capitola_name ); ?><br><?php echo esc_html( get_the_date( "M jS 'y" ) ); ?></div>
+						<div class="capitola-result__byline-date"><?php echo esc_html( $name ); ?><br><?php echo esc_html( get_the_date( "M jS 'y" ) ); ?></div>
 					</div>
 					<?php
 				endif;

@@ -8,17 +8,15 @@ use function Capitola\Helpers\Block_Attributes\parallax_img_class;
 use function Capitola\Helpers\String_Helpers\render_link;
 
 if ( ! $attributes['headline'] && $attributes['isHeroVariation'] ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
 	$attributes['headline'] = get_the_title();
 }
 
 if ( ! $attributes['backgroundImage']['id'] && $attributes['isHeroVariation'] ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
 	$attributes['backgroundImage']['id'] = get_post_thumbnail_id();
 }
 
-$capitola_cta_1 = render_link( $attributes['cta'], 'wp-block-capitola-cover-block__cta --cta --secondary' );
-$capitola_cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-cover-block__cta --cta --tertiary' );
+$cta_1 = render_link( $attributes['cta'], 'wp-block-capitola-cover-block__cta --cta --secondary' );
+$cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-cover-block__cta --cta --tertiary' );
 
 ?>
 <section
@@ -54,10 +52,10 @@ echo wp_kses_data(
 				<?php echo wp_kses_post( $content ); ?>
 			</div>
 		<?php endif; ?>
-		<?php if ( $capitola_cta_1 || $capitola_cta_2 ) : ?>
+		<?php if ( $cta_1 || $cta_2 ) : ?>
 			<div class="wp-block-capitola-cover-block__ctas">
-				<?php echo wp_kses_post( $capitola_cta_1 ); ?>
-				<?php echo wp_kses_post( $capitola_cta_2 ); ?>
+				<?php echo wp_kses_post( $cta_1 ); ?>
+				<?php echo wp_kses_post( $cta_2 ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

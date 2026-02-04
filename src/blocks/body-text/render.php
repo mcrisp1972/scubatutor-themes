@@ -10,28 +10,27 @@ use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\String_Helpers\render_link;
 use function Capitola\Helpers\Block_Attributes\parallax_img_class;
 
-$capitola_animations = animation_attributes( $block->context );
+$animations = animation_attributes( $block->context );
 
-$capitola_bg_class = $attributes['backgroundImage']['id'] ? ' --has-bg-image --theme-image-overlay' : '';
+$bg_class = $attributes['backgroundImage']['id'] ? ' --has-bg-image --theme-image-overlay' : '';
 
 if ( ! $attributes['headline'] && $attributes['isHeroVariation'] ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Core block attribute variable.
 	$attributes['headline'] = get_the_title();
 }
 
-$capitola_intro_position_class = ' --is-' . $block->context['introAlign'] . '-intro';
+$intro_position_class = ' --is-' . $block->context['introAlign'] . '-intro';
 
-$capitola_intro_align_class = 'top' === $block->context['introAlign'] && 'center' === $attributes['textAlign'] ? ' --is-centered-intro' : '';
+$intro_align_class = 'top' === $block->context['introAlign'] && 'center' === $attributes['textAlign'] ? ' --is-centered-intro' : '';
 
-$capitola_justify_class = 'top' === $attributes['verticalAlign'] ? ' --justify-top' : '';
+$justify_class = 'top' === $attributes['verticalAlign'] ? ' --justify-top' : '';
 
 if ( ! $attributes['eyebrow'] && ! $attributes['headline'] && ! $content && ! $attributes['cta'] && ! $attributes['cta2'] ) {
 	return;
 }
 
-$capitola_cta_1 = render_link( $attributes['cta'], 'wp-block-capitola-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --secondary' : '' ) );
+$cta_1 = render_link( $attributes['cta'], 'wp-block-capitola-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --secondary' : '' ) );
 
-$capitola_cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --tertiary' : ' --secondary' ) );
+$cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --tertiary' : ' --secondary' ) );
 
 ?>
 
@@ -40,7 +39,7 @@ $capitola_cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text
 echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
-			'class' => $capitola_intro_position_class . $capitola_intro_align_class . $capitola_bg_class . $capitola_justify_class,
+			'class' => $intro_position_class . $intro_align_class . $bg_class . $justify_class,
 		)
 	)
 );
@@ -51,7 +50,7 @@ echo wp_kses_data(
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>
-	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $capitola_animations['body-class'] ); ?>" <?php echo wp_kses_data( $capitola_animations['body-data'] ); ?>>
+	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>" <?php echo wp_kses_data( $animations['body-data'] ); ?>>
 		<?php if ( $attributes['eyebrow'] ) : ?>
 			<div class="wp-block-capitola-body-text__eyebrow --eyebrow">
 				<?php echo esc_html( $attributes['eyebrow'] ); ?>
@@ -67,10 +66,10 @@ echo wp_kses_data(
 				<?php echo wp_kses_post( $content ); ?>
 			</div>
 		<?php endif; ?>
-		<?php if ( $capitola_cta_1 || $capitola_cta_2 ) : ?>
+		<?php if ( $cta_1 || $cta_2 ) : ?>
 			<div class="wp-block-capitola-body-text__ctas">
-				<?php echo wp_kses_post( $capitola_cta_1 ); ?>
-				<?php echo wp_kses_post( $capitola_cta_2 ); ?>
+				<?php echo wp_kses_post( $cta_1 ); ?>
+				<?php echo wp_kses_post( $cta_2 ); ?>
 			</div>
 		<?php endif; ?>
 	</div>
