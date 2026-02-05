@@ -6,7 +6,6 @@ namespace Capitola\Admin_Forms;
  * Renders admin form fields.
  */
 class Fields {
-
 	/**
 	 * Outputs a field based on its type.
 	 *
