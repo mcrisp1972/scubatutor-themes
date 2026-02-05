@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function edit_post_registration( $args, $post_type ) {
-
 	if ( 'post' === $post_type ) {
 
 		// add template.
