@@ -24,7 +24,6 @@ function edit_post_registration( $args, $post_type ) {
 		// disable archive.
 		$args['has_archive'] = false;
 	}
-
 	return $args;
 }
 
