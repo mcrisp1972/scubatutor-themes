@@ -38,23 +38,26 @@
 		border-radius: $radius-small;
 		color: var(--capitola-color-button-text);
 		justify-content: center;
-        align-items: center;
+		align-items: center;
+
 		font: {
 			size: to-rem(14px);
 			weight: 600;
 		}
+
 		margin: 0;
 		height: 32px;
 		min-width: 32px;
+
 		text: {
 			align: center;
 			decoration: none;
 		}
+
 		background: var(--capitola-color-button);
 		padding: 0 var(--capitola-spacing-xsmall) 0;
-		transition:
-			background-color $transition,
-			color $transition;
+		transition: background-color $transition,
+		color $transition;
 
 		&.--next,
 		&.--prev {
@@ -143,6 +146,7 @@
 		&.--dots {
 			background: none;
 			border: none;
+			color: var(--capitola-color-button);
 
 			&:hover {
 				cursor: default;
