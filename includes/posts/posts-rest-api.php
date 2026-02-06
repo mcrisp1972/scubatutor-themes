@@ -92,7 +92,6 @@ function filter_rest_post_query( $args, $request ) {
  * @return void
  */
 function extend_rest_endpoint() {
-
 	add_filter( 'rest_post_collection_params', __NAMESPACE__ . '\add_filtered_listings_param', 10, 1 );
 
 	register_rest_field(
