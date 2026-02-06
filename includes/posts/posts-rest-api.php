@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function add_filtered_listings_param( $params ) {
-
 	$params['filtered_listings'] = array(
 		'description' => 'Apply term filtering rules for filtered listings.',
 		'type'        => 'boolean',
