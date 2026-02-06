@@ -35,7 +35,6 @@ add_filter( 'register_post_type_args', __NAMESPACE__ . '\edit_post_registration'
  * @return void
  */
 function register_post_meta() {
-
 	register_meta(
 		'post',
 		'useDefColorTheme',
