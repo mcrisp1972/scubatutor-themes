@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function extend_rest_endpoint() {
-
 	register_rest_field(
 		array( 'page' ),
 		'cta_label',
