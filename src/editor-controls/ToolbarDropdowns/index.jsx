@@ -252,7 +252,12 @@ export function IntroAlignToolbar( {
 	);
 }
 
-export function AspectRatioToolbar( { props, attribute, options, label = 'Change media aspect ratio' } ) {
+export function AspectRatioToolbar( {
+	props,
+	attribute,
+	options,
+	label = 'Change media aspect ratio',
+} ) {
 	const { attributes, setAttributes } = props;
 	const value = attributes[ attribute ];
 
@@ -338,7 +343,11 @@ export function AspectRatioToolbar( { props, attribute, options, label = 'Change
 	);
 }
 
-export function RadiusToolbar( { props, attribute, options = [ 'none', 'small', 'medium', 'large', 'arch' ] } ) {
+export function RadiusToolbar( {
+	props,
+	attribute,
+	options = [ 'none', 'small', 'medium', 'large', 'arch' ],
+} ) {
 	const { attributes, setAttributes } = props;
 	const value = attributes[ attribute ];
 

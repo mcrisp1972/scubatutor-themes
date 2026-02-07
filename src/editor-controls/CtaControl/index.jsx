@@ -1,14 +1,31 @@
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { LinkControl } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
-import { Popover, TextControl, BaseControl, useBaseControlProps, Button } from '@wordpress/components';
+import {
+	Popover,
+	TextControl,
+	BaseControl,
+	useBaseControlProps,
+	Button,
+} from '@wordpress/components';
+
+function getDisplayTitle( value ) {
+	if ( value?.title ) {
+		return value.title;
+	} else if ( value?.link?.title ) {
+		return value.link.title;
+	}
+	return false;
+}
 
 function CtaControl( { className, onChange, value, placeholder } ) {
 	const [ popoverAnchor, setPopoverAnchor ] = useState();
 	const [ isVisible, setIsVisible ] = useState( false );
 	const [ titleValue, setTitleValue ] = useState( value?.title );
 	const [ linkValue, setLinkValue ] = useState( value?.link ? value.link : null );
-	const { baseControlProps, controlProps } = useBaseControlProps( { label: 'Link', __nextHasNoMarginBottom: true } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label: 'Link',
+		__nextHasNoMarginBottom: true,
+	} );
 
 	const [ shouldRebuild, setShouldRebuild ] = useState( value?.url );
 
@@ -44,7 +61,7 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 		);
 	}
 
-	const displayTitle = value?.title ? value.title : value?.link?.title ? value.link.title : false;
+	const displayTitle = getDisplayTitle( value );
 
 	return (
 		<>
@@ -57,7 +74,14 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 				tabIndex={ 0 }
 				style={ displayTitle && !! linkValue?.url ? {} : { opacity: '.62' } }
 			>
-				{ displayTitle ? displayTitle : placeholder ? placeholder : 'CTA...' }
+				{ ( () => {
+					if ( displayTitle ) {
+						return displayTitle;
+					} else if ( placeholder ) {
+						return placeholder;
+					}
+					return 'CTA...';
+				} )() }
 			</div>
 			{ isVisible && (
 				<Popover anchor={ popoverAnchor } variant="toolbar" onClose={ toggleVisible }>
@@ -66,9 +90,9 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 							label="Button Text"
 							className="capitola-cta-popover__title"
 							value={ titleValue }
-							onChange={ ( value ) => {
-								setTitleValue( value );
-								onChange( { link: linkValue, ...{ title: value } } );
+							onChange={ ( newValue ) => {
+								setTitleValue( newValue );
+								onChange( { link: linkValue, ...{ title: newValue } } );
 							} }
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
@@ -84,16 +108,16 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 										title: 'New tab',
 									},
 								] }
-								onChange={ ( value ) => {
+								onChange={ ( newValue ) => {
 									const previousUrl = linkValue?.url;
-									if ( previousUrl && value?.url !== previousUrl ) {
-										delete value.id;
-										delete value.title;
-										delete value.kind;
-										delete value.type;
+									if ( previousUrl && newValue?.url !== previousUrl ) {
+										delete newValue.id;
+										delete newValue.title;
+										delete newValue.kind;
+										delete newValue.type;
 									}
-									setLinkValue( value );
-									onChange( { title: titleValue, link: value } );
+									setLinkValue( newValue );
+									onChange( { title: titleValue, link: newValue } );
 								} }
 								withCreateSuggestion={ false }
 								onRemove={ () => {

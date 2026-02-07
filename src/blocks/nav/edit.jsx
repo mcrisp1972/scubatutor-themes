@@ -1,6 +1,13 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { PanelBody, ToggleControl, TextControl, RadioControl, RangeControl, Spinner } from '@wordpress/components';
+import {
+	PanelBody,
+	ToggleControl,
+	TextControl,
+	RadioControl,
+	RangeControl,
+	Spinner,
+} from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '../../editor-controls';
 import apiFetch from '@wordpress/api-fetch';
@@ -27,7 +34,9 @@ export default function Edit( props ) {
 
 	const imageObject = useSelect(
 		( select ) => {
-			return logo ? select( 'core' ).getEntityRecord( 'postType', 'attachment', logo ) : undefined;
+			return logo
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', logo )
+				: undefined;
 		},
 		[ logo ]
 	);
@@ -40,14 +49,21 @@ export default function Edit( props ) {
 			defaultBlock: { name: 'capitola/nav-link' },
 			template: [ [ 'capitola/nav-link' ] ],
 			orientation: 'horizontal',
-			allowedBlocks: [ 'capitola/nav-link', 'capitola/nav-dropdown', 'capitola/nav-mega-nav' ],
+			allowedBlocks: [
+				'capitola/nav-link',
+				'capitola/nav-dropdown',
+				'capitola/nav-mega-nav',
+			],
 			directInsert: true,
 		}
 	);
 
 	useEffect( () => {
 		apiFetch( {
-			path: addQueryArgs( '/wp/v2/plugins', { search: 'woocommerce/woocommerce', status: 'active' } ),
+			path: addQueryArgs( '/wp/v2/plugins', {
+				search: 'woocommerce/woocommerce',
+				status: 'active',
+			} ),
 		} ).then( ( result ) => {
 			setWooActive( result.length > 0 ? true : false );
 		} );
@@ -120,31 +136,34 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 				<PanelBody title="Utility Icon Links" initialOpen={ true }>
-					{ wooActive === null ? (
-						<Spinner />
-					) : wooActive ? (
-						<>
-							<ToggleControl
-								label="Show Account Link"
-								checked={ showAccountIcon }
-								onChange={ ( value ) => {
-									setAttributes( { showAccountIcon: value } );
-								} }
-								__nextHasNoMarginBottom
-							/>
-							<ToggleControl
-								label="Show Cart Link"
-								checked={ showCartIcon }
-								onChange={ ( value ) => {
-									setAttributes( { showCartIcon: value } );
-								} }
-								help="Cart link only shows if there are itemns in the cart."
-								__nextHasNoMarginBottom
-							/>
-						</>
-					) : (
-						<></>
-					) }
+					{ ( () => {
+						if ( wooActive === null ) {
+							return <Spinner />;
+						} else if ( wooActive ) {
+							return (
+								<>
+									<ToggleControl
+										label="Show Account Link"
+										checked={ showAccountIcon }
+										onChange={ ( value ) => {
+											setAttributes( { showAccountIcon: value } );
+										} }
+										__nextHasNoMarginBottom
+									/>
+									<ToggleControl
+										label="Show Cart Link"
+										checked={ showCartIcon }
+										onChange={ ( value ) => {
+											setAttributes( { showCartIcon: value } );
+										} }
+										help="Cart link only shows if there are itemns in the cart."
+										__nextHasNoMarginBottom
+									/>
+								</>
+							);
+						}
+						return <></>;
+					} )() }
 					<ToggleControl
 						label="Show Phone Link"
 						checked={ showPhoneLink }
@@ -209,12 +228,18 @@ export default function Edit( props ) {
 								className="wp-block-capitola-nav__logo --has-svg-mask"
 								style={ {
 									aspectRatio:
-										imageObject.media_details.width + '/' + imageObject.media_details.height,
+										imageObject.media_details.width +
+										'/' +
+										imageObject.media_details.height,
 									maskImage: 'url(' + imageObject.source_url + ')',
 									WebkitMaskImage: 'url(' + imageObject.source_url + ')',
 								} }
 							>
-								<img src={ imageObject.source_url } className="custom-logo" alt="" />
+								<img
+									src={ imageObject.source_url }
+									className="custom-logo"
+									alt=""
+								/>
 							</div>
 						) }
 					{ imageObject !== undefined && useLogoColor && (
@@ -227,19 +252,28 @@ export default function Edit( props ) {
 						<ul className="wp-block-capitola-nav__utility-menu">
 							{ utilityLinks.map( ( item, index ) => {
 								return (
-									<li key={ index } className="wp-block-capitola-nav__utility-menu-item">
-										<div className="wp-block-capitola-nav__utility-menu-item-link">{ item.title }</div>
+									<li
+										key={ index }
+										className="wp-block-capitola-nav__utility-menu-item"
+									>
+										<div className="wp-block-capitola-nav__utility-menu-item-link">
+											{ item.title }
+										</div>
 									</li>
 								);
 							} ) }
 							{ wooActive && showAccountIcon && (
 								<li className="wp-block-capitola-nav__utility-menu-item">
-									<div className="wp-block-capitola-nav__utility-menu-item-link --account">Account</div>
+									<div className="wp-block-capitola-nav__utility-menu-item-link --account">
+										Account
+									</div>
 								</li>
 							) }
 							{ wooActive && showCartIcon && (
 								<li className="wp-block-capitola-nav__utility-menu-item">
-									<div className="wp-block-capitola-nav__utility-menu-item-link --cart">Cart</div>
+									<div className="wp-block-capitola-nav__utility-menu-item-link --cart">
+										Cart
+									</div>
 								</li>
 							) }
 							{ showPhoneLink && themeOptions?.capitola_contact.phone && (

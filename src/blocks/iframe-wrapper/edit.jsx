@@ -10,6 +10,7 @@ function isValidIframeHtml( html ) {
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { aspectRatio, iframeHtml } = attributes;
+	const blockProps = useBlockProps( { className: '--' + aspectRatio } );
 
 	return (
 		<>
@@ -40,12 +41,9 @@ export default function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			{ isValidIframeHtml( iframeHtml ) ? (
-				<figure
-					{ ...useBlockProps( { className: '--' + aspectRatio } ) }
-					dangerouslySetInnerHTML={ { __html: iframeHtml } }
-				/>
+				<figure { ...blockProps } dangerouslySetInnerHTML={ { __html: iframeHtml } } />
 			) : (
-				<figure { ...useBlockProps( { className: '--' + aspectRatio } ) }>
+				<figure { ...blockProps }>
 					<PlaceholderIframe />
 				</figure>
 			) }

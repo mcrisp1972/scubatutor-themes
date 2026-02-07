@@ -1,5 +1,4 @@
 /* eslint-disable @wordpress/no-unsafe-wp-apis */
-/* eslint-disable no-nested-ternary */
 import { LinkControl } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
 import {
@@ -21,34 +20,37 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 	const [ isVisible, setIsVisible ] = useState( false );
 	const [ showDelete, setShowDelete ] = useState( false );
 
-	const { baseControlProps, controlProps } = useBaseControlProps( { label: 'Link', __nextHasNoMarginBottom: true } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label: 'Link',
+		__nextHasNoMarginBottom: true,
+	} );
 	const toggleVisible = () => {
 		setIsVisible( ( state ) => {
 			return ! state;
 		} );
 	};
-	const moveUp = ( index ) => {
+	const moveUp = ( i ) => {
 		toggleVisible();
 		const rows = [ ...linksObj ];
-		const moved = rows.slice( index - 1, index + 1 );
-		rows.splice( index - 1, 2, moved[ 1 ], moved[ 0 ] );
+		const moved = rows.slice( i - 1, i + 1 );
+		rows.splice( i - 1, 2, moved[ 1 ], moved[ 0 ] );
 		onUpdate( rows );
 	};
 
-	const moveDown = ( index ) => {
+	const moveDown = ( i ) => {
 		toggleVisible();
 		const rows = [ ...linksObj ];
-		const moved = rows.slice( index, index + 2 );
-		rows.splice( index, 2, moved[ 1 ], moved[ 0 ] );
+		const moved = rows.slice( i, i + 2 );
+		rows.splice( i, 2, moved[ 1 ], moved[ 0 ] );
 		onUpdate( rows );
 	};
 
-	const upButton = ( index ) => {
+	const upButton = ( i ) => {
 		return (
 			<Button
 				className="--hover-light"
 				onClick={ () => {
-					return moveUp( index );
+					return moveUp( i );
 				} }
 				style={ {
 					height: '16px',
@@ -60,17 +62,20 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 				} }
 				title="Move Up"
 			>
-				<Icon icon="arrow-up-alt2" style={ { color: 'rgb(0, 124, 186)', cursor: 'pointer' } } />
+				<Icon
+					icon="arrow-up-alt2"
+					style={ { color: 'rgb(0, 124, 186)', cursor: 'pointer' } }
+				/>
 			</Button>
 		);
 	};
 
-	const downButton = ( index ) => {
+	const downButton = ( i ) => {
 		return (
 			<Button
 				className="--hover-light"
 				onClick={ () => {
-					return moveDown( index );
+					return moveDown( i );
 				} }
 				style={ {
 					height: '16px',
@@ -82,7 +87,10 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 				} }
 				title="Move Down"
 			>
-				<Icon icon="arrow-down-alt2" style={ { color: 'rgb(0, 124, 186)', cursor: 'pointer' } } />
+				<Icon
+					icon="arrow-down-alt2"
+					style={ { color: 'rgb(0, 124, 186)', cursor: 'pointer' } }
+				/>
 			</Button>
 		);
 	};
@@ -98,14 +106,19 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 				key={ index }
 				tabIndex={ 0 }
 				style={
-					isCompleteLink( linksObj[ index ] ) ? { cursor: 'pointer' } : { cursor: 'pointer', opacity: '.62' }
+					isCompleteLink( linksObj[ index ] )
+						? { cursor: 'pointer' }
+						: { cursor: 'pointer', opacity: '.62' }
 				}
 			>
-				{ linksObj[ index ].title
-					? linksObj[ index ].title
-					: linksObj[ index ].link.title
-					? linksObj[ index ].link.title
-					: 'Link...' }
+				{ ( () => {
+					if ( linksObj[ index ].title ) {
+						return linksObj[ index ].title;
+					} else if ( linksObj[ index ].link && linksObj[ index ].link.title ) {
+						return linksObj[ index ].link.title;
+					}
+					return 'Link...';
+				} )() }
 			</div>
 			{ isVisible && (
 				<Popover anchor={ popoverAnchor } variant="toolbar" onClose={ toggleVisible }>
@@ -135,7 +148,10 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 								] }
 								onChange={ ( value ) => {
 									const newValue = [ ...linksObj ];
-									if ( newValue[ index ]?.link?.url && value.url !== newValue[ index ].link.url ) {
+									if (
+										newValue[ index ]?.link?.url &&
+										value.url !== newValue[ index ].link.url
+									) {
 										delete value.id;
 										delete value.title;
 										delete value.kind;
@@ -170,7 +186,11 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 									setShowDelete( true );
 								} }
 							>
-								<Icon icon="no-alt" size="16px" style={ { color: '#d43131', cursor: 'pointer' } } />
+								<Icon
+									icon="no-alt"
+									size="16px"
+									style={ { color: '#d43131', cursor: 'pointer' } }
+								/>
 							</Button>
 							<Button
 								variant="secondary"
@@ -248,8 +268,8 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 							label="Link Text"
 							className="capitola-cta-popover__title"
 							value={ newTitle }
-							onChange={ ( value ) => {
-								setNewTitle( value );
+							onChange={ ( newValue ) => {
+								setNewTitle( newValue );
 							} }
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
@@ -265,8 +285,8 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 										title: 'New tab',
 									},
 								] }
-								onChange={ ( value ) => {
-									setNewLink( value );
+								onChange={ ( newValue ) => {
+									setNewLink( newValue );
 								} }
 								withCreateSuggestion={ false }
 								onRemove={ () => {

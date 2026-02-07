@@ -1,4 +1,9 @@
-import { InspectorControls, BlockControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	BlockControls,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 import { ToolbarGroup } from '@wordpress/components';
 import { ColorThemePanel, AnimationPanel, IntroAlignToolbar } from '../../editor-controls';
 
@@ -18,7 +23,11 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'left', 'top' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'left', 'top' ] }
+					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<div
@@ -27,7 +36,10 @@ export default function Edit( props ) {
 						className: `wp-block-capitola-tabbed-contents__width alignwide --has-${ introAlign }-intro`,
 					},
 					{
-						template: [ [ 'capitola/body-text', { verticalAlign: 'top' } ], [ 'capitola/tabbed-contents-tabs' ] ],
+						template: [
+							[ 'capitola/body-text', { verticalAlign: 'top' } ],
+							[ 'capitola/tabbed-contents-tabs' ],
+						],
 						templateLock: 'all',
 					}
 				) }

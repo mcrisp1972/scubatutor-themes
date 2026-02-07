@@ -8,7 +8,7 @@ addFilter(
 			return props;
 		}
 
-		if ( name == 'core/embed' ) {
+		if ( name === 'core/embed' ) {
 			const allowed = [
 				'youtube',
 				'spotify',

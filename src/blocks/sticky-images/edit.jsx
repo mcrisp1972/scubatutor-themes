@@ -19,7 +19,15 @@ import {
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected, clientId } = props;
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
-	const { verticalAlign, introAlign, imageRadius, transitionMode, imageLayout, colorTheme, isExample } = attributes;
+	const {
+		verticalAlign,
+		introAlign,
+		imageRadius,
+		transitionMode,
+		imageLayout,
+		colorTheme,
+		isExample,
+	} = attributes;
 
 	const innerBlocks = useSelect( ( select ) => {
 		const block = select( 'core/block-editor' ).getBlock( clientId );
@@ -84,7 +92,11 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { transitionMode: value } );
 						} }
-						help={ transitionMode === 'fade' ? 'Fade transition is not previewed in the editor.' : '' }
+						help={
+							transitionMode === 'fade'
+								? 'Fade transition is not previewed in the editor.'
+								: ''
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -93,7 +105,11 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left' ] }
+					/>
 					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					{ imageLayout === 'inner' && (
 						<RadiusToolbar
@@ -121,7 +137,8 @@ export default function Edit( props ) {
 								<div
 									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
-										'--capitola-objectPosition': innerBlocks[ index ].attributes.imageCropPosition,
+										'--capitola-objectPosition':
+											innerBlocks[ index ].attributes.imageCropPosition,
 									} }
 								>
 									{ image.source_url ? (
@@ -130,9 +147,15 @@ export default function Edit( props ) {
 											{ isSelected && (
 												<ImageSelectButton
 													onSelect={ ( value ) => {
-														updateBlockAttributes( innerBlocks[ index ].clientId, {
-															sideImage: { id: value.id, source_url: value.url },
-														} );
+														updateBlockAttributes(
+															innerBlocks[ index ].clientId,
+															{
+																sideImage: {
+																	id: value.id,
+																	source_url: value.url,
+																},
+															}
+														);
 													} }
 													value={ image.id }
 												/>
@@ -140,13 +163,19 @@ export default function Edit( props ) {
 											{ innerBlocks[ index ].attributes.showCaption && (
 												<RichText
 													className="wp-block-capitola-sticky-images__image-caption --micro-text"
-													value={ innerBlocks[ index ].attributes.captionOverride }
+													value={
+														innerBlocks[ index ].attributes
+															.captionOverride
+													}
 													allowedFormats={ [] }
 													placeholder={ imageCaptions[ image.id ] }
 													onChange={ ( value ) => {
-														updateBlockAttributes( innerBlocks[ index ].clientId, {
-															captionOverride: value,
-														} );
+														updateBlockAttributes(
+															innerBlocks[ index ].clientId,
+															{
+																captionOverride: value,
+															}
+														);
 													} }
 												/>
 											) }
@@ -154,9 +183,15 @@ export default function Edit( props ) {
 									) : (
 										<MediaPlaceholder
 											onSelect={ ( value ) => {
-												updateBlockAttributes( innerBlocks[ index ].clientId, {
-													sideImage: { id: value.id, source_url: value.url },
-												} );
+												updateBlockAttributes(
+													innerBlocks[ index ].clientId,
+													{
+														sideImage: {
+															id: value.id,
+															source_url: value.url,
+														},
+													}
+												);
 											} }
 											value={ image.id }
 											allowedTypes={ [ 'image' ] }

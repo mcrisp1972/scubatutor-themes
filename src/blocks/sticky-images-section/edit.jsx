@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, MediaPlaceholder } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	MediaPlaceholder,
+} from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
 import { ImageAlignMatrix, ImageSelectButton } from '../../editor-controls';
 
@@ -58,7 +63,9 @@ export default function Edit( props ) {
 						{ isSelected && (
 							<ImageSelectButton
 								onSelect={ ( value ) => {
-									setAttributes( { sideImage: { id: value.id, source_url: value.url } } );
+									setAttributes( {
+										sideImage: { id: value.id, source_url: value.url },
+									} );
 								} }
 								value={ sideImage.id }
 							/>

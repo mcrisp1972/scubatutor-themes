@@ -3,16 +3,25 @@ import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { date } from '@wordpress/date';
 import { PanelBody, ToggleControl, RadioControl } from '@wordpress/components';
-import { useSelect, select } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import { TagSelect } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
-	const { headline, headlineTag, showSocials, showByline, showFeaturedImage, imageLocation, featuredImage } =
-		attributes;
+	const {
+		headline,
+		headlineTag,
+		showSocials,
+		showByline,
+		showFeaturedImage,
+		imageLocation,
+		featuredImage,
+	} = attributes;
 
-	const isTemplate = select( 'core/edit-site' ) !== undefined;
+	const isTemplate = useSelect( ( select ) => {
+		return select( 'core/edit-site' ) !== undefined;
+	}, [] );
 
 	const [ socials, setSocials ] = useState( null );
 
@@ -41,31 +50,47 @@ export default function Edit( props ) {
 
 	const authorImage = useSelect(
 		( select ) => {
-			return ! isTemplate && authorObject && showByline && authorObject.meta.userProfilePhoto
-				? select( 'core' ).getEntityRecord( 'postType', 'attachment', authorObject.meta.userProfilePhoto )
-				: isTemplate
-				? { source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg' }
-				: undefined;
+			if (
+				! isTemplate &&
+				authorObject &&
+				showByline &&
+				authorObject.meta.userProfilePhoto
+			) {
+				return select( 'core' ).getEntityRecord(
+					'postType',
+					'attachment',
+					authorObject.meta.userProfilePhoto
+				);
+			} else if ( isTemplate ) {
+				return {
+					source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
+				};
+			}
+			return undefined;
 		},
 		[ isTemplate, authorObject, showByline ]
 	);
 
-	const imageObject = ! isTemplate
-		? useSelect(
-				( select ) => {
-					if ( typeof featuredImage === 'object' ) {
-						return featuredImage;
-					}
-					const imageId = featuredImage
-						? featuredImage
-						: select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
+	const imageObject = useSelect(
+		( select ) => {
+			if ( isTemplate ) {
+				return {
+					source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
+				};
+			}
+			if ( typeof featuredImage === 'object' ) {
+				return featuredImage;
+			}
+			const imageId = featuredImage
+				? featuredImage
+				: select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
 
-					return imageId ? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId ) : undefined;
-				},
-				[ featuredImage ]
-		  )
-		: { source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg' };
-
+			return imageId
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+				: undefined;
+		},
+		[ isTemplate, featuredImage ]
+	);
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
 			setSocials( result.capitola_social_shares );
@@ -74,7 +99,9 @@ export default function Edit( props ) {
 
 	return (
 		<div
-			{ ...useBlockProps( { className: 'alignwide' + ( imageLocation === 'bottom' ? ' --bottom-image' : '' ) } ) }
+			{ ...useBlockProps( {
+				className: 'alignwide' + ( imageLocation === 'bottom' ? ' --bottom-image' : '' ),
+			} ) }
 		>
 			<InspectorControls>
 				<PanelBody title="Settings" initialOpen={ true }>
@@ -129,11 +156,15 @@ export default function Edit( props ) {
 			{ showFeaturedImage && (
 				<div className="wp-block-capitola-post-hero__hero">
 					<div className="wp-block-capitola-post-hero__image">
-						{ imageObject !== undefined && <img src={ imageObject.source_url } alt="" /> }
+						{ imageObject !== undefined && (
+							<img src={ imageObject.source_url } alt="" />
+						) }
 					</div>
 				</div>
 			) }
-			{ isTemplate && <div className="wp-block-capitola-post-hero__title --hl-xl">Post Title</div> }
+			{ isTemplate && (
+				<div className="wp-block-capitola-post-hero__title --hl-xl">Post Title</div>
+			) }
 			{ ! isTemplate && (
 				<RichText
 					className="wp-block-capitola-post-hero__title --hl-xxl"
@@ -149,11 +180,17 @@ export default function Edit( props ) {
 					{ ( isTemplate || postType === 'post' ) && showByline && (
 						<>
 							<div className="wp-block-capitola-post-hero__byline-img-wrap">
-								{ authorImage !== undefined && <img src={ authorImage.source_url } alt="" /> }
+								{ authorImage !== undefined && (
+									<img src={ authorImage.source_url } alt="" />
+								) }
 							</div>
 							<div className="wp-block-capitola-post-hero__byline-date">
 								<div>{ !! authorObject ? authorObject.name : '' }</div>
-								<div>{ ! isTemplate ? date( "M jS 'y", postObject.date ) : 'Publish Date' }</div>
+								<div>
+									{ ! isTemplate
+										? date( "M jS 'y", postObject.date )
+										: 'Publish Date' }
+								</div>
 							</div>
 						</>
 					) }

@@ -1,4 +1,3 @@
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { LinkControl } from '@wordpress/block-editor';
 import { BaseControl, useBaseControlProps } from '@wordpress/components';
 

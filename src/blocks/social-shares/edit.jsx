@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { useBlockProps } from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
@@ -21,7 +20,9 @@ export default function Edit() {
 							return (
 								<div
 									key={ key }
-									className={ 'wp-block-capitola-social-shares__social-link --' + key }
+									className={
+										'wp-block-capitola-social-shares__social-link --' + key
+									}
 								></div>
 							);
 						}

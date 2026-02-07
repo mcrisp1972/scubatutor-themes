@@ -4,7 +4,7 @@ addFilter(
 	'blocks.registerBlockType',
 	'capitola/quote_block_supports',
 	( props, name ) => {
-		if ( name == 'core/quote' ) {
+		if ( name === 'core/quote' ) {
 			return Object.assign( {}, props, {
 				styles: [],
 				supports: {

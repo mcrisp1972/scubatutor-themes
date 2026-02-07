@@ -5,10 +5,10 @@ import {
 	Button,
 	DatePicker as CoreDatePicker,
 } from '@wordpress/components';
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { getSettings, dateI18n } from '@wordpress/date';
 
-const currentTimezone = typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
+const currentTimezone =
+	typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
 
 function DatePicker( { value, onChange, onClear, label } ) {
 	const settings = getSettings();
@@ -17,7 +17,10 @@ function DatePicker( { value, onChange, onClear, label } ) {
 	const resolvedFormat = settings.formats.date || 'F j, Y';
 
 	const formattedDate = value ? dateI18n( resolvedFormat, value, currentTimezone ) : buttonLabel;
-	const { baseControlProps, controlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>

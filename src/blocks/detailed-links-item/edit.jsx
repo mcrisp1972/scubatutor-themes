@@ -11,7 +11,9 @@ export default function Edit( props ) {
 
 	const linkObj = useSelect(
 		( select ) => {
-			return postId ? select( 'core' ).getEntityRecord( 'postType', postType, postId ) : undefined;
+			return postId
+				? select( 'core' ).getEntityRecord( 'postType', postType, postId )
+				: undefined;
 		},
 		[ postType, postId ]
 	);
@@ -62,7 +64,9 @@ export default function Edit( props ) {
 							label="Image Override"
 							value={ linkImage.id }
 							onChange={ ( value ) => {
-								setAttributes( { linkImage: { id: value.id, source_url: value.url } } );
+								setAttributes( {
+									linkImage: { id: value.id, source_url: value.url },
+								} );
 							} }
 						/>
 					) }

@@ -61,7 +61,9 @@ export default function Edit( props ) {
 
 	const featuredImage = useSelect(
 		( select ) => {
-			return isHeroVariation ? select( 'core/editor' ).getEditedPostAttribute( 'featured_media' ) : undefined;
+			return isHeroVariation
+				? select( 'core/editor' ).getEditedPostAttribute( 'featured_media' )
+				: undefined;
 		},
 		[ isHeroVariation ]
 	);
@@ -74,16 +76,20 @@ export default function Edit( props ) {
 				return sideImage;
 			}
 			const imageId = sideImage.id ? sideImage.id : featuredImage;
-			return imageId ? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId ) : undefined;
+			return imageId
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+				: undefined;
 		},
 		[ isHeroVariation, featuredImage, sideImage, externalImage, imageUrl ]
 	);
 
 	const imageRatioClass = imageLayout === 'inner' ? '--' + ( videoID ? '16-9' : imageRatio ) : '';
 
-	const radiusClass = imageLayout === 'inner' && imageRadius ? ` --has-${ imageRadius }-radius` : '';
+	const radiusClass =
+		imageLayout === 'inner' && imageRadius ? ` --has-${ imageRadius }-radius` : '';
 
-	const stickyClass = stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
+	const stickyClass =
+		stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
@@ -126,7 +132,9 @@ export default function Edit( props ) {
 							label="Image"
 							value={ sideImage.id }
 							onChange={ ( value ) => {
-								setAttributes( { sideImage: { id: value.id, source_url: value.url } } );
+								setAttributes( {
+									sideImage: { id: value.id, source_url: value.url },
+								} );
 							} }
 						/>
 					) }
@@ -177,17 +185,19 @@ export default function Edit( props ) {
 							} }
 						/>
 					) }
-					{ mediaType === 'video' && videoSource !== 'local' && videoSource !== 'remote' && (
-						<TextControl
-							label="Video ID"
-							value={ videoID }
-							onChange={ ( value ) => {
-								setAttributes( { videoID: value } );
-							} }
-							__next40pxDefaultSize
-							__nextHasNoMarginBottom
-						/>
-					) }
+					{ mediaType === 'video' &&
+						videoSource !== 'local' &&
+						videoSource !== 'remote' && (
+							<TextControl
+								label="Video ID"
+								value={ videoID }
+								onChange={ ( value ) => {
+									setAttributes( { videoID: value } );
+								} }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+						) }
 					{ mediaType === 'video' && videoSource === 'remote' && (
 						<TextControl
 							label="Video URL"
@@ -204,7 +214,9 @@ export default function Edit( props ) {
 							label="Video"
 							value={ videoObject }
 							onChange={ ( value ) => {
-								setAttributes( { videoObject: { id: value.id, source_url: value.url } } );
+								setAttributes( {
+									videoObject: { id: value.id, source_url: value.url },
+								} );
 							} }
 						/>
 					) }
@@ -263,13 +275,24 @@ export default function Edit( props ) {
 					) }
 				</PanelBody>
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } allowFigureReveal={ imageLayout === 'inner' ? true : false } />
+				<AnimationPanel
+					props={ props }
+					allowFigureReveal={ imageLayout === 'inner' ? true : false }
+				/>
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left' ] } />
-					{ imageLayout === 'inner' && <VerticalAlignToolbar props={ props } attribute="verticalAlign" /> }
-					{ imageLayout === 'inner' && <RadiusToolbar props={ props } attribute="imageRadius" /> }
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left' ] }
+					/>
+					{ imageLayout === 'inner' && (
+						<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
+					) }
+					{ imageLayout === 'inner' && (
+						<RadiusToolbar props={ props } attribute="imageRadius" />
+					) }
 					{ imageLayout === 'inner' && mediaType === 'image' && (
 						<AspectRatioToolbar
 							props={ props }
@@ -317,7 +340,11 @@ export default function Edit( props ) {
 							) }
 						</figure>
 					) : (
-						<Image imageObject={ imageObject } props={ props } featuredImage={ featuredImage } />
+						<Image
+							imageObject={ imageObject }
+							props={ props }
+							featuredImage={ featuredImage }
+						/>
 					) }
 				</div>
 				{ children }

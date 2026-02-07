@@ -1,5 +1,11 @@
 import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl, TextControl, RadioControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+	RadioControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, TruncateControl } from '../../editor-controls';
 import postTile from '../post-feed/postTile';
@@ -144,7 +150,9 @@ export default function Edit( props ) {
 						/>
 						<button type="button" className="search-icon" />
 					</form>
-					<div className="capitola-listings__search-count">We found # results in your search.</div>
+					<div className="capitola-listings__search-count">
+						We found # results in your search.
+					</div>
 				</div>
 				{ ! posts && <div className="--spinner" /> }
 				{ posts && posts.length === 0 && 'No Posts Found' }
@@ -155,7 +163,10 @@ export default function Edit( props ) {
 								<article key={ index } className="capitola-result">
 									{ postTile(
 										attributes,
-										layoutConditionals( { ...attributes, ...{ postType: i.type } } ),
+										layoutConditionals( {
+											...attributes,
+											...{ postType: i.type },
+										} ),
 										i,
 										index
 									) }

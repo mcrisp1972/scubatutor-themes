@@ -18,7 +18,10 @@ export default function Edit() {
 									name="wpforms[fields][1][first]"
 									required=""
 								/>
-								<label htmlFor="wpforms-74483-field_1" className="wpforms-field-sublabel after ">
+								<label
+									htmlFor="wpforms-74483-field_1"
+									className="wpforms-field-sublabel after "
+								>
 									First
 								</label>
 							</div>
@@ -30,7 +33,10 @@ export default function Edit() {
 									name="wpforms[fields][1][last]"
 									required=""
 								/>
-								<label htmlFor="wpforms-74483-field_1-last" className="wpforms-field-sublabel after ">
+								<label
+									htmlFor="wpforms-74483-field_1-last"
+									className="wpforms-field-sublabel after "
+								>
 									Last
 								</label>
 							</div>

@@ -1,16 +1,14 @@
-import { dispatch, select, useSelect } from '@wordpress/data';
+import { dispatch, useSelect } from '@wordpress/data';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { ToggleControl, Flex } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { useState, useEffect } from '@wordpress/element';
 import { ColorThemePicker } from '../../editor-controls';
 
-export default function themePanels() {
-	const postType = select( 'core/editor' ).getCurrentPostType();
-
-	if ( ! postType ) {
-		return null;
-	}
+export default function ThemePanels() {
+	const postType = useSelect( ( select ) => {
+		return select( 'core/editor' ).getCurrentPostType();
+	}, [] );
 
 	const meta = useSelect( ( select ) => {
 		return select( 'core/editor' ).getEditedPostAttribute( 'meta' );
@@ -23,6 +21,10 @@ export default function themePanels() {
 			setDefaultPageTheme( result.capitola_default_page_color_theme );
 		} );
 	}, [] );
+
+	if ( ! postType ) {
+		return null;
+	}
 
 	const changeTheme = ( theme ) => {
 		const editorBody = document.querySelector( '.editor-styles-wrapper' );

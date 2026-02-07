@@ -22,7 +22,9 @@ function VideoSelect( { label, value, onChange } ) {
 	const videoObj = useSelect(
 		( select ) => {
 			// this check is needed for repeater
-			return videoId ? select( 'core' ).getEntityRecord( 'postType', 'attachment', videoId ) : undefined;
+			return videoId
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', videoId )
+				: undefined;
 		},
 		[ videoId ]
 	);
@@ -44,36 +46,49 @@ function VideoSelect( { label, value, onChange } ) {
 					render={ ( { open } ) => {
 						return (
 							<div className="capitola-video-select">
-								{ ! videoObj?.source_url && !! videoId ? (
-									<div>
-										<Spinner />
-									</div>
-								) : ! videoId ? (
-									<Button className="capitola-video-select__toggle" onClick={ open }>
-										Choose a video
-									</Button>
-								) : (
-									<div className="capitola-video-select__preview">
-										<div>
-											<strong>Title: </strong>
-											{ videoObj?.title?.raw }
+								{ ( () => {
+									if ( ! videoObj?.source_url && !! videoId ) {
+										return (
+											<div>
+												<Spinner />
+											</div>
+										);
+									} else if ( ! videoId ) {
+										return (
+											<Button
+												className="capitola-video-select__toggle"
+												onClick={ open }
+											>
+												Choose a video
+											</Button>
+										);
+									}
+									return (
+										<div className="capitola-video-select__preview">
+											<div>
+												<strong>Title: </strong>
+												{ videoObj?.title?.raw }
+											</div>
+											<div>
+												<strong>Size: </strong>
+												{ formatBytes( videoObj?.media_details.filesize ) }
+											</div>
+											<div>
+												<strong>Length: </strong>
+												{ videoObj?.media_details.length_formatted }
+											</div>
+											<div>
+												<strong>URL: </strong>
+												{ videoObj?.source_url }
+											</div>
 										</div>
-										<div>
-											<strong>Size: </strong>
-											{ formatBytes( videoObj?.media_details.filesize ) }
-										</div>
-										<div>
-											<strong>Length: </strong>
-											{ videoObj?.media_details.length_formatted }
-										</div>
-										<div>
-											<strong>URL: </strong>
-											{ videoObj?.source_url }
-										</div>
-									</div>
-								) }
+									);
+								} )() }
 								{ videoObj?.source_url && videoId && (
-									<Flex className="components-h-stack capitola-video-select__actions" gap="8px">
+									<Flex
+										className="components-h-stack capitola-video-select__actions"
+										gap="8px"
+									>
 										<Button
 											variant="primary"
 											className="components-button capitola-video-select__action is-next-40px-default-size"

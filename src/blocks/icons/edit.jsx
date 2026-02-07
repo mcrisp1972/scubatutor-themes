@@ -1,6 +1,16 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, ToolbarGroup } from '@wordpress/components';
-import { ColorThemePanel, AnimationPanel, IntroAlignToolbar, JustifyToolbar } from '../../editor-controls';
+import {
+	ColorThemePanel,
+	AnimationPanel,
+	IntroAlignToolbar,
+	JustifyToolbar,
+} from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes } = props;
@@ -29,7 +39,11 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left', 'top' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left', 'top' ] }
+					/>
 					<JustifyToolbar
 						props={ props }
 						label="Change icon text alignment"

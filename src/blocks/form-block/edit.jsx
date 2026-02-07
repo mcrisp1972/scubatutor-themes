@@ -32,7 +32,8 @@ export default function Edit( props ) {
 							[
 								'capitola/inner-block-wrap',
 								{
-									className: 'wp-block-capitola-form-block__form-col capitola-form',
+									className:
+										'wp-block-capitola-form-block__form-col capitola-form',
 									allowedBlocks: [ 'gravityforms/form', 'wpforms/form-selector' ],
 								},
 							],

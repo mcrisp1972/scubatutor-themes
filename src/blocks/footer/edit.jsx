@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+} from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { applyFilters } from '@wordpress/hooks';
@@ -155,11 +160,15 @@ export default function Edit( props ) {
 							) }
 							{ showAddress && themeOptions !== null && (
 								<div
-									dangerouslySetInnerHTML={ { __html: autop( themeOptions.capitola_contact.address ) } }
+									dangerouslySetInnerHTML={ {
+										__html: autop( themeOptions.capitola_contact.address ),
+									} }
 								/>
 							) }
 							{ showMapLink && (
-								<div className="wp-block-capitola-footer__contact-link --map">Directions</div>
+								<div className="wp-block-capitola-footer__contact-link --map">
+									Directions
+								</div>
 							) }
 							{ showPhoneNumber && themeOptions !== null && (
 								<div className="wp-block-capitola-footer__contact-link --phone">
@@ -193,23 +202,28 @@ export default function Edit( props ) {
 						) }
 						{ showSocials && themeOptions !== null && (
 							<div className="wp-block-capitola-footer__social-links">
-								{ Object.keys( themeOptions.capitola_social_links ).map( ( key ) => {
-									if ( themeOptions.capitola_social_links[ key ] ) {
-										return (
-											<div key={ key }>
-												<span className={ `wp-block-capitola-footer__social-link --${ key }` } />
-											</div>
-										);
+								{ Object.keys( themeOptions.capitola_social_links ).map(
+									( key ) => {
+										if ( themeOptions.capitola_social_links[ key ] ) {
+											return (
+												<div key={ key }>
+													<span
+														className={ `wp-block-capitola-footer__social-link --${ key }` }
+													/>
+												</div>
+											);
+										}
+										return null;
 									}
-									return null;
-								} ) }
+								) }
 							</div>
 						) }
 					</div>
 				</div>
 				{ siteInfo !== null && (
 					<div className="wp-block-capitola-footer__copyright">
-						&copy;{ year }, <span dangerouslySetInnerHTML={ { __html: `${ siteInfo.name }` } } />
+						&copy;{ year },{ ' ' }
+						<span dangerouslySetInnerHTML={ { __html: `${ siteInfo.name }` } } />
 					</div>
 				) }
 			</div>

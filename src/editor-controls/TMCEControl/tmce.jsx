@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import { debounce } from '@wordpress/compose';
 const { wp } = window;
 import { useEffect, useRef } from '@wordpress/element';
@@ -47,7 +45,9 @@ export default function ClassicEdit( props ) {
 				// There is an issue with Chrome and the editor.focus call in core at https://core.trac.wordpress.org/browser/trunk/src/js/_enqueues/lib/link.js#L451.
 				// This causes a scroll to the top of editor content on return from some content updating dialogs so tracking
 				// scroll position until this is fixed in core.
-				const scrollContainer = document.querySelector( '.interface-interface-skeleton__content' );
+				const scrollContainer = document.querySelector(
+					'.interface-interface-skeleton__content'
+				);
 				const scrollPosition = scrollContainer.scrollTop;
 
 				editor.once( 'focus', () => {
@@ -125,7 +125,8 @@ export default function ClassicEdit( props ) {
 						toolbar4: '',
 						content_css: false,
 						fixed_toolbar_container: `#toolbar-${ editorId }`,
-						content_style: '.capitola-tiny-mce-control ul { list-style:disc;padding-left:14px; }',
+						content_style:
+							'.capitola-tiny-mce-control ul { list-style:disc;padding-left:14px; }',
 						setup: onSetup,
 					},
 				} );
@@ -183,7 +184,11 @@ export default function ClassicEdit( props ) {
 			data-placeholder="Classic"
 			onKeyDown={ onToolbarKeyDown }
 		/>,
-		<div key="editor" id={ `editor-${ editorId }` } className="block-library-rich-text__tinymce" />,
+		<div
+			key="editor"
+			id={ `editor-${ editorId }` }
+			className="block-library-rich-text__tinymce"
+		/>,
 	];
 	/* eslint-enable jsx-a11y/no-static-element-interactions */
 }

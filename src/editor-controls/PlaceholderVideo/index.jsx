@@ -1,6 +1,10 @@
 function PlaceholderVideo( { hasBgColor = true, style = {}, className = '' } ) {
 	const styleObj = {
-		...{ objectFit: 'contain', opacity: '0.5', backgroundColor: hasBgColor ? '#CCCCCC' : 'none' },
+		...{
+			objectFit: 'contain',
+			opacity: '0.5',
+			backgroundColor: hasBgColor ? '#CCCCCC' : 'none',
+		},
 		...style,
 	};
 	return (

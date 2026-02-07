@@ -9,7 +9,7 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: `alignfull --theme-${ colorTheme }`,
+				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 			} ) }
 		>
 			<InspectorControls group="settings">
@@ -53,7 +53,7 @@ export default function Edit( props ) {
 			<div
 				{ ...useInnerBlocksProps(
 					{
-						className: 'wp-block-capitola-image-link-grid-block__width',
+						className: 'alignwide wp-block-capitola-image-link-grid-block__width',
 					},
 					{
 						template: [ [ 'capitola/body-text' ], [ 'capitola/image-link-grid' ] ],

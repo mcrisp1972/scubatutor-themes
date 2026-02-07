@@ -1,5 +1,11 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl, TextControl, RadioControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+	RadioControl,
+} from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import { useSelect } from '@wordpress/data';
 import {
@@ -11,7 +17,7 @@ import {
 	repeaterOnChange,
 } from '../../editor-controls';
 import postTile from '../post-feed/postTile';
-import postFeedTemplate from '../post-feed/postFeedTemplate';
+import PostFeedTemplate from '../post-feed/postFeedTemplate';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -48,7 +54,11 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div { ...useBlockProps( { className: 'alignfull is-layout-constrained has-global-padding ' } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: 'alignfull is-layout-constrained has-global-padding ',
+			} ) }
+		>
 			<InspectorControls group="settings">
 				<PanelBody title="Query Options" initialOpen={ true }>
 					<SelectControl
@@ -79,7 +89,13 @@ export default function Edit( props ) {
 									label="Post"
 									value={ props.attributes.posts[ index ].post_id }
 									onChange={ ( value ) => {
-										repeaterOnChange( attribute, 'post_id', value, index, props );
+										repeaterOnChange(
+											attribute,
+											'post_id',
+											value,
+											index,
+											props
+										);
 									} }
 									postType={ postType }
 								/>,
@@ -188,7 +204,7 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ postFeedTemplate( props, postObjects, postTile ) }
+			{ PostFeedTemplate( props, postObjects, postTile ) }
 		</div>
 	);
 }

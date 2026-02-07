@@ -16,12 +16,16 @@ export default function Edit( props ) {
 
 	const twoThirdsFirstClass = ( innerBlockCount + 1 ) % 3 === 0 ? ' --two-thirds-first' : '';
 
-	const twoThirdsFirstTwoClass = ( innerBlockCount + 2 ) % 3 === 0 ? ' --two-thirds-first --two-thirds-second' : '';
+	const twoThirdsFirstTwoClass =
+		( innerBlockCount + 2 ) % 3 === 0 ? ' --two-thirds-first --two-thirds-second' : '';
 
-	const oneHalfFirstClass = gridLayout === '4-col' && ( innerBlockCount + 1 ) % 4 === 0 ? ' --one-half-first' : '';
+	const oneHalfFirstClass =
+		gridLayout === '4-col' && ( innerBlockCount + 1 ) % 4 === 0 ? ' --one-half-first' : '';
 
 	const oneHalfFirstTwoClass =
-		gridLayout === '4-col' && ( innerBlockCount + 2 ) % 4 === 0 ? ' --one-half-first --one-half-second' : '';
+		gridLayout === '4-col' && ( innerBlockCount + 2 ) % 4 === 0
+			? ' --one-half-first --one-half-second'
+			: '';
 
 	const oneHalfFirstThreeClass =
 		gridLayout === '4-col' && ( innerBlockCount + 3 ) % 4 === 0

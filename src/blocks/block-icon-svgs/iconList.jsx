@@ -14,7 +14,15 @@ function IconList() {
 			>
 				{ Object.keys( svgs ).map( ( icon ) => {
 					return (
-						<div key={ icon } style={ { display: 'flex', gap: '16px', flexBasis: '22%', flexShrink: '0' } }>
+						<div
+							key={ icon }
+							style={ {
+								display: 'flex',
+								gap: '16px',
+								flexBasis: '22%',
+								flexShrink: '0',
+							} }
+						>
 							{ svgs[ icon ] }
 							{ icon }
 						</div>

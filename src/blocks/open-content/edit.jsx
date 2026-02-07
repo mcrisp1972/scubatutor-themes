@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { ToolbarGroup } from '@wordpress/components';
 import { ColorThemePanel, JustifyToolbar, TextAlignToolbar } from '../../editor-controls';
 
@@ -23,7 +28,11 @@ export default function Edit( props ) {
 						options={ [ 'right', 'left', 'center' ] }
 					/>
 					{ contentJustify === 'center' && (
-						<TextAlignToolbar props={ props } attribute="textAlign" options={ [ 'left', 'center' ] } />
+						<TextAlignToolbar
+							props={ props }
+							attribute="textAlign"
+							options={ [ 'left', 'center' ] }
+						/>
 					) }
 				</ToolbarGroup>
 			</BlockControls>

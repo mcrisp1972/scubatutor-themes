@@ -1,6 +1,5 @@
 import { BaseControl, useBaseControlProps } from '@wordpress/components';
-// eslint-disable-next-line no-unused-vars
-import { GoogleMap, useLoadScript, Marker, useJsApiLoader, Autocomplete } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, Autocomplete } from '@react-google-maps/api';
 import { useState } from '@wordpress/element';
 
 function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
@@ -17,8 +16,8 @@ function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
 
 	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
 
-	function onLoadAC( autocomplete ) {
-		setAutocomplete( autocomplete );
+	function onLoadAC( string ) {
+		setAutocomplete( string );
 	}
 
 	return (
@@ -38,12 +37,7 @@ function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
 						zoomControl: true,
 					} }
 				>
-					{ !! value && (
-						<Marker
-							//   onLoad={onLoad}
-							position={ center }
-						/>
-					) }
+					{ !! value && <Marker position={ center } /> }
 
 					<Autocomplete
 						onLoad={ onLoadAC }
@@ -60,7 +54,9 @@ function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
 						<input
 							type="text"
 							className="components-text-control__input"
-							placeholder={ !! value && value.address ? value.address : 'Search for Address' }
+							placeholder={
+								!! value && value.address ? value.address : 'Search for Address'
+							}
 							style={ {
 								textOverflow: 'ellipses',
 								position: 'relative',

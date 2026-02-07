@@ -1,4 +1,3 @@
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { Button, Icon } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 
@@ -14,23 +13,23 @@ function RepeaterControls( {
 	allowNull = false,
 	style = {},
 } ) {
-	const moveBefore = ( index ) => {
+	const moveBefore = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		const moved = rows.slice( index - 1, index + 1 );
+		const moved = rows.slice( i - 1, i + 1 );
 		rows.splice( index - 1, 2, moved[ 1 ], moved[ 0 ] );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
-	const moveAfter = ( index ) => {
+	const moveAfter = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		const moved = rows.slice( index, index + 2 );
-		rows.splice( index, 2, moved[ 1 ], moved[ 0 ] );
+		const moved = rows.slice( i, i + 2 );
+		rows.splice( i, 2, moved[ 1 ], moved[ 0 ] );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
-	const removeRow = ( index ) => {
+	const removeRow = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		rows.splice( index, 1 );
+		rows.splice( i, 1 );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
@@ -79,7 +78,9 @@ function RepeaterControls( {
 	function AddBeforeButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-controls__button --add-before ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-controls__button --add-before ${
+					vertical ? '--vertical' : ''
+				}` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index, 0, { ...newValues } );
@@ -93,7 +94,9 @@ function RepeaterControls( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-controls__button --add-after ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-controls__button --add-after ${
+					vertical ? '--vertical' : ''
+				}` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );

@@ -3,7 +3,7 @@ import { Platform } from '@wordpress/element';
 import { createBlock, getDefaultBlockName } from '@wordpress/blocks';
 import HeadingLevelDropdown from './htag-dropdown';
 
-export default function edit( { attributes, setAttributes, onReplace, clientId } ) {
+export default function Edit( { attributes, setAttributes, onReplace, clientId } ) {
 	const { content, tag, textAlign } = attributes;
 
 	return (

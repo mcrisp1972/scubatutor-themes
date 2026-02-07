@@ -1,5 +1,4 @@
 import Swiper from 'swiper';
-// eslint-disable-next-line import/no-unresolved
 import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 
 class smallImageSlider {

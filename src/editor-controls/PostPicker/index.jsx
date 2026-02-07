@@ -64,7 +64,10 @@ function PostPicker( { label, value, onChange, postType, orderBy } ) {
 		choices.push( { value: 0, label: 'Loading...' } );
 	}
 
-	const { baseControlProps, controlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>

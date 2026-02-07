@@ -1,5 +1,11 @@
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-import { PanelBody, BaseControl, useBaseControlProps, Button, Icon, Tip } from '@wordpress/components';
+import {
+	PanelBody,
+	BaseControl,
+	useBaseControlProps,
+	Button,
+	Icon,
+	Tip,
+} from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
 
 export function repeaterOnChange( attribute, key, value, index, props ) {
@@ -14,12 +20,12 @@ export function repeaterOnChange( attribute, key, value, index, props ) {
 
 function Repeater( { props, label, pluralLabel, fields, attribute, newObject, help } ) {
 	const addRow = () => {
-		const rows =
-			typeof newObject === 'object'
-				? [ ...props.attributes[ attribute ] ]
-				: props.attributes[ attribute ]
-				? props.attributes[ attribute ]
-				: [];
+		let rows = [];
+		if ( typeof newObject === 'object' ) {
+			rows = [ ...props.attributes[ attribute ] ];
+		} else if ( props.attributes[ attribute ] ) {
+			rows = props.attributes[ attribute ];
+		}
 
 		rows.push( newObject );
 		props.setAttributes( { [ attribute ]: rows } );

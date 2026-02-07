@@ -37,7 +37,9 @@ export default function Edit( props ) {
 										allowedFormats={ [] }
 										placeholder="Label..."
 										onChange={ ( value ) => {
-											updateBlockAttributes( block.clientId, { pillLabel: value } );
+											updateBlockAttributes( block.clientId, {
+												pillLabel: value,
+											} );
 										} }
 									/>
 								);
@@ -49,17 +51,24 @@ export default function Edit( props ) {
 									type="button"
 									data-panel={ block.clientId }
 									onClick={ ( e ) => {
-										setAttributes( { activePanel: e.target.getAttribute( 'data-panel' ) } );
+										setAttributes( {
+											activePanel: e.target.getAttribute( 'data-panel' ),
+										} );
 									} }
 								>
-									{ block.attributes.pillLabel ? block.attributes.pillLabel : 'New Tab' }
+									{ block.attributes.pillLabel
+										? block.attributes.pillLabel
+										: 'New Tab' }
 								</button>
 							);
 						} ) }
 						<button
 							className="wp-block-capitola-tabbed-contents-tabs__tab"
 							onClick={ () => {
-								const newPanel = createBlock( 'capitola/tabbed-contents-panel', {} );
+								const newPanel = createBlock(
+									'capitola/tabbed-contents-panel',
+									{}
+								);
 								insertBlock( newPanel, innerBlocks.length, clientId );
 								setAttributes( { activePanel: newPanel.clientId } );
 							} }

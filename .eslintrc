@@ -1,29 +1,32 @@
 {
-    "extends": [
-        "plugin:prettier/recommended",
-        "plugin:@wordpress/eslint-plugin/recommended"
-    ],
-    "plugins": [
-        "@wordpress"
-    ],
-    "ignorePatterns": ["webpack.config.js", "**/vendor/*.js"],
-    "rules": {
-        "indent": "off",
-        "react-hooks/rules-of-hooks": "off",
-        "@wordpress/no-wp-process-env": "error",
-        "no-shadow": "off",
-        "no-nested-ternary": "off",
-        "eqeqeq": "off",
-        "space-in-parens": ["error", "always"],
-		"arrow-body-style": ["error", "always"]
-    },
-    "env": {
-        "jest": true,
-        "browser": true
-    },
-    "globals": {
-        "lodash": true,
-        "listingArgs": true,
-        "wpApiSettings": true
-    }
+	"extends": [
+		"plugin:prettier/recommended",
+		"plugin:@wordpress/eslint-plugin/recommended"
+	],
+	"plugins": [
+		"@wordpress"
+	],
+	"ignorePatterns": [
+		"webpack.config.js",
+		"**/vendor/*.js"
+	],
+	"rules": {
+		"space-in-parens": [
+			"error",
+			"always"
+		],
+		"arrow-body-style": [
+			"error",
+			"always"
+		]
+	},
+	"env": {
+		"jest": true,
+		"browser": true
+	},
+	"globals": {
+		"lodash": true,
+		"listingArgs": true,
+		"wpApiSettings": true
+	}
 }

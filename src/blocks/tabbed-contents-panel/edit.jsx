@@ -1,4 +1,9 @@
-import { useBlockProps, InnerBlocks, useInnerBlocksProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InnerBlocks,
+	useInnerBlocksProps,
+	InspectorControls,
+} from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { PanelBody, TextControl } from '@wordpress/components';
 

@@ -59,7 +59,12 @@ export default function Edit( props ) {
 					) }
 				</PanelBody>
 			</InspectorControls>
-			<div className={ 'wp-block-capitola-lightbox-gallery__inner-wrap' + ( isSticky ? ' --is-sticky' : '' ) }>
+			<div
+				className={
+					'wp-block-capitola-lightbox-gallery__inner-wrap' +
+					( isSticky ? ' --is-sticky' : '' )
+				}
+			>
 				<div className="wp-block-capitola-lightbox-gallery__main-image">
 					{ combinedImages[ 0 ]?.source_url ? (
 						<img src={ combinedImages[ 0 ].source_url } alt="" />
@@ -67,16 +72,21 @@ export default function Edit( props ) {
 						! combinedImages[ 0 ]?.source_url &&
 						( ! useFeaturedImage || ! featuredImageId ) && <PlaceholderImage />
 					) }
-					{ ! combinedImages[ 0 ]?.source_url && useFeaturedImage && !! featuredImageId && (
-						<Spinner style={ { width: '33%', height: '33%' } } />
-					) }
+					{ ! combinedImages[ 0 ]?.source_url &&
+						useFeaturedImage &&
+						!! featuredImageId && (
+							<Spinner style={ { width: '33%', height: '33%' } } />
+						) }
 				</div>
 				<div className="wp-block-capitola-lightbox-gallery__thumbnails">
 					{ !! combinedImages &&
 						combinedImages.length > 1 &&
 						combinedImages.map( ( image, index ) => {
 							return (
-								<div key={ index } className="wp-block-capitola-lightbox-gallery__thumbnail">
+								<div
+									key={ index }
+									className="wp-block-capitola-lightbox-gallery__thumbnail"
+								>
 									{ image?.source_url ? (
 										<img src={ image.source_url } alt="" />
 									) : (

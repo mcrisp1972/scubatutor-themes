@@ -1,11 +1,23 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, RadioControl, SelectControl, ToggleControl, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RadioControl,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { decodeEntities } from '@wordpress/html-entities';
 import { applyFilters } from '@wordpress/hooks';
-import { TagSelect, ColorThemePanel, AnimationPanel, LabeledSpinner, TruncateControl } from '../../editor-controls';
+import {
+	TagSelect,
+	ColorThemePanel,
+	AnimationPanel,
+	LabeledSpinner,
+	TruncateControl,
+} from '../../editor-controls';
 import postTile from './postTile';
-import postFeedTemplate from './postFeedTemplate';
+import PostFeedTemplate from './postFeedTemplate';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -43,7 +55,7 @@ export default function Edit( props ) {
 				postArgs.future_only = '1';
 			}
 
-			if ( postCategory != 0 ) {
+			if ( parseInt( postCategory ) !== 0 ) {
 				if ( postType === 'post' ) {
 					postArgs.categories = postCategory;
 				} else {
@@ -217,7 +229,7 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			{ postFeedTemplate( props, posts, postTile ) }
+			{ PostFeedTemplate( props, posts, postTile ) }
 		</div>
 	);
 }

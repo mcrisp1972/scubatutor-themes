@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { PanelBody, RadioControl, RangeControl, ToolbarGroup } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -124,7 +129,9 @@ export default function Edit( props ) {
 						label="Image"
 						value={ frontImage.id }
 						onChange={ ( value ) => {
-							setAttributes( { frontImage: { id: value.id, source_url: value.url } } );
+							setAttributes( {
+								frontImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<RadioControl
@@ -194,7 +201,11 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left' ] }
+					/>
 					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					<AspectRatioToolbar
 						props={ props }
@@ -219,7 +230,11 @@ export default function Edit( props ) {
 							'--capitola-objectPosition': rearImageCropPosition,
 						} }
 					>
-						{ rearImage?.source_url ? <img src={ rearImage?.source_url } alt="" /> : <PlaceholderImage /> }
+						{ rearImage?.source_url ? (
+							<img src={ rearImage?.source_url } alt="" />
+						) : (
+							<PlaceholderImage />
+						) }
 					</figure>
 					<figure
 						className={ `wp-block-capitola-two-image-block__front-image ${
@@ -231,7 +246,11 @@ export default function Edit( props ) {
 							'--capitola-objectPosition': frontImageCropPosition,
 						} }
 					>
-						{ frontImage?.source_url ? <img src={ frontImage.source_url } alt="" /> : <PlaceholderImage /> }
+						{ frontImage?.source_url ? (
+							<img src={ frontImage.source_url } alt="" />
+						) : (
+							<PlaceholderImage />
+						) }
 					</figure>
 				</div>
 			</div>

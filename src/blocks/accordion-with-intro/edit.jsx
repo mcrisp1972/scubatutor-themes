@@ -27,7 +27,9 @@ export default function Edit( props ) {
 						checked={ accordionBlock?.attributes?.keepOpen || false }
 						onChange={ ( value ) => {
 							if ( accordionBlock ) {
-								updateBlockAttributes( accordionBlock.clientId, { keepOpen: value } );
+								updateBlockAttributes( accordionBlock.clientId, {
+									keepOpen: value,
+								} );
 							}
 						} }
 						__nextHasNoMarginBottom
@@ -46,7 +48,10 @@ export default function Edit( props ) {
 						}`,
 					},
 					{
-						template: [ [ 'capitola/body-text', { verticalAlign: 'top' } ], [ 'capitola/accordion' ] ],
+						template: [
+							[ 'capitola/body-text', { verticalAlign: 'top' } ],
+							[ 'capitola/accordion' ],
+						],
 						templateLock: 'all',
 					}
 				) }

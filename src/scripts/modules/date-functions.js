@@ -40,9 +40,15 @@ export function dateTimeRange( start, end, allDay = null ) {
 		}
 		if ( ! allDay ) {
 			const startTimeFormat =
-				'g' + ( startMinute !== '00' ? ':i' : '' ) + ( startMeridiem !== endMeridiem ? 'a' : '' );
+				'g' +
+				( startMinute !== '00' ? ':i' : '' ) +
+				( startMeridiem !== endMeridiem ? 'a' : '' );
 			const endTimeFormat = 'g' + ( startMinute !== '00' ? ':i' : '' ) + 'a';
-			string += ', ' + format( startTimeFormat, startTimestamp ) + '-' + format( endTimeFormat, endTimestamp );
+			string +=
+				', ' +
+				format( startTimeFormat, startTimestamp ) +
+				'-' +
+				format( endTimeFormat, endTimestamp );
 		}
 		return string;
 	}

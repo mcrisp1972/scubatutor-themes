@@ -41,8 +41,8 @@ function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 							checked={ value !== undefined && value.includes( i.value ) }
 							key={ i.value }
 							onChange={ ( checked ) => {
-								value = value.filter( ( value ) => {
-									return value !== i.value;
+								value = value.filter( ( v ) => {
+									return v !== i.value;
 								} );
 								if ( checked ) {
 									value.push( i.value );

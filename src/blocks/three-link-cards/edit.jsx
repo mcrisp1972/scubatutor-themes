@@ -22,7 +22,10 @@ export default function Edit( props ) {
 						className: `wp-block-capitola-three-link-cards__width alignwide --layout-${ introAlign }`,
 					},
 					{
-						template: [ [ 'capitola/body-text' ], [ 'capitola/three-link-cards-grid' ] ],
+						template: [
+							[ 'capitola/body-text' ],
+							[ 'capitola/three-link-cards-grid' ],
+						],
 						templateLock: 'all',
 					}
 				) }

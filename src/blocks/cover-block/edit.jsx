@@ -35,26 +35,41 @@ export default function Edit( props ) {
 		isHeroVariation,
 	} = attributes;
 
-	const featuredImageId = ! isHeroVariation
-		? 0
-		: useSelect( ( select ) => {
-				return select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
-		  }, [] );
+	const featuredImageId = useSelect(
+		( select ) => {
+			if ( ! isHeroVariation ) {
+				return 0;
+			}
+			return select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
+		},
+		[ isHeroVariation ]
+	);
 
 	const imageObject = useSelect(
 		( select ) => {
 			if ( backgroundImage.source_url ) {
 				return backgroundImage;
 			}
-			const imageId = backgroundImage.id ? backgroundImage.id : isHeroVariation ? featuredImageId : false;
-			return imageId ? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId ) : undefined;
+			let imageId;
+			if ( backgroundImage.id ) {
+				imageId = backgroundImage.id;
+			} else if ( isHeroVariation ) {
+				imageId = featuredImageId;
+			} else {
+				imageId = false;
+			}
+			return imageId
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+				: undefined;
 		},
 		[ backgroundImage, isHeroVariation, featuredImageId ]
 	);
 
 	const postTitle = useSelect(
 		( select ) => {
-			return isHeroVariation ? select( 'core/editor' ).getEditedPostAttribute( 'title' ) : false;
+			return isHeroVariation
+				? select( 'core/editor' ).getEditedPostAttribute( 'title' )
+				: false;
 		},
 		[ isHeroVariation ]
 	);
@@ -62,7 +77,8 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: 'alignfull --theme-image-overlay ' + ( isHeroVariation ? '--hero-height' : '' ),
+				className:
+					'alignfull --theme-image-overlay ' + ( isHeroVariation ? '--hero-height' : '' ),
 			} ) }
 		>
 			<InspectorControls>
@@ -71,7 +87,9 @@ export default function Edit( props ) {
 						label="Image"
 						value={ backgroundImage.id }
 						onChange={ ( value ) => {
-							setAttributes( { backgroundImage: { id: value.id, source_url: value.url } } );
+							setAttributes( {
+								backgroundImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<ImageAlignMatrix
@@ -115,20 +133,28 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<JustifyToolbar props={ props } attribute="introAlign" options={ [ 'left', 'center', 'right' ] } />
+					<JustifyToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'left', 'center', 'right' ] }
+					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<div
 				className="wp-block-capitola-cover-block__image"
-				style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
+				style={ {
+					'--capitola-overlayOpacity': imageOpacity,
+					'--capitola-objectPosition': imageCropPosition,
+				} }
 			>
-				{ imageObject?.source_url ? (
-					<img src={ imageObject.source_url } alt="" />
-				) : backgroundImage.id || featuredImageId ? (
-					<Spinner style={ { width: '33%', height: '33%' } } />
-				) : (
-					<PlaceholderImage hasBgColor={ false } />
-				) }
+				{ ( () => {
+					if ( imageObject?.source_url ) {
+						return <img src={ imageObject.source_url } alt="" />;
+					} else if ( backgroundImage.id || featuredImageId ) {
+						return <Spinner style={ { width: '33%', height: '33%' } } />;
+					}
+					return <PlaceholderImage hasBgColor={ false } />;
+				} )() }
 			</div>
 			<div className={ `wp-block-capitola-cover-block__body --align-${ introAlign }` }>
 				<RichText

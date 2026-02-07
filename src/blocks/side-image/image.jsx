@@ -3,7 +3,13 @@ import { Spinner } from '@wordpress/components';
 
 import { PlaceholderImage, ImageSelectButton } from '../../editor-controls';
 
-export function Image( { imageObject, imageRatioClass = '', radiusClass = '', featuredImage, props } ) {
+export function Image( {
+	imageObject,
+	imageRatioClass = '',
+	radiusClass = '',
+	featuredImage,
+	props,
+} ) {
 	// if we have an image URL to display (either internal or external)
 	if ( imageObject?.source_url ) {
 		return (
@@ -17,7 +23,9 @@ export function Image( { imageObject, imageRatioClass = '', radiusClass = '', fe
 				{ props.isSelected && ! props.attributes.externalImage && (
 					<ImageSelectButton
 						onSelect={ ( value ) => {
-							props.setAttributes( { sideImage: { id: value.id, source_url: value.url } } );
+							props.setAttributes( {
+								sideImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 						value={ props.attributes.sideImage.id }
 						flexWrap={ true }
@@ -47,7 +55,13 @@ export function Image( { imageObject, imageRatioClass = '', radiusClass = '', fe
 	) {
 		return (
 			<Spinner
-				style={ { width: '33%', height: '33%', marginLeft: 'auto', marginRight: 'auto', display: 'block' } }
+				style={ {
+					width: '33%',
+					height: '33%',
+					marginLeft: 'auto',
+					marginRight: 'auto',
+					display: 'block',
+				} }
 			/>
 		);
 	}

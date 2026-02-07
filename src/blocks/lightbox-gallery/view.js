@@ -1,5 +1,4 @@
 import Swiper from 'swiper';
-// eslint-disable-next-line import/no-unresolved
 import { Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 class lightboxGallery {

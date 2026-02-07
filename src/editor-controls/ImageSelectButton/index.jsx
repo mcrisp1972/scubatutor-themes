@@ -1,7 +1,13 @@
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 
-function ImageSelectButton( { value, onSelect, allowedTypes = [ 'image' ], label = false, flexWrap = false } ) {
+function ImageSelectButton( {
+	value,
+	onSelect,
+	allowedTypes = [ 'image' ],
+	label = false,
+	flexWrap = false,
+} ) {
 	const ConditionalWrap = ( { condition, wrap, children } ) => {
 		return condition ? wrap( children ) : children;
 	};
@@ -19,17 +25,28 @@ function ImageSelectButton( { value, onSelect, allowedTypes = [ 'image' ], label
 						<ConditionalWrap
 							condition={ flexWrap }
 							wrap={ ( children ) => {
-								return <div className="capitola-image-select-button__outer-flex-wrap">{ children }</div>;
+								return (
+									<div className="capitola-image-select-button__outer-flex-wrap">
+										{ children }
+									</div>
+								);
 							} }
 						>
-							<Button variant="primary" className="capitola-image-select-button" onClick={ open }>
-								{ label
-									? label
-									: typeof value === 'object'
-									? 'Edit Images'
-									: value
-									? 'Change Image'
-									: 'Choose Image' }
+							<Button
+								variant="primary"
+								className="capitola-image-select-button"
+								onClick={ open }
+							>
+								{ ( () => {
+									if ( label ) {
+										return label;
+									} else if ( typeof value === 'object' ) {
+										return 'Edit Images';
+									} else if ( value ) {
+										return 'Change Image';
+									}
+									return 'Choose Image';
+								} )() }
 							</Button>
 						</ConditionalWrap>
 					);

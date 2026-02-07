@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { PanelBody, ToolbarGroup, ToggleControl } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -39,7 +44,8 @@ export default function Edit( props ) {
 		}
 	);
 
-	const radiusClass = introRadius !== 'none' && colorThemeBody ? ` --has-${ introRadius }-radius` : '';
+	const radiusClass =
+		introRadius !== 'none' && colorThemeBody ? ` --has-${ introRadius }-radius` : '';
 
 	return (
 		<div
@@ -58,21 +64,27 @@ export default function Edit( props ) {
 						label="Desktop Image"
 						value={ desktopImage.id }
 						onChange={ ( value ) => {
-							return setAttributes( { desktopImage: { id: value.id, source_url: value.url } } );
+							return setAttributes( {
+								desktopImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<ImageSelect
 						label="Tablet Image"
 						value={ tabletImage.id }
 						onChange={ ( value ) => {
-							return setAttributes( { tabletImage: { id: value.id, source_url: value.url } } );
+							return setAttributes( {
+								tabletImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<ImageSelect
 						label="Mobile Image"
 						value={ mobileImage.id }
 						onChange={ ( value ) => {
-							return setAttributes( { mobileImage: { id: value.id, source_url: value.url } } );
+							return setAttributes( {
+								mobileImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 				</PanelBody>
@@ -101,7 +113,11 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<JustifyToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left', 'center' ] } />
+					<JustifyToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left', 'center' ] }
+					/>
 					{ colorThemeBody && (
 						<RadiusToolbar
 							props={ props }
@@ -112,7 +128,10 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
-				<div className="wp-block-capitola-fixed-background__opacity" style={ { opacity: imageOpacity } } />
+				<div
+					className="wp-block-capitola-fixed-background__opacity"
+					style={ { opacity: imageOpacity } }
+				/>
 				{ children }
 			</div>
 		</div>

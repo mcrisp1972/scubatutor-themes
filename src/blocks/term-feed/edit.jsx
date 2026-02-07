@@ -1,9 +1,15 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, RadioControl, SelectControl, ToggleControl, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RadioControl,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
 import termTile from './termTile';
-import postFeedTemplate from '../post-feed/postFeedTemplate';
+import PostFeedTemplate from '../post-feed/postFeedTemplate';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -161,7 +167,7 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ postFeedTemplate( props, terms, termTile ) }
+			{ PostFeedTemplate( props, terms, termTile ) }
 		</div>
 	);
 }

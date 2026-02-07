@@ -10,7 +10,8 @@ import {
 } from '@wordpress/components';
 import { dateI18n, format } from '@wordpress/date';
 
-const currentTimezone = typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
+const currentTimezone =
+	typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
 
 function DateTimePicker( { value, onChange, onClear, label } ) {
 	const buttonLabel = 'Select Date';
@@ -21,7 +22,10 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 
 	const formattedDate = value ? dateI18n( resolvedFormat, value, currentTimezone ) : buttonLabel;
 
-	const { baseControlProps, controlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>
@@ -98,16 +102,36 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 							<div className="components-datetime" style={ { minWidth: '230px' } }>
 								<CoreDatePicker
 									currentDate={ value }
-									onChange={ ( value ) => {
-										onChange( format( 'Y-m-d', value ) + 'T' + hour + ':' + minute + ':00' );
+									onChange={ ( newValue ) => {
+										onChange(
+											format( 'Y-m-d', newValue ) +
+												'T' +
+												hour +
+												':' +
+												minute +
+												':00'
+										);
 									} }
 									onMonthPreviewed={ () => {} }
 								/>
-								<div style={ { display: 'flex', alignItems: 'center', marginTop: '16px' } }>
+								<div
+									style={ {
+										display: 'flex',
+										alignItems: 'center',
+										marginTop: '16px',
+									} }
+								>
 									<select
 										value={ hour }
 										onChange={ ( event ) => {
-											onChange( date + 'T' + event.target.value + ':' + minute + ':00' );
+											onChange(
+												date +
+													'T' +
+													event.target.value +
+													':' +
+													minute +
+													':00'
+											);
 										} }
 									>
 										{ format( 'a', value ) !== 'pm' && (
@@ -146,7 +170,9 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 									<select
 										value={ format( 'i', value ) }
 										onChange={ ( event ) => {
-											onChange( date + 'T' + hour + ':' + event.target.value + ':00' );
+											onChange(
+												date + 'T' + hour + ':' + event.target.value + ':00'
+											);
 										} }
 									>
 										<option value="00">00</option>
@@ -166,15 +192,18 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 										<ToggleGroupControl
 											label={ false }
 											value={ parseInt( hour ) < 12 ? 'AM' : 'PM' }
-											onChange={ ( value ) => {
-												if ( value === 'AM' && parseInt( hour ) >= 12 ) {
+											onChange={ ( newValue ) => {
+												if ( newValue === 'AM' && parseInt( hour ) >= 12 ) {
 													const newHour = parseInt( hour ) - 12;
 													onChange(
 														`${ date }T${ newHour
 															.toString()
 															.padStart( 2, '0' ) }:${ minute }:00`
 													);
-												} else if ( value === 'PM' && parseInt( hour ) < 12 ) {
+												} else if (
+													newValue === 'PM' &&
+													parseInt( hour ) < 12
+												) {
 													const newHour = parseInt( hour ) + 12;
 													onChange(
 														`${ date }T${ newHour

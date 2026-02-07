@@ -1,4 +1,10 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, RichText, LinkControl } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+	LinkControl,
+} from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { PanelBody, TextControl, Popover } from '@wordpress/components';
 import { useState } from '@wordpress/element';
@@ -11,7 +17,9 @@ export default function Edit( props ) {
 
 	const imageObject = useSelect(
 		( select ) => {
-			return imageId ? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId ) : undefined;
+			return imageId
+				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+				: undefined;
 		},
 		[ imageId ]
 	);
@@ -129,7 +137,9 @@ export default function Edit( props ) {
 					<div
 						{ ...useInnerBlocksProps(
 							{
-								className: 'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' + linksPerColumn,
+								className:
+									'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' +
+									linksPerColumn,
 							},
 							{
 								defaultBlock: { name: 'capitola/nav-sublink' },

@@ -19,20 +19,16 @@ if ( ! $image_id ) {
 	$image_id = get_post_thumbnail_id( $attributes['postId'] );
 }
 
-?>
-
-<a
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => '--theme-image-overlay',
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => '--theme-image-overlay',
 	)
 );
+
 ?>
-href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>;">
+
+<a <?php echo wp_kses_data( $wrapper_attributes ); ?> href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>;">
 	<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
 	<div class="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
 	<div class="wp-block-capitola-image-link-grid-item__text-content">

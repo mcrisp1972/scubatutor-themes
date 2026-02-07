@@ -1,8 +1,11 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+} from '@wordpress/block-editor';
 import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
-// eslint-disable-next-line import/no-unresolved
 import { Navigation } from 'swiper/modules';
-// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useRef } from '@wordpress/element';
 import {
@@ -23,7 +26,8 @@ export default function Edit( props ) {
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding',
+			className:
+				'wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding',
 		},
 		{
 			template: [ [ 'capitola/body-text' ] ],
@@ -117,23 +121,30 @@ export default function Edit( props ) {
 											aspectRatio === 'square' ? '--square' : ''
 										}` }
 									>
-										{ !! slide.image.source_url && <img src={ slide.image.source_url } alt="" /> }
-										{ ! slide.image.source_url && <PlaceholderImage /> }
-										{ isSelected && swiperIndex === index && slides[ index ].image.id === 0 && (
-											<ImageSelectButton
-												onSelect={ ( value ) => {
-													const newSlides = [ ...slides ];
-													newSlides[ index ] = {
-														...newSlides[ index ],
-														image: { id: value.id, source_url: value.url },
-													};
-													setAttributes( {
-														slides: newSlides,
-													} );
-												} }
-												value={ slide.image.id }
-											/>
+										{ !! slide.image.source_url && (
+											<img src={ slide.image.source_url } alt="" />
 										) }
+										{ ! slide.image.source_url && <PlaceholderImage /> }
+										{ isSelected &&
+											swiperIndex === index &&
+											slides[ index ].image.id === 0 && (
+												<ImageSelectButton
+													onSelect={ ( value ) => {
+														const newSlides = [ ...slides ];
+														newSlides[ index ] = {
+															...newSlides[ index ],
+															image: {
+																id: value.id,
+																source_url: value.url,
+															},
+														};
+														setAttributes( {
+															slides: newSlides,
+														} );
+													} }
+													value={ slide.image.id }
+												/>
+											) }
 										{ swiperIndex === index && (
 											<RepeaterControls
 												index={ index }
@@ -150,7 +161,10 @@ export default function Edit( props ) {
 													const newSlides = [ ...slides ];
 													newSlides[ index ] = {
 														...newSlides[ index ],
-														image: { id: image.id, source_url: image.url },
+														image: {
+															id: image.id,
+															source_url: image.url,
+														},
 													};
 													setAttributes( {
 														slides: newSlides,
@@ -180,7 +194,10 @@ export default function Edit( props ) {
 							placeholder="Caption..."
 							onChange={ ( value ) => {
 								const newSlides = [ ...slides ];
-								newSlides[ swiperIndex ] = { ...newSlides[ swiperIndex ], caption: value };
+								newSlides[ swiperIndex ] = {
+									...newSlides[ swiperIndex ],
+									caption: value,
+								};
 								setAttributes( { slides: newSlides } );
 							} }
 						/>

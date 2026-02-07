@@ -17,9 +17,16 @@ import {
 	AspectRatioToolbar,
 	RadiusToolbar,
 } from '../../editor-controls';
-// eslint-disable-next-line import/no-unresolved
-import { Navigation, Pagination, EffectFade, EffectCreative, Autoplay, Thumbs } from 'swiper/modules';
-// eslint-disable-next-line import/no-unresolved
+
+import {
+	Navigation,
+	Pagination,
+	EffectFade,
+	EffectCreative,
+	Autoplay,
+	Thumbs,
+} from 'swiper/modules';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useRef } from '@wordpress/element';
 
@@ -56,6 +63,16 @@ export default function Edit( props ) {
 
 	const radiusClass = sliderRadius !== 'none' ? ` --has-${ sliderRadius }-radius` : '';
 	const stickyClass = stickySlider ? ' --sticky' : '';
+
+	// Determine Swiper effect without nested ternary
+	let swiperEffect;
+	if ( transition === 'fade' ) {
+		swiperEffect = 'fade';
+	} else if ( transition === 'stack' ) {
+		swiperEffect = 'creative';
+	} else {
+		swiperEffect = 'slide';
+	}
 
 	return (
 		<div
@@ -115,13 +132,21 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'left', 'right' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'left', 'right' ] }
+					/>
 					<AspectRatioToolbar
 						props={ props }
 						attribute="aspectRatio"
 						options={ [ '21-9', '16-9', '3-2', '4-3' ] }
 					/>
-					<RadiusToolbar props={ props } attribute="sliderRadius" options={ [ 'none', 'small', 'medium' ] } />
+					<RadiusToolbar
+						props={ props }
+						attribute="sliderRadius"
+						options={ [ 'none', 'small', 'medium' ] }
+					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
@@ -134,7 +159,14 @@ export default function Edit( props ) {
 							onSwiper={ ( swiper ) => {
 								return ( swiperRef.current = swiper );
 							} }
-							modules={ [ Navigation, Pagination, Thumbs, Autoplay, EffectFade, EffectCreative ] }
+							modules={ [
+								Navigation,
+								Pagination,
+								Thumbs,
+								Autoplay,
+								EffectFade,
+								EffectCreative,
+							] }
 							loop={ false }
 							spaceBetween={ 0 }
 							speed={ transition === 'fade' ? 2000 : 600 }
@@ -154,7 +186,7 @@ export default function Edit( props ) {
 								swiper.params.pagination.el = paginationRef.current;
 							} }
 							autoplay={ false }
-							effect={ transition === 'fade' ? 'fade' : transition === 'stack' ? 'creative' : 'slide' }
+							effect={ swiperEffect }
 							fadeEffect={
 								transition === 'fade'
 									? {
@@ -187,23 +219,30 @@ export default function Edit( props ) {
 											key={ index }
 											className={ `--${ aspectRatio } --theme-image-overlay` }
 										>
-											{ slide.image.source_url && <img src={ slide.image.source_url } alt="" /> }
-											{ ! slide.image.source_url && <PlaceholderImage /> }
-											{ isSelected && swiperIndex === index && slides[ index ].image === 0 && (
-												<ImageSelectButton
-													onSelect={ ( value ) => {
-														const newSlides = [ ...slides ];
-														newSlides[ index ] = {
-															...newSlides[ index ],
-															image: { id: value.id, source_url: value.url },
-														};
-														setAttributes( {
-															slides: newSlides,
-														} );
-													} }
-													value={ slide.image.id }
-												/>
+											{ slide.image.source_url && (
+												<img src={ slide.image.source_url } alt="" />
 											) }
+											{ ! slide.image.source_url && <PlaceholderImage /> }
+											{ isSelected &&
+												swiperIndex === index &&
+												slides[ index ].image === 0 && (
+													<ImageSelectButton
+														onSelect={ ( value ) => {
+															const newSlides = [ ...slides ];
+															newSlides[ index ] = {
+																...newSlides[ index ],
+																image: {
+																	id: value.id,
+																	source_url: value.url,
+																},
+															};
+															setAttributes( {
+																slides: newSlides,
+															} );
+														} }
+														value={ slide.image.id }
+													/>
+												) }
 											{ slide.image.id !== 0 && (
 												<div className="wp-block-capitola-full-width-slider__slide-caption">
 													<RichText
@@ -227,7 +266,10 @@ export default function Edit( props ) {
 														placeholder="Link..."
 														onChange={ ( value ) => {
 															const newSlides = [ ...slides ];
-															newSlides[ index ] = { ...newSlides[ index ], link: value };
+															newSlides[ index ] = {
+																...newSlides[ index ],
+																link: value,
+															};
 															setAttributes( {
 																slides: newSlides,
 															} );
@@ -252,7 +294,10 @@ export default function Edit( props ) {
 														const newSlides = [ ...slides ];
 														newSlides[ index ] = {
 															...newSlides[ index ],
-															image: { id: image.id, source_url: image.url },
+															image: {
+																id: image.id,
+																source_url: image.url,
+															},
 														};
 														setAttributes( {
 															slides: newSlides,
@@ -273,14 +318,18 @@ export default function Edit( props ) {
 								ref={ navigationNextRef }
 								className="swiper-button-next"
 								style={
-									navigation === 'arrows' || navigation === 'thumbnails' ? {} : { display: 'none' }
+									navigation === 'arrows' || navigation === 'thumbnails'
+										? {}
+										: { display: 'none' }
 								}
 							/>
 							<div
 								ref={ navigationPrevRef }
 								className="swiper-button-prev"
 								style={
-									navigation === 'arrows' || navigation === 'thumbnails' ? {} : { display: 'none' }
+									navigation === 'arrows' || navigation === 'thumbnails'
+										? {}
+										: { display: 'none' }
 								}
 							/>
 							<div

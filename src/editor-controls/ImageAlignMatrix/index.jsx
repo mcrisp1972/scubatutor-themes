@@ -8,8 +8,8 @@ function ImageAlignMatrix( { label, value, onChange } ) {
 			<AlignmentMatrixControl
 				label="Image Alignment"
 				value={ value }
-				onChange={ ( value ) => {
-					onChange( value );
+				onChange={ ( newValue ) => {
+					onChange( newValue );
 				} }
 			/>
 		</BaseControl>

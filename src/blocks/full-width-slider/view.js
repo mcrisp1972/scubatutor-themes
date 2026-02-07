@@ -1,6 +1,12 @@
 import Swiper from 'swiper';
-// eslint-disable-next-line import/no-unresolved
-import { Navigation, Pagination, Thumbs, Autoplay, EffectFade, EffectCreative } from 'swiper/modules';
+import {
+	Navigation,
+	Pagination,
+	Thumbs,
+	Autoplay,
+	EffectFade,
+	EffectCreative,
+} from 'swiper/modules';
 
 class fullWidthSlider {
 	constructor( slider ) {
@@ -9,7 +15,9 @@ class fullWidthSlider {
 		const autoplay = main.dataset.autoplay;
 		const navigation = main.dataset.navigation;
 		const transition = main.dataset.transition;
-		const slideCount = thumbs ? thumbs.querySelector( '.swiper-wrapper' ).childElementCount : '';
+		const slideCount = thumbs
+			? thumbs.querySelector( '.swiper-wrapper' ).childElementCount
+			: '';
 
 		if ( thumbs ) {
 			// eslint-disable-next-line no-var
@@ -19,6 +27,15 @@ class fullWidthSlider {
 				loop: true,
 				grabCursor: true,
 			} );
+		}
+
+		function getSwiperEffect( option ) {
+			if ( option === 'fade' ) {
+				return 'fade';
+			} else if ( option === 'stack' ) {
+				return 'creative';
+			}
+			return 'slide';
 		}
 
 		new Swiper( main, {
@@ -47,7 +64,7 @@ class fullWidthSlider {
 						delay: 6000,
 				  }
 				: false,
-			effect: transition === 'fade' ? 'fade' : transition === 'stack' ? 'creative' : 'slide',
+			effect: getSwiperEffect( transition ),
 			creativeEffect:
 				transition === 'stack'
 					? {

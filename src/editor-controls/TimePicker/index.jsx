@@ -94,7 +94,14 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 									<select
 										value={ hour }
 										onChange={ ( event ) => {
-											onChange( year + 'T' + event.target.value + ':' + minute + ':00' );
+											onChange(
+												year +
+													'T' +
+													event.target.value +
+													':' +
+													minute +
+													':00'
+											);
 										} }
 									>
 										{ format( 'a', value ) !== 'pm' && (
@@ -133,7 +140,9 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 									<select
 										value={ format( 'i', value ) }
 										onChange={ ( event ) => {
-											onChange( year + 'T' + hour + ':' + event.target.value + ':00' );
+											onChange(
+												year + 'T' + hour + ':' + event.target.value + ':00'
+											);
 										} }
 									>
 										<option value="00">00</option>
@@ -153,20 +162,27 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 										<ToggleGroupControl
 											label={ false }
 											value={ parseInt( hour ) < 12 ? 'AM' : 'PM' }
-											onChange={ ( value ) => {
-												if ( value === 'AM' && parseInt( hour ) >= 12 ) {
+											onChange={ ( newValue ) => {
+												if ( newValue === 'AM' && parseInt( hour ) >= 12 ) {
 													const currentHour = hour;
 													onChange(
 														year +
 															'T' +
-															( currentHour - 12 ).toString().padStart( 2, '0' ) +
+															( currentHour - 12 )
+																.toString()
+																.padStart( 2, '0' ) +
 															':' +
 															minute +
 															':00'
 													);
-												} else if ( value === 'PM' && parseInt( hour ) < 12 ) {
+												} else if (
+													newValue === 'PM' &&
+													parseInt( hour ) < 12
+												) {
 													const newHour = parseInt( hour ) + 12;
-													onChange( year + 'T' + newHour + ':' + minute + ':00' );
+													onChange(
+														year + 'T' + newHour + ':' + minute + ':00'
+													);
 												}
 											} }
 										>

@@ -1,10 +1,16 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl, TextControl, RadioControl } from '@wordpress/components';
-import { useSelect, select } from '@wordpress/data';
+import {
+	PanelBody,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+	RadioControl,
+} from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
 import { applyFilters } from '@wordpress/hooks';
 import postTile from '../post-feed/postTile';
-import postFeedTemplate from '../post-feed/postFeedTemplate';
+import PostFeedTemplate from '../post-feed/postFeedTemplate';
 import { templatePostType } from '../../scripts/modules/template-post-type';
 
 export default function Edit( props ) {
@@ -27,7 +33,9 @@ export default function Edit( props ) {
 		isExample,
 	} = attributes;
 
-	const isTemplate = select( 'core/edit-site' ) !== undefined;
+	const isTemplate = useSelect( ( select ) => {
+		return select( 'core/edit-site' ) !== undefined;
+	}, [] );
 
 	const postTypeCats = applyFilters( 'capitola.postTypeCats' );
 
@@ -100,7 +108,17 @@ export default function Edit( props ) {
 
 			return select( 'core' ).getEntityRecords( 'postType', postType, args );
 		},
-		[ isExample, limit, pageID, pageParent, postID, postType, postsTypeQueryArgs, relatedCat, taxonomy ]
+		[
+			isExample,
+			limit,
+			pageID,
+			pageParent,
+			postID,
+			postType,
+			postsTypeQueryArgs,
+			relatedCat,
+			taxonomy,
+		]
 	);
 
 	return (
@@ -232,7 +250,11 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ postFeedTemplate( { ...props, attributes: { ...attributes, postType } }, relatedPosts, postTile ) }
+			{ PostFeedTemplate(
+				{ ...props, attributes: { ...attributes, postType } },
+				relatedPosts,
+				postTile
+			) }
 		</div>
 	);
 }

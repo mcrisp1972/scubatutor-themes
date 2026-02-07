@@ -1,4 +1,3 @@
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { Button, Icon, Popover } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
@@ -28,23 +27,23 @@ function RepeaterPopover( {
 		} );
 	};
 
-	const moveBefore = ( index ) => {
+	const moveBefore = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		const moved = rows.slice( index - 1, index + 1 );
-		rows.splice( index - 1, 2, moved[ 1 ], moved[ 0 ] );
+		const moved = rows.slice( i - 1, i + 1 );
+		rows.splice( i - 1, 2, moved[ 1 ], moved[ 0 ] );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
-	const moveAfter = ( index ) => {
+	const moveAfter = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		const moved = rows.slice( index, index + 2 );
-		rows.splice( index, 2, moved[ 1 ], moved[ 0 ] );
+		const moved = rows.slice( i, i + 2 );
+		rows.splice( i, 2, moved[ 1 ], moved[ 0 ] );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
-	const removeRow = ( index ) => {
+	const removeRow = ( i ) => {
 		const rows = [ ...props.attributes[ attribute ] ];
-		rows.splice( index, 1 );
+		rows.splice( i, 1 );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
@@ -96,7 +95,9 @@ function RepeaterPopover( {
 	function AddBeforeButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-popover__toolbar-button --add-before ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-popover__toolbar-button --add-before ${
+					vertical ? '--vertical' : ''
+				}` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index, 0, { ...newValues } );
@@ -111,7 +112,9 @@ function RepeaterPopover( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-popover__toolbar-button --add-after ${ vertical ? '--vertical' : '' }` }
+				className={ `capitola-repeater-popover__toolbar-button --add-after ${
+					vertical ? '--vertical' : ''
+				}` }
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );
@@ -165,7 +168,9 @@ function RepeaterPopover( {
 	return (
 		<>
 			<div
-				className={ `capitola-repeater-popover__trigger ${ fullButton ? '--full-button' : '' }` }
+				className={ `capitola-repeater-popover__trigger ${
+					fullButton ? '--full-button' : ''
+				}` }
 				role="button"
 				tabIndex={ 0 }
 				ref={ setPopoverAnchor }
@@ -181,7 +186,9 @@ function RepeaterPopover( {
 					variant="toolbar"
 					placement={ fullButton ? 'top-start' : 'top-end' }
 					className={
-						isMediaModalOpen ? 'capitola-repeater-popover --media-modal-open' : 'capitola-repeater-popover'
+						isMediaModalOpen
+							? 'capitola-repeater-popover --media-modal-open'
+							: 'capitola-repeater-popover'
 					}
 					onClose={ () => {
 						if ( ! isMediaModalOpen ) {
@@ -190,9 +197,13 @@ function RepeaterPopover( {
 					} }
 				>
 					<div className="capitola-repeater-popover__toolbar" style={ style }>
-						{ ( allowNull || props.attributes[ attribute ].length > 1 ) && <DeleteButton /> }
+						{ ( allowNull || props.attributes[ attribute ].length > 1 ) && (
+							<DeleteButton />
+						) }
 						{ index !== 0 && <MoveBeforeButton /> }
-						{ index !== props.attributes[ attribute ].length - 1 && <MoveAfterButton /> }
+						{ index !== props.attributes[ attribute ].length - 1 && (
+							<MoveAfterButton />
+						) }
 						<AddBeforeButton />
 						<AddAfterButton />
 						{ onImageChange ? imageButton( index ) : null }
@@ -200,7 +211,11 @@ function RepeaterPopover( {
 					{ children && (
 						<div className="capitola-repeater-popover__fields">
 							{ children }
-							<Button variant="primary" onClick={ toggleVisible } style={ { alignSelf: 'flex-start' } }>
+							<Button
+								variant="primary"
+								onClick={ toggleVisible }
+								style={ { alignSelf: 'flex-start' } }
+							>
 								Close
 							</Button>
 						</div>

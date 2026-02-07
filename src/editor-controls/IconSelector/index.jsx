@@ -38,8 +38,8 @@ function IconSelector( { label, value, onChange, icons, iconPath } ) {
 				},
 				...options,
 			] }
-			onChange={ ( value ) => {
-				onChange( value.selectedItem.key );
+			onChange={ ( newValue ) => {
+				onChange( newValue.selectedItem.key );
 			} }
 		/>
 	);

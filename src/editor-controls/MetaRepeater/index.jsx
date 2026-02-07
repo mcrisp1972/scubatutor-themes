@@ -1,4 +1,11 @@
-import { PanelBody, BaseControl, useBaseControlProps, Button, Icon, Tip } from '@wordpress/components';
+import {
+	PanelBody,
+	BaseControl,
+	useBaseControlProps,
+	Button,
+	Icon,
+	Tip,
+} from '@wordpress/components';
 import { dispatch } from '@wordpress/data';
 import { Fragment } from '@wordpress/element';
 
@@ -18,9 +25,17 @@ export function MetaRepeaterOnChange( postMeta, metaKey, value, index, key ) {
 }
 
 function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObject, help } ) {
+	function getRowsForAdd( postMetaObject, postMetaKey, newRowObject ) {
+		if ( typeof newRowObject === 'object' ) {
+			return [ ...postMetaObject[ postMetaKey ] ];
+		} else if ( postMetaObject[ postMetaKey ] ) {
+			return postMetaObject[ postMetaKey ];
+		}
+		return [];
+	}
+
 	const addRow = () => {
-		const rows =
-			typeof newObject === 'object' ? [ ...postMeta[ metaKey ] ] : postMeta[ metaKey ] ? postMeta[ metaKey ] : [];
+		const rows = getRowsForAdd( postMeta, metaKey, newObject );
 		rows.push( newObject );
 		dispatch( 'core/editor' ).editPost( {
 			meta: {

@@ -1,5 +1,4 @@
 import Swiper from 'swiper';
-// eslint-disable-next-line import/no-unresolved
 import { Navigation, Pagination } from 'swiper/modules';
 
 class listingSidescroll {

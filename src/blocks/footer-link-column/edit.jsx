@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+} from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 import { LinkSelect } from '../../editor-controls';
 

@@ -63,7 +63,9 @@ export default class filteredListings {
 		} );
 
 		if ( parseInt( this.attr.baseTerm ) ) {
-			this.queryParams[ this.attr.taxParams[ this.attr.baseTaxonomy ] ] = [ parseInt( this.attr.baseTerm ) ];
+			this.queryParams[ this.attr.taxParams[ this.attr.baseTaxonomy ] ] = [
+				parseInt( this.attr.baseTerm ),
+			];
 		}
 
 		for ( const [ key, value ] of this.urlParams.entries() ) {
@@ -96,7 +98,8 @@ export default class filteredListings {
 	}
 
 	isTaxonomyField( fieldName ) {
-		return this.attr.taxParams !== undefined && Object.values( this.attr.taxParams ).includes( fieldName )
+		return this.attr.taxParams !== undefined &&
+			Object.values( this.attr.taxParams ).includes( fieldName )
 			? true
 			: false;
 	}
@@ -251,13 +254,16 @@ export default class filteredListings {
 	setPagingLinks() {
 		this.queryParams.page = parseInt( this.queryParams.page );
 
-		if ( this.numPages == 0 || this.queryParams.page == this.numPages ) {
+		if (
+			parseInt( this.numPages ) === 0 ||
+			parseInt( this.queryParams.page ) === this.numPages
+		) {
 			this.elements.navNext.disabled = true;
 		} else if ( this.elements.navNext.disabled ) {
 			this.elements.navNext.disabled = false;
 		}
 
-		if ( this.queryParams.page == 1 ) {
+		if ( parseInt( this.queryParams.page ) === 1 ) {
 			this.elements.navPrevious.disabled = true;
 		} else if ( this.elements.navPrevious.disabled ) {
 			this.elements.navPrevious.disabled = false;
@@ -278,9 +284,11 @@ export default class filteredListings {
 				if ( index === '...' ) {
 					this.elements.navPageNumbers.innerHTML +=
 						'<li class="capitola-page-nav__button --number --dots" disabled>....</li>';
-				} else if ( index == this.queryParams.page ) {
+				} else if ( parseInt( index ) === parseInt( this.queryParams.page ) ) {
 					this.elements.navPageNumbers.innerHTML +=
-						'<li class="capitola-page-nav__button --number --current">' + index + '</li>';
+						'<li class="capitola-page-nav__button --number --current">' +
+						index +
+						'</li>';
 				} else {
 					this.elements.navPageNumbers.innerHTML += `
           <li>
@@ -305,7 +313,8 @@ export default class filteredListings {
 		} else if ( 1 === this.numPages ) {
 			count = this.numResults + ' Results';
 		} else {
-			const first = this.queryParams.page > 1 ? perpage * this.queryParams.page - perpage + 1 : 1;
+			const first =
+				this.queryParams.page > 1 ? perpage * this.queryParams.page - perpage + 1 : 1;
 			const last = first + this.numResults - 1;
 
 			count = 'Showing ' + first + '&ndash;' + last + ' of ' + this.totalResults + ' results';
@@ -427,7 +436,9 @@ export default class filteredListings {
                   </div>`
 						: ``
 				}
-                <div class="capitola-result__byline-date">${ itemData.byline.name }<br>${ itemData.byline.date }</div>
+                <div class="capitola-result__byline-date">${ itemData.byline.name }<br>${
+					itemData.byline.date
+				}</div>
               </div>`
 					: ''
 			}
@@ -449,7 +460,9 @@ export default class filteredListings {
 	renderProduct( itemData ) {
 		const card = `
       <article class="capitola-result">
-        <a class="capitola-result__link --contain" href="${ itemData.link }" aria-label="${ itemData.post_title }">
+        <a class="capitola-result__link --contain" href="${ itemData.link }" aria-label="${
+			itemData.post_title
+		}">
           <div class="capitola-result__image-col --contain">
             ${ itemData.image_html }
             ${ itemData.on_sale ? `<span class="capitola-result__badge">Sale!</span>` : '' }
@@ -471,7 +484,11 @@ export default class filteredListings {
               ${
 					this.attr.showPartNumber && itemData.part_number
 						? `<div class="capitola-result__product-meta-detail">
-                  ${ this.attr.partNumberPrefix ? '<span>' + this.attr.partNumberPrefix + '</span>' : '' }
+                  ${
+						this.attr.partNumberPrefix
+							? '<span>' + this.attr.partNumberPrefix + '</span>'
+							: ''
+					}
                   <span>${ itemData.part_number }</span>
                 </div>`
 						: ''
@@ -512,7 +529,11 @@ export default class filteredListings {
               </p>`
 					: ''
 			}
-            ${ this.attr.ctaText ? `<div class="capitola-result__cta --cta --tertiary">${ this.attr.ctaText }</div>` : '' }
+            ${
+				this.attr.ctaText
+					? `<div class="capitola-result__cta --cta --tertiary">${ this.attr.ctaText }</div>`
+					: ''
+			}
           </div>
         </a>
       </article>

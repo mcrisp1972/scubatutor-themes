@@ -1,8 +1,19 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { PanelBody, TextControl, TextareaControl, SelectControl, Spinner } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	TextareaControl,
+	SelectControl,
+	Spinner,
+} from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
-import { PostPicker, ImageSelect, PlaceholderImage, OverlayOpacitySlider } from '../../editor-controls';
+import {
+	PostPicker,
+	ImageSelect,
+	PlaceholderImage,
+	OverlayOpacitySlider,
+} from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -22,20 +33,31 @@ export default function Edit( props ) {
 
 	const linkObj = useSelect(
 		( select ) => {
-			return postId ? select( 'core' ).getEntityRecord( 'postType', postType, postId ) : undefined;
+			return postId
+				? select( 'core' ).getEntityRecord( 'postType', postType, postId )
+				: undefined;
 		},
 		[ postType, postId ]
 	);
 
-	const imageUrl = !! imageOverride.source_url ? imageOverride.source_url : linkObj?.thumbnail_urls.large;
+	const imageUrl = !! imageOverride.source_url
+		? imageOverride.source_url
+		: linkObj?.thumbnail_urls.large;
 
 	const linkTag = useSelect(
 		( select ) => {
-			return linkObj !== undefined && linkObj.type === 'page' && linkObj.parent
-				? select( 'core' ).getEntityRecord( 'postType', linkObj.type, linkObj.parent )?.title.raw
-				: linkObj !== undefined && linkObj.type !== 'page' && linkObj.type !== 'post' && linkObj.type
-				? select( 'core' ).getPostType( linkObj.type )?.name
-				: undefined;
+			if ( linkObj !== undefined && linkObj.type === 'page' && linkObj.parent ) {
+				return select( 'core' ).getEntityRecord( 'postType', linkObj.type, linkObj.parent )
+					?.title.raw;
+			} else if (
+				linkObj !== undefined &&
+				linkObj.type !== 'page' &&
+				linkObj.type !== 'post' &&
+				linkObj.type
+			) {
+				return select( 'core' ).getPostType( linkObj.type )?.name;
+			}
+			return undefined;
 		},
 		[ linkObj ]
 	);
@@ -76,7 +98,9 @@ export default function Edit( props ) {
 						label="Image"
 						value={ imageOverride.id }
 						onChange={ ( value ) => {
-							setAttributes( { imageOverride: { id: value.id, source_url: value.url } } );
+							setAttributes( {
+								imageOverride: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<TextControl
@@ -130,13 +154,14 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			{ imageUrl ? (
-				<img src={ imageUrl } alt="" />
-			) : ! linkObj && postId ? (
-				<Spinner style={ { width: '33%', height: '33%', margin: 0 } } />
-			) : (
-				<PlaceholderImage hasBgColor={ false } />
-			) }
+			{ ( () => {
+				if ( imageUrl ) {
+					return <img src={ imageUrl } alt="" />;
+				} else if ( ! linkObj && postId ) {
+					return <Spinner style={ { width: '33%', height: '33%', margin: 0 } } />;
+				}
+				return <PlaceholderImage hasBgColor={ false } />;
+			} )() }
 			<div className="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
 			<div className="wp-block-capitola-image-link-grid-item__text-content">
 				<div className="wp-block-capitola-image-link-grid-item__title-wrap">

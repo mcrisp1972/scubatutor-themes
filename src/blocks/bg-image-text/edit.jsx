@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, ToolbarGroup } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -12,7 +17,14 @@ import {
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { introAlign, backgroundImage, imageCropPosition, imageParallax, introRadius, colorTheme } = attributes;
+	const {
+		introAlign,
+		backgroundImage,
+		imageCropPosition,
+		imageParallax,
+		introRadius,
+		colorTheme,
+	} = attributes;
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
 
 	return (
@@ -23,7 +35,9 @@ export default function Edit( props ) {
 						label="Image"
 						value={ backgroundImage.id }
 						onChange={ ( value ) => {
-							return setAttributes( { backgroundImage: { id: value.id, source_url: value.url } } );
+							return setAttributes( {
+								backgroundImage: { id: value.id, source_url: value.url },
+							} );
 						} }
 					/>
 					<ImageAlignMatrix
@@ -49,8 +63,16 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					<IntroAlignToolbar props={ props } attribute="introAlign" options={ [ 'right', 'left' ] } />
-					<RadiusToolbar props={ props } attribute="introRadius" options={ [ 'none', 'small', 'medium' ] } />
+					<IntroAlignToolbar
+						props={ props }
+						attribute="introAlign"
+						options={ [ 'right', 'left' ] }
+					/>
+					<RadiusToolbar
+						props={ props }
+						attribute="introRadius"
+						options={ [ 'none', 'small', 'medium' ] }
+					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<div

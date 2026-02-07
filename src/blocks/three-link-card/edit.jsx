@@ -2,7 +2,12 @@ import { InspectorControls, useBlockProps, BlockControls, RichText } from '@word
 import { useSelect } from '@wordpress/data';
 import { applyFilters } from '@wordpress/hooks';
 import { PanelBody, SelectControl, Spinner, ToolbarGroup } from '@wordpress/components';
-import { PostPicker, PlaceholderImage, RadiusToolbar, ImageSelectButton } from '../../editor-controls';
+import {
+	PostPicker,
+	PlaceholderImage,
+	RadiusToolbar,
+	ImageSelectButton,
+} from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
@@ -13,7 +18,9 @@ export default function Edit( props ) {
 
 	const linkObj = useSelect(
 		( select ) => {
-			return postId ? select( 'core' ).getEntityRecord( 'postType', postType, postId ) : undefined;
+			return postId
+				? select( 'core' ).getEntityRecord( 'postType', postType, postId )
+				: undefined;
 		},
 		[ postType, postId ]
 	);
@@ -57,35 +64,44 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div className={ `wp-block-capitola-three-link-card__image  ${ radiusClass }` }>
-				{ !! renderedImage ? (
-					<>
-						<img src={ renderedImage } alt="" />
-						{ isSelected && (
-							<ImageSelectButton
-								onSelect={ ( value ) => {
-									setAttributes( { image: { id: value.id, source_url: value.url } } );
-								} }
-								value={ image.id }
-								flexWrap={ true }
-							/>
-						) }
-					</>
-				) : ! linkObj && postId ? (
-					<Spinner style={ { width: '33%', height: '33%', margin: 0 } } />
-				) : (
-					<>
-						<PlaceholderImage hasBgColor={ false } />
-						{ isSelected && (
-							<ImageSelectButton
-								onSelect={ ( value ) => {
-									setAttributes( { image: { id: value.id, url: value.url } } );
-								} }
-								value={ image.id }
-								flexWrap={ true }
-							/>
-						) }
-					</>
-				) }
+				{ ( () => {
+					if ( !! renderedImage ) {
+						return (
+							<>
+								<img src={ renderedImage } alt="" />
+								{ isSelected && (
+									<ImageSelectButton
+										onSelect={ ( value ) => {
+											setAttributes( {
+												image: { id: value.id, source_url: value.url },
+											} );
+										} }
+										value={ image.id }
+										flexWrap={ true }
+									/>
+								) }
+							</>
+						);
+					} else if ( ! linkObj && postId ) {
+						return <Spinner style={ { width: '33%', height: '33%', margin: 0 } } />;
+					}
+					return (
+						<>
+							<PlaceholderImage hasBgColor={ false } />
+							{ isSelected && (
+								<ImageSelectButton
+									onSelect={ ( value ) => {
+										setAttributes( {
+											image: { id: value.id, url: value.url },
+										} );
+									} }
+									value={ image.id }
+									flexWrap={ true }
+								/>
+							) }
+						</>
+					);
+				} )() }
 			</div>
 			<RichText
 				className="wp-block-capitola-three-link-card__title --hl-s"

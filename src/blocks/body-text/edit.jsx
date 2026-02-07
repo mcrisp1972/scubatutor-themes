@@ -36,23 +36,30 @@ export default function Edit( props ) {
 	} = attributes;
 	const { bodyTextOptions, introAlign } = context;
 
-	const postTitle = isHeroVariation
-		? useSelect( ( select ) => {
-				return select( 'core/editor' ).getEditedPostAttribute( 'title' );
-		  }, [] )
-		: '';
+	const postTitle = useSelect(
+		( select ) => {
+			return isHeroVariation ? select( 'core/editor' ).getEditedPostAttribute( 'title' ) : '';
+		},
+		[ isHeroVariation ]
+	);
 
 	const imageClass = backgroundImage.id ? ' --has-bg-image --theme-image-overlay' : '';
 	const justifyClass = verticalAlign === 'top' ? ' --justify-top' : '';
 
 	const introPositionClass = ` --is-${ introAlign }-intro`;
-	const introAlignClass = introAlign === 'top' && textAlign === 'center' ? ' --is-centered-intro' : '';
+	const introAlignClass =
+		introAlign === 'top' && textAlign === 'center' ? ' --is-centered-intro' : '';
 	const textAlignClass = textAlign === 'center' ? ' --text-align-center' : '';
 
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: justifyClass + imageClass + introPositionClass + introAlignClass + textAlignClass,
+				className:
+					justifyClass +
+					imageClass +
+					introPositionClass +
+					introAlignClass +
+					textAlignClass,
 			} ) }
 		>
 			<InspectorControls>
@@ -62,7 +69,9 @@ export default function Edit( props ) {
 							label="Background Image"
 							value={ backgroundImage.id }
 							onChange={ ( value ) => {
-								return setAttributes( { backgroundImage: { id: value.id, source_url: value.url } } );
+								return setAttributes( {
+									backgroundImage: { id: value.id, source_url: value.url },
+								} );
 							} }
 						/>
 						{ !! backgroundImage.id && (
@@ -94,7 +103,10 @@ export default function Edit( props ) {
 						) }
 					</PanelBody>
 				) }
-				<PanelBody title="Markup" initialOpen={ bodyTextOptions?.disableBackgroundImage ? true : false }>
+				<PanelBody
+					title="Markup"
+					initialOpen={ bodyTextOptions?.disableBackgroundImage ? true : false }
+				>
 					<TagSelect
 						label="Eyebrow Tag"
 						value={ eyebrowTag }
@@ -124,7 +136,10 @@ export default function Edit( props ) {
 			{ !! backgroundImage.source_url && (
 				<div
 					className="wp-block-capitola-body-text__bg-image"
-					style={ { '--capitola-overlayOpacity': imageOpacity, '--capitola-objectPosition': imageCropPosition } }
+					style={ {
+						'--capitola-overlayOpacity': imageOpacity,
+						'--capitola-objectPosition': imageCropPosition,
+					} }
 				>
 					<img src={ backgroundImage.source_url } alt="" />
 				</div>
@@ -164,7 +179,8 @@ export default function Edit( props ) {
 				<div className="wp-block-capitola-body-text__ctas">
 					<CtaControl
 						className={
-							'wp-block-capitola-body-text__cta --cta' + ( backgroundImage.source_url ? ' --secondary' : '' )
+							'wp-block-capitola-body-text__cta --cta' +
+							( backgroundImage.source_url ? ' --secondary' : '' )
 						}
 						value={ cta }
 						onChange={ ( value ) => {

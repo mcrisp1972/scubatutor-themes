@@ -33,21 +33,24 @@ export default function buildTermsTree( flatTerms ) {
 	const fillWithChildren = ( terms ) => {
 		return terms.map( ( term ) => {
 			const children = termsByParent[ term.id ];
-			return { ...term, children: children && children.length ? fillWithChildren( children ) : [] };
+			return {
+				...term,
+				children: children && children.length ? fillWithChildren( children ) : [],
+			};
 		} );
 	};
 
-	const flattenTerms = ( terms, flatTerms, level ) => {
+	const flattenTerms = ( terms, flattenedTerms, level ) => {
 		terms.forEach( ( term ) => {
 			if ( level.length ) {
 				term.name = level + term.name;
 			}
-			flatTerms.push( term );
+			flattenedTerms.push( term );
 			if ( term.children.length ) {
-				flatTerms = flattenTerms( term.children, flatTerms, level + '-' );
+				flattenedTerms = flattenTerms( term.children, flattenedTerms, level + '-' );
 			}
 		} );
-		return flatTerms;
+		return flattenedTerms;
 	};
 
 	return flattenTerms( fillWithChildren( termsByParent[ '0' ] || [] ), [], '' );

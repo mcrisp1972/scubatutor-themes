@@ -1,8 +1,20 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { decodeEntities } from '@wordpress/html-entities';
-import { PanelBody, RadioControl, SelectControl, ToggleControl, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RadioControl,
+	SelectControl,
+	ToggleControl,
+	TextControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { TagSelect, ColorThemePanel, AnimationPanel, LabeledSpinner, TruncateControl } from '../../editor-controls';
+import {
+	TagSelect,
+	ColorThemePanel,
+	AnimationPanel,
+	LabeledSpinner,
+	TruncateControl,
+} from '../../editor-controls';
 import postTile from '../post-feed/postTile';
 import buildTermsTree from '../../scripts/modules/termTree';
 import { layoutConditionals } from '../post-feed/layoutConditionals';
@@ -36,7 +48,9 @@ export default function Edit( props ) {
 
 	const taxonomies = useSelect(
 		( select ) => {
-			return postType ? select( 'core' ).getTaxonomies( { type: postType, per_page: 100 } ) : undefined;
+			return postType
+				? select( 'core' ).getTaxonomies( { type: postType, per_page: 100 } )
+				: undefined;
 		},
 		[ postType ]
 	);
@@ -50,7 +64,7 @@ export default function Edit( props ) {
 				filtered_listings: true,
 			};
 
-			if ( baseTaxonomy && baseTerm != 0 ) {
+			if ( baseTaxonomy && baseTerm !== '0' ) {
 				postArgs[ taxParams[ baseTaxonomy ] ] = [ baseTerm ];
 			}
 
@@ -60,7 +74,17 @@ export default function Edit( props ) {
 
 			return select( 'core' ).getEntityRecords( 'postType', postType, postArgs );
 		},
-		[ limit, orderBy, order, baseTaxonomy, baseTerm, setHiddens, postType, taxParams, postTypes ]
+		[
+			limit,
+			orderBy,
+			order,
+			baseTaxonomy,
+			baseTerm,
+			setHiddens,
+			postType,
+			taxParams,
+			postTypes,
+		]
 	);
 
 	const terms = useSelect(
@@ -146,8 +170,8 @@ export default function Edit( props ) {
 										if ( value && ! newValue.includes( slug ) ) {
 											newValue.push( slug );
 										} else if ( ! value && newValue.includes( slug ) ) {
-											newValue = newValue.filter( function ( hidden ) {
-												return hidden !== slug;
+											newValue = newValue.filter( function ( hiddenItem ) {
+												return hiddenItem !== slug;
 											} );
 										}
 										setAttributes( {
@@ -346,12 +370,16 @@ export default function Edit( props ) {
 			<div { ...innerBlocksProps }>
 				{ children }
 				<div className="capitola-listings__results-header">
-					<div className="capitola-listings__filters-count js-resultsCount">Showing #-# of # results</div>
+					<div className="capitola-listings__filters-count js-resultsCount">
+						Showing #-# of # results
+					</div>
 					<div className="capitola-listings__filters">
 						{ showSearchFields.map( ( slug ) => {
 							return (
 								<div key={ slug } className="capitola-listings__filters-filter">
-									<label htmlFor={ slug }>{ postTypes[ postType ].searchParams[ slug ].label }</label>
+									<label htmlFor={ slug }>
+										{ postTypes[ postType ].searchParams[ slug ].label }
+									</label>
 									<div
 										className={
 											'capitola-listings__filters-input-wrap --' +
@@ -360,7 +388,8 @@ export default function Edit( props ) {
 									>
 										<input
 											type={
-												postTypes[ postType ].searchParams[ slug ].type === 'date'
+												postTypes[ postType ].searchParams[ slug ].type ===
+												'date'
 													? 'date'
 													: 'text'
 											}
@@ -377,8 +406,13 @@ export default function Edit( props ) {
 								} )
 								.map( ( tax ) => {
 									return (
-										<div key={ tax.slug } className="capitola-listings__filters-filter">
-											<label htmlFor={ tax.slug }>{ tax.labels.singular_name }</label>
+										<div
+											key={ tax.slug }
+											className="capitola-listings__filters-filter"
+										>
+											<label htmlFor={ tax.slug }>
+												{ tax.labels.singular_name }
+											</label>
 											<div className="capitola-listings__filters-input-wrap --select">
 												<select name={ tax.slug }>
 													<option>All { tax.labels.name }</option>
@@ -416,22 +450,34 @@ export default function Edit( props ) {
 					</div>
 				) }
 				<div className="capitola-page-nav">
-					<button className="capitola-page-nav__button --next js-navPrev" disabled="">
+					<button className="capitola-page-nav__button --prev" disabled="">
 						Prev
 					</button>
-					<div className="capitola-page-nav__page-numbers js-navPageNumbers">
+					<div className="capitola-page-nav__page-numbers">
 						<span className="capitola-page-nav__button --number --current">1</span>
-						<button className="capitola-page-nav__button --number js-navPageNum" data-page="2" type="button">
+						<button
+							className="capitola-page-nav__button --number"
+							data-page="2"
+							type="button"
+						>
 							2
 						</button>
-						<button className="capitola-page-nav__button --number js-navPageNum" data-page="3" type="button">
+						<button
+							className="capitola-page-nav__button --number"
+							data-page="3"
+							type="button"
+						>
 							3
 						</button>
-						<button className="capitola-page-nav__button --number js-navPageNum" data-page="4" type="button">
+						<button
+							className="capitola-page-nav__button --number"
+							data-page="4"
+							type="button"
+						>
 							4
 						</button>
 					</div>
-					<button className="capitola-page-nav__button --prev js-navNext">Next</button>
+					<button className="capitola-page-nav__button --next">Next</button>
 				</div>
 			</div>
 		</div>
