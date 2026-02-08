@@ -8,8 +8,8 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
-import termTile from './termTile';
-import PostFeedTemplate from '../post-feed/postFeedTemplate';
+import termTile from './term-tile';
+import PostFeedTemplate from '../post-feed/post-feed-template';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

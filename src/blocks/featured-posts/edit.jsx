@@ -16,8 +16,8 @@ import {
 	Repeater,
 	repeaterOnChange,
 } from '../../editor-controls';
-import postTile from '../post-feed/postTile';
-import PostFeedTemplate from '../post-feed/postFeedTemplate';
+import postTile from '../post-feed/post-tile';
+import PostFeedTemplate from '../post-feed/post-feed-template';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

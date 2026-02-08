@@ -8,8 +8,8 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, TruncateControl } from '../../editor-controls';
-import postTile from '../post-feed/postTile';
-import { layoutConditionals } from '../post-feed/layoutConditionals';
+import postTile from '../post-feed/post-tile';
+import { layoutConditionals } from '../post-feed/layout-conditionals';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

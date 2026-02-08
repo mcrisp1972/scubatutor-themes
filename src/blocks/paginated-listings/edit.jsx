@@ -15,9 +15,9 @@ import {
 	LabeledSpinner,
 	TruncateControl,
 } from '../../editor-controls';
-import postTile from '../post-feed/postTile';
+import postTile from '../post-feed/post-tile';
 import buildTermsTree from '../../scripts/modules/term-tree';
-import { layoutConditionals } from '../post-feed/layoutConditionals';
+import { layoutConditionals } from '../post-feed/layout-conditionals';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

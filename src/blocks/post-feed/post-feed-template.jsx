@@ -2,7 +2,7 @@ import { useInnerBlocksProps } from '@wordpress/block-editor';
 import { useRef } from '@wordpress/element';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { layoutConditionals } from './layoutConditionals';
+import { layoutConditionals } from './layout-conditionals';
 
 function SwiperTemplate( { attributes, cardTemplate, items } ) {
 	const { showSlideCount } = attributes;

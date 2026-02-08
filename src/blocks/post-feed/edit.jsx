@@ -16,8 +16,8 @@ import {
 	LabeledSpinner,
 	TruncateControl,
 } from '../../editor-controls';
-import postTile from './postTile';
-import PostFeedTemplate from './postFeedTemplate';
+import postTile from './post-tile';
+import PostFeedTemplate from './post-feed-template';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;

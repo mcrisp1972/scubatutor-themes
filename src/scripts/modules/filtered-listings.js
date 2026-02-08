@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { addQueryArgs } from '@wordpress/url';
-import { layoutConditionals } from '../../blocks/post-feed/layoutConditionals';
+import { layoutConditionals } from '../../blocks/post-feed/layout-conditionals';
 
 export default class filteredListings {
 	constructor( listings ) {

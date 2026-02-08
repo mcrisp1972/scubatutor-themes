@@ -9,8 +9,8 @@ import {
 import { useSelect } from '@wordpress/data';
 import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
 import { applyFilters } from '@wordpress/hooks';
-import postTile from '../post-feed/postTile';
-import PostFeedTemplate from '../post-feed/postFeedTemplate';
+import postTile from '../post-feed/post-tile';
+import PostFeedTemplate from '../post-feed/post-feed-template';
 import { templatePostType } from '../../scripts/modules/template-post-type';
 
 export default function Edit( props ) {
