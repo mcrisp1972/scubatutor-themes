@@ -66,18 +66,7 @@ function overrideCssPublicPath( rules ) {
 	} );
 }
 
-const base = glob.sync( './src/scripts/**.{js,jsx}' ).reduce( function ( obj, el ) {
-	obj[ path.parse( el ).dir.replace( /^(\.\/src)/, '' ) + '/' + path.parse( el ).name ] = el;
-	return obj;
-}, {} );
-
-// block scripts
-const acfblocks = glob.sync( './src/scripts/blocks/**.js' ).reduce( function ( obj, el ) {
-	obj[ path.parse( el ).dir.replace( /^(\.\/src)/, '' ) + '/' + path.parse( el ).name ] = el;
-	return obj;
-}, {} );
-
-const woo = glob.sync( './src/scripts/woo/**.js' ).reduce( function ( obj, el ) {
+const js = glob.sync( './src/scripts/**.{js,jsx}' ).reduce( function ( obj, el ) {
 	obj[ path.parse( el ).dir.replace( /^(\.\/src)/, '' ) + '/' + path.parse( el ).name ] = el;
 	return obj;
 }, {} );
@@ -100,9 +89,7 @@ const customizeConfig = ( config ) => {
 		...config,
 		entry: {
 			...( typeof config.entry === 'function' ? config.entry() : config.entry ),
-			...base,
-			...acfblocks,
-			...woo,
+			...js,
 			...sass,
 		},
 		module: {
