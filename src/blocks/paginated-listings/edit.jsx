@@ -16,7 +16,7 @@ import {
 	TruncateControl,
 } from '../../editor-controls';
 import postTile from '../post-feed/postTile';
-import buildTermsTree from '../../scripts/modules/termTree';
+import buildTermsTree from '../../scripts/modules/term-tree';
 import { layoutConditionals } from '../post-feed/layoutConditionals';
 
 export default function Edit( props ) {

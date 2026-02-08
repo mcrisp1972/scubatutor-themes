@@ -1,4 +1,4 @@
-import filteredListings from '../../scripts/modules/filteredListings';
+import filteredListings from '../../scripts/modules/filtered-listings';
 
 class filteredListingsToggles {
 	constructor( wrapper ) {
