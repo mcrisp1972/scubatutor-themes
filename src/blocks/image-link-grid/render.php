@@ -13,19 +13,15 @@ $classes = array(
 	'one_half_first_three_class' => '4-col' === $block->context['gridLayout'] && ( count( $block->inner_blocks ) + 3 ) % 4 === 0 ? ' --one-half-first --one-half-second --one-half-third' : '',
 );
 
-?>
-
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'style' => '--capitola-excerpt-lines: ' . $block->context['excerptLines'] . ';',
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'style' => '--capitola-excerpt-lines: ' . $block->context['excerptLines'] . ';',
 	)
 );
+
 ?>
->
+
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-image-link-grid__width">
 		<div class="wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-<?php echo esc_attr( $block->context['gridLayout'] . ' ' . implode( ' ', $classes ) . ' ' . ( $block->context['gridGap'] ? '--grid-gap' : '' ) ); ?>">
 			<?php echo wp_kses_post( $content ); ?>

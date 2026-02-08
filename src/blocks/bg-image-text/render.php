@@ -2,19 +2,17 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-?>
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'alignfull --theme-' . $attributes['colorTheme'],
-			'id'    => $attributes['anchor'],
-		)
+
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'alignfull --theme-' . $attributes['colorTheme'],
+		'id'    => $attributes['anchor'],
 	)
 );
+
+
 ?>
->
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-bg-image-text__imagewrap <?php echo esc_attr( \Capitola\Helpers\Block_Attributes\parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
 		<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 	</div>

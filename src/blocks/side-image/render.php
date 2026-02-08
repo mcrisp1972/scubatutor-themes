@@ -35,20 +35,16 @@ if ( 'inner' === $attributes['imageLayout'] && $attributes['showCaption'] ) {
 	$caption = '';
 }
 
-?>
-
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( $animations['block-class'] || $animations['body-class'] || $animations['figure-class'] ? ' --has-animation' : '' ),
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( $animations['block-class'] || $animations['body-class'] || $animations['figure-class'] ? ' --has-animation' : '' ),
 	)
 );
+
 ?>
->
+
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-side-image__width <?php echo 'inner' === $attributes['imageLayout'] ? 'alignwide' : 'alignfull'; ?> <?php echo esc_attr( $class ); ?><?php echo esc_attr( $animations['block-class'] ); ?><?php echo ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 		<div class="wp-block-capitola-side-image__imagewrap <?php echo esc_attr( $sticky_class . ' ' . $parallax_class ); ?>" style="--capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
 			<?php if ( 'inner' === $attributes['imageLayout'] ) : ?>

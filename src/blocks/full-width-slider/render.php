@@ -12,20 +12,16 @@ $animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attribut
 
 $radius_class = 'none' !== $attributes['sliderRadius'] ? ' --has-' . $attributes['sliderRadius'] . '-radius' : '';
 
-?>
-
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => 'js-fullWidthSlider alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => 'js-fullWidthSlider alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
 	)
 );
+
 ?>
->
+
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-full-width-slider__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="wp-block-capitola-full-width-slider__sliders <?php echo esc_attr( $attributes['stickySlider'] ? ' --sticky' : '' ); ?>">

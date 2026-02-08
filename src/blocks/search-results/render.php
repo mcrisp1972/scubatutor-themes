@@ -11,18 +11,14 @@ global $wp_query;
 $not_singular  = $wp_query->found_posts > 1 ? 'results' : 'result';
 $search_string = get_query_var( 's', '' );
 
-?>
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'capitola-listings --paginated alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'capitola-listings --paginated alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
 	)
 );
+
 ?>
->
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="capitola-listings__width alignwide">
 		<div class="capitola-listings__search-head">
 			<?php if ( $attributes['headline'] ) : ?>

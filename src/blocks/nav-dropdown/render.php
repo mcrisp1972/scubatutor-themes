@@ -12,27 +12,23 @@ if ( ! $attributes['title'] ) {
 
 $main_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-link' );
 
-?>
-
-<li
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class'                    => 'wp-block-capitola-nav__menu-item',
-			'data-wp-context'          => wp_json_encode(
-				array(
-					'isSubmenuOpen' => false,
-					'submenuId'     => 'submenu-' . wp_unique_id(),
-				)
-			),
-			'data-wp-class----is-open' => 'context.isSubmenuOpen',
-			'data-wp-watch'            => 'callbacks.watchOpenSubmenu',
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class'                    => 'wp-block-capitola-nav__menu-item',
+		'data-wp-context'          => wp_json_encode(
+			array(
+				'isSubmenuOpen' => false,
+				'submenuId'     => 'submenu-' . wp_unique_id(),
+			)
+		),
+		'data-wp-class----is-open' => 'context.isSubmenuOpen',
+		'data-wp-watch'            => 'callbacks.watchOpenSubmenu',
 	)
 );
+
 ?>
->
+
+<li <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $main_link ) : ?>
 		<?php echo wp_kses_post( $main_link ); ?>
 	<?php else : ?>

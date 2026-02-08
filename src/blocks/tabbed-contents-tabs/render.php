@@ -8,18 +8,14 @@ use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
 $animations = animation_attributes( $block->context );
 
-?>
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => $animations['figure-class'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => $animations['figure-class'],
 	)
 );
+
 ?>
-<?php echo wp_kses_data( $animations['figure-data'] ); ?>>
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?> <?php echo wp_kses_data( $animations['figure-data'] ); ?>>
 	<div class="wp-block-capitola-tabbed-contents-tabs__width ">
 		<div class="wp-block-capitola-tabbed-contents-tabs__body">
 			<div class="wp-block-capitola-tabbed-contents-tabs__tabs">

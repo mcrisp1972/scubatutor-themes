@@ -6,19 +6,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\String_Helpers\render_link;
 
-?>
-
-<ul
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id' => $attributes['anchor'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id' => $attributes['anchor'],
 	)
 );
+
 ?>
->
+
+<ul <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php foreach ( $attributes['links'] as $link_obj ) : ?>
 		<?php $html = render_link( $link_obj, 'wp-block-capitola-link-list__link', false ); ?>
 		<?php if ( $html ) : ?>

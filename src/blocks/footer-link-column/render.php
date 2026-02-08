@@ -2,18 +2,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-?>
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'wp-block-capitola-footer__menu',
-		)
+
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'wp-block-capitola-footer__menu',
 	)
 );
+
+
 ?>
->
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['headline'] ) : ?>
 		<?php if ( ! empty( $attributes['link']['url'] ) ) : ?>
 			<a href="<?php echo esc_url( $attributes['link']['url'] ); ?>" class="wp-block-capitola-footer__top-link" <?php echo ! empty( $attributes['link']['opensInNewTab'] ) ? ' target="_blank"' : ''; ?>>

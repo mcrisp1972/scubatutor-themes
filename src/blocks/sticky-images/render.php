@@ -11,19 +11,15 @@ $images = array_map(
 	iterator_to_array( $block->inner_blocks )
 );
 
-?>
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( 'fade' === $attributes['transitionMode'] ? ' --has-fade-transition js-stickyImageScroller' : ' --has-scroll-transition' ) . ( 'full' === $attributes['imageLayout'] ? ' --layout-full' : '' ) . ' --intro-' . $attributes['introAlign'] . ( 'inner' === $attributes['imageLayout'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '' ),
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( 'fade' === $attributes['transitionMode'] ? ' --has-fade-transition js-stickyImageScroller' : ' --has-scroll-transition' ) . ( 'full' === $attributes['imageLayout'] ? ' --layout-full' : '' ) . ' --intro-' . $attributes['introAlign'] . ( 'inner' === $attributes['imageLayout'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '' ),
 	)
 );
+
 ?>
->
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?>  js-stickyImagesContainer">
 		<div class="wp-block-capitola-sticky-images__image-column">
 			<?php foreach ( $images as $key => $image ) : ?>

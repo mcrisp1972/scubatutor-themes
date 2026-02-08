@@ -6,18 +6,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $socials = get_option( 'capitola_social_shares' );
 
-?>
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'alignwide',
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'alignwide',
 	)
 );
+
 ?>
->
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<ul class="wp-block-capitola-social-shares__social-links">
 		<?php
 		foreach ( $socials as $social_slug => $social_enabled ) :

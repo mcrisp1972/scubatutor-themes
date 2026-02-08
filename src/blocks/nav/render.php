@@ -32,27 +32,23 @@ if ( CAPITOLA_WOO_ACTIVE ) {
 	add_filter( 'the_title', 'wc_page_endpoint_title' );
 }
 
-?>
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class'                       => $attributes['stickyStyle'],
-			'style'                       => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
-			'data-wp-interactive'         => 'capitola-nav',
-			'data-wp-init'                => 'callbacks.init',
-			'data-wp-on-window--resize'   => 'actions.handleResize',
-			'data-wp-on-document--scroll' => 'actions.handleScroll',
-			'data-wp-class----sticky-nav' => 'state.isSticky',
-			'data-wp-class----is-shown'   => 'state.mobileNavOpen',
-			'data-wp-on--keydown'         => 'actions.handleFocusTrapKeydown',
-			'data-wp-watch'               => 'callbacks.watchMobileNavOpen',
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class'                       => $attributes['stickyStyle'],
+		'style'                       => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
+		'data-wp-interactive'         => 'capitola-nav',
+		'data-wp-init'                => 'callbacks.init',
+		'data-wp-on-window--resize'   => 'actions.handleResize',
+		'data-wp-on-document--scroll' => 'actions.handleScroll',
+		'data-wp-class----sticky-nav' => 'state.isSticky',
+		'data-wp-class----is-shown'   => 'state.mobileNavOpen',
+		'data-wp-on--keydown'         => 'actions.handleFocusTrapKeydown',
+		'data-wp-watch'               => 'callbacks.watchMobileNavOpen',
 	)
 );
+
 ?>
->
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $banner['display'] && $banner['message'] ) : ?>
 		<div id="js-headerBanner" class="wp-block-capitola-nav__banner alignfull is-layout-constrained has-global-padding --theme-<?php echo esc_attr( $banner['type'] ); ?>" data-wp-class----is-hidden="!state.showBanner">
 			<div class="wp-block-capitola-nav__banner-body alignwide">

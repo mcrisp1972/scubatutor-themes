@@ -11,19 +11,16 @@ $author_name      = esc_html( get_the_author_meta( 'display_name' ) );
 $author_image_src = $author_image ? wp_get_attachment_image_src( $author_image, 'thumbnail' ) : false;
 $image_id         = $attributes['featuredImage'] ? $attributes['featuredImage'] : get_post_thumbnail_id();
 
-?>
-
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'alignwide ' . ( 'bottom' === $attributes['imageLocation'] ? ' --bottom-image' : '' ),
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'alignwide ' . ( 'bottom' === $attributes['imageLocation'] ? ' --bottom-image' : '' ),
 	)
 );
+
+
 ?>
->
+
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['showFeaturedImage'] && $image_id ) : ?>
 		<div class="wp-block-capitola-post-hero__hero">
 			<div class="wp-block-capitola-post-hero__image">

@@ -11,20 +11,15 @@ $align_class  = $attributes['introAlign'] ? ' --align-' . $attributes['introAlig
 $animations   = animation_attributes( $attributes );
 $radius_class = 'none' !== $attributes['introRadius'] && $attributes['colorThemeBody'] ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
 
-?>
-
-<section
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => 'alignfull ' . $theme_class . $radius_class,
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => 'alignfull ' . $theme_class . $radius_class,
 	)
 );
+
 ?>
->
+<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-fixed-background__img js-background-image <?php echo esc_attr( $align_class ); ?>">
 		<picture>
 			<?php if ( $attributes['desktopImage']['id'] ) : ?>

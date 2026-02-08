@@ -30,20 +30,16 @@ foreach ( $attributes['images'] as $image ) {
 
 wp_localize_script( 'capitola-lightbox-gallery-view-script', 'lightboxGalleryImages', $image_data );
 
-?>
-
-<figure
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'id'    => $attributes['anchor'],
-			'class' => 'js-lightboxGallery --aspect-ratio-' . $attributes['aspectRatio'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'id'    => $attributes['anchor'],
+		'class' => 'js-lightboxGallery --aspect-ratio-' . $attributes['aspectRatio'],
 	)
 );
+
 ?>
->
+
+<figure <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-lightbox-gallery__inner-wrap<?php echo $attributes['isSticky'] ? ' --is-sticky' : ''; ?>">
 		<button type="button" class="wp-block-capitola-lightbox-gallery__main-image js-largeImageLink">
 			<?php

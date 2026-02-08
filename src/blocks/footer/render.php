@@ -10,19 +10,15 @@ $contact_info = get_option( 'capitola_contact' );
 
 $attributes = alternate_theme( $attributes, 'footerTheme' );
 
-?>
-
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
 	)
 );
+
 ?>
->
+
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-footer__grid alignwide">
 		<div class="wp-block-capitola-footer__menus">
 			<?php echo wp_kses_post( $content ); ?>

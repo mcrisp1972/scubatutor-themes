@@ -32,19 +32,17 @@ $cta_1 = render_link( $attributes['cta'], 'wp-block-capitola-body-text__cta --ct
 
 $cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text__cta --cta' . ( $attributes['backgroundImage']['id'] ? ' --tertiary' : ' --secondary' ) );
 
-?>
-
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => $intro_position_class . $intro_align_class . $bg_class . $justify_class,
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => $intro_position_class . $intro_align_class . $bg_class . $justify_class,
 	)
 );
+
+
+
 ?>
->
+
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
 		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
