@@ -7,7 +7,6 @@
 		"@wordpress"
 	],
 	"ignorePatterns": [
-		"webpack.config.js",
 		"**/vendor/*.js"
 	],
 	"rules": {

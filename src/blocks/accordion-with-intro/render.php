@@ -1,15 +1,21 @@
 <?php
+
+use function Capitola\Helpers\Block_Attributes\animation_attributes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$animations = animation_attributes( $attributes );
+
 ?>
-<section 
+<section
 <?php
 echo wp_kses_data(
 	get_block_wrapper_attributes(
 		array(
 			'id'    => $attributes['anchor'],
-			'class' => 'alignfull is-layout-constrained has-global-padding js-accordion --theme-' . \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes ),
+			'class' => 'alignfull is-layout-constrained has-global-padding js-accordion --theme-' . $attributes['colorTheme'],
 		)
 	)
 );

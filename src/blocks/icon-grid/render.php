@@ -10,17 +10,13 @@ $animations = animation_attributes( $block->context );
 
 $count = count( $block->inner_blocks );
 
-?>
-<div
-<?php
-echo wp_kses_data(
-	get_block_wrapper_attributes(
-		array(
-			'class' => $animations['figure-class'] . ( $count < 4 ? ' --count-' . $count : '' ),
-		)
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => $animations['figure-class'] . ( $count < 4 ? ' --count-' . $count : '' ),
 	)
-);
+)
+
 ?>
-<?php echo wp_kses_data( $animations['figure-data'] ); ?>>
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?> <?php echo wp_kses_data( $animations['figure-data'] ); ?>>
 	<?php echo wp_kses_post( $content ); ?>
 </div>
