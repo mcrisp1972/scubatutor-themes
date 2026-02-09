@@ -15,9 +15,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
+// We do not escape content here, as it will break reCaptcha iframe scripts.
+
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-form-block__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
-		<?php echo wp_kses_post( $content ); ?>
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 </section>
