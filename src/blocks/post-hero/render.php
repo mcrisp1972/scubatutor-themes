@@ -53,7 +53,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				foreach ( $socials as $social_slug => $social_enabled ) :
 					$social_link = '';
 					if ( $social_enabled ) {
-						switch ( $k ) {
+						switch ( $social_slug ) {
 							case 'facebook':
 								$social_link = 'http://www.facebook.com/share.php?u=' . rawurlencode( get_permalink() );
 								break;
