@@ -1,0 +1,142 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+@mixin headline-xxl {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xxl-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin headline-xl {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xl-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin headline-l {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-l-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin headline-m {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-m-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin headline-s {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-s-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin headline-xs {
+	font: {
+		family: var(--capitola-hl-fontFamily);
+		size: var(--capitola-hl-xs-fontSize);
+		weight: var(--capitola-hl-fontWeight);
+	}
+	line-height: var(--capitola-hl-lineHeight);
+	color: var(--capitola-color-headline);
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin regular-text {
+	font-size: var(--capitola-p-fontSize);
+	line-height: var(--capitola-p-lineHeight);
+}
+
+@mixin micro-text {
+	font-size: var(--capitola-p-s-fontSize);
+}
+
+@mixin eyebrow {
+	font: {
+		size: to-rem(14px);
+		weight: 700;
+	}
+	line-height: line-height(16px, 14px);
+	letter-spacing: to-rem(1px);
+	color: var(--capitola-color-body);
+	// letter-spacing: ;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+@mixin radio-cb-label {
+	font: {
+		weight: 400 !important;
+		size: 0.9rem !important;
+	}
+	text-transform: none !important;
+}
+
+@mixin wizzy {
+	color: var(--capitola-color-body);
+
+	p,
+	ul,
+	ol,
+	dl,
+	img,
+	table {
+		margin: {
+			top: var(--capitola-open-content-spacing);
+			bottom: 0;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	ul,
+	ol {
+		padding-left: var(--capitola-spacing-small);
+	}
+}

@@ -1,0 +1,38 @@
+// Classic Editor control
+.capitola-tiny-mce-control {
+
+	.block-library-rich-text__tinymce {
+		padding: {
+			top: 8px;
+			left: 12px;
+			right: 12px;
+		}
+		border: 1px solid #757575;
+		border-radius: 0 0 2px 2px;
+		outline: none;
+	}
+
+	.block-library-classic__toolbar {
+		display: block;
+		margin: 0;
+		border-color: #757575;
+
+		div.mce-toolbar-grp {
+			border-bottom: none;
+		}
+
+		&,
+		.mce-container,
+		.mce-toolbar-grp {
+			border-radius: 2px 2px 0 0;
+		}
+
+		&:empty {
+			display: none;
+
+			+ .block-library-rich-text__tinymce {
+				border-radius: 2px;
+			}
+		}
+	}
+}

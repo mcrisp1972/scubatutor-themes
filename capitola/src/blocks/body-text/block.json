@@ -1,0 +1,91 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/body-text",
+	"title": "Block Body Text",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"lock": false,
+		"inserter": false,
+		"customClassName": true
+	},
+	"attributes": {
+		"backgroundImage": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"source_url": ""
+			}
+		},
+		"imageOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"imageCropPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"headline": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowTag": {
+			"type": "string",
+			"default": "div"
+		},
+		"headlineTag": {
+			"type": "string",
+			"default": "h2"
+		},
+		"cta": {
+			"type": "object",
+			"default": false
+		},
+		"cta2": {
+			"type": "object",
+			"default": false
+		},
+		"isHeroVariation": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageParallax": {
+			"type": "boolean",
+			"default": false
+		},
+		"allowedBlocks": {
+			"type": "array",
+			"default": ["core/paragraph", "core/list"]
+		}
+	},
+	"variations": [
+		{
+			"name": "hero-body-text",
+			"title": "Hero Body Text",
+			"attributes": {
+				"isHeroVariation": true,
+				"headlineTag": "h1"
+			},
+			"isActive": ["isHeroVariation"]
+		}
+	],
+	"usesContext": ["bodyTextOptions", "introAlign", "revealAnimation", "revealSection"],
+	"viewScript": "capitola-animations",
+	"style": "capitola-block-body-text",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

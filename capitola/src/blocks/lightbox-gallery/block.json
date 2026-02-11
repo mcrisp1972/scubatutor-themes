@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"version": "0.1.0",
+	"name": "capitola/lightbox-gallery",
+	"title": "Lightbox Gallery",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"images": {
+			"type": "array",
+			"default": []
+		},
+		"useFeaturedImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": "16-9"
+		},
+		"isSticky": {
+			"type": "boolean",
+			"default": false
+		},
+		"allowSticky": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"]
+		}
+	},
+	"example": {
+		"attributes": {
+			"useFeaturedImage": false,
+			"images": [
+				{
+					"source_url": "https://pd.w.org/2024/04/601662e949be4e407.44409102-1536x1024.jpg"
+				},
+				{
+					"source_url": "https://pd.w.org/2024/04/98466304b6ab59595.08465300-1536x864.jpeg"
+				},
+				{
+					"source_url": "https://pd.w.org/2024/04/262662f618541fff6.47385273-1536x1024.jpg"
+				},
+				{
+					"source_url": "https://pd.w.org/2024/04/805662884eb1cc955.79073565-768x576.jpg"
+				},
+				{
+					"source_url": "https://pd.w.org/2024/04/739662baaba6ff1e6.82080383-768x512.jpg"
+				},
+				{
+					"source_url": "https://pd.w.org/2024/04/695662884a0371036.90674641-768x576.jpg"
+				}
+			]
+		},
+		"viewportWidth": 1440
+	},
+	"style": "capitola-lightbox-gallery",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

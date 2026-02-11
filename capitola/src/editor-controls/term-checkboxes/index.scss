@@ -1,0 +1,8 @@
+@use "../../styles/abstracts" as *;
+
+.capitola-term-checkboxes {
+
+	.components-checkbox-control:not(:last-of-type) {
+		margin-bottom: 0;
+	}
+}

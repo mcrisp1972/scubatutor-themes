@@ -1,0 +1,26 @@
+[
+	{
+		"name": "None",
+		"slug": "",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--crimson-bolt)",
+			"secondary": "var(--wp--preset--color--crimson-bolt)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "default-dark",
+		"footerTheme": "default-dark"
+	},
+	{
+		"name": "Dark",
+		"slug": "default-dark",
+		"palette": {
+			"background": "var(--wp--preset--color--black)",
+			"primary": "var(--wp--preset--color--cherry-pop)",
+			"secondary": "var(--wp--preset--color--crimson-bolt)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "",
+		"footerTheme": ""
+	}
+]

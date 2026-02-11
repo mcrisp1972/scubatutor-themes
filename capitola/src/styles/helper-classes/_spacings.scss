@@ -1,0 +1,5 @@
+@use "../abstracts" as *;
+
+.--eyebrow + .wp-block-heading {
+	margin-top: var(--capitola-spacing-xsmall);
+}

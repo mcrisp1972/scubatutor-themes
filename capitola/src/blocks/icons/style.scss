@@ -1,0 +1,108 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-icons {
+	@include block-outer-wrap;
+
+	&__width {
+		@include block-inner-wrap-50-50( $allow-top-intro: true, $allow-right-intro: true );
+	}
+}
+
+.wp-block-capitola-icon-grid {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--capitola-spacing-large);
+	container: {
+		name: icon-grid;
+		type: inline-size;
+	}
+
+	@include mq("50-50") {
+		flex: 0 1 50%;
+	}
+}
+
+.wp-block-capitola-icon-item {
+	$two-column: calc(50% - (var(--capitola-spacing-large) / 2));
+	$three-column: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
+	$four-column: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	flex: 0 0 100%;
+	align-items: center;
+
+	.--item-align-left & {
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	@container icon-grid (width > 400px) {
+		flex-basis: $two-column;
+	}
+
+	@container icon-grid (width > 600px) {
+		flex-basis: $three-column;
+
+		.--count-1 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-2 & {
+			flex-basis: $two-column;
+		}
+	}
+
+	@container icon-grid (width > 800px) {
+		flex-basis: $four-column;
+
+		.--count-1 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-2 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-3 & {
+			flex-basis: $three-column;
+		}
+	}
+
+	&__icon-wrapper {
+		display: flex;
+		position: relative;
+		height: 64px;
+		width: 64px;
+		justify-content: center;
+		align-items: center;
+
+		.--has-icon-background & {
+			border-radius: 50%;
+			background: var(--capitola-color-tile-background);
+		}
+	}
+
+	&__icon {
+		mask: var(--capitola-icon-image) center / contain no-repeat;
+		background: var(--capitola-color-tile-background);
+		height: 100%;
+		width: 100%;
+
+		.--has-icon-background & {
+			height: 50%;
+			width: 50%;
+			background: var(--capitola-color-tile-body);
+		}
+	}
+
+	&__title {
+		margin: var(--capitola-spacing-small) 0 0;
+	}
+
+	&__caption {
+		margin: var(--capitola-spacing-xsmall) 0 0 0;
+	}
+}

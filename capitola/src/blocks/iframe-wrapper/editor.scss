@@ -1,0 +1,8 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-iframe-wrapper {
+
+	iframe {
+		pointer-events: none;
+	}
+}

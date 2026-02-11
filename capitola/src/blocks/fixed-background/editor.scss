@@ -1,0 +1,12 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-fixed-background {
+	$sticky-height: calc(100vh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
+
+	position: relative;
+	overflow: hidden;
+
+	&__img {
+		height: calc(100vh + 48px) !important;
+	}
+}

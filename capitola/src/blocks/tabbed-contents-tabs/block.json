@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/tabbed-contents-tabs",
+	"title": "Tabbed Contents Tabs",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"inserter": false,
+		"lock": false
+	},
+	"attributes": {},
+	"providesContext": {
+		"capitola/activePanel": "activePanel"
+	},
+	"usesContext": ["revealAnimation", "revealSection", "introAlign"],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

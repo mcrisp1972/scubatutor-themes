@@ -1,0 +1,110 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/bg-image-text",
+	"title": "Background Image with Content Box",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": ["links"],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"backgroundImage": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"source_url": ""
+			}
+		},
+		"imageCropPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"imageParallax": {
+			"type": "boolean",
+			"default": false
+		},
+		"introRadius": {
+			"type": "string",
+			"default": "small"
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": false
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableBackgroundImage": true,
+				"disableVerticalAlign": true
+			}
+		}
+	},
+	"example": {
+		"attributes": {
+			"backgroundImage": {
+				"source_url": "https://pd.w.org/2023/04/682642d37292ba259.48288474-2048x1536.jpg"
+			}
+		},
+		"innerBlocks": [
+			{
+				"name": "capitola/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"viewScript": "capitola-animations",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js",
+	"style": "capitola-background-image"
+}

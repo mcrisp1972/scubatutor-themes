@@ -1,0 +1,80 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-stats {
+	@include block-outer-wrap;
+
+	&__width {
+		@include block-inner-wrap-50-50( $allow-top-intro: true, $allow-right-intro: true );
+	}
+}
+
+.wp-block-capitola-stats-grid {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--capitola-spacing-large);
+	container: {
+		name: stats-grid;
+		type: inline-size;
+	}
+
+	@include mq("50-50") {
+		flex: 0 0 50%;
+	}
+}
+
+.wp-block-capitola-stats-item {
+	$two-column: calc(50% - (var(--capitola-spacing-large) / 2));
+	$three-column: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
+	$four-column: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
+
+	display: flex;
+	text-align: center;
+	flex: 0 0 100%;
+	flex-flow: column;
+	align-items: center;
+	gap: var(--capitola-spacing-small);
+
+	.--item-align-left & {
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	@container stats-grid (width > 400px) {
+		flex-basis: calc(50% - (var(--capitola-spacing-large) / 2));
+	}
+
+	@container stats-grid (width > 600px) {
+		flex-basis: calc((100% / 3) - ((var(--capitola-spacing-large) * 2) / 3));
+
+		.--count-1 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-2 & {
+			flex-basis: $two-column;
+		}
+	}
+
+	@container stats-grid (width > 800px) {
+		flex-basis: calc(25% - ((var(--capitola-spacing-large) * 3) / 4));
+
+		.--count-1 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-2 & {
+			flex-basis: $two-column;
+		}
+
+		.--count-3 & {
+			flex-basis: $three-column;
+		}
+	}
+
+	.wp-block-capitola-stats-item__caption {
+		color: var(--capitola-color-body);
+		margin: 0;
+	}
+}

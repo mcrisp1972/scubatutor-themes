@@ -1,0 +1,120 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-fixed-background {
+	position: relative;
+	overflow: hidden;
+
+	&__img {
+		display: flex;
+		min-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
+		background: {
+			repeat: no-repeat;
+			position: center;
+			size: cover;
+		}
+		align-items: center;
+		padding: var(--capitola-blockPadding) 0 var(--capitola-blockPadding);
+
+		&.--no-image {
+			background: #ccc url(~/assets/svgs/icons/fa-image.svg) no-repeat center / contain;
+		}
+
+		&.--align-center {
+
+			.wp-block-capitola-body-text__grid {
+				align-items: center;
+				text-align: center;
+			}
+		}
+
+		@include mq("medium") {
+			background-attachment: fixed;
+
+			&.--align-right {
+				justify-content: flex-end;
+			}
+
+			&.--align-center {
+				justify-content: center;
+			}
+		}
+
+		picture {
+			display: none;
+		}
+	}
+
+	&__opacity {
+		display: none;
+
+		.--theme-image-overlay & {
+			display: block;
+			position: absolute;
+			background: var(--wp--custom--opacity--solid);
+			inset: 0;
+		}
+	}
+
+	.wp-block-capitola-body-text {
+		display: flex;
+		flex-flow: column;
+		gap: var(--capitola-spacing-small);
+		min-height: 25vh;
+		margin: 0 var(--capitola-wideSize-padding);
+
+		@include mq("medium") {
+			flex: 0 1 var(--capitola-contentSize);
+		}
+	}
+
+	.wp-block-capitola-body-text__grid {
+		display: flex;
+		position: relative;
+		flex-flow: column;
+		padding: var(--capitola-spacing-large);
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			inset: 0;
+			background: var(--capitola-color-background);
+			opacity: 0.8;
+		}
+	}
+
+	&.--theme-image-overlay {
+
+		.wp-block-capitola-body-text__grid {
+			padding: 0;
+			border-radius: 0;
+
+			&::before {
+				background-color: unset;
+			}
+
+			.wp-block-capitola-body-text__cta:not(.--secondary) {
+				@include button-secondary;
+			}
+
+			.wp-block-capitola-body-text__cta.--secondary {
+				@include button-tertiary;
+			}
+		}
+	}
+
+	&.--has-small-radius {
+
+		.wp-block-capitola-body-text__grid {
+			border-radius: $radius-med;
+		}
+	}
+
+	&.--has-medium-radius {
+
+		.wp-block-capitola-body-text__grid {
+			border-radius: $radius-large;
+		}
+	}
+}

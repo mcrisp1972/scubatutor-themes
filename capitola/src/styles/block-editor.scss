@@ -1,0 +1,55 @@
+@use "abstracts" as *;
+@use "properties";
+@use "helper-classes";
+@use "modules";
+@use "../editor-controls";
+
+:root {
+	--capitola-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0);
+	--capitola-admin-blockEditorToolbar-height: 60px;
+	--capitola-admin-blockEditorFooter-height: 0;
+}
+
+body {
+
+	&.is-fullscreen-mode {
+		--capitola-admin-blockEditorAdminbar-height: 0;
+	}
+}
+
+.editor-editor-interface {
+
+	&.is-distraction-free {
+		--capitola-admin-blockEditorToolbar-height: 0;
+	}
+
+	&.has-footer {
+		--capitola-admin-blockEditorFooter-height: 25px;
+	}
+}
+
+.is-root-container.block-editor-block-list__layout {
+
+	> * {
+		box-sizing: border-box;
+	}
+}
+
+.block-editor-block-list__block * {
+	box-sizing: border-box;
+}
+
+
+.editor-styles-wrapper a {
+	@include hyperlink;
+}
+
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .is-reusable:where(:not(.alignleft):not(.alignright)) {
+	width: 100%;
+	max-width: unset;
+}
+
+p.block-no-preview {
+	border: 2px solid var(--wp-admin-theme-color);
+	padding: var(--capitola-spacing-large);
+}

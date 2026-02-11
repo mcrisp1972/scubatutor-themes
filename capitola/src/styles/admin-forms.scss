@@ -1,0 +1,75 @@
+@use "abstracts" as *;
+
+.form-field.--hidden {
+	display: none;
+}
+
+.image-select-field {
+	display: flex;
+	gap: 8px;
+
+	&__img-wrap {
+		position: relative;
+		height: 150px;
+		width: 150px;
+		display: none;
+		flex-shrink: 0;
+
+		&.--contain {
+
+			img {
+				object-fit: contain;
+			}
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__right-col {
+		display: flex;
+		flex: {
+			direction: column;
+			grow: 1;
+		}
+		gap: 8px;
+	}
+
+	&__title-row,
+	&__meta-label {
+		font-weight: 600;
+	}
+
+	&__meta-row {
+
+		&.--hidden {
+			display: none;
+		}
+	}
+
+	&__button-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: auto;
+	}
+
+	input.image-select-field__remove {
+		display: none;
+	}
+
+	&.--has-value {
+
+		.image-select-field__remove,
+		.image-select-field__img-wrap {
+			display: block;
+		}
+	}
+}
+
+.column-capitola-tax-img {
+	width: 50px;
+}

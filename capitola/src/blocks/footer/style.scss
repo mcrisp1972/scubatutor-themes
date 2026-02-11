@@ -1,0 +1,248 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-footer {
+	background: var(--capitola-color-background);
+	color: var(--capitola-color-body);
+	padding: {
+		top: var(--capitola-blockPadding);
+		bottom: var(--capitola-blockPadding);
+	}
+
+	a {
+		@include nav-link;
+	}
+
+	&__grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: var(--capitola-spacing-large);
+
+		@include mq("large") {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&__menus {
+		display: flex;
+		gap: var(--capitola-spacing-large);
+		flex-wrap: wrap;
+	}
+
+	&__menu {
+		display: flex;
+		flex-flow: column;
+		gap: var(--capitola-spacing-xsmall);
+		align-items: flex-start;
+	}
+
+	&__menu-items {
+		margin: 0;
+		list-style: none;
+		padding: 0;
+	}
+
+	&__top-link {
+		@include micro-text;
+		font-weight: 700;
+	}
+
+	.wp-block-capitola-nav-sublink__link {
+		@include unstyle-link;
+		@include micro-text;
+		@include nav-link;
+	}
+
+	&__contact {
+		display: flex;
+		flex: {
+			wrap: wrap;
+			grow: 1;
+		}
+		gap: var(--capitola-spacing-large);
+		justify-content: space-between;
+
+		@include mq("small") {
+			justify-content: flex-end;
+		}
+
+		@include mq("large") {
+			flex: {
+				wrap: nowrap;
+				shrink: 0;
+			}
+		}
+	}
+
+	&__contact-info {
+		@include micro-text;
+		display: flex;
+		flex-flow: column;
+		align-items: flex-start;
+		gap: var(--capitola-spacing-xsmall);
+	}
+
+	&__hours {
+		@include micro-text;
+		display: flex;
+		flex-flow: column;
+		gap: var(--capitola-spacing-xsmall);
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: flex;
+			gap: var(--capitola-spacing-xsmall);
+		}
+	}
+
+	&__social-links {
+		display: flex;
+		flex: {
+			flow: row;
+			basis: 100%;
+		}
+		justify-content: center;
+		gap: var(--capitola-spacing-xsmall);
+		margin: 0;
+		list-style: none;
+		padding: 0;
+
+		@include mq("small") {
+			flex: {
+				direction: column;
+				basis: unset;
+			}
+			justify-content: flex-start;
+		}
+	}
+
+	&__social-link {
+		display: block;
+		height: 30px;
+		width: 30px;
+		background-color: var(--capitola-color-body);
+		mask: url(#{$image_path}social/fa-x-twitter.svg) center / contain no-repeat;
+		transition: background-color $transition;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background: var(--capitola-color-link);
+		}
+
+		&.--twitter {
+			//mask-image: url(#{$image_path}social/fa-x-twitter.svg);
+		}
+
+		&.--facebook {
+			mask-image: url(#{$image_path}social/fa-facebook-f.svg);
+		}
+
+		&.--youtube {
+			mask-image: url(#{$image_path}social/fa-youtube.svg);
+		}
+
+		&.--instagram {
+			mask-image: url(#{$image_path}social/fa-instagram.svg);
+		}
+
+		&.--pinterest {
+			mask-image: url(#{$image_path}social/fa-pinterest-p.svg);
+		}
+
+		&.--tiktok {
+			mask-image: url(#{$image_path}social/fa-tiktok.svg);
+		}
+
+		&.--linkedin {
+			mask-image: url(#{$image_path}social/fa-linkedin-in.svg);
+		}
+	}
+
+	&__contact-link {
+		@include unstyle-link;
+		@include nav-link {
+			display: flex;
+			position: relative;
+			gap: var(--capitola-spacing-xsmall);
+			align-items: center;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			aspect-ratio: 1;
+			width: 20px;
+			background: var(--capitola-color-body);
+			mask: url(#{$image_path}utility/fa-envelope-solid.svg) center / contain no-repeat;
+			transition: background-color $transition;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+
+			&::before {
+				background: var(--capitola-color-link);
+			}
+		}
+
+		&.--email {
+
+			&::before {
+				//mask-image: url(#{$image_path}utility/fa-envelope-solid.svg);
+			}
+		}
+
+		&.--map {
+
+			&::before {
+				mask-image: url(#{$image_path}utility/fa-map-location-dot.svg);
+			}
+		}
+
+		&.--phone {
+
+			&::before {
+				mask-image: url(#{$image_path}utility/fa-mobile-screen-button.svg);
+			}
+		}
+	}
+
+	&__copyright {
+		@include micro-text;
+		text-align: center;
+		margin: var(--capitola-spacing-large) 0 0;
+	}
+}
+
+.capitola-cookie-consent {
+	position: fixed;
+	inset: auto 0 0 0;
+	z-index: 1;
+	background: var(--capitola-color-background);
+	padding: {
+		top: var(--capitola-spacing-small);
+		bottom: var(--capitola-spacing-small);
+	}
+	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: var(--capitola-spacing-medium);
+		color: var(--capitola-color-body);
+	}
+
+	&__notice {
+		flex: 1;
+		margin: 0;
+		align-self: center;
+	}
+
+	&.--is-hidden {
+		display: none;
+	}
+}

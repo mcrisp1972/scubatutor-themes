@@ -1,0 +1,134 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-post-hero {
+	padding: var(--capitola-spacing-medium) 0;
+	display: flex;
+	flex-flow: column;
+	gap: var(--capitola-spacing-large);
+
+	&__hero {
+		order: 1;
+
+		.--bottom-image & {
+			order: 2;
+		}
+	}
+
+	&__image {
+		position: relative;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+
+		@include mq("medium") {
+			aspect-ratio: unset;
+			height: 570px;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		order: 2;
+
+		.--bottom-image & {
+			order: 1;
+		}
+	}
+
+	&__details {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		order: 3;
+
+		@include mq("mobile") {
+			flex-flow: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__byline {
+		@include micro-text;
+		display: flex;
+		color: var(--capitola-color-body);
+		gap: var(--capitola-spacing-xsmall);
+		align-items: flex-start;
+
+		&-img-wrap {
+			position: relative;
+			flex: 0 0 40px;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			overflow: hidden;
+
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__social-links {
+		display: flex;
+		justify-content: flex-end;
+		gap: var(--capitola-spacing-xsmall);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			margin: 0;
+		}
+	}
+
+	&__social-link {
+		display: block;
+		height: 30px;
+		width: 30px;
+		background: var(--capitola-color-link);
+		mask: {
+			repeat: no-repeat;
+			position: center;
+			size: contain;
+		}
+		transition: background-color $transition;
+
+		&:hover {
+			background: var(--capitola-color-body);
+		}
+
+		&.--twitter {
+			mask-image: url(#{$image_path}social/fa-x-twitter.svg);
+		}
+
+		&.--facebook {
+			mask-image: url(#{$image_path}social/fa-facebook-f.svg);
+		}
+
+		&.--youtube {
+			mask-image: url(#{$image_path}social/fa-youtube.svg);
+		}
+
+		&.--instagram {
+			mask-image: url(#{$image_path}social/fa-instagram.svg);
+		}
+
+		&.--pinterest {
+			mask-image: url(#{$image_path}social/fa-pinterest-p.svg);
+		}
+
+		&.--tiktok {
+			mask-image: url(#{$image_path}social/fa-tiktok.svg);
+		}
+
+		&.--linkedin {
+			mask-image: url(#{$image_path}social/fa-linkedin-in.svg);
+		}
+	}
+}

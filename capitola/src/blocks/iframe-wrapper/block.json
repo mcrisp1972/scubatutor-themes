@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/iframe-wrapper",
+	"title": "iFrame Wrapper",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"align": {
+			"type": "string",
+			"default": ""
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": "16-9"
+		},
+		"iframeHtml": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {},
+	"render": "file:./render.php",
+	"style": "capitola-iframe-wrapper",
+	"editorStyle": "capitola-iframe-wrapper-editor",
+	"editorScript": "file:./index.js"
+}

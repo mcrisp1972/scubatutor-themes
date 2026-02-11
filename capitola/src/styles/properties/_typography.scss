@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+
+:root {
+	--capitola-p-fontFamily: #{$font-primary};
+	--capitola-p-lineHeight: 1.5;
+	--capitola-p-fontWeight: 400;
+
+	--capitola-button-fontSize: var(--capitola-fluid-16-18);
+	--capitola-p-fontSize: var(--capitola-fluid-16-18);
+	--capitola-p-l-fontSize: var(--capitola-fluid-18-20);
+	--capitola-p-s-fontSize: var(--capitola-fluid-14-16);
+
+	//headlines
+	--capitola-hl-fontFamily: #{$font-headers};
+	--capitola-hl-lineHeight: 1;
+	--capitola-hl-fontWeight: 700;
+	--capitola-hl-xxl-fontSize: var(--capitola-fluid-48-56);
+	--capitola-hl-xl-fontSize: var(--capitola-fluid-40-48);
+	--capitola-hl-l-fontSize: var(--capitola-fluid-32-40);
+	--capitola-hl-m-fontSize: var(--capitola-fluid-24-32);
+	--capitola-hl-s-fontSize: var(--capitola-fluid-20-24);
+	--capitola-hl-xs-fontSize: var(--capitola-fluid-18-20);
+
+	--capitola-excerpt-lines: 4;
+}

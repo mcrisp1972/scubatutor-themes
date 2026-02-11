@@ -1,0 +1,144 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/small-image-slider",
+	"title": "Small Image Slider",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "top"
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": "square"
+		},
+		"grayscaleInactive": {
+			"type": "boolean",
+			"default": true
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"image": 0,
+					"caption": ""
+				}
+			]
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableBackgroundImage": true,
+				"disableVerticalAlign": true
+			}
+		}
+	},
+	"example": {
+		"attributes": {
+			"slides": [
+				{
+					"image": {
+						"source_url": "https://pd.w.org/2023/12/46665733547928280.70690426-1536x1152.jpg"
+					},
+					"caption": "Voluptate aliquip tempor ad sunt ullamco cillum aute Lorem pariatur incididunt ut tempor eiusmod aliquip.",
+					"link": false,
+					"ctaLabel": "Do tempor"
+				},
+				{
+					"image": {
+						"source_url": "https://pd.w.org/2023/12/2846572fc1dea2e71.03572528-1536x1536.jpeg"
+					},
+					"caption": "",
+					"link": false,
+					"ctaLabel": ""
+				},
+				{
+					"image": {
+						"source_url": "https://pd.w.org/2023/12/9336572e920b43606.87736263-1536x1152.jpeg"
+					},
+					"caption": "",
+					"link": false,
+					"ctaLabel": ""
+				},
+				{
+					"image": {
+						"source_url": "https://pd.w.org/2023/12/256572e6018ca870.04948732-1536x1152.jpeg"
+					},
+					"caption": "",
+					"link": false,
+					"ctaLabel": ""
+				}
+			]
+		},
+		"innerBlocks": [
+			{
+				"name": "capitola/body-text",
+				"attributes": {
+					"eyebrow": "Cupidatat pariatur",
+					"headline": "Nulla Minim Est Do",
+					"cta": {
+						"title": "Consequat",
+						"link": { "url": "/" }
+					},
+					"cta2": {
+						"title": "Velit amet",
+						"link": { "url": "/" }
+					}
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+						}
+					}
+				]
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign"
+	},
+	"render": "file:./render.php",
+	"style": "capitola-small-image-slider",
+	"viewScript": ["file:./view.js", "capitola-animations"],
+	"editorScript": "file:./index.js"
+}

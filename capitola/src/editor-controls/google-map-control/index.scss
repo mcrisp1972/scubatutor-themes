@@ -1,0 +1,22 @@
+.capitola-map-control {
+	position: relative;
+	width: 100%;
+
+	.map-container {
+		display: flex;
+		height: 248px;
+		gap: 8px;
+		flex-direction: column-reverse;
+		overflow: visible !important;
+
+		> :first-child {
+			position: relative !important;
+			overflow: hidden;
+		}
+	}
+
+	.input-wrap {
+		position: relative;
+		width: 100%;
+	}
+}

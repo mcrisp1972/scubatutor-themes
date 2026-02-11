@@ -1,0 +1,214 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-body-text {
+	display: flex;
+	position: relative;
+	flex-flow: column;
+	justify-content: center;
+
+	&.--has-bg-image {
+		padding-bottom: var(--capitola-blockPadding);
+	}
+
+	&.--is-centered-intro {
+		text-align: center;
+		@include contentSize;
+
+		&.--has-bg-image {
+			width: unset;
+			margin: {
+				left: unset;
+				right: unset;
+			}
+		}
+	}
+
+	@include mq("50-50") {
+		flex: 0 1 50%;
+
+		&.--has-bg-image {
+			padding-bottom: 0;
+
+			&.--is-top-intro {
+				padding-bottom: var(--capitola-blockPadding);
+			}
+
+			&.--is-left-intro,
+			&.--is-right-intro {
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	&.--justify-top {
+		justify-content: flex-start;
+	}
+
+	&__bg-image {
+		position: absolute;
+		inset:
+			calc(var(--capitola-blockPadding) * -1) calc(var(--capitola-wideSize-margin) * -1) 0
+			calc(var(--capitola-wideSize-margin) * -1);
+
+		overflow: hidden;
+
+		&:has(.components-spinner) {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@include mq("50-50") {
+			bottom: calc(var(--capitola-blockPadding) * -1);
+
+			.--is-top-intro & {
+				bottom: 0;
+			}
+
+			.--is-right-intro & {
+				left: 0;
+			}
+
+			.--is-left-intro & {
+				right: 0;
+			}
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(--wp--custom--opacity--solid);
+			opacity: var(--capitola-overlayOpacity);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object: {
+				fit: cover;
+				position: var(--capitola-objectPosition);
+			}
+		}
+
+		&.--img-parallax {
+
+			img {
+				height: 150%;
+			}
+		}
+	}
+
+	&__grid {
+
+		.--is-top-intro.--is-centered-intro.--has-bg-image & {
+			width: var(--capitola-contentSize-padded);
+			margin: 0 auto;
+		}
+
+		@include mq("medium") {
+
+			.--is-top-intro & {
+				display: grid;
+				grid: repeat(3, auto) / minmax(0, var(--capitola-contentSize-padded)) 1fr;
+			}
+
+			.--is-top-intro.--is-centered-intro & {
+				display: block;
+			}
+
+			.--is-top-intro.--has-bg-image & {
+				padding-right: 0;
+			}
+		}
+
+		@include mq("50-50") {
+
+			.--is-left-intro.--has-bg-image & {
+				padding-right: var(--capitola-gutter);
+			}
+
+			.--is-right-intro.--has-bg-image & {
+				padding: {
+					left: var(--capitola-gutter);
+					right: 0;
+				}
+			}
+		}
+	}
+
+	&__eyebrow {
+		position: relative;
+		margin: 0 0 var(--capitola-spacing-xsmall);
+
+		.--is-top-intro & {
+			@include mq("medium") {
+				grid: {
+					column: 1;
+					row: 1;
+				}
+			}
+		}
+	}
+
+	&__headline {
+		position: relative;
+		margin: 0;
+
+		.--is-top-intro & {
+			@include mq("medium") {
+				grid: {
+					column: 1;
+					row: 2;
+				}
+			}
+		}
+	}
+
+	&__intro {
+		position: relative;
+		margin: var(--capitola-spacing-small) 0 0;
+
+		.--is-top-intro & {
+			@include mq("medium") {
+				grid: {
+					column: 1;
+					row: 3;
+				}
+			}
+		}
+	}
+
+	&__ctas {
+		position: relative;
+		@include cta-wrapper;
+
+		.--is-top-intro.--is-centered-intro & {
+			justify-content: center;
+		}
+
+		@include mq("medium") {
+
+			.--is-top-intro:not(.--is-centered-intro) & {
+				grid: {
+					column: 2;
+					row: 1 / 3;
+				}
+				align-self: end;
+				justify-self: end;
+				flex-wrap: nowrap;
+				margin: {
+					top: 0;
+					left: var(--capitola-spacing-large);
+				}
+			}
+
+			.--is-top-intro:not(.--is-centered-intro):not(:has(.wp-block-capitola-body-text__headline)) & {
+				grid-row: 3;
+				align-self: start;
+				margin-top: var(--capitola-spacing-small);
+			}
+		}
+	}
+}

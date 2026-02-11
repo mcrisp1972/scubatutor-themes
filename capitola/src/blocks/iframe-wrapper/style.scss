@@ -1,0 +1,23 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-iframe-wrapper {
+	position: relative;
+	margin-top: var(--capitola-open-content-spacing);
+	overflow: hidden;
+	aspect-ratio: 16/9;
+
+	&.--4-3 {
+		aspect-ratio: 4/3;
+	}
+
+	&.--3-2 {
+		aspect-ratio: 3/2;
+	}
+
+	iframe,
+	img {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+}

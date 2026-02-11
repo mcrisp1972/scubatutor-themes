@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+
+.wp-block-image {
+
+	&.is-style-small-radius {
+
+		img {
+			border-radius: $radius-med;
+		}
+	}
+
+	&.is-style-medium-radius {
+
+		img {
+			border-radius: $radius-large;
+		}
+	}
+
+	&.is-style-large-radius {
+
+		img {
+			border-radius: $radius-xlarge;
+		}
+	}
+
+	figcaption {
+		@include micro-text;
+		color: var(--capitola-color-body);
+		margin: var(--capitola-spacing-xsmall) 0 0;
+	}
+}

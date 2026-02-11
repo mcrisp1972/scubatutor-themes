@@ -1,0 +1,22 @@
+.wp-block-capitola-simple-spacer {
+
+	&.is-style-xxlarge {
+		height: var(--capitola-spacing-xxlarge);
+	}
+
+	&.is-style-xlarge {
+		height: var(--capitola-spacing-large);
+	}
+
+	&.is-style-large {
+		height: var(--capitola-spacing-medium);
+	}
+
+	&.is-style-medium {
+		height: var(--capitola-spacing-small);
+	}
+
+	&.is-style-small {
+		height: var(--capitola-spacing-small);
+	}
+}

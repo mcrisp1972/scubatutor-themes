@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/open-content",
+	"title": "Open Content Layout",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"contentJustify": {
+			"type": "string",
+			"default": "left"
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/heading",
+				"attributes": {
+					"content": "Tempor laborum ea nostrud"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Anim occaecat consectetur consectetur laborum consequat voluptate aute fugiat et minim non commodo est. Id irure veniam ad cillum tempor. Id amet cupidatat culpa elit cillum laborum tempor eiusmod pariatur quis dolore magna. Non ad nisi dolor duis deserunt."
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Incididunt velit aliquip exercitation quis eu mollit labore. Lorem irure anim non est ad qui ipsum tempor pariatur. Officia aute eu magna amet proident consequat sit deserunt. Fugiat aliquip laborum enim ullamco ea aliquip."
+				}
+			}
+		],
+		"viewportWidth": 1440
+	},
+	"render": "file:./render.php",
+	"style": ["capitola-open-content"],
+	"editorScript": "file:./index.js"
+}

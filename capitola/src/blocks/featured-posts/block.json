@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/featured-posts",
+	"title": "Featured Posts",
+	"description": "",
+	"category": "custom-blocks",
+	"keywords": [],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
+		},
+		"revealAnimation": {
+			"type": "string",
+			"default": "0"
+		},
+		"revealSection": {
+			"type": "string",
+			"default": "body"
+		},
+		"allowRevealSectionSelect": {
+			"type": "boolean",
+			"default": true
+		},
+		"listLayout": {
+			"type": "string",
+			"default": "card"
+		},
+		"showSlideCount": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleTag": {
+			"type": "string",
+			"default": "h3"
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Read More"
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleLocation": {
+			"type": "string",
+			"default": "image"
+		},
+		"showByline": {
+			"type": "boolean",
+			"default": true
+		},
+		"postType": {
+			"type": "string",
+			"default": "post"
+		},
+		"posts": {
+			"type": "array",
+			"default": []
+		},
+		"bodyTextOptions": {
+			"type": "object",
+			"default": {
+				"disableBackgroundImage": false,
+				"disableVerticalAlign": true
+			}
+		},
+		"introAlign": {
+			"type": "string",
+			"default": "top"
+		},
+		"isExample": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"isExample": true,
+			"limit": "6",
+			"listLayout": "column-3"
+		},
+		"viewportWidth": 1440
+	},
+	"providesContext": {
+		"bodyTextOptions": "bodyTextOptions",
+		"revealAnimation": "revealAnimation",
+		"revealSection": "revealSection",
+		"introAlign": "introAlign",
+		"isExample": "isExample"
+	},
+	"style": "capitola-post-listing",
+	"viewScript": ["capitola-listing-sidescroll", "capitola-animations"],
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}
