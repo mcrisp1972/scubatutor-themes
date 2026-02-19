@@ -1,0 +1,244 @@
+[
+	{
+		"name": "None",
+		"slug": "",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--crimson-bolt)",
+			"secondary": "var(--wp--preset--color--crimson-bolt)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "default-dark",
+		"footerTheme": "default-dark"
+	},
+	{
+		"name": "Dark",
+		"slug": "default-dark",
+		"palette": {
+			"background": "var(--wp--preset--color--black)",
+			"primary": "var(--wp--preset--color--cherry-pop)",
+			"secondary": "var(--wp--preset--color--crimson-bolt)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "",
+		"footerTheme": ""
+	},
+	{
+		"name": "Summer Splash Light",
+		"slug": "summer-splash-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--atlantic-ink)",
+			"secondary": "var(--wp--preset--color--atlantic-ink)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "summer-splash",
+		"footerTheme": "summer-splash"
+	},
+	{
+		"name": "Summer Splash",
+		"slug": "summer-splash",
+		"palette": {
+			"background": "var(--wp--preset--color--icy-breeze)",
+			"primary": "var(--wp--preset--color--atlantic-ink)",
+			"secondary": "var(--wp--preset--color--atlantic-ink)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "summer-splash-light",
+		"footerTheme": "summer-splash-light"
+	},
+	{
+		"name": "Deep Blue Light",
+		"slug": "deep-blue-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--midnight-abyss)",
+			"secondary": "var(--wp--preset--color--midnight-abyss)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "deep-blue",
+		"footerTheme": "deep-blue"
+	},
+	{
+		"name": "Middle Eastern Light",
+		"slug": "middle-eastern-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--crimson-velvet)",
+			"secondary": "var(--wp--preset--color--crimson-velvet)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "middle-eastern",
+		"footerTheme": "middle-eastern"
+	},
+	{
+		"name": "Red Beanie Light",
+		"slug": "red-beanie-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--cherry-blaze)",
+			"secondary": "var(--wp--preset--color--midnight-plum)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "red-beanie",
+		"footerTheme": "red-beanie"
+	},
+	{
+		"name": "Pomegranate Light",
+		"slug": "pomegranate-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--burnt-sienna)",
+			"secondary": "var(--wp--preset--color-crimson-night)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "pomegranate",
+		"footerTheme": "pomegranate"
+	},
+	{
+		"name": "Dawn Light",
+		"slug": "dawn-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--midnight-blue)",
+			"secondary": "var(--wp--preset--color--midnight-blue)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "dawn",
+		"footerTheme": "dawn"
+	},
+	{
+		"name": "Geometry Light",
+		"slug": "geometry-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--ocean-depth)",
+			"secondary": "var(--wp--preset--color--firebrick)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "geometry",
+		"footerTheme": "geometry"
+	},
+	{
+		"name": "Pulp Slices Light",
+		"slug": "pulp-slices-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--forest-pine)",
+			"secondary": "var(--wp--preset--color--midnight-ocean)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "pulp-slices",
+		"footerTheme": "pulp-slices"
+	},
+	{
+		"name": "Salmon Light",
+		"slug": "salmon-light",
+		"palette": {
+			"background": "var(--wp--preset--color--white)",
+			"primary": "var(--wp--preset--color--olive-shade)",
+			"secondary": "var(--wp--preset--color--olive-shade)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "salmon",
+		"footerTheme": "salmon"
+	},
+
+	{
+		"name": "Deep Blue",
+		"slug": "deep-blue",
+		"palette": {
+			"background": "var(--wp--preset--color--midnight-abyss)",
+			"primary": "var(--wp--preset--color--sky-breeze)",
+			"secondary": "var(--wp--preset--color--sky-breeze)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "deep-blue-light",
+		"footerTheme": "deep-blue-light"
+	},
+	{
+		"name": "Middle Eastern",
+		"slug": "middle-eastern",
+		"palette": {
+			"background": "var(--wp--preset--color--sunbeam-cream)",
+			"primary": "var(--wp--preset--color--crimson-velvet)",
+			"secondary": "var(--wp--preset--color--crimson-velvet)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "middle-eastern-light",
+		"footerTheme": "middle-eastern-light"
+	},
+	{
+		"name": "Red Beanie",
+		"slug": "red-beanie",
+		"palette": {
+			"background": "var(--wp--preset--color--cherry-blaze)",
+			"primary": "var(--wp--preset--color--golden-cream)",
+			"secondary": "var(--wp--preset--color--golden-cream)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "red-beanie-light",
+		"footerTheme": "red-beanie-light"
+	},
+	{
+		"name": "Pomegranate",
+		"slug": "pomegranate",
+		"palette": {
+			"background": "var(--wp--preset--color--burnt-sienna)",
+			"primary": "var(--wp--preset--color--vanilla-dream)",
+			"secondary": "var(--wp--preset--color--vanilla-dream)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "pomegranate-light",
+		"footerTheme": "pomegranate-light"
+	},
+	{
+		"name": "Dawn",
+		"slug": "dawn",
+		"palette": {
+			"background": "var(--wp--preset--color--midnight-blue)",
+			"primary": "var(--wp--preset--color--golden-amber)",
+			"secondary": "var(--wp--preset--color--golden-amber)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "dawn-light",
+		"footerTheme": "dawn-light"
+	},
+	{
+		"name": "Geometry",
+		"slug": "geometry",
+		"palette": {
+			"background": "var(--wp--preset--color--ocean-depth)",
+			"primary": "var(--wp--preset--color--vanilla-lace)",
+			"secondary": "var(--wp--preset--color--vanilla-lace)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "geometry-light",
+		"footerTheme": "geometry-light"
+	},
+	{
+		"name": "Pulp Slices",
+		"slug": "pulp-slices",
+		"palette": {
+			"background": "var(--wp--preset--color--peach-creme)",
+			"primary": "var(--wp--preset--color--forest-fern)",
+			"secondary": "var(--wp--preset--color--midnight-ocean)",
+			"body": "var(--wp--preset--color--black)"
+		},
+		"headerTheme": "pulp-slices-light",
+		"footerTheme": "pulp-slices-light"
+	},
+	{
+		"name": "Salmon",
+		"slug": "salmon",
+		"palette": {
+			"background": "var(--wp--preset--color--olive-shade)",
+			"primary": "var(--wp--preset--color--golden-sand)",
+			"accent2": "var(--wp--preset--color--golden-sand)",
+			"secondary": "var(--wp--preset--color--golden-sand)",
+			"body": "var(--wp--preset--color--white)"
+		},
+		"headerTheme": "salmon-light",
+		"footerTheme": "salmon-light"
+	}
+]

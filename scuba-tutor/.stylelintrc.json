@@ -1,0 +1,9 @@
+{
+	"extends": "@wordpress/stylelint-config/scss-stylistic",
+	"rules": {
+		"at-rule-empty-line-before": null,
+		"selector-class-pattern": null,
+		"no-descending-specificity": null,
+		"@stylistic/max-line-length": null
+	}
+}

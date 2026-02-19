@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/page-nav",
+	"title": "Page Navigation",
+	"description": "",
+	"category": "nav",
+	"keywords": [],
+	"supports": {
+		"spacing": {
+			"margin": [
+				"top"
+			]
+		}
+	},
+	"attributes": {
+		"prevPage": {
+			"type": "object",
+			"default": false
+		},
+		"nextPage": {
+			"type": "object",
+			"default": false
+		}
+	},
+	"example": {},
+	"style": "capitola-page-nav",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

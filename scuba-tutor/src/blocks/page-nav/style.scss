@@ -1,0 +1,61 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-page-nav {
+	padding-bottom: var(--capitola-spacing-large);
+
+	&__width {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__prev,
+	&__next {
+		@include hyperlink;
+		display: flex;
+		text-decoration: none;
+		align-items: center;
+		gap: var(--capitola-spacing-xsmall);
+
+		&:hover,
+		&:focus {
+
+			&::before,
+			&::after {
+				background-color: var(--capitola-color-link-hover);
+			}
+		}
+	}
+
+	&__prev {
+		margin-right: auto;
+
+		&::before {
+			content: "";
+			display: block;
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-position: center;
+			background-color: var(--capitola-color-link);
+			width: 16px;
+			height: 16px;
+			mask-image: url("~/assets/svgs/arrows/fa-angle-left.svg");
+			transform: background-color $transition;
+		}
+	}
+
+	&__next {
+		margin-left: auto;
+
+		&::after {
+			content: "";
+			display: block;
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-position: center;
+			background-color: var(--capitola-color-link);
+			width: 16px;
+			height: 16px;
+			mask-image: url("~/assets/svgs/arrows/fa-angle-right.svg");
+		}
+	}
+}

@@ -4,16 +4,25 @@ import {
 	useInnerBlocksProps,
 	MediaPlaceholder,
 } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
+import {
+	PanelBody,
+	ToggleControl,
+	TextareaControl,
+} from '@wordpress/components';
 import { ImageAlignMatrix, ImageSelectButton } from '../../editor-controls';
 
 export default function Edit( props ) {
-	const { attributes, setAttributes, isSelected } = props;
+	const { attributes, setAttributes, isSelected, context } = props;
 
-	const { sideImage, imageCropPosition, showCaption, captionOverride } = attributes;
+	const { sideImage, imageCropPosition, showCaption, captionOverride } =
+		attributes;
+
+	const { showFullImage } = context;
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
-		useBlockProps( { className: 'wp-block-capitola-sticky-images__body-section' } ),
+		useBlockProps( {
+			className: 'wp-block-capitola-sticky-images__body-section',
+		} ),
 		{
 			template: [ [ 'capitola/body-text' ] ],
 			templateLock: 'all',
@@ -44,13 +53,15 @@ export default function Edit( props ) {
 							__nextHasNoMarginBottom
 						/>
 					) }
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ imageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { imageCropPosition: value } );
-						} }
-					/>
+					{ ! showFullImage && (
+						<ImageAlignMatrix
+							label="Image Crop Position"
+							value={ imageCropPosition }
+							onChange={ ( value ) => {
+								setAttributes( { imageCropPosition: value } );
+							} }
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<div
@@ -64,7 +75,10 @@ export default function Edit( props ) {
 							<ImageSelectButton
 								onSelect={ ( value ) => {
 									setAttributes( {
-										sideImage: { id: value.id, source_url: value.url },
+										sideImage: {
+											id: value.id,
+											source_url: value.url,
+										},
 									} );
 								} }
 								value={ sideImage.id }
@@ -74,7 +88,12 @@ export default function Edit( props ) {
 				) : (
 					<MediaPlaceholder
 						onSelect={ ( value ) => {
-							setAttributes( { sideImage: { id: value.id, source_url: value.url } } );
+							setAttributes( {
+								sideImage: {
+									id: value.id,
+									source_url: value.url,
+								},
+							} );
 						} }
 						value={ sideImage.id }
 						allowedTypes={ [ 'image' ] }

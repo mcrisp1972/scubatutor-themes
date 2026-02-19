@@ -25,6 +25,10 @@
 			"type": "string",
 			"default": "inner"
 		},
+		"showFullImage": {
+			"type": "boolean",
+			"default": false
+		},
 		"imageCropPosition": {
 			"type": "string",
 			"default": "center center"
@@ -49,6 +53,9 @@
 			"type": "boolean",
 			"default": false
 		}
+	},
+	"providesContext": {
+		"showFullImage": "showFullImage"
 	},
 	"example": {
 		"attributes": {

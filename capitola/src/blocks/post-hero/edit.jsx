@@ -1,4 +1,8 @@
-import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	RichText,
+} from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { date } from '@wordpress/date';
@@ -43,7 +47,9 @@ export default function Edit( props ) {
 
 	const authorObject = useSelect(
 		( select ) => {
-			return ! isTemplate ? select( 'core' ).getUser( postAuthor ) : { name: 'Author Name' };
+			return ! isTemplate
+				? select( 'core' ).getUser( postAuthor )
+				: { name: 'Author Name' };
 		},
 		[ isTemplate, postAuthor ]
 	);
@@ -63,7 +69,8 @@ export default function Edit( props ) {
 				);
 			} else if ( isTemplate ) {
 				return {
-					source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
+					source_url:
+						'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
 				};
 			}
 			return undefined;
@@ -75,7 +82,8 @@ export default function Edit( props ) {
 		( select ) => {
 			if ( isTemplate ) {
 				return {
-					source_url: 'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
+					source_url:
+						'https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg',
 				};
 			}
 			if ( typeof featuredImage === 'object' ) {
@@ -83,10 +91,16 @@ export default function Edit( props ) {
 			}
 			const imageId = featuredImage
 				? featuredImage
-				: select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
+				: select( 'core/editor' ).getEditedPostAttribute(
+						'featured_media'
+				  );
 
 			return imageId
-				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+				? select( 'core' ).getEntityRecord(
+						'postType',
+						'attachment',
+						imageId
+				  )
 				: undefined;
 		},
 		[ isTemplate, featuredImage ]
@@ -100,7 +114,9 @@ export default function Edit( props ) {
 	return (
 		<div
 			{ ...useBlockProps( {
-				className: 'alignwide' + ( imageLocation === 'bottom' ? ' --bottom-image' : '' ),
+				className:
+					'alignwide' +
+					( imageLocation === 'bottom' ? ' --bottom-image' : '' ),
 			} ) }
 		>
 			<InspectorControls>
@@ -163,7 +179,9 @@ export default function Edit( props ) {
 				</div>
 			) }
 			{ isTemplate && (
-				<div className="wp-block-capitola-post-hero__title --hl-xl">Post Title</div>
+				<div className="wp-block-capitola-post-hero__title --hl-xl">
+					Post Title
+				</div>
 			) }
 			{ ! isTemplate && (
 				<RichText
@@ -181,11 +199,16 @@ export default function Edit( props ) {
 						<>
 							<div className="wp-block-capitola-post-hero__byline-img-wrap">
 								{ authorImage !== undefined && (
-									<img src={ authorImage.source_url } alt="" />
+									<img
+										src={ authorImage.source_url }
+										alt=""
+									/>
 								) }
 							</div>
 							<div className="wp-block-capitola-post-hero__byline-date">
-								<div>{ !! authorObject ? authorObject.name : '' }</div>
+								<div>
+									{ !! authorObject ? authorObject.name : '' }
+								</div>
 								<div>
 									{ ! isTemplate
 										? date( "M jS 'y", postObject.date )

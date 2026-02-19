@@ -1,0 +1,32 @@
+{
+	"extends": [
+		"plugin:prettier/recommended",
+		"plugin:@wordpress/eslint-plugin/recommended"
+	],
+	"plugins": [
+		"@wordpress"
+	],
+	"ignorePatterns": [
+		"webpack.config.js",
+		"**/vendor/*.js"
+	],
+	"rules": {
+		"space-in-parens": [
+			"error",
+			"always"
+		],
+		"arrow-body-style": [
+			"error",
+			"always"
+		]
+	},
+	"env": {
+		"jest": true,
+		"browser": true
+	},
+	"globals": {
+		"lodash": true,
+		"listingArgs": true,
+		"wpApiSettings": true
+	}
+}

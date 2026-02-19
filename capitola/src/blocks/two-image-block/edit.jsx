@@ -3,8 +3,16 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 	BlockControls,
+	RichText,
 } from '@wordpress/block-editor';
-import { PanelBody, RadioControl, RangeControl, ToolbarGroup } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import {
+	PanelBody,
+	RadioControl,
+	RangeControl,
+	ToggleControl,
+	ToolbarGroup,
+} from '@wordpress/components';
 import {
 	ImageSelect,
 	ImageAlignMatrix,
@@ -24,15 +32,19 @@ export default function Edit( props ) {
 		gridAspectRatio,
 		rearImagePosition,
 		rearImage,
-		frontImage,
-		rearImageCropPosition,
-		frontImageCropPosition,
-		rearImageRadius,
-		frontImageRadius,
 		rearImageHeight,
-		frontImageHeight,
 		rearImageWidth,
+		rearImageCropPosition,
+		rearImageRadius,
+		rearImageShowCaption,
+		rearImageCaption,
+		frontImage,
+		frontImageHeight,
 		frontImageWidth,
+		frontImageCropPosition,
+		frontImageRadius,
+		frontImageShowCaption,
+		frontImageCaption,
 		verticalAlign,
 		colorTheme,
 	} = attributes;
@@ -49,6 +61,24 @@ export default function Edit( props ) {
 		}
 	);
 
+	const rearImageObj = useSelect(
+		( select ) => {
+			return rearImage.id
+				? select( 'core' ).getMedia( rearImage.id )
+				: null;
+		},
+		[ rearImage.id ]
+	);
+
+	const frontImageObj = useSelect(
+		( select ) => {
+			return frontImage.id
+				? select( 'core' ).getMedia( frontImage.id )
+				: null;
+		},
+		[ frontImage.id ]
+	);
+
 	return (
 		<div
 			{ ...useBlockProps( {
@@ -61,7 +91,12 @@ export default function Edit( props ) {
 						label="Image"
 						value={ rearImage.id }
 						onChange={ ( value ) => {
-							setAttributes( { rearImage: { id: value.id, source_url: value.url } } );
+							setAttributes( {
+								rearImage: {
+									id: value.id,
+									source_url: value.url,
+								},
+							} );
 						} }
 					/>
 					<RadioControl
@@ -120,8 +155,18 @@ export default function Edit( props ) {
 							{ label: 'Bottom Right', value: 'bottom-right' },
 						] }
 						onChange={ ( value ) => {
-							return setAttributes( { rearImagePosition: value } );
+							return setAttributes( {
+								rearImagePosition: value,
+							} );
 						} }
+					/>
+					<ToggleControl
+						label="Show Caption"
+						checked={ rearImageShowCaption }
+						onChange={ ( value ) => {
+							setAttributes( { rearImageShowCaption: value } );
+						} }
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Front Image" initialOpen={ true }>
@@ -130,7 +175,10 @@ export default function Edit( props ) {
 						value={ frontImage.id }
 						onChange={ ( value ) => {
 							setAttributes( {
-								frontImage: { id: value.id, source_url: value.url },
+								frontImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>
@@ -190,8 +238,18 @@ export default function Edit( props ) {
 							{ label: 'Bottom Left', value: 'top-right' },
 						] }
 						onChange={ ( value ) => {
-							return setAttributes( { rearImagePosition: value } );
+							return setAttributes( {
+								rearImagePosition: value,
+							} );
 						} }
+					/>
+					<ToggleControl
+						label="Show Caption"
+						checked={ frontImageShowCaption }
+						onChange={ ( value ) => {
+							setAttributes( { frontImageShowCaption: value } );
+						} }
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -206,7 +264,10 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
+					<VerticalAlignToolbar
+						props={ props }
+						attribute="verticalAlign"
+					/>
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
@@ -222,7 +283,9 @@ export default function Edit( props ) {
 				>
 					<figure
 						className={ `wp-block-capitola-two-image-block__rear-image ${
-							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
+							rearImageRadius
+								? ' --has-' + rearImageRadius + '-radius'
+								: ''
 						}` }
 						style={ {
 							'--image-height': rearImageHeight,
@@ -235,10 +298,29 @@ export default function Edit( props ) {
 						) : (
 							<PlaceholderImage />
 						) }
+						{ rearImageShowCaption && (
+							<RichText
+								tagName="figcaption"
+								value={ rearImageCaption }
+								placeholder={
+									rearImageObj?.caption?.raw
+										? rearImageObj.caption.raw
+										: 'Caption...'
+								}
+								allowedFormats={ [] }
+								onChange={ ( value ) => {
+									setAttributes( {
+										rearImageCaption: value,
+									} );
+								} }
+							/>
+						) }
 					</figure>
 					<figure
 						className={ `wp-block-capitola-two-image-block__front-image ${
-							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
+							frontImageRadius
+								? ' --has-' + frontImageRadius + '-radius'
+								: ''
 						}` }
 						style={ {
 							'--image-height': frontImageHeight,
@@ -250,6 +332,23 @@ export default function Edit( props ) {
 							<img src={ frontImage.source_url } alt="" />
 						) : (
 							<PlaceholderImage />
+						) }
+						{ frontImageShowCaption && (
+							<RichText
+								tagName="figcaption"
+								value={ frontImageCaption }
+								placeholder={
+									frontImageObj?.caption?.raw
+										? frontImageObj.caption.raw
+										: 'Caption...'
+								}
+								allowedFormats={ [] }
+								onChange={ ( value ) => {
+									setAttributes( {
+										frontImageCaption: value,
+									} );
+								} }
+							/>
 						) }
 					</figure>
 				</div>

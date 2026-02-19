@@ -7,7 +7,12 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { PanelBody, ToolbarGroup, RadioControl } from '@wordpress/components';
+import {
+	PanelBody,
+	ToolbarGroup,
+	RadioControl,
+	ToggleControl,
+} from '@wordpress/components';
 import {
 	ColorThemePanel,
 	ImageSelectButton,
@@ -25,6 +30,7 @@ export default function Edit( props ) {
 		imageRadius,
 		transitionMode,
 		imageLayout,
+		showFullImage,
 		colorTheme,
 		isExample,
 	} = attributes;
@@ -47,7 +53,11 @@ export default function Edit( props ) {
 			const captions = {};
 			imageIds.forEach( ( id ) => {
 				if ( id ) {
-					const media = getEntityRecord( 'postType', 'attachment', id );
+					const media = getEntityRecord(
+						'postType',
+						'attachment',
+						id
+					);
 					if ( media ) {
 						captions[ id ] = media.caption.raw;
 					}
@@ -64,9 +74,17 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: `alignfull --has-scroll-transition is-layout-constrained has-global-padding --theme-${ colorTheme }
-          ${ imageLayout === 'full' ? ' --layout-full' : '' }
-           --intro-${ introAlign }
-          ${ justifyClass } ${ imageLayout === 'inner' ? `--has-${ imageRadius }-radius` : '' }`,
+          		${ imageLayout === 'full' ? ' --layout-full' : '' }
+           		--intro-${ introAlign }
+          		${ justifyClass } ${
+					imageLayout === 'inner'
+						? `--has-${ imageRadius }-radius`
+						: ''
+				} ${
+					showFullImage && imageLayout === 'inner'
+						? ' --full-image'
+						: ''
+				}`,
 			} ) }
 		>
 			<InspectorControls group="settings">
@@ -82,6 +100,16 @@ export default function Edit( props ) {
 							setAttributes( { imageLayout: value } );
 						} }
 					/>
+					{ imageLayout === 'inner' && (
+						<ToggleControl
+							label="Disable Image Cropping"
+							checked={ showFullImage }
+							onChange={ ( value ) => {
+								setAttributes( { showFullImage: value } );
+							} }
+							help="When enabled, images will display in their entirety rather than being cropped to fill the image area."
+						/>
+					) }
 					<RadioControl
 						label="Transition"
 						selected={ transitionMode }
@@ -110,7 +138,10 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
+					<VerticalAlignToolbar
+						props={ props }
+						attribute="verticalAlign"
+					/>
 					{ imageLayout === 'inner' && (
 						<RadiusToolbar
 							props={ props }
@@ -138,42 +169,57 @@ export default function Edit( props ) {
 									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
 										'--capitola-objectPosition':
-											innerBlocks[ index ].attributes.imageCropPosition,
+											innerBlocks[ index ].attributes
+												.imageCropPosition,
 									} }
 								>
 									{ image.source_url ? (
 										<>
-											<img src={ image.source_url } alt="" />
+											<img
+												src={ image.source_url }
+												alt=""
+											/>
 											{ isSelected && (
 												<ImageSelectButton
 													onSelect={ ( value ) => {
 														updateBlockAttributes(
-															innerBlocks[ index ].clientId,
+															innerBlocks[ index ]
+																.clientId,
 															{
 																sideImage: {
 																	id: value.id,
-																	source_url: value.url,
+																	source_url:
+																		value.url,
 																},
 															}
 														);
 													} }
 													value={ image.id }
+													flexWrap={ true }
 												/>
 											) }
-											{ innerBlocks[ index ].attributes.showCaption && (
+											{ innerBlocks[ index ].attributes
+												.showCaption && (
 												<RichText
 													className="wp-block-capitola-sticky-images__image-caption --micro-text"
 													value={
-														innerBlocks[ index ].attributes
+														innerBlocks[ index ]
+															.attributes
 															.captionOverride
 													}
 													allowedFormats={ [] }
-													placeholder={ imageCaptions[ image.id ] }
+													placeholder={
+														imageCaptions[
+															image.id
+														]
+													}
 													onChange={ ( value ) => {
 														updateBlockAttributes(
-															innerBlocks[ index ].clientId,
+															innerBlocks[ index ]
+																.clientId,
 															{
-																captionOverride: value,
+																captionOverride:
+																	value,
 															}
 														);
 													} }
@@ -184,11 +230,13 @@ export default function Edit( props ) {
 										<MediaPlaceholder
 											onSelect={ ( value ) => {
 												updateBlockAttributes(
-													innerBlocks[ index ].clientId,
+													innerBlocks[ index ]
+														.clientId,
 													{
 														sideImage: {
 															id: value.id,
-															source_url: value.url,
+															source_url:
+																value.url,
 														},
 													}
 												);
@@ -196,7 +244,10 @@ export default function Edit( props ) {
 											value={ image.id }
 											allowedTypes={ [ 'image' ] }
 											multiple={ false }
-											style={ { height: '100%', borderRadius: '6px' } }
+											style={ {
+												height: '100%',
+												borderRadius: '6px',
+											} }
 										/>
 									) }
 								</div>
@@ -210,7 +261,9 @@ export default function Edit( props ) {
 							className: `wp-block-capitola-sticky-images__body-column --align-${ verticalAlign }`,
 						},
 						{
-							defaultBlock: { name: 'capitola/sticky-images-section' },
+							defaultBlock: {
+								name: 'capitola/sticky-images-section',
+							},
 							allowedBlocks: [ 'capitola/sticky-images-section' ],
 							template: [ [ 'capitola/sticky-images-section' ] ],
 							directInsert: true,

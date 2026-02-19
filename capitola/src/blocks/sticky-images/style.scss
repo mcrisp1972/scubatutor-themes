@@ -99,6 +99,7 @@
 		overflow: hidden;
 		align-items: center;
 		justify-content: center;
+		//background-color: red;
 
 		img {
 			position: absolute;
@@ -107,6 +108,16 @@
 			object: {
 				fit: cover;
 				position: var(--capitola-objectPosition);
+			}
+		}
+
+		.--full-image & {
+			height: unset;
+			object-fit: contain;
+
+			img {
+				position: unset;
+				object-fit: contain;
 			}
 		}
 	}
@@ -212,7 +223,8 @@
 				height: unset;
 			}
 
-			.--align-top & {
+			.--align-top &,
+			.--full-image & {
 				justify-content: flex-start;
 			}
 		}

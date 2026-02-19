@@ -45,21 +45,31 @@
 	&__front-image {
 		display: flex;
 		position: relative;
+		flex-direction: column;
 		overflow: hidden;
 		margin: 0;
 		align-items: center;
 		justify-content: center;
 
 		&.--has-small-radius {
-			border-radius: $radius-med;
+
+			img {
+				border-radius: $radius-med;
+			}
 		}
 
 		&.--has-medium-radius {
-			border-radius: $radius-large;
+
+			img {
+				border-radius: $radius-large;
+			}
 		}
 
 		&.--has-large-radius {
-			border-radius: $radius-xlarge;
+
+			img {
+				border-radius: $radius-xlarge;
+			}
 		}
 	}
 
@@ -133,5 +143,12 @@
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
+	}
+
+	figcaption {
+		text-align: left;
+		font-size: var(--capitola-p-s-fontSize);
+		width: 100%;
+		margin: var(--capitola-spacing-xsmall) 0 0;
 	}
 }
