@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/post-hero",
+  "title": "Post Hero",
+  "description": "",
+  "category": "hero-blocks",
+  "keywords": [],
+  "supports": {
+    "multiple": false,
+    "spacing": {
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "showSocials": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "showByline": {
+      "type": "boolean",
+      "default": true
+    },
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "imageLocation": {
+      "type": "string",
+      "default": "bottom"
+    },
+    "featuredImage": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "example": {
+    "attributes": {
+      "featuredImage": {
+        "source_url": "https://pd.w.org/2023/08/90464e6cdeeed8d02.58104016-1536x1024.jpg"
+      },
+      "headline": "Page Title"
+    },
+    "viewportWidth": 1440
+  },
+  "style": "capitola-post-hero",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/icon-item",
+  "title": "Icon Item",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {},
+  "parent": [
+    "capitola/icon-grid"
+  ],
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

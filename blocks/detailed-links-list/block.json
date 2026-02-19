@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/detailed-links-list",
+  "title": "Detailed Links List",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {
+    "inserter": false
+  },
+  "parent": [
+    "capitola/detailed-links"
+  ],
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

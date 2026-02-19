@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/accordion",
+  "title": "Accordion",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {
+    "anchor": true,
+    "interactivity": true
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "keepOpen": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "allowedBlocks": [
+    "capitola/accordion-item"
+  ],
+  "usesContext": [
+    "parentAutoCollapse"
+  ],
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "capitola/accordion-item",
+        "attributes": {
+          "headline": "Nulla pariatur cupidatat"
+        }
+      },
+      {
+        "name": "capitola/accordion-item",
+        "attributes": {
+          "headline": "Esse ea amet ea aliquip"
+        }
+      },
+      {
+        "name": "capitola/accordion-item",
+        "attributes": {
+          "headline": "Sint nulla anim laborum"
+        }
+      }
+    ]
+  },
+  "style": "capitola-accordion",
+  "editorStyle": "capitola-accordion-editor",
+  "viewScriptModule": "file:./view.js",
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

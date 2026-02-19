@@ -1,0 +1,136 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/icons",
+  "title": "Icons",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "colorTheme": {
+      "type": "string",
+      "default": false
+    },
+    "revealAnimation": {
+      "type": "string",
+      "default": "0"
+    },
+    "revealSection": {
+      "type": "string",
+      "default": "body"
+    },
+    "allowRevealSectionSelect": {
+      "type": "boolean",
+      "default": true
+    },
+    "introAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "textAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "iconBackground": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "capitola/body-text",
+        "attributes": {
+          "eyebrow": "Cupidatat pariatur",
+          "headline": "Nulla Minim Est Do",
+          "cta": {
+            "title": "Consequat",
+            "link": {
+              "url": "/"
+            }
+          },
+          "cta2": {
+            "title": "Velit amet",
+            "link": {
+              "url": "/"
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+            }
+          }
+        ]
+      },
+      {
+        "name": "capitola/icon-grid",
+        "innerBlocks": [
+          {
+            "name": "capitola/icon-item",
+            "attributes": {
+              "icon": "fa-award",
+              "title": "Porttitor consectetur",
+              "caption": "Vivamus elit leo porttitor leo vendor"
+            }
+          },
+          {
+            "name": "capitola/icon-item",
+            "attributes": {
+              "icon": "fa-sun-solid",
+              "title": "Leo sed leo vivamus",
+              "caption": "Aenean eiusmod porttitor aenean vendor"
+            }
+          },
+          {
+            "name": "capitola/icon-item",
+            "attributes": {
+              "icon": "fa-plane",
+              "title": "Elit leo elit ipsum elit",
+              "caption": "Aenean eiusmod porttitor aenean vendor"
+            }
+          },
+          {
+            "name": "capitola/icon-item",
+            "attributes": {
+              "icon": "fa-burger",
+              "title": "Elementum vivamus",
+              "caption": "Elit elementum leo consectetur sit"
+            }
+          }
+        ]
+      }
+    ],
+    "viewportWidth": 1440
+  },
+  "providesContext": {
+    "revealAnimation": "revealAnimation",
+    "revealSection": "revealSection",
+    "introAlign": "introAlign"
+  },
+  "viewScript": "capitola-animations",
+  "render": "file:./render.php",
+  "style": [
+    "capitola-icons"
+  ],
+  "editorScript": "file:./index.js"
+}

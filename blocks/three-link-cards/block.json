@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/three-link-cards",
+  "title": "Three Link Cards",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "colorTheme": {
+      "type": "string",
+      "default": false
+    },
+    "revealAnimation": {
+      "type": "string",
+      "default": "0"
+    },
+    "revealSection": {
+      "type": "string",
+      "default": "body"
+    },
+    "allowRevealSectionSelect": {
+      "type": "boolean",
+      "default": false
+    },
+    "introAlign": {
+      "type": "string",
+      "default": "top"
+    }
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "capitola/body-text",
+        "attributes": {
+          "eyebrow": "Cupidatat pariatur",
+          "headline": "Nulla Minim Est Do",
+          "cta": {
+            "title": "Consequat",
+            "link": {
+              "url": "/"
+            }
+          },
+          "cta2": {
+            "title": "Velit amet",
+            "link": {
+              "url": "/"
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+            }
+          }
+        ]
+      },
+      {
+        "name": "capitola/three-link-cards-grid",
+        "innerBlocks": [
+          {
+            "name": "capitola/three-link-card",
+            "attributes": {
+              "image": {
+                "source_url": "https://pd.w.org/2025/07/803686b569cddf8b4.43003281-768x574.jpg"
+              },
+              "title": "Voluptate mollit consequat irure est"
+            }
+          },
+          {
+            "name": "capitola/three-link-card",
+            "attributes": {
+              "imageRadius": "large",
+              "image": {
+                "source_url": "https://pd.w.org/2025/07/796686b564fb78425.26295683-768x576.jpg"
+              },
+              "title": "Veniam reprehenderit labore"
+            }
+          },
+          {
+            "name": "capitola/three-link-card",
+            "attributes": {
+              "image": {
+                "source_url": "https://pd.w.org/2025/06/588683efb00c410a3.55665591-768x432.jpg"
+              },
+              "title": "Dolor reprehenderit qui excepteur ut"
+            }
+          }
+        ]
+      }
+    ],
+    "viewportWidth": 1440
+  },
+  "providesContext": {
+    "revealAnimation": "revealAnimation",
+    "revealSection": "revealSection",
+    "introAlign": "introAlign"
+  },
+  "viewScript": "capitola-animations",
+  "render": "file:./render.php",
+  "style": "capitola-three-link-cards-with-intro",
+  "editorScript": "file:./index.js"
+}

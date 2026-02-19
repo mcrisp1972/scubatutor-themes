@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/simple-spacer",
+  "title": "Spacer new",
+  "description": "",
+  "category": "custom-blocks",
+  "keywords": [],
+  "supports": {},
+  "styles": [
+    {
+      "name": "xxlarge",
+      "label": "XXLarge"
+    },
+    {
+      "name": "xlarge",
+      "label": "XLarge",
+      "isDefault": true
+    },
+    {
+      "name": "large",
+      "label": "Large"
+    },
+    {
+      "name": "medium",
+      "label": "Medium"
+    },
+    {
+      "name": "small",
+      "label": "Small"
+    }
+  ],
+  "editorScript": "file:./index.js",
+  "style": "capitola-simple-spacer"
+}

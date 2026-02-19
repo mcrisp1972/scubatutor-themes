@@ -1,0 +1,181 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/two-image-block",
+  "title": "Two Image Block",
+  "description": "Displays two overlapping images with side content.",
+  "category": "custom-blocks",
+  "keywords": [
+    "links"
+  ],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "introAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "gridAspectRatio": {
+      "type": "string",
+      "default": "1"
+    },
+    "rearImage": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "source_url": ""
+      }
+    },
+    "rearImagePosition": {
+      "type": "string",
+      "default": "top-left"
+    },
+    "rearImageHeight": {
+      "type": "integer",
+      "default": 13
+    },
+    "rearImageWidth": {
+      "type": "integer",
+      "default": 16
+    },
+    "rearImageCropPosition": {
+      "type": "string",
+      "default": "center center"
+    },
+    "rearImageRadius": {
+      "type": "string",
+      "default": "small"
+    },
+    "rearImageShowCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "rearImageCaption": {
+      "type": "string",
+      "default": ""
+    },
+    "frontImage": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "source_url": ""
+      }
+    },
+    "frontImageHeight": {
+      "type": "integer",
+      "default": 10
+    },
+    "frontImageWidth": {
+      "type": "integer",
+      "default": 11
+    },
+    "frontImageCropPosition": {
+      "type": "string",
+      "default": "center center"
+    },
+    "frontImageRadius": {
+      "type": "string",
+      "default": "small"
+    },
+    "frontImageShowCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "frontImageCaption": {
+      "type": "string",
+      "default": ""
+    },
+    "verticalAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "colorTheme": {
+      "type": "string",
+      "default": false
+    },
+    "revealAnimation": {
+      "type": "string",
+      "default": "0"
+    },
+    "revealSection": {
+      "type": "string",
+      "default": "body"
+    },
+    "allowRevealSectionSelect": {
+      "type": "boolean",
+      "default": true
+    },
+    "bodyTextOptions": {
+      "type": "object",
+      "default": {
+        "disableBackgroundImage": true,
+        "disableVerticalAlign": true
+      }
+    }
+  },
+  "example": {
+    "attributes": {
+      "frontImage": {
+        "source_url": "https://pd.w.org/2025/07/175687190064e5331.25489020-768x512.jpg"
+      },
+      "rearImage": {
+        "source_url": "https://pd.w.org/2025/07/78368718f0804ea01.26512460-768x512.jpg"
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "capitola/body-text",
+        "attributes": {
+          "eyebrow": "Cupidatat pariatur",
+          "headline": "Nulla Minim Est Do",
+          "cta": {
+            "title": "Consequat",
+            "link": {
+              "url": "/"
+            }
+          },
+          "cta2": {
+            "title": "Velit amet",
+            "link": {
+              "url": "/"
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+            }
+          }
+        ]
+      }
+    ],
+    "viewportWidth": 1440
+  },
+  "providesContext": {
+    "bodyTextOptions": "bodyTextOptions",
+    "revealAnimation": "revealAnimation",
+    "revealSection": "revealSection",
+    "introAlign": "introAlign"
+  },
+  "viewScript": "capitola-animations",
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "style": "capitola-two-image-block"
+}

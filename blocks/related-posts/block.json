@@ -1,0 +1,151 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/related-posts",
+  "title": "Related Posts",
+  "description": "",
+  "category": "listing-blocks",
+  "keywords": [
+    "links"
+  ],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "colorTheme": {
+      "type": "string",
+      "default": false
+    },
+    "revealAnimation": {
+      "type": "string",
+      "default": "0"
+    },
+    "revealSection": {
+      "type": "string",
+      "default": "body"
+    },
+    "allowRevealSectionSelect": {
+      "type": "boolean",
+      "default": true
+    },
+    "limit": {
+      "type": "integer",
+      "default": 12
+    },
+    "listLayout": {
+      "type": "string",
+      "default": "card"
+    },
+    "showSlideCount": {
+      "type": "boolean",
+      "default": true
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Read More"
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "excerptLines": {
+      "type": "integer",
+      "default": 4
+    },
+    "titleLocation": {
+      "type": "string",
+      "default": "image"
+    },
+    "showByline": {
+      "type": "boolean",
+      "default": true
+    },
+    "bodyTextOptions": {
+      "type": "object",
+      "default": {
+        "disableBackgroundImage": false,
+        "disableVerticalAlign": true
+      }
+    },
+    "introAlign": {
+      "type": "string",
+      "default": "top"
+    },
+    "postsTypeQueryArgs": {
+      "type": "object",
+      "default": {}
+    },
+    "isExample": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "isExample": true,
+      "limit": "6",
+      "listLayout": "column-3"
+    },
+    "innerBlocks": [
+      {
+        "name": "capitola/body-text",
+        "attributes": {
+          "eyebrow": "Cupidatat pariatur",
+          "headline": "Nulla Minim Est Do",
+          "cta": {
+            "title": "Consequat",
+            "link": {
+              "url": "/"
+            }
+          },
+          "cta2": {
+            "title": "Velit amet",
+            "link": {
+              "url": "/"
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Veniam do ex ex est elit culpa consequat excepteur occaecat quis. Nostrud magna ullamco exercitation nisi aliqua labore magna eiusmod mollit dolor aute non consequat."
+            }
+          }
+        ]
+      }
+    ],
+    "viewportWidth": 1440
+  },
+  "providesContext": {
+    "bodyTextOptions": "bodyTextOptions",
+    "revealAnimation": "revealAnimation",
+    "revealSection": "revealSection",
+    "introAlign": "introAlign"
+  },
+  "style": "capitola-post-listing",
+  "viewScript": [
+    "capitola-listing-sidescroll",
+    "capitola-animations"
+  ],
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

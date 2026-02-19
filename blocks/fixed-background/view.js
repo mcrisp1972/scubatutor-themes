@@ -1,0 +1,1 @@
+new class{constructor(){const r=document.querySelectorAll(".js-background-image");r&&r.forEach(function(r){const c=r.querySelector("img");let e="";c&&(e=c.currentSrc||c.src,r.style.backgroundImage="url("+e+")",c.addEventListener("load",()=>{e=c.currentSrc||c.src,r.style.backgroundImage="url("+e+")"}))})}};

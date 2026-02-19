@@ -1,0 +1,1 @@
+import{getContext as e,store as t}from"@wordpress/interactivity";t("capitola-accordion",{state:{get isOpen(){const t=e();return!0===t.keepOpen?!0===t.itemIsOpen:t.activeItemId===t.itemId}},actions:{toggle:()=>{const t=e();!0===t.keepOpen?t.itemIsOpen=!t.itemIsOpen:t.activeItemId===t.itemId?t.activeItemId=null:t.activeItemId=t.itemId}}});

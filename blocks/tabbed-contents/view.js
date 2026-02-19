@@ -1,0 +1,1 @@
+import{getContext as e,store as t}from"@wordpress/interactivity";t("capitola-tabbed-contents",{state:{get isSelected(){const t=e();return t.activePanel===t.panelIndex}},actions:{togglePanel:()=>{const t=e();t.activePanel=t.panelIndex}}});
