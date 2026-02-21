@@ -14,7 +14,10 @@ function GoogleMapControl( { mapsKey, label, value, onSelect } ) {
 
 	const [ autocomplete, setAutocomplete ] = useState( null );
 
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	function onLoadAC( string ) {
 		setAutocomplete( string );

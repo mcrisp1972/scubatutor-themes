@@ -18,9 +18,17 @@ class StickyImageScroller {
 					if ( self.isActive ) {
 						this.images.forEach( ( img, i ) => {
 							if ( i === idx ) {
-								gsap.to( img, { autoAlpha: 1, duration: 0.5, overwrite: true } );
+								gsap.to( img, {
+									autoAlpha: 1,
+									duration: 0.5,
+									overwrite: true,
+								} );
 							} else {
-								gsap.to( img, { autoAlpha: 0, duration: 0.3, overwrite: true } );
+								gsap.to( img, {
+									autoAlpha: 0,
+									duration: 0.3,
+									overwrite: true,
+								} );
 							}
 						} );
 					}

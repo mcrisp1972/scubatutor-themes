@@ -21,7 +21,11 @@ export default function Edit( props ) {
 	const combinedImages = useFeaturedImage ? [ featuredImageObj, ...images ] : images;
 
 	return (
-		<figure { ...useBlockProps( { className: '--aspect-ratio-' + aspectRatio } ) }>
+		<figure
+			{ ...useBlockProps( {
+				className: '--aspect-ratio-' + aspectRatio,
+			} ) }
+		>
 			<InspectorControls group="styles">
 				<PanelBody title="Options" initialOpen={ true }>
 					<ToggleControl
@@ -104,7 +108,10 @@ export default function Edit( props ) {
 						onSelect={ ( values ) => {
 							setAttributes( {
 								images: values.map( ( image ) => {
-									return { id: image.id, source_url: image.url };
+									return {
+										id: image.id,
+										source_url: image.url,
+									};
 								} ),
 							} );
 						} }

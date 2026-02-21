@@ -5,7 +5,11 @@ export default function Edit( props ) {
 	const { attributes } = props;
 	const { colorTheme } = attributes;
 	return (
-		<div { ...useBlockProps( { className: `alignfull --theme-${ colorTheme }` } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: `alignfull --theme-${ colorTheme }`,
+			} ) }
+		>
 			<InspectorControls>
 				<ColorThemePanel props={ props } initialOpen={ true } />
 			</InspectorControls>

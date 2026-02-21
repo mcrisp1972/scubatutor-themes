@@ -132,7 +132,9 @@ export default function Edit( props ) {
 								label="Color Theme"
 								value={ cookieBannerTheme }
 								onChange={ ( value ) => {
-									setAttributes( { cookieBannerTheme: value } );
+									setAttributes( {
+										cookieBannerTheme: value,
+									} );
 								} }
 							/>
 						) }
@@ -145,7 +147,9 @@ export default function Edit( props ) {
 								className: 'wp-block-capitola-footer__menus',
 							},
 							{
-								defaultBlock: { name: 'capitola/footer-link-column' },
+								defaultBlock: {
+									name: 'capitola/footer-link-column',
+								},
 								allowedBlocks: [ 'capitola/footer-link-column' ],
 								template: [ [ 'capitola/footer-link-column' ] ],
 								orientation: 'horizontal',
@@ -223,7 +227,11 @@ export default function Edit( props ) {
 				{ siteInfo !== null && (
 					<div className="wp-block-capitola-footer__copyright">
 						&copy;{ year },{ ' ' }
-						<span dangerouslySetInnerHTML={ { __html: `${ siteInfo.name }` } } />
+						<span
+							dangerouslySetInnerHTML={ {
+								__html: `${ siteInfo.name }`,
+							} }
+						/>
 					</div>
 				) }
 			</div>
@@ -247,7 +255,9 @@ export default function Edit( props ) {
 							placeholder="Dismiss Text..."
 							allowedFormats={ [] }
 							onChange={ ( value ) => {
-								setAttributes( { cookieBannerCloseText: value } );
+								setAttributes( {
+									cookieBannerCloseText: value,
+								} );
 							} }
 						/>
 					</div>

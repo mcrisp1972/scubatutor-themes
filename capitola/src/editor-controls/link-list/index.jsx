@@ -168,7 +168,13 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 								} }
 							/>
 						</BaseControl>
-						<div style={ { display: 'flex', alignItems: 'center', gap: '16px' } }>
+						<div
+							style={ {
+								display: 'flex',
+								alignItems: 'center',
+								gap: '16px',
+							} }
+						>
 							{ index !== 0 && upButton( index ) }
 							{ index !== linksObj.length - 1 && downButton( index ) }
 							<Button
@@ -189,7 +195,10 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 								<Icon
 									icon="no-alt"
 									size="16px"
-									style={ { color: '#d43131', cursor: 'pointer' } }
+									style={ {
+										color: '#d43131',
+										cursor: 'pointer',
+									} }
 								/>
 							</Button>
 							<Button
@@ -226,7 +235,9 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 	const [ newTitle, setNewTitle ] = useState( '' );
 	const [ newLink, setNewLink ] = useState( {} );
 	const [ popoverAnchor, setPopoverAnchor ] = useState();
-	const { baseControlProps, controlProps } = useBaseControlProps( { label: 'Link' } );
+	const { baseControlProps, controlProps } = useBaseControlProps( {
+		label: 'Link',
+	} );
 	const toggleVisible = () => {
 		setIsVisible( ( state ) => {
 			return ! state;
@@ -294,16 +305,27 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 								} }
 							/>
 						</BaseControl>
-						<div style={ { display: 'flex', justifyContent: 'space-between' } }>
+						<div
+							style={ {
+								display: 'flex',
+								justifyContent: 'space-between',
+							} }
+						>
 							<Button
 								variant="link"
-								style={ { marginLeft: '8px', color: '#d61818' } }
+								style={ {
+									marginLeft: '8px',
+									color: '#d61818',
+								} }
 								text="Cancel"
 								onClick={ () => {
 									toggleVisible();
 								} }
 							/>
-							{ isCompleteLink( { title: newTitle, link: newLink } ) && (
+							{ isCompleteLink( {
+								title: newTitle,
+								link: newLink,
+							} ) && (
 								<Button
 									variant="primary"
 									text="Add Link"

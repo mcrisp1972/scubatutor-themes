@@ -52,7 +52,9 @@ export default function postTile( attributes, conditionals, post ) {
 					{ post.excerpt.rendered && conditionals.showExcerpt && (
 						<div
 							className="capitola-result__excerpt"
-							dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
+							dangerouslySetInnerHTML={ {
+								__html: post.excerpt.rendered,
+							} }
 						/>
 					) }
 					{ conditionals.showByline && (

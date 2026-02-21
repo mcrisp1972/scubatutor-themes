@@ -5,8 +5,14 @@
 	"title": "Nav Dropdown",
 	"description": "",
 	"category": "nav-blocks",
-	"keywords": ["site", "header", "navigation"],
-	"parent": ["capitola/nav"],
+	"keywords": [
+		"site",
+		"header",
+		"navigation"
+	],
+	"parent": [
+		"capitola/nav"
+	],
 	"supports": {},
 	"attributes": {
 		"title": {
@@ -20,6 +26,10 @@
 		"alignment": {
 			"type": "string",
 			"default": "--right-align"
+		},
+		"autoPopulate": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"style": "capitola-nav-dropdown",

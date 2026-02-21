@@ -4,12 +4,7 @@ import {
 	useInnerBlocksProps,
 	BlockControls,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RadioControl,
-	RangeControl,
-	ToolbarGroup,
-} from '@wordpress/components';
+import { PanelBody, RadioControl, RangeControl, ToolbarGroup } from '@wordpress/components';
 import {
 	ImageSelect,
 	ImageAlignMatrix,
@@ -324,10 +319,7 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar
-						props={ props }
-						attribute="verticalAlign"
-					/>
+					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
@@ -343,9 +335,7 @@ export default function Edit( props ) {
 				>
 					<figure
 						className={ `wp-block-capitola-three-image-block__rear-image ${
-							rearImageRadius
-								? ' --has-' + rearImageRadius + '-radius'
-								: ''
+							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': rearImageHeight,
@@ -361,17 +351,14 @@ export default function Edit( props ) {
 					</figure>
 					<figure
 						className={ `wp-block-capitola-three-image-block__middle-image ${
-							middleImageRadius
-								? ' --has-' + middleImageRadius + '-radius'
-								: ''
+							middleImageRadius ? ' --has-' + middleImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-top-pos': middleImageTopPos,
 							'--image-left-pos': middleImageLeftPos,
 							'--image-height': middleImageHeight,
 							'--image-width': middleImageWidth,
-							'--capitola-objectPosition':
-								middleImageCropPosition,
+							'--capitola-objectPosition': middleImageCropPosition,
 						} }
 					>
 						{ middleImage?.source_url ? (
@@ -382,9 +369,7 @@ export default function Edit( props ) {
 					</figure>
 					<figure
 						className={ `wp-block-capitola-three-image-block__front-image ${
-							frontImageRadius
-								? ' --has-' + frontImageRadius + '-radius'
-								: ''
+							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': frontImageHeight,

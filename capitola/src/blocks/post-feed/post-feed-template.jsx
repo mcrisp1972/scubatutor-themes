@@ -71,7 +71,9 @@ function GridTemplate( { attributes, cardTemplate, items } ) {
 		<div className="capitola-listings__sidescroll">
 			<div
 				className={ `capitola-listings__list --${ listLayout }` }
-				style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
+				style={ {
+					'--capitola-excerpt-lines': attributes.excerptLines,
+				} }
 			>
 				{ items.map( ( i, index ) => {
 					return (

@@ -73,7 +73,10 @@ export default function Edit( props ) {
 									<ImageSelectButton
 										onSelect={ ( value ) => {
 											setAttributes( {
-												image: { id: value.id, source_url: value.url },
+												image: {
+													id: value.id,
+													source_url: value.url,
+												},
 											} );
 										} }
 										value={ image.id }
@@ -83,7 +86,15 @@ export default function Edit( props ) {
 							</>
 						);
 					} else if ( ! linkObj && postId ) {
-						return <Spinner style={ { width: '33%', height: '33%', margin: 0 } } />;
+						return (
+							<Spinner
+								style={ {
+									width: '33%',
+									height: '33%',
+									margin: 0,
+								} }
+							/>
+						);
 					}
 					return (
 						<>
@@ -92,7 +103,10 @@ export default function Edit( props ) {
 								<ImageSelectButton
 									onSelect={ ( value ) => {
 										setAttributes( {
-											image: { id: value.id, url: value.url },
+											image: {
+												id: value.id,
+												url: value.url,
+											},
 										} );
 									} }
 									value={ image.id }

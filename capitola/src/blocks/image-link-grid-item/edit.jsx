@@ -99,7 +99,10 @@ export default function Edit( props ) {
 						value={ imageOverride.id }
 						onChange={ ( value ) => {
 							setAttributes( {
-								imageOverride: { id: value.id, source_url: value.url },
+								imageOverride: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>

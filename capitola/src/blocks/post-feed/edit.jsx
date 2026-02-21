@@ -180,7 +180,10 @@ export default function Edit( props ) {
 							options={ [
 								{ label: 'All', value: 0 },
 								...terms.map( ( i ) => {
-									return { label: decodeEntities( i.name ), value: i.id };
+									return {
+										label: decodeEntities( i.name ),
+										value: i.id,
+									};
 								} ),
 							] }
 							onChange={ ( value ) => {

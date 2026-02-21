@@ -49,7 +49,10 @@ export default function Edit( props ) {
 	const taxonomies = useSelect(
 		( select ) => {
 			return postType
-				? select( 'core' ).getTaxonomies( { type: postType, per_page: 100 } )
+				? select( 'core' ).getTaxonomies( {
+						type: postType,
+						per_page: 100,
+				  } )
 				: undefined;
 		},
 		[ postType ]
@@ -190,7 +193,10 @@ export default function Edit( props ) {
 							options={ [
 								{ label: 'All', value: 0 },
 								...buildTermsTree( terms ).map( ( i ) => {
-									return { label: decodeEntities( i.name ), value: i.id };
+									return {
+										label: decodeEntities( i.name ),
+										value: i.id,
+									};
 								} ),
 							] }
 							onChange={ ( value ) => {
@@ -240,7 +246,9 @@ export default function Edit( props ) {
 												return cat !== slug;
 											} );
 										}
-										setAttributes( { showSearchFields: newValue } );
+										setAttributes( {
+											showSearchFields: newValue,
+										} );
 									} }
 									__nextHasNoMarginBottom
 								/>
@@ -268,7 +276,9 @@ export default function Edit( props ) {
 													return cat !== i.slug;
 												} );
 											}
-											setAttributes( { showTaxFilters: newValue } );
+											setAttributes( {
+												showTaxFilters: newValue,
+											} );
 										} }
 										__nextHasNoMarginBottom
 									/>

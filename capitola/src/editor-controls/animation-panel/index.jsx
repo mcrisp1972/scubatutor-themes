@@ -28,7 +28,12 @@ function AnimationPanel( { props, allowFigureReveal, initialOpen } ) {
 						{ label: 'Whole Block', value: 'block' },
 						{ label: 'Intro Section Only', value: 'body' },
 						...( allowFigureReveal
-							? [ { label: 'Figure Section Only', value: 'figure' } ]
+							? [
+									{
+										label: 'Figure Section Only',
+										value: 'figure',
+									},
+							  ]
 							: [] ),
 					] }
 					onChange={ ( value ) => {

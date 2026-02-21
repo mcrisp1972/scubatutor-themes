@@ -144,7 +144,9 @@ export function JustifyToolbar( {
 								icon: justifyIcons.center,
 								isActive: value === 'center',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'center' } );
+									setAttributes( {
+										[ attribute ]: 'center',
+									} );
 								},
 							},
 					  ]
@@ -387,7 +389,9 @@ export function RadiusToolbar( {
 								icon: radiusIcons.medium,
 								isActive: value === 'medium',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'medium' } );
+									setAttributes( {
+										[ attribute ]: 'medium',
+									} );
 								},
 							},
 					  ]
@@ -449,7 +453,9 @@ export function TextAlignToolbar( { props, attribute, options = [ 'left', 'cente
 								icon: textAlignIcons.center,
 								isActive: value === 'center',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'center' } );
+									setAttributes( {
+										[ attribute ]: 'center',
+									} );
 								},
 							},
 					  ]
