@@ -63,18 +63,14 @@ export default function Edit( props ) {
 
 	const rearImageObj = useSelect(
 		( select ) => {
-			return rearImage.id
-				? select( 'core' ).getMedia( rearImage.id )
-				: null;
+			return rearImage.id ? select( 'core' ).getMedia( rearImage.id ) : null;
 		},
 		[ rearImage.id ]
 	);
 
 	const frontImageObj = useSelect(
 		( select ) => {
-			return frontImage.id
-				? select( 'core' ).getMedia( frontImage.id )
-				: null;
+			return frontImage.id ? select( 'core' ).getMedia( frontImage.id ) : null;
 		},
 		[ frontImage.id ]
 	);
@@ -225,7 +221,9 @@ export default function Edit( props ) {
 						label="Image Crop Position"
 						value={ frontImageCropPosition }
 						onChange={ ( value ) => {
-							setAttributes( { frontImageCropPosition: value } );
+							setAttributes( {
+								frontImageCropPosition: value,
+							} );
 						} }
 					/>
 					<RadioControl
@@ -264,10 +262,7 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar
-						props={ props }
-						attribute="verticalAlign"
-					/>
+					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
@@ -283,9 +278,7 @@ export default function Edit( props ) {
 				>
 					<figure
 						className={ `wp-block-capitola-two-image-block__rear-image ${
-							rearImageRadius
-								? ' --has-' + rearImageRadius + '-radius'
-								: ''
+							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': rearImageHeight,
@@ -318,9 +311,7 @@ export default function Edit( props ) {
 					</figure>
 					<figure
 						className={ `wp-block-capitola-two-image-block__front-image ${
-							frontImageRadius
-								? ' --has-' + frontImageRadius + '-radius'
-								: ''
+							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': frontImageHeight,

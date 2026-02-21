@@ -65,7 +65,10 @@ export default function Edit( props ) {
 						value={ desktopImage.id }
 						onChange={ ( value ) => {
 							return setAttributes( {
-								desktopImage: { id: value.id, source_url: value.url },
+								desktopImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>
@@ -74,7 +77,10 @@ export default function Edit( props ) {
 						value={ tabletImage.id }
 						onChange={ ( value ) => {
 							return setAttributes( {
-								tabletImage: { id: value.id, source_url: value.url },
+								tabletImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>
@@ -83,7 +89,10 @@ export default function Edit( props ) {
 						value={ mobileImage.id }
 						onChange={ ( value ) => {
 							return setAttributes( {
-								mobileImage: { id: value.id, source_url: value.url },
+								mobileImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>

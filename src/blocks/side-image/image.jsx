@@ -16,7 +16,9 @@ export function Image( {
 			<>
 				<img
 					className={ `${ imageRatioClass } ${ radiusClass }` }
-					style={ { '--capitola-objectPosition': props.attributes.imageCropPosition } }
+					style={ {
+						'--capitola-objectPosition': props.attributes.imageCropPosition,
+					} }
 					src={ imageObject.source_url }
 					alt=""
 				/>
@@ -24,7 +26,10 @@ export function Image( {
 					<ImageSelectButton
 						onSelect={ ( value ) => {
 							props.setAttributes( {
-								sideImage: { id: value.id, source_url: value.url },
+								sideImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 						value={ props.attributes.sideImage.id }
@@ -42,7 +47,9 @@ export function Image( {
 			<MediaPlaceholder
 				className={ `${ imageRatioClass } ${ radiusClass }` }
 				onSelect={ ( value ) => {
-					props.setAttributes( { sideImage: { id: value.id, source_url: value.url } } );
+					props.setAttributes( {
+						sideImage: { id: value.id, source_url: value.url },
+					} );
 				} }
 				value={ props.attributes.sideImage.id }
 				allowedTypes={ [ 'image' ] }

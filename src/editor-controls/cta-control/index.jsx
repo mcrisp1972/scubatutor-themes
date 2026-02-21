@@ -92,7 +92,10 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 							value={ titleValue }
 							onChange={ ( newValue ) => {
 								setTitleValue( newValue );
-								onChange( { link: linkValue, ...{ title: newValue } } );
+								onChange( {
+									link: linkValue,
+									...{ title: newValue },
+								} );
 							} }
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
@@ -117,7 +120,10 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 										delete newValue.type;
 									}
 									setLinkValue( newValue );
-									onChange( { title: titleValue, link: newValue } );
+									onChange( {
+										title: titleValue,
+										link: newValue,
+									} );
 								} }
 								withCreateSuggestion={ false }
 								onRemove={ () => {

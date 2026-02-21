@@ -14,15 +14,19 @@ function ColorThemeOption( { theme, checked, onClick } ) {
 					<div className="capitola-theme-picker__option-swatch">
 						<div
 							className="capitola-theme-picker__option-bg"
-							style={ { backgroundColor: theme.palette.background } }
-						></div>
+							style={ {
+								backgroundColor: theme.palette.background,
+							} }
+						/>
 						<div
 							className="capitola-theme-picker__option-primary"
 							style={ { backgroundColor: theme.palette.primary } }
 						/>
 						<div
 							className="capitola-theme-picker__option-secondary"
-							style={ { backgroundColor: theme.palette.secondary } }
+							style={ {
+								backgroundColor: theme.palette.secondary,
+							} }
 						></div>
 						{ checked && (
 							<div className="capitola-theme-picker__option-selected">
@@ -44,7 +48,10 @@ function ColorThemePicker( { label, onChange, value } ) {
 		onChange( slug );
 	};
 
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>

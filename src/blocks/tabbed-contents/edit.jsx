@@ -5,11 +5,7 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { ToolbarGroup } from '@wordpress/components';
-import {
-	ColorThemePanel,
-	AnimationPanel,
-	IntroAlignToolbar,
-} from '../../editor-controls';
+import { ColorThemePanel, AnimationPanel, IntroAlignToolbar } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes } = props;
@@ -23,11 +19,7 @@ export default function Edit( props ) {
 		>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } initialOpen={ true } />
-				<AnimationPanel
-					props={ props }
-					allowFigureReveal={ true }
-					initialOpen={ true }
-				/>
+				<AnimationPanel props={ props } allowFigureReveal={ true } initialOpen={ true } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>

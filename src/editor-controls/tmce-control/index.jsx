@@ -4,7 +4,10 @@ import ClassicEdit from './tmce';
 function TMCEControl( props ) {
 	const { label, onChange, value } = props;
 
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	return (
 		<BaseControl

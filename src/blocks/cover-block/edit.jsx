@@ -88,7 +88,10 @@ export default function Edit( props ) {
 						value={ backgroundImage.id }
 						onChange={ ( value ) => {
 							setAttributes( {
-								backgroundImage: { id: value.id, source_url: value.url },
+								backgroundImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>

@@ -5,17 +5,59 @@ import {
 	RichText,
 	LinkControl,
 } from '@wordpress/block-editor';
-import { PanelBody, TextControl, Popover, RadioControl } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	Popover,
+	RadioControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { useState } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import { LinkSelect } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { link, title, alignment } = attributes;
+	const { link, title, alignment, autoPopulate } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
 
+	const childPages = useSelect(
+		( select ) => {
+			return autoPopulate && link.id && link.type === 'page'
+				? select( 'core' ).getEntityRecords( 'postType', 'page', {
+						per_page: -1,
+						parent: link.id,
+						orderby: 'menu_order',
+						order: 'desc',
+				  } )
+				: undefined;
+		},
+		[ link, autoPopulate ]
+	);
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-nav-dropdown__sub-menu-items',
+		},
+		{
+			defaultBlock: { name: 'capitola/nav-sublink' },
+			allowedBlocks: [ 'capitola/nav-sublink' ],
+			directInsert: true,
+		}
+	);
+
+	wp.apiFetch( { path: '/wp/v2/types' } ).then( ( types ) => {
+		Object.keys( types ).forEach( ( postType ) => {
+			console.log( postType, types[ postType ].supports );
+		} );
+	} );
+
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-capitola-nav__menu-item' } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: 'wp-block-capitola-nav__menu-item',
+			} ) }
+		>
 			<InspectorControls>
 				<PanelBody title="Dropdown Settings" initialOpen={ true }>
 					<TextControl
@@ -53,6 +95,16 @@ export default function Edit( props ) {
 							setAttributes( { alignment: value } );
 						} }
 					/>
+					{ link.id && link.type === 'page' && (
+						<ToggleControl
+							label="Auto-populate with child pages"
+							checked={ autoPopulate }
+							onChange={ ( value ) => {
+								setAttributes( { autoPopulate: value } );
+							} }
+							__nextHasNoMarginBottom
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			{ isLinkControlVisible && (
@@ -99,18 +151,21 @@ export default function Edit( props ) {
 			<div className="wp-block-capitola-nav__menu-item-caret"></div>
 			<div className={ `wp-block-capitola-nav-dropdown__sub-menu ${ alignment }` }>
 				<div className="wp-block-capitola-nav-dropdown__sub-menu-height">
-					<div
-						{ ...useInnerBlocksProps(
-							{
-								className: 'wp-block-capitola-nav-dropdown__sub-menu-items',
-							},
-							{
-								defaultBlock: { name: 'capitola/nav-sublink' },
-								allowedBlocks: [ 'capitola/nav-sublink' ],
-								directInsert: true,
-							}
-						) }
-					/>
+					{ autoPopulate && !! childPages ? (
+						<div className="wp-block-capitola-nav-dropdown__sub-menu-items">
+							{ childPages.map( ( page ) => {
+								return (
+									<div key={ page.id } className="wp-block-capitola-nav-sublink">
+										<div className="wp-block-capitola-nav-sublink__link">
+											{ page.title.raw }
+										</div>
+									</div>
+								);
+							} ) }
+						</div>
+					) : (
+						<div { ...innerBlocksProps } />
+					) }
 				</div>
 			</div>
 		</div>

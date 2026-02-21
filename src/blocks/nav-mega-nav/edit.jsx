@@ -25,7 +25,11 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-capitola-nav__menu-item' } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: 'wp-block-capitola-nav__menu-item',
+			} ) }
+		>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl
@@ -58,7 +62,9 @@ export default function Edit( props ) {
 						label="Links Per Column"
 						value={ linksPerColumn }
 						onChange={ ( value ) => {
-							setAttributes( { linksPerColumn: parseInt( value ) } );
+							setAttributes( {
+								linksPerColumn: parseInt( value ),
+							} );
 						} }
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom

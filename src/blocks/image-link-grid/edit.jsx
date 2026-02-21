@@ -48,7 +48,9 @@ export default function Edit( props ) {
 							}`,
 						},
 						{
-							defaultBlock: { name: 'capitola/image-link-grid-item' },
+							defaultBlock: {
+								name: 'capitola/image-link-grid-item',
+							},
 							allowedBlocks: [ 'capitola/image-link-grid-item' ],
 							template: [ [ 'capitola/image-link-grid-item' ] ],
 							templateLock: false,

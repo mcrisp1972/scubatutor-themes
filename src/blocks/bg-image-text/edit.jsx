@@ -28,7 +28,11 @@ export default function Edit( props ) {
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
 
 	return (
-		<div { ...useBlockProps( { className: `alignfull --theme-${ colorTheme }` } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: `alignfull --theme-${ colorTheme }`,
+			} ) }
+		>
 			<InspectorControls group="settings">
 				<PanelBody title="Image" initialOpen={ true }>
 					<ImageSelect
@@ -36,7 +40,10 @@ export default function Edit( props ) {
 						value={ backgroundImage.id }
 						onChange={ ( value ) => {
 							return setAttributes( {
-								backgroundImage: { id: value.id, source_url: value.url },
+								backgroundImage: {
+									id: value.id,
+									source_url: value.url,
+								},
 							} );
 						} }
 					/>

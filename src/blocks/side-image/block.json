@@ -5,12 +5,20 @@
 	"title": "Side Image",
 	"description": "",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"links"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -21,6 +29,10 @@
 		"introAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"mediaWidth": {
+			"type": "integer",
+			"default": 50
 		},
 		"imageLayout": {
 			"type": "string",
@@ -161,11 +173,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -191,7 +207,9 @@
 				"videoSource": "youtube",
 				"isVideoVariation": true
 			},
-			"isActive": ["isVideoVariation"]
+			"isActive": [
+				"isVideoVariation"
+			]
 		},
 		{
 			"name": "side-iframe-cta",
@@ -202,7 +220,9 @@
 				"allowImageLayout": false,
 				"isIframeVariation": true
 			},
-			"isActive": ["isIframeVariation"]
+			"isActive": [
+				"isIframeVariation"
+			]
 		},
 		{
 			"name": "side-image-hero",
@@ -213,7 +233,9 @@
 				"headlineTag": "h1",
 				"isHeroVariation": true
 			},
-			"isActive": ["isHeroVariation"]
+			"isActive": [
+				"isHeroVariation"
+			]
 		}
 	],
 	"providesContext": {

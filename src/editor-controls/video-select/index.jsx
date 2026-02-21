@@ -29,7 +29,10 @@ function VideoSelect( { label, value, onChange } ) {
 		[ videoId ]
 	);
 
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	const emptyObject = {
 		id: 0,

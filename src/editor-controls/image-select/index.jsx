@@ -24,7 +24,10 @@ function ImageSelect( { label, value, onChange } ) {
 		[ value, imageId ]
 	);
 
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 
 	const emptyObject = {
 		alt: '',

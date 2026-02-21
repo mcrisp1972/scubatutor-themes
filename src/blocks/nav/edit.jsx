@@ -112,7 +112,10 @@ export default function Edit( props ) {
 						label="Sticky Style"
 						selected={ stickyStyle }
 						options={ [
-							{ label: 'Shrink Utility', value: '--shrink-utility' },
+							{
+								label: 'Shrink Utility',
+								value: '--shrink-utility',
+							},
 							{ label: 'Reveal Down', value: '--reveal-down' },
 						] }
 						onChange={ ( value ) => {
@@ -146,7 +149,9 @@ export default function Edit( props ) {
 										label="Show Account Link"
 										checked={ showAccountIcon }
 										onChange={ ( value ) => {
-											setAttributes( { showAccountIcon: value } );
+											setAttributes( {
+												showAccountIcon: value,
+											} );
 										} }
 										__nextHasNoMarginBottom
 									/>
@@ -154,7 +159,9 @@ export default function Edit( props ) {
 										label="Show Cart Link"
 										checked={ showCartIcon }
 										onChange={ ( value ) => {
-											setAttributes( { showCartIcon: value } );
+											setAttributes( {
+												showCartIcon: value,
+											} );
 										} }
 										help="Cart link only shows if there are itemns in the cart."
 										__nextHasNoMarginBottom

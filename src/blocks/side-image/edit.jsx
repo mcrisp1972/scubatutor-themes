@@ -6,6 +6,7 @@ import {
 	RichText,
 	BlockControls,
 } from '@wordpress/block-editor';
+import { useViewportMatch } from '@wordpress/compose';
 import {
 	PanelBody,
 	RadioControl,
@@ -13,7 +14,10 @@ import {
 	ToggleControl,
 	TextareaControl,
 	ToolbarGroup,
+	ResizableBox,
+	RangeControl,
 } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import {
 	ImageSelect,
@@ -31,10 +35,11 @@ import { Video } from './video';
 import { Image } from './image';
 
 export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, toggleSelection } = props;
 
 	const {
 		introAlign,
+		mediaWidth,
 		allowImageLayout,
 		imageLayout,
 		imageParallax,
@@ -58,6 +63,10 @@ export default function Edit( props ) {
 		colorTheme,
 		isHeroVariation,
 	} = attributes;
+
+	const isMobile = useViewportMatch( 'medium', '<' );
+
+	const [ tempWidth, setTempWidth ] = useState( null );
 
 	const featuredImage = useSelect(
 		( select ) => {
@@ -133,7 +142,10 @@ export default function Edit( props ) {
 							value={ sideImage.id }
 							onChange={ ( value ) => {
 								setAttributes( {
-									sideImage: { id: value.id, source_url: value.url },
+									sideImage: {
+										id: value.id,
+										source_url: value.url,
+									},
 								} );
 							} }
 						/>
@@ -215,7 +227,10 @@ export default function Edit( props ) {
 							value={ videoObject }
 							onChange={ ( value ) => {
 								setAttributes( {
-									videoObject: { id: value.id, source_url: value.url },
+									videoObject: {
+										id: value.id,
+										source_url: value.url,
+									},
 								} );
 							} }
 						/>
@@ -241,6 +256,19 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { imageLayout: value } );
 							} }
+						/>
+					) }
+					{ imageLayout === 'inner' && (
+						<RangeControl
+							label="Image Width (%)"
+							value={ tempWidth || mediaWidth }
+							onChange={ ( value ) => {
+								setAttributes( { mediaWidth: value } );
+							} }
+							min={ 20 }
+							max={ 50 }
+							__next40pxDefaultSize
+							__nextHasNoMarginBottom
 						/>
 					) }
 					{ imageLayout === 'full' && mediaType === 'image' && (
@@ -303,7 +331,43 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
-				<div className={ 'wp-block-capitola-side-image__imagewrap' + stickyClass }>
+				<ResizableBox
+					className={ 'wp-block-capitola-side-image__imagewrap' + stickyClass }
+					size={ {
+						width: isMobile ? '100%' : mediaWidth + '%',
+					} }
+					style={ {
+						flexBasis: 'unset',
+						'--capitola-flex-basis': mediaWidth + '%',
+					} }
+					minWidth="20%"
+					maxWidth={ isMobile ? '100%' : '50%' }
+					enable={ {
+						top: false,
+						bottom: false,
+						left:
+							imageLayout === 'inner' && introAlign === 'left' && ! isMobile
+								? true
+								: false,
+						right:
+							imageLayout === 'inner' && introAlign === 'right' && ! isMobile
+								? true
+								: false,
+					} }
+					onResize={ ( event, direction, elt ) => {
+						setTempWidth( parseInt( elt.style.width ) );
+					} }
+					onResizeStop={ ( event, direction, elt ) => {
+						setAttributes( {
+							mediaWidth: parseInt( elt.style.width ),
+						} );
+						setTempWidth( null );
+						toggleSelection( true );
+					} }
+					onResizeStart={ () => {
+						toggleSelection( false );
+					} }
+				>
 					{ imageLayout === 'inner' ? (
 						<figure className="wp-block-capitola-side-image__imageratio">
 							{ mediaType === 'video' && (
@@ -329,12 +393,17 @@ export default function Edit( props ) {
 							{ imageLayout === 'inner' && showCaption && (
 								<RichText
 									tagName="figcaption"
-									style={ { position: 'relative', zIndex: 1 } }
+									style={ {
+										position: 'relative',
+										zIndex: 1,
+									} }
 									value={ imageCaption }
 									allowedFormats={ [] }
 									placeholder={ imageObject?.caption?.raw || 'Caption...' }
 									onChange={ ( value ) => {
-										setAttributes( { imageCaption: value } );
+										setAttributes( {
+											imageCaption: value,
+										} );
 									} }
 								/>
 							) }
@@ -346,7 +415,7 @@ export default function Edit( props ) {
 							featuredImage={ featuredImage }
 						/>
 					) }
-				</div>
+				</ResizableBox>
 				{ children }
 			</div>
 		</div>

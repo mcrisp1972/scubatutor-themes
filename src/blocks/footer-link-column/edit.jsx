@@ -12,7 +12,11 @@ export default function Edit( props ) {
 	const { link, headline } = attributes;
 
 	return (
-		<div { ...useBlockProps( { className: 'wp-block-capitola-footer__menu' } ) }>
+		<div
+			{ ...useBlockProps( {
+				className: 'wp-block-capitola-footer__menu',
+			} ) }
+		>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl

@@ -70,7 +70,9 @@ export default function Edit( props ) {
 									{}
 								);
 								insertBlock( newPanel, innerBlocks.length, clientId );
-								setAttributes( { activePanel: newPanel.clientId } );
+								setAttributes( {
+									activePanel: newPanel.clientId,
+								} );
 							} }
 						>
 							Add Panel
@@ -82,7 +84,9 @@ export default function Edit( props ) {
 								className: 'wp-block-capitola-tabbed-contents-tabs__panels',
 							},
 							{
-								defaultBlock: { name: 'capitola/tabbed-contents-panel' },
+								defaultBlock: {
+									name: 'capitola/tabbed-contents-panel',
+								},
 								allowedBlocks: [ 'capitola/tabbed-contents-panel' ],
 								orientation: 'horizontal',
 								template: [ [ 'capitola/tabbed-contents-panel' ] ],

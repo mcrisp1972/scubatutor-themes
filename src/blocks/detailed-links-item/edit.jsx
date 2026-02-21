@@ -65,7 +65,10 @@ export default function Edit( props ) {
 							value={ linkImage.id }
 							onChange={ ( value ) => {
 								setAttributes( {
-									linkImage: { id: value.id, source_url: value.url },
+									linkImage: {
+										id: value.id,
+										source_url: value.url,
+									},
 								} );
 							} }
 						/>

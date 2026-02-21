@@ -10,7 +10,10 @@ import {
 import { format } from '@wordpress/date';
 
 function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
-	const { baseControlProps } = useBaseControlProps( { label, __nextHasNoMarginBottom: true } );
+	const { baseControlProps } = useBaseControlProps( {
+		label,
+		__nextHasNoMarginBottom: true,
+	} );
 	const year = yearPlaceholder ? yearPlaceholder : '1972-01-01';
 	const hour = value ? format( 'H', value ) : '00';
 	const minute = value ? format( 'i', value ) : '00';
@@ -45,7 +48,10 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 										height="24"
 										viewBox="0 0 24 24"
 										width="24"
-										style={ { width: '20px', marginRight: '5px' } }
+										style={ {
+											width: '20px',
+											marginRight: '5px',
+										} }
 									>
 										<g>
 											<rect fill="none" height="24" width="24" x="0" />
@@ -90,7 +96,12 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 					renderContent={ () => {
 						return (
 							<div className="components-datetime" style={ { minWidth: '200px' } }>
-								<div style={ { display: 'flex', alignItems: 'center' } }>
+								<div
+									style={ {
+										display: 'flex',
+										alignItems: 'center',
+									} }
+								>
 									<select
 										value={ hour }
 										onChange={ ( event ) => {
