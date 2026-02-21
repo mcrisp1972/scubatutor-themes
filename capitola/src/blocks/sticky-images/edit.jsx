@@ -7,7 +7,16 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
+<<<<<<< HEAD
 import { PanelBody, ToolbarGroup, RadioControl, ToggleControl } from '@wordpress/components';
+=======
+import {
+	PanelBody,
+	ToolbarGroup,
+	RadioControl,
+	ToggleControl,
+} from '@wordpress/components';
+>>>>>>> 0e2c9381c7b59f786af9ea2181a363953f8915ce
 import {
 	ColorThemePanel,
 	ImageSelectButton,
@@ -48,7 +57,11 @@ export default function Edit( props ) {
 			const captions = {};
 			imageIds.forEach( ( id ) => {
 				if ( id ) {
-					const media = getEntityRecord( 'postType', 'attachment', id );
+					const media = getEntityRecord(
+						'postType',
+						'attachment',
+						id
+					);
 					if ( media ) {
 						captions[ id ] = media.caption.raw;
 					}
@@ -67,8 +80,14 @@ export default function Edit( props ) {
 				className: `alignfull --has-scroll-transition is-layout-constrained has-global-padding --theme-${ colorTheme }
           		${ imageLayout === 'full' ? ' --layout-full' : '' }
            		--intro-${ introAlign }
-          		${ justifyClass } ${ imageLayout === 'inner' ? `--has-${ imageRadius }-radius` : '' } ${
-					showFullImage && imageLayout === 'inner' ? ' --full-image' : ''
+          		${ justifyClass } ${
+					imageLayout === 'inner'
+						? `--has-${ imageRadius }-radius`
+						: ''
+				} ${
+					showFullImage && imageLayout === 'inner'
+						? ' --full-image'
+						: ''
 				}`,
 			} ) }
 		>
@@ -123,7 +142,10 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
+					<VerticalAlignToolbar
+						props={ props }
+						attribute="verticalAlign"
+					/>
 					{ imageLayout === 'inner' && (
 						<RadiusToolbar
 							props={ props }
@@ -151,21 +173,27 @@ export default function Edit( props ) {
 									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
 										'--capitola-objectPosition':
-											innerBlocks[ index ].attributes.imageCropPosition,
+											innerBlocks[ index ].attributes
+												.imageCropPosition,
 									} }
 								>
 									{ image.source_url ? (
 										<>
-											<img src={ image.source_url } alt="" />
+											<img
+												src={ image.source_url }
+												alt=""
+											/>
 											{ isSelected && (
 												<ImageSelectButton
 													onSelect={ ( value ) => {
 														updateBlockAttributes(
-															innerBlocks[ index ].clientId,
+															innerBlocks[ index ]
+																.clientId,
 															{
 																sideImage: {
 																	id: value.id,
-																	source_url: value.url,
+																	source_url:
+																		value.url,
 																},
 															}
 														);
@@ -174,20 +202,28 @@ export default function Edit( props ) {
 													flexWrap={ true }
 												/>
 											) }
-											{ innerBlocks[ index ].attributes.showCaption && (
+											{ innerBlocks[ index ].attributes
+												.showCaption && (
 												<RichText
 													className="wp-block-capitola-sticky-images__image-caption --micro-text"
 													value={
-														innerBlocks[ index ].attributes
+														innerBlocks[ index ]
+															.attributes
 															.captionOverride
 													}
 													allowedFormats={ [] }
-													placeholder={ imageCaptions[ image.id ] }
+													placeholder={
+														imageCaptions[
+															image.id
+														]
+													}
 													onChange={ ( value ) => {
 														updateBlockAttributes(
-															innerBlocks[ index ].clientId,
+															innerBlocks[ index ]
+																.clientId,
 															{
-																captionOverride: value,
+																captionOverride:
+																	value,
 															}
 														);
 													} }
@@ -198,11 +234,13 @@ export default function Edit( props ) {
 										<MediaPlaceholder
 											onSelect={ ( value ) => {
 												updateBlockAttributes(
-													innerBlocks[ index ].clientId,
+													innerBlocks[ index ]
+														.clientId,
 													{
 														sideImage: {
 															id: value.id,
-															source_url: value.url,
+															source_url:
+																value.url,
 														},
 													}
 												);
