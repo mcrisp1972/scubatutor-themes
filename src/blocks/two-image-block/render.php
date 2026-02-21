@@ -8,6 +8,26 @@ use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
 $animations = animation_attributes( $attributes );
 
+if ( $attributes['rearImageShowCaption'] ) {
+	if ( $attributes['rearImageCaption'] ) {
+		$rear_image_caption = $attributes['rearImageCaption'];
+	} elseif ( $attributes['rearImage']['id'] ) {
+		$rear_image_caption = wp_get_attachment_caption( $attributes['rearImage']['id'] );
+	}
+} else {
+	$rear_image_caption = false;
+}
+
+if ( $attributes['frontImageShowCaption'] ) {
+	if ( $attributes['frontImageCaption'] ) {
+		$front_image_caption = $attributes['frontImageCaption'];
+	} elseif ( $attributes['frontImage']['id'] ) {
+		$front_image_caption = wp_get_attachment_caption( $attributes['frontImage']['id'] );
+	}
+} else {
+	$front_image_caption = false;
+}
+
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'id'    => $attributes['anchor'],
@@ -23,9 +43,19 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="wp-block-capitola-two-image-block__imagecol --aspect-ratio-<?php echo esc_attr( $attributes['gridAspectRatio'] ); ?> <?php echo esc_attr( $animations['figure-class'] ); ?> --rear-position-<?php echo esc_attr( $attributes['rearImagePosition'] ); ?>" <?php echo wp_kses_data( $animations['figure-data'] ); ?>>
 			<figure class="wp-block-capitola-two-image-block__rear-image <?php echo $attributes['rearImageRadius'] ? ' --has-' . esc_attr( $attributes['rearImageRadius'] ) . '-radius' : ''; ?>" style=" --image-height: <?php echo esc_attr( $attributes['rearImageHeight'] ); ?>; --image-width:<?php echo esc_attr( $attributes['rearImageWidth'] ); ?>; --capitola-objectPosition:<?php echo esc_attr( $attributes['rearImageCropPosition'] ); ?>;">
 				<?php echo wp_get_attachment_image( $attributes['rearImage']['id'], 'large' ); ?>
+				<?php if ( $rear_image_caption ) : ?>
+					<figcaption>
+						<?php echo esc_html( $rear_image_caption ); ?>
+					</figcaption>
+				<?php endif; ?>
 			</figure>
 			<figure class="wp-block-capitola-two-image-block__front-image <?php echo $attributes['frontImageRadius'] ? ' --has-' . esc_attr( $attributes['frontImageRadius'] . '-radius' ) : ''; ?>" style=" --image-height: <?php echo esc_attr( $attributes['frontImageHeight'] ); ?>; --image-width: <?php echo esc_attr( $attributes['frontImageWidth'] ); ?>; --capitola-objectPosition:<?php echo esc_attr( $attributes['frontImageCropPosition'] ); ?>">
 				<?php echo wp_get_attachment_image( $attributes['frontImage']['id'], 'large' ); ?>
+				<?php if ( $front_image_caption ) : ?>
+					<figcaption>
+						<?php echo esc_html( $front_image_caption ); ?>
+					</figcaption>
+				<?php endif; ?>
 			</figure>
 		</div>
 	</div>

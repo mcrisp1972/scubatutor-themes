@@ -14,6 +14,10 @@
 		}
 	}
 
+	&__imageratio {
+		background-color: var(--capitola-color-background);
+	}
+
 	&__body-section {
 		@include mq("medium") {
 			height: $sticky-height;

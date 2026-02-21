@@ -51,6 +51,9 @@
 		"bodyTextOptions": "bodyTextOptions",
 		"introAlign": "introAlign"
 	},
+	"usesContext": [
+		"showFullImage"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

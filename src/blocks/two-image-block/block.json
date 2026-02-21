@@ -26,16 +26,40 @@
 			"type": "string",
 			"default": "1"
 		},
-		"rearImagePosition": {
-			"type": "string",
-			"default": "top-left"
-		},
 		"rearImage": {
 			"type": "object",
 			"default": {
 				"id": 0,
 				"source_url": ""
 			}
+		},
+		"rearImagePosition": {
+			"type": "string",
+			"default": "top-left"
+		},
+		"rearImageHeight": {
+			"type": "integer",
+			"default": 13
+		},
+		"rearImageWidth": {
+			"type": "integer",
+			"default": 16
+		},
+		"rearImageCropPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"rearImageRadius": {
+			"type": "string",
+			"default": "small"
+		},
+		"rearImageShowCaption": {
+			"type": "boolean",
+			"default": false
+		},
+		"rearImageCaption": {
+			"type": "string",
+			"default": ""
 		},
 		"frontImage": {
 			"type": "object",
@@ -44,37 +68,29 @@
 				"source_url": ""
 			}
 		},
-		"rearImageHeight": {
-			"type": "integer",
-			"default": 13
-		},
 		"frontImageHeight": {
 			"type": "integer",
 			"default": 10
-		},
-		"rearImageWidth": {
-			"type": "integer",
-			"default": 16
 		},
 		"frontImageWidth": {
 			"type": "integer",
 			"default": 11
 		},
-		"rearImageCropPosition": {
-			"type": "string",
-			"default": "center center"
-		},
 		"frontImageCropPosition": {
 			"type": "string",
 			"default": "center center"
 		},
-		"rearImageRadius": {
-			"type": "string",
-			"default": "small"
-		},
 		"frontImageRadius": {
 			"type": "string",
 			"default": "small"
+		},
+		"frontImageShowCaption": {
+			"type": "boolean",
+			"default": false
+		},
+		"frontImageCaption": {
+			"type": "string",
+			"default": ""
 		},
 		"verticalAlign": {
 			"type": "string",
