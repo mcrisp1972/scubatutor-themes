@@ -14,6 +14,8 @@ export default function Edit( props ) {
 
 	const { showFullImage } = context;
 
+	const { showFullImage } = context;
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		useBlockProps( {
 			className: 'wp-block-capitola-sticky-images__body-section',
