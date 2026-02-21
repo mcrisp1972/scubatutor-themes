@@ -63,26 +63,18 @@ export default function Edit( props ) {
 
 	const rearImageObj = useSelect(
 		( select ) => {
-<<<<<<< HEAD
-			return rearImage.id ? select( 'core' ).getMedia( rearImage.id ) : null;
-=======
 			return rearImage.id
 				? select( 'core' ).getMedia( rearImage.id )
 				: null;
->>>>>>> 0e2c9381c7b59f786af9ea2181a363953f8915ce
 		},
 		[ rearImage.id ]
 	);
 
 	const frontImageObj = useSelect(
 		( select ) => {
-<<<<<<< HEAD
-			return frontImage.id ? select( 'core' ).getMedia( frontImage.id ) : null;
-=======
 			return frontImage.id
 				? select( 'core' ).getMedia( frontImage.id )
 				: null;
->>>>>>> 0e2c9381c7b59f786af9ea2181a363953f8915ce
 		},
 		[ frontImage.id ]
 	);

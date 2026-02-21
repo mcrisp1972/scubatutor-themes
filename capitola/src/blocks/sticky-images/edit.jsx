@@ -7,16 +7,12 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
-<<<<<<< HEAD
-import { PanelBody, ToolbarGroup, RadioControl, ToggleControl } from '@wordpress/components';
-=======
 import {
 	PanelBody,
 	ToolbarGroup,
 	RadioControl,
 	ToggleControl,
 } from '@wordpress/components';
->>>>>>> 0e2c9381c7b59f786af9ea2181a363953f8915ce
 import {
 	ColorThemePanel,
 	ImageSelectButton,

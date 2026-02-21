@@ -4,18 +4,13 @@ import {
 	useInnerBlocksProps,
 	MediaPlaceholder,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	ToggleControl,
-	TextareaControl,
-} from '@wordpress/components';
+import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
 import { ImageAlignMatrix, ImageSelectButton } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected, context } = props;
 
-	const { sideImage, imageCropPosition, showCaption, captionOverride } =
-		attributes;
+	const { sideImage, imageCropPosition, showCaption, captionOverride } = attributes;
 
 	const { showFullImage } = context;
 

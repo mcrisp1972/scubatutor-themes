@@ -1,4 +1,8 @@
-import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import { ColorThemePanel, AnimationPanel } from '../../editor-controls';
@@ -24,12 +28,17 @@ export default function Edit( props ) {
 				<PanelBody title="Accordion Options" initialOpen={ true }>
 					<ToggleControl
 						label="Keep Items Open"
-						checked={ accordionBlock?.attributes?.keepOpen || false }
+						checked={
+							accordionBlock?.attributes?.keepOpen || false
+						}
 						onChange={ ( value ) => {
 							if ( accordionBlock ) {
-								updateBlockAttributes( accordionBlock.clientId, {
-									keepOpen: value,
-								} );
+								updateBlockAttributes(
+									accordionBlock.clientId,
+									{
+										keepOpen: value,
+									}
+								);
 							}
 						} }
 						__nextHasNoMarginBottom
