@@ -2325,6 +2325,10 @@ return array(
 			'alignment' => array(
 				'type' => 'string',
 				'default' => '--right-align'
+			),
+			'autoPopulate' => array(
+				'type' => 'boolean',
+				'default' => false
 			)
 		),
 		'style' => 'capitola-nav-dropdown',
@@ -3267,6 +3271,10 @@ return array(
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
+			),
+			'mediaWidth' => array(
+				'type' => 'integer',
+				'default' => 50
 			),
 			'imageLayout' => array(
 				'type' => 'string',

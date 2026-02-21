@@ -30,6 +30,10 @@
       "type": "string",
       "default": "left"
     },
+    "mediaWidth": {
+      "type": "integer",
+      "default": 50
+    },
     "imageLayout": {
       "type": "string",
       "default": "inner"

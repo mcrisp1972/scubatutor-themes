@@ -26,6 +26,10 @@
     "alignment": {
       "type": "string",
       "default": "--right-align"
+    },
+    "autoPopulate": {
+      "type": "boolean",
+      "default": false
     }
   },
   "style": "capitola-nav-dropdown",
