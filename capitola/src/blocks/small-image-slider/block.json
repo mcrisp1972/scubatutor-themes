@@ -9,8 +9,14 @@
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -112,11 +118,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -139,6 +149,9 @@
 	},
 	"render": "file:./render.php",
 	"style": "capitola-small-image-slider",
-	"viewScript": ["file:./view.js", "capitola-animations"],
+	"viewScript": [
+		"file:./view.js",
+		"capitola-animations"
+	],
 	"editorScript": "file:./index.js"
 }

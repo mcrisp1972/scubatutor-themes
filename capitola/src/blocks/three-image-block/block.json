@@ -5,12 +5,20 @@
 	"title": "Three Image Block",
 	"description": "Displays three overlapping images with side content.",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"links"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -21,6 +29,10 @@
 		"introAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"mediaWidth": {
+			"type": "integer",
+			"default": 50
 		},
 		"gridAspectRatio": {
 			"type": "string",
@@ -140,6 +152,9 @@
 			"frontImage": {
 				"source_url": "https://pd.w.org/2025/07/175687190064e5331.25489020-768x512.jpg"
 			},
+			"middleImage": {
+				"source_url": "https://pd.w.org/2026/02/9356995a97b6c19b6.99159534-768x576.jpg"
+			},
 			"rearImage": {
 				"source_url": "https://pd.w.org/2025/07/78368718f0804ea01.26512460-768x512.jpg"
 			}
@@ -152,11 +167,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [

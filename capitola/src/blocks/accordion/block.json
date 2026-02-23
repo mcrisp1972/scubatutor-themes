@@ -20,8 +20,12 @@
 			"default": false
 		}
 	},
-	"allowedBlocks": ["capitola/accordion-item"],
-	"usesContext": ["parentAutoCollapse"],
+	"allowedBlocks": [
+		"capitola/accordion-item"
+	],
+	"usesContext": [
+		"parentAutoCollapse"
+	],
 	"example": {
 		"innerBlocks": [
 			{

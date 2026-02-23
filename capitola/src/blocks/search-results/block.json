@@ -79,6 +79,9 @@
 		"viewportWidth": 1440
 	},
 	"render": "file:./render.php",
-	"style": ["capitola-post-listing", "capitola-page-navigation"],
+	"style": [
+		"capitola-post-listing",
+		"capitola-page-navigation"
+	],
 	"editorScript": "file:./index.js"
 }

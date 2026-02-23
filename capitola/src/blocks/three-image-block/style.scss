@@ -4,7 +4,7 @@
 	@include block-outer-wrap;
 
 	&__width {
-		@include block-inner-wrap-50-50( $reverse-mobile: true, $allow-right-intro: true );
+		@include block-inner-wrap-50-50($reverse-mobile: true, $allow-right-intro: true);
 
 		@include mq("50-50") {
 			justify-content: start;
@@ -12,6 +12,10 @@
 
 			&.--align-top {
 				align-items: flex-start;
+			}
+
+			.wp-block-capitola-body-text {
+				flex-grow: 1;
 			}
 		}
 	}
@@ -37,7 +41,7 @@
 		}
 
 		@include mq("50-50") {
-			flex: 0 0 calc(50% - (var(--capitola-blockPadding) / 2));
+			flex: 0 0 var(--capitola-flex-basis);
 		}
 	}
 
@@ -139,6 +143,7 @@
 			fit: cover;
 			position: var(--capitola-objectPosition);
 		}
+
 		width: 100%;
 		height: 100%;
 		overflow: hidden;

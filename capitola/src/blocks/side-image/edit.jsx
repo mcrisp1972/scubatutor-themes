@@ -260,7 +260,7 @@ export default function Edit( props ) {
 					) }
 					{ imageLayout === 'inner' && (
 						<RangeControl
-							label="Image Width (%)"
+							label="Media Width (%)"
 							value={ tempWidth || mediaWidth }
 							onChange={ ( value ) => {
 								setAttributes( { mediaWidth: value } );

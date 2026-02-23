@@ -7,7 +7,9 @@
 	"category": "custom-blocks",
 	"keywords": [],
 	"supports": {},
-	"parent": ["capitola/stats-grid"],
+	"parent": [
+		"capitola/stats-grid"
+	],
 	"attributes": {
 		"stat": {
 			"type": "string",

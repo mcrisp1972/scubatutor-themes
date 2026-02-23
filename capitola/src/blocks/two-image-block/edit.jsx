@@ -6,12 +6,15 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
+import { useState } from '@wordpress/element';
+import { useViewportMatch } from '@wordpress/compose';
 import {
 	PanelBody,
 	RadioControl,
 	RangeControl,
 	ToggleControl,
 	ToolbarGroup,
+	ResizableBox,
 } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -25,11 +28,12 @@ import {
 } from '../../editor-controls';
 
 export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, toggleSelection } = props;
 
 	const {
 		introAlign,
 		gridAspectRatio,
+		mediaWidth,
 		rearImagePosition,
 		rearImage,
 		rearImageHeight,
@@ -49,6 +53,10 @@ export default function Edit( props ) {
 		colorTheme,
 	} = attributes;
 
+	const isMobile = useViewportMatch( 'medium', '<' );
+
+	const [ tempWidth, setTempWidth ] = useState( null );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-two-image-block__width alignwide --has-${ introAlign }-intro ${
@@ -63,18 +71,14 @@ export default function Edit( props ) {
 
 	const rearImageObj = useSelect(
 		( select ) => {
-			return rearImage.id
-				? select( 'core' ).getMedia( rearImage.id )
-				: null;
+			return rearImage.id ? select( 'core' ).getMedia( rearImage.id ) : null;
 		},
 		[ rearImage.id ]
 	);
 
 	const frontImageObj = useSelect(
 		( select ) => {
-			return frontImage.id
-				? select( 'core' ).getMedia( frontImage.id )
-				: null;
+			return frontImage.id ? select( 'core' ).getMedia( frontImage.id ) : null;
 		},
 		[ frontImage.id ]
 	);
@@ -254,6 +258,19 @@ export default function Edit( props ) {
 						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
+				<PanelBody title="Block Settings" initialOpen={ true }>
+					<RangeControl
+						label="Media Width (%)"
+						value={ tempWidth || mediaWidth }
+						onChange={ ( value ) => {
+							setAttributes( { mediaWidth: value } );
+						} }
+						min={ 20 }
+						max={ 50 }
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+					/>
+				</PanelBody>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
@@ -266,10 +283,7 @@ export default function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
 					/>
-					<VerticalAlignToolbar
-						props={ props }
-						attribute="verticalAlign"
-					/>
+					<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
@@ -280,14 +294,40 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div
+				<ResizableBox
 					className={ `wp-block-capitola-two-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition }` }
+					size={ {
+						width: isMobile ? '100%' : mediaWidth + '%',
+					} }
+					style={ {
+						flexBasis: 'unset',
+						'--capitola-flex-basis': mediaWidth + '%',
+					} }
+					minWidth="20%"
+					maxWidth={ isMobile ? '100%' : '50%' }
+					enable={ {
+						top: false,
+						bottom: false,
+						left: introAlign === 'left' && ! isMobile ? true : false,
+						right: introAlign === 'right' && ! isMobile ? true : false,
+					} }
+					onResize={ ( event, direction, elt ) => {
+						setTempWidth( parseInt( elt.style.width ) );
+					} }
+					onResizeStop={ ( event, direction, elt ) => {
+						setAttributes( {
+							mediaWidth: parseInt( elt.style.width ),
+						} );
+						setTempWidth( null );
+						toggleSelection( true );
+					} }
+					onResizeStart={ () => {
+						toggleSelection( false );
+					} }
 				>
 					<figure
 						className={ `wp-block-capitola-two-image-block__rear-image ${
-							rearImageRadius
-								? ' --has-' + rearImageRadius + '-radius'
-								: ''
+							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': rearImageHeight,
@@ -320,9 +360,7 @@ export default function Edit( props ) {
 					</figure>
 					<figure
 						className={ `wp-block-capitola-two-image-block__front-image ${
-							frontImageRadius
-								? ' --has-' + frontImageRadius + '-radius'
-								: ''
+							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
 						}` }
 						style={ {
 							'--image-height': frontImageHeight,
@@ -353,7 +391,7 @@ export default function Edit( props ) {
 							/>
 						) }
 					</figure>
-				</div>
+				</ResizableBox>
 			</div>
 		</div>
 	);
