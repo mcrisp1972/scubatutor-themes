@@ -25,7 +25,7 @@ function query_related_posts( $attributes ) {
 				'post__not_in'    => array( $post ? $post->ID : 1 ),
 				'post_parent__in' => $post->post_parent ? array( $post->post_parent ) : array( $post->ID ),
 				'orderby'         => 'menu_order',
-				'order'           => 'DESC',
+				'order'           => 'ASC',
 			);
 		} else {
 

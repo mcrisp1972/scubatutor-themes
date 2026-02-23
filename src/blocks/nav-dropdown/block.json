@@ -27,9 +27,13 @@
 			"type": "string",
 			"default": "--right-align"
 		},
-		"autoPopulate": {
-			"type": "boolean",
-			"default": false
+		"populationMethod": {
+			"type": "string",
+			"default": "manual"
+		},
+		"autoPopulatePostType": {
+			"type": "string",
+			"default": "page"
 		}
 	},
 	"style": "capitola-nav-dropdown",

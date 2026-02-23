@@ -16,7 +16,7 @@ function query_post_listings( $attributes ) {
 
 	$order_bys = array(
 		'title'      => 'ASC',
-		'menu_order' => 'DESC',
+		'menu_order' => 'ASC',
 		'event_date' => 'ASC',
 		'date'       => 'DESC',
 		'ID'         => 'DESC',

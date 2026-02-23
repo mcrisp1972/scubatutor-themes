@@ -6,13 +6,29 @@ import {
 	LinkControl,
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { PanelBody, TextControl, Popover } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	Popover,
+	SelectControl,
+	RadioControl,
+} from '@wordpress/components';
+import { store as coreDataStore } from '@wordpress/core-data';
 import { useState } from '@wordpress/element';
 import { ImageSelect, LinkSelect } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { link, title, headline, intro, imageId, linksPerColumn } = attributes;
+	const {
+		link,
+		title,
+		headline,
+		intro,
+		imageId,
+		linksPerColumn,
+		populationMethod,
+		autoPopulatePostType,
+	} = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
 
 	const imageObject = useSelect(
@@ -22,6 +38,52 @@ export default function Edit( props ) {
 				: undefined;
 		},
 		[ imageId ]
+	);
+
+	const postTypes = useSelect( ( select ) => {
+		const types = select( coreDataStore ).getPostTypes( { per_page: -1 } );
+		return types
+			? types.filter( ( type ) => {
+					return (
+						type.supports?.[ 'page-attributes' ] && type.visibility?.show_in_nav_menus
+					);
+			  } )
+			: [ populationMethod, autoPopulatePostType ];
+	} );
+
+	const childPages = useSelect(
+		( select ) => {
+			if ( populationMethod === 'manual' ) {
+				return [];
+			}
+			const args = {
+				per_page: 40,
+				orderby: 'menu_order',
+				order: 'asc',
+			};
+			if ( populationMethod === 'children' && link?.id ) {
+				args.parent = link.id;
+			}
+
+			return select( 'core' ).getEntityRecords(
+				'postType',
+				populationMethod === 'children' ? 'page' : autoPopulatePostType,
+				args
+			);
+		},
+		[ link, populationMethod, autoPopulatePostType ]
+	);
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className:
+				'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' + linksPerColumn,
+		},
+		{
+			defaultBlock: { name: 'capitola/nav-sublink' },
+			allowedBlocks: [ 'capitola/nav-sublink' ],
+			directInsert: true,
+		}
 	);
 
 	return (
@@ -76,6 +138,47 @@ export default function Edit( props ) {
 							setAttributes( { imageId: value.id } );
 						} }
 					/>
+					<RadioControl
+						label="Population Method"
+						selected={ populationMethod }
+						options={ [
+							{ label: 'Manual', value: 'manual' },
+							{ label: 'Child Pages', value: 'children' },
+							{ label: 'Post Type', value: 'post-type' },
+						] }
+						onChange={ ( value ) => {
+							setAttributes( { populationMethod: value } );
+						} }
+						help={
+							// eslint-disable-next-line no-nested-ternary
+							populationMethod === 'children'
+								? 'Automatically populate with child pages of the main linked page.'
+								: populationMethod === 'post-type'
+								? 'Automatically populate with items from a selected post type.'
+								: 'Add submenu items manually.'
+						}
+					/>
+					{ populationMethod === 'post-type' && (
+						<SelectControl
+							label="Post Type to Populate"
+							value={ autoPopulatePostType }
+							options={ [
+								...postTypes?.map( ( type ) => {
+									return {
+										label: type?.labels?.singular_name,
+										value: type?.slug,
+									};
+								} ),
+							] }
+							onChange={ ( value ) => {
+								setAttributes( {
+									autoPopulatePostType: value,
+								} );
+							} }
+							help="Select which post type to pull items from for automatic population."
+							disabled={ populationMethod !== 'post-type' }
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			{ isLinkControlVisible && (
@@ -140,20 +243,26 @@ export default function Edit( props ) {
 							} }
 						/>
 					</div>
-					<div
-						{ ...useInnerBlocksProps(
-							{
-								className:
-									'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' +
-									linksPerColumn,
-							},
-							{
-								defaultBlock: { name: 'capitola/nav-sublink' },
-								allowedBlocks: [ 'capitola/nav-sublink' ],
-								directInsert: true,
+					{ populationMethod !== 'manual' ? (
+						<div
+							className={
+								'wp-block-capitola-nav-mega-nav__sub-menu-items --row-limit-' +
+								linksPerColumn
 							}
-						) }
-					/>
+						>
+							{ childPages?.map( ( page ) => {
+								return (
+									<div key={ page.id } className="wp-block-capitola-nav-sublink">
+										<div className="wp-block-capitola-nav-sublink__link">
+											{ page.title.raw }
+										</div>
+									</div>
+								);
+							} ) }
+						</div>
+					) : (
+						<div { ...innerBlocksProps } />
+					) }
 					{ !! imageObject && (
 						<div className="wp-block-capitola-nav-mega-nav__image">
 							<img src={ imageObject.source_url } alt="" />

@@ -79,7 +79,7 @@ export default function Edit( props ) {
 				args = {
 					exclude: [ postID ],
 					per_page: limit,
-					order: 'desc',
+					order: 'asc',
 					orderby: 'menu_order',
 				};
 

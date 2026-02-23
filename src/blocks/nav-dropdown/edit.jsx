@@ -10,29 +10,39 @@ import {
 	TextControl,
 	Popover,
 	RadioControl,
-	ToggleControl,
+	SelectControl,
 } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { store as coreDataStore } from '@wordpress/core-data';
 import { LinkSelect } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { link, title, alignment, autoPopulate } = attributes;
+	const { link, title, alignment, populationMethod, autoPopulatePostType } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
 
 	const childPages = useSelect(
 		( select ) => {
-			return autoPopulate && link.id && link.type === 'page'
-				? select( 'core' ).getEntityRecords( 'postType', 'page', {
-						per_page: -1,
-						parent: link.id,
-						orderby: 'menu_order',
-						order: 'desc',
-				  } )
-				: undefined;
+			if ( populationMethod === 'manual' ) {
+				return [];
+			}
+			const args = {
+				per_page: 40,
+				orderby: 'menu_order',
+				order: 'asc',
+			};
+			if ( populationMethod === 'children' && link?.id ) {
+				args.parent = link.id;
+			}
+
+			return select( 'core' ).getEntityRecords(
+				'postType',
+				populationMethod === 'children' ? 'page' : autoPopulatePostType,
+				args
+			);
 		},
-		[ link, autoPopulate ]
+		[ link, populationMethod, autoPopulatePostType ]
 	);
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -46,10 +56,15 @@ export default function Edit( props ) {
 		}
 	);
 
-	wp.apiFetch( { path: '/wp/v2/types' } ).then( ( types ) => {
-		Object.keys( types ).forEach( ( postType ) => {
-			console.log( postType, types[ postType ].supports );
-		} );
+	const postTypes = useSelect( ( select ) => {
+		const types = select( coreDataStore ).getPostTypes( { per_page: -1 } );
+		return types
+			? types.filter( ( type ) => {
+					return (
+						type.supports?.[ 'page-attributes' ] && type.visibility?.show_in_nav_menus
+					);
+			  } )
+			: [ populationMethod, autoPopulatePostType ];
 	} );
 
 	return (
@@ -95,14 +110,45 @@ export default function Edit( props ) {
 							setAttributes( { alignment: value } );
 						} }
 					/>
-					{ link.id && link.type === 'page' && (
-						<ToggleControl
-							label="Auto-populate with child pages"
-							checked={ autoPopulate }
+					<RadioControl
+						label="Population Method"
+						selected={ populationMethod }
+						options={ [
+							{ label: 'Manual', value: 'manual' },
+							{ label: 'Child Pages', value: 'children' },
+							{ label: 'Post Type', value: 'post-type' },
+						] }
+						onChange={ ( value ) => {
+							setAttributes( { populationMethod: value } );
+						} }
+						help={
+							// eslint-disable-next-line no-nested-ternary
+							populationMethod === 'children'
+								? 'Automatically populate with child pages of the main linked page.'
+								: populationMethod === 'post-type'
+								? 'Automatically populate with items from a selected post type.'
+								: 'Add submenu items manually.'
+						}
+					/>
+					{ populationMethod === 'post-type' && (
+						<SelectControl
+							label="Post Type to Populate"
+							value={ autoPopulatePostType }
+							options={ [
+								...postTypes?.map( ( type ) => {
+									return {
+										label: type?.labels?.singular_name,
+										value: type?.slug,
+									};
+								} ),
+							] }
 							onChange={ ( value ) => {
-								setAttributes( { autoPopulate: value } );
+								setAttributes( {
+									autoPopulatePostType: value,
+								} );
 							} }
-							__nextHasNoMarginBottom
+							help="Select which post type to pull items from for automatic population."
+							disabled={ populationMethod !== 'post-type' }
 						/>
 					) }
 				</PanelBody>
@@ -151,9 +197,9 @@ export default function Edit( props ) {
 			<div className="wp-block-capitola-nav__menu-item-caret"></div>
 			<div className={ `wp-block-capitola-nav-dropdown__sub-menu ${ alignment }` }>
 				<div className="wp-block-capitola-nav-dropdown__sub-menu-height">
-					{ autoPopulate && !! childPages ? (
+					{ populationMethod !== 'manual' ? (
 						<div className="wp-block-capitola-nav-dropdown__sub-menu-items">
-							{ childPages.map( ( page ) => {
+							{ childPages?.map( ( page ) => {
 								return (
 									<div key={ page.id } className="wp-block-capitola-nav-sublink">
 										<div className="wp-block-capitola-nav-sublink__link">

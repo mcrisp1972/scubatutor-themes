@@ -149,7 +149,7 @@
 				},
 				"menu_order": {
 					"label": "Default",
-					"order": "desc"
+					"order": "asc"
 				}
 			}
 		},
