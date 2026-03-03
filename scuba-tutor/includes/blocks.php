@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function register_blocks() {
-
 	foreach ( glob( get_stylesheet_directory() . '/build/blocks/*' ) as $path ) {
 		if ( is_dir( $path ) && file_exists( $path . '/block.json' ) ) {
 			register_block_type( $path . '/block.json' );
