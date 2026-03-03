@@ -1,1 +1,1 @@
-:root{--capitola-wideSize:1000px!important;--capitola-contentSize:1000px!important}main{min-height:calc(100vh - 56px - var(--capitola-header-height))}
+main{min-height:calc(100vh - 56px - var(--capitola-header-height))}
