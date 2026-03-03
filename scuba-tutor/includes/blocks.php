@@ -32,3 +32,12 @@ function register_blocks() {
 }
 
 add_action( 'init', __NAMESPACE__ . '\register_blocks' );
+
+add_filter(
+	'capitola_unregistered_parent_blocks',
+	function () {
+		return array(
+			'capitola/footer',
+		);
+	}
+);

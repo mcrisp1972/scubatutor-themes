@@ -23,6 +23,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"mediaWidth": {
+			"type": "integer",
+			"default": 50
+		},
 		"transitionMode": {
 			"type": "string",
 			"default": "scroll"

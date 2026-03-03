@@ -20,3 +20,15 @@ function enqueue_styles() {
 }
 
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_styles', 100 );
+
+/**
+ * Enqueue block editor scripts.
+ *
+ * @return void
+ */
+function block_scripts() {
+
+	wp_enqueue_script( 'capitola-child-block-editor-hooks', CAPITOLA_CHILD_JS_URL . 'block-editor-hooks.js', array( 'wp-editor', 'wp-plugins' ), CAPITOLA_CHILD_THEME_VER, true );
+}
+
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\block_scripts', 100 );

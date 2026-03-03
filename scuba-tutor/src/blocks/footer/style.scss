@@ -1,0 +1,58 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-capitola-footer {
+	background: var(--capitola-color-background);
+	color: var(--capitola-color-body);
+
+	padding: {
+		top: var(--capitola-spacing-small);
+		bottom: var(--capitola-spacing-small);
+	}
+
+	&__grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: var(--capitola-spacing-large);
+
+		@include mq("large") {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&__copyright {
+		@include micro-text;
+		text-align: center;
+	}
+}
+
+.capitola-cookie-consent {
+	position: fixed;
+	inset: auto 0 0 0;
+	z-index: 1;
+	background: var(--capitola-color-background);
+
+	padding: {
+		top: var(--capitola-spacing-small);
+		bottom: var(--capitola-spacing-small);
+	}
+
+	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: var(--capitola-spacing-medium);
+		color: var(--capitola-color-body);
+	}
+
+	&__notice {
+		flex: 1 0 0;
+		margin: 0;
+		align-self: center;
+	}
+
+	&.--is-hidden {
+		display: none;
+	}
+}

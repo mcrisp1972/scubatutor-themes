@@ -1,2 +1,6 @@
 @use "abstracts" as *;
 @use "properties";
+
+main {
+	min-height: calc(100vh - 56px - var(--capitola-header-height));
+}

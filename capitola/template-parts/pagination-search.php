@@ -35,7 +35,7 @@ if ( $total_pages <= 6 ) {
 
 <nav class="capitola-page-nav js-pageNav">
 	<?php if ( 1 === $current_page ) : ?>
-		<span class="capitola-page-nav__button --prev" disabled>Prev</span>
+		<span class="capitola-page-nav__button --prev --disabled">Prev</span>
 	<?php else : ?>
 		<a href="<?php echo esc_url( '/page/' . ( $current_page - 1 ) . '/?s=' . rawurlencode( $search_string ) ); ?>" class="capitola-page-nav__button --prev">Prev</a>
 	<?php endif; ?>
@@ -57,7 +57,7 @@ if ( $total_pages <= 6 ) {
 		?>
 	</ul>
 	<?php if ( $current_page === $total_pages ) : ?>
-		<span class="capitola-page-nav__button --next" disabled>Next</span>
+		<span class="capitola-page-nav__button --next --disabled">Next</span>
 	<?php else : ?>
 		<a href="<?php echo esc_url( '/page/' . ( $current_page + 1 ) . '/?s=' . rawurlencode( $search_string ) ); ?>" class="capitola-page-nav__button --next">Next</a>
 	<?php endif; ?>

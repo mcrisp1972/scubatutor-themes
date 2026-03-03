@@ -21,7 +21,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?>  js-stickyImagesContainer">
-		<div class="wp-block-capitola-sticky-images__image-column">
+		<div class="wp-block-capitola-sticky-images__image-column" style="--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
 					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ); ?>;">

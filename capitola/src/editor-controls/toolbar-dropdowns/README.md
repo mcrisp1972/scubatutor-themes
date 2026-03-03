@@ -108,6 +108,9 @@ A toolbar dropdown for media aspect ratio selection.
 - `3-2` - Standard aspect ratio (3:2)
 - `4-3` - Traditional aspect ratio (4:3)
 - `1` - Square aspect ratio (1:1)
+- `3-4` - Wide portrait aspect ratio (3:4)
+- `2-3` - Portrait aspect ratio (2:3)
+- `16-9` - Narrow portrait aspect ratio (9:16)
 - `full` - Full image dimensions
 
 **Usage:**

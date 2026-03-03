@@ -11,7 +11,10 @@
 		},
 		"spacing": {
 			"blockGap": null,
-			"units": ["px", "%"],
+			"units": [
+				"px",
+				"%"
+			],
 			"defaultSpacingSizes": false,
 			"customSpacingSize": false,
 			"margin": true,
@@ -239,28 +242,36 @@
 							"fontWeight": "400",
 							"fontStyle": "normal",
 							"fontStretch": "normal",
-							"src": ["file:./assets/fonts/roboto/Roboto-Regular.ttf"]
+							"src": [
+								"file:./assets/fonts/roboto/Roboto-Regular.ttf"
+							]
 						},
 						{
 							"fontFamily": "Roboto",
 							"fontWeight": "400",
 							"fontStyle": "italic",
 							"fontStretch": "normal",
-							"src": ["file:./assets/fonts/roboto/Roboto-Italic.ttf"]
+							"src": [
+								"file:./assets/fonts/roboto/Roboto-Italic.ttf"
+							]
 						},
 						{
 							"fontFamily": "Roboto",
 							"fontWeight": "900",
 							"fontStyle": "normal",
 							"fontStretch": "normal",
-							"src": ["file:./assets/fonts/roboto/Roboto-Black.ttf"]
+							"src": [
+								"file:./assets/fonts/roboto/Roboto-Black.ttf"
+							]
 						},
 						{
 							"fontFamily": "Roboto",
 							"fontWeight": "700",
 							"fontStyle": "normal",
 							"fontStretch": "normal",
-							"src": ["file:./assets/fonts/roboto/Roboto-Bold.ttf"]
+							"src": [
+								"file:./assets/fonts/roboto/Roboto-Bold.ttf"
+							]
 						}
 					]
 				}
@@ -550,12 +561,12 @@
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var(--capitola-hl-m-fontSize)"
+					"fontSize": "var(--capitola-hl-l-fontSize)"
 				}
 			},
 			"h3": {
 				"typography": {
-					"fontSize": "var(--capitola-hl-s-fontSize)"
+					"fontSize": "var(--capitola-hl-m-fontSize)"
 				}
 			},
 			"h4": {
@@ -637,11 +648,6 @@
 				"color": {
 					"text": "var(--capitola-color-body)"
 				},
-				"spacing": {
-					"padding": {
-						"left": "16px"
-					}
-				},
 				"css": "&:not(:first-child) {margin-top: var(--capitola-open-content-spacing);}"
 			},
 			"core/media-text": {
@@ -701,42 +707,58 @@
 		{
 			"name": "single-product",
 			"title": "Single Product",
-			"postTypes": ["product"]
+			"postTypes": [
+				"product"
+			]
 		},
 		{
 			"name": "single-course",
 			"title": "Single Course",
-			"postTypes": ["course"]
+			"postTypes": [
+				"course"
+			]
 		},
 		{
 			"name": "single-class",
 			"title": "Single Class",
-			"postTypes": ["class"]
+			"postTypes": [
+				"class"
+			]
 		},
 		{
 			"name": "single-trip",
 			"title": "Single Trip",
-			"postTypes": ["trip"]
+			"postTypes": [
+				"trip"
+			]
 		},
 		{
 			"name": "single-staff",
 			"title": "Single Staff",
-			"postTypes": ["staff"]
+			"postTypes": [
+				"staff"
+			]
 		},
 		{
 			"name": "single-tribe_events",
 			"title": "Single Event",
-			"postTypes": ["tribe_events"]
+			"postTypes": [
+				"tribe_events"
+			]
 		},
 		{
 			"name": "archive-course",
 			"title": "Course Listings",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		},
 		{
 			"name": "archive-staff",
 			"title": "Staff Listings",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		}
 	],
 	"templateParts": [

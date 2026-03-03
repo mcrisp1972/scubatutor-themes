@@ -90,6 +90,19 @@ export default function Edit( props ) {
 			} ) }
 		>
 			<InspectorControls group="settings">
+				<PanelBody title="Block Settings" initialOpen={ true }>
+					<RangeControl
+						label="Media Width (%)"
+						value={ tempWidth || mediaWidth }
+						onChange={ ( value ) => {
+							setAttributes( { mediaWidth: value } );
+						} }
+						min={ 20 }
+						max={ 50 }
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+					/>
+				</PanelBody>
 				<PanelBody title="Rear Image" initialOpen={ true }>
 					<ImageSelect
 						label="Image"
@@ -258,19 +271,6 @@ export default function Edit( props ) {
 						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
-				<PanelBody title="Block Settings" initialOpen={ true }>
-					<RangeControl
-						label="Media Width (%)"
-						value={ tempWidth || mediaWidth }
-						onChange={ ( value ) => {
-							setAttributes( { mediaWidth: value } );
-						} }
-						min={ 20 }
-						max={ 50 }
-						__next40pxDefaultSize
-						__nextHasNoMarginBottom
-					/>
-				</PanelBody>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
@@ -287,7 +287,7 @@ export default function Edit( props ) {
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
-						options={ [ '16-9', '3-2', '4-3', '1' ] }
+						options={ [ '16-9', '3-2', '4-3', '1', '3-4', '2-3', '9-16' ] }
 						label="Change image grid aspect ratio"
 					/>
 				</ToolbarGroup>

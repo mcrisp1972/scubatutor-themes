@@ -2,6 +2,7 @@
 
 .wp-block-capitola-page-nav {
 	padding-bottom: var(--capitola-spacing-large);
+	background: var(--capitola-color-background);
 
 	&__width {
 		display: flex;
@@ -39,7 +40,15 @@
 			width: 16px;
 			height: 16px;
 			mask-image: url("~/assets/svgs/arrows/fa-angle-left.svg");
-			transform: background-color $transition;
+			transition: background-color $transition, transform $transition;
+		}
+
+		&:hover,
+		&:focus {
+
+			&::before {
+				transform: translateX(-4px);
+			}
 		}
 	}
 
@@ -56,6 +65,15 @@
 			width: 16px;
 			height: 16px;
 			mask-image: url("~/assets/svgs/arrows/fa-angle-right.svg");
+			transition: background-color $transition, transform $transition;
+		}
+
+		&:hover,
+		&:focus {
+
+			&::after {
+				transform: translateX(4px);
+			}
 		}
 	}
 }

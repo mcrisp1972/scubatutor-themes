@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/footer",
+	"title": "Site Footer",
+	"description": "All fields test block",
+	"category": "nav-blocks",
+	"keywords": ["site", "footer", "navigation"],
+	"supports": {
+		"multiple": false
+	},
+	"attributes": {
+		"showBusinessName": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSocials": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCookieBanner": {
+			"type": "boolean",
+			"default": true
+		},
+		"cookieBannerText": {
+			"type": "string",
+			"default": ""
+		},
+		"cookieBannerCloseText": {
+			"type": "string",
+			"default": "Understand"
+		},
+		"cookieBannerTheme": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"viewportWidth": 1440
+	},
+	"style": "capitola-footer",
+	"editorStyle": "capitola-footer-editor",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"editorScript": "file:./index.js"
+}

@@ -40,6 +40,18 @@
 			aspect-ratio: 3/2;
 		}
 
+		&.--aspect-ratio-2-3 {
+			aspect-ratio: 2/3;
+		}
+
+		&.--aspect-ratio-3-4 {
+			aspect-ratio: 3/4;
+		}
+
+		&.--aspect-ratio-9-16 {
+			aspect-ratio: 9/16;
+		}
+
 		@include mq("50-50") {
 			flex: 0 0 var(--capitola-flex-basis);
 		}
