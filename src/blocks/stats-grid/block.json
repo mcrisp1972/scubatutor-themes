@@ -9,9 +9,15 @@
 	"supports": {
 		"lock": false
 	},
-	"parent": ["capitola/stats"],
+	"parent": [
+		"capitola/stats"
+	],
 	"attributes": {},
-	"usesContext": ["revealAnimation", "revealSection", "introAlign"],
+	"usesContext": [
+		"revealAnimation",
+		"revealSection",
+		"introAlign"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

@@ -6,13 +6,20 @@ import { useState, useEffect } from '@wordpress/element';
 import { ColorThemePicker } from '../../editor-controls';
 
 export default function ThemePanels() {
+	// Detect if loaded in the Site Editor (template editing)
+	const isSiteEditor = useSelect( ( select ) => {
+		// In the Site Editor, getCurrentPostType() returns 'wp_template' or 'wp_template_part'
+		const postType = select( 'core/editor' ).getCurrentPostType();
+		return postType === 'wp_template' || postType === 'wp_template_part';
+	}, [] );
+
 	const postType = useSelect( ( select ) => {
 		return select( 'core/editor' ).getCurrentPostType();
 	}, [] );
 
 	const meta = useSelect( ( select ) => {
 		return select( 'core/editor' ).getEditedPostAttribute( 'meta' );
-	}, [] );
+	} );
 
 	const [ defaultPageTheme, setDefaultPageTheme ] = useState( '' );
 
@@ -22,6 +29,10 @@ export default function ThemePanels() {
 		} );
 	}, [] );
 
+	if ( isSiteEditor ) {
+		return null;
+	}
+
 	if ( ! postType ) {
 		return null;
 	}
@@ -29,7 +40,9 @@ export default function ThemePanels() {
 	const changeTheme = ( theme ) => {
 		const editorBody = document.querySelector( '.editor-styles-wrapper' );
 		if ( frames[ 'editor-canvas' ] !== undefined ) {
-			frames[ 'editor-canvas' ].window.document.body.dataset.theme = theme;
+			setTimeout( () => {
+				frames[ 'editor-canvas' ].window.document.body.dataset.theme = theme;
+			}, 100 );
 		} else if ( editorBody ) {
 			editorBody.dataset.theme = theme;
 		}

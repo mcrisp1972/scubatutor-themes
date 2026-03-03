@@ -5,11 +5,16 @@
 	"title": "Sticky Images Section",
 	"description": "",
 	"category": "custom-blocks",
-	"keywords": ["image", "sticky"],
+	"keywords": [
+		"image",
+		"sticky"
+	],
 	"supports": {
 		"anchor": true
 	},
-	"parent": ["capitola/sticky-images"],
+	"parent": [
+		"capitola/sticky-images"
+	],
 	"attributes": {
 		"anchor": {
 			"type": "string",

@@ -5,17 +5,27 @@
 	"title": "Sticky Images",
 	"description": "Multiple side image blocks with sticky images during scroll.",
 	"category": "custom-blocks",
-	"keywords": ["image", "sticky"],
+	"keywords": [
+		"image",
+		"sticky"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
 		"anchor": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaWidth": {
+			"type": "integer",
+			"default": 50
 		},
 		"transitionMode": {
 			"type": "string",
@@ -77,11 +87,15 @@
 							"headline": "Nulla Minim Est Do",
 							"cta": {
 								"title": "Consequat",
-								"link": { "url": "/" }
+								"link": {
+									"url": "/"
+								}
 							},
 							"cta2": {
 								"title": "Velit amet",
-								"link": { "url": "/" }
+								"link": {
+									"url": "/"
+								}
 							}
 						},
 						"innerBlocks": [

@@ -5,12 +5,20 @@
 	"title": "Two Image Block",
 	"description": "Displays two overlapping images with side content.",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"links"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -21,6 +29,10 @@
 		"introAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"mediaWidth": {
+			"type": "integer",
+			"default": 50
 		},
 		"gridAspectRatio": {
 			"type": "string",
@@ -137,11 +149,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [

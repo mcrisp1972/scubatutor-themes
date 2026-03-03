@@ -81,15 +81,13 @@ export default function Edit( props ) {
 		( select ) => {
 			if ( externalImage ) {
 				return imageUrl ? { source_url: imageUrl } : undefined;
-			} else if ( ! isHeroVariation ) {
-				return sideImage;
 			}
 			const imageId = sideImage.id ? sideImage.id : featuredImage;
 			return imageId
 				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
 				: undefined;
 		},
-		[ isHeroVariation, featuredImage, sideImage, externalImage, imageUrl ]
+		[ featuredImage, sideImage, externalImage, imageUrl ]
 	);
 
 	const imageRatioClass = imageLayout === 'inner' ? '--' + ( videoID ? '16-9' : imageRatio ) : '';
@@ -260,7 +258,7 @@ export default function Edit( props ) {
 					) }
 					{ imageLayout === 'inner' && (
 						<RangeControl
-							label="Image Width (%)"
+							label="Media Width (%)"
 							value={ tempWidth || mediaWidth }
 							onChange={ ( value ) => {
 								setAttributes( { mediaWidth: value } );

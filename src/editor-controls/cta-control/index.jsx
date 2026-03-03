@@ -111,6 +111,9 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 										title: 'New tab',
 									},
 								] }
+								// suggestionsQuery={ {
+								// 	type: 'post',
+								// } }
 								onChange={ ( newValue ) => {
 									const previousUrl = linkValue?.url;
 									if ( previousUrl && newValue?.url !== previousUrl ) {

@@ -38,23 +38,17 @@ export default function Edit( props ) {
 
 	const postTitle = useSelect(
 		( select ) => {
-			return isHeroVariation
-				? select( 'core/editor' ).getEditedPostAttribute( 'title' )
-				: '';
+			return isHeroVariation ? select( 'core/editor' ).getEditedPostAttribute( 'title' ) : '';
 		},
 		[ isHeroVariation ]
 	);
 
-	const imageClass = backgroundImage.id
-		? ' --has-bg-image --theme-image-overlay'
-		: '';
+	const imageClass = backgroundImage.id ? ' --has-bg-image --theme-image-overlay' : '';
 	const justifyClass = verticalAlign === 'top' ? ' --justify-top' : '';
 
 	const introPositionClass = ` --is-${ introAlign }-intro`;
 	const introAlignClass =
-		introAlign === 'top' && textAlign === 'center'
-			? ' --is-centered-intro'
-			: '';
+		introAlign === 'top' && textAlign === 'center' ? ' --is-centered-intro' : '';
 	const textAlignClass = textAlign === 'center' ? ' --text-align-center' : '';
 
 	return (
@@ -116,9 +110,7 @@ export default function Edit( props ) {
 				) }
 				<PanelBody
 					title="Markup"
-					initialOpen={
-						bodyTextOptions?.disableBackgroundImage ? true : false
-					}
+					initialOpen={ bodyTextOptions?.disableBackgroundImage ? true : false }
 				>
 					<TagSelect
 						label="Eyebrow Tag"
@@ -138,20 +130,12 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
-					{ ! bodyTextOptions?.disableTextAlign &&
-						introAlign === 'top' && (
-							<JustifyToolbar
-								props={ props }
-								attribute="textAlign"
-							/>
-						) }
-					{ ! bodyTextOptions?.disableVerticalAlign &&
-						introAlign !== 'top' && (
-							<VerticalAlignToolbar
-								props={ props }
-								attribute="verticalAlign"
-							/>
-						) }
+					{ ! bodyTextOptions?.disableTextAlign && introAlign === 'top' && (
+						<JustifyToolbar props={ props } attribute="textAlign" />
+					) }
+					{ ! bodyTextOptions?.disableVerticalAlign && introAlign !== 'top' && (
+						<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
+					) }
 				</ToolbarGroup>
 			</BlockControls>
 			{ !! backgroundImage.source_url && (
@@ -192,11 +176,7 @@ export default function Edit( props ) {
 						{
 							allowedBlocks: bodyTextOptions?.allowedInnerBlocks
 								? bodyTextOptions?.allowedInnerBlocks
-								: [
-										'core/paragraph',
-										'core/heading',
-										'core/list',
-								  ],
+								: [ 'core/paragraph', 'core/heading', 'core/list', 'core/image' ],
 							templateLock: false,
 						}
 					) }
@@ -215,9 +195,7 @@ export default function Edit( props ) {
 					<CtaControl
 						className={
 							'wp-block-capitola-body-text__cta --cta' +
-							( backgroundImage.source_url
-								? ' --tertiary'
-								: ' --secondary' )
+							( backgroundImage.source_url ? ' --tertiary' : ' --secondary' )
 						}
 						value={ cta2 }
 						onChange={ ( value ) => {

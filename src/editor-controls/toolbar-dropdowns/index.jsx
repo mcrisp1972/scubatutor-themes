@@ -74,6 +74,21 @@ const ratioIcons = {
 			<Rect x="4" y="4" width="16" height="16" rx="1" ry="1" />
 		</SVG>
 	),
+	'3-4': (
+		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<Rect x="6" y="4" width="12" height="16" rx="1" ry="1" />
+		</SVG>
+	),
+	'2-3': (
+		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<Rect x="7" y="4" width="10.67" height="16" rx="1" ry="1" />
+		</SVG>
+	),
+	'9-16': (
+		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<Rect x="8" y="4" width="9" height="16" rx="1" ry="1" />
+		</SVG>
+	),
 	full: (
 		<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 			<Path d="M18 20v-2h2v-1.5H7.75a.25.25 0 0 1-.25-.25V4H6v2H4v1.5h2v8.75c0 .966.784 1.75 1.75 1.75h8.75v2H18ZM9.273 7.5h6.977a.25.25 0 0 1 .25.25v6.977H18V7.75A1.75 1.75 0 0 0 16.25 6H9.273v1.5Z"></Path>
@@ -324,6 +339,42 @@ export function AspectRatioToolbar( {
 								isActive: value === '1',
 								onClick: () => {
 									setAttributes( { [ attribute ]: '1' } );
+								},
+							},
+					  ]
+					: [] ),
+				...( options.includes( '3-4' )
+					? [
+							{
+								title: '3/4',
+								icon: ratioIcons[ '3-4' ],
+								isActive: value === '3-4',
+								onClick: () => {
+									setAttributes( { [ attribute ]: '3-4' } );
+								},
+							},
+					  ]
+					: [] ),
+				...( options.includes( '2-3' )
+					? [
+							{
+								title: '2/3',
+								icon: ratioIcons[ '2-3' ],
+								isActive: value === '2-3',
+								onClick: () => {
+									setAttributes( { [ attribute ]: '2-3' } );
+								},
+							},
+					  ]
+					: [] ),
+				...( options.includes( '9-16' )
+					? [
+							{
+								title: '9/16',
+								icon: ratioIcons[ '9-16' ],
+								isActive: value === '9-16',
+								onClick: () => {
+									setAttributes( { [ attribute ]: '9-16' } );
 								},
 							},
 					  ]

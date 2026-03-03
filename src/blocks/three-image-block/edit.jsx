@@ -4,7 +4,15 @@ import {
 	useInnerBlocksProps,
 	BlockControls,
 } from '@wordpress/block-editor';
-import { PanelBody, RadioControl, RangeControl, ToolbarGroup } from '@wordpress/components';
+import { useViewportMatch } from '@wordpress/compose';
+import { useState } from '@wordpress/element';
+import {
+	PanelBody,
+	RadioControl,
+	RangeControl,
+	ToolbarGroup,
+	ResizableBox,
+} from '@wordpress/components';
 import {
 	ImageSelect,
 	ImageAlignMatrix,
@@ -17,10 +25,11 @@ import {
 } from '../../editor-controls';
 
 export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, toggleSelection } = props;
 
 	const {
 		introAlign,
+		mediaWidth,
 		gridAspectRatio,
 		rearImagePosition,
 		rearImage,
@@ -44,6 +53,10 @@ export default function Edit( props ) {
 		colorTheme,
 	} = attributes;
 
+	const isMobile = useViewportMatch( 'medium', '<' );
+
+	const [ tempWidth, setTempWidth ] = useState( null );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-three-image-block__width alignwide --has-${ introAlign }-intro ${
@@ -63,6 +76,19 @@ export default function Edit( props ) {
 			} ) }
 		>
 			<InspectorControls group="settings">
+				<PanelBody title="Block Settings" initialOpen={ true }>
+					<RangeControl
+						label="Media Width (%)"
+						value={ tempWidth || mediaWidth }
+						onChange={ ( value ) => {
+							setAttributes( { mediaWidth: value } );
+						} }
+						min={ 20 }
+						max={ 50 }
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+					/>
+				</PanelBody>
 				<PanelBody title="Rear Image" initialOpen={ true }>
 					<ImageSelect
 						label="Image"
@@ -323,15 +349,43 @@ export default function Edit( props ) {
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
-						options={ [ '16-9', '3-2', '4-3', '1' ] }
+						options={ [ '16-9', '3-2', '4-3', '1', '3-4', '2-3', '9-16' ] }
 						label="Change image grid aspect ratio"
 					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div
+				<ResizableBox
 					className={ `wp-block-capitola-three-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition }` }
+					size={ {
+						width: isMobile ? '100%' : mediaWidth + '%',
+					} }
+					style={ {
+						flexBasis: 'unset',
+						'--capitola-flex-basis': mediaWidth + '%',
+					} }
+					minWidth="20%"
+					maxWidth={ isMobile ? '100%' : '50%' }
+					enable={ {
+						top: false,
+						bottom: false,
+						left: introAlign === 'left' && ! isMobile ? true : false,
+						right: introAlign === 'right' && ! isMobile ? true : false,
+					} }
+					onResize={ ( event, direction, elt ) => {
+						setTempWidth( parseInt( elt.style.width ) );
+					} }
+					onResizeStop={ ( event, direction, elt ) => {
+						setAttributes( {
+							mediaWidth: parseInt( elt.style.width ),
+						} );
+						setTempWidth( null );
+						toggleSelection( true );
+					} }
+					onResizeStart={ () => {
+						toggleSelection( false );
+					} }
 				>
 					<figure
 						className={ `wp-block-capitola-three-image-block__rear-image ${
@@ -383,7 +437,7 @@ export default function Edit( props ) {
 							<PlaceholderImage />
 						) }
 					</figure>
-				</div>
+				</ResizableBox>
 			</div>
 		</div>
 	);

@@ -9,8 +9,13 @@ addFilter(
 			return props;
 		}
 
+		const allowedVariations = props.variations?.filter( ( variation ) => {
+			return variation.name !== 'stretchy-paragraph';
+		} );
+
 		return {
 			...props,
+			variations: allowedVariations,
 			supports: {
 				...props.supports,
 				align: [ 'wide' ],
