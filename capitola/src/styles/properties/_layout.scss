@@ -2,12 +2,10 @@
 
 :root {
 	--capitola-gutter: var(--capitola-fluid-16-80);
-	--capitola-wideSize: 1250px;
-	--capitola-contentSize: 750px;
-	--capitola-contentSize-padded: min(var(--capitola-contentSize), calc(100% - (var(--capitola-gutter) * 2)));
-	--capitola-wideSize-padded: min(var(--capitola-wideSize), calc(100% - (var(--capitola-gutter) * 2)));
-	--capitola-wideSize-padding: max(var(--capitola-gutter), calc((100% - var(--capitola-wideSize)) / 2));
-	--capitola-wideSize-margin: max(var(--capitola-gutter), calc((100vw - var(--capitola-wideSize)) / 2));
+	--capitola-contentSize-padded: min(var(--wp--style--global--content-size), calc(100% - (var(--capitola-gutter) * 2)));
+	--capitola-wideSize-padded: min(var(--wp--style--global--wide-size), calc(100% - (var(--capitola-gutter) * 2)));
+	--capitola-wideSize-padding: max(var(--capitola-gutter), calc((100% - var(--wp--style--global--wide-size)) / 2));
+	--capitola-wideSize-margin: max(var(--capitola-gutter), calc((100vw - var(--wp--style--global--wide-size)) / 2));
 	--capitola-header-height: 56px;
 	--capitola-anchor-menu-height: 40px;
 

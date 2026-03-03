@@ -4,7 +4,7 @@
 	@include block-outer-wrap;
 
 	&__width {
-		@include block-inner-wrap-50-50( $allow-top-intro: true );
+		@include block-inner-wrap-50-50($allow-top-intro: true);
 	}
 }
 
@@ -66,6 +66,6 @@
 	}
 
 	.--has-top-intro & {
-		max-width: var(--capitola-contentSize);
+		max-width: var(--wp--style--global--content-size);
 	}
 }
