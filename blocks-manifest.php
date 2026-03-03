@@ -2326,9 +2326,17 @@ return array(
 				'type' => 'string',
 				'default' => '--right-align'
 			),
-			'autoPopulate' => array(
-				'type' => 'boolean',
-				'default' => false
+			'populationMethod' => array(
+				'type' => 'string',
+				'default' => 'manual'
+			),
+			'autoPopulatePostType' => array(
+				'type' => 'string',
+				'default' => 'page'
+			),
+			'columns' => array(
+				'type' => 'integer',
+				'default' => 1
 			)
 		),
 		'style' => 'capitola-nav-dropdown',
@@ -2412,6 +2420,14 @@ return array(
 			'linksPerColumn' => array(
 				'type' => 'integer',
 				'default' => 5
+			),
+			'populationMethod' => array(
+				'type' => 'string',
+				'default' => 'manual'
+			),
+			'autoPopulatePostType' => array(
+				'type' => 'string',
+				'default' => 'page'
 			)
 		),
 		'render' => 'file:./render.php',
@@ -2689,7 +2705,7 @@ return array(
 					),
 					'menu_order' => array(
 						'label' => 'Default',
-						'order' => 'desc'
+						'order' => 'asc'
 					)
 				)
 			),
@@ -3933,6 +3949,10 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'mediaWidth' => array(
+				'type' => 'integer',
+				'default' => 50
+			),
 			'transitionMode' => array(
 				'type' => 'string',
 				'default' => 'scroll'
@@ -4475,6 +4495,10 @@ return array(
 				'type' => 'string',
 				'default' => 'left'
 			),
+			'mediaWidth' => array(
+				'type' => 'integer',
+				'default' => 50
+			),
 			'gridAspectRatio' => array(
 				'type' => 'string',
 				'default' => '1'
@@ -4592,6 +4616,9 @@ return array(
 			'attributes' => array(
 				'frontImage' => array(
 					'source_url' => 'https://pd.w.org/2025/07/175687190064e5331.25489020-768x512.jpg'
+				),
+				'middleImage' => array(
+					'source_url' => 'https://pd.w.org/2026/02/9356995a97b6c19b6.99159534-768x576.jpg'
 				),
 				'rearImage' => array(
 					'source_url' => 'https://pd.w.org/2025/07/78368718f0804ea01.26512460-768x512.jpg'
@@ -4870,6 +4897,10 @@ return array(
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
+			),
+			'mediaWidth' => array(
+				'type' => 'integer',
+				'default' => 50
 			),
 			'gridAspectRatio' => array(
 				'type' => 'string',

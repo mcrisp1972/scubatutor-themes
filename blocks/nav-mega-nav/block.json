@@ -38,6 +38,14 @@
     "linksPerColumn": {
       "type": "integer",
       "default": 5
+    },
+    "populationMethod": {
+      "type": "string",
+      "default": "manual"
+    },
+    "autoPopulatePostType": {
+      "type": "string",
+      "default": "page"
     }
   },
   "render": "file:./render.php",
