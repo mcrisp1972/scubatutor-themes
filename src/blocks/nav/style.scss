@@ -77,10 +77,12 @@
 		&-body {
 			display: flex;
 			gap: var(--capitola-spacing-small);
+
 			padding: {
 				top: var(--capitola-spacing-small);
 				bottom: var(--capitola-spacing-small);
 			}
+
 			color: var(--capitola-color-body);
 
 			p {
@@ -90,6 +92,7 @@
 			a {
 				@include unstyle-link;
 				color: inherit;
+
 				text: {
 					decoration: underline;
 					underline-offset: 2px;
@@ -147,6 +150,7 @@
 		position: relative;
 		align-items: center;
 		height: 100%;
+
 		padding: {
 			top: var(--capitola-spacing-xsmall);
 			bottom: var(--capitola-spacing-xsmall);
@@ -189,6 +193,7 @@
 			weight: 600;
 			size: to-rem(14px);
 		}
+
 		color: var(--capitola-color-body);
 	}
 
@@ -218,11 +223,13 @@
 				height: 12px;
 				width: 12px;
 				background: var(--capitola-color-link);
+
 				mask: {
 					repeat: no-repeat;
 					position: center;
 					size: contain;
 				}
+
 				transition: background-color $transition;
 			}
 
@@ -265,6 +272,7 @@
 				repeat: no-repeat;
 				size: contain;
 			}
+
 			background: var(--capitola-color-link);
 			height: 100%;
 			transition: background-color $transition;
@@ -318,6 +326,7 @@
 			padding: 0;
 			height: 100%;
 			z-index: unset;
+
 			justify: {
 				items: end;
 				content: end;
@@ -361,7 +370,7 @@
 		flex-wrap: wrap;
 		color: var(--capitola-color-body);
 
-		+ .wp-block-capitola-nav__menu-item {
+		+.wp-block-capitola-nav__menu-item {
 			margin-top: var(--capitola-spacing-small);
 
 			@include mq("large") {
@@ -444,10 +453,12 @@
 	&__menu-item-link {
 		@include unstyle-link;
 		display: block;
+
 		font: {
 			weight: 600;
 			size: var(--capitola-nav-link-fontSize);
 		}
+
 		color: var(--capitola-color-link);
 		transition: color $transition;
 		text-decoration: none;
@@ -481,11 +492,13 @@
 
 		&__link {
 			@include unstyle-link;
+
 			@include nav-link {
 				font: {
 					size: to-rem(16px);
 					weight: 500;
 				}
+
 				padding-left: var(--capitola-gutter);
 			}
 
@@ -644,7 +657,7 @@
 			position: relative;
 			border: none;
 			width: 100%;
-			max-width: var(--capitola-wideSize);
+			max-width: var(--wp--style--global--wide-size);
 			margin: 0 auto;
 
 			.search-icon {

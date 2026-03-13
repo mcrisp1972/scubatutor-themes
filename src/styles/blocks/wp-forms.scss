@@ -56,7 +56,7 @@
 						border: 1px solid var(--capitola-color-body);
 						border-radius: $radius-small;
 						line-height: 2;
-						font-family: $font-form-fields;
+						font-family: var(--wp--preset--font-family--primary);
 						padding: 0;
 						transition: box-shadow $transition;
 						background-color: transparent;

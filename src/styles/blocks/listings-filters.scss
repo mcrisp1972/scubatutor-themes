@@ -218,7 +218,7 @@
 			display: flex;
 			font: {
 				size: 1rem;
-				family: $font-primary;
+				family: var(--wp--preset--font-family--primary);
 			}
 			line-height: 1.5;
 			appearance: none;
