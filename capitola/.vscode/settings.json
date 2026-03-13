@@ -1,6 +1,12 @@
 {
 	"editor.formatOnSave": true,
 	"eslint.debug": true,
+	"[css]": {
+		"editor.formatOnSave": false
+	},
+	"[scss]": {
+		"editor.formatOnSave": false
+	},
 	"[javascript]": {
 		"editor.formatOnSave": false
 	},

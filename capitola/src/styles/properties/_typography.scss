@@ -1,7 +1,6 @@
 @use "../abstracts" as *;
 
 :root {
-	--capitola-p-fontFamily: #{$font-primary};
 	--capitola-p-lineHeight: 1.5;
 	--capitola-p-fontWeight: 400;
 
@@ -11,7 +10,6 @@
 	--capitola-p-s-fontSize: var(--capitola-fluid-14-16);
 
 	//headlines
-	--capitola-hl-fontFamily: #{$font-headers};
 	--capitola-hl-lineHeight: 1;
 	--capitola-hl-fontWeight: 700;
 	--capitola-hl-xxl-fontSize: var(--capitola-fluid-48-56);

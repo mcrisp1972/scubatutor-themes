@@ -235,7 +235,9 @@
 			"fontWeight": false,
 			"fontFamilies": [
 				{
-					"slug": "roboto",
+					"name": "Roboto",
+					"slug": "primary",
+					"fontFamily": "'Roboto', helvetica, arial, sans-serif",
 					"fontFace": [
 						{
 							"fontFamily": "Roboto",
@@ -274,6 +276,11 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Roboto",
+					"slug": "heading",
+					"fontFamily": "'Roboto', helvetica, arial, sans-serif"
 				}
 			]
 		},
@@ -532,7 +539,7 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var(--capitola-p-fontFamily)",
+			"fontFamily": "var(--wp--preset--font-family--primary)",
 			"fontSize": "var(--capitola-p-fontSize)",
 			"lineHeight": "var(--capitola-p-lineHeight)",
 			"fontWeight": "var(--capitola-p-fontWeight)"
@@ -540,7 +547,7 @@
 		"elements": {
 			"heading": {
 				"typography": {
-					"fontFamily": "var(--capitola-hl-fontFamily)",
+					"fontFamily": "var(--wp--preset--font-family--heading)",
 					"lineHeight": "var(--capitola-hl-lineHeight)",
 					"fontWeight": "var(--capitola-hl-fontWeight)"
 				},
@@ -638,7 +645,7 @@
 			},
 			"core/heading": {
 				"typography": {
-					"fontFamily": "var(--capitola-hl-fontFamily)"
+					"fontFamily": "var(--wp--preset--font-family--heading)"
 				},
 				"css": "&:not(:first-child){margin-top: var(--capitola-open-headline-spacing);"
 			},

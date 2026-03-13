@@ -19,7 +19,7 @@
 
 @mixin unstyle-button {
 	font: {
-		family: $font-primary;
+		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-p-fontSize);
 	}
 	border: none;
@@ -45,6 +45,7 @@
 	&:active,
 	&:focus {
 		color: var(--capitola-color-link);
+
 		text: {
 			decoration: underline;
 			decoration-thickness: 2px;
@@ -55,7 +56,7 @@
 @mixin button {
 	@include unstyle-link;
 	font: {
-		family: $font-primary;
+		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
@@ -119,7 +120,7 @@
 @mixin button-secondary {
 	@include unstyle-link;
 	font: {
-		family: $font-primary;
+		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
@@ -161,7 +162,7 @@
 @mixin button-tertiary {
 	@include unstyle-link;
 	font: {
-		family: $font-primary;
+		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
 		weight: 700;
 	}
@@ -217,7 +218,7 @@
 }
 
 // apply to the .swiper class Button classnames are output by this mixin
-@mixin swiper-button( $absolute: true ) {
+@mixin swiper-button($absolute: true) {
 
 	&-button {
 
@@ -286,7 +287,9 @@
 
 			@if $absolute {
 				opacity: 0;
-			} @else {
+			}
+
+			@else {
 				opacity: 0.5;
 			}
 		}
@@ -294,32 +297,44 @@
 }
 
 @mixin mq($width, $type: min) {
-	@if $type == min or $type == max {
+	@if $type ==min or $type ==max {
 		@if map.has_key($breakpoints, $width) {
 			$width: map.get($breakpoints, $width);
+
 			@if $type == max {
 				$width: $width - 1px;
 			}
-		} @else {
+		}
+
+		@else {
 			$width: $width;
 		}
 
 		@media only screen and (#{$type}-width: $width) {
 			@content;
 		}
-	} @else {
+	}
+
+	@else {
 		$maxwidth: $type;
+
 		@if map.has_key($breakpoints, $width) {
 			$width: map.get($breakpoints, $width);
-		} @else {
+		}
+
+		@else {
 			$width: $width;
 		}
+
 		@if map.has_key($breakpoints, $maxwidth) {
 			$maxwidth: map.get($breakpoints, $maxwidth);
 			$maxwidth: $maxwidth - 1px;
-		} @else {
+		}
+
+		@else {
 			$maxwidth: $maxwidth;
 		}
+
 		@media only screen and (min-width: $width) and (max-width: $maxwidth) {
 			@content;
 		}
@@ -356,24 +371,34 @@
 	}
 }
 
-@mixin contentSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
+@mixin contentSize($top: 0, $bottom: 0, $left: auto, $right: auto) {
 	width: var(--capitola-contentSize-padded);
+
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
-	} @else if $right == $left {
+	}
+
+	@else if $right == $left {
 		margin: $top $right $bottom;
-	} @else {
+	}
+
+	@else {
 		margin: $top $right $bottom $left;
 	}
 }
 
-@mixin wideSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
+@mixin wideSize($top: 0, $bottom: 0, $left: auto, $right: auto) {
 	width: var(--capitola-wideSize-padded);
+
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
-	} @else if $right == $left {
+	}
+
+	@else if $right == $left {
 		margin: $top $right $bottom;
-	} @else {
+	}
+
+	@else {
 		margin: $top $right $bottom $left;
 	}
 }
@@ -496,19 +521,22 @@
 	}
 }
 
-@mixin block-inner-wrap( $reverse-mobile: false ) {
+@mixin block-inner-wrap($reverse-mobile: false) {
 	position: relative;
 	display: flex;
 	gap: var(--capitola-blockPadding);
+
 	@if $reverse-mobile {
 		flex-flow: column-reverse;
-	} @else {
+	}
+
+	@else {
 		flex-flow: column;
 	}
 }
 
-@mixin block-inner-wrap-50-50( $reverse-mobile: false, $allow-right-intro: false, $allow-top-intro: false ) {
-	@include block-inner-wrap( $reverse-mobile );
+@mixin block-inner-wrap-50-50($reverse-mobile: false, $allow-right-intro: false, $allow-top-intro: false) {
+	@include block-inner-wrap($reverse-mobile );
 	@content;
 
 	@include mq("50-50") {

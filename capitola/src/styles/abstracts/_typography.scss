@@ -4,7 +4,7 @@
 
 @mixin headline-xxl {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-xxl-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}
@@ -18,7 +18,7 @@
 
 @mixin headline-xl {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-xl-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}
@@ -32,7 +32,7 @@
 
 @mixin headline-l {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-l-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}
@@ -46,7 +46,7 @@
 
 @mixin headline-m {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-m-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}
@@ -60,7 +60,7 @@
 
 @mixin headline-s {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-s-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}
@@ -74,7 +74,7 @@
 
 @mixin headline-xs {
 	font: {
-		family: var(--capitola-hl-fontFamily);
+		family: var(--wp--preset--font-family--heading);
 		size: var(--capitola-hl-xs-fontSize);
 		weight: var(--capitola-hl-fontWeight);
 	}

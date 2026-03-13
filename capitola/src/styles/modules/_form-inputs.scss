@@ -24,7 +24,7 @@
 
 	optgroup {
 		font: {
-			family: $font-form-fields;
+			family: var(--wp--preset--font-family--primary);
 			size: 100%;
 		}
 		line-height: 1.5;
