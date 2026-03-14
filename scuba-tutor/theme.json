@@ -82,59 +82,9 @@
 					"name": "Black"
 				},
 				{
-					"slug": "forest-fern",
-					"color": "#317064",
-					"name": "Forest Fern"
-				},
-				{
-					"slug": "forest-pine",
-					"color": "#3A8274",
-					"name": "Forest Pine"
-				},
-				{
 					"slug": "ocean-depth",
 					"color": "#0D698B",
 					"name": "Ocean Depth"
-				},
-				{
-					"slug": "midnight-ocean",
-					"color": "#0A4158",
-					"name": "Midnight Ocean"
-				},
-				{
-					"slug": "midnight-blue",
-					"color": "#001F3D",
-					"name": "Midnight Blue"
-				},
-				{
-					"slug": "midnight-plum",
-					"color": "#2F2440",
-					"name": "Midnight Plum"
-				},
-				{
-					"slug": "midnight-abyss",
-					"color": "#050A30",
-					"name": "Midnight Abyss"
-				},
-				{
-					"slug": "crimson-night",
-					"color": "#3B0918",
-					"name": "Crimson Night"
-				},
-				{
-					"slug": "sky-breeze",
-					"color": "#7EC8E3",
-					"name": "Sky Breeze"
-				},
-				{
-					"slug": "icy-breeze",
-					"color": "#D4F1F4",
-					"name": "Icy Breeze"
-				},
-				{
-					"slug": "atlantic-ink",
-					"color": "#05445E",
-					"name": "Atlantic Ink"
 				},
 				{
 					"slug": "firebrick",
@@ -142,84 +92,9 @@
 					"name": "Firebrick"
 				},
 				{
-					"slug": "burnt-sienna",
-					"color": "#B8390E",
-					"name": "Burnt Sienna"
-				},
-				{
-					"slug": "cherry-blaze",
-					"color": "#BA0F30",
-					"name": "Cherry Blaze"
-				},
-				{
-					"slug": "crimson-velvet",
-					"color": "#922C40",
-					"name": "Crimson Velvet"
-				},
-				{
-					"slug": "crimson-bolt",
-					"color": "#BF0000",
-					"name": "Crimson Bolt"
-				},
-				{
-					"slug": "cherry-pop",
-					"color": "#FF4A4A",
-					"name": "Cherry Pop"
-				},
-				{
-					"slug": "olive-shade",
-					"color": "#5C5F30",
-					"name": "Olive Shade"
-				},
-				{
-					"slug": "golden-sand",
-					"color": "#F0DAC0",
-					"name": "Golden Sand"
-				},
-				{
 					"slug": "vanilla-lace",
 					"color": "#F2F1E8",
 					"name": "Vanilla Lace"
-				},
-				{
-					"slug": "soft-peach",
-					"color": "#FCECE3",
-					"name": "Soft Peach"
-				},
-				{
-					"slug": "peach-creme",
-					"color": "#E4D7D0",
-					"name": "Peach Creme"
-				},
-				{
-					"slug": "golden-amber",
-					"color": "#D89C60",
-					"name": "Golden Amber"
-				},
-				{
-					"slug": "burnt-sunrise",
-					"color": "#E87A00",
-					"name": "Burnt Sunrise"
-				},
-				{
-					"slug": "vanilla-dream",
-					"color": "#FFF3D9",
-					"name": "Vanilla Dream"
-				},
-				{
-					"slug": "golden-cream",
-					"color": "#F0DDB9",
-					"name": "Golden Cream"
-				},
-				{
-					"slug": "soft-driftwood",
-					"color": "#C6B79B",
-					"name": "Soft Driftwood"
-				},
-				{
-					"slug": "sunbeam-cream",
-					"color": "#F3EAC0",
-					"name": "Sunbeam Cream"
 				}
 			]
 		},

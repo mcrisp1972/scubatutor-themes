@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+:root {
+	--field-text: var(--wp--preset--color--black);
+	--field-text-focus: var(--wp--preset--color--black);
+	--capitola-overlayOpacity: 0.5;
+
+	// theme vars
+	--capitola-color-body: var(--wp--preset--color--black);
+	--capitola-color-background: var(--wp--preset--color--white);
+	--capitola-color-accent: var(--wp--preset--color--ocean-depth);
+	--capitola-color-headline: var(--wp--preset--color--ocean-depth);
+	--capitola-color-link: var(--wp--preset--color--ocean-depth);
+	--capitola-color-link-hover: var(--wp--preset--color--black);
+	--capitola-color-button: var(--wp--preset--color--firebrick);
+	--capitola-color-button-text: var(--wp--preset--color--white);
+
+	--capitola-color-tile-background: var(--wp--preset--color--ocean-depth);
+	--capitola-color-tile-primary: var(--wp--preset--color--vanilla-lace);
+	--capitola-color-tile-body: var(--wp--preset--color--white);
+
+	.--theme-default-dark,
+	[data-theme="default-dark"] {
+		--capitola-color-background: var(--wp--preset--color--ocean-depth);
+		--capitola-color-accent: var(--wp--preset--color--vanilla-lace);
+		--capitola-color-headline: var(--wp--preset--color--vanilla-lace);
+		--capitola-color-link: var(--wp--preset--color--vanilla-lace);
+		--capitola-color-link-hover: var(--wp--preset--color--white);
+		--capitola-color-button: var(--wp--preset--color--vanilla-lace);
+		--capitola-color-body: var(--wp--preset--color--white);
+		--capitola-color-button-text: var(--wp--preset--color--black);
+
+		--capitola-color-tile-background: var(--wp--preset--color--vanilla-lace);
+		--capitola-color-tile-primary: var(--wp--preset--color--ocean-depth);
+		--capitola-color-tile-body: var(--wp--preset--color--black);
+	}
+
+	// keep this last to override listings image col
+	.--theme-image-overlay {
+		--capitola-color-body: var(--wp--preset--color--white);
+		--capitola-color-accent: var(--wp--preset--color--white);
+		--capitola-color-headline: var(--wp--preset--color--white);
+		--capitola-color-link: var(--wp--preset--color--white);
+		--capitola-color-link-hover: var(--wp--preset--color--white);
+		--capitola-color-button: var(--wp--preset--color--white);
+		--capitola-color-button-text: var(--wp--preset--color--white);
+	}
+}
