@@ -110,52 +110,64 @@
 			"fontWeight": false,
 			"fontFamilies": [
 				{
-					"name": "Roboto",
+					"name": "Open Sans",
 					"slug": "primary",
-					"fontFamily": "'Roboto', helvetica, arial, sans-serif",
+					"fontFamily": "'Open Sans', helvetica, arial, sans-serif",
 					"fontFace": [
 						{
-							"fontFamily": "Roboto",
+							"fontFamily": "Open Sans",
 							"fontWeight": "400",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
 							"src": [
-								"file:./assets/fonts/roboto/Roboto-Regular.ttf"
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-regular.woff2"
 							]
 						},
 						{
-							"fontFamily": "Roboto",
-							"fontWeight": "400",
-							"fontStyle": "italic",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/roboto/Roboto-Italic.ttf"
-							]
-						},
-						{
-							"fontFamily": "Roboto",
-							"fontWeight": "900",
-							"fontStyle": "normal",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/roboto/Roboto-Black.ttf"
-							]
-						},
-						{
-							"fontFamily": "Roboto",
+							"fontFamily": "Open Sans",
 							"fontWeight": "700",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
 							"src": [
-								"file:./assets/fonts/roboto/Roboto-Bold.ttf"
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-700.woff2"
+							]
+						},
+						{
+							"fontFamily": "Open Sans",
+							"fontWeight": "900",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-900.woff2"
+							]
+						},
+						{
+							"fontFamily": "Open Sans",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"src": [
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Open Sans",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"src": [
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-700.woff2"
+							]
+						},
+						{
+							"fontFamily": "Open Sans",
+							"fontWeight": "900",
+							"fontStyle": "italic",
+							"src": [
+								"file:./assets/fonts/open-sans/open-sans-v44-latin-900.woff2"
 							]
 						}
 					]
 				},
 				{
-					"name": "Roboto",
+					"name": "Open Sans",
 					"slug": "heading",
-					"fontFamily": "'Roboto', helvetica, arial, sans-serif"
+					"fontFamily": "'Open Sans', helvetica, arial, sans-serif"
 				}
 			]
 		},

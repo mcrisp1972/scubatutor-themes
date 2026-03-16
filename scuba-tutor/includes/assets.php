@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function enqueue_styles() {
 	if ( is_admin() ) {
-		wp_enqueue_style( 'capitola-child-main-styles', CAPITOLA_CHILD_CSS_URL . 'block-editor.css', array( 'dashicons' ), CAPITOLA_CHILD_THEME_VER );
+		wp_enqueue_style( 'capitola-child-main-styles', CAPITOLA_CHILD_CSS_URL . 'block-editor.css', array( 'dashicons', 'capitola-main-styles' ), CAPITOLA_CHILD_THEME_VER );
 	} else {
 		wp_enqueue_style( 'capitola-child-main-styles', CAPITOLA_CHILD_CSS_URL . 'main.css', array( 'global-styles' ), CAPITOLA_CHILD_THEME_VER );
 	}
@@ -32,3 +32,14 @@ function block_scripts() {
 }
 
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\block_scripts', 100 );
+
+/**
+ * Adds TinyMCE editor stylesheet.
+ *
+ * @return void
+ */
+function add_tinymce_stylesheet() {
+	add_editor_style( 'build/styles/tinymce.css' );
+}
+
+add_action( 'after_setup_theme', __NAMESPACE__ . '\add_tinymce_stylesheet' );

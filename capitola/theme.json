@@ -245,25 +245,7 @@
 							"fontStyle": "normal",
 							"fontStretch": "normal",
 							"src": [
-								"file:./assets/fonts/roboto/Roboto-Regular.ttf"
-							]
-						},
-						{
-							"fontFamily": "Roboto",
-							"fontWeight": "400",
-							"fontStyle": "italic",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/roboto/Roboto-Italic.ttf"
-							]
-						},
-						{
-							"fontFamily": "Roboto",
-							"fontWeight": "900",
-							"fontStyle": "normal",
-							"fontStretch": "normal",
-							"src": [
-								"file:./assets/fonts/roboto/Roboto-Black.ttf"
+								"file:./assets/fonts/roboto/roboto-v51-latin-regular.woff2"
 							]
 						},
 						{
@@ -272,7 +254,43 @@
 							"fontStyle": "normal",
 							"fontStretch": "normal",
 							"src": [
-								"file:./assets/fonts/roboto/Roboto-Bold.ttf"
+								"file:./assets/fonts/roboto/roboto-v51-latin-700.woff2"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontWeight": "900",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-v51-latin-900.woff2"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-v51-latin-italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-v51-latin-700italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontWeight": "900",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-v51-latin-900italic.woff2"
 							]
 						}
 					]
