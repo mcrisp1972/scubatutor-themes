@@ -337,6 +337,7 @@ export default function Edit( props ) {
 					style={ {
 						flexBasis: 'unset',
 						'--capitola-flex-basis': mediaWidth + '%',
+						position: stickyClass ? 'sticky' : 'relative',
 					} }
 					minWidth="20%"
 					maxWidth={ isMobile ? '100%' : '50%' }
