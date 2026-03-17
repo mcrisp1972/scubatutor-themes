@@ -39,7 +39,7 @@
 			background-color: var(--capitola-color-link);
 			width: 16px;
 			height: 16px;
-			mask-image: url("~/assets/svgs/arrows/fa-angle-left.svg");
+			mask-image: url(~/assets/svgs/arrows/fa-angle-left.svg);
 			transition: background-color $transition, transform $transition;
 		}
 
@@ -64,7 +64,7 @@
 			background-color: var(--capitola-color-link);
 			width: 16px;
 			height: 16px;
-			mask-image: url("~/assets/svgs/arrows/fa-angle-right.svg");
+			mask-image: url(~/assets/svgs/arrows/fa-angle-right.svg);
 			transition: background-color $transition, transform $transition;
 		}
 

@@ -5,8 +5,8 @@
 		"appearanceTools": false,
 		"useRootPaddingAwareAlignments": true,
 		"layout": {
-			"contentSize": "1000px",
-			"wideSize": "1000px",
+			"contentSize": "var(--capitola-contentSize)",
+			"wideSize": "var(--capitola-wideSize)",
 			"allowCustomContentAndWideSize": false
 		},
 		"spacing": {
