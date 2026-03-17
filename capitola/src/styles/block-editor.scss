@@ -5,22 +5,22 @@
 @use "../editor-controls";
 
 :root {
-	--capitola-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0px);
+	--capitola-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0px); /* stylelint-disable-line length-zero-no-unit */
 	--capitola-admin-blockEditorToolbar-height: 60px;
-	--capitola-admin-blockEditorFooter-height: 0px;
+	--capitola-admin-blockEditorFooter-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 }
 
 body {
 
 	&.is-fullscreen-mode {
-		--capitola-admin-blockEditorAdminbar-height: 0px;
+		--capitola-admin-blockEditorAdminbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 	}
 }
 
 .editor-editor-interface {
 
 	&.is-distraction-free {
-		--capitola-admin-blockEditorToolbar-height: 0px;
+		--capitola-admin-blockEditorToolbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 	}
 
 	&.has-footer {

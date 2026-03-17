@@ -65,7 +65,7 @@
 		margin: 0 var(--capitola-wideSize-padding);
 
 		@include mq("medium") {
-			flex: 0 1 var(--wp--style--global--content-size);
+			flex: 0 1 var(--capitola-contentSize);
 		}
 	}
 
