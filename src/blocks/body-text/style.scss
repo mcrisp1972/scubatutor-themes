@@ -47,9 +47,7 @@
 
 	&__bg-image {
 		position: absolute;
-		inset:
-			calc(var(--capitola-blockPadding) * -1) calc(var(--capitola-wideSize-margin) * -1) 0 calc(var(--capitola-wideSize-margin) * -1);
-
+		inset: calc(var(--capitola-blockPadding) * -1) calc(var(--capitola-wideSize-margin) * -1) 0 calc(var(--capitola-wideSize-margin) * -1);
 		overflow: hidden;
 
 		&:has(.components-spinner) {

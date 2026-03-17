@@ -56,8 +56,7 @@
 
 		background: var(--capitola-color-button);
 		padding: 0 var(--capitola-spacing-xsmall) 0;
-		transition: background-color $transition,
-		color $transition;
+		transition: background-color $transition, color $transition;
 
 		&.--next,
 		&.--prev {
