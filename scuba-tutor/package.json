@@ -21,11 +21,11 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^10.26.0",
-		"@wordpress/interactivity": "^6.36.0"
+		"@wordpress/icons": "^11.8.0",
+		"@wordpress/interactivity": "^6.41.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.27.0"
+		"@wordpress/scripts": "^31.6.0"
 	},
 	"files": [
 		"*",
