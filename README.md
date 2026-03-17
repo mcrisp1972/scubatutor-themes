@@ -48,7 +48,20 @@ The Capitola theme lives as it's own repository. It's currently setup as a subtr
 
 Updates you make to the Capitola theme will automatically be added to this repo's copy of the theme after merging, but will not affect other sites using the Capitola theme.
 
+### Pulling the latest version of Capitola
+Before making any change to the Capitola theme, be sure you have the latest version. This will help prevent merge conflicts.
+
+From the themes directory:
+
+```bash
+git subtree pull --prefix capitola git@github.com:mcrisp1972/capitola.git main --squash
+```
+
 ### Pushing your updates to Capitola to the capitola repository
+Changes to the Capitola theme will eventually be merged into other sites, so it's important you only make necessary updates. Examples of proper updates include:
+- Bug fixes
+- New non-breaking features
+
 
 
 ---
