@@ -46,7 +46,10 @@
 ## Parent Theme (capitola) Syncs
 The Capitola theme lives as it's own repository. It's currently setup as a subtree in the main repo. This ensures updates to the Capitola theme can be easily updated across different websites.
 
-Updates to the Capitola theme can be made from within this repo.
+Updates you make to the Capitola theme will automatically be added to this repo's copy of the theme after merging, but will not affect other sites using the Capitola theme.
+
+### Pushing your updates to Capitola to the capitola repository
+
 
 ---
 
