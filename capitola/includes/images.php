@@ -25,7 +25,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\image_sizes' );
  * @param int|\WP_Post $post         Post ID or object.
  * @return int|false
  */
-function thumbnail_id( $thumbnail_id, $post ) {
+function fallback_thumbnail_id( $thumbnail_id, $post ) {
 
 	if ( $thumbnail_id ) {
 		return $thumbnail_id;
@@ -35,7 +35,7 @@ function thumbnail_id( $thumbnail_id, $post ) {
 		$post = get_post( $post );
 	}
 
-	if ( ! in_array( $post->post_type, apply_filters( 'capitola_filtered_feat_img_post_types', array( 'page', 'post' ) ), true ) ) {
+	if ( ! in_array( $post->post_type, apply_filters( 'capitola_fallback_img_post_types', array( 'page', 'post' ) ), true ) ) {
 		return $thumbnail_id;
 	}
 
@@ -44,7 +44,7 @@ function thumbnail_id( $thumbnail_id, $post ) {
 	}
 }
 
-add_filter( 'post_thumbnail_id', __NAMESPACE__ . '\thumbnail_id', 10, 2 );
+add_filter( 'post_thumbnail_id', __NAMESPACE__ . '\fallback_thumbnail_id', 10, 2 );
 
 // eager load only the first 2 images.
 add_filter(

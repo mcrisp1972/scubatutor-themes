@@ -17,7 +17,7 @@ class Term_Form extends Fields {
 		'id'      => 'term_thumb_id',
 		'name'    => 'term_thumb_id',
 		'label'   => 'Thumbnail Image',
-		'type'    => 'image',
+		'type'    => 'media',
 		'default' => 0,
 	);
 
@@ -32,7 +32,7 @@ class Term_Form extends Fields {
 		'label'   => 'Term Landing Page',
 		'type'    => 'page_select',
 		'default' => 0,
-		'help'    => 'If a page is selected, links to this term will point to the selected page. Otherise, links will point the the post type\'s archive page.',
+		'help'    => "If a page is selected, links to this term will point to the selected page. Otherwise, links will point the post type's archive page.",
 	);
 
 	/**

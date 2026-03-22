@@ -18,8 +18,10 @@ function post_image_id( $post ) {
 		$post = get_post( $post );
 	}
 
+	// Allow post type specific fallback image via filter, with the post object passed for context. This allows for more specific fallback logic, such as based on custom fields or taxonomies.
 	$id = apply_filters( "capitola_{$post->post_type}_fallback_image_id", false, $post );
 
+	// If no post type specific fallback is found, attempt to find a term thumbnail to use as a fallback image, prioritizing terms in a post type specific taxonomy if it exists via the taxonomy filter, then falling back to the category taxonomy for post types that use it.
 	if ( ! $id ) {
 		$taxonomy = apply_filters( "capitola_{$post->post_type}_base_taxonomy", 'post' === $post->post_type ? 'category' : false );
 
@@ -31,6 +33,7 @@ function post_image_id( $post ) {
 			}
 		}
 
+		// Fall back to a post type specific default image if no taxonomy terms with images are found, using the post type object for context in the filter.
 		if ( ! $id ) {
 			$id = get_option( 'capitola_' . $post->post_type . '_default_image' );
 		}
