@@ -27,8 +27,8 @@ function query_related_posts( $attributes ) {
 				'orderby'         => 'menu_order',
 				'order'           => 'ASC',
 			);
+			$args = apply_filters( "capitola_related_{$post->post_type}_query", $args, $post );
 		} else {
-
 			$args = array(
 				'post_type'      => $post ? $post->post_type : 'post',
 				'posts_per_page' => $attributes['limit'],
@@ -36,7 +36,6 @@ function query_related_posts( $attributes ) {
 			);
 
 			if ( $post ) {
-
 				$args = apply_filters( "capitola_related_{$post->post_type}_query", $args, $post );
 				$tax  = apply_filters( "capitola_related_{$post->post_type}_query_tax", false );
 			}
