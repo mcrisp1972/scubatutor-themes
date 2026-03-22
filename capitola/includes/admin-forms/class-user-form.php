@@ -24,8 +24,8 @@ class User_Form extends Fields {
 		$this->fields = $args['fields'];
 		$priority     = isset( $args['priority'] ) ? $args['priority'] : 5;
 
-		add_action( 'show_user_profile', array( $this, 'edit_user_form' ), $priority );
-		add_action( 'edit_user_profile', array( $this, 'edit_user_form' ), $priority );
+		add_action( 'show_user_profile', array( $this, 'render_fields' ), $priority );
+		add_action( 'edit_user_profile', array( $this, 'render_fields' ), $priority );
 
 		add_action( 'personal_options_update', array( $this, 'save_user_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_user_fields' ) );
@@ -37,19 +37,18 @@ class User_Form extends Fields {
 	 * @param \WP_User $user User object.
 	 * @return void
 	 */
-	public function edit_user_form( $user ) {
+	public function render_fields( $user ) {
 		wp_nonce_field( 'capitola_user_form', 'capitola_user_nonce' );
-		foreach ( $this->fields as $field ) :
-			?>
-			<?php if ( 'title' === $field['type'] ) : ?>
-				<h2><?php echo esc_html( $field['title'] ); ?></h2>
-				<table class="form-table">
-					<tbody>
 
-			<?php elseif ( 'sectionend' === $field['type'] ) : ?>
-					</tbody>
-				</table>
-				<?php
+		if ( ( ! isset( $this->fields[0] ) || 'sectionstart' !== $this->fields[0]['type'] ) ) :
+			?>
+			<table class="form-table"><tbody>
+			<?php
+		endif;
+
+		foreach ( $this->fields as $field ) :
+			if ( 'sectionstart' === $field['type'] ) :
+				$this->section_start( $field, $key );
 			else :
 				$value = get_user_meta( $user->ID, $field['name'], true );
 				$field = self::set_field_id( $field );
@@ -65,6 +64,9 @@ class User_Form extends Fields {
 			<?php endif; ?>
 			<?php
 		endforeach;
+		?>
+		</tbody></table>
+		<?php
 	}
 
 	/**
@@ -94,5 +96,33 @@ class User_Form extends Fields {
 				delete_user_meta( $user_id, $field_name );
 			}
 		}
+	}
+
+	/**
+	 * Renders the start of a section.
+	 *
+	 * @param array $field Section field configuration.
+	 * @param int   $key Field index.
+	 * @return void
+	 */
+	protected function section_start( $field, $key = 1 ) {
+		if ( 0 !== $key ) :
+			?>
+			</tbody></table>
+			<?php
+		endif;
+
+		if ( ! empty( $field['heading'] ) ) :
+			?>
+				<h2><?php echo esc_html( $field['heading'] ); ?></h2>
+			<?php
+		endif;
+
+		if ( ! empty( $field['desc'] ) ) :
+			?>
+			<p><?php echo esc_html( $field['desc'] ); ?></p>
+		<?php endif; ?>
+		<table class="form-table"><tbody>
+		<?php
 	}
 }

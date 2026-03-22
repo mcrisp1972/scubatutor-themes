@@ -48,7 +48,7 @@ class Settings_Form extends Fields {
 	 *
 	 * @var int
 	 */
-	protected $menu_position;
+	protected $position;
 
 	/**
 	 * Settings fields configuration.
@@ -70,14 +70,14 @@ class Settings_Form extends Fields {
 	 * @param array $settings Settings configuration.
 	 */
 	public function __construct( $settings ) {
-		$this->parent_slug   = $settings['parent_slug'] ?? false;
-		$this->page_title    = $settings['page_title'];
-		$this->menu_title    = $settings['menu_title'];
-		$this->menu_slug     = $settings['menu_slug'];
-		$this->icon_url      = $settings['icon_url'] ?? 'none';
-		$this->menu_position = $settings['position'] ?? 50;
-		$this->fields        = $settings['fields'] ?? array();
-		$this->tabs          = $settings['tabs'] ?? false;
+		$this->parent_slug = $settings['parent_slug'] ?? false;
+		$this->menu_title  = $settings['menu_title'];
+		$this->page_title  = $settings['page_title'] ?? $settings['menu_title'];
+		$this->menu_slug   = $settings['menu_slug'];
+		$this->icon_url    = $settings['icon_url'] ?? 'dashicons-admin-generic';
+		$this->position    = $settings['position'] ?? 50;
+		$this->fields      = $settings['fields'] ?? array();
+		$this->tabs        = $settings['tabs'] ?? false;
 
 		add_action( 'admin_menu', array( $this, 'add_admin_menu_item' ) );
 	}
@@ -97,7 +97,7 @@ class Settings_Form extends Fields {
 				'manage_options',
 				$this->menu_slug,
 				array( $this, 'page_callback' ),
-				$this->menu_position
+				$this->position
 			);
 		} else {
 			add_menu_page(
@@ -107,7 +107,7 @@ class Settings_Form extends Fields {
 				$this->menu_slug,
 				array( $this, 'page_callback' ),
 				$this->icon_url,
-				$this->menu_position
+				$this->position
 			);
 		}
 	}
@@ -145,7 +145,7 @@ class Settings_Form extends Fields {
 							admin_url( 'admin.php' )
 						);
 						?>
-						<a class="nav-tab <?php echo $current_tab === $slug ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( $tab_url ); ?>"><?php echo esc_html( $tab['tab_label'] ); ?></a>
+						<a class="nav-tab <?php echo $current_tab === $slug ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( $tab_url ); ?>"><?php echo esc_html( $tab['text'] ); ?></a>
 						<?php
 					endforeach;
 				endif;
@@ -155,7 +155,7 @@ class Settings_Form extends Fields {
 				<?php wp_nonce_field( 'capitola_settings_form', 'capitola_settings_nonce' ); ?>
 				<?php
 				if ( $this->tabs ) {
-					settings_fields( $this->tabs[ $current_tab ]['fields_slug'] );
+					settings_fields( $this->tabs[ $current_tab ]['tab_slug'] );
 					$this->render_fields( $current_tab );
 					submit_button();
 				} else {
@@ -179,41 +179,63 @@ class Settings_Form extends Fields {
 
 		$fields = $tab ? $this->tabs[ $tab ]['fields'] : $this->fields;
 
-		foreach ( $fields as $field ) {
+		if ( ( ! isset( $fields[0] ) || 'sectionstart' !== $fields[0]['type'] ) ) :
+			?>
+			<table class="form-table" role="presentation"><tbody>
+			<?php
+		endif;
 
-			if ( 'title' === $field['type'] ) {
-
-				if ( ! empty( $field['title'] ) ) :
-					?>
-					<h2><?php echo esc_html( $field['title'] ); ?></h2>
-					<?php
-				endif;
-				if ( ! empty( $field['desc'] ) ) :
-					?>
-					<p><?php echo esc_html( $field['desc'] ); ?></p>
-				<?php endif; ?>
-					<table class="form-table" role="presentation"><tbody>
-				<?php
-			} elseif ( 'sectionend' === $field['type'] ) {
-				?>
-				</tbody></table>
-				<?php
+		foreach ( $fields as $key => $field ) {
+			if ( 'sectionstart' === $field['type'] ) {
+				$this->section_start( $field, $key );
 			} else {
-				$value = self::FIELD_VALUE( $field );
+				$value = self::field_value( $field );
 				$field = self::set_field_id( $field );
-
 				?>
 				<tr id="field-row-<?php echo esc_attr( $field['id'] ); ?>">
 					<th scope="row">
-						<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+						<label for="<?php echo esc_attr( $field['id'] ); ?>">
+							<?php echo esc_html( $field['label'] ); ?>
+						</label>
 					</th>
 					<td>
-					<?php self::echo_field( $field, $value ); ?>
+						<?php self::echo_field( $field, $value ); ?>
 					</td>
 				</tr>
 				<?php
 			}
 		}
+		?>
+		</tbody></table>
+		<?php
+	}
+
+	/**
+	 * Renders the start of a section.
+	 *
+	 * @param array $field Section field configuration.
+	 * @param int   $key Field index.
+	 * @return void
+	 */
+	protected function section_start( $field, $key = 1 ) {
+		if ( 0 !== $key ) :
+			?>
+			</tbody></table>
+			<?php
+		endif;
+
+		if ( ! empty( $field['heading'] ) ) :
+			?>
+				<h2><?php echo esc_html( $field['heading'] ); ?></h2>
+			<?php
+		endif;
+
+		if ( ! empty( $field['desc'] ) ) :
+			?>
+			<p><?php echo esc_html( $field['desc'] ); ?></p>
+		<?php endif; ?>
+		<table class="form-table" role="presentation"><tbody>
+		<?php
 	}
 
 	/**
@@ -222,7 +244,7 @@ class Settings_Form extends Fields {
 	 * @param array $args Field definition.
 	 * @return mixed
 	 */
-	protected static function FIELD_VALUE( $args ) {
+	protected static function field_value( $args ) {
 		$option_name = is_array( $args['option'] ) ? $args['option'][0] : $args['option'];
 		$option      = get_option( $option_name );
 		return is_array( $args['option'] ) && is_array( $option ) ? $option[ $args['option'][1] ] : $option;

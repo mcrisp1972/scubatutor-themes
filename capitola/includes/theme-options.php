@@ -2,6 +2,8 @@
 
 namespace Capitola\ThemeOptions;
 
+use Capitola\Admin_Forms\Settings_Form;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -32,16 +34,16 @@ function add_options_page() {
 		'page_title'  => 'Theme Options',
 		'menu_title'  => 'Theme Options',
 		'menu_slug'   => 'capitola-theme-options',
-		'position'    => 50,
+		'position'    => 82,
 		'tabs'        => array(
 			'business-info' => array(
-				'tab_label'   => 'Business Info',
-				'fields_slug' => GROUP_CONTACT,
-				'fields'      => array(
+				'text'     => 'Business Info',
+				'tab_slug' => GROUP_CONTACT,
+				'fields'   => array(
 					array(
-						'title' => 'Contact Info',
-						'type'  => 'title',
-						'desc'  => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
+						'type'    => 'sectionstart',
+						'heading' => 'Contact Info',
+						'desc'    => 'These fields are used for display of your business contact information in the site footer and other contact info areas.',
 					),
 					array(
 						'label'  => 'Business Name',
@@ -78,12 +80,9 @@ function add_options_page() {
 						'type'   => 'text',
 					),
 					array(
-						'type' => 'sectionend',
-					),
-					array(
-						'label' => 'Hours',
-						'type'  => 'title',
-						'desc'  => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed.',
+						'type'    => 'sectionstart',
+						'heading' => 'Hours',
+						'desc'    => 'These fields populate store hours sections in the site. You can use any format. Days with empty values will display "Closed."',
 					),
 					array(
 						'label'  => 'Monday',
@@ -127,19 +126,16 @@ function add_options_page() {
 						'option' => array( 'capitola_hours', 'Sunday' ),
 						'type'   => 'text',
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 			'banners'       => array(
-				'tab_label'   => 'Banners',
-				'fields_slug' => GROUP_BANNERS,
-				'fields'      => array(
+				'text'     => 'Banners',
+				'tab_slug' => GROUP_BANNERS,
+				'fields'   => array(
 					array(
-						'title' => 'Notice Banner',
-						'type'  => 'title',
-						'desc'  => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
+						'type'    => 'sectionstart',
+						'heading' => 'Notice Banner',
+						'desc'    => 'The notice banner displays at the top of the page, and is used to display important updates or alerts to site visitors. Once an alert is closed by a visitor, they will not see it again for the duration of their visit on the site.',
 					),
 					array(
 						'label'  => 'Show Notice Banner',
@@ -166,19 +162,16 @@ function add_options_page() {
 							'alert'  => 'Alert',
 						),
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 			'socials'       => array(
-				'tab_label'   => 'Socials',
-				'fields_slug' => GROUP_SOCIALS,
-				'fields'      => array(
+				'text'     => 'Socials',
+				'tab_slug' => GROUP_SOCIALS,
+				'fields'   => array(
 					array(
-						'title' => 'Allowed Social Shares',
-						'type'  => 'title',
-						'desc'  => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
+						'type'    => 'sectionstart',
+						'heading' => 'Allowed Social Shares',
+						'desc'    => 'Select the social networks you would like visitors to be able to share your blogs and other content on.',
 					),
 					array(
 						'label'  => 'Facebook',
@@ -205,12 +198,9 @@ function add_options_page() {
 						'type'   => 'checkbox',
 					),
 					array(
-						'type' => 'sectionend',
-					),
-					array(
-						'title' => 'Social Links',
-						'type'  => 'title',
-						'desc'  => 'These are used in the footer and other sectiopns for links to your social network pages.',
+						'type'    => 'sectionstart',
+						'heading' => 'Social Links',
+						'desc'    => 'These are used in the footer and other sectiopns for links to your social network pages.',
 					),
 					array(
 						'label'  => 'Facebook',
@@ -261,19 +251,16 @@ function add_options_page() {
 						'type'   => 'text',
 						'size'   => 'full',
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 			'api-keys'      => array(
-				'tab_label'   => 'API Keys',
-				'fields_slug' => GROUP_API_KEYS,
-				'fields'      => array(
+				'text'     => 'API Keys',
+				'tab_slug' => GROUP_API_KEYS,
+				'fields'   => array(
 					array(
-						'title' => 'API Keys',
-						'type'  => 'title',
-						'desc'  => 'This key is used to display Google Maps on the site.',
+						'type'    => 'sectionstart',
+						'heading' => 'API Keys',
+						'desc'    => 'This key is used to display Google Maps on the site.',
 					),
 					array(
 						'label'  => 'Paid Google Maps API Key',
@@ -289,18 +276,15 @@ function add_options_page() {
 						'type'   => 'text',
 						'size'   => 'full',
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 			'google'        => array(
-				'tab_label'   => 'Google Analytics',
-				'fields_slug' => GROUP_GOOGLE,
-				'fields'      => array(
+				'text'     => 'Google Analytics',
+				'tab_slug' => GROUP_GOOGLE,
+				'fields'   => array(
 					array(
-						'title' => 'Google Analytics Scripts',
-						'type'  => 'title',
+						'type'    => 'sectionstart',
+						'heading' => 'Google Analytics Scripts',
 					),
 					array(
 						'label'  => 'Head Script',
@@ -318,19 +302,16 @@ function add_options_page() {
 						'rows'   => 4,
 						'size'   => 'full',
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 			'color-themes'  => array(
-				'tab_label'   => 'Color Themes',
-				'fields_slug' => GROUP_COLOR_THEME,
-				'fields'      => array(
+				'text'     => 'Color Themes',
+				'tab_slug' => GROUP_COLOR_THEME,
+				'fields'   => array(
 					array(
-						'title' => 'Default Color Themes',
-						'type'  => 'title',
-						'desc'  => 'These are the default color themes for the site. These can be overridden on individual pages.',
+						'type'    => 'sectionstart',
+						'heading' => 'Default Color Themes',
+						'desc'    => 'These are the default color themes for the site. These can be overridden on individual pages.',
 					),
 					array(
 						'label'   => 'Default Page Color Theme',
@@ -339,15 +320,12 @@ function add_options_page() {
 						'type'    => 'select',
 						'options' => $color_options,
 					),
-					array(
-						'type' => 'sectionend',
-					),
 				),
 			),
 		),
 	);
 
-	$child_api_fields = apply_filters( 'capitola_child_theme_options_fields', array() );
+	$child_api_fields = apply_filters( 'capitola_child_theme_api_settings', array() );
 	if ( ! empty( $child_api_fields ) ) {
 		$api_fields                                  = $form_settings['tabs']['api-keys']['fields'];
 		$last_field                                  = array_pop( $api_fields );
@@ -356,7 +334,7 @@ function add_options_page() {
 		$form_settings['tabs']['api-keys']['fields'] = $api_fields;
 	}
 
-	new \Capitola\Admin_Forms\Settings_Form(
+	new Settings_Form(
 		$form_settings
 	);
 }

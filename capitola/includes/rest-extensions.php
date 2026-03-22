@@ -15,9 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 function post_add_images( $post ) {
 	$image_id = get_post_thumbnail_id( $post['id'] );
 	return array(
-		'thumbnail' => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
-		'medium'    => $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '',
-		'large'     => $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : '',
+		'thumbnail'    => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
+		'medium'       => $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '',
+		'medium-large' => $image_id ? wp_get_attachment_image_url( $image_id, 'medium_large' ) : '',
+		'large'        => $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : '',
 	);
 }
 
@@ -30,7 +31,8 @@ function post_add_images( $post ) {
 function post_add_image_html( $post ) {
 	$image_id = get_post_thumbnail_id( $post['id'] );
 	return array(
-		'thumbnail'    => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
+		'thumbnail'    => $image_id ? wp_get_attachment_image( $image_id, 'thumbnail' ) : '',
+		'medium'       => $image_id ? wp_get_attachment_image( $image_id, 'medium' ) : '',
 		'medium-large' => $image_id ? wp_get_attachment_image( $image_id, 'medium_large' ) : '',
 		'large'        => $image_id ? wp_get_attachment_image( $image_id, 'large' ) : '',
 	);
@@ -45,9 +47,10 @@ function post_add_image_html( $post ) {
 function term_add_images( $term ) {
 	$image_id = \Capitola\Helpers\Images\term_thumb_id( $term );
 	return array(
-		'thumbnail' => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
-		'medium'    => $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '',
-		'large'     => $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : '',
+		'thumbnail'    => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
+		'medium'       => $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '',
+		'medium-large' => $image_id ? wp_get_attachment_image_url( $image_id, 'medium-large' ) : '',
+		'large'        => $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : '',
 	);
 }
 
@@ -58,8 +61,8 @@ function term_add_images( $term ) {
  */
 function post_add_image() {
 
-	$post_types = apply_filters( 'capitola_rest_post_types_has_image', array( 'post', 'page' ) );
-	$taxonomies = apply_filters( 'capitola_rest_tax_has_image', array( 'category' ) );
+	$post_types = apply_filters( 'capitola_rest_post_type_has_image_props', array( 'post', 'page' ) );
+	$taxonomies = apply_filters( 'capitola_rest_tax_has_image_props', array( 'category' ) );
 
 	register_rest_field(
 		$post_types,

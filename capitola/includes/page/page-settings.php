@@ -26,18 +26,12 @@ function add_options_page() {
 			'position'    => 50,
 			'fields'      => array(
 				array(
-					'type' => 'title',
-				),
-				array(
 					'id'     => 'post-fallback-img',
 					'label'  => 'Fallback Image',
 					'name'   => 'capitola_page_default_image',
 					'option' => 'capitola_page_default_image',
-					'type'   => 'image',
+					'type'   => 'media',
 					'help'   => 'Sets the fallback featured image if no image is set at the post or term level.',
-				),
-				array(
-					'type' => 'sectionend',
 				),
 			),
 		)

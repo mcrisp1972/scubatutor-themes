@@ -41,8 +41,8 @@ class Fields {
 				self::radio( $field, $value );
 				break;
 
-			case 'image':
-				self::image( $field, $value );
+			case 'media':
+				self::media( $field, $value );
 				break;
 
 			case 'date':
@@ -131,9 +131,13 @@ class Fields {
 	 * @return void
 	 */
 	protected static function select( $field, $value ) {
+		$allow_null = isset( $field['allow_null'] ) ? $field['allow_null'] : true;
+		$null_text  = isset( $field['null_option_text'] ) ? $field['null_option_text'] : 'Select One';
 		?>
 			<select id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ?? '' ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>">
-				<option value="" <?php echo selected( '' ); ?>>Select One</option>
+				<?php if ( $allow_null ) : ?>
+					<option value="" <?php echo selected( '' ); ?>><?php echo esc_html( $null_text ); ?></option>
+				<?php endif; ?>
 				<?php
 				foreach ( $field['options'] as $v => $l ) :
 					$option_value = is_array( $l ) ? $l['value'] : $v;
@@ -288,15 +292,16 @@ class Fields {
 	 * @param mixed $value Field value.
 	 * @return void
 	 */
-	public static function image( $field, $value ) {
+	public static function media( $field, $value ) {
 		wp_enqueue_media();
 		wp_enqueue_script( 'capitola-admin-js' );
+		$allowed_types = isset( $field['allowed_types'] ) ? $field['allowed_types'] : 'image';
 
 		if ( $value ) {
 
 			$attachment  = $value ? get_post( $value ) : false;
 			$meta        = wp_get_attachment_metadata( $value );
-			$video_title = $attachment->post_title;
+			$media_title = $attachment->post_title;
 			if ( isset( $meta['filesize'] ) ) {
 				$filesize = size_format( $meta['filesize'] );
 			}
@@ -311,18 +316,14 @@ class Fields {
 			}
 		}
 
-		if ( isset( $field['type'] ) && is_array( $field['type'] ) ) {
-			$field['type'] = esc_attr( wp_json_encode( $field['type'] ) );
-		}
-
 		?>
-		<div class="image-select-field js-imageSelect <?php echo esc_attr( $field['class'] ?? '' ); ?> <?php echo ( $value ? ' --has-value' : '' ); ?>" data-media-type="<?php echo ! empty( $field['type'] ) ? esc_attr( $field['type'] ) : 'image'; ?>">
+		<div class="image-select-field js-imageSelect <?php echo esc_attr( $field['class'] ?? '' ); ?> <?php echo ( $value ? ' --has-value' : '' ); ?>" data-media-type="<?php echo esc_attr( $allowed_types ); ?>">
 			<div class="image-select-field__img-wrap <?php echo esc_attr( $image_class ) ?? ''; ?>">
 				<img src="<?php echo esc_attr( $src ) ?? ''; ?>">
 			</div>
 			<div class="image-select-field__right-col">
 				<div class="image-select-field__meta-row image-select-field__title-row js-imageSelectTitleRow" >
-					<?php echo esc_html( $video_title ?? '' ); ?>
+					<?php echo esc_html( $media_title ?? '' ); ?>
 				</div>
 				<div class="image-select-field__meta-row js-imageSelectLinkRow">
 					<span class="image-select-field__meta-label">File Name:</span> <span class="js-imageSelectLinkValue"><?php echo wp_kses_post( $link ?? '' ); ?></span>

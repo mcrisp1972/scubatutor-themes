@@ -40,18 +40,15 @@ function add_user_fields() {
 			'priority' => 5,
 			'fields'   => array(
 				array(
-					'title' => 'Public User Details',
-					'type'  => 'title',
+					'type'    => 'sectionstart',
+					'heading' => 'Public User Details',
 				),
 				array(
 					'id'    => 'userProfilePhoto',
 					'label' => 'Profile Picture',
 					'name'  => 'userProfilePhoto',
-					'type'  => 'image',
+					'type'  => 'media',
 					'help'  => 'Photo to display where post author details are displayed.',
-				),
-				array(
-					'type' => 'sectionend',
 				),
 			),
 		)
