@@ -4,15 +4,15 @@ A WordPress Gutenberg editor control component for selecting multiple posts via 
 
 ![PostCheckboxes Screenshot](../_screenshots/PostCheckboxes-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `array` | - | **Required.** Array of selected post IDs |
-| `onChange` | `Function` | - | **Required.** Callback function when the selection changes |
-| `postType` | `string` | - | **Required.** WordPress post type to fetch posts from (e.g., 'post', 'page', 'product') |
-| `orderBy` | `string` | `'title'` | Field to order posts by. Defaults to 'title' with ascending order |
+| Property   | Type       | Required | Default   | Description |
+|------------|------------|----------|-----------|---------|
+| `label`    | `string`   | Yes      |           | Label text for the control |
+| `value`    | `array`    | Yes      |           | Array of selected post IDs |
+| `onChange` | `function` | Yes      |           | Callback function when the selection changes |
+| `postType` | `string`   | Yes      |           | WordPress post type to fetch posts from (e.g., 'post', 'page', 'product') |
+| `orderBy`  | `string`   | No       | `'title'` | Field to order posts by. Defaults to 'title' with ascending order |
 
 ## Value Structure
 
@@ -33,6 +33,7 @@ The `value` prop should be an array of post IDs:
 ## Usage
 
 ### Import
+
 ```jsx
 import { PostCheckboxes } from '../../editor-controls';
 ```
@@ -41,12 +42,12 @@ import { PostCheckboxes } from '../../editor-controls';
 
 ```jsx
 <PostCheckboxes
-    label="Select Posts"
-    value={ attributes.selectedPosts }
-    onChange={ ( value ) => {
-        setAttributes( { selectedPosts: value } );
-    } }
-    postType="post"
+	label="Select Posts"
+	value={ attributes.selectedPosts }
+	onChange={ ( value ) => {
+		setAttributes( { selectedPosts: value } );
+	} }
+	postType="post"
 />
 ```
 
@@ -54,12 +55,12 @@ import { PostCheckboxes } from '../../editor-controls';
 
 ```jsx
 <PostCheckboxes
-    label="Select Products"
-    value={ attributes.selectedProducts }
-    onChange={ ( value ) => {
-        setAttributes( { selectedProducts: value } );
-    } }
-    postType="product"
-    orderBy="date"
+	label="Select Products"
+	value={ attributes.selectedProducts }
+	onChange={ ( value ) => {
+		setAttributes( { selectedProducts: value } );
+	} }
+	postType="product"
+	orderBy="date"
 />
 ```

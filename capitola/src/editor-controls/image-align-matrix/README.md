@@ -4,13 +4,13 @@ A WordPress Gutenberg editor control component for selecting image alignment usi
 
 ![ImageAlignMatrix Screenshot](../_screenshots/ImageAlignMatrix-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | **Required.** Current selected alignment value |
-| `onChange` | `Function` | - | **Required.** Callback function when the alignment value changes |
-| `label` | `string` | - | Label for the control |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `value`    | `string`   | Yes      | Current selected alignment value |
+| `onChange` | `function` | Yes      | Callback function when the alignment value changes |
+| `label`    | `string`   | No       | Label for the control |
 
 ## Value Structure
 
@@ -60,6 +60,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { ImageAlignMatrix } from '../../editor-controls';
 ```
@@ -68,10 +69,10 @@ import { ImageAlignMatrix } from '../../editor-controls';
 
 ```jsx
 <ImageAlignMatrix
-    label="Image Alignment"
-    value={ attributes.imageAlignment }
-    onChange={ ( value ) => {
-        setAttributes( { imageAlignment: value } );
-    } }
+	label="Image Alignment"
+	value={ attributes.imageAlignment }
+	onChange={ ( value ) => {
+		setAttributes( { imageAlignment: value } );
+	} }
 />
 ```

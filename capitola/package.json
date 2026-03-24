@@ -20,7 +20,6 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"dependencies": {
-		"@react-google-maps/api": "^2.20.8",
 		"@wordpress/icons": "^10.19.1",
 		"@wordpress/interactivity": "^6.42.0",
 		"gsap": "^3.13.0",

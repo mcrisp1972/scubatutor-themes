@@ -6,11 +6,11 @@ A WordPress Gutenberg editor control component for selecting video files from th
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label for the control |
-| `value` | `number\|object` | - | **Required.** Current video ID (number) or video object (object) |
-| `onChange` | `Function` | - | **Required.** Callback function when a video is selected or changed |
+| Prop       | Type             | Required | Description |
+|------------|------------------|----------|-------------|
+| `label`    | `string`         | Yes      | Label for the control |
+| `value`    | `number\|object` | Yes      | Current video ID (`number`) or video object (`object`) |
+| `onChange` | `function`       | Yes      | Callback function when a video is selected or changed |
 
 ## Setting the value prop
 
@@ -18,8 +18,8 @@ You can assign either the media ID or an object as the value. Assigning an objec
 
 ```
 {
-    id: 456,
-    url: 'url to video',
+	id: 456,
+	url: 'url to video',
 }
 ```
 
@@ -47,6 +47,7 @@ When a video is selected, the control displays:
 ## Usage
 
 ### Import
+
 ```jsx
 import { VideoSelect } from '../../editor-controls';
 ```
@@ -56,13 +57,13 @@ import { VideoSelect } from '../../editor-controls';
 ```jsx
 
 <VideoSelect
-    label="Background Video"
-    value={ attributes.video }
-    onChange={ ( value ) => {
-        setAttributes( {
-            video: { id: value.id, url: value.url }
-        } );
-    } }
+	label="Background Video"
+	value={ attributes.video }
+	onChange={ ( value ) => {
+		setAttributes( {
+			video: { id: value.id, url: value.url }
+		} );
+	} }
 />
 ```
 
@@ -70,13 +71,13 @@ import { VideoSelect } from '../../editor-controls';
 
 ```jsx
 <VideoSelect
-    label="Background Video"
-    value={ attributes.video.id }
-    onChange={ ( value ) => {
-        setAttributes( {
-            video: { id: value.id, url: value.url }
-        } );
-    } }
+	label="Background Video"
+	value={ attributes.video.id }
+	onChange={ ( value ) => {
+		setAttributes( {
+			video: { id: value.id, url: value.url }
+		} );
+	} }
 />
 ```
 
@@ -84,13 +85,13 @@ import { VideoSelect } from '../../editor-controls';
 
 ```jsx
 <VideoSelect
-    label="Background Video"
-    value={ attributes.video }
-    onChange={ ( value ) => {
-        setAttributes( {
-            video: value.id
-        } );
-    } }
+	label="Background Video"
+	value={ attributes.video }
+	onChange={ ( value ) => {
+		setAttributes( {
+			video: value.id
+		} );
+	} }
 />
 ```
 

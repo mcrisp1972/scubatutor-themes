@@ -1,6 +1,7 @@
 # Local Environment Setup
 
 ## Installing Dependencies
+
    - Ensure you have Node.js and npm installed.
    - In your terminal, navigate to this directory (wp-content/themes/capitola)
    - Run:
@@ -9,6 +10,7 @@
      ```
 
 ## WP Scripts
+
 The following scripts are available:
    - To watch for changes in your blocks, css and js:
      ```bash

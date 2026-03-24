@@ -71,14 +71,14 @@ export default function Edit( props ) {
 
 	const rearImageObj = useSelect(
 		( select ) => {
-			return rearImage.id ? select( 'core' ).getMedia( rearImage.id ) : null;
+			return rearImage.id ? select( 'core' ).getEntityRecord( 'postType', 'attachment', rearImage.id ) : null;
 		},
 		[ rearImage.id ]
 	);
 
 	const frontImageObj = useSelect(
 		( select ) => {
-			return frontImage.id ? select( 'core' ).getMedia( frontImage.id ) : null;
+			return frontImage.id ? select( 'core' ).getEntityRecord( 'postType', 'attachment', frontImage.id ) : null;
 		},
 		[ frontImage.id ]
 	);

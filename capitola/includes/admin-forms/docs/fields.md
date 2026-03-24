@@ -3,20 +3,23 @@
 Below are the supported field types in `class-fields.php`, with descriptions and example usage in a fields array:
 
 ## Text
+
 Single-line text input.
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'text'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `size`   | string | No       | The width of the field. Defaults to 'medium', Options are tiny, small, medium, large, full |
-| `class`  | string | No       | CSS classes for the input |
-| `help`   | string | No       | Help text to display below the field |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'text'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `size`   | `string` | No       | The width of the field. Defaults to 'medium', Options are tiny, small, medium, large, full |
+| `class`  | `string` | No       | CSS classes for the input |
+| `help`   | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'  => 'text',
@@ -28,21 +31,24 @@ array(
 ```
 
 ## Textarea
+
 Multi-line text input.
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'textarea'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `size`   | string | No       | The width of the field. Defaults to 'medium'. Options are medium, large, full |
-| `rows`   | string | No       | Number of visible text lines (height) for the textarea. Defaults to 3 |
-| `class`  | string | No       | CSS classes for the input |
-| `help`   | string | No       | Help text to display below the field |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'textarea'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `size`   | `string` | No       | The width of the field. Defaults to 'medium'. Options are medium, large, full |
+| `rows`   | `string` | No       | Number of visible text lines (height) for the textarea. Defaults to 3 |
+| `class`  | `string` | No       | CSS classes for the input |
+| `help`   | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'  => 'textarea',
@@ -55,22 +61,25 @@ array(
 ```
 
 ## Select
+
 Dropdown menu.
 
 ### Properties
-| Property           | Type   | Required | Description |
-|--------------------|--------|----------|-------------|
-| `type`             | string | Yes      | Must be `'select'` |
-| `label`            | string | No       | Label to display next to the field |
-| `name`             | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`               | string | No       | Field id attribute (defaults to the name value) |
-| `options`          | array  | Yes      | Key-value pairs where each key is the option value and each value is the display label shown in the dropdown |
-| `allow_null`       | bool   | No       | Allows selection of an empty (null) value. Defaults to true |
-| `null_option_text` | string | No       | Label shown for the empty (null) option. Defaults to 'Select One' |
-| `class`            | string | No       | CSS classes for the input |
-| `help`             | string | No       | Help text to display below the field |
+
+| Property           | Type      | Required | Description |
+|--------------------|-----------|----------|-------------|
+| `type`             | `string`  | Yes      | Must be `'select'` |
+| `label`            | `string`  | No       | Label to display next to the field |
+| `name`             | `string`  | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`               | `string`  | No       | Field id attribute (defaults to the name value) |
+| `options`          | `array`   | Yes      | Key-value pairs where each key is the option value and each value is the display label shown in the dropdown |
+| `allow_null`       | `boolean` | No       | Allows selection of an empty (null) value. Defaults to true |
+| `null_option_text` | `string`  | No       | Label shown for the empty (null) option. Defaults to 'Select One' |
+| `class`            | `string`  | No       | CSS classes for the input |
+| `help`             | `string`  | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'             => 'select',
@@ -87,18 +96,21 @@ array(
 ```
 
 ## Checkbox
+
 Boolean toggle.
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'checkbox'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `help`   | string | No       | Help text to display to the right of the checkbox |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'checkbox'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `help`   | `string` | No       | Help text to display to the right of the checkbox |
 
 ### Example
+
 ```php
 array(
 	'type'  => 'checkbox',
@@ -109,19 +121,22 @@ array(
 ```
 
 ## Radio
+
 Multiple choices, single selection.
 
 ### Properties
-| Property  | Type   | Required | Description |
-|-----------|--------|----------|-------------|
-| `type`    | string | Yes      | Must be `'radio'` |
-| `label`   | string | No       | Label to display next to the field |
-| `name`    | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`      | string | No       | Field id attribute (defaults to the name value) |
-| `options` | array  | No       | Key-value pairs where each key is the radio button value and each value is the display label shown next to the radio button |
-| `help`    | string | No       | Help text to display below the radio buttons |
+
+| Property  | Type     | Required | Description |
+|-----------|----------|----------|-------------|
+| `type`    | `string` | Yes      | Must be `'radio'` |
+| `label`   | `string` | No       | Label to display next to the field |
+| `name`    | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`      | `string` | No       | Field id attribute (defaults to the name value) |
+| `options` | `array`  | No       | Key-value pairs where each key is the radio button value and each value is the display label shown next to the radio button |
+| `help`    | `string` | No       | Help text to display below the radio buttons |
 
 ### Example
+
 ```php
 array(
 	'type'    => 'radio',
@@ -136,19 +151,22 @@ array(
 ```
 
 ## Media Selector
+
 Media selector. When an item is selected, it shows the title, filesize, and a link to the item. If an image is selected, a thumnbnail is also displayed.
 
 ### Properties
-| Property        | Type   | Required | Description |
-|-----------------|--------|----------|-------------|
-| `type`          | string | Yes      | Must be `'media'` |
-| `label`         | string | No       | Label to display next to the field |
-| `name`          | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`            | string | No       | Field id attribute (defaults to the name value) |
-| `allowed_types` | string | No       | Comma separated list of multiple attachment types, or single string if just one type is allowed. Defaults to 'image'. Options are image, video, application/pdf |
-| `help`          | string | No       | Help text to display below the field |
+
+| Property        | Type     | Required | Description |
+|-----------------|----------|----------|-------------|
+| `type`          | `string` | Yes      | Must be `'media'` |
+| `label`         | `string` | No       | Label to display next to the field |
+| `name`          | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`            | `string` | No       | Field id attribute (defaults to the name value) |
+| `allowed_types` | `string` | No       | Comma separated list of multiple attachment types, or single `string` if just one type is allowed. Defaults to 'image'. Options are image, video, application/pdf |
+| `help`          | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'          => 'media',
@@ -159,19 +177,22 @@ array(
 ```
 
 ## WYSIWYG
+
 Rich text editor (TinyMCE).
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'wysiwyg'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `rows`   | string | No       | Number of visible text lines (height) for the textarea. Defaults to 4 |
-| `help`   | string | No       | Help text to display below the field |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'wysiwyg'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `rows`   | `string` | No       | Number of visible text lines (height) for the textarea. Defaults to 4 |
+| `help`   | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'  => 'wysiwyg',
@@ -183,20 +204,23 @@ array(
 ```
 
 ## Date
+
 Date picker input.
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'date'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `size`   | string | No       | The width of the field. Defaults to 'medium', Options are tiny, small, medium, large, full |
-| `class`  | string | No       | CSS classes for the input |
-| `help`   | string | No       | Help text to display below the field |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'date'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `size`   | `string` | No       | The width of the field. Defaults to 'medium', Options are tiny, small, medium, large, full |
+| `class`  | `string` | No       | CSS classes for the input |
+| `help`   | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'  => 'date',
@@ -208,19 +232,22 @@ array(
 ```
 
 ## Page Select
+
 Dropdown for selecting a WordPress page.
 
 ### Properties
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `type`   | string | Yes      | Must be `'page_select'` |
-| `label`  | string | No       | Label to display next to the field |
-| `name`   | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`     | string | No       | Field id attribute (defaults to the name value) |
-| `class`  | string | No       | CSS classes for the input |
-| `help`   | string | No       | Help text to display below the field |
+
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `type`   | `string` | Yes      | Must be `'page_select'` |
+| `label`  | `string` | No       | Label to display next to the field |
+| `name`   | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`     | `string` | No       | Field id attribute (defaults to the name value) |
+| `class`  | `string` | No       | CSS classes for the input |
+| `help`   | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'    => 'page_select',
@@ -231,20 +258,23 @@ array(
 ```
 
 ## Term Select
+
 Dropdown for selecting a taxonomy term.
 
 ### Properties
-| Property   | Type   | Required | Description |
-|------------|--------|----------|-------------|
-| `type`     | string | Yes      | Must be `'term_select'` |
-| `taxonomy` | string | Yes      | The WordPress taxonomy from which to list selectable terms |
-| `label`    | string | No       | Label to display next to the field |
-| `name`     | string | Yes      | Field name (setting, post_meta, or term_meta) |
-| `id`       | string | No       | Field id attribute (defaults to the name value) |
-| `class`    | string | No       | CSS classes for the input |
-| `help`     | string | No       | Help text to display below the field |
+
+| Property   | Type     | Required | Description |
+|------------|----------|----------|-------------|
+| `type`     | `string` | Yes      | Must be `'term_select'` |
+| `taxonomy` | `string` | Yes      | The WordPress taxonomy from which to list selectable terms |
+| `label`    | `string` | No       | Label to display next to the field |
+| `name`     | `string` | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`       | `string` | No       | Field id attribute (defaults to the name value) |
+| `class`    | `string` | No       | CSS classes for the input |
+| `help`     | `string` | No       | Help text to display below the field |
 
 ### Example
+
 ```php
 array(
 	'type'    => 'term_select',

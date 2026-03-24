@@ -6,14 +6,14 @@ A WordPress Gutenberg editor control component for selecting both dates and time
 
 ![DateTimePicker Screenshot](../_screenshots/DateTimePicker-2.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | **Required.** Current date/time value in ISO format |
-| `onChange` | `Function` | - | **Required.** Callback function when the date/time value changes |
-| `onClear` | `Function` | - | Optional callback function to clear the selected date/time |
-| `label` | `string` | - | Label for the control |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `value`    | `string`   | Yes      | Current date/time value in ISO format |
+| `onChange` | `function` | Yes      | Callback function when the date/time value changes |
+| `onClear`  | `function` | No       | Optional callback function to clear the selected date/time |
+| `label`    | `string`   | No       | Label for the control |
 
 ## Value Structure
 
@@ -63,14 +63,14 @@ import { DateTimePicker } from '../../editor-controls';
 
 ```jsx
 <DateTimePicker
-    label="Event Date & Time"
-    value={ attributes.eventDateTime }
-    onChange={ ( value ) => {
-        setAttributes( { eventDateTime: value } );
-    } }
-    onClear={ () => {
-        setAttributes( { eventDateTime: '' } );
-    } }
+	label="Event Date & Time"
+	value={ attributes.eventDateTime }
+	onChange={ ( value ) => {
+		setAttributes( { eventDateTime: value } );
+	} }
+	onClear={ () => {
+		setAttributes( { eventDateTime: '' } );
+	} }
 />
 ```
 
@@ -78,11 +78,11 @@ import { DateTimePicker } from '../../editor-controls';
 
 ```jsx
 <DateTimePicker
-    label="Start Date & Time"
-    value={ attributes.startDateTime }
-    onChange={ ( value ) => {
-        setAttributes( { startDateTime: value } );
-    } }
+	label="Start Date & Time"
+	value={ attributes.startDateTime }
+	onChange={ ( value ) => {
+		setAttributes( { startDateTime: value } );
+	} }
 />
 ```
 
@@ -90,10 +90,10 @@ import { DateTimePicker } from '../../editor-controls';
 
 ```jsx
 <DateTimePicker
-    label="Meeting Time"
-    value={ attributes.meetingTime || '2024-01-15T09:00:00' }
-    onChange={ ( value ) => {
-        setAttributes( { meetingTime: value } );
-    } }
+	label="Meeting Time"
+	value={ attributes.meetingTime || '2024-01-15T09:00:00' }
+	onChange={ ( value ) => {
+		setAttributes( { meetingTime: value } );
+	} }
 />
 ```

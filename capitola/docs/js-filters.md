@@ -7,29 +7,30 @@
 - [capitola.postTypeCats](#capitolaposttypecats)
 - [capitola.templatePostType](#capitolatemplateposttype)
 
-This document lists all WordPress js filters in the Capitola theme that use `applyFilters()` with a filter name beginning with "capitola". These filters allow developers to modify or extend theme functionality.
+This document lists all WordPress JS filters in the Capitola theme that use `applyFilters()` with a filter name beginning with "capitola". These filters allow developers to modify or extend theme functionality.
 
----
+## `capitola.postTypeOptions`
 
-## Available Filters
-
-### capitola.postTypeOptions
 Several of the custom blocks contain select fields for selecting from a list of post types to choose from. This filter allows you to add your custom post types to these select fields.
 
-**Applied in:**
-- src/blocks/detailed-links-item/edit.jsx
-- src/blocks/featured-posts/edit.jsx
-- src/blocks/image-link-grid-item/edit.jsx
-- src/blocks/three-link-card/edit.jsx
-- src/blocks/image-link-grid-item/edit.jsx
+### Applied In:
 
-**Parameters:**
-- options (js array): List of objects, each containing a 'label' and 'value' property. The label is for display in the editor, and the value is the post type name.
+- [src/blocks/detailed-links-item/edit.jsx](../src/blocks/detailed-links-item/edit.jsx)
+- [src/blocks/featured-posts/edit.jsx](../src/blocks/featured-posts/edit.jsx)
+- [src/blocks/image-link-grid-item/edit.jsx](../src/blocks/image-link-grid-item/edit.jsx)
+- [src/blocks/three-link-card/edit.jsx](../src/blocks/three-link-card/edit.jsx)
+- [src/blocks/image-link-grid-item/edit.jsx](../src/blocks/image-link-grid-item/edit.jsx)
 
-**Returns:**
-- (js array) Modified list of post type options.
+### Parameters:
 
-**Example:**
+- `options` (JS `array`): List of objects, each containing a `label` and `value` property. The label is for display in the editor, and the value is the post type name.
+
+### Returns:
+
+- (JS `array`) Modified list of post type options.
+
+### Example
+
 ```js
 import { addFilter } from '@wordpress/hooks';
 
@@ -43,15 +44,18 @@ addFilter( 'capitola.postTypeOptions', 'santacruzdivers/post-type-options', ( op
 } );
 ```
 
-### capitola.colorThemes
+## `capitola.colorThemes`
+
 Sets the color themes used by the theme or child theme. It's primarily used to populate the color theme picker control.
 
-**Applied in:**
-- src/editor-controls/color-theme-picker/index.jsx
-- src/blocks/nav/edit.jsx
-- src/blocks/footer/edit.jsx
+### Applied In:
 
-**Example:**
+- [src/editor-controls/color-theme-picker/index.jsx](../src/editor-controls/color-theme-picker/index.jsx)
+- [src/blocks/nav/edit.jsx](../src/blocks/nav/edit.jsx)
+- [src/blocks/footer/edit.jsx](../src/blocks/nav/edit.jsx)
+
+### Example
+
 ```js
 import { addFilter } from '@wordpress/hooks';
 import childColorThemes from '../../color-themes.json';
@@ -61,17 +65,21 @@ addFilter( 'capitola.colorThemes', 'santacruzdivers/color-themes', () => {
 } );
 ```
 
-### capitola.postTypeCats
-This is basically the js version of the [capitola_{postType}_base_taxonomy](filters.md#capitola_posttype_base_taxonomy) PHP filter. It maps main taxonomies to post types.
+## `capitola.postTypeCats`
 
-**Applied in:**
-- src/blocks/post-feed/edit.jsx
-- src/blocks/related-posts/edit.jsx
+This is basically the JS version of the [`capitola_{postType}_base_taxonomy`](filters.md#capitola_posttype_base_taxonomy) PHP filter. It maps main taxonomies to post types.
 
-**Parameters:**
-- cats (object): object of taxonomy names keyed by their associated post type.
+### Applied In:
 
-**Example:**
+- [src/blocks/post-feed/edit.jsx](../src/blocks/post-feed/edit.jsx)
+- [src/blocks/related-posts/edit.jsx](../src/blocks/related-posts/edit.jsx)
+
+### Parameters:
+
+- `cats` (`object`): object of taxonomy names keyed by their associated post type.
+
+### Example
+
 ```js
 import { addFilter } from '@wordpress/hooks';
 
@@ -86,17 +94,21 @@ addFilter( 'capitola.postTypeCats', 'santacruzdivers/post-type-cats', ( cats ) =
 } );
 ```
 
-### capitola.templatePostType
-Used by the templatePostType() js function, this filter allows you to determine what post type an FSE template editor is associated with.
+## `capitola.templatePostType`
 
-**Applied in:**
-- src/scripts/modules/template-post-type.js
+Used by the `templatePostType()` JS function, this filter allows you to determine what post type an FSE template editor is associated with.
 
-**Parameters:**
-- defaultPostType : defaults to 'post'.
-- templateSlug: the post type name you are checking against from the current template name.
+### Applied In:
 
-**Example:**
+- [/src/scripts/modules/template-post-type.js](../src/scripts/modules/template-post-type.js)
+
+### Parameters:
+
+- `defaultPostType`: defaults to `'post'`.
+- `templateSlug`: the post type name you are checking against from the current template name.
+
+### Example
+
 ```js
 import { addFilter } from '@wordpress/hooks';
 

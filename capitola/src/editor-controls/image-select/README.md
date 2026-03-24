@@ -4,13 +4,13 @@ A WordPress Gutenberg editor control component for use in the block sidebar. It 
 
 ![ImageSelect Screenshot](../_screenshots/ImageSelect-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label for the control |
-| `value` | `number\|object` | - | **Required.** Current image ID (number) or image object (object) |
-| `onChange` | `Function` | - | **Required.** Callback function when an image is selected or changed |
+| Property   | Type             | Required  | Description |
+|------------|------------------|-----------|-------------|
+| `label`    | `string`         | Yes       | Label for the control |
+| `value`    | `number\|object` | Yes       | Current image ID (number) or image object (object) |
+| `onChange` | `function`       | Yes       | Callback function when an image is selected or changed |
 
 ## Setting the value prop
 
@@ -18,8 +18,8 @@ You can assign either the media ID or an object as the value. Assigning an objec
 
 ```
 {
-    id: 456,
-    source_url: 'url to image',
+	id: 456,
+	source_url: 'url to image',
 }
 ```
 
@@ -39,6 +39,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { ImageSelect } from '../../editor-controls';
 ```
@@ -47,13 +48,13 @@ import { ImageSelect } from '../../editor-controls';
 
 ```jsx
 <ImageSelect
-    label="Featured Image"
-    value={ attributes.image }
-    onChange={ ( value ) => {
-        setAttributes( {
-            image: { id: value.id, source_url: value.url }
-        } );
-    } }
+	label="Featured Image"
+	value={ attributes.image }
+	onChange={ ( value ) => {
+		setAttributes( {
+			image: { id: value.id, source_url: value.url }
+		} );
+	} }
 />
 ```
 
@@ -61,13 +62,13 @@ import { ImageSelect } from '../../editor-controls';
 
 ```jsx
 <ImageSelect
-    label="Featured Image"
-    value={ attributes.image.id }
-    onChange={ ( value ) => {
-        setAttributes( {
-            image: { id: value.id, source_url: value.url }
-        } );
-    } }
+	label="Featured Image"
+	value={ attributes.image.id }
+	onChange={ ( value ) => {
+		setAttributes( {
+			image: { id: value.id, source_url: value.url }
+		} );
+	} }
 />
 ```
 
@@ -75,12 +76,12 @@ import { ImageSelect } from '../../editor-controls';
 
 ```jsx
 <ImageSelect
-    label="Featured Image"
-    value={ attributes.image }
-    onChange={ ( value ) => {
-        setAttributes( {
-            image: value.id
-        } );
-    } }
+	label="Featured Image"
+	value={ attributes.image }
+	onChange={ ( value ) => {
+		setAttributes( {
+			image: value.id
+		} );
+	} }
 />
 ```

@@ -4,15 +4,15 @@ A WordPress Gutenberg editor control component that provides a button interface 
 
 ![ImageSelectButton Screenshot](../_screenshots/ImageSelectButton-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number\|object` | - | **Required.** Current image ID (number) or gallery object (object) |
-| `onSelect` | `Function` | - | **Required.** Callback function when an image is selected |
-| `allowedTypes` | `Array` | `['image']` | Array of allowed media types for selection |
-| `label` | `string\|boolean` | `false` | Custom label for the button. If false, uses dynamic labels based on value state |
-| `flexWrap` | `boolean` | `false` | Wraps the button in an absolute positioned flex container for layout purposes. Use this when necessary to center-align the button.  |
+| Property       | Type              | Required | Default     | Description |
+|----------------|-------------------|----------|-------------|-------------|
+| `value`        | `number\|object`  | Yes      |             | Current image ID (number) or gallery object (object) |
+| `onSelect`     | `function`        | Yes      |             | Callback function when an image is selected |
+| `allowedTypes` | `array`           | No       | `['image']` | Array of allowed media types for selection |
+| `label`        | `string\|boolean` | No       | `false`     | Custom label for the button. If false, uses dynamic labels based on value state |
+| `flexWrap`     | `boolean`         | No       | `false`     | Wraps the button in an absolute positioned flex container for layout purposes. Use this when necessary to center-align the button. |
 
 ## Button Labels
 
@@ -42,6 +42,7 @@ When `value` is an object, the component enables:
 ## Usage
 
 ### Import
+
 ```jsx
 import { ImageSelectButton } from '../../editor-controls';
 ```
@@ -50,13 +51,13 @@ import { ImageSelectButton } from '../../editor-controls';
 
 ```jsx
 <ImageSelectButton
-  value={ attributes.imageId }
-  onSelect={ ( value ) => {
-    setAttributes( {
-      image: { id: value.id, source_url: value.url }
-    } );
-  } }
-  label="Select Featured Image"
+	value={ attributes.imageId }
+	onSelect={ ( value ) => {
+		setAttributes( {
+			image: { id: value.id, source_url: value.url }
+		} );
+	} }
+	label="Select Featured Image"
 />
 ```
 
@@ -64,15 +65,15 @@ import { ImageSelectButton } from '../../editor-controls';
 
 ```jsx
 <ImageSelectButton
-  value={ attributes.images.map( ( image ) => image.id ) }
-  onSelect={ ( values ) => {
-    setAttributes( {
-        images: values.map( ( image ) => {
-        return { id: image.id, source_url: image.url };
-        } ),
-    } );
-  } }
-  label="Manage Gallery"
+	value={ attributes.images.map( ( image ) => image.id ) }
+	onSelect={ ( values ) => {
+		setAttributes( {
+			images: values.map( ( image ) => {
+				return { id: image.id, source_url: image.url };
+			} ),
+		} );
+	} }
+	label="Manage Gallery"
 />
 ```
 
@@ -80,8 +81,8 @@ import { ImageSelectButton } from '../../editor-controls';
 
 ```jsx
 <ImageSelectButton
-  ...
-  allowedTypes={ ['image', 'video'] }
-  label="Select Media"
+	...
+	allowedTypes={ ['image', 'video'] }
+	label="Select Media"
 />
 ```

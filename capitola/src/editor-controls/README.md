@@ -37,7 +37,7 @@ A collection of custom WordPress Gutenberg editor controls for building block ed
 
 ---
 
-## CtaControl
+## `CtaControl`
 
 ![CtaControl Screenshot](./_screenshots/CtaControl-2.png)
 
@@ -47,7 +47,7 @@ A WordPress Gutenberg editor control component for creating call-to-action butto
 
 ---
 
-## DatePicker
+## `DatePicker`
 
 ![DatePicker Screenshot](./_screenshots/DatePicker-2.png)
 
@@ -57,7 +57,7 @@ A WordPress Gutenberg editor control component for selecting dates. For use in b
 
 ---
 
-## DateTimePicker
+## `DateTimePicker`
 
 ![DateTimePicker Screenshot](./_screenshots/DateTimePicker-1.png)
 
@@ -67,7 +67,7 @@ A WordPress Gutenberg editor control component for selecting both dates and time
 
 ---
 
-## GoogleMapControl
+## `GoogleMapControl`
 
 ![GoogleMapControl Screenshot](./_screenshots/GoogleMapControl-1.png)
 
@@ -77,7 +77,7 @@ A WordPress Gutenberg editor control component for selecting locations using Goo
 
 ---
 
-## IconSelector
+## `IconSelector`
 
 ![IconSelector Screenshot](./_screenshots/IconSelector-1.png)
 
@@ -87,7 +87,7 @@ A WordPress Gutenberg editor control component for selecting icons from a predef
 
 ---
 
-## ImageAlignMatrix
+## `ImageAlignMatrix`
 
 ![ImageAlignMatrix Screenshot](./_screenshots/ImageAlignMatrix-1.png)
 
@@ -97,7 +97,7 @@ A WordPress Gutenberg editor control component for selecting image alignment usi
 
 ---
 
-## ImageSelect
+## `ImageSelect`
 
 ![ImageSelect Screenshot](./_screenshots/ImageSelect-1.png)
 
@@ -107,7 +107,7 @@ A WordPress Gutenberg editor control component for use in the block sidebar. It 
 
 ---
 
-## ImageSelectButton
+## `ImageSelectButton`
 
 ![ImageSelectButton Screenshot](./_screenshots/ImageSelectButton-1.png)
 
@@ -117,7 +117,7 @@ A WordPress Gutenberg editor control component that provides a button interface 
 
 ---
 
-## LabeledSpinner
+## `LabeledSpinner`
 
 ![LabeledSpinner Screenshot](./_screenshots/LabeledSpinner-1.png)
 
@@ -127,7 +127,7 @@ A simple WordPress Gutenberg editor control component that displays a loading sp
 
 ---
 
-## LinkList
+## `LinkList`
 
 ![LinkList Screenshot](./_screenshots/LinkList-1.png)
 
@@ -137,7 +137,7 @@ A WordPress Gutenberg editor control component for managing a list of links. Pro
 
 ---
 
-## LinkSelect
+## `LinkSelect`
 
 ![LinkSelect Screenshot](./_screenshots/LinkSelect-3.png)
 
@@ -147,7 +147,7 @@ A WordPress Gutenberg editor control component for managing links with URL and t
 
 ---
 
-## MetaRepeater
+## `MetaRepeater`
 
 ![MetaRepeater Screenshot](./_screenshots/MetaRepeater-1.png)
 
@@ -157,7 +157,7 @@ A WordPress Gutenberg editor control component for managing repeating field grou
 
 ---
 
-## OverlayOpacitySlider
+## `OverlayOpacitySlider`
 
 ![OverlayOpacitySlider Screenshot](./_screenshots/OverlayOpacitySlider-1.png)
 
@@ -167,7 +167,7 @@ A WordPress Gutenberg editor control component for adjusting image overlay opaci
 
 ---
 
-## PlaceholderIframe
+## `PlaceholderIframe`
 
 ![PlaceholderIframe Screenshot](./_screenshots/PlaceholderIframe-1.png)
 
@@ -177,7 +177,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder ifra
 
 ---
 
-## PlaceholderImage
+## `PlaceholderImage`
 
 ![PlaceholderImage Screenshot](./_screenshots/PlaceholderImage-1.png)
 
@@ -187,7 +187,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder imag
 
 ---
 
-## PlaceholderVideo
+## `PlaceholderVideo`
 
 ![PlaceholderVideo Screenshot](./_screenshots/PlaceholderVideo-1.png)
 
@@ -197,7 +197,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder vide
 
 ---
 
-## PostCheckboxes
+## `PostCheckboxes`
 
 ![PostCheckboxes Screenshot](./_screenshots/PostCheckboxes-1.png)
 
@@ -207,7 +207,7 @@ A WordPress Gutenberg editor control component for selecting multiple posts via 
 
 ---
 
-## PostPicker
+## `PostPicker`
 
 ![PostPicker Screenshot](./_screenshots/PostPicker-2.png)
 
@@ -217,7 +217,7 @@ A WordPress Gutenberg editor control component for selecting a single post via a
 
 ---
 
-## Repeater
+## `Repeater`
 
 ![Repeater Screenshot](./_screenshots/MetaRepeater-1.png)
 
@@ -227,7 +227,7 @@ A WordPress Gutenberg editor control component for managing repeating field grou
 
 ---
 
-## RepeaterControls
+## `RepeaterControls`
 
 ![RepeaterControls Screenshot](./_screenshots/RepeaterControls-1.png)
 
@@ -237,7 +237,7 @@ A WordPress Gutenberg editor control component that provides a toolbar interface
 
 ---
 
-## RepeaterPopover
+## `RepeaterPopover`
 
 ![RepeaterPopover Screenshot](./_screenshots/RepeaterPopover-3.png)
 
@@ -247,7 +247,7 @@ A WordPress Gutenberg editor control component that provides a popover interface
 
 ---
 
-## TagSelect
+## `TagSelect`
 
 ![TagSelect Screenshot](./_screenshots/TagSelect-1.png)
 
@@ -257,7 +257,7 @@ A WordPress Gutenberg editor control component for selecting HTML tag elements. 
 
 ---
 
-## TermCheckboxes
+## `TermCheckboxes`
 
 ![TermCheckboxes Screenshot](./_screenshots/TermCheckboxes-1.png)
 
@@ -267,7 +267,7 @@ A WordPress Gutenberg editor control component for selecting multiple taxonomy t
 
 ---
 
-## TimePicker
+## `TimePicker`
 
 ![TimePicker Screenshot](./_screenshots/TimePicker-1.png)
 
@@ -277,7 +277,7 @@ A WordPress Gutenberg editor control component for selecting times. For use in b
 
 ---
 
-## TMCEControl
+## `TMCEControl`
 
 ![TMCEControl Screenshot](./_screenshots/TMCEControl-1.png)
 
@@ -291,7 +291,7 @@ A WordPress Gutenberg editor control component that provides a TinyMCE (Tiny MCE
 
 A collection of reusable toolbar dropdown controls for WordPress Gutenberg blocks. These controls provide intuitive dropdown menus for various alignment, spacing, and formatting options.
 
-### JustifyToolbar
+### `JustifyToolbar`
 
 A toolbar dropdown for horizontal justification/alignment options.
 
@@ -299,7 +299,7 @@ A toolbar dropdown for horizontal justification/alignment options.
 
 [View Documentation →](./ToolbarDropdowns/README.md#justifytoolbar)
 
-### VerticalAlignToolbar
+### `VerticalAlignToolbar`
 
 A toolbar dropdown for vertical alignment options.
 
@@ -307,7 +307,7 @@ A toolbar dropdown for vertical alignment options.
 
 [View Documentation →](./ToolbarDropdowns/README.md#verticalaligntoolbar)
 
-### IntroAlignToolbar
+### `IntroAlignToolbar`
 
 A toolbar dropdown for intro/media positioning options.
 
@@ -315,7 +315,7 @@ A toolbar dropdown for intro/media positioning options.
 
 [View Documentation →](./ToolbarDropdowns/README.md#introaligntoolbar)
 
-### TextAlignToolbar
+### `TextAlignToolbar`
 
 A toolbar dropdown for text alignment options.
 
@@ -323,7 +323,7 @@ A toolbar dropdown for text alignment options.
 
 [View Documentation →](./ToolbarDropdowns/README.md#textaligntoolbar)
 
-### AspectRatioToolbar
+### `AspectRatioToolbar`
 
 A toolbar dropdown for media aspect ratio selection.
 
@@ -331,7 +331,7 @@ A toolbar dropdown for media aspect ratio selection.
 
 [View Documentation →](./ToolbarDropdowns/README.md#aspectratiotoolbar)
 
-### RadiusToolbar
+### `RadiusToolbar`
 
 A toolbar dropdown for border radius selection.
 
@@ -341,7 +341,7 @@ A toolbar dropdown for border radius selection.
 
 ---
 
-## TruncateControl
+## `TruncateControl`
 
 ![TruncateControl Screenshot](./_screenshots/TruncateControl-1.png)
 
@@ -351,7 +351,7 @@ A WordPress Gutenberg editor control component for setting the maximum number of
 
 ---
 
-# VideoSelect
+# `VideoSelect`
 
 A WordPress Gutenberg editor control component for selecting video files from the WordPress media library. This control displays video metadata including title, file size, length, and URL.
 
@@ -365,24 +365,9 @@ All controls are exported from the main `index.jsx` file and can be imported as 
 
 ```jsx
 import {
-  DatePicker,
-  ImageSelect,
-  PostPicker,
-  // ... other controls
+	DatePicker,
+	ImageSelect,
+	PostPicker,
+	// ... other controls
 } from '../editor-controls';
 ```
-
-## Usage
-
-Each control has its own detailed documentation with usage examples, props, and implementation details. Click the "View Documentation" link for each control to learn more.
-
-## Contributing
-
-When adding new controls to this directory:
-
-1. Create a new directory with the control name (e.g., `MyControl/`)
-2. Add an `index.jsx` file with the component implementation
-3. Create a `README.md` file documenting the control's usage and props
-4. Export the control from the main `index.jsx` file
-5. Add an entry to this README with a description and link to documentation
-

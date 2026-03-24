@@ -4,13 +4,13 @@ A WordPress Gutenberg editor control component that provides a TinyMCE (Tiny MCE
 
 ![TMCEControl Screenshot](../_screenshots/TMCEControl-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `string` | - | **Required.** HTML content of the editor |
-| `onChange` | `Function` | - | **Required.** Callback function when the content changes |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `label`    | `string`   | Yes      | Label text for the control |
+| `value`    | `string`   | Yes      | HTML content of the editor |
+| `onChange` | `function` | Yes      | Callback function when the content changes |
 
 ## Value Structure
 
@@ -36,6 +36,7 @@ The `value` prop should be HTML content:
 ## Usage
 
 ### Import
+
 ```jsx
 import { TMCEControl } from '../../editor-controls';
 ```
@@ -44,11 +45,11 @@ import { TMCEControl } from '../../editor-controls';
 
 ```jsx
 <TMCEControl
-    label="Content"
-    value={ attributes.content }
-    onChange={ ( value ) => {
-        setAttributes( { content: value } );
-    } }
+	label="Content"
+	value={ attributes.content }
+	onChange={ ( value ) => {
+		setAttributes( { content: value } );
+	} }
 />
 ```
 

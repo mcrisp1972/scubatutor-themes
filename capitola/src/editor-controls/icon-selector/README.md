@@ -4,15 +4,15 @@ A WordPress Gutenberg editor control component for selecting icons from a predef
 
 ![IconSelector Screenshot](../_screenshots/IconSelector-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | **Required.** Current selected icon slug |
-| `onChange` | `Function` | - | **Required.** Callback function when the icon value changes |
-| `label` | `string` | - | Label for the control |
-| `icons` | `Array` | - | **Required.** Array of icon objects with name and slug properties |
-| `iconPath` | `string` | - | **Required.** Path to the icon directory relative to the theme root |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `value`    | `string`   | Yes      | Current selected icon slug |
+| `onChange` | `function` | Yes      | Callback function when the icon value changes |
+| `label`    | `string`   | No       | Label for the control |
+| `icons`    | `array`    | Yes      | Array of icon objects with name and slug properties |
+| `iconPath` | `string`   | Yes      | Path to the icon directory relative to the theme root |
 
 ## Value Structure
 
@@ -28,14 +28,14 @@ The `icons` prop should be an array of objects with the following structure:
 
 ```javascript
 [
-  {
-    name: "Arrow Right",
-    slug: "arrow-right"
-  },
-  {
-    name: "Calendar",
-    slug: "calendar"
-  }
+	{
+		name: "Arrow Right",
+		slug: "arrow-right"
+	},
+	{
+		name: "Calendar",
+		slug: "calendar"
+	}
 ]
 ```
 
@@ -63,6 +63,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { IconSelector } from '../../editor-controls';
 ```
@@ -71,19 +72,19 @@ import { IconSelector } from '../../editor-controls';
 
 ```jsx
 const iconOptions = [
-  { name: "Arrow Right", slug: "arrow-right" },
-  { name: "Calendar", slug: "calendar" },
-  { name: "User", slug: "user" }
+	{ name: 'Arrow Right', slug: 'arrow-right' },
+	{ name: 'Calendar', slug: 'calendar' },
+	{ name: 'User', slug: 'user' }
 ];
 
 <IconSelector
-    label="Select Icon"
-    value={ attributes.selectedIcon }
-    onChange={ ( value ) => {
-        setAttributes( { selectedIcon: value } );
-    } }
-    icons={ iconOptions }
-    iconPath="assets/svgs/icons"
+	label="Select Icon"
+	value={ attributes.selectedIcon }
+	onChange={ ( value ) => {
+		setAttributes( { selectedIcon: value } );
+	} }
+	icons={ iconOptions }
+	iconPath="assets/svgs/icons"
 />
 ```
 
@@ -93,12 +94,12 @@ const iconOptions = [
 const availableIcons = getAvailableIcons(); // Your function to get icons
 
 <IconSelector
-    label="Button Icon"
-    value={ attributes.buttonIcon }
-    onChange={ ( value ) => {
-        setAttributes( { buttonIcon: value } );
-    } }
-    icons={ availableIcons }
-    iconPath="assets/svgs/utility"
+	label="Button Icon"
+	value={ attributes.buttonIcon }
+	onChange={ ( value ) => {
+		setAttributes( { buttonIcon: value } );
+	} }
+	icons={ availableIcons }
+	iconPath="assets/svgs/utility"
 />
 ```

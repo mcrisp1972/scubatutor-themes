@@ -8,15 +8,15 @@ A WordPress Gutenberg editor control component for selecting a single post via a
 
 ![PostPicker Screenshot](../_screenshots/PostPicker-3.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `number` | - | **Required.** ID of the selected post |
-| `onChange` | `Function` | - | **Required.** Callback function when the selection changes |
-| `postType` | `string` | - | **Required.** WordPress post type to fetch posts from (e.g., 'post', 'page', 'product') |
-| `orderBy` | `string` | `'id'` | Field to order posts by. Defaults to 'id' with descending order |
+| Property   | Type       | Required | Default | Description |
+|------------|------------|----------|---------|-------------|
+| `label`    | `string`   | Yes      |         | Label text for the control |
+| `value`    | `number`   | Yes      |         | ID of the selected post |
+| `onChange` | `function` | Yes      |         | Callback function when the selection changes |
+| `postType` | `string`   | Yes      |         | WordPress post type to fetch posts from (e.g., `'post'`, `'page'`, `'product'`) |
+| `orderBy`  | `string`   | No       | `'id'`  | Field to order posts by. Defaults to `'id'` with `'desc'` order |
 
 ## Value Structure
 
@@ -39,6 +39,7 @@ The `value` prop should be a single post ID:
 ## Usage
 
 ### Import
+
 ```jsx
 import { PostPicker } from '../../editor-controls';
 ```
@@ -47,12 +48,12 @@ import { PostPicker } from '../../editor-controls';
 
 ```jsx
 <PostPicker
-    label="Select Post"
-    value={ attributes.selectedPost }
-    onChange={ ( value ) => {
-        setAttributes( { selectedPost: value } );
-    } }
-    postType="post"
+	label="Select Post"
+	value={ attributes.selectedPost }
+	onChange={ ( value ) => {
+		setAttributes( { selectedPost: value } );
+	} }
+	postType="post"
 />
 ```
 
@@ -60,12 +61,12 @@ import { PostPicker } from '../../editor-controls';
 
 ```jsx
 <PostPicker
-    label="Select Product"
-    value={ attributes.selectedPost }
-    onChange={ ( value ) => {
-        setAttributes( { selectedPost: value } );
-    } }
-    postType="post"
-    orderBy="title"
+	label="Select Product"
+	value={ attributes.selectedPost }
+	onChange={ ( value ) => {
+		setAttributes( { selectedPost: value } );
+	} }
+	postType="post"
+	orderBy="title"
 />
 ```

@@ -3,17 +3,20 @@
 The `Term_Form` class adds custom fields to the Add Term and Edit Term forms.
 
 ## Field Appearance
+
 Fields are built using WordPress' native form structure and styles. This provides a seamless implementation of your fields into the term forms.
 
 ## Properties
+
 Before instantiating the class you'll need to build an array of properties.
 
-| Property   | Type   | Required | Description |
-|------------|--------|----------|-------------|
-| `taxonomy` | string | Yes      | WordPress taxonomy (e.g., 'category', 'post_tag') to which you want to add custom fields |
-| `fields`   | array  | Yes      | Accepts an array of field definition arrays, as described in the [Field Reference](./field-reference) doc |
+| Property   | Type     | Required | Description |
+|------------|----------|----------|-------------|
+| `taxonomy` | `string` | Yes      | WordPress taxonomy (e.g., 'category', 'post_tag') to which you want to add custom fields |
+| `fields`   | `array`  | Yes      | Accepts an array of field definition arrays, as described in the [Field Reference](./field-reference) doc |
 
 ## Predefined Fields
+
 The Capitola theme is globally setup for 2 universal term meta fields:
 - `term_thumb_id`: Defines an image ID to be used in the post fallback image system, as well as for display in term listing blocks.
 - `term_page_id`: A page ID that is used as a replacement for the term archive page (applied in the term_link filter, [/includes/term-link.php](../../term-link.php)).

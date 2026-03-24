@@ -4,12 +4,12 @@ A WordPress Gutenberg editor control component for displaying a placeholder ifra
 
 ![PlaceholderIframe Screenshot](../_screenshots/PlaceholderIframe-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `style` | `object` | `{}` | CSS styles object to apply to the placeholder icon |
-| `className` | `string` | `` | Additional className to add to the placeholder icon |
+| Propery     | Type     | Required | Description |
+|-------------|----------|----------|-------------|
+| `style`     | `object` | No       | CSS styles object to apply to the placeholder icon |
+| `className` | `string` | No       | Additional className to add to the placeholder icon |
 
 ## Default Styles
 
@@ -17,9 +17,9 @@ The component applies the following default styles that can be overridden:
 
 ```javascript
 {
-  objectFit: 'contain',
-  opacity: '0.5',
-  backgroundColor: '#CCCCCC'
+	objectFit: 'contain',
+	opacity: '0.5',
+	backgroundColor: '#CCCCCC'
 }
 ```
 
@@ -31,6 +31,7 @@ The component applies the following default styles that can be overridden:
 ## Usage
 
 ### Import
+
 ```jsx
 import { PlaceholderIframe } from '../../editor-controls';
 ```
@@ -45,11 +46,11 @@ import { PlaceholderIframe } from '../../editor-controls';
 
 ```jsx
 <PlaceholderIframe
-  style={{
-    opacity: '0.3',
-    backgroundColor: '#F0F0F0',
-    width: '48px',
-    height: '48px'
-  }}
+	style={ {
+		opacity: '0.3',
+		backgroundColor: '#F0F0F0',
+		width: '48px',
+		height: '48px'
+	} }
 />
 ```

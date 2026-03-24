@@ -6,14 +6,14 @@ A WordPress Gutenberg editor control component for editing link attributes for a
 
 ![CtaControl Screenshot](../_screenshots/CtaControl-2.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | CSS class name for the control wrapper |
-| `onChange` | `Function` | - | **Required.** Callback function when the CTA value changes |
-| `value` | `object` | - | **Required.** Current CTA object containing title and link properties |
-| `placeholder` | `string` | - | Placeholder text to display when no CTA is set. Defaults to "CTA..." |
+| Property      | Type       | Required | Default  | Description |
+|---------------|------------|----------|------------------------|
+| `className`   | `string`   | No       |          | CSS class name for the control wrapper |
+| `onChange`    | `function` | Yes      |          | Callback function when the CTA value changes |
+| `value`       | `object`   | Yes      |          | Current CTA object containing title and link properties |
+| `placeholder` | `string`   | No       | "CTA..." | Placeholder text to display when no CTA is set. Defaults to "CTA..." |
 
 ## Value Structure
 
@@ -21,12 +21,12 @@ The `value` prop should be an object with the following structure:
 
 ```javascript
 {
-  title: "Button Text",
-  link: {
-    url: "https://example.com",
-    opensInNewTab: true,
-    // ... other link properties from WordPress LinkControl
-  }
+	title: 'Button Text',
+	link: {
+		url: 'https://example.com',
+		opensInNewTab: true,
+	// ... other link properties from WordPress LinkControl
+	}
 }
 ```
 
@@ -54,6 +54,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { CtaControl } from '../../editor-controls';
 ```
@@ -62,11 +63,11 @@ import { CtaControl } from '../../editor-controls';
 
 ```jsx
 <CtaControl
-    className="block-button"
-    value={ attributes.cta }
-    onChange={ ( value ) => {
-        setAttributes( { cta: value } );
-    } }
-    placeholder="My Custom Placeholder..."
+	className="block-button"
+	value={ attributes.cta }
+	onChange={ ( value ) => {
+		setAttributes( { cta: value } );
+	} }
+	placeholder="My Custom Placeholder..."
 />
 ```
