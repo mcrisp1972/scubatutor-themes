@@ -165,21 +165,21 @@ const [ item, setItem ] = useState( '' );
 
 If this property is added, a label will be generated using label property as the content.
 
--   Type: `String`
+-   Type: `string`
 -   Required: No
 
 #### labelPosition
 
 The position of the label (`top`, `side`, or `bottom`).
 
--   Type: `String`
+-   Type: `string`
 -   Required: No
 
 #### hideLabelFromVision
 
 If true, the label will only be visible to screen readers.
 
--   Type: `Boolean`
+-   Type: `boolean`
 -   Required: No
 
 #### help
@@ -195,7 +195,7 @@ If this property is added, multiple values can be selected. The `value` passed s
 
 In most cases, it is preferable to use the `FormTokenField` or `CheckboxControl` components instead.
 
--   Type: `Boolean`
+-   Type: `boolean`
 -   Required: No
 
 #### options
@@ -205,7 +205,7 @@ An array of objects containing the following properties:
 -   `label`: (string) The label to be shown to the user.
 -   `value`: (string) The internal value used to choose the selected value. This is also the value passed to onChange when the option is selected.
 -   `disabled`: (boolean) Whether or not the option should have the disabled attribute.
--   Type: `Array`
+-   Type: `array`
 -   Required: No
 
 #### children
@@ -228,7 +228,7 @@ If multiple is false the value received is a single value with the new selected 
 
 Start opting into the new margin-free styles that will become the default in a future version.
 
--   Type: `Boolean`
+-   Type: `boolean`
 -   Required: No
 -   Default: `false`
 

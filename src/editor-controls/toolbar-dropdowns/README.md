@@ -2,107 +2,127 @@
 
 A collection of reusable toolbar dropdown controls for WordPress Gutenberg blocks. These controls provide intuitive dropdown menus for various alignment, spacing, and formatting options.
 
-## Exported Controls
+## `JustifyToolbar`
 
-### JustifyToolbar
 A toolbar dropdown for horizontal justification/alignment options.
 
 ![JustifyToolbar Screenshot](../_screenshots/JustifyToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `label` (string, optional) - Tooltip label for the dropdown (default: "Change text alignment")
-- `attribute` (string) - The attribute name to control
-- `options` (array, optional) - Available alignment options (default: `['left', 'center']`)
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default                   | Description |
+|-------------|----------|----------|---------------------------|-------------|
+| `props`     | `object` | Yes      |                           | Block props containing `attributes` and `setAttributes` |
+| `label`     | `string` | No       | `'Change text alignment'` | Tooltip label for the dropdown |
+| `attribute` | `string` | Yes      |                           | The attribute name to control |
+| `options`   | `array`  | No       | `['left', 'center']`      | Available alignment options |
+
+### Available Options:
 - `left` - Left alignment
 - `center` - Center alignment
 - `right` - Right alignment
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <JustifyToolbar
-            props={ props }
-            attribute="alignment"
-            options={ [ 'left', 'center', 'right' ] }
-            label="Change content alignment"
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<JustifyToolbar
+			props={ props }
+			attribute="alignment"
+			options={ [ 'left', 'center', 'right' ] }
+			label="Change content alignment"
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
-### VerticalAlignToolbar
+## `VerticalAlignToolbar`
+
 A toolbar dropdown for vertical alignment options.
 
 ![VerticalAlignToolbar Screenshot](../_screenshots/VerticalAlignToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `attribute` (string) - The attribute name to control
-- `label` (string, optional) - Tooltip label for the dropdown (default: "Change vertical alignment")
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default                       | Description |
+|-------------|----------|----------|-------------------------------|-------------|
+| `props`     | `object` | No       |                               | Block props containing `attributes` and `setAttributes` |
+| `attribute` | `string` | Yes      |                               | The attribute name to control |
+| `label`     | `string` | No       | `'Change vertical alignment'` | Tooltip label for the dropdown |
+
+### Alignment Options:
+
 - `top` - Top alignment
 - `center` - Center alignment
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <VerticalAlignToolbar
-            props={ props }
-            attribute="verticalAlign"
-            label="Change vertical alignment"
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<VerticalAlignToolbar
+			props={ props }
+			attribute="verticalAlign"
+			label="Change vertical alignment"
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
-### IntroAlignToolbar
+## `IntroAlignToolbar`
+
 A toolbar dropdown for intro/media positioning options.
 
 ![IntroAlignToolbar Screenshot](../_screenshots/IntroAlignToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `attribute` (string) - The attribute name to control
-- `options` (array, optional) - Available positioning options (default: `['right', 'left', 'top']`)
-- `label` (string, optional) - Tooltip label for the dropdown (default: "Change intro position")
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default                    | Description |
+|-------------|----------|----------|----------------------------|-------------|
+| `props`     | `object` | Yes      |                            | Block props containing `attributes` and `setAttributes` |
+| `attribute` | `string` | Yes      |                            | The attribute name to control |
+| `options`   | `array`  | No       | `['right', 'left', 'top']` | Available positioning options |
+| `label`     | `string` | No       | `'Change intro position'`  | Tooltip label for the dropdown |
+
+### Available Options:
+
 - `right` - Show intro on right
 - `left` - Show intro on left
 - `top` - Show intro on top
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <IntroAlignToolbar
-            props={ props }
-            attribute="introPosition"
-            options={ [ 'right', 'left', 'top' ] }
-            label="Change intro position"
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<IntroAlignToolbar
+			props={ props }
+			attribute="introPosition"
+			options={ [ 'right', 'left', 'top' ] }
+			label="Change intro position"
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
-### AspectRatioToolbar
+## `AspectRatioToolbar`
+
 A toolbar dropdown for media aspect ratio selection.
 
 ![AspectRatioToolbar Screenshot](../_screenshots/AspectRatioToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `attribute` (string) - The attribute name to control
-- `options` (array) - Available aspect ratio options
-- `label` (string, optional) - Tooltip label for the dropdown (default: "Change media aspect ratio")
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default                       | Description |
+|-------------|----------|----------|-------------------------------|-------------|
+| `props`     | `object` | Yes      |                               | Block props containing `attributes` and `setAttributes` |
+| `attribute` | `string` | Yes      |                               | The attribute name to control |
+| `options`   | `array`  | Yes      |                               | Available aspect ratio options |
+| `label`     | `string` | No       | `'Change media aspect ratio'` | Tooltip label for the dropdown |
+
+### Available Options:
+
 - `21-9` - Ultra-wide aspect ratio (21:9)
 - `16-9` - Widescreen aspect ratio (16:9)
 - `3-2` - Standard aspect ratio (3:2)
@@ -110,78 +130,91 @@ A toolbar dropdown for media aspect ratio selection.
 - `1` - Square aspect ratio (1:1)
 - `3-4` - Wide portrait aspect ratio (3:4)
 - `2-3` - Portrait aspect ratio (2:3)
-- `16-9` - Narrow portrait aspect ratio (9:16)
+- `9-16` - Narrow portrait aspect ratio (9:16)
 - `full` - Full image dimensions
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <AspectRatioToolbar
-            props={ props }
-            attribute="aspectRatio"
-            options={ [ '16-9', '4-3', '1' ] }
-            label="Change image aspect ratio"
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<AspectRatioToolbar
+			props={ props }
+			attribute="aspectRatio"
+			options={ [ '16-9', '4-3', '1' ] }
+			label="Change image aspect ratio"
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
-### RadiusToolbar
+## `RadiusToolbar`
+
 A toolbar dropdown for border radius selection.
 
 ![RadiusToolbar Screenshot](../_screenshots/RadiusToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `attribute` (string) - The attribute name to control
-- `options` (array, optional) - Available radius options (default: `['none', 'small', 'medium', 'large', 'arch']`)
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default                                        | Description |
+|-------------|----------|----------|------------------------------------------------|-------------|
+| `props`     | `object` | Yes      |                                                | Block props containing `attributes` and `setAttributes` |
+| `attribute` | `string` | Yes      |                                                | The attribute name to control |
+| `options`   | `array`  | No       | `['none', 'small', 'medium', 'large', 'arch']` | Available radius options |
+
+### Available Options:
+
 - `none` - No border radius
 - `small` - Small border radius
 - `medium` - Medium border radius
 - `large` - Large border radius
 - `arch` - Arch-shaped border radius
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <RadiusToolbar
-            props={ props }
-            attribute="borderRadius"
-            options={ [ 'none', 'small', 'medium', 'large' ] }
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<RadiusToolbar
+			props={ props }
+			attribute="borderRadius"
+			options={ [ 'none', 'small', 'medium', 'large' ] }
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
-### TextAlignToolbar
+## `TextAlignToolbar`
+
 A toolbar dropdown for text alignment options.
 
 ![TextAlignToolbar Screenshot](../_screenshots/TextAlignToolbar-1.png)
 
-**Props:**
-- `props` (object) - Block props containing `attributes` and `setAttributes`
-- `attribute` (string) - The attribute name to control
-- `options` (array, optional) - Available alignment options (default: `['left', 'center']`)
+### Properties
 
-**Available Options:**
+| Property    | Type     | Required | Default              | Description |
+|-------------|----------|----------|----------------------|-------------|
+| `props`     | `object` | Yes      |                      | Block props containing `attributes` and `setAttributes` |
+| `attribute` | `string` | Yes      |                      | The attribute name to control |
+| `options`   | `array`  | No       | `['left', 'center']` | Available alignment options |
+
+### Available Options:
+
 - `left` - Left text alignment
 - `center` - Center text alignment
 - `right` - Right text alignment
 
-**Usage:**
+### Usage
+
 ```jsx
 <BlockControls>
-    <ToolbarGroup>
-        <TextAlignToolbar
-            props={ props }
-            attribute="textAlign"
-            options={ [ 'left', 'center', 'right' ] }
-        />
-    </ToolbarGroup>
+	<ToolbarGroup>
+		<TextAlignToolbar
+			props={ props }
+			attribute="textAlign"
+			options={ [ 'left', 'center', 'right' ] }
+		/>
+	</ToolbarGroup>
 </BlockControls>
 ```
 
@@ -191,38 +224,38 @@ To use these controls in your block's toolbar, import them and add them to your 
 
 ```jsx
 import {
-    JustifyToolbar,
-    VerticalAlignToolbar,
-    AspectRatioToolbar,
-    RadiusToolbar,
-    TextAlignToolbar
+	JustifyToolbar,
+	VerticalAlignToolbar,
+	AspectRatioToolbar,
+	RadiusToolbar,
+	TextAlignToolbar
 } from '../editor-controls';
 
 // In your block's edit function
 const BlockEdit = (props) => {
-  return (
-    <>
-      <BlockControls>
-            <ToolbarGroup>
-                <JustifyToolbar
-                    props={ props }
-                    attribute="alignment"
-                    options={ [ 'left', 'center', 'right' ] }
-                />
-                <AspectRatioToolbar
-                    props={ props }
-                    attribute="aspectRatio"
-                    options={ [ '16-9', '4-3', '1' ] }
-                />
-                <RadiusToolbar
-                    props={ props }
-                    attribute="borderRadius"
-                />
-            </ToolbarGroup>
-        </BlockControls>
-      {/* Your block content */}
-    </>
-  );
+	return (
+	<>
+		<BlockControls>
+			<ToolbarGroup>
+				<JustifyToolbar
+					props={ props }
+					attribute="alignment"
+					options={ [ 'left', 'center', 'right' ] }
+				/>
+				<AspectRatioToolbar
+					props={ props }
+					attribute="aspectRatio"
+					options={ [ '16-9', '4-3', '1' ] }
+				/>
+				<RadiusToolbar
+					props={ props }
+					attribute="borderRadius"
+				/>
+			</ToolbarGroup>
+		</BlockControls>
+		{/* Your block content */}
+	</>
+	);
 };
 ```
 

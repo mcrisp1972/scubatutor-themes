@@ -4,13 +4,13 @@ A WordPress Gutenberg editor control component for selecting HTML tag elements. 
 
 ![TagSelect Screenshot](../_screenshots/TagSelect-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `string` | - | **Required.** Current selected tag value (e.g., 'div', 'h1', 'h2') |
-| `onChange` | `Function` | - | **Required.** Callback function when the tag value changes |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `label`    | `string`   | Yes      | Label text for the control |
+| `value`    | `string`   | Yes      | Current selected tag value (e.g., `'div'`, `'h1'`, `'h2'`) |
+| `onChange` | `function` | Yes      | Callback function when the tag value changes |
 
 ## Available Options
 
@@ -27,6 +27,7 @@ The control provides the following HTML tag options:
 ## Usage
 
 ### Import
+
 ```jsx
 import { TagSelect } from '../../editor-controls';
 ```
@@ -35,10 +36,10 @@ import { TagSelect } from '../../editor-controls';
 
 ```jsx
 <TagSelect
-    label="Select Tag"
-    value={ attributes.tag }
-    onChange={ ( value ) => {
-        setAttributes( { tag: value } );
-    } }
+	label="Select Tag"
+	value={ attributes.tag }
+	onChange={ ( value ) => {
+		setAttributes( { tag: value } );
+	} }
 />
 ```

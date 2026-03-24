@@ -4,15 +4,15 @@ A WordPress Gutenberg editor control component for selecting times. For use in b
 
 ![TimePicker Screenshot](../_screenshots/TimePicker-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | **Required.** Current time value in ISO format |
-| `onChange` | `Function` | - | **Required.** Callback function when the time value changes |
-| `onClear` | `Function` | - | Optional callback function to clear the selected time |
-| `label` | `string` | - | Label for the control |
-| `yearPlaceholder` | `string` | `'1972-01-01'` | Year placeholder for constructing ISO datetime string |
+| Property          | Type       | Required | Default        | Description |
+|-------------------|------------|----------|----------------|-------------|
+| `value`           | `string`   | Yes      |                | Current time value in ISO format |
+| `onChange`        | `function` | Yes      |                | Callback function when the time value changes |
+| `onClear`         | `function` | No       |                | Optional callback function to clear the selected time |
+| `label`           | `string`   | No       |                | Label for the control |
+| `yearPlaceholder` | `string`   | No       | `'1972-01-01'` | Year placeholder for constructing ISO datetime string |
 
 ## Value Structure
 
@@ -47,6 +47,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { TimePicker } from '../../editor-controls';
 ```
@@ -55,14 +56,14 @@ import { TimePicker } from '../../editor-controls';
 
 ```jsx
 <TimePicker
-    label="Event Time"
-    value={ attributes.eventTime }
-    onChange={ ( value ) => {
-        setAttributes( { eventTime: value } );
-    } }
-    onClear={ () => {
-        setAttributes( { eventTime: '' } );
-    } }
+	label="Event Time"
+	value={ attributes.eventTime }
+	onChange={ ( value ) => {
+		setAttributes( { eventTime: value } );
+	} }
+	onClear={ () => {
+		setAttributes( { eventTime: '' } );
+	} }
 />
 ```
 
@@ -70,11 +71,11 @@ import { TimePicker } from '../../editor-controls';
 
 ```jsx
 <TimePicker
-    label="Start Time"
-    value={ attributes.startTime }
-    onChange={ ( value ) => {
-        setAttributes( { startTime: value } );
-    } }
+	label="Start Time"
+	value={ attributes.startTime }
+	onChange={ ( value ) => {
+		setAttributes( { startTime: value } );
+	} }
 />
 ```
 
@@ -82,11 +83,11 @@ import { TimePicker } from '../../editor-controls';
 
 ```jsx
 <TimePicker
-    label="Meeting Time"
-    value={ attributes.meetingTime }
-    yearPlaceholder="2024-01-01"
-    onChange={ ( value ) => {
-        setAttributes( { meetingTime: value } );
-    } }
+	label="Meeting Time"
+	value={ attributes.meetingTime }
+	yearPlaceholder="2024-01-01"
+	onChange={ ( value ) => {
+		setAttributes( { meetingTime: value } );
+	} }
 />
 ```

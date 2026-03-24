@@ -4,11 +4,11 @@ A WordPress Gutenberg editor control component for displaying a loading spinner 
 
 ![LabeledSpinner Screenshot](../_screenshots/LabeledSpinner-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text to display above the spinner |
+| Property | Type     | Required | Description |
+|----------|----------|----------|-------------|
+| `label`  | `string` | Yes      | Label text to display above the spinner |
 
 ## Related Components
 
@@ -17,6 +17,7 @@ A WordPress Gutenberg editor control component for displaying a loading spinner 
 ## Usage
 
 ### Import
+
 ```jsx
 import { LabeledSpinner } from '../../editor-controls';
 ```
@@ -31,20 +32,20 @@ import { LabeledSpinner } from '../../editor-controls';
 
 ```jsx
 const { isLoading, data } = useSelect( ( select ) => {
-    return {
-        isLoading: select( 'core/data' ).isResolving( 'getItems' ),
-        data: select( 'core/data' ).getItems()
+	return {
+		isLoading: select( 'core/data' ).isResolving( 'getItems' ),
+		data: select( 'core/data' ).getItems()
     };
 } );
 
 <InspectorControls>
-    <PanelBody title="Some Title" initialOpen={ true }>
-        { isLoading ? (
-            <LabeledSpinner label="Loading items..." />
-        ) : (
-            // Render your loaded content here
-            <div>{ data.map( item => <div>{ item.name }</div> ) }</div>
-        ) }
-    </PanelBody>
+	<PanelBody title="Some Title" initialOpen={ true }>
+		{ isLoading ? (
+			<LabeledSpinner label="Loading items..." />
+		) : (
+			// Render your loaded content here
+			<div>{ data.map( item => <div>{ item.name }</div> ) }</div>
+		) }
+	</PanelBody>
 </InspectorControls>
 ```

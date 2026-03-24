@@ -4,14 +4,14 @@ A WordPress Gutenberg editor control component that provides an interface for ma
 
 ![LinkList Screenshot](../_screenshots/LinkList-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `Array` | - | **Required.** Array of link objects with structure `{ title: string, link: object }` |
-| `onChange` | `Function` | - | **Required.** Callback function called when the link list changes |
-| `linkClass` | `string` | - | Optional CSS class to apply to each link item button |
-| `disableAdd` | `boolean` | `false` | Whether to hide the "Add Link" button |
+| Property     | Type       | Required | Default | Description |
+|--------------|------------|----------|---------|-------------|
+| `value`      | `array`    | Yes      |         | Array of link objects with structure `{ title: string, link: object }` |
+| `onChange`   | `function` | Yes      |         | Callback function called when the link list changes |
+| `linkClass`  | `string`   | No       |         | Optional CSS class to apply to each link item button |
+| `disableAdd` | `boolean`  | No       | `false` | Whether to hide the "Add Link" button |
 
 ## Link Object Structure
 
@@ -19,24 +19,26 @@ Each link in the `value` array should have the following structure:
 
 ```jsx
 {
-  title: '', // Custom display text for the link
-  link: {
-    url: '',           // The URL
-    title: '',         // Link title from WordPress (if internal)
-    opensInNewTab: false, // Whether to open in new tab
-    // Additional WordPress LinkControl properties...
-  }
+	title: '', // Custom display text for the link
+	link: {
+		url: '',           // The URL
+		title: '',         // Link title from WordPress (if internal)
+		opensInNewTab: false, // Whether to open in new tab
+		// Additional WordPress LinkControl properties...
+	}
 }
 ```
 
 ## Features
 
 ### Link Display
+
 - Shows link title (custom `title` or falls back to `link.title`)
 - Displays "Link..." as placeholder for incomplete links
 - Incomplete links appear with reduced opacity (0.62)
 
 ### Edit Link Popover
+
 Each link item opens a popover with:
 - **Link Text**: Custom text field for display title
 - **Link Control**: WordPress LinkControl for URL selection with:
@@ -48,6 +50,7 @@ Each link item opens a popover with:
 - **Close**: Close the popover
 
 ### Add Link Popover
+
 When clicking "+ Add Link":
 - Same interface as edit popover
 - "Add Link" button enabled only when link has a title and URL
@@ -56,6 +59,7 @@ When clicking "+ Add Link":
 ## Usage Examples
 
 ### Import
+
 ```jsx
 import { LinkList } from '../../editor-controls';
 ```
@@ -66,11 +70,11 @@ import { LinkList } from '../../editor-controls';
 import { LinkList } from '../../editor-controls';
 
 <LinkList
-    value={ attributes.footerLinks }
-    onChange={ ( newLinks ) => {
-        setAttributes( { footerLinks: newLinks } );
-    } }
-    linkClass="custom-link-item"
+	value={ attributes.footerLinks }
+	onChange={ ( newLinks ) => {
+		setAttributes( { footerLinks: newLinks } );
+	} }
+	linkClass="custom-link-item"
 />
 ```
 
@@ -78,12 +82,12 @@ import { LinkList } from '../../editor-controls';
 
 ```jsx
 <LinkList
-    value={ attributes.socialLinks }
-    onChange={ ( newLinks ) => {
-        setAttributes( { socialLinks: newLinks } );
-    } }
-    linkClass="custom-link-item"
-    disableAdd={ attributes.socialLinks.length > 6 }
+	value={ attributes.socialLinks }
+	onChange={ ( newLinks ) => {
+		setAttributes( { socialLinks: newLinks } );
+	} }
+	linkClass="custom-link-item"
+	disableAdd={ attributes.socialLinks.length > 6 }
 />
 ```
 
@@ -91,12 +95,12 @@ import { LinkList } from '../../editor-controls';
 
 ```json
 {
-  "attributes": {
-    "linkList": {
-      "type": "array",
-      "default": []
-    }
-  }
+	"attributes": {
+		"linkList": {
+			"type": "array",
+			"default": []
+		}
+	}
 }
 ```
 
@@ -110,7 +114,7 @@ You can implement a similar validation in your render or save functions:
 
 ```jsx
 function isCompleteLink( linkItem ) {
-  return ( !! linkItem.title || !! linkItem.link.title ) && !! linkItem.link.url;
+	return ( !! linkItem.title || !! linkItem.link.title ) && !! linkItem.link.url;
 }
 
 // Filter out incomplete links before rendering

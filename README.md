@@ -1,7 +1,19 @@
-# capitola
-test
+# Capitola Theme Documentation Index
 
-test 2
+## Table of Contents
 
+### General Docs
+- [Local Environment Setup](docs/local-env-setup.md)
+- [JS Filters](docs/js-filters.md)
+- [PHP Filters](docs/php-filters.md)
 
-test 3 (test to see if this shows up)
+### Admin Forms Docs
+- [Field Reference](includes/admin-forms/docs/fields.md)
+- [Post Form](includes/admin-forms/docs/post-form.md)
+- [Registering Settings](includes/admin-forms/docs/registering-settings.md)
+- [Settings Form](includes/admin-forms/docs/settings-form.md)
+- [Term Form](includes/admin-forms/docs/term-form.md)
+- [User Form](includes/admin-forms/docs/user-form.md)
+
+### Block Editor Controls
+- [Block Editor Controls](src/editor-controls/README.md)

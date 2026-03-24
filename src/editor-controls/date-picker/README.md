@@ -8,14 +8,14 @@ A WordPress Gutenberg editor control component for selecting dates. For use in b
 
 ![DatePicker Screenshot](../_screenshots/DatePicker-3.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | **Required.** Current date value in ISO format |
-| `onChange` | `Function` | - | **Required.** Callback function when the date value changes |
-| `onClear` | `Function` | - | Optional callback function to clear the selected date |
-| `label` | `string` | - | Label for the control |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `value`    | `string`   | Yes      | Current date value in ISO format |
+| `onChange` | `function` | Yes      | Callback function when the date value changes |
+| `onClear`  | `function` | No       | Optional callback function to clear the selected date |
+| `label`    | `string`   | No       | Label for the control |
 
 ## Value Structure
 
@@ -49,6 +49,7 @@ The interface adapts based on the current state:
 ## Usage
 
 ### Import
+
 ```jsx
 import { DatePicker } from '../../editor-controls';
 ```
@@ -58,14 +59,14 @@ import { DatePicker } from '../../editor-controls';
 ```jsx
 
 <DatePicker
-    label="Event Date"
-    value={ attributes.eventDate }
-    onChange={ ( value ) => {
-        setAttributes( { eventDate: value } );
-    } }
-    onClear={ () => {
-        setAttributes( { eventDate: '' } );
-    } }
+	label="Event Date"
+	value={ attributes.eventDate }
+	onChange={ ( value ) => {
+		setAttributes( { eventDate: value } );
+	} }
+	onClear={ () => {
+		setAttributes( { eventDate: '' } );
+	} }
 />
 ```
 
@@ -73,10 +74,10 @@ import { DatePicker } from '../../editor-controls';
 
 ```jsx
 <DatePicker
-    label="Start Date"
-    value={ attributes.startDate }
-    onChange={ ( value ) => {
-        setAttributes( { startDate: value } );
-    } }
+	label="Start Date"
+	value={ attributes.startDate }
+	onChange={ ( value ) => {
+		setAttributes( { startDate: value } );
+	} }
 />
 ```

@@ -6,14 +6,15 @@ A WordPress Gutenberg editor control component for selecting locations using Goo
 
 ![GoogleMapControl Screenshot](../_screenshots/GoogleMapControl-2.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `mapsKey` | `string` | - | **Required.** Google Maps API key for authentication |
-| `value` | `object` | - | **Required.** Current location value object |
-| `onSelect` | `Function` | - | **Required.** Callback function when a location is selected |
-| `label` | `string` | - | Label for the control |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `mapsKey`  | `string`   | Yes      | Google Maps API key for authentication |
+| `value`    | `object`   | Yes      | Current location value object |
+| `onChange` | `function` | Yes      | Callback function when a location is selected |
+| `label`    | `string`   | No       | Label for the control |
+| `help`     | `string`   | No       | Help text to display below the control |
 
 ## Value Structure
 
@@ -21,9 +22,9 @@ The `value` prop should be an object with the following structure:
 
 ```javascript
 {
-  address: "123 Main St, Santa Cruz, CA 95060, USA",
-  lat: "36.9741",
-  lng: "-122.0308"
+	address: "123 Main St, Santa Cruz, CA 95060, USA",
+	lat: "36.9741",
+	lng: "-122.0308"
 }
 ```
 
@@ -69,6 +70,7 @@ To use this component, you'll need:
 ## Usage
 
 ### Import
+
 ```jsx
 import { GoogleMapControl } from '../../editor-controls';
 ```
@@ -77,12 +79,12 @@ import { GoogleMapControl } from '../../editor-controls';
 
 ```jsx
 <GoogleMapControl
-    label="Event Location"
-    mapsKey="your-google-maps-api-key"
-    value={ attributes.location }
-    onSelect={ ( location ) => {
-        setAttributes( { location } );
-    } }
+	label="Event Location"
+	mapsKey="your-google-maps-api-key"
+	value={ attributes.location }
+	onSelect={ ( location ) => {
+		setAttributes( { location } );
+	} }
 />
 ```
 
@@ -90,11 +92,11 @@ import { GoogleMapControl } from '../../editor-controls';
 
 ```jsx
 <GoogleMapControl
-    label="Store Address"
-    mapsKey={ googleMapsApiKey }
-    value={ attributes.storeLocation }
-    onSelect={ ( location ) => {
-        setAttributes( { storeLocation: location } );
-    } }
+	label="Store Address"
+	mapsKey={ googleMapsApiKey }
+	value={ attributes.storeLocation }
+	onSelect={ ( location ) => {
+		setAttributes( { storeLocation: location } );
+	} }
 />
 ```

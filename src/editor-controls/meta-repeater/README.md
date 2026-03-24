@@ -4,17 +4,17 @@ A WordPress Gutenberg editor control component for managing repeatable fields st
 
 ![MetaRepeater Screenshot](../_screenshots/MetaRepeater-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `postMeta` | `object` | - | **Required.** The post meta object |
-| `metaKey` | `string` | - | **Required.** The post meta key where the repeater data is stored |
-| `label` | `string` | - | **Required.** Singular label for each repeater row (e.g., "Item") |
-| `pluralLabel` | `string` | - | **Required.** Plural label for the entire repeater section (e.g., "Items") |
-| `fields` | `Function` | - | **Required.** Render function that receives the row index and returns the fields for that row |
-| `newObject` | `object\|string` | - | **Required.** Template for new rows. Object for structured data, string/primitive for flat data |
-| `help` | `string` | - | Optional help text displayed as a tip above the repeater |
+| Property      | Type             | Required | Description |
+|---------------|------------------|----------|-------------|
+| `postMeta`    | `object`         | Yes      | The post meta object |
+| `metaKey`     | `string`         | Yes      | The post meta key where the repeater data is stored |
+| `label`       | `string`         | Yes      | Singular label for each repeater row (e.g., "Item") |
+| `pluralLabel` | `string`         | Yes      | Plural label for the entire repeater section (e.g., "Items") |
+| `fields`      | `function`       | Yes      | Render function that receives the row index and returns the fields for that row |
+| `newObject`   | `object\|string` | Yes      | Template for new rows. Object for structured data, string/primitive for flat data |
+| `help`        | `string`         | No       | Help text displayed as a tip above the repeater |
 
 ## Data Structure
 
@@ -25,15 +25,15 @@ For complex repeating data with multiple fields:
 ```javascript
 // newObject template
 {
-    title: '',
-    description: '',
-    url: ''
+	title: '',
+	description: '',
+	url: ''
 }
 
 // Stored data structure
 [
-    { title: 'First Item', description: 'Description 1', url: 'https://example.com' },
-    { title: 'Second Item', description: 'Description 2', url: 'https://example.com/2' }
+	{ title: 'First Item', description: 'Description 1', url: 'https://example.com' },
+	{ title: 'Second Item', description: 'Description 2', url: 'https://example.com/2' }
 ]
 ```
 
@@ -65,6 +65,7 @@ Helper function for updating individual field values within a repeater row.
 ## Usage
 
 ### Import
+
 ```jsx
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl } from '@wordpress/components';
@@ -84,49 +85,49 @@ const [ postMeta, setPostMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
 ```jsx
 const newTestimonial = {
-    author: '',
-    quote: '',
-    company: ''
+	author: '',
+	quote: '',
+	company: ''
 };
 
 <InspectorControls>
-    <PanelBody title="Settings" initialOpen={ true }>
-        <MetaRepeater
-            postMeta={ postMeta }
-            metaKey="testimonials"
-            label="Testimonial"
-            pluralLabel="Testimonials"
-            newObject={ newTestimonial }
-            help="Add customer testimonials to display on this page."
-            fields={ ( index ) => {
-                return (
-                    <>
-                        <TextControl
-                            label="Author"
-                            value={ postMeta.testimonials[ index ].author }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'author' );
-                            } }
-                        />
-                        <TextareaControl
-                            label="Quote"
-                            value={ postMeta.testimonials[ index ].quote }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'quote' );
-                            } }
-                        />
-                        <TextControl
-                            label="Company"
-                            value={ postMeta.testimonials[ index ].company }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'company' );
-                            } }
-                        />
-                    </>
-                );
-            } }
-        />
-    </PanelBody>
+	<PanelBody title="Settings" initialOpen={ true }>
+		<MetaRepeater
+			postMeta={ postMeta }
+			metaKey="testimonials"
+			label="Testimonial"
+			pluralLabel="Testimonials"
+			newObject={ newTestimonial }
+			help="Add customer testimonials to display on this page."
+			fields={ ( index ) => {
+				return (
+					<>
+						<TextControl
+							label="Author"
+							value={ postMeta.testimonials[ index ].author }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'author' );
+							} }
+						/>
+						<TextareaControl
+							label="Quote"
+							value={ postMeta.testimonials[ index ].quote }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'quote' );
+							} }
+						/>
+						<TextControl
+							label="Company"
+							value={ postMeta.testimonials[ index ].company }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'testimonials', value, index, 'company' );
+							} }
+						/>
+					</>
+				);
+			} }
+		/>
+	</PanelBody>
 </InspectorControls>
 ```
 
@@ -134,27 +135,27 @@ const newTestimonial = {
 
 ```jsx
 <InspectorControls>
-    <PanelBody title="Settings" initialOpen={ true }>
-        <MetaRepeater
-            postMeta={ postMeta }
-            metaKey="bullet_points"
-            label="Bullet Point"
-            pluralLabel="Bullet Points"
-            newObject=""
-            help="Add bullet points to highlight key features."
-            fields={ ( index ) => {
-                return (
-                    <TextControl
-                        label={ `Bullet Point ${ index + 1 }` }
-                        value={ postMeta.bullet_points[ index ] }
-                        onChange={ ( value ) => {
-                            MetaRepeaterOnChange( postMeta, 'bullet_points', value, index );
-                        } }
-                    />
-                );
-            } }
-        />
-    </PanelBody>
+	<PanelBody title="Settings" initialOpen={ true }>
+		<MetaRepeater
+			postMeta={ postMeta }
+			metaKey="bullet_points"
+			label="Bullet Point"
+			pluralLabel="Bullet Points"
+			newObject=""
+			help="Add bullet points to highlight key features."
+			fields={ ( index ) => {
+				return (
+					<TextControl
+						label={ `Bullet Point ${ index + 1 }` }
+						value={ postMeta.bullet_points[ index ] }
+						onChange={ ( value ) => {
+							MetaRepeaterOnChange( postMeta, 'bullet_points', value, index );
+						} }
+					/>
+				);
+			} }
+		/>
+	</PanelBody>
 </InspectorControls>
 ```
 
@@ -162,67 +163,67 @@ const newTestimonial = {
 
 ```jsx
 const newSlide = {
-    image: '',
-    title: '',
-    subtitle: '',
-    linkUrl: '',
-    linkText: ''
+	image: '',
+	title: '',
+	subtitle: '',
+	linkUrl: '',
+	linkText: ''
 };
 
 <InspectorControls>
-    <PanelBody title="Settings" initialOpen={ true }>
-        <MetaRepeater
-            postMeta={ postMeta }
-            metaKey="hero_slides"
-            label="Slide"
-            pluralLabel="Hero Slides"
-            newObject={ newSlide }
-            fields={ ( index ) => {
-                const slide = postMeta.hero_slides[ index ];
-                return (
-                    <>
-                        <ImageSelectButton
-                            label="Slide Image"
-                            imageId={ slide.image }
-                            onSelect={ ( image ) => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', image.id, index, 'image' );
-                            } }
-                            onRemove={ () => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', '', index, 'image' );
-                            } }
-                        />
-                        <TextControl
-                            label="Title"
-                            value={ slide.title }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'title' );
-                            } }
-                        />
-                        <TextControl
-                            label="Subtitle"
-                            value={ slide.subtitle }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'subtitle' );
-                            } }
-                        />
-                        <TextControl
-                            label="Link URL"
-                            value={ slide.linkUrl }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'linkUrl' );
-                            } }
-                        />
-                        <TextControl
-                            label="Link Text"
-                            value={ slide.linkText }
-                            onChange={ ( value ) => {
-                                MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'linkText' );
-                            } }
-                        />
-                    </>
-                );
-            } }
-        />
-    </PanelBody>
+	<PanelBody title="Settings" initialOpen={ true }>
+		<MetaRepeater
+			postMeta={ postMeta }
+			metaKey="hero_slides"
+			label="Slide"
+			pluralLabel="Hero Slides"
+			newObject={ newSlide }
+			fields={ ( index ) => {
+				const slide = postMeta.hero_slides[ index ];
+				return (
+					<>
+						<ImageSelectButton
+							label="Slide Image"
+							imageId={ slide.image }
+							onSelect={ ( image ) => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', image.id, index, 'image' );
+							} }
+							onRemove={ () => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', '', index, 'image' );
+							} }
+						/>
+						<TextControl
+							label="Title"
+							value={ slide.title }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'title' );
+							} }
+						/>
+						<TextControl
+							label="Subtitle"
+							value={ slide.subtitle }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'subtitle' );
+							} }
+						/>
+						<TextControl
+							label="Link URL"
+							value={ slide.linkUrl }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'linkUrl' );
+							} }
+						/>
+						<TextControl
+							label="Link Text"
+							value={ slide.linkText }
+							onChange={ ( value ) => {
+								MetaRepeaterOnChange( postMeta, 'hero_slides', value, index, 'linkText' );
+							} }
+						/>
+					</>
+				);
+			} }
+		/>
+	</PanelBody>
 </InspectorControls>
 ```

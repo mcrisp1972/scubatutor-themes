@@ -8,14 +8,14 @@ A WordPress Gutenberg editor control component for managing links with URL and t
 
 ![LinkSelect Screenshot](../_screenshots/LinkSelect-3.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `object` | - | **Required.** Current link object containing URL and settings |
-| `onChange` | `Function` | - | **Required.** Callback function when the link value changes |
-| `onRemove` | `Function` | - | Callback function when the link is removed |
+| Property   | Type       | Required | Description |
+|------------|------------|----------|-------------|
+| `label`    | `string`   | Yes      | Label text for the control |
+| `value`    | `object`   | Yes      | Current link object containing URL and settings |
+| `onChange` | `function` | Yes      | Callback function when the link value changes |
+| `onRemove` | `function` | No       | Callback function when the link is removed |
 
 ## Value Structure
 
@@ -23,9 +23,9 @@ The `value` prop should be an object with the following structure:
 
 ```javascript
 {
-  url: "https://example.com",
-  opensInNewTab: true,
-  // ... other link properties from WordPress LinkControl
+	url: "https://example.com",
+	opensInNewTab: true,
+	// ... other link properties from WordPress LinkControl
 }
 ```
 
@@ -45,6 +45,7 @@ The `value` prop should be an object with the following structure:
 ## Usage
 
 ### Import
+
 ```jsx
 import { LinkSelect } from '../../editor-controls';
 ```
@@ -53,13 +54,13 @@ import { LinkSelect } from '../../editor-controls';
 
 ```jsx
 <LinkSelect
-    label="Select Link"
-    value={ attributes.link }
-    onChange={ ( value ) => {
-        setAttributes( { link: value } );
-    } }
-    onRemove={ () => {
-        setAttributes( { link: {} } );
-    } }
+	label="Select Link"
+	value={ attributes.link }
+	onChange={ ( value ) => {
+		setAttributes( { link: value } );
+	} }
+	onRemove={ () => {
+		setAttributes( { link: {} } );
+	} }
 />
 ```

@@ -4,15 +4,15 @@ A WordPress Gutenberg editor control component for selecting multiple taxonomy t
 
 ![TermCheckboxes Screenshot](../_screenshots/TermCheckboxes-1.png)
 
-## Props
+## Properties
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | **Required.** Label text for the control |
-| `value` | `array` | - | **Required.** Array of selected term IDs |
-| `onChange` | `Function` | - | **Required.** Callback function when the selection changes |
-| `taxonomy` | `string` | - | **Required.** WordPress taxonomy to fetch terms from (e.g., 'category', 'post_tag', 'product_cat') |
-| `orderBy` | `string` | `'name'` | Field to order terms by. Defaults to 'name' with ascending order |
+| Property   | Type       | Required | Default  | Description |
+|------------|------------|----------|----------|-------------|
+| `label`    | `string`   | Yes      |          | Label text for the control |
+| `value`    | `array`    | Yes      |          | Array of selected term IDs |
+| `onChange` | `function` | Yes      |          | Callback function when the selection changes |
+| `taxonomy` | `string`   | Yes      |          | WordPress taxonomy to fetch terms from (e.g., `'category'`, `'post_tag'`, `'product_cat'`) |
+| `orderBy`  | `string`   | No       | `'name'` | Field to order terms by. Defaults to `'name'` with `'asc'` order |
 
 ## Value Structure
 
@@ -25,6 +25,7 @@ The `value` prop should be an array of term IDs:
 ## Usage
 
 ### Import
+
 ```jsx
 import { TermCheckboxes } from '../../editor-controls';
 ```
@@ -33,12 +34,12 @@ import { TermCheckboxes } from '../../editor-controls';
 
 ```jsx
 <TermCheckboxes
-    label="Select Categories"
-    value={ attributes.selectedCategories }
-    onChange={ ( value ) => {
-        setAttributes( { selectedCategories: value } );
-    } }
-    taxonomy="category"
+	label="Select Categories"
+	value={ attributes.selectedCategories }
+	onChange={ ( value ) => {
+		setAttributes( { selectedCategories: value } );
+	} }
+	taxonomy="category"
 />
 ```
 
@@ -46,12 +47,12 @@ import { TermCheckboxes } from '../../editor-controls';
 
 ```jsx
 <TermCheckboxes
-    label="Select Product Categories"
-    value={ attributes.selectedProductCategories }
-    onChange={ ( value ) => {
-        setAttributes( { selectedProductCategories: value } );
-    } }
-    taxonomy="product_cat"
-    orderBy="count"
+	label="Select Product Categories"
+	value={ attributes.selectedProductCategories }
+	onChange={ ( value ) => {
+		setAttributes( { selectedProductCategories: value } );
+	} }
+	taxonomy="product_cat"
+	orderBy="count"
 />
 ```
