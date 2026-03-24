@@ -177,7 +177,11 @@ const GoogleMapControl = ( { label, value, onChange, mapsKey, help } ) => {
 				) }
 			</div>
 			<div className="capitola-map-control__map-outer-wrap">
-				<div className="capitola-map-control__map-wrap" ref={ mapRef } style={{display: latLng ? 'block' : 'none' }}/>
+				<div
+					className="capitola-map-control__map-wrap"
+					ref={ mapRef }
+					style={ { display: latLng ? 'block' : 'none' } }
+				/>
 				{ ! latLng && (
 					<div className="capitola-map-control__map-placeholder">
 						<Icon icon={ mapMarker } size={ '50%' } />

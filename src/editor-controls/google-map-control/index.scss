@@ -7,11 +7,11 @@
 	&__address-input {
 
 		.components-text-control__input,
-		.components-text-control__input[type=text].is-next-40px-default-size {
+		.components-text-control__input[type="text"].is-next-40px-default-size {
 			padding-right: 28px;
 
 			&:read-only {
-				opacity: .6;
+				opacity: 0.6;
 				cursor: default;
 			}
 		}
@@ -42,8 +42,12 @@
 
 		&:hover,
 		&:focus {
-			svg path {
-				stroke: var(--wp-components-color-primary, #cc1818);
+
+			svg {
+
+				path {
+					stroke: var(--wp-components-color-primary, #cc1818);
+				}
 			}
 		}
 	}
