@@ -12,7 +12,7 @@ import {
 	CtaControl,
 	PlaceholderImage,
 	TagSelect,
-	ImageAlignMatrix,
+	ImageFocalPoint,
 	OverlayOpacitySlider,
 	JustifyToolbar,
 } from '../../editor-controls';
@@ -24,7 +24,7 @@ export default function Edit( props ) {
 		introAlign,
 		backgroundImage,
 		imageOpacity,
-		imageCropPosition,
+		imageFocalPoint,
 		imageParallax,
 		eyebrow,
 		headline,
@@ -95,13 +95,15 @@ export default function Edit( props ) {
 							} );
 						} }
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ imageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { imageCropPosition: value } );
-						} }
-					/>
+					{ !! imageObject?.source_url && (
+						<ImageFocalPoint
+							image={ imageObject?.source_url }
+							value={ imageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( { imageFocalPoint: value } );
+							} }
+						/>
+					) }
 					<OverlayOpacitySlider
 						value={ imageOpacity }
 						onChange={ ( value ) => {
@@ -147,7 +149,7 @@ export default function Edit( props ) {
 				className="wp-block-capitola-cover-block__image"
 				style={ {
 					'--capitola-overlayOpacity': imageOpacity,
-					'--capitola-objectPosition': imageCropPosition,
+					'--capitola-objectPosition': imageFocalPoint,
 				} }
 			>
 				{ ( () => {

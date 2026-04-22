@@ -1,12 +1,6 @@
-import {
-	PanelBody,
-	BaseControl,
-	useBaseControlProps,
-	Button,
-	Icon,
-	Tip,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, useBaseControlProps, Button, Tip } from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
+import { chevronUp, chevronDown, trash, plus } from '@wordpress/icons';
 
 export function repeaterOnChange( attribute, key, value, index, props ) {
 	const rows = [ ...props.attributes[ attribute ] ];
@@ -28,6 +22,17 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 		}
 
 		rows.push( newObject );
+		props.setAttributes( { [ attribute ]: rows } );
+	};
+
+	const addAfter = ( index ) => {
+		let rows = [];
+		if ( typeof newObject === 'object' ) {
+			rows = [ ...props.attributes[ attribute ] ];
+		} else if ( props.attributes[ attribute ] ) {
+			rows = props.attributes[ attribute ];
+		}
+		rows.splice( index + 1, 0, { ...newObject } );
 		props.setAttributes( { [ attribute ]: rows } );
 	};
 
@@ -54,9 +59,10 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const buttonRow = ( index ) => {
 		return (
 			<div className="capitola-repeater__button-row">
-				{ deleteButton( index ) }
 				{ index !== 0 && upButton( index ) }
 				{ index !== props.attributes[ attribute ].length - 1 && downButton( index ) }
+				{ addAfterButton( index ) }
+				{ deleteButton( index ) }
 			</div>
 		);
 	};
@@ -64,42 +70,68 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const deleteButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --delete"
-				title="Delete Row"
-				onClick={ () => {
-					return removeRow( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					removeRow( index );
+					ownerDocument.activeElement?.blur();
 				} }
-			>
-				<Icon icon="no-alt" size="16px" />
-			</Button>
+				showTooltip={ true }
+				label="Delete Row"
+				icon={ trash }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 
 	const upButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --up"
-				onClick={ () => {
-					return moveUp( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					moveUp( index );
+					ownerDocument.activeElement?.blur();
 				} }
-				title="Move Up"
-			>
-				<Icon icon="arrow-up-alt2" />
-			</Button>
+				showTooltip={ true }
+				label="Move Up"
+				icon={ chevronUp }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 
 	const downButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --down"
-				onClick={ () => {
-					return moveDown( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					moveDown( index );
+					ownerDocument.activeElement?.blur();
 				} }
-				title="Move Down"
-			>
-				<Icon icon="arrow-down-alt2" />
-			</Button>
+				showTooltip={ true }
+				label="Move Down"
+				icon={ chevronDown }
+				__next40pxDefaultSize
+			/>
+		);
+	};
+
+	const addAfterButton = ( index ) => {
+		return (
+			<Button
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					addAfter( index );
+					ownerDocument.activeElement?.blur();
+				} }
+				showTooltip={ true }
+				label="Move Down"
+				icon={ plus }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 

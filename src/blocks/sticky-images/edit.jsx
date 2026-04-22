@@ -208,7 +208,7 @@ export default function Edit( props ) {
 									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
 										'--capitola-objectPosition':
-											innerBlocks[ index ].attributes.imageCropPosition,
+											innerBlocks[ index ].attributes.imageFocalPoint,
 									} }
 								>
 									{ image.source_url ? (

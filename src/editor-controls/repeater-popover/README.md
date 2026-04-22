@@ -25,7 +25,7 @@ With fields
 | `fullButton`    | `boolean`   | No       | `false` | Whether the trigger button should fill the entire parent container. This is the best option when all values will be set inside the popover instead of inline editing using RichText. |
 | `vertical`      | `boolean`   | No       | `false` | Whether to use vertical icons for the move buttons (up/down vs left/right) |
 | `onImageChange` | `function`  | No       | `false` | Callback when an image is selected |
-| `imageValue`    | `integer`   | No       | `false` | Current image ID if the onImageChange prop is set |
+| `imageValue`    | `number`    | No       | `false` | Current image ID if the onImageChange prop is set |
 | `onAddAfter`    | `function`  | No       | `false` | Callback when a row is added after the current one |
 | `allowNull`     | `boolean`   | No       | `false` | Whether to allow deleting the last remaining row |
 | `style`         | `object`    | No       |         | Custom styles for the trigger button. Especially useful for size and positioning. |

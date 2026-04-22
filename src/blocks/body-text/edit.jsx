@@ -11,7 +11,7 @@ import {
 	ImageSelect,
 	CtaControl,
 	TagSelect,
-	ImageAlignMatrix,
+	ImageFocalPoint,
 	OverlayOpacitySlider,
 	JustifyToolbar,
 	VerticalAlignToolbar,
@@ -22,7 +22,7 @@ export default function Edit( props ) {
 	const {
 		backgroundImage,
 		imageOpacity,
-		imageCropPosition,
+		imageFocalPoint,
 		verticalAlign,
 		textAlign,
 		eyebrow,
@@ -96,12 +96,12 @@ export default function Edit( props ) {
 							/>
 						) }
 						{ !! backgroundImage.id && (
-							<ImageAlignMatrix
-								label="Image Crop Position"
-								value={ imageCropPosition }
+							<ImageFocalPoint
+								image={ backgroundImage.id }
+								value={ imageFocalPoint }
 								onChange={ ( value ) => {
 									setAttributes( {
-										imageCropPosition: value,
+										imageFocalPoint: value,
 									} );
 								} }
 							/>
@@ -143,7 +143,7 @@ export default function Edit( props ) {
 					className="wp-block-capitola-body-text__bg-image"
 					style={ {
 						'--capitola-overlayOpacity': imageOpacity,
-						'--capitola-objectPosition': imageCropPosition,
+						'--capitola-objectPosition': imageFocalPoint,
 					} }
 				>
 					<img src={ backgroundImage.source_url } alt="" />

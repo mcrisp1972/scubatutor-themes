@@ -15,6 +15,7 @@ function ColorThemePanel( { props, initialOpen } ) {
 					onChange={ ( value ) => {
 						return setAttributes( { colorTheme: value } );
 					} }
+					help="Select a color theme for this block. This will apply the colors defined in the theme to this block."
 				/>
 			) }
 		</PanelBody>

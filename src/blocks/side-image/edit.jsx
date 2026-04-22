@@ -21,7 +21,6 @@ import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import {
 	ImageSelect,
-	ImageAlignMatrix,
 	ColorThemePanel,
 	AnimationPanel,
 	VerticalAlignToolbar,
@@ -29,6 +28,7 @@ import {
 	AspectRatioToolbar,
 	RadiusToolbar,
 	VideoSelect,
+	ImageFocalPoint,
 } from '../../editor-controls';
 import { Iframe } from './iframe';
 import { Video } from './video';
@@ -45,7 +45,7 @@ export default function Edit( props ) {
 		imageParallax,
 		mediaType,
 		sideImage,
-		imageCropPosition,
+		imageFocalPoint,
 		iframeCode,
 		externalImage,
 		imageUrl,
@@ -279,13 +279,14 @@ export default function Edit( props ) {
 							__nextHasNoMarginBottom
 						/>
 					) }
-					{ mediaType === 'image' && (
-						<ImageAlignMatrix
-							label="Image Crop Position"
-							value={ imageCropPosition }
+					{ mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id && (
+						<ImageFocalPoint
+							value={ imageFocalPoint }
+							image={ sideImage.id }
 							onChange={ ( value ) => {
-								setAttributes( { imageCropPosition: value } );
+								setAttributes( { imageFocalPoint: value } );
 							} }
+							help="Set the image’s main focus point."
 						/>
 					) }
 					{ imageLayout === 'inner' && verticalAlign === 'top' && (

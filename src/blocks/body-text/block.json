@@ -23,9 +23,9 @@
 			"type": "number",
 			"default": 0.5
 		},
-		"imageCropPosition": {
+		"imageFocalPoint": {
 			"type": "string",
-			"default": "center center"
+			"default": "50% 50%"
 		},
 		"verticalAlign": {
 			"type": "string",
@@ -69,7 +69,10 @@
 		},
 		"allowedBlocks": {
 			"type": "array",
-			"default": ["core/paragraph", "core/list"]
+			"default": [
+				"core/paragraph",
+				"core/list"
+			]
 		}
 	},
 	"variations": [
@@ -80,10 +83,17 @@
 				"isHeroVariation": true,
 				"headlineTag": "h1"
 			},
-			"isActive": ["isHeroVariation"]
+			"isActive": [
+				"isHeroVariation"
+			]
 		}
 	],
-	"usesContext": ["bodyTextOptions", "introAlign", "revealAnimation", "revealSection"],
+	"usesContext": [
+		"bodyTextOptions",
+		"introAlign",
+		"revealAnimation",
+		"revealSection"
+	],
 	"viewScript": "capitola-animations",
 	"style": "capitola-block-body-text",
 	"render": "file:./render.php",

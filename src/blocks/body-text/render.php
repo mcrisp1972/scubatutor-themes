@@ -44,7 +44,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
-		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageCropPosition'] ); ?>;">
+		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>

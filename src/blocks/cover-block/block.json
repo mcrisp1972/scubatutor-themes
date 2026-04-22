@@ -5,11 +5,16 @@
 	"title": "Cover Block",
 	"description": "",
 	"category": "custom-blocks",
-	"keywords": ["product"],
+	"keywords": [
+		"product"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -28,9 +33,9 @@
 			"type": "number",
 			"default": 0.5
 		},
-		"imageCropPosition": {
+		"imageFocalPoint": {
 			"type": "string",
-			"default": "center center"
+			"default": "50% 50%"
 		},
 		"imageParallax": {
 			"type": "boolean",
@@ -78,7 +83,9 @@
 				"isHeroVariation": true,
 				"headlineTag": "h1"
 			},
-			"isActive": ["isHeroVariation"]
+			"isActive": [
+				"isHeroVariation"
+			]
 		}
 	],
 	"example": {

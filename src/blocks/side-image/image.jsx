@@ -17,7 +17,7 @@ export function Image( {
 				<img
 					className={ `${ imageRatioClass } ${ radiusClass }` }
 					style={ {
-						'--capitola-objectPosition': props.attributes.imageCropPosition,
+						'--capitola-objectPosition': props.attributes.imageFocalPoint,
 					} }
 					src={ imageObject.source_url }
 					alt=""

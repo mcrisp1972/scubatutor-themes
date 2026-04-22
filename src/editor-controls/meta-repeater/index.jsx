@@ -1,13 +1,7 @@
-import {
-	PanelBody,
-	BaseControl,
-	useBaseControlProps,
-	Button,
-	Icon,
-	Tip,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, useBaseControlProps, Button, Tip } from '@wordpress/components';
 import { dispatch } from '@wordpress/data';
 import { Fragment } from '@wordpress/element';
+import { chevronUp, chevronDown, trash, plus } from '@wordpress/icons';
 
 export function MetaRepeaterOnChange( postMeta, metaKey, value, index, key ) {
 	const rows = [ ...postMeta[ metaKey ] ];
@@ -37,6 +31,17 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const addRow = () => {
 		const rows = getRowsForAdd( postMeta, metaKey, newObject );
 		rows.push( newObject );
+		dispatch( 'core/editor' ).editPost( {
+			meta: {
+				refreshRepeater: Date.now(),
+				[ metaKey ]: rows,
+			},
+		} );
+	};
+
+	const addRowAfter = ( index ) => {
+		const rows = getRowsForAdd( postMeta, metaKey, newObject );
+		rows.splice( index + 1, 0, newObject );
 		dispatch( 'core/editor' ).editPost( {
 			meta: {
 				refreshRepeater: Date.now(),
@@ -83,52 +88,79 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const buttonRow = ( index ) => {
 		return (
 			<div className="capitola-repeater__button-row">
-				{ deleteButton( index ) }
 				{ index !== 0 && upButton( index ) }
 				{ index !== postMeta[ metaKey ].length - 1 && downButton( index ) }
+				{ addAfterButton( index ) }
+				{ deleteButton( index ) }
 			</div>
+		);
+	};
+
+	const addAfterButton = ( index ) => {
+		return (
+			<Button
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					addRowAfter( index );
+					ownerDocument.activeElement?.blur();
+				} }
+				showTooltip={ true }
+				label="Add After"
+				icon={ plus }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 
 	const deleteButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --delete"
-				title="Delete Row"
-				onClick={ () => {
-					return removeRow( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					removeRow( index );
+					ownerDocument.activeElement?.blur();
 				} }
-			>
-				<Icon icon="no-alt" size="16px" />
-			</Button>
+				showTooltip={ true }
+				label="Delete Row"
+				icon={ trash }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 
 	const upButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --up"
-				onClick={ () => {
-					return moveUp( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					moveUp( index );
+					ownerDocument.activeElement?.blur();
 				} }
-				title="Move Up"
-			>
-				<Icon icon="arrow-up-alt2" />
-			</Button>
+				showTooltip={ true }
+				label="Move Up"
+				icon={ chevronUp }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 
 	const downButton = ( index ) => {
 		return (
 			<Button
-				className="capitola-repeater__button --down"
-				onClick={ () => {
-					return moveDown( index );
+				size="small"
+				onClick={ ( event ) => {
+					const { ownerDocument } = event.target;
+					moveDown( index );
+					ownerDocument.activeElement?.blur();
 				} }
-				title="Move Down"
-			>
-				<Icon icon="arrow-down-alt2" />
-			</Button>
+				showTooltip={ true }
+				label="Move Down"
+				icon={ chevronDown }
+				__next40pxDefaultSize
+			/>
 		);
 	};
 

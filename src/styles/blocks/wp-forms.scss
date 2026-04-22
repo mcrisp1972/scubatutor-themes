@@ -2,6 +2,33 @@
 
 .wpforms {
 
+	&-block {
+
+		input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]) {
+			@include text-field;
+		}
+
+		input[type="radio"] {
+			@include radio-button;
+		}
+
+		input[type="checkbox"] {
+			@include checkbox;
+		}
+
+		select {
+			@include select-field;
+		}
+
+		textarea {
+			@include textarea;
+		}
+
+		.wpforms-field-label {
+			@include form-label;
+		}
+	}
+
 	&-form {
 
 		fieldset {
@@ -17,7 +44,7 @@
 	}
 
 	&-field {
-		margin-bottom: var(--capitola-spacing-small);
+		margin-bottom: var(--wp--custom--forms--grid--v-gap);
 
 		&-container {
 			position: relative;
@@ -25,7 +52,7 @@
 
 		&-row {
 			display: flex;
-			gap: var(--capitola-spacing-small);
+			gap: var(--wp--custom--forms--grid--h-gap);
 
 			.wpforms-one-half {
 				margin-left: 0;
@@ -33,6 +60,7 @@
 		}
 
 		&-label {
+			@include form-label;
 			display: block;
 
 			&-inline {
@@ -41,6 +69,7 @@
 		}
 
 		&-sublabel {
+			@include form-label;
 			display: block;
 			font-weight: 400 !important;
 		}
@@ -133,6 +162,9 @@
 		&-checkbox {
 
 			ul {
+				display: flex;
+				flex-direction: column;
+				gap: var(--wp--custom--forms--radio-cb--list-gap);
 				list-style-type: none;
 				padding: 0;
 				margin: 0;
@@ -140,7 +172,7 @@
 				li {
 					display: flex;
 					align-items: center;
-					gap: var(--capitola-spacing-xsmall);
+					gap: var(--wp--custom--forms--radio-cb--label--margin-left);
 				}
 			}
 		}
@@ -184,6 +216,7 @@
 
 	&-label,
 	&-sublabel {
+		@include form-label;
 
 		&-hide {
 			position: absolute;
@@ -202,6 +235,10 @@
 		input {
 			width: 100%;
 		}
+	}
+
+	&-submit {
+		@include submit-button;
 	}
 
 	@include mq("small") {

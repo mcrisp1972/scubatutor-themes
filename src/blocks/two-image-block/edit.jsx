@@ -18,7 +18,7 @@ import {
 } from '@wordpress/components';
 import {
 	ImageSelect,
-	ImageAlignMatrix,
+	ImageFocalPoint,
 	ColorThemePanel,
 	AnimationPanel,
 	PlaceholderImage,
@@ -38,14 +38,14 @@ export default function Edit( props ) {
 		rearImage,
 		rearImageHeight,
 		rearImageWidth,
-		rearImageCropPosition,
+		rearImageFocalPoint,
 		rearImageRadius,
 		rearImageShowCaption,
 		rearImageCaption,
 		frontImage,
 		frontImageHeight,
 		frontImageWidth,
-		frontImageCropPosition,
+		frontImageFocalPoint,
 		frontImageRadius,
 		frontImageShowCaption,
 		frontImageCaption,
@@ -159,13 +159,15 @@ export default function Edit( props ) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ rearImageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { rearImageCropPosition: value } );
-						} }
-					/>
+					{ !! rearImage?.source_url && (
+						<ImageFocalPoint
+							image={ rearImage.source_url }
+							value={ rearImageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( { rearImageFocalPoint: value } );
+							} }
+						/>
+					) }
 					<RadioControl
 						label="Image Position"
 						selected={ rearImagePosition }
@@ -242,15 +244,18 @@ export default function Edit( props ) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ frontImageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( {
-								frontImageCropPosition: value,
-							} );
-						} }
-					/>
+					{ !! frontImage?.source_url && (
+						<ImageFocalPoint
+							image={ frontImage.source_url }
+							value={ frontImageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( {
+									frontImageFocalPoint: value,
+								} );
+							} }
+							help="Set the image’s main focus point."
+						/>
+					) }
 					<RadioControl
 						label="Image Position"
 						selected={ rearImagePosition }
@@ -336,7 +341,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': rearImageHeight,
 							'--image-width': rearImageWidth,
-							'--capitola-objectPosition': rearImageCropPosition,
+							'--capitola-objectPosition': rearImageFocalPoint,
 						} }
 					>
 						{ rearImage?.source_url ? (
@@ -369,7 +374,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': frontImageHeight,
 							'--image-width': frontImageWidth,
-							'--capitola-objectPosition': frontImageCropPosition,
+							'--capitola-objectPosition': frontImageFocalPoint,
 						} }
 					>
 						{ frontImage?.source_url ? (

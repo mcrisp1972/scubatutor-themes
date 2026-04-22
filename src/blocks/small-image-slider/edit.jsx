@@ -103,6 +103,7 @@ export default function Edit( props ) {
 						navigation={ {
 							nextEl: navigationNextRef.current,
 							prevEl: navigationPrevRef.current,
+							addIcons: false,
 						} }
 						onSlideChange={ ( swiper ) => {
 							setSwiperIndex( swiper.activeIndex );

@@ -5,11 +5,16 @@
 	"title": "Background Image with Content Box",
 	"description": "",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"links"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -28,9 +33,9 @@
 				"source_url": ""
 			}
 		},
-		"imageCropPosition": {
+		"imageFocalPoint": {
 			"type": "string",
-			"default": "center center"
+			"default": "50% 50%"
 		},
 		"imageParallax": {
 			"type": "boolean",
@@ -78,11 +83,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [

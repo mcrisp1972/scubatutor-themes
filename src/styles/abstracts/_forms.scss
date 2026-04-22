@@ -2,37 +2,34 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-@mixin base-field() {
+$field-border: var(--wp--custom--forms--field--border--width) solid var(--wp--custom--forms--field--border--color);
+$focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--custom--forms--field--focus-shadow-color);
+
+@mixin base-field {
 	font: {
-		family: var(--wp--preset--font-family--primary);
-		size: 1rem;
+		family: var(--wp--custom--forms--field--font--family);
+		size: var(--wp--custom--forms--field--font--size);
 	}
-	letter-spacing: $letter-spacing-form-fields;
+	line-height: var(--wp--custom--forms--field--line-height);
 	margin: 0;
-	color: var(--capitola-color-body);
-	border: 1px solid var(--capitola-color-body);
-	border-radius: $radius-small;
-	line-height: 1.5;
+	color: var(--wp--custom--forms--field--color);
+	border: $field-border;
+	border-radius: var(--wp--custom--forms--field--border--radius);
 	outline: none;
-	padding: {
-		top: var(--capitola-spacing-xxsmall);
-		left: var(--capitola-spacing-xsmall);
-		bottom: var(--capitola-spacing-xxsmall);
-		right: var(--capitola-spacing-xsmall);
-	}
-	transition: box-shadow $transition;
-	background-color: transparent;
+	padding: var(--wp--custom--forms--field--padding);
+	transition: var(--wp--custom--forms--field--transition);
+	background: var(--wp--custom--forms--field--background);
 	@content;
 
 	&::placeholder {
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--forms--field--color);
 		opacity: 0.7;
 	}
 
 	&:focus,
 	&:hover,
 	&:active {
-		box-shadow: 0 0 0 1px var(--capitola-color-body);
+		box-shadow: $focus-shadow;
 	}
 
 	&:user-invalid {
@@ -49,17 +46,17 @@
 }
 
 @mixin form-label {
-	line-height: line-height(24px, 12px);
+	line-height: var(--wp--custom--forms--label--line-height);
 	font: {
-		weight: 700;
-		size: to-rem(12px);
+		weight: var(--wp--custom--forms--label--font--weight);
+		size: var(--wp--custom--forms--label--font--size);
 	}
-	letter-spacing: 0.08rem;
-	color: var(--capitola-color-body);
+	letter-spacing: var(--wp--custom--forms--label--letter-spacing);
+	color: var(--wp--custom--forms--label--color);
 }
 
-@mixin text-field() {
-	@include base-field() {
+@mixin text-field {
+	@include base-field {
 		max-width: 100%;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -72,18 +69,18 @@
 	}
 }
 
-@mixin radio-button() {
+@mixin radio-button {
 	display: inline-flex;
 	position: relative;
-	border: 1px solid var(--capitola-color-body);
+	border: $field-border;
 	outline: none;
-	transition: box-shadow $transition;
+	transition: var(--wp--custom--forms--field--transition);
 	-webkit-appearance: none;
 	appearance: none;
 	margin: 0;
 	cursor: pointer;
-	width: 18px;
-	height: 18px;
+	width: var(--wp--custom--forms--radio-cb--input-size);
+	height: var(--wp--custom--forms--radio-cb--input-size);
 	border-radius: 50%;
 	align-items: center;
 	justify-content: center;
@@ -93,23 +90,18 @@
 	&::before {
 		content: "";
 		display: block;
-		width: 70%;
-		height: 70%;
+		width: 8px;
+		height: 8px;
 		transform: scale(0);
-		background-color: var(--capitola-color-body);
-		mask: {
-			image: url("#{$image_path}symbols/fa-circle.svg");
-			repeat: no-repeat;
-			position: center;
-			size: contain;
-		}
+		background: var(--wp--custom--forms--field--color);
+		border-radius: 50%;
 		transition: transform $transition;
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: 0 0 0 1px var(--capitola-color-body);
+		box-shadow: $focus-shadow;
 	}
 
 	&:checked::before {
@@ -117,32 +109,41 @@
 	}
 }
 
-@mixin checkbox() {
+@mixin radio-cb-label {
+	font: {
+		weight: var(--wp--custom--forms--radio-cb--label--font-weight);
+		size: var(--wp--custom--forms--radio-cb--label--font-size);
+	}
+	line-height: var(--wp--custom--forms--radio-cb--label--line-height);
+	text-transform: none;
+	letter-spacing: var(--wp--custom--forms--radio-cb--label--letter-spacing);
+	color: var(--wp--custom--forms--radio-cb--label--color);
+}
+
+@mixin checkbox {
 	display: inline-flex;
 	position: relative;
+	align-items: center;
+	justify-content: center;
 	-webkit-appearance: none;
 	appearance: none;
 	margin: 0;
-	color: currentcolor;
-	width: 18px;
-	height: 18px;
-	border: 1px solid var(--capitola-color-body);
-	border-radius: $radius-small;
-	vertical-align: middle;
+	width: var(--wp--custom--forms--radio-cb--input-size);
+	height: var(--wp--custom--forms--radio-cb--input-size);
+	border: $field-border;
+	border-radius: var(--wp--custom--forms--field--border--radius);
 	cursor: pointer;
-	align-items: center;
-	justify-content: center;
 	padding: 0;
-	transition: box-shadow $transition;
+	transition: var(--wp--custom--forms--field--transition);
 	@content;
 
 	&::before {
 		content: "";
 		display: block;
-		width: 80%;
-		height: 80%;
+		width: 10px;
+		height: 10px;
 		transform: scale(0);
-		background: var(--capitola-color-body);
+		background: var(--wp--custom--forms--field--color);
 		mask: url("#{$image_path}symbols/fa-check.svg") center / contain no-repeat;
 		transition: transform $transition;
 	}
@@ -150,7 +151,7 @@
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: 0 0 0 1px var(--capitola-color-body);
+		box-shadow: $focus-shadow;
 	}
 
 	&:checked {
@@ -161,9 +162,8 @@
 	}
 }
 
-@mixin select-field() {
-	@include base-field() {
-		display: inline-block;
+@mixin select-field {
+	@include base-field {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
@@ -186,7 +186,7 @@
 }
 
 @mixin textarea {
-	@include base-field() {
+	@include base-field {
 		display: block;
 		width: 100%;
 		outline: 0;
@@ -195,7 +195,7 @@
 	}
 }
 
-@mixin submit-button() {
+@mixin submit-button {
 	display: inline-block;
 	-webkit-appearance: none;
 	font: {

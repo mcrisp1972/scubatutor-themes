@@ -6,7 +6,7 @@ export { default as DatePicker } from './date-picker';
 export { default as DateTimePicker } from './date-time-picker';
 export { default as GoogleMapControl } from './google-map-control';
 export { default as IconSelector } from './icon-selector';
-export { default as ImageAlignMatrix } from './image-align-matrix';
+export { default as ImageFocalPoint } from './image-focal-point';
 export { default as ImageSelect } from './image-select';
 export { default as ImageSelectButton } from './image-select-button';
 export { default as LabeledSpinner } from './labeled-spinner';

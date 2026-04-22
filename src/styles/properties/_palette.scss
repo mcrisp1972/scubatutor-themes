@@ -14,13 +14,17 @@
 	--capitola-color-accent: var(--wp--preset--color--crimson-bolt);
 	--capitola-color-button: var(--wp--preset--color--crimson-bolt);
 	--capitola-color-button-text: var(--wp--preset--color--white);
-
 	--capitola-color-tile-background: var(--wp--preset--color--black);
 	--capitola-color-tile-body: var(--wp--preset--color--white);
 	--capitola-color-tile-primary: var(--wp--preset--color--crimson-bolt);
 
 	.--theme-default-dark,
 	[data-theme="default-dark"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-body: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--black);
 		--capitola-color-accent: var(--wp--preset--color--cherry-pop);
@@ -29,7 +33,6 @@
 		--capitola-color-link-hover: var(--wp--preset--color--white);
 		--capitola-color-button: var(--wp--preset--color--cherry-pop);
 		--capitola-color-button-text: var(--wp--preset--color--black);
-
 		--capitola-color-tile-background: var(--wp--preset--color--white);
 		--capitola-color-tile-primary: var(--wp--preset--color--crimson-bolt);
 		--capitola-color-tile-body: var(--wp--preset--color--black);
@@ -37,6 +40,11 @@
 
 	.--theme-summer-splash-light,
 	[data-theme="summer-splash-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--atlantic-ink);
@@ -45,7 +53,6 @@
 		--capitola-color-link-hover: var(--wp--preset--color--black);
 		--capitola-color-button: var(--wp--preset--color--atlantic-ink);
 		--capitola-color-button-text: var(--wp--preset--color--white);
-
 		--capitola-color-tile-background: var(--wp--preset--color--atlantic-ink);
 		--capitola-color-tile-primary: var(--wp--preset--color--icy-breeze);
 		--capitola-color-tile-body: var(--wp--preset--color--white);
@@ -53,6 +60,11 @@
 
 	.--theme-summer-splash,
 	[data-theme="summer-splash"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--icy-breeze);
 		--capitola-color-accent: var(--wp--preset--color--atlantic-ink);
 		--capitola-color-headline: var(--wp--preset--color--atlantic-ink);
@@ -68,6 +80,11 @@
 
 	.--theme-deep-blue-light,
 	[data-theme="deep-blue-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--midnight-abyss);
@@ -76,7 +93,6 @@
 		--capitola-color-link-hover: var(--wp--preset--color--black);
 		--capitola-color-button: var(--wp--preset--color--midnight-abyss);
 		--capitola-color-button-text: var(--wp--preset--color--white);
-
 		--capitola-color-tile-background: var(--wp--preset--color--midnight-abyss);
 		--capitola-color-tile-primary: var(--wp--preset--color--sky-breeze);
 		--capitola-color-tile-body: var(--wp--preset--color--white);
@@ -84,6 +100,11 @@
 
 	.--theme-deep-blue,
 	[data-theme="deep-blue"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--midnight-abyss);
 		--capitola-color-headline: var(--wp--preset--color--sky-breeze);
 		--capitola-color-link: var(--wp--preset--color--sky-breeze);
@@ -92,7 +113,6 @@
 		--capitola-color-button: var(--wp--preset--color--sky-breeze);
 		--capitola-color-body: var(--wp--preset--color--white);
 		--capitola-color-button-text: var(--wp--preset--color--midnight-abyss);
-
 		--capitola-color-tile-background: var(--wp--preset--color--sky-breeze);
 		--capitola-color-tile-primary: var(--wp--preset--color--midnight-abyss);
 		--capitola-color-tile-body: var(--wp--preset--color--black);
@@ -100,6 +120,11 @@
 
 	.--theme-middle-eastern-light,
 	[data-theme="middle-eastern-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--crimson-velvet);
@@ -108,7 +133,6 @@
 		--capitola-color-link-hover: var(--wp--preset--color--black);
 		--capitola-color-button: var(--wp--preset--color--crimson-velvet);
 		--capitola-color-button-text: var(--wp--preset--color--white);
-
 		--capitola-color-tile-background: var(--wp--preset--color--crimson-velvet);
 		--capitola-color-tile-primary: var(--wp--preset--color--sunbeam-cream);
 		--capitola-color-tile-body: var(--wp--preset--color--white);
@@ -116,6 +140,11 @@
 
 	.--theme-middle-eastern,
 	[data-theme="middle-eastern"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--sunbeam-cream);
 		--capitola-color-accent: var(--wp--preset--color--crimson-velvet);
 		--capitola-color-headline: var(--wp--preset--color--crimson-velvet);
@@ -131,6 +160,11 @@
 
 	.--theme-red-beanie-light,
 	[data-theme="red-beanie-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--cherry-blaze);
@@ -146,6 +180,11 @@
 
 	.--theme-red-beanie,
 	[data-theme="red-beanie"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--cherry-blaze);
 		--capitola-color-accent: var(--wp--preset--color--golden-cream);
 		--capitola-color-headline: var(--wp--preset--color--golden-cream);
@@ -161,6 +200,11 @@
 
 	.--theme-pomegranate-light,
 	[data-theme="pomegranate-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--burnt-sienna);
@@ -176,6 +220,11 @@
 
 	.--theme-pomegranate,
 	[data-theme="pomegranate"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--burnt-sienna);
 		--capitola-color-accent: var(--wp--preset--color--vanilla-dream);
 		--capitola-color-headline: var(--wp--preset--color--vanilla-dream);
@@ -191,6 +240,11 @@
 
 	.--theme-dawn-light,
 	[data-theme="dawn-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--midnight-blue);
@@ -206,6 +260,11 @@
 
 	.--theme-dawn,
 	[data-theme="dawn"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--midnight-blue);
 		--capitola-color-accent: var(--wp--preset--color--golden-amber);
 		--capitola-color-headline: var(--wp--preset--color--golden-amber);
@@ -221,6 +280,11 @@
 
 	.--theme-pulp-slices-light,
 	[data-theme="pulp-slices-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--forest-pine);
@@ -236,6 +300,11 @@
 
 	.--theme-pulp-slices,
 	[data-theme="pulp-slices"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--soft-peach);
 		--capitola-color-accent: var(--wp--preset--color--forest-fern);
 		--capitola-color-headline: var(--wp--preset--color--forest-fern);
@@ -251,6 +320,11 @@
 
 	.--theme-geometry-light,
 	[data-theme="geometry-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--ocean-depth);
@@ -266,6 +340,11 @@
 
 	.--theme-geometry,
 	[data-theme="geometry"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--ocean-depth);
 		--capitola-color-accent: var(--wp--preset--color--vanilla-lace);
 		--capitola-color-headline: var(--wp--preset--color--vanilla-lace);
@@ -281,6 +360,11 @@
 
 	.--theme-salmon-light,
 	[data-theme="salmon-light"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
+		--wp--custom--forms--label--color: var(--wp--preset--color--black);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
 		--capitola-color-body: var(--wp--preset--color--black);
 		--capitola-color-background: var(--wp--preset--color--white);
 		--capitola-color-accent: var(--wp--preset--color--olive-shade);
@@ -296,6 +380,11 @@
 
 	.--theme-salmon,
 	[data-theme="salmon"] {
+		--wp--custom--forms--field--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
+		--wp--custom--forms--label--color: var(--wp--preset--color--white);
+		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
 		--capitola-color-background: var(--wp--preset--color--olive-shade);
 		--capitola-color-accent: var(--wp--preset--color--golden-sand);
 		--capitola-color-headline: var(--wp--preset--color--golden-sand);

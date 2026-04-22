@@ -5,15 +5,12 @@ import {
 	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
-import { ImageAlignMatrix, ImageSelectButton } from '../../editor-controls';
+import { ImageFocalPoint, ImageSelectButton } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected, context } = props;
-
-	const { sideImage, imageCropPosition, showCaption, captionOverride } = attributes;
-
+	const { sideImage, imageFocalPoint, showCaption, captionOverride } = attributes;
 	const { showFullImage } = context;
-
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		useBlockProps( {
 			className: 'wp-block-capitola-sticky-images__body-section',
@@ -48,12 +45,12 @@ export default function Edit( props ) {
 							__nextHasNoMarginBottom
 						/>
 					) }
-					{ ! showFullImage && (
-						<ImageAlignMatrix
-							label="Image Crop Position"
-							value={ imageCropPosition }
+					{ ! showFullImage && !! sideImage?.source_url && (
+						<ImageFocalPoint
+							image={ sideImage?.source_url }
+							value={ imageFocalPoint }
 							onChange={ ( value ) => {
-								setAttributes( { imageCropPosition: value } );
+								setAttributes( { imageFocalPoint: value } );
 							} }
 						/>
 					) }
@@ -61,7 +58,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<div
 				className="wp-block-capitola-sticky-images__mobile-imageratio"
-				style={ { '--capitola-objectPosition': imageCropPosition } }
+				style={ { '--capitola-objectPosition': imageFocalPoint } }
 			>
 				{ sideImage.source_url ? (
 					<>
