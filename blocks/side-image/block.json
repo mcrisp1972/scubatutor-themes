@@ -77,9 +77,9 @@
         "source_url": ""
       }
     },
-    "imageCropPosition": {
+    "imageFocalPoint": {
       "type": "string",
-      "default": "center center"
+      "default": "50% 50%"
     },
     "iframeCode": {
       "type": "string",

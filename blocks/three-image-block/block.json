@@ -95,17 +95,17 @@
       "type": "integer",
       "default": 11
     },
-    "rearImageCropPosition": {
+    "rearImageFocalPoint": {
       "type": "string",
-      "default": "center center"
+      "default": "50% 50%"
     },
-    "middleImageCropPosition": {
+    "middleImageFocalPoint": {
       "type": "string",
-      "default": "center center"
+      "default": "50% 50%"
     },
-    "frontImageCropPosition": {
+    "frontImageFocalPoint": {
       "type": "string",
-      "default": "center center"
+      "default": "50% 50%"
     },
     "rearImageRadius": {
       "type": "string",

@@ -323,9 +323,9 @@ return array(
 					'source_url' => ''
 				)
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'imageParallax' => array(
 				'type' => 'boolean',
@@ -449,9 +449,9 @@ return array(
 				'type' => 'number',
 				'default' => 0.5
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'verticalAlign' => array(
 				'type' => 'string',
@@ -576,9 +576,9 @@ return array(
 				'type' => 'number',
 				'default' => 0.5
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'imageParallax' => array(
 				'type' => 'boolean',
@@ -3335,9 +3335,9 @@ return array(
 					'source_url' => ''
 				)
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'iframeCode' => array(
 				'type' => 'string',
@@ -3965,7 +3965,7 @@ return array(
 				'type' => 'boolean',
 				'default' => false
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
 				'default' => 'center center'
 			),
@@ -4081,9 +4081,9 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'imageCropPosition' => array(
+			'imageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'bodyTextOptions' => array(
 				'type' => 'object',
@@ -4560,17 +4560,17 @@ return array(
 				'type' => 'integer',
 				'default' => 11
 			),
-			'rearImageCropPosition' => array(
+			'rearImageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
-			'middleImageCropPosition' => array(
+			'middleImageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
-			'frontImageCropPosition' => array(
+			'frontImageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'rearImageRadius' => array(
 				'type' => 'string',
@@ -4925,9 +4925,9 @@ return array(
 				'type' => 'integer',
 				'default' => 16
 			),
-			'rearImageCropPosition' => array(
+			'rearImageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'rearImageRadius' => array(
 				'type' => 'string',
@@ -4956,9 +4956,9 @@ return array(
 				'type' => 'integer',
 				'default' => 11
 			),
-			'frontImageCropPosition' => array(
+			'frontImageFocalPoint' => array(
 				'type' => 'string',
-				'default' => 'center center'
+				'default' => '50% 50%'
 			),
 			'frontImageRadius' => array(
 				'type' => 'string',

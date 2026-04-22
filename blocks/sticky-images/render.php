@@ -24,7 +24,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="wp-block-capitola-sticky-images__image-column" style="--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
-					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageCropPosition'] ); ?>;">
+					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageFocalPoint'] ); ?>;">
 						<?php echo wp_get_attachment_image( $image['id'], 'large' ); ?>
 						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php

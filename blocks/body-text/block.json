@@ -23,9 +23,9 @@
       "type": "number",
       "default": 0.5
     },
-    "imageCropPosition": {
+    "imageFocalPoint": {
       "type": "string",
-      "default": "center center"
+      "default": "50% 50%"
     },
     "verticalAlign": {
       "type": "string",

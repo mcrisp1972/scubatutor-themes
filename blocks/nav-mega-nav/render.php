@@ -26,7 +26,7 @@ if ( 'post-type' === $attributes['populationMethod'] ) {
 			'post_type'      => $attributes['link']['type'],
 			'posts_per_page' => 40,
 			'orderby'        => 'menu_order',
-			'order'          => 'asc',
+			'order'          => 'ASC',
 			'post_parent'    => $attributes['link']['id'],
 		)
 	);
