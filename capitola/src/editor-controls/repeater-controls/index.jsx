@@ -1,5 +1,14 @@
-import { Button, Icon } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import {
+	chevronUp,
+	chevronDown,
+	chevronLeft,
+	chevronRight,
+	trash,
+	plus,
+	image,
+} from '@wordpress/icons';
 
 function RepeaterControls( {
 	props,
@@ -36,57 +45,44 @@ function RepeaterControls( {
 	function DeleteButton() {
 		return (
 			<Button
-				className="capitola-repeater-controls__button --delete"
-				title="Delete Row"
+				size="small"
+				showTooltip={ true }
+				label="Delete Item"
 				onClick={ () => {
 					return removeRow( index );
 				} }
-			>
-				<Icon icon="trash" size="16px" />
-			</Button>
+				icon={ trash }
+				__next40pxDefaultSize
+			/>
 		);
 	}
 
 	function MoveBeforeButton() {
 		return (
 			<Button
-				className="capitola-repeater-controls__button --up"
+				size="small"
+				showTooltip={ true }
+				label={ `Move ${ vertical ? 'Up' : 'Left' }` }
 				onClick={ () => {
 					return moveBefore( index );
 				} }
-				title={ `Move ${ vertical ? 'Up' : 'Left' }` }
-			>
-				<Icon icon={ `arrow-${ vertical ? 'up' : 'left' }-alt2` } />
-			</Button>
+				icon={ vertical ? chevronUp : chevronLeft }
+				__next40pxDefaultSize
+			/>
 		);
 	}
 
 	function MoveAfterButton() {
 		return (
 			<Button
-				className="capitola-repeater-controls__button --down"
+				size="small"
+				showTooltip={ true }
+				label={ `Move ${ vertical ? 'Down' : 'Right' }` }
 				onClick={ () => {
 					return moveAfter( index );
 				} }
-				title={ `Move ${ vertical ? 'Down' : 'Right' }` }
-			>
-				<Icon icon={ `arrow-${ vertical ? 'down' : 'right' }-alt2` } />
-			</Button>
-		);
-	}
-
-	function AddBeforeButton() {
-		return (
-			<Button
-				className={ `capitola-repeater-controls__button --add-before ${
-					vertical ? '--vertical' : ''
-				}` }
-				onClick={ () => {
-					const rows = [ ...props.attributes[ attribute ] ];
-					rows.splice( index, 0, { ...newValues } );
-					props.setAttributes( { [ attribute ]: rows } );
-				} }
-				title="Add Before"
+				icon={ vertical ? chevronDown : chevronRight }
+				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -94,9 +90,9 @@ function RepeaterControls( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-controls__button --add-after ${
-					vertical ? '--vertical' : ''
-				}` }
+				size="small"
+				showTooltip={ true }
+				label="Add After"
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );
@@ -105,7 +101,8 @@ function RepeaterControls( {
 						onAddAfter();
 					}
 				} }
-				title="Add After"
+				icon={ plus }
+				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -120,12 +117,13 @@ function RepeaterControls( {
 					render={ ( { open } ) => {
 						return (
 							<Button
-								className="capitola-repeater-controls__button --image"
+								size="small"
+								showTooltip={ true }
+								label="Set Image"
 								onClick={ open }
-								title="Set Image"
-							>
-								<Icon icon="format-image" />
-							</Button>
+								icon={ image }
+								__next40pxDefaultSize
+							/>
 						);
 					} }
 				/>
@@ -138,7 +136,6 @@ function RepeaterControls( {
 			{ ( allowNull || props.attributes[ attribute ].length > 1 ) && <DeleteButton /> }
 			{ index !== 0 && <MoveBeforeButton /> }
 			{ index !== props.attributes[ attribute ].length - 1 && <MoveAfterButton /> }
-			<AddBeforeButton />
 			<AddAfterButton />
 			{ onImageChange ? <ImageButton /> : null }
 		</div>

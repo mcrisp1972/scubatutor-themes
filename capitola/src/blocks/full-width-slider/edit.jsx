@@ -175,6 +175,7 @@ export default function Edit( props ) {
 							navigation={ {
 								nextEl: navigationNextRef.current,
 								prevEl: navigationPrevRef.current,
+								addIcons: false,
 							} }
 							pagination={ {
 								el: paginationRef.current,

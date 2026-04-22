@@ -14,7 +14,7 @@ A WordPress Gutenberg editor control component that provides a toolbar interface
 | `newValues`     | any        | Yes      |         | Default values for new rows |
 | `vertical`      | `boolean`  | No       | `false` | Whether to use vertical icons for the move buttons (up/down vs left/right) |
 | `onImageChange` | `function` | No       | `false` | Callback when an image is selected |
-| `imageValue`    | `integer`  | No       | `false` | Current image ID if the `onImageChange` prop is set |
+| `imageValue`    | `number`   | No       | `false` | Current image ID if the `onImageChange` prop is set |
 | `onAddAfter`    | `function` | No       | `false` | Callback when a row is added after the current one |
 | `allowNull`     | `boolean`  | No       | `false` | Whether to allow deleting the last remaining row |
 | `style`         | `object`   | No       |         | Custom styles for the controls container |
@@ -38,8 +38,7 @@ The component renders several action buttons based on the current context:
 
 ### Add Buttons
 
-- **Add Before**: Inserts a new row before the current one
-- **Add After**: Inserts a new row after the current one
+- **Add After**: Inserts a new item after the current one
 
 ### Image Button
 

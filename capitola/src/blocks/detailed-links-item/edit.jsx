@@ -1,8 +1,14 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { PanelBody, SelectControl, TextControl, TextareaControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	TextControl,
+	TextareaControl,
+	Spinner,
+} from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
-import { PostPicker, ImageSelect } from '../../editor-controls';
+import { PostPicker, ImageSelect, PlaceholderImage } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, context } = props;
@@ -18,26 +24,16 @@ export default function Edit( props ) {
 		[ postType, postId ]
 	);
 
-	const imageObject = useSelect(
-		( select ) => {
-			if ( linkImage.source_url ) {
-				return linkImage;
-			}
-			return context.showImage && linkImage
-				? select( 'core' ).getEntityRecord( 'postType', 'attachment', linkImage )
-				: undefined;
-		},
-		[ linkImage, context.showImage ]
-	);
-
-	const imageUrl = imageObject ? imageObject.source_url : linkObj?.thumbnail_urls?.thumbnail;
+	const imageUrl = !! linkImage.source_url
+		? linkImage.source_url
+		: linkObj?.thumbnail_urls?.thumbnail;
 
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
 				<PanelBody title="Link Details" initialOpen={ true }>
 					<SelectControl
-						label="Link 1 Post Type"
+						label="Linked Post Type"
 						value={ postType }
 						options={ postTypeOptions }
 						onChange={ ( value ) => {
@@ -50,7 +46,7 @@ export default function Edit( props ) {
 						__nextHasNoMarginBottom
 					/>
 					<PostPicker
-						label="Link 1"
+						label="Linked Post"
 						value={ postId }
 						onChange={ ( value ) => {
 							setAttributes( {
@@ -100,7 +96,14 @@ export default function Edit( props ) {
 			</InspectorControls>
 			{ context.showImage && (
 				<div className="wp-block-capitola-detailed-links-item__image">
-					{ imageUrl && <img src={ imageUrl } alt="" /> }
+					{ ( () => {
+						if ( imageUrl ) {
+							return <img src={ imageUrl } alt="" />;
+						} else if ( ! imageUrl && ( linkImage.id || !! linkObj ) ) {
+							return <Spinner />;
+						}
+						return <PlaceholderImage />;
+					} )() }
 				</div>
 			) }
 			<div className="wp-block-capitola-detailed-links-item__body">

@@ -36,6 +36,7 @@ function ImageSelectButton( {
 								variant="primary"
 								className="capitola-image-select-button"
 								onClick={ open }
+								__next40pxDefaultSize
 							>
 								{ ( () => {
 									if ( label ) {

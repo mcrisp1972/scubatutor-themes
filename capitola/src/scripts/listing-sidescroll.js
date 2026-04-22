@@ -10,6 +10,7 @@ class listingSidescroll {
 			navigation: {
 				nextEl: wrapper.querySelector( '.swiper-button-next' ),
 				prevEl: wrapper.querySelector( '.swiper-button-prev' ),
+				addIcons: false,
 			},
 			pagination: {
 				el: '.swiper-pagination',

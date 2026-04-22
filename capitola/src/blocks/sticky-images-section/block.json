@@ -35,9 +35,9 @@
 			"type": "string",
 			"default": ""
 		},
-		"imageCropPosition": {
+		"imageFocalPoint": {
 			"type": "string",
-			"default": "center center"
+			"default": "50% 50%"
 		},
 		"bodyTextOptions": {
 			"type": "object",

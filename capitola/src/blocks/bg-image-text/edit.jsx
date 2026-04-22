@@ -10,21 +10,15 @@ import {
 	ColorThemePanel,
 	AnimationPanel,
 	PlaceholderImage,
-	ImageAlignMatrix,
+	ImageFocalPoint,
 	IntroAlignToolbar,
 	RadiusToolbar,
 } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const {
-		introAlign,
-		backgroundImage,
-		imageCropPosition,
-		imageParallax,
-		introRadius,
-		colorTheme,
-	} = attributes;
+	const { introAlign, backgroundImage, imageFocalPoint, imageParallax, introRadius, colorTheme } =
+		attributes;
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
 
 	return (
@@ -47,13 +41,15 @@ export default function Edit( props ) {
 							} );
 						} }
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ imageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { imageCropPosition: value } );
-						} }
-					/>
+					{ !! backgroundImage.id && (
+						<ImageFocalPoint
+							value={ imageFocalPoint }
+							image={ backgroundImage.id }
+							onChange={ ( value ) => {
+								setAttributes( { imageFocalPoint: value } );
+							} }
+						/>
+					) }
 					<ToggleControl
 						label="Parallax Scrolling"
 						checked={ imageParallax }
@@ -84,7 +80,7 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div
 				className="wp-block-capitola-bg-image-text__imagewrap"
-				style={ { '--capitola-objectPosition': imageCropPosition } }
+				style={ { '--capitola-objectPosition': imageFocalPoint } }
 			>
 				{ backgroundImage.source_url ? (
 					<img src={ backgroundImage.source_url } alt="" />

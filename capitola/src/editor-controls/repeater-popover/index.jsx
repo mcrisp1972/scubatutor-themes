@@ -1,7 +1,16 @@
 import { Button, Icon, Popover } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
-import { tool } from '@wordpress/icons';
+import {
+	tool,
+	plus,
+	chevronUp,
+	chevronDown,
+	chevronLeft,
+	chevronRight,
+	trash,
+	image,
+} from '@wordpress/icons';
 
 function RepeaterPopover( {
 	props,
@@ -50,61 +59,47 @@ function RepeaterPopover( {
 	function DeleteButton() {
 		return (
 			<Button
-				className="capitola-repeater-popover__toolbar-button --delete"
-				title="Delete Row"
+				size="small"
+				showTooltip={ true }
+				label="Delete Item"
 				onClick={ () => {
 					removeRow( index );
 					toggleVisible();
 				} }
-			>
-				<Icon icon="trash" size="16px" />
-			</Button>
+				icon={ trash }
+				__next40pxDefaultSize
+			/>
 		);
 	}
 
 	function MoveBeforeButton() {
 		return (
 			<Button
-				className="capitola-repeater-popover__toolbar-button --up"
+				size="small"
+				showTooltip={ true }
+				label={ `Move ${ vertical ? 'Up' : 'Left' }` }
 				onClick={ () => {
 					moveBefore( index );
 					toggleVisible();
 				} }
-				title={ `Move ${ vertical ? 'Up' : 'Left' }` }
-			>
-				<Icon icon={ `arrow-${ vertical ? 'up' : 'left' }-alt2` } />
-			</Button>
+				icon={ vertical ? chevronUp : chevronLeft }
+				__next40pxDefaultSize
+			/>
 		);
 	}
 
 	function MoveAfterButton() {
 		return (
 			<Button
-				className="capitola-repeater-popover__toolbar-button --down"
+				size="small"
+				showTooltip={ true }
+				label={ `Move ${ vertical ? 'Down' : 'Right' }` }
 				onClick={ () => {
 					moveAfter( index );
 					toggleVisible();
 				} }
-				title={ `Move ${ vertical ? 'Down' : 'Right' }` }
-			>
-				<Icon icon={ `arrow-${ vertical ? 'down' : 'right' }-alt2` } />
-			</Button>
-		);
-	}
-
-	function AddBeforeButton() {
-		return (
-			<Button
-				className={ `capitola-repeater-popover__toolbar-button --add-before ${
-					vertical ? '--vertical' : ''
-				}` }
-				onClick={ () => {
-					const rows = [ ...props.attributes[ attribute ] ];
-					rows.splice( index, 0, { ...newValues } );
-					props.setAttributes( { [ attribute ]: rows } );
-					toggleVisible();
-				} }
-				title="Add Before"
+				icon={ vertical ? chevronDown : chevronRight }
+				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -112,9 +107,9 @@ function RepeaterPopover( {
 	function AddAfterButton() {
 		return (
 			<Button
-				className={ `capitola-repeater-popover__toolbar-button --add-after ${
-					vertical ? '--vertical' : ''
-				}` }
+				size="small"
+				showTooltip={ true }
+				label="Add After"
 				onClick={ () => {
 					const rows = [ ...props.attributes[ attribute ] ];
 					rows.splice( index + 1, 0, { ...newValues } );
@@ -124,7 +119,8 @@ function RepeaterPopover( {
 					}
 					toggleVisible();
 				} }
-				title="Add After"
+				icon={ plus }
+				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -149,15 +145,16 @@ function RepeaterPopover( {
 					render={ ( { open } ) => {
 						return (
 							<Button
-								className="capitola-repeater-popover__toolbar-button --image"
+								size="small"
+								showTooltip={ true }
+								label="Set Image"
 								onClick={ () => {
 									setIsMediaModalOpen( true );
 									open();
 								} }
-								title="Set Image"
-							>
-								<Icon icon="format-image" />
-							</Button>
+								icon={ image }
+								__next40pxDefaultSize
+							/>
 						);
 					} }
 				/>
@@ -204,7 +201,6 @@ function RepeaterPopover( {
 						{ index !== props.attributes[ attribute ].length - 1 && (
 							<MoveAfterButton />
 						) }
-						<AddBeforeButton />
 						<AddAfterButton />
 						{ onImageChange ? imageButton( index ) : null }
 					</div>

@@ -15,7 +15,7 @@ import {
 } from '@wordpress/components';
 import {
 	ImageSelect,
-	ImageAlignMatrix,
+	ImageFocalPoint,
 	ColorThemePanel,
 	AnimationPanel,
 	PlaceholderImage,
@@ -35,9 +35,9 @@ export default function Edit( props ) {
 		rearImage,
 		middleImage,
 		frontImage,
-		rearImageCropPosition,
-		middleImageCropPosition,
-		frontImageCropPosition,
+		rearImageFocalPoint,
+		middleImageFocalPoint,
+		frontImageFocalPoint,
 		rearImageRadius,
 		middleImageRadius,
 		frontImageRadius,
@@ -141,13 +141,15 @@ export default function Edit( props ) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ rearImageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { rearImageCropPosition: value } );
-						} }
-					/>
+					{ !! rearImage.source_url && (
+						<ImageFocalPoint
+							image={ rearImage.source_url }
+							value={ rearImageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( { rearImageFocalPoint: value } );
+							} }
+						/>
+					) }
 					<RadioControl
 						label="Image Position"
 						selected={ rearImagePosition }
@@ -250,13 +252,15 @@ export default function Edit( props ) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ middleImageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { middleImageCropPosition: value } );
-						} }
-					/>
+					{ middleImage.source_url && (
+						<ImageFocalPoint
+							image={ middleImage.source_url }
+							value={ middleImageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( { middleImageFocalPoint: value } );
+							} }
+						/>
+					) }
 				</PanelBody>
 				<PanelBody title="Front Image" initialOpen={ true }>
 					<ImageSelect
@@ -310,13 +314,15 @@ export default function Edit( props ) {
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 					/>
-					<ImageAlignMatrix
-						label="Image Crop Position"
-						value={ frontImageCropPosition }
-						onChange={ ( value ) => {
-							setAttributes( { frontImageCropPosition: value } );
-						} }
-					/>
+					{ !! frontImage.source_url && (
+						<ImageFocalPoint
+							image={ frontImage.source_url }
+							value={ frontImageFocalPoint }
+							onChange={ ( value ) => {
+								setAttributes( { frontImageFocalPoint: value } );
+							} }
+						/>
+					) }
 					<RadioControl
 						label="Image Position"
 						selected={ rearImagePosition }
@@ -394,7 +400,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': rearImageHeight,
 							'--image-width': rearImageWidth,
-							'--capitola-objectPosition': rearImageCropPosition,
+							'--capitola-objectPosition': rearImageFocalPoint,
 						} }
 					>
 						{ rearImage?.source_url ? (
@@ -412,7 +418,7 @@ export default function Edit( props ) {
 							'--image-left-pos': middleImageLeftPos,
 							'--image-height': middleImageHeight,
 							'--image-width': middleImageWidth,
-							'--capitola-objectPosition': middleImageCropPosition,
+							'--capitola-objectPosition': middleImageFocalPoint,
 						} }
 					>
 						{ middleImage?.source_url ? (
@@ -428,7 +434,7 @@ export default function Edit( props ) {
 						style={ {
 							'--image-height': frontImageHeight,
 							'--image-width': frontImageWidth,
-							'--capitola-objectPosition': frontImageCropPosition,
+							'--capitola-objectPosition': frontImageFocalPoint,
 						} }
 					>
 						{ frontImage?.source_url ? (

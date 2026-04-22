@@ -9,16 +9,40 @@
 			auto-rows: auto;
 		}
 		column-gap: 0;
-		row-gap: var(--capitola-spacing-small);
-		margin-bottom: var(--capitola-spacing-small);
+		row-gap: var(--wp--custom--forms--grid--v-gap);
+		margin-bottom: var(--wp--custom--forms--grid--v-gap);
 
 		@include mq("small") {
-			column-gap: var(--capitola-spacing-small);
+			column-gap: var(--wp--custom--forms--grid--h-gap);
+		}
+
+		input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]) {
+			@include text-field;
+		}
+
+		input[type="radio"] {
+			@include radio-button;
+		}
+
+		input[type="checkbox"] {
+			@include checkbox;
+		}
+
+		select {
+			@include select-field;
+		}
+
+		textarea {
+			@include textarea;
+		}
+
+		.wpforms-field-label {
+			@include form-label;
 		}
 	}
 
 	&-field-label {
-		color: var(--capitola-color-body);
+		@include form-label;
 	}
 
 	&-field-label--type-inline {
@@ -30,10 +54,17 @@
 		text-transform: none;
 		margin-bottom: 0;
 	}
+
+	&_button {
+		@include submit-button;
+	}
 }
 
 .gfield {
 	grid-column: span 12;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 
 	@include mq("small") {
 
@@ -63,6 +94,13 @@
 		}
 	}
 
+	&_radio,
+	&_checkbox {
+		display: flex;
+		flex-direction: column;
+		gap: var(--wp--custom--forms--radio-cb--list-gap);
+	}
+
 	&--type-choice {
 		border: none;
 		padding: 0;
@@ -71,7 +109,7 @@
 		.gchoice {
 			display: flex;
 			align-items: center;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--forms--radio-cb--label--margin-left);
 		}
 	}
 
@@ -89,7 +127,6 @@
 
 	&_label {
 		@include form-label;
-		text-transform: none;
 	}
 
 	&.hidden_label {

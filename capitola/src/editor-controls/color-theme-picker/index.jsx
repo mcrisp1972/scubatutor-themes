@@ -4,11 +4,13 @@ import { applyFilters } from '@wordpress/hooks';
 
 function ColorThemeOption( { theme, checked, onClick } ) {
 	return (
-		<div className="capitola-theme-picker__option-wrapper">
+		<div className="components-circular-option-picker__option-wrapper">
 			<Tooltip text={ theme.name }>
 				<button
 					type="button"
-					className={ `capitola-theme-picker__option ${ checked ? '--checked' : '' }` }
+					className={ `capitola-theme-picker__option ${
+						checked ? '--checked' : ''
+					} components-button components-circular-option-picker__option is-next-40px-default-size` }
 					onClick={ onClick }
 				>
 					<div className="capitola-theme-picker__option-swatch">
@@ -40,7 +42,7 @@ function ColorThemeOption( { theme, checked, onClick } ) {
 	);
 }
 
-function ColorThemePicker( { label, onChange, value } ) {
+function ColorThemePicker( { label, onChange, value, help } ) {
 	// Apply filter inside component so child theme filters are registered first
 	const colorThemes = applyFilters( 'capitola.colorThemes' );
 
@@ -50,13 +52,15 @@ function ColorThemePicker( { label, onChange, value } ) {
 
 	const { baseControlProps } = useBaseControlProps( {
 		label,
+		help,
 		__nextHasNoMarginBottom: true,
+		className: 'components-circular-option-picker',
 	} );
 
 	return (
 		<BaseControl { ...baseControlProps }>
-			<div className="capitola-theme-picker">
-				<div className="capitola-theme-picker__swatches">
+			<div className="capitola-theme-picker components-circular-option-picker__swatches">
+				<div className="components-circular-option-picker__option-group components-circular-option-picker__swatches">
 					{ colorThemes.map( ( theme, index ) => {
 						if ( theme.palette ) {
 							return (

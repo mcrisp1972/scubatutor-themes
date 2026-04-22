@@ -39,7 +39,7 @@
 			"type": "boolean",
 			"default": false
 		},
-		"imageCropPosition": {
+		"imageFocalPoint": {
 			"type": "string",
 			"default": "center center"
 		},

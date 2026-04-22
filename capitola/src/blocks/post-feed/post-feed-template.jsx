@@ -19,6 +19,7 @@ function SwiperTemplate( { attributes, cardTemplate, items } ) {
 			navigation={ {
 				nextEl: navigationNextRef.current,
 				prevEl: navigationPrevRef.current,
+				addIcons: false,
 			} }
 			pagination={
 				showSlideCount

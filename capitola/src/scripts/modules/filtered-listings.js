@@ -2,10 +2,20 @@
 import { addQueryArgs } from '@wordpress/url';
 import { layoutConditionals } from '../../blocks/post-feed/layout-conditionals';
 
+/**
+ * Manages AJAX-powered filtered post/product listings with pagination.
+ *
+ * Reads block attributes from the global `listingAttributes` object, builds
+ * WP REST API queries from form state and URL parameters, renders results into
+ * the DOM, and keeps the browser URL in sync so filtered views are shareable.
+ */
 export default class filteredListings {
+	/**
+	 * @param {HTMLElement} listings - The root element of the listings block.
+	 */
 	constructor( listings ) {
 		// eslint-disable-next-line no-undef
-		this.attr = listingAttributes;
+		this.attr = listingAttributes; // Block attributes injected by PHP via wp_localize_script
 		this.urlParams = new URLSearchParams( window.location.search );
 		this.elements = {
 			parent: listings,
@@ -23,9 +33,9 @@ export default class filteredListings {
 		};
 		this.setQueryParams();
 		this.postType = this.attr.postType;
-		this.numPages = 0;
-		this.numResults = 0;
-		this.totalResults = 0;
+		this.numPages = 0; // Total pages returned by the last REST request
+		this.numResults = 0; // Number of posts in the current page
+		this.totalResults = 0; // Grand total across all pages
 		this.elements.navBar.addEventListener( 'click', this.turnPage.bind( this ) );
 
 		if ( this.elements.triggerFields ) {
@@ -46,6 +56,11 @@ export default class filteredListings {
 		this.getPosts();
 	}
 
+	/**
+	 * Builds the initial `queryParams` object from block attributes, pre-set
+	 * filter fields, an optional base taxonomy term, and any values already
+	 * present in the page URL (so users can deep-link to filtered views).
+	 */
 	setQueryParams() {
 		this.queryParams = {
 			page: 1,
@@ -62,12 +77,15 @@ export default class filteredListings {
 			}
 		} );
 
+		// Lock in a base taxonomy term when one is configured in the block settings
 		if ( parseInt( this.attr.baseTerm ) ) {
 			this.queryParams[ this.attr.taxParams[ this.attr.baseTaxonomy ] ] = [
 				parseInt( this.attr.baseTerm ),
 			];
 		}
 
+		// Restore filter state from the current URL so shared/bookmarked
+		// URLs load with the correct filters already applied.
 		for ( const [ key, value ] of this.urlParams.entries() ) {
 			if ( key === 'page_num' ) {
 				this.queryParams.page = value;
@@ -97,6 +115,13 @@ export default class filteredListings {
 		}
 	}
 
+	/**
+	 * Returns true if the given field name maps to a registered taxonomy
+	 * query parameter (e.g. the REST param for a custom taxonomy filter).
+	 *
+	 * @param {string} fieldName
+	* @return {boolean} True if the field name matches a registered taxonomy query parameter, otherwise false.
+	 */
 	isTaxonomyField( fieldName ) {
 		return this.attr.taxParams !== undefined &&
 			Object.values( this.attr.taxParams ).includes( fieldName )
@@ -104,6 +129,13 @@ export default class filteredListings {
 			: false;
 	}
 
+	/**
+	 * Adds a taxonomy filter to `queryParams` as a single-element integer array,
+	 * which is the format expected by the WP REST API taxonomy query.
+	 * A falsy or zero value is intentionally skipped (means "no filter").
+	 *
+	 * @param {HTMLElement} field - A select or input element whose name is a tax param.
+	 */
 	setTaxonomyQueryParameter( field ) {
 		const fieldValue = parseInt( field.value );
 		if ( fieldValue ) {
@@ -111,26 +143,44 @@ export default class filteredListings {
 		}
 	}
 
+	/**
+	 * Determines the WP REST API endpoint based on the configured post type.
+	 * Products use a custom theme endpoint; all other types use the standard
+	 * WP REST API convention `/wp-json/wp/v2/{post_type}`.
+	 */
 	setRestPath() {
 		if ( this.postType === 'post' ) {
 			this.restPath = '/wp-json/wp/v2/posts';
 		} else if ( this.postType === 'product' ) {
+			// Products use a custom REST route that supports WooCommerce-specific filters
 			this.restPath = '/wp-json/capitola/v1/product-search';
 		} else {
 			this.restPath = '/wp-json/wp/v2/' + this.postType;
 		}
 	}
 
+	/**
+	 * Empties the results list and smoothly scrolls the viewport back up to it.
+	 * Called before every new fetch so stale results are never visible.
+	 */
 	clearResults() {
 		this.elements.list.innerHTML = '';
 		window.scrollTo( {
-			top: this.elements.list.offsetTop - 120,
+			top: this.elements.list.offsetTop - 120, // 120px offset accounts for sticky header
 			behavior: 'smooth',
 		} );
 	}
 
+	/**
+	 * Handles clicks on the pagination nav bar (previous, next, and numbered
+	 * page buttons). Updates `queryParams.page`, clears the list, and fetches
+	 * the new page of results.
+	 *
+	 * @param {MouseEvent} event
+	 */
 	turnPage( event ) {
 		const button = event.target;
+		// Ignore clicks on non-interactive elements inside the nav bar
 		if (
 			! button.classList.contains( 'js-navPrev' ) &&
 			! button.classList.contains( 'js-navNext' ) &&
@@ -155,6 +205,12 @@ export default class filteredListings {
 		this.getPosts();
 	}
 
+	/**
+	 * Handles explicit form submission (search button click). Reads all search
+	 * field values into `queryParams`, resets to page 1, and fetches results.
+	 *
+	 * @param {MouseEvent} event
+	 */
 	submitForm( event ) {
 		event.preventDefault();
 		this.elements.searchFields.forEach( ( field ) => {
@@ -172,11 +228,18 @@ export default class filteredListings {
 		this.getPosts();
 	}
 
+	/**
+	 * Handles changes on auto-filter fields (those with the `.js-autoFilter`
+	 * class). Immediately fetches new results without requiring form submission.
+	 * Supports checkboxes (multi-value), taxonomy selects, and plain selects.
+	 *
+	 * @param {Event} event
+	 */
 	updateFilters( event ) {
 		const values = new FormData( this.elements.filterForm );
 		const field = event.target;
 		this.clearResults();
-		this.queryParams.page = 1;
+		this.queryParams.page = 1; // Reset to page 1 whenever filters change
 		this.urlParams.set( 'page_num', 1 );
 
 		if ( field.type === 'checkbox' ) {
@@ -203,14 +266,21 @@ export default class filteredListings {
 		this.getPosts();
 	}
 
+	/**
+	 * Fetches posts from the REST API using the current `queryParams` and
+	 * renders them into the DOM. Also updates the browser URL, manages the
+	 * loading state, and triggers pagination and result-count updates.
+	 */
 	getPosts() {
 		this.elements.navBar.classList.add( '--is-loading' );
 
+		// Push current filter state to the browser history so the URL stays shareable
 		const p = this.urlParams.toString();
 		if ( p.length > 0 ) {
 			window.history.pushState( null, null, '?' + p );
 		}
 
+		// Append a cache-busting timestamp to prevent stale browser/CDN caching
 		const query = {
 			data: { ...this.queryParams, cacheBuster: new Date().getTime() },
 		};
@@ -251,6 +321,10 @@ export default class filteredListings {
 		return false;
 	}
 
+	/**
+	 * Enables or disables the previous/next pagination buttons based on the
+	 * current page and total page count.
+	 */
 	setPagingLinks() {
 		this.queryParams.page = parseInt( this.queryParams.page );
 
@@ -270,6 +344,11 @@ export default class filteredListings {
 		}
 	}
 
+	/**
+	 * Renders the complete pagination UI: hides the nav bar when there is only
+	 * one page, otherwise builds the numbered page-button list and updates
+	 * prev/next button states.
+	 */
 	setPageLinks() {
 		this.setPagingLinks();
 		if ( this.numPages < 2 ) {
@@ -302,6 +381,10 @@ export default class filteredListings {
 		}
 	}
 
+	/**
+	 * Builds a human-readable result count string and writes it to the
+	 * `.js-resultsCount` element (e.g. "Showing 11–20 of 47 results").
+	 */
 	setResultCount() {
 		let count;
 		const perpage = this.queryParams.per_page;
@@ -322,6 +405,18 @@ export default class filteredListings {
 		this.elements.resultsCount.innerHTML = count;
 	}
 
+	/**
+	 * Computes the array of page indexes (integers and '...' ellipsis strings)
+	 * to display in the pagination bar.
+	 *
+	 * Strategy:
+	 *  - 6 or fewer pages → show every page number.
+	 *  - Current page is more than 5 away from the end → show current + 2
+	 *    neighbours, ellipsis, then the last 3 pages.
+	 *  - Otherwise → show the last 6 pages with a leading ellipsis.
+	 *
+	* @return {Array<number|string>} An array of page numbers and ellipsis strings ("...") for pagination display.
+	 */
 	getPageIndexes() {
 		const page = parseInt( this.queryParams.page );
 		this.queryParams.page = parseInt( this.queryParams.page );
@@ -350,6 +445,14 @@ export default class filteredListings {
 		return paginationValues;
 	}
 
+	/**
+	 * Returns the HTML string for a standard post card (non-product).
+	 * Layout variations (title position, CTA location, byline, etc.) are
+	 * driven by the `layoutConditionals` helper.
+	 *
+	 * @param {Object} itemData - Post data object from the WP REST API response.
+	* @return {string} HTML markup for one result card.
+	 */
 	renderItem( itemData ) {
 		const conditionals = layoutConditionals( this.attr );
 		const card = `
@@ -457,6 +560,14 @@ export default class filteredListings {
 		return card;
 	}
 
+	/**
+	 * Returns the HTML string for a WooCommerce product card. Supports optional
+	 * display of brand, part number, MSRP, price, star rating, and excerpt based
+	 * on block attributes.
+	 *
+	 * @param {Object} itemData - Product data object from the custom REST endpoint.
+	* @return {string} HTML markup for one product card.
+	 */
 	renderProduct( itemData ) {
 		const card = `
       <article class="capitola-result">
