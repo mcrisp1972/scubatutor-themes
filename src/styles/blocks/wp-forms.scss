@@ -71,7 +71,7 @@
 		&-sublabel {
 			@include form-label;
 			display: block;
-			font-weight: 400 !important;
+			font-weight: var(--wp--custom--font-weight--bold) !important;
 		}
 
 		&-select {

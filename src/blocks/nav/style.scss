@@ -190,7 +190,7 @@
 
 	&__utility-menu-item {
 		font: {
-			weight: 600;
+			weight: var(--wp--custom--font-weight--bold);
 			size: to-rem(14px);
 		}
 
@@ -455,7 +455,7 @@
 		display: block;
 
 		font: {
-			weight: 600;
+			weight: var(--wp--custom--font-weight--bold);
 			size: var(--capitola-nav-link-fontSize);
 		}
 
@@ -496,7 +496,7 @@
 			@include nav-link {
 				font: {
 					size: to-rem(16px);
-					weight: 500;
+					weight: var(--wp--custom--font-weight--normal);
 				}
 
 				padding-left: var(--capitola-gutter);

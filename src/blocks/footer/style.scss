@@ -44,7 +44,7 @@
 
 	&__top-link {
 		@include micro-text;
-		font-weight: 700;
+		font-weight: var(--wp--custom--font-weight--bold);
 	}
 
 	.wp-block-capitola-nav-sublink__link {
