@@ -200,7 +200,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	-webkit-appearance: none;
 	font: {
 		family: var(--wp--preset--font-family--primary);
-		weight: 700;
+		weight: var(--wp--custom--font-weight--bold);
 		size: 1rem;
 	}
 	background-color: var(--capitola-color-button);

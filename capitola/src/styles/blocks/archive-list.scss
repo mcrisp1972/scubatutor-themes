@@ -550,7 +550,7 @@
 		aspect-ratio: 1;
 		align-items: center;
 		font: {
-			weight: 700;
+			weight: var(--wp--custom--font-weight--bold);
 			size: to-rem(12px);
 		}
 		padding: 0 var(--capitola-spacing-xsmall);

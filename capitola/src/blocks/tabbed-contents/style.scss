@@ -26,7 +26,7 @@
 		border: 1px solid transparent;
 		border-bottom: unset;
 		color: var(--capitola-color-accent);
-		font-weight: 600;
+		font-weight: var(--wp--custom--font-weight--bold);
 		transition: background-color $transition, color $transition, border-color $transition;
 
 		&.--is-selected {

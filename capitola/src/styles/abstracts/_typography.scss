@@ -5,7 +5,7 @@
 @mixin headline-xxl {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-xxl-fontSize);
+		size: var(--wp--custom--font-size--hl-xxl);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -19,7 +19,7 @@
 @mixin headline-xl {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-xl-fontSize);
+		size: var(--wp--custom--font-size--hl-xl);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -33,7 +33,7 @@
 @mixin headline-l {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-l-fontSize);
+		size: var(--wp--custom--font-size--hl-l);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -47,7 +47,7 @@
 @mixin headline-m {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-m-fontSize);
+		size: var(--wp--custom--font-size--hl-m);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -61,7 +61,7 @@
 @mixin headline-s {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-s-fontSize);
+		size: var(--wp--custom--font-size--hl-s);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -75,7 +75,7 @@
 @mixin headline-xs {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--capitola-hl-xs-fontSize);
+		size: var(--wp--custom--font-size--hl-xs);
 		weight: var(--capitola-hl-fontWeight);
 	}
 	line-height: var(--capitola-hl-lineHeight);
@@ -87,18 +87,18 @@
 }
 
 @mixin regular-text {
-	font-size: var(--capitola-p-fontSize);
+	font-size: var(--wp--custom--font-size--p-m);
 	line-height: var(--capitola-p-lineHeight);
 }
 
 @mixin micro-text {
-	font-size: var(--capitola-p-s-fontSize);
+	font-size: var(--wp--custom--font-size--p-s);
 }
 
 @mixin eyebrow {
 	font: {
 		size: to-rem(14px);
-		weight: 700;
+		weight: var(--wp--custom--font-weight--bold);
 	}
 	line-height: line-height(16px, 14px);
 	letter-spacing: to-rem(1px);

@@ -6,7 +6,7 @@
 	text-decoration: underline;
 	color: var(--capitola-color-link);
 	transition: color $transition;
-	font-weight: 600;
+	font-weight: var(--wp--custom--font-weight--normal);
 	@content;
 
 	&:hover,
@@ -20,7 +20,7 @@
 @mixin unstyle-button {
 	font: {
 		family: var(--wp--preset--font-family--primary);
-		size: var(--capitola-p-fontSize);
+		size: var(--wp--custom--font-size--p-m);
 	}
 	border: none;
 	background: none;
@@ -58,7 +58,7 @@
 	font: {
 		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
-		weight: 700;
+		weight: var(--wp--custom--font-weight--bold);
 	}
 	background: var(--capitola-color-button);
 	text-decoration: none;
@@ -122,7 +122,7 @@
 	font: {
 		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
-		weight: 700;
+		weight: var(--wp--custom--font-weight--bold);
 	}
 	text-decoration: none;
 	padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
@@ -164,7 +164,7 @@
 	font: {
 		family: var(--wp--preset--font-family--primary);
 		size: var(--capitola-button-fontSize);
-		weight: 700;
+		weight: var(--wp--custom--font-weight--bold);
 	}
 	text-decoration: none;
 	cursor: pointer;

@@ -22,8 +22,8 @@
 
 		&::after {
 			content: "";
-			flex: 0 0 var(--capitola-hl-s-fontSize);
-			height: var(--capitola-hl-s-fontSize);
+			flex: 0 0 var(--wp--custom--font-size--hl-s);
+			height: var(--wp--custom--font-size--hl-s);
 			background: var(--capitola-color-link);
 			mask: url(#{$image_path}symbols/fa-plus.svg) center / contain no-repeat;
 		}
@@ -45,7 +45,7 @@
 
 	button.wp-block-capitola-accordion-item__headline {
 		@include unstyle-button;
-		font-size: var(--capitola-hl-s-fontSize);
+		font-size: var(--wp--custom--font-size--hl-s);
 		text-align: left;
 		transition: color $transition;
 

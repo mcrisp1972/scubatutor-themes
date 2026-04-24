@@ -67,7 +67,7 @@
 		width: 100%;
 		align-items: flex-start;
 		justify-content: space-between;
-		font-weight: var(--capitola-hl-fontWeight);
+		font-weight: var(var(--wp--custom--font-weight--bold));
 		color: var(--capitola-color-link);
 		transition: color $transition;
 

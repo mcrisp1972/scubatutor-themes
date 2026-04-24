@@ -42,7 +42,7 @@
 
 		font: {
 			size: to-rem(14px);
-			weight: 600;
+			weight: var(--wp--custom--font-weight--bold);
 		}
 
 		margin: 0;
