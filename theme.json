@@ -661,7 +661,7 @@
 					"text": "var(--capitola-color-link)"
 				},
 				"typography": {
-					"fontWeight": "400",
+					"fontWeight": "var(--wp--custom--font-weight--normal)",
 					"textDecoration": "underline"
 				}
 			}
@@ -781,64 +781,6 @@
 			}
 		}
 	},
-	"customTemplates": [
-		{
-			"name": "single-product",
-			"title": "Single Product",
-			"postTypes": [
-				"product"
-			]
-		},
-		{
-			"name": "single-course",
-			"title": "Single Course",
-			"postTypes": [
-				"course"
-			]
-		},
-		{
-			"name": "single-class",
-			"title": "Single Class",
-			"postTypes": [
-				"class"
-			]
-		},
-		{
-			"name": "single-trip",
-			"title": "Single Trip",
-			"postTypes": [
-				"trip"
-			]
-		},
-		{
-			"name": "single-staff",
-			"title": "Single Staff",
-			"postTypes": [
-				"staff"
-			]
-		},
-		{
-			"name": "single-tribe_events",
-			"title": "Single Event",
-			"postTypes": [
-				"tribe_events"
-			]
-		},
-		{
-			"name": "archive-course",
-			"title": "Course Listings",
-			"postTypes": [
-				"page"
-			]
-		},
-		{
-			"name": "archive-staff",
-			"title": "Staff Listings",
-			"postTypes": [
-				"page"
-			]
-		}
-	],
 	"templateParts": [
 		{
 			"name": "header",
