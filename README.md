@@ -17,3 +17,11 @@
 
 ### Block Editor Controls
 - [Block Editor Controls](src/editor-controls/README.md)
+
+### Clamp Calculations
+All clamp calculations were made using utopia.fyi.
+
+All are based on 480 min and 1280 max viewports.
+
+Example link:
+@link https://utopia.fyi/clamp/calculator?a=480,1280,56—112

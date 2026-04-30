@@ -17,11 +17,11 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 	}
 
 	.wp-block-capitola-body-text {
-		max-width: var(--capitola-wideSize);
+		max-width: var(--wp--custom--wide-size);
 		width: 100%;
 	}
 
@@ -142,7 +142,7 @@
 	}
 
 	.wp-block-capitola-small-image-slider__caption {
-		@include contentSize($top: var(--capitola-spacing-small));
+		@include contentSize($top: var(--wp--custom--spacing--small));
 		text-align: center;
 		color: var(--capitola-color-body);
 

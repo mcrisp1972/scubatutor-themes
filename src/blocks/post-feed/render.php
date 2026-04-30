@@ -25,7 +25,7 @@ if ( $results->have_posts() ) :
 		<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
 			<?php echo wp_kses_post( $content ); ?>
 			<div class="capitola-listings__sidescroll swiper">
-				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--capitola-excerpt-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
+				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 					<?php
 					while ( $results->have_posts() ) :
 						$results->the_post();

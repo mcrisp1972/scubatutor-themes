@@ -1,10 +1,10 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-capitola-post-hero {
-	padding: var(--capitola-spacing-medium) 0;
+	padding: var(--wp--custom--spacing--medium) 0;
 	display: flex;
 	flex-flow: column;
-	gap: var(--capitola-spacing-large);
+	gap: var(--wp--custom--spacing--large);
 
 	&__hero {
 		order: 1;
@@ -56,7 +56,7 @@
 		@include micro-text;
 		display: flex;
 		color: var(--capitola-color-body);
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		align-items: flex-start;
 
 		&-img-wrap {
@@ -77,7 +77,7 @@
 	&__social-links {
 		display: flex;
 		justify-content: flex-end;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		margin: 0;
 		padding: 0;
 		list-style: none;

@@ -15,7 +15,7 @@
 		}
 
 		align-items: center;
-		padding: var(--capitola-blockPadding) 0 var(--capitola-blockPadding);
+		padding: var(--wp--custom--spacing--block-padding) 0 var(--wp--custom--spacing--block-padding);
 
 		&.--no-image {
 			background: #ccc url(~/assets/svgs/icons/fa-image.svg) no-repeat center / contain;
@@ -60,12 +60,12 @@
 	.wp-block-capitola-body-text {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		min-height: 25vh;
-		margin: 0 var(--capitola-wideSize-padding);
+		margin: 0 var(--wp--custom--wide-size-padding);
 
 		@include mq("medium") {
-			flex: 0 1 var(--capitola-contentSize);
+			flex: 0 1 var(--wp--custom--content-size);
 		}
 	}
 
@@ -73,7 +73,7 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		padding: var(--capitola-spacing-large);
+		padding: var(--wp--custom--spacing--large);
 		overflow: hidden;
 
 		&::before {

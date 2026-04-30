@@ -174,7 +174,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 			repeat: no-repeat;
 		}
 		cursor: pointer;
-		padding-right: var(--capitola-spacing-small);
+		padding-right: var(--wp--custom--spacing--small);
 		max-width: 100%;
 		text-transform: none;
 		@content;
@@ -215,7 +215,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	margin: 0;
 	transition: border-radius $transition;
 	white-space: nowrap;
-	padding: 0 var(--capitola-spacing-xsmall);
+	padding: 0 var(--wp--custom--spacing--xsmall);
 	line-height: 2;
 	@content;
 

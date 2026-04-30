@@ -60,7 +60,7 @@
 			@include wideSize;
 			display: grid;
 			grid: auto auto 1fr / 1fr auto;
-			column-gap: var(--capitola-spacing-medium);
+			column-gap: var(--wp--custom--spacing--medium);
 			background: var(--capitola-color-background);
 			border-radius: 0 0 $radius-med $radius-med;
 		}
@@ -71,7 +71,7 @@
 
 		@include mq("large") {
 			display: block;
-			margin: var(--capitola-spacing-medium) 0 0;
+			margin: var(--wp--custom--spacing--medium) 0 0;
 			grid: {
 				column: 1;
 				row: 1;
@@ -82,12 +82,12 @@
 	&__headline {
 
 		+ .wp-block-capitola-nav-mega-nav__intro {
-			margin-top: var(--capitola-spacing-small);
+			margin-top: var(--wp--custom--spacing--small);
 		}
 	}
 
 	.wp-block-capitola-nav-mega-nav__intro {
-		width: var(--capitola-contentSize-padded);
+		width: var(--wp--custom--content-size-padded);
 	}
 
 	&__sub-menu-items {
@@ -102,10 +102,10 @@
 				row: 2;
 				column: 1;
 			}
-			gap: var(--capitola-spacing-xsmall) var(--capitola-spacing-large);
+			gap: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--large);
 			align-self: start;
 			justify-self: start;
-			margin: var(--capitola-spacing-small) 0 var(--capitola-spacing-medium);
+			margin: var(--wp--custom--spacing--small) 0 var(--wp--custom--spacing--medium);
 
 			&.--row-limit-1 {
 				grid-template-rows: repeat(1, auto);

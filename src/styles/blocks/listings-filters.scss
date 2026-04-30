@@ -5,11 +5,11 @@
 	&__results-header {
 		display: flex;
 		justify-content: space-between;
-		margin: var(--capitola-blockPadding) 0 var(--capitola-spacing-small);
+		margin: var(--wp--custom--spacing--block-padding) 0 var(--wp--custom--spacing--small);
 		align-items: flex-end;
 
 		@include mq("medium") {
-			gap: var(--capitola-spacing-small);
+			gap: var(--wp--custom--spacing--small);
 		}
 
 		&:first-child {
@@ -119,8 +119,8 @@
 
 	&__filters {
 		display: flex;
-		padding: var(--capitola-spacing-small);
-		gap: var(--capitola-spacing-small);
+		padding: var(--wp--custom--spacing--small);
+		gap: var(--wp--custom--spacing--small);
 		flex-flow: column;
 		justify-content: flex-start;
 
@@ -172,7 +172,7 @@
 					background: var(--capitola-color-body);
 					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 					transition: background-color $transition;
-					width: var(--capitola-spacing-small);
+					width: var(--wp--custom--spacing--small);
 					height: 100%;
 					right: 0;
 					pointer-events: none;
@@ -180,7 +180,7 @@
 
 				select {
 					cursor: pointer;
-					padding: 0 calc(var(--capitola-spacing-xsmall) + var(--capitola-spacing-xsmall) + var(--capitola-spacing-small)) 0 0;
+					padding: 0 calc(var(--wp--custom--spacing--xsmall) + var(--wp--custom--spacing--xsmall) + var(--wp--custom--spacing--small)) 0 0;
 					width: 100%;
 				}
 			}

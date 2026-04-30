@@ -22,7 +22,7 @@
 
 	&__tab {
 		@include unstyle-button;
-		padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
+		padding: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--small);
 		border: 1px solid transparent;
 		border-bottom: unset;
 		color: var(--capitola-color-accent);
@@ -46,7 +46,7 @@
 	}
 
 	&__panels {
-		padding: var(--capitola-spacing-small) 0 0;
+		padding: var(--wp--custom--spacing--small) 0 0;
 
 		&:not(:has(.--active)) {
 
@@ -66,6 +66,6 @@
 	}
 
 	.--has-top-intro & {
-		max-width: var(--capitola-contentSize);
+		max-width: var(--wp--custom--content-size);
 	}
 }

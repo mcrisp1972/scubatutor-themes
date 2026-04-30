@@ -8,11 +8,11 @@
 	> .wp-block-embed {
 
 		&:first-child {
-			margin-top: var(--capitola-spacing-xlarge);
+			margin-top: var(--wp--custom--spacing--xlarge);
 		}
 
 		&:last-child {
-			margin-bottom: var(--capitola-spacing-xlarge);
+			margin-bottom: var(--wp--custom--spacing--xlarge);
 		}
 	}
 }

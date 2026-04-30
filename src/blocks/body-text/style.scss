@@ -7,7 +7,7 @@
 	justify-content: center;
 
 	&.--has-bg-image {
-		padding-bottom: var(--capitola-blockPadding);
+		padding-bottom: var(--wp--custom--spacing--block-padding);
 	}
 
 	&.--is-centered-intro {
@@ -31,7 +31,7 @@
 			padding-bottom: 0;
 
 			&.--is-top-intro {
-				padding-bottom: var(--capitola-blockPadding);
+				padding-bottom: var(--wp--custom--spacing--block-padding);
 			}
 
 			&.--is-left-intro,
@@ -47,7 +47,7 @@
 
 	&__bg-image {
 		position: absolute;
-		inset: calc(var(--capitola-blockPadding) * -1) calc(var(--capitola-wideSize-margin) * -1) 0 calc(var(--capitola-wideSize-margin) * -1);
+		inset: calc(var(--wp--custom--spacing--block-padding) * -1) calc(var(--wp--custom--wide-size-margin) * -1) 0 calc(var(--wp--custom--wide-size-margin) * -1);
 		overflow: hidden;
 
 		&:has(.components-spinner) {
@@ -58,7 +58,7 @@
 		}
 
 		@include mq("50-50") {
-			bottom: calc(var(--capitola-blockPadding) * -1);
+			bottom: calc(var(--wp--custom--spacing--block-padding) * -1);
 
 			.--is-top-intro & {
 				bottom: 0;
@@ -102,7 +102,7 @@
 	&__grid {
 
 		.--is-top-intro.--is-centered-intro.--has-bg-image & {
-			width: var(--capitola-contentSize-padded);
+			width: var(--wp--custom--content-size-padded);
 			margin: 0 auto;
 		}
 
@@ -110,7 +110,7 @@
 
 			.--is-top-intro & {
 				display: grid;
-				grid: repeat(3, auto) / minmax(0, var(--capitola-contentSize-padded)) 1fr;
+				grid: repeat(3, auto) / minmax(0, var(--wp--custom--content-size-padded)) 1fr;
 			}
 
 			.--is-top-intro.--is-centered-intro & {
@@ -125,12 +125,12 @@
 		@include mq("50-50") {
 
 			.--is-left-intro.--has-bg-image & {
-				padding-right: var(--capitola-gutter);
+				padding-right: var(--wp--custom--spacing--gutter);
 			}
 
 			.--is-right-intro.--has-bg-image & {
 				padding: {
-					left: var(--capitola-gutter);
+					left: var(--wp--custom--spacing--gutter);
 					right: 0;
 				}
 			}
@@ -139,7 +139,7 @@
 
 	&__eyebrow {
 		position: relative;
-		margin: 0 0 var(--capitola-spacing-xsmall);
+		margin: 0 0 var(--wp--custom--spacing--xsmall);
 
 		.--is-top-intro & {
 			@include mq("medium") {
@@ -167,7 +167,7 @@
 
 	&__intro {
 		position: relative;
-		margin: var(--capitola-spacing-small) 0 0;
+		margin: var(--wp--custom--spacing--small) 0 0;
 
 		&:first-child {
 			margin-top: 0;
@@ -205,14 +205,14 @@
 
 				margin: {
 					top: 0;
-					left: var(--capitola-spacing-large);
+					left: var(--wp--custom--spacing--large);
 				}
 			}
 
 			.--is-top-intro:not(.--is-centered-intro):not(:has(.wp-block-capitola-body-text__headline)) & {
 				grid-row: 3;
 				align-self: start;
-				margin-top: var(--capitola-spacing-small);
+				margin-top: var(--wp--custom--spacing--small);
 			}
 		}
 	}
