@@ -14,7 +14,7 @@ function SwiperTemplate( { attributes, cardTemplate, items } ) {
 		<Swiper
 			className="capitola-listings__sidescroll"
 			wrapperClass="capitola-listings__list --sidescroll"
-			style={ { '--capitola-excerpt-lines': attributes.excerptLines } }
+			style={ { '--wp--custom--truncate-lines': attributes.excerptLines } }
 			modules={ [ Navigation, Pagination ] }
 			navigation={ {
 				nextEl: navigationNextRef.current,
@@ -73,7 +73,7 @@ function GridTemplate( { attributes, cardTemplate, items } ) {
 			<div
 				className={ `capitola-listings__list --${ listLayout }` }
 				style={ {
-					'--capitola-excerpt-lines': attributes.excerptLines,
+					'--wp--custom--truncate-lines': attributes.excerptLines,
 				} }
 			>
 				{ items.map( ( i, index ) => {

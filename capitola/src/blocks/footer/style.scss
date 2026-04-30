@@ -4,8 +4,8 @@
 	background: var(--capitola-color-background);
 	color: var(--capitola-color-body);
 	padding: {
-		top: var(--capitola-blockPadding);
-		bottom: var(--capitola-blockPadding);
+		top: var(--wp--custom--spacing--block-padding);
+		bottom: var(--wp--custom--spacing--block-padding);
 	}
 
 	a {
@@ -16,7 +16,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: var(--capitola-spacing-large);
+		gap: var(--wp--custom--spacing--large);
 
 		@include mq("large") {
 			flex-wrap: nowrap;
@@ -25,14 +25,14 @@
 
 	&__menus {
 		display: flex;
-		gap: var(--capitola-spacing-large);
+		gap: var(--wp--custom--spacing--large);
 		flex-wrap: wrap;
 	}
 
 	&__menu {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		align-items: flex-start;
 	}
 
@@ -59,7 +59,7 @@
 			wrap: wrap;
 			grow: 1;
 		}
-		gap: var(--capitola-spacing-large);
+		gap: var(--wp--custom--spacing--large);
 		justify-content: space-between;
 
 		@include mq("small") {
@@ -79,20 +79,20 @@
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 	}
 
 	&__hours {
 		@include micro-text;
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		margin: 0;
 		padding: 0;
 
 		li {
 			display: flex;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 		}
 	}
 
@@ -103,7 +103,7 @@
 			basis: 100%;
 		}
 		justify-content: center;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		margin: 0;
 		list-style: none;
 		padding: 0;
@@ -165,7 +165,7 @@
 		@include nav-link {
 			display: flex;
 			position: relative;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 			align-items: center;
 		}
 
@@ -214,7 +214,7 @@
 	&__copyright {
 		@include micro-text;
 		text-align: center;
-		margin: var(--capitola-spacing-large) 0 0;
+		margin: var(--wp--custom--spacing--large) 0 0;
 	}
 }
 
@@ -224,15 +224,15 @@
 	z-index: 1;
 	background: var(--capitola-color-background);
 	padding: {
-		top: var(--capitola-spacing-small);
-		bottom: var(--capitola-spacing-small);
+		top: var(--wp--custom--spacing--small);
+		bottom: var(--wp--custom--spacing--small);
 	}
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
 	&__body {
 		display: flex;
 		align-items: center;
-		gap: var(--capitola-spacing-medium);
+		gap: var(--wp--custom--spacing--medium);
 		color: var(--capitola-color-body);
 	}
 

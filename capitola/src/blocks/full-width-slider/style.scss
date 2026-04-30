@@ -12,7 +12,7 @@
 
 		@include mq("medium") {
 			display: grid;
-			grid-template-columns: calc(50% - (var(--capitola-blockPadding) / 2)) calc(50% - (var(--capitola-blockPadding) / 2));
+			grid-template-columns: calc(50% - (var(--wp--custom--spacing--block-padding) / 2)) calc(50% - (var(--wp--custom--spacing--block-padding) / 2));
 			align-items: center;
 
 			&:has(.wp-block-capitola-body-text.--justify-top) {
@@ -43,7 +43,7 @@
 
 			&.--sticky {
 				position: sticky;
-				top: calc(var(--capitola-header-height) + var(--capitola-blockPadding) + var(--wp-admin--admin-bar--height, 0px));
+				top: calc(var(--capitola-header-height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
 			}
 		}
 	}
@@ -135,12 +135,12 @@
 			text-align: center;
 			transition: opacity $transition;
 			justify-content: center;
-			gap: var(--capitola-spacing-xsmall);
-			margin: var(--capitola-spacing-small) 0 0;
+			gap: var(--wp--custom--spacing--xsmall);
+			margin: var(--wp--custom--spacing--small) 0 0;
 
 			&-bullet {
-				width: var(--capitola-spacing-small);
-				height: var(--capitola-spacing-small);
+				width: var(--wp--custom--spacing--small);
+				height: var(--wp--custom--spacing--small);
 				border-radius: 50%;
 				border: 1px solid var(--capitola-color-button);
 				margin: 0 4px;
@@ -167,8 +167,8 @@
 		align-items: center;
 		inset: auto 0 0 0;
 		padding:
-			100px calc(min(calc((100% - 200px) / 2), calc(100% - (var(--capitola-gutter) * 2))) / 2)
-			var(--capitola-spacing-medium);
+			100px calc(min(calc((100% - 200px) / 2), calc(100% - (var(--wp--custom--spacing--gutter) * 2))) / 2)
+			var(--wp--custom--spacing--medium);
 		color: var(--wp--preset--color--white);
 		background: linear-gradient(0deg, var(--wp--custom--opacity--solid), transparent);
 		text-align: center;
@@ -180,7 +180,7 @@
 
 	&__slide-cta {
 		justify-content: center;
-		margin: var(--capitola-spacing-xsmall) 0 0;
+		margin: var(--wp--custom--spacing--xsmall) 0 0;
 	}
 
 	&__thumbs {
@@ -193,7 +193,7 @@
 		.swiper {
 			touch-action: pan-y;
 			overflow: hidden;
-			margin: var(--capitola-spacing-xsmall) 0 0;
+			margin: var(--wp--custom--spacing--xsmall) 0 0;
 		}
 
 		.swiper-wrapper {

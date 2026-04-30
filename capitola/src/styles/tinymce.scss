@@ -7,7 +7,7 @@
 		family: var(--wp--preset--font-family--primary);
 		size: var(--wp--custom--font-size--p-m);
 	}
-	line-height: var(--capitola-p-lineHeight);
+	line-height: var(--wp--custom--line-height--p);
 
 	@include wizzy;
 

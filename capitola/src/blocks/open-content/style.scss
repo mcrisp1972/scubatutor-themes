@@ -3,8 +3,8 @@
 .wp-block-capitola-open-content {
 	background: var(--capitola-color-background);
 	padding: {
-		top: var(--capitola-blockPadding);
-		bottom: var(--capitola-blockPadding);
+		top: var(--wp--custom--spacing--block-padding);
+		bottom: var(--wp--custom--spacing--block-padding);
 	}
 
 	&__content {

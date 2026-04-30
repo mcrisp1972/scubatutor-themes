@@ -36,7 +36,7 @@ export default function Edit( props ) {
 		<div
 			{ ...useBlockProps( {
 				className: 'alignfull',
-				style: { '--capitola-excerpt-lines': excerptLines },
+				style: { '--wp--custom--truncate-lines': excerptLines },
 			} ) }
 		>
 			<div className="wp-block-capitola-image-link-grid__width">

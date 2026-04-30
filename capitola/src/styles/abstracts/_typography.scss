@@ -6,9 +6,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-xxl);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -20,9 +20,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-xl);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -34,9 +34,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-l);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -48,9 +48,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-m);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -62,9 +62,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-s);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -76,9 +76,9 @@
 	font: {
 		family: var(--wp--preset--font-family--heading);
 		size: var(--wp--custom--font-size--hl-xs);
-		weight: var(--capitola-hl-fontWeight);
+		weight: var(--wp--custom--font-weight--hl);
 	}
-	line-height: var(--capitola-hl-lineHeight);
+	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
 	margin: {
 		top: 0;
@@ -88,7 +88,7 @@
 
 @mixin regular-text {
 	font-size: var(--wp--custom--font-size--p-m);
-	line-height: var(--capitola-p-lineHeight);
+	line-height: var(--wp--custom--line-height--p);
 }
 
 @mixin micro-text {
@@ -118,7 +118,7 @@
 	img,
 	table {
 		margin: {
-			top: var(--capitola-open-content-spacing);
+			top: var(--wp--custom--spacing--open-content);
 			bottom: 0;
 		}
 
@@ -129,6 +129,6 @@
 
 	ul,
 	ol {
-		padding-left: var(--capitola-spacing-small);
+		padding-left: var(--wp--custom--spacing--small);
 	}
 }

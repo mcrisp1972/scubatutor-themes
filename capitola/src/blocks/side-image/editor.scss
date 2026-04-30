@@ -7,7 +7,7 @@
 		@include mq("50-50") {
 
 			&.--sticky {
-				top: var(--capitola-blockPadding);
+				top: var(--wp--custom--spacing--block-padding);
 			}
 		}
 

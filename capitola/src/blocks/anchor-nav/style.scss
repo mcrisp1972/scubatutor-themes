@@ -10,12 +10,12 @@
 		display: flex;
 		position: relative;
 		height: var(--capitola-anchor-menu-height);
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		align-items: center;
 		list-style: none;
 		margin: 0;
 		overflow-x: scroll;
-		padding: 0 var(--capitola-wideSize-padding);
+		padding: 0 var(--wp--custom--wide-size-padding);
 
 		&::-webkit-scrollbar {
 			height: 8px;
@@ -25,8 +25,8 @@
 
 		&::-webkit-scrollbar-thumb {
 			border: {
-				left: var(--capitola-wideSize-margin) solid transparent;
-				right: var(--capitola-wideSize-margin) solid transparent;
+				left: var(--wp--custom--wide-size-margin) solid transparent;
+				right: var(--wp--custom--wide-size-margin) solid transparent;
 			}
 			background: {
 				image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--capitola-color-link) 40%, var(--capitola-color-link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);

@@ -2,10 +2,10 @@
 	display: flex;
 	margin: 0;
 	padding: 0;
-	gap: var(--capitola-spacing-xsmall);
+	gap: var(--wp--custom--spacing--xsmall);
 
 	&:not(:first-child) {
-		margin-top: var(--capitola-open-content-spacing);
+		margin-top: var(--wp--custom--spacing--open-content);
 	}
 
 	&::before,

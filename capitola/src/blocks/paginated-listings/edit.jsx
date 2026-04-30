@@ -448,7 +448,7 @@ export default function Edit( props ) {
 				{ !! posts && posts.length > 0 && (
 					<div
 						className={ `capitola-listings__list --${ listLayout }` }
-						style={ { '--capitola-excerpt-lines': excerptLines } }
+						style={ { '--wp--custom--truncate-lines': excerptLines } }
 					>
 						{ posts.map( ( i ) => {
 							return (

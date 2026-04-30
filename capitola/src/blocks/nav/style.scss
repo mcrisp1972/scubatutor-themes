@@ -76,11 +76,11 @@
 
 		&-body {
 			display: flex;
-			gap: var(--capitola-spacing-small);
+			gap: var(--wp--custom--spacing--small);
 
 			padding: {
-				top: var(--capitola-spacing-small);
-				bottom: var(--capitola-spacing-small);
+				top: var(--wp--custom--spacing--small);
+				bottom: var(--wp--custom--spacing--small);
 			}
 
 			color: var(--capitola-color-body);
@@ -152,8 +152,8 @@
 		height: 100%;
 
 		padding: {
-			top: var(--capitola-spacing-xsmall);
-			bottom: var(--capitola-spacing-xsmall);
+			top: var(--wp--custom--spacing--xsmall);
+			bottom: var(--wp--custom--spacing--xsmall);
 		}
 
 		@include mq("large") {
@@ -167,14 +167,14 @@
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		order: 2;
-		margin: var(--capitola-spacing-xlarge) 0 0;
+		margin: var(--wp--custom--spacing--xlarge) 0 0;
 		padding: 0;
 		list-style: none;
 
 		@include mq("large") {
-			margin-top: var(--capitola-spacing-xsmall);
+			margin-top: var(--wp--custom--spacing--xsmall);
 			order: 0;
 			flex-flow: row;
 
@@ -215,7 +215,7 @@
 		&.--phone {
 			display: flex;
 			position: relative;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 			align-items: center;
 
 			&::before {
@@ -291,7 +291,7 @@
 			grid-column: 1;
 
 			&.--has-svg-mask {
-				height: calc(100% - (var(--capitola-spacing-xsmall) * 2));
+				height: calc(100% - (var(--wp--custom--spacing--xsmall) * 2));
 			}
 		}
 
@@ -307,7 +307,7 @@
 		position: fixed;
 		flex-flow: column;
 		inset: var(--wp-admin--admin-bar--height, 0) 0 0 0;
-		padding: calc(var(--capitola-header-height) + var(--capitola-spacing-medium)) var(--capitola-gutter) 0;
+		padding: calc(var(--capitola-header-height) + var(--wp--custom--spacing--medium)) var(--wp--custom--spacing--gutter) 0;
 		overflow: auto;
 		clip-path: circle(0.3% at 100% 0);
 		transition: clip-path 0.5s ease-in;
@@ -354,12 +354,12 @@
 	&__menu-items {
 		list-style: none;
 		margin: 0;
-		padding: var(--capitola-spacing-large) 0 0;
+		padding: var(--wp--custom--spacing--large) 0 0;
 
 		@include mq("large") {
 			display: flex;
 			align-items: center;
-			gap: var(--capitola-spacing-small);
+			gap: var(--wp--custom--spacing--small);
 			padding: 0;
 		}
 	}
@@ -371,7 +371,7 @@
 		color: var(--capitola-color-body);
 
 		+.wp-block-capitola-nav__menu-item {
-			margin-top: var(--capitola-spacing-small);
+			margin-top: var(--wp--custom--spacing--small);
 
 			@include mq("large") {
 				margin-top: 0;
@@ -380,11 +380,11 @@
 
 		@include mq("large") {
 			align-items: center;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 			height: 100%;
 
 			.--shrink-utility & {
-				padding-bottom: var(--capitola-spacing-xsmall);
+				padding-bottom: var(--wp--custom--spacing--xsmall);
 			}
 
 			&:hover {
@@ -475,18 +475,18 @@
 
 	.wp-block-capitola-nav-sublink {
 		display: flex;
-		margin-top: var(--capitola-spacing-small);
+		margin-top: var(--wp--custom--spacing--small);
 
 		@include mq("large") {
 			margin-top: 0;
 			padding: 0;
 
 			&:first-child {
-				padding-top: var(--capitola-spacing-small);
+				padding-top: var(--wp--custom--spacing--small);
 			}
 
 			&:last-child {
-				padding-bottom: var(--capitola-spacing-small);
+				padding-bottom: var(--wp--custom--spacing--small);
 			}
 		}
 
@@ -499,13 +499,13 @@
 					weight: var(--wp--custom--font-weight--normal);
 				}
 
-				padding-left: var(--capitola-gutter);
+				padding-left: var(--wp--custom--spacing--gutter);
 			}
 
 			@include mq("large") {
 				display: block;
 				font-size: var(--capitola-nav-link-fontSize);
-				padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-medium);
+				padding: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--medium);
 			}
 		}
 	}
@@ -657,7 +657,7 @@
 			position: relative;
 			border: none;
 			width: 100%;
-			max-width: var(--capitola-wideSize);
+			max-width: var(--wp--custom--wide-size);
 			margin: 0 auto;
 
 			.search-icon {

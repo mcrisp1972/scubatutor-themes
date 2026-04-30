@@ -56,18 +56,18 @@
 @mixin button {
 	@include unstyle-link;
 	font: {
-		family: var(--wp--preset--font-family--primary);
-		size: var(--capitola-button-fontSize);
-		weight: var(--wp--custom--font-weight--bold);
+		family: var(--wp--custom--buttons--font--family);
+		size: var(--wp--custom--buttons--font--size);
+		weight: var(--wp--custom--buttons--font--weight);
 	}
 	background: var(--capitola-color-button);
 	text-decoration: none;
-	padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
+	padding: var(--wp--custom--buttons--padding);
 	color: var(--capitola-color-button-text);
-	border-radius: $radius-small;
+	border-radius: var(--wp--custom--buttons--border-radius);
 	border: 2px solid var(--capitola-color-button);
 	cursor: pointer;
-	line-height: 1.15;
+	line-height: var(--wp--custom--buttons--line-height);
 	margin: 0;
 	transition: border-radius $transition;
 	white-space: nowrap;
@@ -84,7 +84,7 @@
 
 	@include button {
 		display: flex;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		align-items: center;
 		@content;
 	}
@@ -121,20 +121,20 @@
 	@include unstyle-link;
 	font: {
 		family: var(--wp--preset--font-family--primary);
-		size: var(--capitola-button-fontSize);
-		weight: var(--wp--custom--font-weight--bold);
+		size: var(--wp--custom--buttons--font--size);
+		weight: var(--wp--custom--buttons--font--weight);
 	}
 	text-decoration: none;
-	padding: var(--capitola-spacing-xsmall) var(--capitola-spacing-small);
-	border-radius: $radius-small;
+	padding: var(--wp--custom--buttons--padding);
+	border-radius: var(--wp--custom--buttons--border-radius);
 	border: 2px solid var(--capitola-color-button);
 	cursor: pointer;
-	line-height: 1.15;
+	line-height: var(--wp--custom--buttons--line-height);
 	margin: 0;
 	transition: border-radius $transition;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--capitola-spacing-xsmall);
+	gap: var(--wp--custom--spacing--xsmall);
 	align-items: center;
 	background: transparent;
 	color: var(--capitola-color-button);
@@ -163,16 +163,16 @@
 	@include unstyle-link;
 	font: {
 		family: var(--wp--preset--font-family--primary);
-		size: var(--capitola-button-fontSize);
-		weight: var(--wp--custom--font-weight--bold);
+		size: var(--wp--custom--buttons--font--size);
+		weight: var(--wp--custom--buttons--font--weight);
 	}
 	text-decoration: none;
 	cursor: pointer;
-	line-height: 1.15;
+	line-height: var(--wp--custom--buttons--line-height);
 	margin: 0;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--capitola-spacing-xsmall);
+	gap: var(--wp--custom--spacing--xsmall);
 	align-items: center;
 	background: transparent;
 	border: none;
@@ -213,8 +213,8 @@
 @mixin cta-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--capitola-spacing-small);
-	margin: var(--capitola-spacing-small) 0 0;
+	gap: var(--wp--custom--spacing--small);
+	margin: var(--wp--custom--spacing--small) 0 0;
 }
 
 // apply to the .swiper class Button classnames are output by this mixin
@@ -337,7 +337,7 @@
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	gap: var(--capitola-spacing-xxsmall);
+	gap: var(--wp--custom--spacing--xxsmall);
 	@content;
 
 	&::after {
@@ -356,13 +356,13 @@
 		text-decoration: none;
 
 		&::after {
-			transform: translateX(var(--capitola-spacing-xxsmall));
+			transform: translateX(var(--wp--custom--spacing--xxsmall));
 		}
 	}
 }
 
 @mixin contentSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
-	width: var(--capitola-contentSize-padded);
+	width: var(--wp--custom--content-size-padded);
 
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
@@ -374,7 +374,7 @@
 }
 
 @mixin wideSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
-	width: var(--capitola-wideSize-padded);
+	width: var(--wp--custom--wide-size-padded);
 
 	@if $top == $bottom and $right == $left {
 		margin: $top $right;
@@ -387,7 +387,7 @@
 
 @mixin truncate-lines {
 	display: -webkit-box;
-	-webkit-line-clamp: var(--capitola-excerpt-lines);
+	-webkit-line-clamp: var(--wp--custom--truncate-lines);
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -498,15 +498,15 @@
 	background: var(--capitola-color-background);
 	overflow: hidden;
 	padding: {
-		top: var(--capitola-blockPadding);
-		bottom: var(--capitola-blockPadding);
+		top: var(--wp--custom--spacing--block-padding);
+		bottom: var(--wp--custom--spacing--block-padding);
 	}
 }
 
 @mixin block-inner-wrap( $reverse-mobile: false ) {
 	position: relative;
 	display: flex;
-	gap: var(--capitola-blockPadding);
+	gap: var(--wp--custom--spacing--block-padding);
 
 	@if $reverse-mobile {
 		flex-flow: column-reverse;

@@ -64,27 +64,27 @@
 		&.--align-right {
 
 			@include mq("large") {
-				width: calc(var(--capitola-wideSize-padded) / 2);
+				width: calc(var(--wp--custom--wide-size-padded) / 2);
 			}
 		}
 
 		&.--align-left {
 
 			@include mq("large") {
-				margin-left: var(--capitola-wideSize-padding);
+				margin-left: var(--wp--custom--wide-size-padding);
 			}
 		}
 
 		&.--align-right {
 
 			@include mq("large") {
-				margin-right: var(--capitola-wideSize-padding);
+				margin-right: var(--wp--custom--wide-size-padding);
 			}
 		}
 	}
 
 	&__eyebrow {
-		margin: 0 0 var(--capitola-spacing-xsmall);
+		margin: 0 0 var(--wp--custom--spacing--xsmall);
 
 		.--align-left &,
 		.--align-right & {
@@ -109,7 +109,7 @@
 
 	&__caption {
 		text-align: center;
-		margin: var(--capitola-spacing-small) 0 0;
+		margin: var(--wp--custom--spacing--small) 0 0;
 
 		.--align-left &,
 		.--align-right & {

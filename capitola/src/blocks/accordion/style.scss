@@ -13,11 +13,11 @@
 
 	&__headline {
 		display: flex;
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		margin: var(--capitola-spacing-small) 0;
+		margin: var(--wp--custom--spacing--small) 0;
 		color: var(--capitola-color-link);
 
 		&::after {
@@ -72,7 +72,7 @@
 
 		.--is-open & {
 			grid-template-rows: 1fr;
-			margin-bottom: var(--capitola-spacing-small);
+			margin-bottom: var(--wp--custom--spacing--small);
 		}
 	}
 

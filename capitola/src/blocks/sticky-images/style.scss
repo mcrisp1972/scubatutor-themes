@@ -17,7 +17,7 @@
 
 	position: relative;
 	background: var(--capitola-color-background);
-	padding-top: var(--capitola-blockPadding);
+	padding-top: var(--wp--custom--spacing--block-padding);
 
 	&.--layout-full {
 		padding-top: 0;
@@ -30,7 +30,7 @@
 	&__width {
 		display: flex;
 		position: relative;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 		flex-flow: column;
 
 		@include mq("medium") {
@@ -73,7 +73,7 @@
 			position: sticky;
 			top: var(--sticky-top);
 			height: var(--sticky-height);
-			padding: var(--capitola-blockPadding) 0;
+			padding: var(--wp--custom--spacing--block-padding) 0;
 
 			.--layout-full & {
 				padding: 0;
@@ -173,7 +173,7 @@
 	&__image-caption {
 		position: absolute;
 		inset: auto 0 0 0;
-		padding: var(--capitola-spacing-xxlarge) var(--capitola-spacing-medium) var(--capitola-spacing-medium);
+		padding: var(--wp--custom--spacing--xxlarge) var(--wp--custom--spacing--medium) var(--wp--custom--spacing--medium);
 		background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
 		color: var(--wp--preset--color--white);
 		text-align: center;
@@ -183,19 +183,19 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 
 		@include mq("medium") {
 			gap: unset;
 			flex: 1 0 0;
 
 			.--layout-full & {
-				padding-right: var(--capitola-wideSize-padding);
+				padding-right: var(--wp--custom--wide-size-padding);
 			}
 
 			.--layout-full.--intro-left & {
 				padding: {
-					left: var(--capitola-wideSize-padding);
+					left: var(--wp--custom--wide-size-padding);
 					right: 0;
 				}
 			}
@@ -205,19 +205,19 @@
 	&__body-section {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 		justify-content: flex-start;
 		background: var(--capitola-color-background);
 		padding: 0;
 
 		&:last-child {
-			padding-bottom: var(--capitola-blockPadding);
+			padding-bottom: var(--wp--custom--spacing--block-padding);
 		}
 
 		@include mq("medium") {
 			position: sticky;
 			height: var(--sticky-height);
-			padding: var(--capitola-blockPadding) 0;
+			padding: var(--wp--custom--spacing--block-padding) 0;
 			justify-content: center;
 
 			.--has-fade-transition & {
@@ -277,7 +277,7 @@
 
 	.wp-block-capitola-body-text {
 		justify-content: flex-start;
-		flex: 0 0 calc(50% - (var(--capitola-blockPadding) / 2));
+		flex: 0 0 calc(50% - (var(--wp--custom--spacing--block-padding) / 2));
 
 		@include mq("medium") {
 			justify-content: center;

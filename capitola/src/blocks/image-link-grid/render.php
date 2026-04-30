@@ -15,7 +15,7 @@ $classes = array(
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'style' => '--capitola-excerpt-lines: ' . $block->context['excerptLines'] . ';',
+		'style' => '--wp--custom--truncate-lines: ' . $block->context['excerptLines'] . ';',
 	)
 );
 

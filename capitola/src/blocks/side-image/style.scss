@@ -2,8 +2,8 @@
 
 .wp-block-capitola-side-image {
 	background: var(--capitola-color-background);
-	padding-top: var(--capitola-blockPadding);
-	padding-bottom: var(--capitola-blockPadding);
+	padding-top: var(--wp--custom--spacing--block-padding);
+	padding-bottom: var(--wp--custom--spacing--block-padding);
 
 	&:has(.--side-bg-img),
 	&.--has-animation {
@@ -22,7 +22,7 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 
 		@include mq("50-50") {
 			flex-flow: row;
@@ -67,7 +67,7 @@
 
 			&.--sticky {
 				position: sticky;
-				top: calc(var(--capitola-header-height) + var(--capitola-blockPadding) + var(--wp-admin--admin-bar--height, 0px));
+				top: calc(var(--capitola-header-height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
 			}
 		}
 	}
@@ -136,10 +136,10 @@
 		&.--side-bg-img {
 
 			.wp-block-capitola-body-text {
-				padding: 0 var(--capitola-gutter);
+				padding: 0 var(--wp--custom--spacing--gutter);
 
 				@include mq("50-50") {
-					padding: var(--capitola-blockPadding) var(--capitola-wideSize-padding) var(--capitola-blockPadding) 0;
+					padding: var(--wp--custom--spacing--block-padding) var(--wp--custom--wide-size-padding) var(--wp--custom--spacing--block-padding) 0;
 				}
 			}
 
@@ -149,7 +149,7 @@
 
 					@include mq("50-50") {
 						padding: {
-							left: var(--capitola-wideSize-padding);
+							left: var(--wp--custom--wide-size-padding);
 							right: 0;
 						}
 					}
@@ -171,7 +171,7 @@
 	figcaption {
 		@include micro-text;
 		color: var(--capitola-color-body);
-		margin: var(--capitola-spacing-xsmall) 0 0;
+		margin: var(--wp--custom--spacing--xsmall) 0 0;
 	}
 
 	.--has-small-radius {

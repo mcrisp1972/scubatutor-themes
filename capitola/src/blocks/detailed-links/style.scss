@@ -19,9 +19,9 @@
 	display: flex;
 	flex-flow: row;
 	align-items: flex-start;
-	gap: var(--capitola-spacing-small);
-	padding: 0 0 var(--capitola-spacing-small);
-	margin: var(--capitola-spacing-small) 0 0;
+	gap: var(--wp--custom--spacing--small);
+	padding: 0 0 var(--wp--custom--spacing--small);
+	margin: var(--wp--custom--spacing--small) 0 0;
 	border-bottom: 1px solid var(--capitola-color-accent);
 
 	&:has(a:hover),
@@ -56,14 +56,14 @@
 	&__body {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		flex: 1 0 0;
 	}
 
 	&__title {
 		@include unstyle-link;
 		display: flex;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		width: 100%;
 		align-items: flex-start;
 		justify-content: space-between;

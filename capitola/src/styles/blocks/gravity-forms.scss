@@ -141,7 +141,7 @@
 
 		&_asterisk {
 			color: $error_color;
-			margin-left: var(--capitola-spacing-xxsmall);
+			margin-left: var(--wp--custom--spacing--xxsmall);
 		}
 
 	}
@@ -182,7 +182,7 @@
 
 	.gform-grid-col {
 		flex: 1;
-		margin-left: var(--capitola-spacing-small);
+		margin-left: var(--wp--custom--spacing--small);
 
 		&.name_first {
 			margin-left: 0;

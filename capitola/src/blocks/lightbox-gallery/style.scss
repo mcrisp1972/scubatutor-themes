@@ -18,7 +18,7 @@
 		display: flex;
 		position: relative;
 		border-radius: $radius-small;
-		margin: 0 0 var(--capitola-spacing-xxsmall);
+		margin: 0 0 var(--wp--custom--spacing--xxsmall);
 		width: 100%;
 		justify-content: center;
 		align-items: center;
@@ -85,14 +85,14 @@
 		position: relative;
 		overflow: hidden;
 		flex-wrap: wrap;
-		gap: var(--capitola-spacing-xxsmall);
+		gap: var(--wp--custom--spacing--xxsmall);
 	}
 
 	&__thumbnail {
 		@include unstyle-button;
 		display: flex;
 		position: relative;
-		flex: 0 0 calc((100% / 3) - ((var(--capitola-spacing-xxsmall) * 2) / 3));
+		flex: 0 0 calc((100% / 3) - ((var(--wp--custom--spacing--xxsmall) * 2) / 3));
 		justify-content: center;
 		align-items: center;
 		aspect-ratio: 1;
@@ -181,7 +181,7 @@
 		height: 100%;
 		text-align: center;
 		overflow: hidden;
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 	}
 
 	&__lightbox-slides {
@@ -199,7 +199,7 @@
 		flex-flow: column;
 		flex: 0 0 100%;
 		height: 100%;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 	}
 
 	&__lightbox-img-wrap {
@@ -221,7 +221,7 @@
 	}
 
 	&__lightbox-caption {
-		width: var(--capitola-contentSize-padded);
+		width: var(--wp--custom--content-size-padded);
 		margin: 0 auto;
 		text-align: center;
 		color: var(--wp--preset--color--white);
@@ -236,7 +236,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: var(--capitola-spacing-medium);
+		gap: var(--wp--custom--spacing--medium);
 
 		&-prev,
 		&-next {

@@ -14,8 +14,8 @@
 .capitola-page-nav {
 	display: flex;
 	justify-content: center;
-	gap: var(--capitola-spacing-xsmall);
-	margin: var(--capitola-spacing-small) 0 0;
+	gap: var(--wp--custom--spacing--xsmall);
+	margin: var(--wp--custom--spacing--small) 0 0;
 
 	&.--hidden {
 		display: none;
@@ -28,7 +28,7 @@
 		list-style-type: none;
 
 		@include mq("medium") {
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 		}
 	}
 
@@ -55,19 +55,19 @@
 		}
 
 		background: var(--capitola-color-button);
-		padding: 0 var(--capitola-spacing-xsmall) 0;
+		padding: 0 var(--wp--custom--spacing--xsmall) 0;
 		transition: background-color $transition, color $transition;
 
 		&.--next,
 		&.--prev {
 			position: relative;
-			gap: var(--capitola-spacing-xxsmall);
+			gap: var(--wp--custom--spacing--xxsmall);
 
 			&::after {
 				content: "";
 				background: var(--capitola-color-button-text);
 				mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
-				width: var(--capitola-spacing-small);
+				width: var(--wp--custom--spacing--small);
 				height: 1em;
 				transition:
 					background-color $transition,

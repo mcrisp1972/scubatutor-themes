@@ -6,7 +6,7 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--capitola-blockPadding);
+		gap: var(--wp--custom--spacing--block-padding);
 
 		.--paginated & {
 			gap: unset;
@@ -14,17 +14,17 @@
 	}
 
 	&__body {
-		margin: 0 0 var(--capitola-spacing-medium);
+		margin: 0 0 var(--wp--custom--spacing--medium);
 	}
 
 	&__scroll-buttons {
 		--swiper-button-size: 32px;
 		display: flex;
 		position: relative;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 		justify-content: center;
 		align-items: center;
-		margin: var(--capitola-spacing-small) 0 0;
+		margin: var(--wp--custom--spacing--small) 0 0;
 
 		.swiper {
 			@include swiper-button(false);
@@ -48,7 +48,7 @@
 		display: grid;
 		position: relative;
 		grid: auto / 1fr;
-		gap: var(--capitola-spacing-xsmall);
+		gap: var(--wp--custom--spacing--xsmall);
 
 		&.--row {
 
@@ -118,7 +118,7 @@
 
 			.capitola-result {
 				flex: 0 0 275px;
-				margin: 0 var(--capitola-spacing-xsmall) 0 0;
+				margin: 0 var(--wp--custom--spacing--xsmall) 0 0;
 
 				&:last-of-type {
 					margin-right: 0;
@@ -213,7 +213,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			gap: var(--capitola-spacing-medium);
+			gap: var(--wp--custom--spacing--medium);
 
 			.capitola-result {
 				--capitola-color-background: var(--wp--preset--color--white);
@@ -246,7 +246,7 @@
 			&.--sidescroll {
 
 				.capitola-result {
-					margin: 0 var(--capitola-spacing-medium) 0 0;
+					margin: 0 var(--wp--custom--spacing--medium) 0 0;
 
 					&:last-of-type {
 						margin-right: 0;
@@ -265,7 +265,7 @@
 		&-head {
 			display: flex;
 			flex-wrap: wrap;
-			gap: var(--capitola-spacing-small) var(--capitola-spacing-large);
+			gap: var(--wp--custom--spacing--small) var(--wp--custom--spacing--large);
 		}
 
 		&-headline {
@@ -307,7 +307,7 @@
 				color: var(--capitola-color-body);
 				font-size: 1.25rem;
 				letter-spacing: 0.8px;
-				padding: 0 0 0 var(--capitola-spacing-small);
+				padding: 0 0 0 var(--wp--custom--spacing--small);
 				border-radius: 4px;
 				background: transparent;
 
@@ -327,7 +327,7 @@
 		&-count {
 			color: var(--capitola-color-body);
 			flex: 0 0 100%;
-			margin: 0 0 var(--capitola-spacing-small);
+			margin: 0 0 var(--wp--custom--spacing--small);
 		}
 	}
 }
@@ -390,7 +390,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-flow: column;
-		padding: var(--capitola-spacing-medium);
+		padding: var(--wp--custom--spacing--medium);
 		height: 300px;
 		text-decoration: none !important;
 		background: var(--wp--preset--color--white);
@@ -437,9 +437,9 @@
 		display: flex;
 		flex-flow: column;
 		flex: 1 1 auto;
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		text-decoration: none;
-		padding: var(--capitola-spacing-small);
+		padding: var(--wp--custom--spacing--small);
 
 		.capitola-result__cta.--cta {
 			color: var(--capitola-color-body);
@@ -466,11 +466,11 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: var(--capitola-spacing-xsmall);
+		padding: var(--wp--custom--spacing--xsmall);
 	}
 
 	&__body-cat {
-		margin: 0 0 var(--capitola-spacing-xxsmall);
+		margin: 0 0 var(--wp--custom--spacing--xxsmall);
 	}
 
 	&__title {
@@ -486,7 +486,7 @@
 		@include micro-text;
 		display: flex;
 		color: var(--capitola-color-body);
-		gap: var(--capitola-spacing-small);
+		gap: var(--wp--custom--spacing--small);
 		flex: 0 1 auto;
 		align-items: center;
 
@@ -508,7 +508,7 @@
 
 	&__thumb-cta {
 		position: relative;
-		margin: var(--capitola-spacing-small) 0 0;
+		margin: var(--wp--custom--spacing--small) 0 0;
 		align-self: center;
 	}
 
@@ -525,11 +525,11 @@
 
 		&-detail {
 			display: flex;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 
 			&.star-rating {
 				@include star-rating {
-					margin: var(--capitola-spacing-xsmall) 0 0;
+					margin: var(--wp--custom--spacing--xsmall) 0 0;
 				}
 
 				&::before {
@@ -553,10 +553,10 @@
 			weight: var(--wp--custom--font-weight--bold);
 			size: to-rem(12px);
 		}
-		padding: 0 var(--capitola-spacing-xsmall);
+		padding: 0 var(--wp--custom--spacing--xsmall);
 		text-align: center;
-		top: var(--capitola-spacing-xsmall);
-		left: var(--capitola-spacing-xsmall);
+		top: var(--wp--custom--spacing--xsmall);
+		left: var(--wp--custom--spacing--xsmall);
 		border-radius: 100%;
 		background: #059af4;
 		color: var(--wp--preset--color--white);
