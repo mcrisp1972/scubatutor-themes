@@ -5,8 +5,8 @@
 		"appearanceTools": false,
 		"useRootPaddingAwareAlignments": true,
 		"layout": {
-			"contentSize": "var(--capitola-contentSize)",
-			"wideSize": "var(--capitola-wideSize)",
+			"contentSize": "var(--wp--custom--content-size)",
+			"wideSize": "var(--wp--custom--wide-size)",
 			"allowCustomContentAndWideSize": false
 		},
 		"spacing": {
@@ -18,44 +18,7 @@
 			"defaultSpacingSizes": false,
 			"customSpacingSize": false,
 			"margin": true,
-			"padding": true,
-			"spacingSizes": [
-				{
-					"size": "var(--capitola-spacing-xxsmall)",
-					"slug": "xxsmall",
-					"name": "XX Small"
-				},
-				{
-					"size": "var(--capitola-spacing-xsmall)",
-					"slug": "xsmall",
-					"name": "X Small"
-				},
-				{
-					"size": "var(--capitola-spacing-small)",
-					"slug": "small",
-					"name": "Small"
-				},
-				{
-					"size": "var(--capitola-spacing-medium)",
-					"slug": "medium",
-					"name": "Medium"
-				},
-				{
-					"size": "var(--capitola-spacing-large)",
-					"slug": "large",
-					"name": "Large"
-				},
-				{
-					"size": "var(--capitola-spacing-xlarge)",
-					"slug": "xlarge",
-					"name": "X Large"
-				},
-				{
-					"size": "var(--capitola-spacing-xxlarge)",
-					"slug": "xxlarge",
-					"name": "XX Large"
-				}
-			]
+			"padding": true
 		},
 		"color": {
 			"background": false,
@@ -158,6 +121,10 @@
 					"fontFamily": "'Open Sans', helvetica, arial, sans-serif"
 				}
 			]
+		},
+		"custom": {
+			"contentSize": "1000px",
+			"wideSize": "1000px"
 		}
 	},
 	"templateParts": [

@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-capitola-page-nav {
-	padding-bottom: var(--capitola-spacing-large);
+	padding-bottom: var(--wp--custom--spacing--large);
 	background: var(--capitola-color-background);
 
 	&__width {
@@ -16,7 +16,7 @@
 			display: flex;
 			text-decoration: none;
 			align-items: center;
-			gap: var(--capitola-spacing-xsmall);
+			gap: var(--wp--custom--spacing--xsmall);
 		}
 
 		&:hover,

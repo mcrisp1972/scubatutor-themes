@@ -5,15 +5,15 @@
 	color: var(--capitola-color-body);
 
 	padding: {
-		top: var(--capitola-spacing-small);
-		bottom: var(--capitola-spacing-small);
+		top: var(--wp--custom--spacing--small);
+		bottom: var(--wp--custom--spacing--small);
 	}
 
 	&__grid {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: var(--capitola-spacing-large);
+		gap: var(--wp--custom--spacing--large);
 
 		@include mq("large") {
 			flex-wrap: nowrap;
@@ -31,18 +31,16 @@
 	inset: auto 0 0 0;
 	z-index: 1;
 	background: var(--capitola-color-background);
-
 	padding: {
-		top: var(--capitola-spacing-small);
-		bottom: var(--capitola-spacing-small);
+		top: var(--wp--custom--spacing--small);
+		bottom: var(--wp--custom--spacing--small);
 	}
-
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
 	&__body {
 		display: flex;
 		align-items: center;
-		gap: var(--capitola-spacing-medium);
+		gap: var(--wp--custom--spacing--medium);
 		color: var(--capitola-color-body);
 	}
 
