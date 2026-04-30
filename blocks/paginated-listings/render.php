@@ -102,7 +102,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				</div>
 			</div>
 		</div>
-		<div class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--capitola-excerpt-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
+		<div class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 		</div>
 		<?php get_template_part( 'template-parts/pagination' ); ?>
 	</div>

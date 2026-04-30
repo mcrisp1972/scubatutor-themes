@@ -12,7 +12,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'id'    => $attributes['anchor'],
 		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
-		'style' => '--capitola-excerpt-lines: ' . $attributes['excerptLines'] . ';',
+		'style' => '--wp--custom--truncate-lines: ' . $attributes['excerptLines'] . ';',
 	)
 );
 
