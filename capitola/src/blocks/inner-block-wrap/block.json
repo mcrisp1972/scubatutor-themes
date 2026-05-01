@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/inner-block-wrap",
 	"title": "Inner Blocks Wrapper",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Wrap and constrain nested inner blocks with optional template settings.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"wrapper",
+		"inner blocks",
+		"container",
+		"layout"
+	],
 	"supports": {
 		"inserter": false,
 		"lock": false

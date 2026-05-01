@@ -3,10 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/three-image-block",
 	"title": "Three Image Block",
-	"description": "Displays three overlapping images with side content.",
+	"textdomain": "capitola",
+	"description": "Display three overlapping images paired with side content in a layered layout.",
 	"category": "custom-blocks",
 	"keywords": [
-		"links"
+		"images",
+		"collage",
+		"layered",
+		"three image"
 	],
 	"supports": {
 		"anchor": true,

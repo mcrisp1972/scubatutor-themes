@@ -3,15 +3,27 @@
 	"apiVersion": 3,
 	"name": "capitola/paginated-listings",
 	"title": "Paginated Listings",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display filterable and searchable post listings with pagination controls.",
 	"category": "listing-blocks",
-	"keywords": [],
+	"keywords": [
+		"listings",
+		"pagination",
+		"filters",
+		"search"
+	],
 	"supports": {
 		"anchor": true,
 		"multiple": false,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -123,8 +135,13 @@
 			"default": {
 				"post": {
 					"name": "Articles",
-					"taxonomies": ["category"],
-					"sorts": ["date", "title"]
+					"taxonomies": [
+						"category"
+					],
+					"sorts": [
+						"date",
+						"title"
+					]
 				}
 			}
 		},
@@ -174,11 +191,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -200,7 +221,14 @@
 		"introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
-	"style": ["capitola-post-filters", "capitola-post-listing", "capitola-page-navigation"],
-	"viewScript": ["file:./view.js", "capitola-animations"],
+	"style": [
+		"capitola-post-filters",
+		"capitola-post-listing",
+		"capitola-page-navigation"
+	],
+	"viewScript": [
+		"file:./view.js",
+		"capitola-animations"
+	],
 	"editorScript": "file:./index.js"
 }

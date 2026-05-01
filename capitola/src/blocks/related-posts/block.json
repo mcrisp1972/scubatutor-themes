@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/related-posts",
 	"title": "Related Posts",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display posts related to the current post in list, grid, or slider layouts.",
 	"category": "listing-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"related posts",
+		"posts",
+		"listing",
+		"slider"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -104,11 +116,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -130,7 +146,10 @@
 		"introAlign": "introAlign"
 	},
 	"style": "capitola-post-listing",
-	"viewScript": ["capitola-listing-sidescroll", "capitola-animations"],
+	"viewScript": [
+		"capitola-listing-sidescroll",
+		"capitola-animations"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

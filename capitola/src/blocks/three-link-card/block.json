@@ -3,14 +3,22 @@
 	"apiVersion": 3,
 	"name": "capitola/three-link-card",
 	"title": "Three Link Card",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add one linked card item with image and title inside a three-card layout.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"card",
+		"link",
+		"image card",
+		"featured link"
+	],
 	"supports": {
 		"lock": false,
 		"inserter": false
 	},
-	"parent": ["capitola/three-link-cards-grid"],
+	"parent": [
+		"capitola/three-link-cards-grid"
+	],
 	"attributes": {
 		"postType": {
 			"type": "string",

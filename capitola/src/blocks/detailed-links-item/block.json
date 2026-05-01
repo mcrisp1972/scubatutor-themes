@@ -3,9 +3,18 @@
 	"apiVersion": 3,
 	"name": "capitola/detailed-links-item",
 	"title": "Detailed Link List Item",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Create one detailed link card item with image, title, and excerpt.",
 	"category": "custom-blocks",
-	"parent": ["capitola/detailed-links-list"],
+	"keywords": [
+		"link item",
+		"card",
+		"featured link",
+		"excerpt"
+	],
+	"parent": [
+		"capitola/detailed-links-list"
+	],
 	"supports": {
 		"anchor": false
 	},
@@ -34,7 +43,10 @@
 			"default": ""
 		}
 	},
-	"usesContext": ["showExcerpt", "showImage"],
+	"usesContext": [
+		"showExcerpt",
+		"showImage"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

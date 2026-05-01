@@ -3,10 +3,18 @@
 	"apiVersion": 3,
 	"name": "capitola/nav-mega-nav",
 	"title": "Mega Nav",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add a multi-column mega navigation panel with links and optional featured content.",
 	"category": "nav-blocks",
-	"keywords": ["site", "header", "navigation"],
-	"parent": ["capitola/nav"],
+	"keywords": [
+		"mega menu",
+		"header",
+		"navigation",
+		"dropdown"
+	],
+	"parent": [
+		"capitola/nav"
+	],
 	"supports": {},
 	"attributes": {
 		"title": {

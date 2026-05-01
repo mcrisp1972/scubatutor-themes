@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/social-shares",
 	"title": "Social Shares",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display social sharing links for the current post or page.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"social",
+		"share",
+		"sharing",
+		"social media"
+	],
 	"supports": {},
 	"attributes": {
 		"exampleData": {

@@ -3,11 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/sticky-images-section",
 	"title": "Sticky Images Section",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add one content section with an associated sticky image inside Sticky Images.",
 	"category": "custom-blocks",
 	"keywords": [
 		"image",
-		"sticky"
+		"sticky",
+		"section",
+		"side image"
 	],
 	"supports": {
 		"anchor": true

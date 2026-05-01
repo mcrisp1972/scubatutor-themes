@@ -3,13 +3,21 @@
 	"apiVersion": 3,
 	"name": "capitola/image-link-grid-item",
 	"title": "Image Link Grid Item",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add one linked image card item inside an Image Link Grid.",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"image link",
+		"grid item",
+		"card",
+		"featured link"
+	],
 	"supports": {
 		"anchor": true
 	},
-	"parent": ["capitola/image-link-grid"],
+	"parent": [
+		"capitola/image-link-grid"
+	],
 	"attributes": {
 		"anchor": {
 			"type": "string",

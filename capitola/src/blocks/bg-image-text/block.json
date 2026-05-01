@@ -3,10 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/bg-image-text",
 	"title": "Background Image with Content Box",
+	"textdomain": "capitola",
 	"description": "",
 	"category": "custom-blocks",
 	"keywords": [
-		"links"
+		"background image",
+		"content box",
+		"hero",
+		"overlay"
 	],
 	"supports": {
 		"anchor": true,

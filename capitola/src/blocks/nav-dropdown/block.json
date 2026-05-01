@@ -3,12 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/nav-dropdown",
 	"title": "Nav Dropdown",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add a dropdown navigation group with manual or auto-populated links.",
 	"category": "nav-blocks",
 	"keywords": [
-		"site",
+		"dropdown",
 		"header",
-		"navigation"
+		"navigation",
+		"menu"
 	],
 	"parent": [
 		"capitola/nav"

@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/stats",
 	"title": "Stats",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display key numbers and metrics in a styled statistics section.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"stats",
+		"metrics",
+		"numbers",
+		"highlights"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {

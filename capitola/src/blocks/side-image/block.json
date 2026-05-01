@@ -3,10 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/side-image",
 	"title": "Side Image",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Pair text content with an image in a side-by-side layout.",
 	"category": "custom-blocks",
 	"keywords": [
-		"links"
+		"side image",
+		"media",
+		"two column",
+		"split layout"
 	],
 	"supports": {
 		"anchor": true,
@@ -200,6 +204,7 @@
 		{
 			"name": "side-video-cta",
 			"title": "Side Video",
+			"description": "Pair text content with a video in a side-by-side layout.",
 			"attributes": {
 				"imageLayout": "inner",
 				"mediaType": "video",
@@ -214,6 +219,7 @@
 		{
 			"name": "side-iframe-cta",
 			"title": "Side iFrame",
+			"description": "Pair text content with an iframe in a side-by-side layout.",
 			"attributes": {
 				"imageLayout": "inner",
 				"mediaType": "iframe",
@@ -227,6 +233,7 @@
 		{
 			"name": "side-image-hero",
 			"title": "Side Image Hero",
+			"description": "Page hero with a side image.",
 			"category": "hero-blocks",
 			"attributes": {
 				"imageLayout": "full",

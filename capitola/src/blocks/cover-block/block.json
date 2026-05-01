@@ -3,10 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/cover-block",
 	"title": "Cover Block",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Show headline, copy, and calls to action over a full-width background image.",
 	"category": "custom-blocks",
 	"keywords": [
-		"product"
+		"cover",
+		"hero",
+		"banner",
+		"background image"
 	],
 	"supports": {
 		"anchor": true,

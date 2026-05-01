@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/form-block",
 	"title": "Form Block",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Pair introductory content with an embedded form in a two-column layout.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"form",
+		"contact form",
+		"lead form",
+		"two column"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -48,11 +60,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -85,6 +101,10 @@
 	},
 	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
-	"style": ["capitola-form-block", "capitola-wp-forms", "capitola-GForm"],
+	"style": [
+		"capitola-form-block",
+		"capitola-wp-forms",
+		"capitola-GForm"
+	],
 	"editorScript": "file:./index.js"
 }

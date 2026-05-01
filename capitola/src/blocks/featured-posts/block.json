@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/featured-posts",
 	"title": "Featured Posts",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Highlight selected posts in a styled listing or slider layout.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"featured posts",
+		"posts",
+		"listing",
+		"slider"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -102,7 +114,10 @@
 		"isExample": "isExample"
 	},
 	"style": "capitola-post-listing",
-	"viewScript": ["capitola-listing-sidescroll", "capitola-animations"],
+	"viewScript": [
+		"capitola-listing-sidescroll",
+		"capitola-animations"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/search-listings",
 	"title": "Search Listings",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display paginated search results with customizable listing layout and sorting.",
 	"category": "listing-blocks",
-	"keywords": [],
+	"keywords": [
+		"search",
+		"results",
+		"listings",
+		"pagination"
+	],
 	"supports": {
 		"multiple": false
 	},
