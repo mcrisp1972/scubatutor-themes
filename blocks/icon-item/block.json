@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/icon-item",
   "title": "Icon Item",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add a single icon with title and caption inside an Icon Grid.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "icon",
+    "feature",
+    "icon item",
+    "caption"
+  ],
   "supports": {},
   "parent": [
     "capitola/icon-grid"

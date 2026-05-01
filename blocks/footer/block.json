@@ -3,12 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/footer",
   "title": "Site Footer",
-  "description": "All fields test block",
+  "textdomain": "capitola",
+  "description": "Display the site footer with business details, social links, and optional cookie banner.",
   "category": "nav-blocks",
   "keywords": [
-    "site",
     "footer",
-    "navigation"
+    "site footer",
+    "contact info",
+    "social links"
   ],
   "supports": {
     "multiple": false

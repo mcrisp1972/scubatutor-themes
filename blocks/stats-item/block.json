@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/stats-item",
   "title": "Stats Item",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add a single stat value with supporting caption text.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "stat",
+    "metric",
+    "number",
+    "caption"
+  ],
   "supports": {},
   "parent": [
     "capitola/stats-grid"

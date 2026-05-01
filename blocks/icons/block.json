@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/icons",
   "title": "Icons",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Show a customizable grid of icon items with titles and captions.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "icons",
+    "icon grid",
+    "features",
+    "highlights"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

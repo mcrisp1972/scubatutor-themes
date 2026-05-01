@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/detailed-links",
   "title": "Detailed Links",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display a list of rich link cards with optional images and excerpts.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "links",
+    "cards",
+    "featured links",
+    "list"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "capitola/dummy-form",
   "title": "Dummy Form",
+  "textdomain": "capitola",
   "description": "Used only for block previews",
   "supports": {
     "inserter": false

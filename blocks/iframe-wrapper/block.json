@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/iframe-wrapper",
   "title": "iFrame Wrapper",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Embed iframe content with controlled aspect ratio and responsive sizing.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "iframe",
+    "embed",
+    "video",
+    "map"
+  ],
   "supports": {
     "anchor": true,
     "align": [

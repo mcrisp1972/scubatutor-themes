@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/tabbed-contents-panel",
   "title": "Tabbed Contents Panel",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add one content panel associated with a tab label.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "tab panel",
+    "tabs",
+    "panel",
+    "tabbed content"
+  ],
   "styles": [],
   "supports": {},
   "attributes": {

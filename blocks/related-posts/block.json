@@ -3,10 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/related-posts",
   "title": "Related Posts",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display posts related to the current post in list, grid, or slider layouts.",
   "category": "listing-blocks",
   "keywords": [
-    "links"
+    "related posts",
+    "posts",
+    "listing",
+    "slider"
   ],
   "supports": {
     "anchor": true,

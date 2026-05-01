@@ -3,11 +3,13 @@
   "apiVersion": 3,
   "name": "capitola/footer-link-column",
   "title": "Footer Link Column",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add a column of footer links with a heading inside the Site Footer block.",
   "category": "nav-blocks",
   "keywords": [
-    "site",
     "footer",
+    "footer links",
+    "link column",
     "navigation"
   ],
   "parent": [

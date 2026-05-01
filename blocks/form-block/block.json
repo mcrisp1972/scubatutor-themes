@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/form-block",
   "title": "Form Block",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Pair introductory content with an embedded form in a two-column layout.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "form",
+    "contact form",
+    "lead form",
+    "two column"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

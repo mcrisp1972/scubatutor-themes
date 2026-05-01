@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "capitola/color-contrast-test",
   "title": "Color Contrast Test",
+  "textdomain": "capitola",
   "description": "Just for design needs, renders a post feed block using each color theme",
   "category": "custom-blocks",
   "keywords": [],

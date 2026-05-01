@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/small-image-slider",
   "title": "Small Image Slider",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display a compact image slider with optional captions and autoplay.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "slider",
+    "carousel",
+    "images",
+    "gallery"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

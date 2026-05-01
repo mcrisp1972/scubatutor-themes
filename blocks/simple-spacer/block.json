@@ -2,10 +2,16 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "capitola/simple-spacer",
-  "title": "Spacer new",
-  "description": "",
+  "title": "Spacer",
+  "textdomain": "capitola",
+  "description": "Add adjustable vertical spacing between content sections.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "spacer",
+    "spacing",
+    "gap",
+    "layout"
+  ],
   "supports": {},
   "styles": [
     {

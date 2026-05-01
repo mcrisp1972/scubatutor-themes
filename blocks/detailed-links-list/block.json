@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/detailed-links-list",
   "title": "Detailed Links List",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Hold a collection of detailed link card items inside the Detailed Links block.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "links list",
+    "cards",
+    "featured links",
+    "list"
+  ],
   "supports": {
     "inserter": false
   },

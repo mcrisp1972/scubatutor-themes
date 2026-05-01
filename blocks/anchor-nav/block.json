@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/anchor-nav",
   "title": "Anchor Nav",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display a linked in-page navigation menu for section anchors.",
   "category": "nav-blocks",
-  "keywords": [],
+  "keywords": [
+    "anchor",
+    "navigation",
+    "menu",
+    "table of contents"
+  ],
   "supports": {
     "spacing": {
       "margin": [

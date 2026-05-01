@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/body-text",
   "title": "Block Body Text",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add styled heading, copy, and optional calls to action in one content block.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "text",
+    "content",
+    "copy",
+    "cta"
+  ],
   "supports": {
     "lock": false,
     "inserter": false,

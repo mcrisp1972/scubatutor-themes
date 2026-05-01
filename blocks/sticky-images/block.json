@@ -3,11 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/sticky-images",
   "title": "Sticky Images",
-  "description": "Multiple side image blocks with sticky images during scroll.",
+  "textdomain": "capitola",
+  "description": "Display stacked content sections with images that stay sticky during scroll.",
   "category": "custom-blocks",
   "keywords": [
     "image",
-    "sticky"
+    "sticky",
+    "scroll",
+    "side image"
   ],
   "supports": {
     "anchor": true,

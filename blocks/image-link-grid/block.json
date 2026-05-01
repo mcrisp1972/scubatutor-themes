@@ -3,10 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/image-link-grid",
   "title": "Image Link Grid",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display a grid layout of linked image cards within the Image Link Grid Block.",
   "category": "custom-blocks",
   "keywords": [
-    "links"
+    "image links",
+    "grid",
+    "cards",
+    "gallery"
   ],
   "supports": {},
   "parent": [

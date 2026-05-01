@@ -3,10 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/two-image-block",
   "title": "Two Image Block",
-  "description": "Displays two overlapping images with side content.",
+  "textdomain": "capitola",
+  "description": "Display two overlapping images paired with side content in a layered layout.",
   "category": "custom-blocks",
   "keywords": [
-    "links"
+    "images",
+    "layered",
+    "collage",
+    "two image"
   ],
   "supports": {
     "anchor": true,

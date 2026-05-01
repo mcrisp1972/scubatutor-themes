@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/featured-posts",
   "title": "Featured Posts",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Highlight selected posts in a styled listing or slider layout.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "featured posts",
+    "posts",
+    "listing",
+    "slider"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

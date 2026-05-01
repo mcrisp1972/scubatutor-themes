@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/term-feed",
   "title": "Term Feed",
-  "description": "Displays a list of categories.",
+  "textdomain": "capitola",
+  "description": "Display taxonomy terms in list, grid, or slider layouts.",
   "category": "listing-blocks",
-  "keywords": [],
+  "keywords": [
+    "terms",
+    "taxonomy",
+    "categories",
+    "listing"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

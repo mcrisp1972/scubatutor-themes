@@ -6,10 +6,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/accordion',
 		'title' => 'Accordion',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display collapsible content panels with optional multi-open behavior.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'accordion',
+			'toggle',
+			'faq',
+			'collapse'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -64,8 +68,15 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/accordion-item',
 		'title' => 'Accordion Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a single collapsible panel inside an Accordion block.',
 		'category' => 'custom-blocks',
+		'keywords' => array(
+			'accordion',
+			'item',
+			'toggle',
+			'faq'
+		),
 		'parent' => array(
 			'capitola/accordion'
 		),
@@ -86,10 +97,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/accordion-with-intro',
 		'title' => 'Accordion With Intro',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Pair intro content with an accordion to organize expandable details.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'accordion',
+			'intro',
+			'faq',
+			'toggle'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -208,10 +223,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/anchor-nav',
 		'title' => 'Anchor Nav',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a linked in-page navigation menu for section anchors.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			
+			'anchor',
+			'navigation',
+			'menu',
+			'table of contents'
 		),
 		'supports' => array(
 			'spacing' => array(
@@ -267,8 +286,15 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/anchor-nav-item',
 		'title' => 'Anchor Nav Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Create a single linked item for use inside an Anchor Nav block.',
 		'category' => 'custom-blocks',
+		'keywords' => array(
+			'anchor',
+			'nav item',
+			'link',
+			'menu'
+		),
 		'parent' => array(
 			'capitola/anchor-nav'
 		),
@@ -293,10 +319,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/bg-image-text',
 		'title' => 'Background Image with Content Box',
+		'textdomain' => 'capitola',
 		'description' => '',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'background image',
+			'content box',
+			'hero',
+			'overlay'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -412,6 +442,7 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/block-icon-svgs',
 		'title' => 'Block Icon SVG Library',
+		'textdomain' => 'capitola',
 		'description' => 'Just for design needs, lists available SVGs for use as block icons',
 		'category' => 'custom-blocks',
 		'keywords' => array(
@@ -427,10 +458,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/body-text',
 		'title' => 'Block Body Text',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add styled heading, copy, and optional calls to action in one content block.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'text',
+			'content',
+			'copy',
+			'cta'
 		),
 		'supports' => array(
 			'lock' => false,
@@ -530,6 +565,7 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/color-contrast-test',
 		'title' => 'Color Contrast Test',
+		'textdomain' => 'capitola',
 		'description' => 'Just for design needs, renders a post feed block using each color theme',
 		'category' => 'custom-blocks',
 		'keywords' => array(
@@ -546,10 +582,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/cover-block',
 		'title' => 'Cover Block',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Show headline, copy, and calls to action over a full-width background image.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'product'
+			'cover',
+			'hero',
+			'banner',
+			'background image'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -675,10 +715,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/detailed-links',
 		'title' => 'Detailed Links',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a list of rich link cards with optional images and excerpts.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'links',
+			'cards',
+			'featured links',
+			'list'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -815,8 +859,15 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/detailed-links-item',
 		'title' => 'Detailed Link List Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Create one detailed link card item with image, title, and excerpt.',
 		'category' => 'custom-blocks',
+		'keywords' => array(
+			'link item',
+			'card',
+			'featured link',
+			'excerpt'
+		),
 		'parent' => array(
 			'capitola/detailed-links-list'
 		),
@@ -860,10 +911,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/detailed-links-list',
 		'title' => 'Detailed Links List',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Hold a collection of detailed link card items inside the Detailed Links block.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'links list',
+			'cards',
+			'featured links',
+			'list'
 		),
 		'supports' => array(
 			'inserter' => false
@@ -879,6 +934,7 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/dummy-form',
 		'title' => 'Dummy Form',
+		'textdomain' => 'capitola',
 		'description' => 'Used only for block previews',
 		'supports' => array(
 			'inserter' => false
@@ -890,13 +946,13 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/eyebrow',
 		'title' => 'Eyebrow',
+		'textdomain' => 'capitola',
 		'category' => 'text',
 		'description' => 'Introduce new sections and organize content to help visitors (and search engines) understand the structure of your content.',
 		'keywords' => array(
 			'title',
 			'subtitle'
 		),
-		'textdomain' => 'default',
 		'attributes' => array(
 			'textAlign' => array(
 				'type' => 'string'
@@ -934,10 +990,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/featured-posts',
 		'title' => 'Featured Posts',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Highlight selected posts in a styled listing or slider layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'featured posts',
+			'posts',
+			'listing',
+			'slider'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1055,10 +1115,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/fixed-background',
 		'title' => 'Fixed Background',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Layer content over a fixed background image.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'product'
+			'fixed background',
+			'parallax',
+			'background image',
+			'section'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1192,12 +1256,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/footer',
 		'title' => 'Site Footer',
-		'description' => 'All fields test block',
+		'textdomain' => 'capitola',
+		'description' => 'Display the site footer with business details, social links, and optional cookie banner.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
 			'footer',
-			'navigation'
+			'site footer',
+			'contact info',
+			'social links'
 		),
 		'supports' => array(
 			'multiple' => false
@@ -1262,11 +1328,13 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/footer-link-column',
 		'title' => 'Footer Link Column',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a column of footer links with a heading inside the Site Footer block.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
 			'footer',
+			'footer links',
+			'link column',
 			'navigation'
 		),
 		'parent' => array(
@@ -1295,10 +1363,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/form-block',
 		'title' => 'Form Block',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Pair introductory content with an embedded form in a two-column layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'form',
+			'contact form',
+			'lead form',
+			'two column'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1401,10 +1473,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/full-width-slider',
 		'title' => 'Full Width Slider',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a full-width image slider with captions, links, and optional intro content.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'slider',
+			'carousel',
+			'gallery',
+			'full width'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1556,10 +1632,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/icon-grid',
 		'title' => 'Icon Grid',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Arrange icon items in a grid layout within the Icons block.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'icons',
+			'grid',
+			'features',
+			'icon list'
 		),
 		'supports' => array(
 			'lock' => false
@@ -1583,10 +1663,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/icon-item',
 		'title' => 'Icon Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a single icon with title and caption inside an Icon Grid.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'icon',
+			'feature',
+			'icon item',
+			'caption'
 		),
 		'supports' => array(
 			
@@ -1616,10 +1700,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/icons',
 		'title' => 'Icons',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Show a customizable grid of icon items with titles and captions.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'icons',
+			'icon grid',
+			'features',
+			'highlights'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1754,10 +1842,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/iframe-wrapper',
 		'title' => 'iFrame Wrapper',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Embed iframe content with controlled aspect ratio and responsive sizing.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'iframe',
+			'embed',
+			'video',
+			'map'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1803,10 +1895,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/image-link-grid',
 		'title' => 'Image Link Grid',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a grid layout of linked image cards within the Image Link Grid Block.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'image links',
+			'grid',
+			'cards',
+			'gallery'
 		),
 		'supports' => array(
 			
@@ -1830,10 +1926,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/image-link-grid-block',
 		'title' => 'Image Link Grid Block',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Combine intro content with a configurable grid of image link cards.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'image links',
+			'grid',
+			'cards',
+			'featured links'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -1999,10 +2099,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/image-link-grid-item',
 		'title' => 'Image Link Grid Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add one linked image card item inside an Image Link Grid.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'image link',
+			'grid item',
+			'card',
+			'featured link'
 		),
 		'supports' => array(
 			'anchor' => true
@@ -2059,10 +2163,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/inner-block-wrap',
 		'title' => 'Inner Blocks Wrapper',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Wrap and constrain nested inner blocks with optional template settings.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'wrapper',
+			'inner blocks',
+			'container',
+			'layout'
 		),
 		'supports' => array(
 			'inserter' => false,
@@ -2087,10 +2195,14 @@ return array(
 		'version' => '0.1.0',
 		'name' => 'capitola/lightbox-gallery',
 		'title' => 'Lightbox Gallery',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display an image gallery with lightbox viewing and optional sticky behavior.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'gallery',
+			'lightbox',
+			'images',
+			'photo'
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -2165,10 +2277,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/link-list',
 		'title' => 'Link List',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a simple list of links with optional custom titles.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'links',
+			'list',
+			'navigation',
+			'menu'
 		),
 		'supports' => array(
 			'anchor' => true
@@ -2230,12 +2346,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/nav',
 		'title' => 'Site Nav Header',
-		'description' => 'All fields test block',
+		'textdomain' => 'capitola',
+		'description' => 'Display the site header navigation with logo, utility links, and optional icons.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
+			'nav',
 			'header',
-			'navigation'
+			'navigation',
+			'menu'
 		),
 		'supports' => array(
 			'multiple' => false,
@@ -2298,12 +2416,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/nav-dropdown',
 		'title' => 'Nav Dropdown',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a dropdown navigation group with manual or auto-populated links.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
+			'dropdown',
 			'header',
-			'navigation'
+			'navigation',
+			'menu'
 		),
 		'parent' => array(
 			'capitola/nav'
@@ -2348,12 +2468,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/nav-link',
 		'title' => 'Nav Link',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a single top-level navigation link to the Site Nav Header.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
+			'nav link',
 			'header',
-			'navigation'
+			'navigation',
+			'menu'
 		),
 		'parent' => array(
 			'capitola/nav'
@@ -2381,12 +2503,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/nav-mega-nav',
 		'title' => 'Mega Nav',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a multi-column mega navigation panel with links and optional featured content.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
+			'mega menu',
 			'header',
-			'navigation'
+			'navigation',
+			'dropdown'
 		),
 		'parent' => array(
 			'capitola/nav'
@@ -2439,12 +2563,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/nav-sublink',
 		'title' => 'Nav Submenu Link',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a single submenu link inside dropdown, mega nav, or footer link columns.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
-			'site',
-			'header',
-			'navigation'
+			'submenu',
+			'nav sublink',
+			'navigation',
+			'menu item'
 		),
 		'parent' => array(
 			'capitola/nav-dropdown',
@@ -2474,10 +2600,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/open-content',
 		'title' => 'Open Content Layout',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display flexible open-width content with customizable alignment and spacing.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'content',
+			'layout',
+			'open content',
+			'text block'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -2540,10 +2670,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/paginated-listings',
 		'title' => 'Paginated Listings',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display filterable and searchable post listings with pagination controls.',
 		'category' => 'listing-blocks',
 		'keywords' => array(
-			
+			'listings',
+			'pagination',
+			'filters',
+			'search'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -2776,10 +2910,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/post-feed',
 		'title' => 'Post Feed',
-		'description' => 'Displays limited post listings. Can display posts or most custom post types.',
+		'textdomain' => 'capitola',
+		'description' => 'Display recent or selected posts in list, grid, or slider feed layouts.',
 		'category' => 'listing-blocks',
 		'keywords' => array(
-			
+			'post feed',
+			'posts',
+			'listing',
+			'slider'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -2953,10 +3091,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/post-hero',
 		'title' => 'Post Hero',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a post hero header with title, metadata, and featured image.',
 		'category' => 'hero-blocks',
 		'keywords' => array(
-			
+			'post hero',
+			'hero',
+			'featured image',
+			'article header'
 		),
 		'supports' => array(
 			'multiple' => false,
@@ -3019,10 +3161,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/related-posts',
 		'title' => 'Related Posts',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display posts related to the current post in list, grid, or slider layouts.',
 		'category' => 'listing-blocks',
 		'keywords' => array(
-			'links'
+			'related posts',
+			'posts',
+			'listing',
+			'slider'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -3172,10 +3318,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/search-listings',
 		'title' => 'Search Listings',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display paginated search results with customizable listing layout and sorting.',
 		'category' => 'listing-blocks',
 		'keywords' => array(
-			
+			'search',
+			'results',
+			'listings',
+			'pagination'
 		),
 		'supports' => array(
 			'multiple' => false
@@ -3261,10 +3411,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/side-image',
 		'title' => 'Side Image',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Pair text content with an image in a side-by-side layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'side image',
+			'media',
+			'two column',
+			'split layout'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -3458,6 +3612,7 @@ return array(
 			array(
 				'name' => 'side-video-cta',
 				'title' => 'Side Video',
+				'description' => 'Pair text content with a video in a side-by-side layout.',
 				'attributes' => array(
 					'imageLayout' => 'inner',
 					'mediaType' => 'video',
@@ -3472,6 +3627,7 @@ return array(
 			array(
 				'name' => 'side-iframe-cta',
 				'title' => 'Side iFrame',
+				'description' => 'Pair text content with an iframe in a side-by-side layout.',
 				'attributes' => array(
 					'imageLayout' => 'inner',
 					'mediaType' => 'iframe',
@@ -3485,6 +3641,7 @@ return array(
 			array(
 				'name' => 'side-image-hero',
 				'title' => 'Side Image Hero',
+				'description' => 'Page hero with a side image.',
 				'category' => 'hero-blocks',
 				'attributes' => array(
 					'imageLayout' => 'full',
@@ -3512,11 +3669,15 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'capitola/simple-spacer',
-		'title' => 'Spacer new',
-		'description' => '',
+		'title' => 'Spacer',
+		'textdomain' => 'capitola',
+		'description' => 'Add adjustable vertical spacing between content sections.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'spacer',
+			'spacing',
+			'gap',
+			'layout'
 		),
 		'supports' => array(
 			
@@ -3552,10 +3713,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/small-image-slider',
 		'title' => 'Small Image Slider',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display a compact image slider with optional captions and autoplay.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'slider',
+			'carousel',
+			'images',
+			'gallery'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -3711,10 +3876,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/social-shares',
 		'title' => 'Social Shares',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display social sharing links for the current post or page.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'social',
+			'share',
+			'sharing',
+			'social media'
 		),
 		'supports' => array(
 			
@@ -3745,10 +3914,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/stats',
 		'title' => 'Stats',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Display key numbers and metrics in a styled statistics section.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'stats',
+			'metrics',
+			'numbers',
+			'highlights'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -3873,10 +4046,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/stats-grid',
 		'title' => 'Stats Grid',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Arrange multiple stat items in a responsive grid layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'stats',
+			'grid',
+			'metrics',
+			'numbers'
 		),
 		'supports' => array(
 			'lock' => false
@@ -3900,10 +4077,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/stats-item',
 		'title' => 'Stats Item',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add a single stat value with supporting caption text.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'stat',
+			'metric',
+			'number',
+			'caption'
 		),
 		'supports' => array(
 			
@@ -3929,11 +4110,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/sticky-images',
 		'title' => 'Sticky Images',
-		'description' => 'Multiple side image blocks with sticky images during scroll.',
+		'textdomain' => 'capitola',
+		'description' => 'Display stacked content sections with images that stay sticky during scroll.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
 			'image',
-			'sticky'
+			'sticky',
+			'scroll',
+			'side image'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -4049,11 +4233,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/sticky-images-section',
 		'title' => 'Sticky Images Section',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add one content section with an associated sticky image inside Sticky Images.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
 			'image',
-			'sticky'
+			'sticky',
+			'section',
+			'side image'
 		),
 		'supports' => array(
 			'anchor' => true
@@ -4113,10 +4300,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/tabbed-contents',
 		'title' => 'Tabbed Contents',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Organize content into interactive tabs with switchable panels.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'tabs',
+			'tabbed content',
+			'accordion alternative',
+			'panels'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -4254,10 +4445,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/tabbed-contents-panel',
 		'title' => 'Tabbed Contents Panel',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add one content panel associated with a tab label.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'tab panel',
+			'tabs',
+			'panel',
+			'tabbed content'
 		),
 		'styles' => array(
 			
@@ -4285,10 +4480,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/tabbed-contents-tabs',
 		'title' => 'Tabbed Contents Tabs',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Wrap and control the set of tabs and panels inside Tabbed Contents.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'tabs',
+			'tabbed content',
+			'tab group',
+			'panels'
 		),
 		'supports' => array(
 			'inserter' => false,
@@ -4313,10 +4512,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/term-feed',
 		'title' => 'Term Feed',
-		'description' => 'Displays a list of categories.',
+		'textdomain' => 'capitola',
+		'description' => 'Display taxonomy terms in list, grid, or slider layouts.',
 		'category' => 'listing-blocks',
 		'keywords' => array(
-			
+			'terms',
+			'taxonomy',
+			'categories',
+			'listing'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -4468,10 +4671,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/three-image-block',
 		'title' => 'Three Image Block',
-		'description' => 'Displays three overlapping images with side content.',
+		'textdomain' => 'capitola',
+		'description' => 'Display three overlapping images paired with side content in a layered layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'images',
+			'collage',
+			'layered',
+			'three image'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -4671,10 +4878,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/three-link-card',
 		'title' => 'Three Link Card',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Add one linked card item with image and title inside a three-card layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'card',
+			'link',
+			'image card',
+			'featured link'
 		),
 		'supports' => array(
 			'lock' => false,
@@ -4716,10 +4927,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/three-link-cards',
 		'title' => 'Three Link Cards',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Combine intro content with a three-card layout of linked items.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'cards',
+			'links',
+			'three cards',
+			'featured links'
 		),
 		'supports' => array(
 			'anchor' => true,
@@ -4840,10 +5055,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/three-link-cards-grid',
 		'title' => 'Three Link Cards Grid',
-		'description' => '',
+		'textdomain' => 'capitola',
+		'description' => 'Arrange three link cards in a grid with optional stagger and parallax effects.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			
+			'cards grid',
+			'three cards',
+			'links',
+			'parallax'
 		),
 		'supports' => array(
 			'lock' => false,
@@ -4871,10 +5090,14 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/two-image-block',
 		'title' => 'Two Image Block',
-		'description' => 'Displays two overlapping images with side content.',
+		'textdomain' => 'capitola',
+		'description' => 'Display two overlapping images paired with side content in a layered layout.',
 		'category' => 'custom-blocks',
 		'keywords' => array(
-			'links'
+			'images',
+			'layered',
+			'collage',
+			'two image'
 		),
 		'supports' => array(
 			'anchor' => true,

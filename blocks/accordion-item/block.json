@@ -3,8 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/accordion-item",
   "title": "Accordion Item",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add a single collapsible panel inside an Accordion block.",
   "category": "custom-blocks",
+  "keywords": [
+    "accordion",
+    "item",
+    "toggle",
+    "faq"
+  ],
   "parent": [
     "capitola/accordion"
   ],

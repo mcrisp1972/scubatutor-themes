@@ -3,10 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/fixed-background",
   "title": "Fixed Background",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Layer content over a fixed background image.",
   "category": "custom-blocks",
   "keywords": [
-    "product"
+    "fixed background",
+    "parallax",
+    "background image",
+    "section"
   ],
   "supports": {
     "anchor": true,

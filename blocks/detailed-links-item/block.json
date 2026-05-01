@@ -3,8 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/detailed-links-item",
   "title": "Detailed Link List Item",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Create one detailed link card item with image, title, and excerpt.",
   "category": "custom-blocks",
+  "keywords": [
+    "link item",
+    "card",
+    "featured link",
+    "excerpt"
+  ],
   "parent": [
     "capitola/detailed-links-list"
   ],

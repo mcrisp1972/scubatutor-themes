@@ -3,12 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/nav-link",
   "title": "Nav Link",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Add a single top-level navigation link to the Site Nav Header.",
   "category": "nav-blocks",
   "keywords": [
-    "site",
+    "nav link",
     "header",
-    "navigation"
+    "navigation",
+    "menu"
   ],
   "parent": [
     "capitola/nav"

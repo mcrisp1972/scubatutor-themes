@@ -4,9 +4,15 @@
   "version": "0.1.0",
   "name": "capitola/lightbox-gallery",
   "title": "Lightbox Gallery",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display an image gallery with lightbox viewing and optional sticky behavior.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "gallery",
+    "lightbox",
+    "images",
+    "photo"
+  ],
   "attributes": {
     "anchor": {
       "type": "string",

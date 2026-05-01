@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/paginated-listings",
   "title": "Paginated Listings",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display filterable and searchable post listings with pagination controls.",
   "category": "listing-blocks",
-  "keywords": [],
+  "keywords": [
+    "listings",
+    "pagination",
+    "filters",
+    "search"
+  ],
   "supports": {
     "anchor": true,
     "multiple": false,

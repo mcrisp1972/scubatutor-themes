@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/accordion-with-intro",
   "title": "Accordion With Intro",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Pair intro content with an accordion to organize expandable details.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "accordion",
+    "intro",
+    "faq",
+    "toggle"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

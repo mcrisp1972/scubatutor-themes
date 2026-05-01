@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/stats-grid",
   "title": "Stats Grid",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Arrange multiple stat items in a responsive grid layout.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "stats",
+    "grid",
+    "metrics",
+    "numbers"
+  ],
   "supports": {
     "lock": false
   },

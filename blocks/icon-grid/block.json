@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/icon-grid",
   "title": "Icon Grid",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Arrange icon items in a grid layout within the Icons block.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "icons",
+    "grid",
+    "features",
+    "icon list"
+  ],
   "supports": {
     "lock": false
   },

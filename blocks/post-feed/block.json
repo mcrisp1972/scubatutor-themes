@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/post-feed",
   "title": "Post Feed",
-  "description": "Displays limited post listings. Can display posts or most custom post types.",
+  "textdomain": "capitola",
+  "description": "Display recent or selected posts in list, grid, or slider feed layouts.",
   "category": "listing-blocks",
-  "keywords": [],
+  "keywords": [
+    "post feed",
+    "posts",
+    "listing",
+    "slider"
+  ],
   "supports": {
     "anchor": true,
     "spacing": {

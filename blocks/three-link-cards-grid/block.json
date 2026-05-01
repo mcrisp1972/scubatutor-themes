@@ -3,9 +3,15 @@
   "apiVersion": 3,
   "name": "capitola/three-link-cards-grid",
   "title": "Three Link Cards Grid",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Arrange three link cards in a grid with optional stagger and parallax effects.",
   "category": "custom-blocks",
-  "keywords": [],
+  "keywords": [
+    "cards grid",
+    "three cards",
+    "links",
+    "parallax"
+  ],
   "supports": {
     "lock": false,
     "inserter": false

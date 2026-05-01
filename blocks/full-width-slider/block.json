@@ -3,10 +3,14 @@
   "apiVersion": 3,
   "name": "capitola/full-width-slider",
   "title": "Full Width Slider",
-  "description": "",
+  "textdomain": "capitola",
+  "description": "Display a full-width image slider with captions, links, and optional intro content.",
   "category": "custom-blocks",
   "keywords": [
-    "links"
+    "slider",
+    "carousel",
+    "gallery",
+    "full width"
   ],
   "supports": {
     "anchor": true,
