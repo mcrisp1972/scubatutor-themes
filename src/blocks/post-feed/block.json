@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/post-feed",
 	"title": "Post Feed",
-	"description": "Displays limited post listings. Can display posts or most custom post types.",
+	"textdomain": "capitola",
+	"description": "Display recent or selected posts in list, grid, or slider feed layouts.",
 	"category": "listing-blocks",
-	"keywords": [],
+	"keywords": [
+		"post feed",
+		"posts",
+		"listing",
+		"slider"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -128,11 +140,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -154,7 +170,10 @@
 		"introAlign": "introAlign"
 	},
 	"style": "capitola-post-listing",
-	"viewScript": ["capitola-listing-sidescroll", "capitola-animations"],
+	"viewScript": [
+		"capitola-listing-sidescroll",
+		"capitola-animations"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/tabbed-contents-tabs",
 	"title": "Tabbed Contents Tabs",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Wrap and control the set of tabs and panels inside Tabbed Contents.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"tabs",
+		"tabbed content",
+		"tab group",
+		"panels"
+	],
 	"supports": {
 		"inserter": false,
 		"lock": false
@@ -14,7 +20,11 @@
 	"providesContext": {
 		"capitola/activePanel": "activePanel"
 	},
-	"usesContext": ["revealAnimation", "revealSection", "introAlign"],
+	"usesContext": [
+		"revealAnimation",
+		"revealSection",
+		"introAlign"
+	],
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php"
 }

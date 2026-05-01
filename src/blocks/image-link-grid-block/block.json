@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/image-link-grid-block",
 	"title": "Image Link Grid Block",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Combine intro content with a configurable grid of image link cards.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"image links",
+		"grid",
+		"cards",
+		"featured links"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -67,11 +79,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [

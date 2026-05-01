@@ -3,9 +3,18 @@
 	"apiVersion": 3,
 	"name": "capitola/anchor-nav-item",
 	"title": "Anchor Nav Item",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Create a single linked item for use inside an Anchor Nav block.",
 	"category": "custom-blocks",
-	"parent": ["capitola/anchor-nav"],
+	"keywords": [
+		"anchor",
+		"nav item",
+		"link",
+		"menu"
+	],
+	"parent": [
+		"capitola/anchor-nav"
+	],
 	"supports": {},
 	"attributes": {
 		"label": {

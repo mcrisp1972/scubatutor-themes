@@ -3,12 +3,14 @@
 	"apiVersion": 3,
 	"name": "capitola/nav",
 	"title": "Site Nav Header",
-	"description": "All fields test block",
+	"textdomain": "capitola",
+	"description": "Display the site header navigation with logo, utility links, and optional icons.",
 	"category": "nav-blocks",
 	"keywords": [
-		"site",
+		"nav",
 		"header",
-		"navigation"
+		"navigation",
+		"menu"
 	],
 	"supports": {
 		"multiple": false,

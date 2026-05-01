@@ -3,13 +3,22 @@
 	"apiVersion": 3,
 	"name": "capitola/fixed-background",
 	"title": "Fixed Background",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Layer content over a fixed background image.",
 	"category": "custom-blocks",
-	"keywords": ["product"],
+	"keywords": [
+		"fixed background",
+		"parallax",
+		"background image",
+		"section"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -92,11 +101,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -121,5 +134,8 @@
 	"editorScript": "file:./index.js",
 	"style": "capitola-fixed-background",
 	"editorStyle": "capitola-fixed-background-editor",
-	"viewScript": ["capitola-animations", "file:./view.js"]
+	"viewScript": [
+		"capitola-animations",
+		"file:./view.js"
+	]
 }

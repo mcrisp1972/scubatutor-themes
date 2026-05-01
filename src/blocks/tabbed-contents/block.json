@@ -3,15 +3,27 @@
 	"apiVersion": 3,
 	"name": "capitola/tabbed-contents",
 	"title": "Tabbed Contents",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Organize content into interactive tabs with switchable panels.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"tabs",
+		"tabbed content",
+		"accordion alternative",
+		"panels"
+	],
 	"supports": {
 		"anchor": true,
 		"interactivity": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -57,11 +69,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [

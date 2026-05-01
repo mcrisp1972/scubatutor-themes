@@ -3,10 +3,20 @@
 	"apiVersion": 3,
 	"name": "capitola/nav-sublink",
 	"title": "Nav Submenu Link",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Add a single submenu link inside dropdown, mega nav, or footer link columns.",
 	"category": "nav-blocks",
-	"keywords": ["site", "header", "navigation"],
-	"parent": ["capitola/nav-dropdown", "capitola/nav-mega-nav", "capitola/footer-link-column"],
+	"keywords": [
+		"submenu",
+		"nav sublink",
+		"navigation",
+		"menu item"
+	],
+	"parent": [
+		"capitola/nav-dropdown",
+		"capitola/nav-mega-nav",
+		"capitola/footer-link-column"
+	],
 	"supports": {},
 	"attributes": {
 		"title": {

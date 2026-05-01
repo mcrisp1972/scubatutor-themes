@@ -3,10 +3,13 @@
 	"apiVersion": 3,
 	"name": "capitola/eyebrow",
 	"title": "Eyebrow",
+	"textdomain": "capitola",
 	"category": "text",
 	"description": "Introduce new sections and organize content to help visitors (and search engines) understand the structure of your content.",
-	"keywords": ["title", "subtitle"],
-	"textdomain": "default",
+	"keywords": [
+		"title",
+		"subtitle"
+	],
 	"attributes": {
 		"textAlign": {
 			"type": "string"
@@ -27,7 +30,11 @@
 		}
 	},
 	"supports": {
-		"align": ["wide", "left", "center"],
+		"align": [
+			"wide",
+			"left",
+			"center"
+		],
 		"anchor": true,
 		"className": true,
 		"__unstablePasteTextInline": true,

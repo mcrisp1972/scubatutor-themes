@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/full-width-slider",
 	"title": "Full Width Slider",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display a full-width image slider with captions, links, and optional intro content.",
 	"category": "custom-blocks",
-	"keywords": ["links"],
+	"keywords": [
+		"slider",
+		"carousel",
+		"gallery",
+		"full width"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -103,11 +115,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -129,7 +145,13 @@
 		"introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
-	"style": ["swiper", "capitola-full-width-slider"],
-	"viewScript": ["file:./view.js", "capitola-animations"],
+	"style": [
+		"swiper",
+		"capitola-full-width-slider"
+	],
+	"viewScript": [
+		"file:./view.js",
+		"capitola-animations"
+	],
 	"editorScript": "file:./index.js"
 }

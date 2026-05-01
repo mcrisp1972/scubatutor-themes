@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/link-list",
 	"title": "Link List",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display a simple list of links with optional custom titles.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"links",
+		"list",
+		"navigation",
+		"menu"
+	],
 	"supports": {
 		"anchor": true
 	},

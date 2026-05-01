@@ -3,13 +3,22 @@
 	"apiVersion": 3,
 	"name": "capitola/post-hero",
 	"title": "Post Hero",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display a post hero header with title, metadata, and featured image.",
 	"category": "hero-blocks",
-	"keywords": [],
+	"keywords": [
+		"post hero",
+		"hero",
+		"featured image",
+		"article header"
+	],
 	"supports": {
 		"multiple": false,
 		"spacing": {
-			"padding": ["top", "bottom"]
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {

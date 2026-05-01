@@ -3,14 +3,26 @@
 	"apiVersion": 3,
 	"name": "capitola/icons",
 	"title": "Icons",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Show a customizable grid of icon items with titles and captions.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"icons",
+		"icon grid",
+		"features",
+		"highlights"
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": ["top", "bottom"],
-			"padding": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			],
+			"padding": [
+				"top",
+				"bottom"
+			]
 		}
 	},
 	"attributes": {
@@ -56,11 +68,15 @@
 					"headline": "Nulla Minim Est Do",
 					"cta": {
 						"title": "Consequat",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					},
 					"cta2": {
 						"title": "Velit amet",
-						"link": { "url": "/" }
+						"link": {
+							"url": "/"
+						}
 					}
 				},
 				"innerBlocks": [
@@ -119,6 +135,8 @@
 	},
 	"viewScript": "capitola-animations",
 	"render": "file:./render.php",
-	"style": ["capitola-icons"],
+	"style": [
+		"capitola-icons"
+	],
 	"editorScript": "file:./index.js"
 }

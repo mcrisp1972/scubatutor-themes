@@ -3,9 +3,15 @@
 	"apiVersion": 3,
 	"name": "capitola/accordion",
 	"title": "Accordion",
-	"description": "",
+	"textdomain": "capitola",
+	"description": "Display collapsible content panels with optional multi-open behavior.",
 	"category": "custom-blocks",
-	"keywords": [],
+	"keywords": [
+		"accordion",
+		"toggle",
+		"faq",
+		"collapse"
+	],
 	"supports": {
 		"anchor": true,
 		"interactivity": true
