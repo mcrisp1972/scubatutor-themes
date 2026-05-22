@@ -13,7 +13,8 @@
 		"social links"
 	],
 	"supports": {
-		"multiple": false
+		"multiple": false,
+		"html": false
 	},
 	"attributes": {
 		"showBusinessName": {

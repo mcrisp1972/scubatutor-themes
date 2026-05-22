@@ -1,0 +1,13 @@
+
+
+
+.--has-reveal-animation {
+	transform: translate(var(--reveal-x-position), var(--reveal-y-position));
+	opacity: 0;
+	transition: transform var(--reveal-duration) var(--reveal-easing), opacity var(--reveal-duration) var(--reveal-easing);
+
+	&.--is-animated {
+		transform: translate(0);
+		opacity: 1;
+	}
+}

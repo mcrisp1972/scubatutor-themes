@@ -2,10 +2,11 @@ import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-e
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
+import { animationPreviewClass } from '../../editor-controls';
 
 export default function Edit( props ) {
-	const { attributes, setAttributes, clientId } = props;
-	const {} = attributes;
+	const { attributes, setAttributes, context, clientId } = props;
+	const { revealAnimation } = context;
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
@@ -22,8 +23,30 @@ export default function Edit( props ) {
 		}
 	}, [ attributes.activePanel, innerBlocks, setAttributes ] );
 
+	const blockProps = useBlockProps( {
+		className: `alignfull ${ animationPreviewClass( revealAnimation, 'figure' ) }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-tabbed-contents-tabs__panels',
+		},
+		{
+			defaultBlock: {
+				name: 'capitola/tabbed-contents-panel',
+			},
+			allowedBlocks: [ 'capitola/tabbed-contents-panel' ],
+			orientation: 'horizontal',
+			template: [ [ 'capitola/tabbed-contents-panel' ] ],
+			directInsert: true,
+			templateLock: false,
+			renderAppender: () => {
+				return false;
+			},
+		}
+	);
+
 	return (
-		<div { ...useBlockProps( { className: 'alignfull' } ) }>
+		<div { ...blockProps }>
 			<div className="wp-block-capitola-tabbed-contents-tabs__width">
 				<div className="wp-block-capitola-tabbed-contents-tabs__body">
 					<div className="wp-block-capitola-tabbed-contents-tabs__tabs">
@@ -78,26 +101,7 @@ export default function Edit( props ) {
 							Add Panel
 						</button>
 					</div>
-					<div
-						{ ...useInnerBlocksProps(
-							{
-								className: 'wp-block-capitola-tabbed-contents-tabs__panels',
-							},
-							{
-								defaultBlock: {
-									name: 'capitola/tabbed-contents-panel',
-								},
-								allowedBlocks: [ 'capitola/tabbed-contents-panel' ],
-								orientation: 'horizontal',
-								template: [ [ 'capitola/tabbed-contents-panel' ] ],
-								directInsert: true,
-								templateLock: false,
-								renderAppender: () => {
-									return false;
-								},
-							}
-						) }
-					/>
+					<div { ...innerBlocksProps } />
 				</div>
 			</div>
 		</div>

@@ -25,6 +25,7 @@ import {
 	VerticalAlignToolbar,
 	IntroAlignToolbar,
 	AspectRatioToolbar,
+	animationPreviewClass,
 } from '../../editor-controls';
 
 export default function Edit( props ) {
@@ -51,17 +52,22 @@ export default function Edit( props ) {
 		frontImageCaption,
 		verticalAlign,
 		colorTheme,
+		revealAnimation,
 	} = attributes;
 
 	const isMobile = useViewportMatch( 'medium', '<' );
 
 	const [ tempWidth, setTempWidth ] = useState( null );
 
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-two-image-block__width alignwide --has-${ introAlign }-intro ${
 				verticalAlign === 'top' ? ' --align-top' : ''
-			}`,
+			} ${ animationPreviewClass( revealAnimation, 'block' ) }`,
 		},
 		{
 			template: [ [ 'capitola/body-text' ] ],
@@ -88,11 +94,7 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Block Settings" initialOpen={ true }>
 					<RangeControl
@@ -104,7 +106,6 @@ export default function Edit( props ) {
 						min={ 20 }
 						max={ 50 }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Rear Image" initialOpen={ true }>
@@ -144,7 +145,6 @@ export default function Edit( props ) {
 							return setAttributes( { rearImageHeight: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<RangeControl
 						label="Width"
@@ -157,7 +157,6 @@ export default function Edit( props ) {
 							return setAttributes( { rearImageWidth: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ !! rearImage?.source_url && (
 						<ImageFocalPoint
@@ -229,7 +228,6 @@ export default function Edit( props ) {
 							return setAttributes( { frontImageHeight: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<RangeControl
 						label="Width"
@@ -242,7 +240,6 @@ export default function Edit( props ) {
 							return setAttributes( { frontImageWidth: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ !! frontImage?.source_url && (
 						<ImageFocalPoint
@@ -283,7 +280,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } allowFigureReveal={ true } />
+				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
@@ -304,7 +301,10 @@ export default function Edit( props ) {
 			<div { ...innerBlocksProps }>
 				{ children }
 				<ResizableBox
-					className={ `wp-block-capitola-two-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition }` }
+					className={ `wp-block-capitola-two-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition } ${ animationPreviewClass(
+						revealAnimation,
+						'figure'
+					) }` }
 					size={ {
 						width: isMobile ? '100%' : mediaWidth + '%',
 					} }

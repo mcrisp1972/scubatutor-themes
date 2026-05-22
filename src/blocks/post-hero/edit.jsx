@@ -96,13 +96,12 @@ export default function Edit( props ) {
 			setSocials( result.capitola_social_shares );
 		} );
 	}, [] );
+	const blockProps = useBlockProps( {
+		className: 'alignwide' + ( imageLocation === 'bottom' ? ' --bottom-image' : '' ),
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'alignwide' + ( imageLocation === 'bottom' ? ' --bottom-image' : '' ),
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Settings" initialOpen={ true }>
 					<ToggleControl

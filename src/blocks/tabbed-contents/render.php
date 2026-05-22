@@ -22,7 +22,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-tabbed-contents__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-tabbed-contents__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

@@ -22,7 +22,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
+	<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="capitola-listings__results-header">
 			<div class="capitola-listings__filters-count js-resultsCount"></div>

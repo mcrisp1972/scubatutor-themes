@@ -20,13 +20,21 @@ export default function Edit( props ) {
 	const { introAlign, backgroundImage, imageFocalPoint, imageParallax, introRadius, colorTheme } =
 		attributes;
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
+	const blockProps = useBlockProps( {
+		className: `alignfull --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-bg-image-text__width --has-${ introAlign }-intro ${ radiusClass }`,
+		},
+		{
+			template: [ [ 'capitola/body-text' ] ],
+			templateLock: 'all',
+		}
+	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Image" initialOpen={ true }>
 					<ImageSelect
@@ -62,7 +70,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } />
+				<AnimationPanel props={ props } sections={ [] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
@@ -88,17 +96,7 @@ export default function Edit( props ) {
 					<PlaceholderImage />
 				) }
 			</div>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: `wp-block-capitola-bg-image-text__width --has-${ introAlign }-intro ${ radiusClass }`,
-					},
-					{
-						template: [ [ 'capitola/body-text' ] ],
-						templateLock: 'all',
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

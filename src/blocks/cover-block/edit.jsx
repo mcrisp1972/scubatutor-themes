@@ -74,13 +74,21 @@ export default function Edit( props ) {
 		[ isHeroVariation ]
 	);
 
+	const blockProps = useBlockProps( {
+		className: 'alignfull --theme-image-overlay ' + ( isHeroVariation ? '--hero-height' : '' ),
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-cover-block__caption',
+		},
+		{
+			allowedBlocks: [ 'core/paragraph' ],
+		}
+	);
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className:
-					'alignfull --theme-image-overlay ' + ( isHeroVariation ? '--hero-height' : '' ),
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Image Settings" initialOpen={ true }>
 					<ImageSelect
@@ -180,16 +188,7 @@ export default function Edit( props ) {
 						setAttributes( { headline: value } );
 					} }
 				/>
-				<div
-					{ ...useInnerBlocksProps(
-						{
-							className: 'wp-block-capitola-cover-block__caption',
-						},
-						{
-							allowedBlocks: [ 'core/paragraph' ],
-						}
-					) }
-				/>
+				<div { ...innerBlocksProps } />
 				<div className="wp-block-capitola-cover-block__ctas">
 					<CtaControl
 						className="wp-block-capitola-cover-block__cta --cta --secondary"

@@ -41,6 +41,11 @@ export default function Edit( props ) {
 		[ logo ]
 	);
 
+	const blockProps = useBlockProps( {
+		className: 'alignfull',
+		style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s` },
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: 'wp-block-capitola-nav__menu-items',
@@ -82,12 +87,7 @@ export default function Edit( props ) {
 	}, [ colorThemes ] );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'alignfull',
-				style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s` },
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Logo" initialOpen={ true }>
 					<ImageSelect
@@ -135,7 +135,6 @@ export default function Edit( props ) {
 						showTooltip={ true }
 						help="Reveal speed in fractions of a second. Does not apply to mobile."
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Utility Icon Links" initialOpen={ true }>

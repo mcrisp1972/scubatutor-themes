@@ -23,7 +23,8 @@
 				"top",
 				"bottom"
 			]
-		}
+		},
+		"html": false
 	},
 	"attributes": {
 		"anchor": {

@@ -19,13 +19,12 @@ export default function Edit( props ) {
 	);
 
 	const combinedImages = useFeaturedImage ? [ featuredImageObj, ...images ] : images;
+	const blockProps = useBlockProps( {
+		className: '--aspect-ratio-' + aspectRatio,
+	} );
 
 	return (
-		<figure
-			{ ...useBlockProps( {
-				className: '--aspect-ratio-' + aspectRatio,
-			} ) }
-		>
+		<figure { ...blockProps }>
 			<InspectorControls group="styles">
 				<PanelBody title="Options" initialOpen={ true }>
 					<ToggleControl

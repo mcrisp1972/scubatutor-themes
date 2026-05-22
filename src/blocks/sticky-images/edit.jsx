@@ -27,13 +27,9 @@ import {
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected, clientId, toggleSelection } = props;
-
 	const isMobile = useViewportMatch( 'medium', '<' );
-
 	const [ tempWidth, setTempWidth ] = useState( null );
-
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
-
 	const {
 		mediaWidth,
 		verticalAlign,
@@ -77,17 +73,30 @@ export default function Edit( props ) {
 
 	const justifyClass = verticalAlign === 'top' ? ' --justify-top' : '';
 
-	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull --has-scroll-transition is-layout-constrained has-global-padding --theme-${ colorTheme }
+	const blockProps = useBlockProps( {
+		className: `alignfull --has-scroll-transition is-layout-constrained has-global-padding --theme-${ colorTheme }
           		${ imageLayout === 'full' ? ' --layout-full' : '' }
            		--intro-${ introAlign }
           		${ justifyClass } ${ imageLayout === 'inner' ? `--has-${ imageRadius }-radius` : '' } ${
 					showFullImage && imageLayout === 'inner' ? ' --full-image' : ''
 				}`,
-			} ) }
-		>
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-sticky-images__body-column --align-${ verticalAlign }`,
+		},
+		{
+			defaultBlock: {
+				name: 'capitola/sticky-images-section',
+			},
+			allowedBlocks: [ 'capitola/sticky-images-section' ],
+			template: [ [ 'capitola/sticky-images-section' ] ],
+			directInsert: true,
+		}
+	);
+
+	return (
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Settings" initialOpen={ true }>
 					<RadioControl
@@ -110,7 +119,6 @@ export default function Edit( props ) {
 						min={ 20 }
 						max={ 50 }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ imageLayout === 'inner' && (
 						<ToggleControl
@@ -278,21 +286,7 @@ export default function Edit( props ) {
 						);
 					} ) }
 				</ResizableBox>
-				<div
-					{ ...useInnerBlocksProps(
-						{
-							className: `wp-block-capitola-sticky-images__body-column --align-${ verticalAlign }`,
-						},
-						{
-							defaultBlock: {
-								name: 'capitola/sticky-images-section',
-							},
-							allowedBlocks: [ 'capitola/sticky-images-section' ],
-							template: [ [ 'capitola/sticky-images-section' ] ],
-							directInsert: true,
-						}
-					) }
-				/>
+				<div { ...innerBlocksProps } />
 			</div>
 		</div>
 	);

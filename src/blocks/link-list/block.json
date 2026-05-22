@@ -13,7 +13,8 @@
 		"menu"
 	],
 	"supports": {
-		"anchor": true
+		"anchor": true,
+		"html": false
 	},
 	"attributes": {
 		"anchor": {

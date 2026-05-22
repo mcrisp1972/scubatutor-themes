@@ -120,7 +120,7 @@ export default class filteredListings {
 	 * query parameter (e.g. the REST param for a custom taxonomy filter).
 	 *
 	 * @param {string} fieldName
-	* @return {boolean} True if the field name matches a registered taxonomy query parameter, otherwise false.
+	 * @return {boolean} True if the field name matches a registered taxonomy query parameter, otherwise false.
 	 */
 	isTaxonomyField( fieldName ) {
 		return this.attr.taxParams !== undefined &&
@@ -415,7 +415,7 @@ export default class filteredListings {
 	 *    neighbours, ellipsis, then the last 3 pages.
 	 *  - Otherwise → show the last 6 pages with a leading ellipsis.
 	 *
-	* @return {Array<number|string>} An array of page numbers and ellipsis strings ("...") for pagination display.
+	 * @return {Array<number|string>} An array of page numbers and ellipsis strings ("...") for pagination display.
 	 */
 	getPageIndexes() {
 		const page = parseInt( this.queryParams.page );
@@ -451,7 +451,7 @@ export default class filteredListings {
 	 * driven by the `layoutConditionals` helper.
 	 *
 	 * @param {Object} itemData - Post data object from the WP REST API response.
-	* @return {string} HTML markup for one result card.
+	 * @return {string} HTML markup for one result card.
 	 */
 	renderItem( itemData ) {
 		const conditionals = layoutConditionals( this.attr );
@@ -566,7 +566,7 @@ export default class filteredListings {
 	 * on block attributes.
 	 *
 	 * @param {Object} itemData - Product data object from the custom REST endpoint.
-	* @return {string} HTML markup for one product card.
+	 * @return {string} HTML markup for one product card.
 	 */
 	renderProduct( itemData ) {
 		const card = `

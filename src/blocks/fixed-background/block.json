@@ -19,7 +19,8 @@
 				"top",
 				"bottom"
 			]
-		}
+		},
+		"html": false
 	},
 	"attributes": {
 		"anchor": {
@@ -68,16 +69,11 @@
 			"default": false
 		},
 		"revealAnimation": {
-			"type": "string",
-			"default": "0"
-		},
-		"revealSection": {
-			"type": "string",
-			"default": "body"
-		},
-		"allowRevealSectionSelect": {
-			"type": "boolean",
-			"default": false
+			"type": "object",
+			"default": {
+				"animation": "",
+				"section": "body"
+			}
 		},
 		"bodyTextOptions": {
 			"type": "object",
@@ -127,7 +123,6 @@
 	"providesContext": {
 		"bodyTextOptions": "bodyTextOptions",
 		"revealAnimation": "revealAnimation",
-		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
 	"render": "file:./render.php",

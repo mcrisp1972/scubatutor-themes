@@ -10,21 +10,42 @@ import {
 	AnimationPanel,
 	IntroAlignToolbar,
 	JustifyToolbar,
+	animationPreviewClass,
 } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes } = props;
-	const { colorTheme, introAlign, textAlignment } = attributes;
+	const { colorTheme, introAlign, textAlignment, revealAnimation } = attributes;
+
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-stats__width alignwide --has-${ introAlign }-intro --item-align-${ textAlignment } ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
+		},
+		{
+			template: [
+				[
+					'capitola/body-text',
+					{
+						className: 'wp-block-capitola-stats__body',
+					},
+				],
+				[ 'capitola/stats-grid' ],
+			],
+			templateLock: 'all',
+		}
+	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } initialOpen={ true } />
-				<AnimationPanel props={ props } allowFigureReveal={ true } />
+				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
@@ -41,25 +62,7 @@ export default function Edit( props ) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: `wp-block-capitola-stats__width alignwide --has-${ introAlign }-intro --item-align-${ textAlignment }`,
-					},
-					{
-						template: [
-							[
-								'capitola/body-text',
-								{
-									className: 'wp-block-capitola-stats__body',
-								},
-							],
-							[ 'capitola/stats-grid' ],
-						],
-						templateLock: 'all',
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

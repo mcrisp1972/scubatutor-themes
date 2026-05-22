@@ -78,13 +78,12 @@ export default function Edit( props ) {
 		},
 		[ postType, postTypeCats ]
 	);
+	const blockProps = useBlockProps( {
+		className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
 					<SelectControl

@@ -10,9 +10,10 @@ export default function Edit() {
 			setSocials( result.capitola_social_shares );
 		} );
 	}, [] );
+	const blockProps = useBlockProps( { className: 'alignwide' } );
 
 	return (
-		<div { ...useBlockProps( { className: 'alignwide' } ) }>
+		<div { ...blockProps }>
 			{ !! socials && (
 				<div className="wp-block-capitola-social-shares__social-links">
 					{ Object.keys( socials ).map( ( key ) => {

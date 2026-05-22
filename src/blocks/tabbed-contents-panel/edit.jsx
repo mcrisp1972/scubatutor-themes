@@ -23,6 +23,21 @@ export default function Edit( props ) {
 		}
 	};
 
+	const blockProps = useBlockProps( { className: activeClass } );
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: [
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/buttons',
+			'core/image',
+			'core/video',
+		],
+		renderAppender: () => {
+			return appenderToUse();
+		},
+	} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -38,21 +53,7 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div
-				{ ...useInnerBlocksProps( useBlockProps( { className: activeClass } ), {
-					allowedBlocks: [
-						'core/paragraph',
-						'core/heading',
-						'core/list',
-						'core/buttons',
-						'core/image',
-						'core/video',
-					],
-					renderAppender: () => {
-						return appenderToUse();
-					},
-				} ) }
-			/>
+			<div { ...innerBlocksProps } />
 		</>
 	);
 }

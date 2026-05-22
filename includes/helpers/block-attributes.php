@@ -24,61 +24,93 @@ function parallax_img_class( $condition ) {
  * @return array
  */
 function animation_attributes( $attributes, $force_body = false ) {
-	$direction = ! empty( $attributes['introAlign'] ) ? $attributes['introAlign'] : 'top';
-	$gsap_data = array(
-		'fadeup'    => ' data-start-translate="translateY(100px)" data-end-translate="translateY(0)"',
-		'fadein'    => 'data-start-translate="translateY(0)" data-end-translate="translateY(0)"',
-		'fadeleft'  => 'data-start-translate="translateX(-100%)" data-end-translate="translateX(0)"',
-		'faderight' => 'data-start-translate="translateX(100%)" data-end-translate="translateX(0)"',
-	);
-	$class     = '';
-	$array     = array(
-		'block-class'  => '',
-		'body-class'   => '',
-		'figure-class' => '',
-		'block-data'   => '',
-		'body-data'    => '',
-		'figure-data'  => '',
+	if ( ! isset( $attributes['revealAnimation'] ) ) {
+		return array(
+			'block-class'   => '',
+			'body-class'    => '',
+			'figure-class'  => '',
+			'block-styles'  => '',
+			'body-styles'   => '',
+			'figure-styles' => '',
+		);
+	}
+
+	$animation = array_merge(
+		array(
+			'animation'     => '',
+			'direction'     => '',
+			'duration'      => '',
+			'unit'          => 'px',
+			'section'       => '',
+			'startPosition' => 0,
+			'origin'        => '',
+			'easing'        => 'linear',
+		),
+		is_array( $attributes['revealAnimation'] ) ? $attributes['revealAnimation'] : array()
 	);
 
-	$block_animation         = ! empty( $attributes['revealAnimation'] ) ? $attributes['revealAnimation'] : '';
-	$block_animation_section = ! empty( $attributes['revealSection'] ) ? $attributes['revealSection'] : '';
+	// Adjust start position for horizontal animations based on intro alignment and animation origin.
+	if ( ( 'body' === $animation['section'] || 'figure' === $animation['section'] ) && 'horizontal' === $animation['direction'] && 'top' !== $attributes['introAlign'] ) {
+		if ( 'body' === $animation['section'] && 'left' === $attributes['introAlign'] ) {
+			$animation['origin'] = 'left';
+		} elseif ( 'figure' === $animation['section'] && 'right' === $attributes['introAlign'] ) {
+			$animation['origin'] = 'left';
+		}
+	}
+
+	if ( 'left' === $animation['origin'] ) {
+		$animation['startPosition'] = '-' . $animation['startPosition'];
+	}
+
+	$gsap_styles = array(
+		'fadeIn'     => '--reveal-x-position: 0; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+
+		'fadeUp'     => '--reveal-x-position: 0; --reveal-y-position: ' . $animation['startPosition'] . '; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+
+		'sideReveal' => '--reveal-x-position: ' . $animation['startPosition'] . '; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+
+		'sideShift'  => '--reveal-x-position: ' . $animation['startPosition'] . '; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+	);
+
+	$class = '';
+	$array = array(
+		'block-class'   => '',
+		'body-class'    => '',
+		'figure-class'  => '',
+		'block-styles'  => '',
+		'body-styles'   => '',
+		'figure-styles' => '',
+	);
+
+	$block_animation         = ! empty( $animation['animation'] ) ? $animation['animation'] : '';
+	$block_animation_section = ! empty( $animation['section'] ) ? $animation['section'] : '';
 	$intro_align             = ! empty( $attributes['introAlign'] ) ? $attributes['introAlign'] : 'top';
 
 	if ( ! empty( $block_animation ) ) {
-		$class = ' js-revealAnimation';
-		if ( 'fadeslide' === $block_animation ) {
-			if ( 'figure' === $block_animation_section && $intro_align ) {
-				$data = $gsap_data[ 'fade' . ( 'right' === $intro_align ? 'left' : 'right' ) ];
-			} elseif ( $intro_align ) {
-				$data = $gsap_data[ 'fade' . ( 'top' === $intro_align ? 'left' : $intro_align ) ];
-			}
-		} else {
-			$data = $gsap_data[ $block_animation ];
-		}
+		$class = ' js-revealAnimation --has-reveal-animation';
 
 		if ( $block_animation_section ) {
 
 			if ( 'block' === $block_animation_section ) {
-				$array['block-class'] = $class;
-				$array['block-data']  = $data;
+				$array['block-class']  = $class;
+				$array['block-styles'] = $gsap_styles[ $block_animation ];
 			} elseif ( 'figure' === $block_animation_section ) {
-				$array['figure-class'] = $class;
-				$array['figure-data']  = $data;
+				$array['figure-class']  = $class;
+				$array['figure-styles'] = $gsap_styles[ $block_animation ];
 			} else {
-				$array['body-class'] = $class;
-				$array['body-data']  = $data;
+				$array['body-class']  = $class;
+				$array['body-styles'] = $gsap_styles[ $block_animation ];
 			}
 		} else {
-			$array['block-class'] = $class;
-			$array['block-data']  = $data;
+			$array['block-class']  = $class;
+			$array['block-styles'] = $gsap_styles[ $block_animation ];
 		}
 
 		if ( $force_body ) {
-			$array['block-class'] = '';
-			$array['block-data']  = '';
-			$array['body-class']  = $class;
-			$array['body-data']   = $data;
+			$array['block-class']  = '';
+			$array['block-styles'] = '';
+			$array['body-class']   = $class;
+			$array['body-styles']  = $styles;
 		}
 	}
 

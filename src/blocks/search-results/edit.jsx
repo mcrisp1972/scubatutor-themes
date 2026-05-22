@@ -41,13 +41,12 @@ export default function Edit( props ) {
 		},
 		[ limit ]
 	);
+	const blockProps = useBlockProps( {
+		className: `alignfull capitola-listings is-layout-constrained has-global-padding js-paginatedListings --theme-${ colorTheme }`,
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull capitola-listings is-layout-constrained has-global-padding js-paginatedListings --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="H Tags" initialOpen={ true }>
 					<TagSelect

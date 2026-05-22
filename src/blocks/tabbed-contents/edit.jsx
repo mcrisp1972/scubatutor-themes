@@ -5,21 +5,41 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { ToolbarGroup } from '@wordpress/components';
-import { ColorThemePanel, AnimationPanel, IntroAlignToolbar } from '../../editor-controls';
+import {
+	ColorThemePanel,
+	AnimationPanel,
+	IntroAlignToolbar,
+	animationPreviewClass,
+} from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes } = props;
-	const { colorTheme, introAlign } = attributes;
+	const { colorTheme, introAlign, revealAnimation } = attributes;
+
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-tabbed-contents__width alignwide --has-${ introAlign }-intro ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
+		},
+		{
+			template: [
+				[ 'capitola/body-text', { verticalAlign: 'top' } ],
+				[ 'capitola/tabbed-contents-tabs' ],
+			],
+			templateLock: 'all',
+		}
+	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } initialOpen={ true } />
-				<AnimationPanel props={ props } allowFigureReveal={ true } initialOpen={ true } />
+				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
@@ -30,20 +50,7 @@ export default function Edit( props ) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: `wp-block-capitola-tabbed-contents__width alignwide --has-${ introAlign }-intro`,
-					},
-					{
-						template: [
-							[ 'capitola/body-text', { verticalAlign: 'top' } ],
-							[ 'capitola/tabbed-contents-tabs' ],
-						],
-						templateLock: 'all',
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

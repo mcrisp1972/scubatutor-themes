@@ -1,11 +1,11 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { PanelBody, ToggleControl } from '@wordpress/components';
-import { ColorThemePanel, AnimationPanel } from '../../editor-controls';
+import { ColorThemePanel, AnimationPanel, animationPreviewClass } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, clientId } = props;
-	const { stickyIntro, colorTheme } = attributes;
+	const { stickyIntro, colorTheme, revealAnimation } = attributes;
 
 	const accordionBlock = useSelect( ( select ) => {
 		const block = select( 'core/block-editor' ).getBlock( clientId );
@@ -13,13 +13,27 @@ export default function Edit( props ) {
 	} );
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-accordion-with-intro__width alignwide ${
+				stickyIntro ? '--sticky-intro' : ''
+			} ${ animationPreviewClass( revealAnimation, 'block' ) }`,
+		},
+		{
+			template: [
+				[ 'capitola/body-text', { verticalAlign: 'top' } ],
+				[ 'capitola/accordion' ],
+			],
+			templateLock: 'all',
+		}
+	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Accordion Options" initialOpen={ true }>
 					<ToggleControl
@@ -40,22 +54,7 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } initialOpen={ true } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: `wp-block-capitola-accordion-with-intro__width alignwide ${
-							stickyIntro ? '--sticky-intro' : ''
-						}`,
-					},
-					{
-						template: [
-							[ 'capitola/body-text', { verticalAlign: 'top' } ],
-							[ 'capitola/accordion' ],
-						],
-						templateLock: 'all',
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

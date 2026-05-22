@@ -17,7 +17,9 @@
 		"capitola/nav-mega-nav",
 		"capitola/footer-link-column"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"attributes": {
 		"title": {
 			"type": "string",

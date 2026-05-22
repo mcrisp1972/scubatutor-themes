@@ -29,8 +29,10 @@ export default function Edit( props ) {
 
 	const radiusClass = imageRadius ? ` --has-${ imageRadius }-radius` : '';
 
+	const blockProps = useBlockProps();
+
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Link Details" initialOpen={ true }>
 					<SelectControl

@@ -16,6 +16,7 @@ import {
 	IntroAlignToolbar,
 	AspectRatioToolbar,
 	RadiusToolbar,
+	animationPreviewClass,
 } from '../../editor-controls';
 
 import {
@@ -42,6 +43,7 @@ export default function Edit( props ) {
 		transition,
 		stickySlider,
 		slides,
+		revealAnimation,
 	} = attributes;
 	const [ swiperIndex, setSwiperIndex ] = useState( 0 );
 	const swiperRef = useRef( null );
@@ -51,9 +53,16 @@ export default function Edit( props ) {
 
 	const [ thumbsSwiper, setThumbsSwiper ] = useState( null );
 
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: `wp-block-capitola-full-width-slider__width alignwide --has-${ introAlign }-intro`,
+			className: `wp-block-capitola-full-width-slider__width alignwide --has-${ introAlign }-intro ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
 		},
 		{
 			template: [ [ 'capitola/body-text' ] ],
@@ -75,11 +84,7 @@ export default function Edit( props ) {
 	}
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Slider Settings" initialOpen={ true }>
 					<RadioControl
@@ -128,7 +133,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } allowFigureReveal={ true } />
+				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>
@@ -151,7 +156,12 @@ export default function Edit( props ) {
 			</BlockControls>
 			<div { ...innerBlocksProps }>
 				{ children }
-				<div className={ `wp-block-capitola-full-width-slider__sliders ${ stickyClass }` }>
+				<div
+					className={ `wp-block-capitola-full-width-slider__sliders ${ stickyClass } ${ animationPreviewClass(
+						revealAnimation,
+						'figure'
+					) }` }
+				>
 					<div className="wp-block-capitola-full-width-slider__main">
 						<Swiper
 							key={ transition }

@@ -8,9 +8,10 @@ export default function Edit( props ) {
 	const { attributes, setAttributes, onReplace, clientId } = props;
 	const { link, title } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
+	const blockProps = useBlockProps();
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Link Options" initialOpen={ true }>
 					<TextControl

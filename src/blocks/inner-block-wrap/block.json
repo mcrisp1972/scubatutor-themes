@@ -14,7 +14,8 @@
 	],
 	"supports": {
 		"inserter": false,
-		"lock": false
+		"lock": false,
+		"html": false
 	},
 	"attributes": {
 		"allowedBlocks": {

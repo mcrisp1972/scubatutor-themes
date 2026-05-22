@@ -29,6 +29,7 @@ import {
 	RadiusToolbar,
 	VideoSelect,
 	ImageFocalPoint,
+	animationPreviewClass,
 } from '../../editor-controls';
 import { Iframe } from './iframe';
 import { Video } from './video';
@@ -62,6 +63,7 @@ export default function Edit( props ) {
 		videoObject,
 		colorTheme,
 		isHeroVariation,
+		revealAnimation,
 	} = attributes;
 
 	const isMobile = useViewportMatch( 'medium', '<' );
@@ -98,13 +100,20 @@ export default function Edit( props ) {
 	const stickyClass =
 		stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
 
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-side-image__width ${
 				imageLayout === 'full' ? 'alignfull --side-bg-img' : 'alignwide --inset-img'
 			}
          --has-${ introAlign }-intro
-        ${ verticalAlign === 'top' ? ' --align-top' : '' }`,
+        ${ verticalAlign === 'top' ? ' --align-top' : '' } ${ animationPreviewClass(
+			revealAnimation,
+			'block'
+		) }`,
 		},
 		{
 			template: [
@@ -117,12 +126,8 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
-			<InspectorControls>
+		<div { ...blockProps }>
+			<InspectorControls group="settings">
 				<PanelBody title="Media" initialOpen={ true }>
 					{ mediaType === 'image' && (
 						<ToggleControl
@@ -266,7 +271,6 @@ export default function Edit( props ) {
 							min={ 20 }
 							max={ 50 }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ imageLayout === 'full' && mediaType === 'image' && (
@@ -301,10 +305,12 @@ export default function Edit( props ) {
 						/>
 					) }
 				</PanelBody>
+			</InspectorControls>
+			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
 				<AnimationPanel
 					props={ props }
-					allowFigureReveal={ imageLayout === 'inner' ? true : false }
+					sections={ imageLayout === 'inner' ? [ 'block', 'body', 'figure' ] : [] }
 				/>
 			</InspectorControls>
 			<BlockControls>
@@ -369,7 +375,12 @@ export default function Edit( props ) {
 					} }
 				>
 					{ imageLayout === 'inner' ? (
-						<figure className="wp-block-capitola-side-image__imageratio">
+						<figure
+							className={ `wp-block-capitola-side-image__imageratio ${ animationPreviewClass(
+								revealAnimation,
+								'figure'
+							) }` }
+						>
 							{ mediaType === 'video' && (
 								<Video
 									videoObject={ videoObject }

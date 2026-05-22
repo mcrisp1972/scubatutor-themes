@@ -3,6 +3,7 @@ import { useRef } from '@wordpress/element';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { layoutConditionals } from './layout-conditionals';
+import { animationPreviewClass } from '../../editor-controls';
 
 function SwiperTemplate( { attributes, cardTemplate, items } ) {
 	const { showSlideCount } = attributes;
@@ -95,12 +96,15 @@ function GridTemplate( { attributes, cardTemplate, items } ) {
 
 export default function PostFeedTemplate( props, items, cardTemplate ) {
 	const { attributes } = props;
-	const { listLayout } = attributes;
+	const { listLayout, revealAnimation } = attributes;
 	const hasSlider = listLayout === 'sidescroll';
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className: 'capitola-listings__width alignwide',
+			className: `capitola-listings__width alignwide ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
 		},
 		{
 			template: [ [ 'capitola/body-text' ] ],

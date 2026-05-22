@@ -12,7 +12,9 @@
 		"sharing",
 		"social media"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"attributes": {
 		"exampleData": {
 			"type": "object",

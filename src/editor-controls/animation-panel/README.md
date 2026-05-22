@@ -1,239 +1,93 @@
-# Animation Panel
+# AnimationPanel
 
-SelectControl allow users to select from a single or multiple option menu. It functions as a wrapper around the browser's native `<select>` element.
+A WordPress Gutenberg editor control component for configuring reveal animations on block content. This panel is built with `ToolsPanel` and updates a block's `revealAnimation` attribute with animation style, section targeting, duration, easing, and optional direction controls.
 
-![A “Link To” select with “none” selected.](https://wordpress.org/gutenberg/files/2018/12/select.png)
+## Properties
 
-## Table of contents
+| Property   | Type     | Required | Default              | Description |
+|------------|----------|----------|----------------------|-------------|
+| `props`    | `object` | Yes      |                      | Standard block edit props (`attributes`, `setAttributes`, `name`, `clientId`) |
+| `sections` | `array`  | No       | `[ 'block', 'body' ]` | Available section choices for animation targeting |
 
-1. [Design guidelines](#design-guidelines)
-2. [Development guidelines](#development-guidelines)
-3. [Related components](#related-components)
+## Attribute Structure
 
-## Design guidelines
+`AnimationPanel` expects a `revealAnimation` object in block attributes.
 
-### Usage
-
-#### When to use a select control
-
-Use a select control when:
-
--   You want users to select one or more options from a list.
--   There is a strong default option.
--   There is little available space.
--   The contents of the hidden part of the menu are obvious from its label and the one selected item. For example, if you have an option menu labelled “Month:” with the item “January” selected, the user might reasonably infer that the menu contains the 12 months of the year without having to look.
-
-If you have a shorter list of options, consider using RadioControl instead.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-do-multiple.png)
-
-**Do**
-Use selects when you have multiple options.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-dont-binary.png)
-
-**Don’t**
-Use selects for binary questions.
-
-### Behavior
-
-A SelectControl includes a double-arrow indicator. The menu appears layered over the select.
-
-#### Opening and Closing
-
-Once the menu is displayed onscreen, it remains open until the user chooses a menu item, clicks outside of the menu, or switches to another browser tab.
-
-### Content Guidelines
-
-#### Labels
-
-Label the SelectControl with a text label above it, or to its left, using sentence capitalization. Clicking the label allows the user to focus directly on the select.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-do-position.png)
-
-**Do**
-Position the label above, or to the left of, the select.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-dont-position.png)
-
-**Don’t**
-Position the label centered over the select, or right aligned against the side of the select.
-
-**Menu Items**
-
--   Menu items should be short — ideally, single words — and use sentence capitalization.
--   Do not use full sentences inside menu items.
--   Ensure that menu items are ordered in a way that is most useful to users. Alphabetical or recency ordering is preferred.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-do-options.png)
-
-**Do**
-Use short menu items.
-
-![](https://wordpress.org/gutenberg/files/2018/12/select-dont-options.png)
-
-**Don’t**
-Use sentences in your menu.
-
-## Development guidelines
-
-### Usage
-
-Render a user interface to select the size of an image.
-
-```jsx
-import { useState } from 'react';
-import { SelectControl } from '@wordpress/components';
-
-const MySelectControl = () => {
-	const [ size, setSize ] = useState( '50%' );
-
-	return (
-		<SelectControl
-			label="Size"
-			value={ size }
-			options={ [
-				{ label: 'Big', value: '100%' },
-				{ label: 'Medium', value: '50%' },
-				{ label: 'Small', value: '25%' },
-			] }
-			onChange={ ( value ) => {
-				setSize( value );
-			} }
-			__nextHasNoMarginBottom
-		/>
-	);
-};
+```javascript
+{
+	animation: '',
+	section: 'block',
+	duration: 1,
+	easing: 'ease',
+	origin: 'right',
+	direction: 'horizontal',
+	startPosition: '100%'
+}
 ```
 
-Render a user interface to select multiple users from a list.
+## Supported Animation Styles
+
+The panel exposes the following preset styles:
+
+| Animation Key | Label       | Defaults | Optional Controls |
+|---------------|-------------|----------|-------------------|
+| `fadeIn`      | Fade In     | `duration: 1`, `easing: 'ease-in'` | Duration, easing |
+| `fadeUp`     | Fade Up    | `direction: 'vertical'`, `startPosition: '40px'`, `duration: 1`, `easing: 'ease'` | Start position, duration, easing |
+| `sideReveal`  | Side Reveal | `direction: 'horizontal'`, `origin: 'right'`, `startPosition: '100%'`, `duration: 1`, `easing: 'ease'` | Duration, easing, reveal origin |
+| `sideShift`   | Side Shift  | `direction: 'horizontal'`, `origin: 'right'`, `startPosition: '200px'`, `duration: 1`, `easing: 'ease'` | Start position, duration, easing, reveal origin |
+
+## Section Behavior
+
+- `block`: Animates the full block wrapper.
+- `body`: Animates body/intro content only.
+- `figure`: Optional, if included in `sections`, typically used for image/media regions.
+
+When `origin` is available, reveal direction is adjusted by section and alignment to ensure movement appears to come from the expected side.
+
+## Helper Function
+
+`animationPreviewClass( animationAttribute, animatedSection )` returns a `js-animation-preview` class when the provided section matches the selected animation section. Use this helper on rendered elements to mark the preview target.
+
+```javascript
+const className = animationPreviewClass( attributes.revealAnimation, 'body' );
+```
+
+## Features
+
+- Preset animation styles with per-style defaults
+- Context-aware controls (only shows relevant fields for the selected style)
+- Manual preview button in editor controls
+- Auto-preview when changing key settings (style, duration, easing, origin, start position)
+- `ToolsPanel` reset support for individual controls and full panel reset
+
+## Usage
+
+### Import
 
 ```jsx
-<SelectControl
-	multiple
-	label={ __( 'Select some users:' ) }
-	value={ this.state.users } // e.g: value = [ 'a', 'c' ]
-	onChange={ ( value ) => {
-		this.setState( { value } );
-	} }
-	options={ [
-		{ value: '', label: 'Select a User', disabled: true },
-		{ value: 'a', label: 'User A' },
-		{ value: 'b', label: 'User B' },
-		{ value: 'c', label: 'User c' },
-	] }
-	__nextHasNoMarginBottom
+import AnimationPanel, { animationPreviewClass } from '../../editor-controls/animation-panel';
+```
+
+### Add to Inspector Controls
+
+```jsx
+<AnimationPanel
+	props={ props }
+	sections={ [ 'block', 'body', 'figure' ] }
 />
 ```
 
-Render a user interface to select items within groups
+### Apply Preview Target Class in Block Markup
 
 ```jsx
-const [ item, setItem ] = useState( '' );
-
-// ...
-
-<SelectControl
-    label={ __( 'Select an item:' ) }
-    value={ item } // e.g: value = 'a'
-    onChange={ ( value ) => {
-		setItem( value );
-	} }
-    __nextHasNoMarginBottom
->
-	<optgroup label="Theropods">
-		<option value="Tyrannosaurus">Tyrannosaurus</option>
-		<option value="Velociraptor">Velociraptor</option>
-		<option value="Deinonychus">Deinonychus</option>
-	</optgroup>
-	<optgroup label="Sauropods">
-		<option value="Diplodocus">Diplodocus</option>
-		<option value="Saltasaurus">Saltasaurus</option>
-		<option value="Apatosaurus">Apatosaurus</option>
-	</optgroup>
-</SelectControl>
+<div className={ `my-block${ animationPreviewClass( attributes.revealAnimation, 'block' ) }` }>
+	<div className={ `my-block__body${ animationPreviewClass( attributes.revealAnimation, 'body' ) }` }>
+		{ /* body content */ }
+	</div>
+</div>
 ```
 
-### Props
+## Notes
 
--   The set of props accepted by the component will be specified below.
--   Props not included in this set will be applied to the select element.
--   One important prop to refer is `value`. If `multiple` is `true`, `value` should be an array with the values of the selected options.
--   If `multiple` is `false`, `value` should be equal to the value of the selected option.
-
-#### label
-
-If this property is added, a label will be generated using label property as the content.
-
--   Type: `string`
--   Required: No
-
-#### labelPosition
-
-The position of the label (`top`, `side`, or `bottom`).
-
--   Type: `string`
--   Required: No
-
-#### hideLabelFromVision
-
-If true, the label will only be visible to screen readers.
-
--   Type: `boolean`
--   Required: No
-
-#### help
-
-If this property is added, a help text will be generated using help property as the content.
-
--   Type: `String|Element`
--   Required: No
-
-#### multiple
-
-If this property is added, multiple values can be selected. The `value` passed should be an array.
-
-In most cases, it is preferable to use the `FormTokenField` or `CheckboxControl` components instead.
-
--   Type: `boolean`
--   Required: No
-
-#### options
-
-An array of objects containing the following properties:
-
--   `label`: (string) The label to be shown to the user.
--   `value`: (string) The internal value used to choose the selected value. This is also the value passed to onChange when the option is selected.
--   `disabled`: (boolean) Whether or not the option should have the disabled attribute.
--   Type: `array`
--   Required: No
-
-#### children
-
-An alternative to the `options` prop.
-Use the `children` prop to have more control on the style of the items being rendered, like `optgroup`s or `options` and possibly avoid re-rendering due to the reference update on the `options` prop.
-- Type: `ReactNode`
-- Required: No
-
-#### onChange
-
-A function that receives the value of the new option that is being selected as input.
-If multiple is true the value received is an array of the selected value.
-If multiple is false the value received is a single value with the new selected value.
-
--   Type: `function`
--   Required: Yes
-
-### __nextHasNoMarginBottom
-
-Start opting into the new margin-free styles that will become the default in a future version.
-
--   Type: `boolean`
--   Required: No
--   Default: `false`
-
-## Related components
-
--   To select one option from a set, and you want to show them all the available options at once, use the `Radio` component.
--   To select one or more items from a set, use the `CheckboxControl` component.
--   To toggle a single setting on or off, use the `ToggleControl` component.
+- Duration values are stored as numbers in seconds (for example `1`, `0.5`, `0.2`).
+- Start position is managed as a unit value string for transform usage (for example `40px`, `100%`).

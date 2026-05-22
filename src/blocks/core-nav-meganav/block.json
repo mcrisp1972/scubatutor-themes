@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "capitola/core-nav-meganav",
+	"title": "Core Nav Mega Menu",
+	"category": "design",
+	"textdomain": "capitola",
+	"description": "Add a multi-column mega navigation panel with links and optional featured content for core navigation blocks.",
+	"keywords": [
+		"mega menu",
+		"header",
+		"navigation",
+		"dropdown",
+		"core"
+	],
+	"supports": {
+		"html": false,
+		"interactivity": true
+	},
+	"parent": [
+		"core/navigation"
+	],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"allowedBlocks": [
+		"capitola/core-nav-meganav-column"
+	],
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"editorScript": "file:./index.js",
+	"viewScriptModule": "file:./view.js"
+}

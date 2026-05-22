@@ -5,9 +5,10 @@ import HeadingLevelDropdown from './htag-dropdown';
 
 export default function Edit( { attributes, setAttributes, onReplace, clientId } ) {
 	const { content, tag, textAlign } = attributes;
+	const blockProps = useBlockProps();
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			{
 				<BlockControls>
 					<HeadingLevelDropdown
