@@ -13,7 +13,8 @@
     "pagination"
   ],
   "supports": {
-    "multiple": false
+    "multiple": false,
+    "html": false
   },
   "attributes": {
     "colorTheme": {
@@ -21,16 +22,11 @@
       "default": false
     },
     "revealAnimation": {
-      "type": "string",
-      "default": "0"
-    },
-    "revealSection": {
-      "type": "string",
-      "default": "body"
-    },
-    "allowRevealSectionSelect": {
-      "type": "boolean",
-      "default": false
+      "type": "object",
+      "default": {
+        "animation": "",
+        "section": "body"
+      }
     },
     "listLayout": {
       "type": "string",

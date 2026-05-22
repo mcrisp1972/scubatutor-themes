@@ -16,7 +16,8 @@
     "capitola/detailed-links-list"
   ],
   "supports": {
-    "anchor": false
+    "anchor": false,
+    "html": false
   },
   "attributes": {
     "postType": {

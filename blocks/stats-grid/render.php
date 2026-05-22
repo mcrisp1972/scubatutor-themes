@@ -17,6 +17,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?> <?php echo wp_kses_data( $animations['figure-data'] ); ?>>
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?> style="<?php echo wp_kses_data( $animations['figure-styles'] ); ?>">
 	<?php echo wp_kses_post( $content ); ?>
 </div>

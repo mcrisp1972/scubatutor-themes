@@ -18,7 +18,8 @@
         "top",
         "bottom"
       ]
-    }
+    },
+    "html": false
   },
   "attributes": {
     "colorTheme": {

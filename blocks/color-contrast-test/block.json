@@ -7,7 +7,9 @@
   "description": "Just for design needs, renders a post feed block using each color theme",
   "category": "custom-blocks",
   "keywords": [],
-  "supports": {},
+  "supports": {
+    "html": false
+  },
   "render": "file:./render.php",
   "editorScript": "file:./index.js"
 }

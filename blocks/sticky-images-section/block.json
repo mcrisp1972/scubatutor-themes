@@ -13,7 +13,8 @@
     "side image"
   ],
   "supports": {
-    "anchor": true
+    "anchor": true,
+    "html": false
   },
   "parent": [
     "capitola/sticky-images"

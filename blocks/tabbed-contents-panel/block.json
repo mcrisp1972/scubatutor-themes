@@ -12,8 +12,9 @@
     "panel",
     "tabbed content"
   ],
-  "styles": [],
-  "supports": {},
+  "supports": {
+    "html": false
+  },
   "attributes": {
     "pillLabel": {
       "type": "string",

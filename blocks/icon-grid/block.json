@@ -13,7 +13,8 @@
     "icon list"
   ],
   "supports": {
-    "lock": false
+    "lock": false,
+    "html": false
   },
   "parent": [
     "capitola/icons"
@@ -21,7 +22,6 @@
   "attributes": {},
   "usesContext": [
     "revealAnimation",
-    "revealSection",
     "introAlign"
   ],
   "render": "file:./render.php",

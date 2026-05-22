@@ -15,7 +15,9 @@
   "parent": [
     "capitola/footer"
   ],
-  "supports": {},
+  "supports": {
+    "html": false
+  },
   "attributes": {
     "headline": {
       "type": "string",

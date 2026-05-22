@@ -8,7 +8,8 @@
   "category": "custom-blocks",
   "keywords": [],
   "supports": {
-    "anchor": true
+    "anchor": true,
+    "html": false
   },
   "editorScript": "file:./index.js"
 }

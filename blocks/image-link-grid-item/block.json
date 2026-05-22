@@ -13,7 +13,8 @@
     "featured link"
   ],
   "supports": {
-    "anchor": true
+    "anchor": true,
+    "html": false
   },
   "parent": [
     "capitola/image-link-grid"

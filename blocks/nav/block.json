@@ -14,7 +14,8 @@
   ],
   "supports": {
     "multiple": false,
-    "interactivity": true
+    "interactivity": true,
+    "html": false
   },
   "attributes": {
     "logo": {

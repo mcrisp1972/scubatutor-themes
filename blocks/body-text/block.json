@@ -15,7 +15,7 @@
   "supports": {
     "lock": false,
     "inserter": false,
-    "customClassName": true
+    "html": false
   },
   "attributes": {
     "backgroundImage": {
@@ -97,8 +97,7 @@
   "usesContext": [
     "bodyTextOptions",
     "introAlign",
-    "revealAnimation",
-    "revealSection"
+    "revealAnimation"
   ],
   "viewScript": "capitola-animations",
   "style": "capitola-block-body-text",

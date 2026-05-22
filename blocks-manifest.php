@@ -17,7 +17,8 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
-			'interactivity' => true
+			'interactivity' => true,
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -81,7 +82,7 @@ return array(
 			'capitola/accordion'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -117,7 +118,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -129,16 +131,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -210,7 +207,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -238,7 +234,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'colorTheme' => array(
@@ -299,7 +296,7 @@ return array(
 			'capitola/anchor-nav'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'label' => array(
@@ -335,7 +332,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -369,17 +367,12 @@ return array(
 				'type' => 'string',
 				'default' => false
 			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => false
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'body'
+				)
 			),
 			'bodyTextOptions' => array(
 				'type' => 'object',
@@ -429,7 +422,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -449,7 +441,8 @@ return array(
 			
 		),
 		'supports' => array(
-			'anchor' => true
+			'anchor' => true,
+			'html' => false
 		),
 		'editorScript' => 'file:./index.js'
 	),
@@ -470,7 +463,7 @@ return array(
 		'supports' => array(
 			'lock' => false,
 			'inserter' => false,
-			'customClassName' => true
+			'html' => false
 		),
 		'attributes' => array(
 			'backgroundImage' => array(
@@ -552,8 +545,7 @@ return array(
 		'usesContext' => array(
 			'bodyTextOptions',
 			'introAlign',
-			'revealAnimation',
-			'revealSection'
+			'revealAnimation'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-block-body-text',
@@ -572,8 +564,70 @@ return array(
 			
 		),
 		'supports' => array(
+			'html' => false
+		),
+		'render' => 'file:./render.php',
+		'editorScript' => 'file:./index.js'
+	),
+	'core-nav-meganav' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'capitola/core-nav-meganav',
+		'title' => 'Core Nav Mega Menu',
+		'category' => 'design',
+		'textdomain' => 'capitola',
+		'description' => 'Add a multi-column mega navigation panel with links and optional featured content for core navigation blocks.',
+		'keywords' => array(
+			'mega menu',
+			'header',
+			'navigation',
+			'dropdown',
+			'core'
+		),
+		'supports' => array(
+			'html' => false,
+			'interactivity' => true
+		),
+		'parent' => array(
+			'core/navigation'
+		),
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => ''
+			)
+		),
+		'allowedBlocks' => array(
+			'capitola/core-nav-meganav-column'
+		),
+		'render' => 'file:./render.php',
+		'style' => 'file:./style-index.css',
+		'editorScript' => 'file:./index.js',
+		'viewScriptModule' => 'file:./view.js'
+	),
+	'core-nav-meganav-column' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'capitola/core-nav-meganav-column',
+		'title' => 'Core Nav Mega Menu Column',
+		'category' => 'design',
+		'icon' => 'columns',
+		'description' => 'Column container for Core Nav Mega Menu.',
+		'parent' => array(
+			'capitola/core-nav-meganav'
+		),
+		'allowedBlocks' => array(
+			'core/image',
+			'core/navigation-link'
+		),
+		'supports' => array(
+			'html' => false,
+			'reusable' => false
+		),
+		'attributes' => array(
 			
 		),
+		'textdomain' => 'capitola',
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
 	),
@@ -598,7 +652,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -735,7 +790,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -747,16 +803,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -844,7 +895,6 @@ return array(
 		),
 		'providesContext' => array(
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'showExcerpt' => 'showExcerpt',
 			'showImage' => 'showImage',
 			'introAlign' => 'introAlign'
@@ -872,7 +922,8 @@ return array(
 			'capitola/detailed-links-list'
 		),
 		'supports' => array(
-			'anchor' => false
+			'anchor' => false,
+			'html' => false
 		),
 		'attributes' => array(
 			'postType' => array(
@@ -921,10 +972,15 @@ return array(
 			'list'
 		),
 		'supports' => array(
-			'inserter' => false
+			'inserter' => false,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/detailed-links'
+		),
+		'usesContext' => array(
+			'introAlign',
+			'revealAnimation'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -937,7 +993,8 @@ return array(
 		'textdomain' => 'capitola',
 		'description' => 'Used only for block previews',
 		'supports' => array(
-			'inserter' => false
+			'inserter' => false,
+			'html' => false
 		),
 		'editorScript' => 'file:./index.js'
 	),
@@ -980,6 +1037,7 @@ return array(
 			),
 			'anchor' => true,
 			'className' => true,
+			'html' => false,
 			'__unstablePasteTextInline' => true,
 			'__experimentalSlashInserter' => true
 		),
@@ -1010,7 +1068,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1022,16 +1081,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'listLayout' => array(
 				'type' => 'string',
@@ -1098,7 +1152,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign',
 			'isExample' => 'isExample'
 		),
@@ -1131,7 +1184,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1180,16 +1234,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => false
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'body'
+				)
 			),
 			'bodyTextOptions' => array(
 				'type' => 'object',
@@ -1239,7 +1288,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -1266,7 +1314,8 @@ return array(
 			'social links'
 		),
 		'supports' => array(
-			'multiple' => false
+			'multiple' => false,
+			'html' => false
 		),
 		'attributes' => array(
 			'showBusinessName' => array(
@@ -1341,7 +1390,7 @@ return array(
 			'capitola/footer'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -1383,7 +1432,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1395,16 +1445,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -1456,7 +1501,6 @@ return array(
 		),
 		'providesContext' => array(
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -1493,7 +1537,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1509,16 +1554,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'transition' => array(
 				'type' => 'string',
@@ -1613,7 +1653,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -1642,7 +1681,8 @@ return array(
 			'icon list'
 		),
 		'supports' => array(
-			'lock' => false
+			'lock' => false,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/icons'
@@ -1652,7 +1692,6 @@ return array(
 		),
 		'usesContext' => array(
 			'revealAnimation',
-			'revealSection',
 			'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -1673,7 +1712,7 @@ return array(
 			'caption'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/icon-grid'
@@ -1720,7 +1759,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1732,16 +1772,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -1827,7 +1862,6 @@ return array(
 		),
 		'providesContext' => array(
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -1862,7 +1896,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1905,7 +1940,7 @@ return array(
 			'gallery'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/image-link-grid-block'
@@ -1946,7 +1981,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -1970,16 +2006,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -2083,7 +2114,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign',
 			'gridLayout' => 'gridLayout',
 			'gridGap' => 'gridGap',
@@ -2109,7 +2139,8 @@ return array(
 			'featured link'
 		),
 		'supports' => array(
-			'anchor' => true
+			'anchor' => true,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/image-link-grid'
@@ -2174,7 +2205,8 @@ return array(
 		),
 		'supports' => array(
 			'inserter' => false,
-			'lock' => false
+			'lock' => false,
+			'html' => false
 		),
 		'attributes' => array(
 			'allowedBlocks' => array(
@@ -2204,6 +2236,16 @@ return array(
 			'images',
 			'photo'
 		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => array(
+					'top',
+					'bottom'
+				)
+			),
+			'html' => false
+		),
 		'attributes' => array(
 			'anchor' => array(
 				'type' => 'string',
@@ -2230,15 +2272,6 @@ return array(
 			'allowSticky' => array(
 				'type' => 'boolean',
 				'default' => false
-			)
-		),
-		'supports' => array(
-			'anchor' => true,
-			'spacing' => array(
-				'margin' => array(
-					'top',
-					'bottom'
-				)
 			)
 		),
 		'example' => array(
@@ -2287,7 +2320,8 @@ return array(
 			'menu'
 		),
 		'supports' => array(
-			'anchor' => true
+			'anchor' => true,
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -2357,7 +2391,8 @@ return array(
 		),
 		'supports' => array(
 			'multiple' => false,
-			'interactivity' => true
+			'interactivity' => true,
+			'html' => false
 		),
 		'attributes' => array(
 			'logo' => array(
@@ -2429,7 +2464,7 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2481,7 +2516,7 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2516,7 +2551,7 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2578,7 +2613,7 @@ return array(
 			'capitola/footer-link-column'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2616,7 +2651,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -2691,7 +2727,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -2703,16 +2740,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => false
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'body'
+				)
 			),
 			'listLayout' => array(
 				'type' => 'string',
@@ -2890,7 +2922,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -2930,7 +2961,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -2942,16 +2974,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'listLayout' => array(
 				'type' => 'string',
@@ -3075,7 +3102,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'style' => 'capitola-post-listing',
@@ -3107,7 +3133,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -3181,7 +3208,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -3193,16 +3221,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'limit' => array(
 				'type' => 'integer',
@@ -3302,7 +3325,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'style' => 'capitola-post-listing',
@@ -3328,7 +3350,8 @@ return array(
 			'pagination'
 		),
 		'supports' => array(
-			'multiple' => false
+			'multiple' => false,
+			'html' => false
 		),
 		'attributes' => array(
 			'colorTheme' => array(
@@ -3336,16 +3359,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => false
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'body'
+				)
 			),
 			'listLayout' => array(
 				'type' => 'string',
@@ -3431,7 +3449,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -3537,16 +3556,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'isVideoVariation' => array(
 				'type' => 'boolean',
@@ -3656,7 +3670,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -3680,7 +3693,7 @@ return array(
 			'layout'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'styles' => array(
 			array(
@@ -3733,7 +3746,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -3749,16 +3763,11 @@ return array(
 				'default' => 'top'
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'aspectRatio' => array(
 				'type' => 'string',
@@ -3860,7 +3869,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -3886,7 +3894,7 @@ return array(
 			'social media'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'exampleData' => array(
@@ -3934,7 +3942,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -3946,16 +3955,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -4033,7 +4037,6 @@ return array(
 		),
 		'providesContext' => array(
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -4056,7 +4059,8 @@ return array(
 			'numbers'
 		),
 		'supports' => array(
-			'lock' => false
+			'lock' => false,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/stats'
@@ -4066,7 +4070,6 @@ return array(
 		),
 		'usesContext' => array(
 			'revealAnimation',
-			'revealSection',
 			'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -4087,7 +4090,7 @@ return array(
 			'caption'
 		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/stats-grid'
@@ -4126,7 +4129,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -4243,7 +4247,8 @@ return array(
 			'side image'
 		),
 		'supports' => array(
-			'anchor' => true
+			'anchor' => true,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/sticky-images'
@@ -4321,7 +4326,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -4333,16 +4339,11 @@ return array(
 				'default' => ''
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -4431,7 +4432,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -4454,11 +4454,8 @@ return array(
 			'panel',
 			'tabbed content'
 		),
-		'styles' => array(
-			
-		),
 		'supports' => array(
-			
+			'html' => false
 		),
 		'attributes' => array(
 			'pillLabel' => array(
@@ -4491,7 +4488,8 @@ return array(
 		),
 		'supports' => array(
 			'inserter' => false,
-			'lock' => false
+			'lock' => false,
+			'html' => false
 		),
 		'attributes' => array(
 			
@@ -4501,7 +4499,6 @@ return array(
 		),
 		'usesContext' => array(
 			'revealAnimation',
-			'revealSection',
 			'introAlign'
 		),
 		'editorScript' => 'file:./index.js',
@@ -4532,7 +4529,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -4544,16 +4542,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'listLayout' => array(
 				'type' => 'string',
@@ -4655,7 +4648,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
@@ -4691,7 +4683,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -4800,16 +4793,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'bodyTextOptions' => array(
 				'type' => 'object',
@@ -4865,7 +4853,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -4889,7 +4876,8 @@ return array(
 		),
 		'supports' => array(
 			'lock' => false,
-			'inserter' => false
+			'inserter' => false,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/three-link-cards-grid'
@@ -4947,7 +4935,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -4959,16 +4948,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => false
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -5042,7 +5026,6 @@ return array(
 		),
 		'providesContext' => array(
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
@@ -5066,7 +5049,8 @@ return array(
 		),
 		'supports' => array(
 			'lock' => false,
-			'inserter' => false
+			'inserter' => false,
+			'html' => false
 		),
 		'parent' => array(
 			'capitola/three-link-cards'
@@ -5110,7 +5094,8 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false
 		),
 		'attributes' => array(
 			'anchor' => array(
@@ -5204,16 +5189,11 @@ return array(
 				'default' => false
 			),
 			'revealAnimation' => array(
-				'type' => 'string',
-				'default' => '0'
-			),
-			'revealSection' => array(
-				'type' => 'string',
-				'default' => 'body'
-			),
-			'allowRevealSectionSelect' => array(
-				'type' => 'boolean',
-				'default' => true
+				'type' => 'object',
+				'default' => array(
+					'animation' => '',
+					'section' => 'block'
+				)
 			),
 			'bodyTextOptions' => array(
 				'type' => 'object',
@@ -5266,7 +5246,6 @@ return array(
 		'providesContext' => array(
 			'bodyTextOptions' => 'bodyTextOptions',
 			'revealAnimation' => 'revealAnimation',
-			'revealSection' => 'revealSection',
 			'introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',

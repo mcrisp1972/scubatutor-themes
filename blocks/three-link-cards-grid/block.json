@@ -14,7 +14,8 @@
   ],
   "supports": {
     "lock": false,
-    "inserter": false
+    "inserter": false,
+    "html": false
   },
   "parent": [
     "capitola/three-link-cards"

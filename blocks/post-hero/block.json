@@ -19,7 +19,8 @@
         "top",
         "bottom"
       ]
-    }
+    },
+    "html": false
   },
   "attributes": {
     "headline": {

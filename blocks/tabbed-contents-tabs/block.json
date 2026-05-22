@@ -14,7 +14,8 @@
   ],
   "supports": {
     "inserter": false,
-    "lock": false
+    "lock": false,
+    "html": false
   },
   "attributes": {},
   "providesContext": {
@@ -22,7 +23,6 @@
   },
   "usesContext": [
     "revealAnimation",
-    "revealSection",
     "introAlign"
   ],
   "editorScript": "file:./index.js",

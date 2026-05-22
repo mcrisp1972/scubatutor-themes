@@ -23,7 +23,8 @@
         "top",
         "bottom"
       ]
-    }
+    },
+    "html": false
   },
   "attributes": {
     "anchor": {
@@ -35,16 +36,11 @@
       "default": false
     },
     "revealAnimation": {
-      "type": "string",
-      "default": "0"
-    },
-    "revealSection": {
-      "type": "string",
-      "default": "body"
-    },
-    "allowRevealSectionSelect": {
-      "type": "boolean",
-      "default": true
+      "type": "object",
+      "default": {
+        "animation": "",
+        "section": "block"
+      }
     },
     "limit": {
       "type": "integer",
@@ -142,7 +138,6 @@
   "providesContext": {
     "bodyTextOptions": "bodyTextOptions",
     "revealAnimation": "revealAnimation",
-    "revealSection": "revealSection",
     "introAlign": "introAlign"
   },
   "style": "capitola-post-listing",

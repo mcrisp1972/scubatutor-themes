@@ -15,7 +15,9 @@
   "parent": [
     "capitola/accordion"
   ],
-  "supports": {},
+  "supports": {
+    "html": false
+  },
   "attributes": {
     "headline": {
       "type": "string",

@@ -13,6 +13,16 @@
     "images",
     "photo"
   ],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    },
+    "html": false
+  },
   "attributes": {
     "anchor": {
       "type": "string",
@@ -37,15 +47,6 @@
     "allowSticky": {
       "type": "boolean",
       "default": false
-    }
-  },
-  "supports": {
-    "anchor": true,
-    "spacing": {
-      "margin": [
-        "top",
-        "bottom"
-      ]
     }
   },
   "example": {

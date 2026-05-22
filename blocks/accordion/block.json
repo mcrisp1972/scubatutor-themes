@@ -14,7 +14,8 @@
   ],
   "supports": {
     "anchor": true,
-    "interactivity": true
+    "interactivity": true,
+    "html": false
   },
   "attributes": {
     "anchor": {

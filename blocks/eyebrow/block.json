@@ -37,6 +37,7 @@
     ],
     "anchor": true,
     "className": true,
+    "html": false,
     "__unstablePasteTextInline": true,
     "__experimentalSlashInserter": true
   },
