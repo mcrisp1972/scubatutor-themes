@@ -6,12 +6,16 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/footer',
 		'title' => 'Site Footer',
-		'description' => 'All fields test block',
+		'description' => 'Displays the site footer, including the business name, social media links, and a configurable cookie consent banner.',
 		'category' => 'nav-blocks',
 		'keywords' => array(
 			'site',
 			'footer',
-			'navigation'
+			'navigation',
+			'social',
+			'cookie',
+			'banner',
+			'consent'
 		),
 		'supports' => array(
 			'multiple' => false
@@ -56,10 +60,15 @@ return array(
 		'apiVersion' => 3,
 		'name' => 'capitola/page-nav',
 		'title' => 'Page Navigation',
-		'description' => '',
+		'description' => 'Displays previous and next page navigation links with a configurable colour theme.',
 		'category' => 'nav',
 		'keywords' => array(
-			
+			'navigation',
+			'pagination',
+			'prev',
+			'next',
+			'page',
+			'links'
 		),
 		'supports' => array(
 			'spacing' => array(
