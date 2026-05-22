@@ -52,13 +52,27 @@ export default function Edit( props ) {
 		} );
 	}, [] );
 
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-footer__menus',
+		},
+		{
+			defaultBlock: {
+				name: 'capitola/footer-link-column',
+			},
+			allowedBlocks: [ 'capitola/footer-link-column' ],
+			template: [ [ 'capitola/footer-link-column' ] ],
+			orientation: 'horizontal',
+			directInsert: true,
+		}
+	);
+
 	return (
 		<>
-			<div
-				{ ...useBlockProps( {
-					className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-				} ) }
-			>
+			<div { ...blockProps }>
 				<InspectorControls>
 					<PanelBody title="Nav Options" initialOpen={ true }>
 						<ToggleControl
@@ -141,22 +155,7 @@ export default function Edit( props ) {
 					</PanelBody>
 				</InspectorControls>
 				<div className="wp-block-capitola-footer__grid alignwide">
-					<div
-						{ ...useInnerBlocksProps(
-							{
-								className: 'wp-block-capitola-footer__menus',
-							},
-							{
-								defaultBlock: {
-									name: 'capitola/footer-link-column',
-								},
-								allowedBlocks: [ 'capitola/footer-link-column' ],
-								template: [ [ 'capitola/footer-link-column' ] ],
-								orientation: 'horizontal',
-								directInsert: true,
-							}
-						) }
-					/>
+					<div { ...innerBlocksProps } />
 					<div className="wp-block-capitola-footer__contact">
 						<div className="wp-block-capitola-footer__contact-info">
 							{ showBusinessName && themeOptions !== null && (

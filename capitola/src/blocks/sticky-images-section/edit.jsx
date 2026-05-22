@@ -11,15 +11,14 @@ export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected, context } = props;
 	const { sideImage, imageFocalPoint, showCaption, captionOverride } = attributes;
 	const { showFullImage } = context;
-	const { children, ...innerBlocksProps } = useInnerBlocksProps(
-		useBlockProps( {
-			className: 'wp-block-capitola-sticky-images__body-section',
-		} ),
-		{
-			template: [ [ 'capitola/body-text' ] ],
-			templateLock: 'all',
-		}
-	);
+
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-sticky-images__body-section',
+	} );
+	const { children, ...innerBlocksProps } = useInnerBlocksProps( blockProps, {
+		template: [ [ 'capitola/body-text' ] ],
+		templateLock: 'all',
+	} );
 
 	return (
 		<div { ...innerBlocksProps }>

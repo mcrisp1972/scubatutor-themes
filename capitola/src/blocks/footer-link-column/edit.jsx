@@ -11,12 +11,23 @@ export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { link, headline } = attributes;
 
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-footer__menu',
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-footer__menu-items',
+		},
+		{
+			defaultBlock: { name: 'capitola/nav-sublink' },
+			allowedBlocks: [ 'capitola/nav-sublink' ],
+			template: [ [ 'capitola/nav-sublink' ] ],
+			directInsert: true,
+		}
+	);
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'wp-block-capitola-footer__menu',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl
@@ -53,20 +64,7 @@ export default function Edit( props ) {
 					setAttributes( { headline: value } );
 				} }
 			/>
-
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: 'wp-block-capitola-footer__menu-items',
-					},
-					{
-						defaultBlock: { name: 'capitola/nav-sublink' },
-						allowedBlocks: [ 'capitola/nav-sublink' ],
-						template: [ [ 'capitola/nav-sublink' ] ],
-						directInsert: true,
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

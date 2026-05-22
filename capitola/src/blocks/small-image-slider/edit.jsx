@@ -14,20 +14,28 @@ import {
 	RepeaterControls,
 	ImageSelectButton,
 	PlaceholderImage,
+	animationPreviewClass,
 } from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
-	const { colorTheme, aspectRatio, grayscaleInactive, autoplay, slides } = attributes;
+	const { colorTheme, aspectRatio, grayscaleInactive, autoplay, slides, revealAnimation } =
+		attributes;
 	const [ swiperIndex, setSwiperIndex ] = useState( 0 );
 
 	const navigationPrevRef = useRef( null );
 	const navigationNextRef = useRef( null );
 
+	const blockProps = useBlockProps( {
+		className: `alignfull --theme-${ colorTheme }`,
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
-			className:
-				'wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding',
+			className: `wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
 		},
 		{
 			template: [ [ 'capitola/body-text' ] ],
@@ -36,11 +44,7 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Slider Settings" initialOpen={ true }>
 					<RadioControl

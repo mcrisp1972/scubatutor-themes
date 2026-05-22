@@ -22,11 +22,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-full-width-slider__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-full-width-slider__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?> --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="wp-block-capitola-full-width-slider__sliders <?php echo esc_attr( $attributes['stickySlider'] ? ' --sticky' : '' ); ?>">
 			<div class="wp-block-capitola-full-width-slider__main">
-				<div class="swiper <?php echo esc_attr( $radius_class ); ?> js-mainSlider <?php echo esc_attr( $animations['figure-class'] ); ?>" <?php echo wp_kses_data( $animations['figure-data'] ); ?>  <?php echo wp_kses_data( $attributes['autoplay'] ? ' data-autoplay=1' : '' ); ?> data-navigation="<?php echo esc_attr( $navigation ); ?>" data-transition="<?php echo esc_attr( $attributes['transition'] ); ?>">
+				<div class="swiper <?php echo esc_attr( $radius_class ); ?> js-mainSlider <?php echo esc_attr( $animations['figure-class'] ); ?>" style="<?php echo wp_kses_data( $animations['figure-styles'] ); ?>" <?php echo wp_kses_data( $attributes['autoplay'] ? ' data-autoplay=1' : '' ); ?> data-navigation="<?php echo esc_attr( $navigation ); ?>" data-transition="<?php echo esc_attr( $attributes['transition'] ); ?>">
 					<div class="swiper-wrapper">
 						<?php
 						foreach ( $attributes['slides'] as $slide ) :

@@ -74,6 +74,10 @@ export default function Edit( props ) {
 		[ link, populationMethod, autoPopulatePostType ]
 	);
 
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-nav__menu-item',
+	} );
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className:
@@ -87,11 +91,7 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'wp-block-capitola-nav__menu-item',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl

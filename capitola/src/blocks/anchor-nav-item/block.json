@@ -15,7 +15,9 @@
 	"parent": [
 		"capitola/anchor-nav"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"attributes": {
 		"label": {
 			"type": "string",

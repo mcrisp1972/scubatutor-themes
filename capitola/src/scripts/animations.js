@@ -4,32 +4,43 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin( ScrollTrigger );
 
-class revealAnimations {
-	constructor() {
-		gsap.utils.toArray( '.js-revealAnimation' ).forEach( ( section ) => {
-			const startTranslate = section.dataset.startTranslate;
-			const endTranslate = section.dataset.endTranslate;
-			gsap.fromTo(
-				section,
-				{
-					transform: startTranslate,
-					opacity: 0,
-				},
-				{
-					transform: endTranslate,
-					opacity: 1,
-					duration: 1,
-					scrollTrigger: {
-						trigger: section,
-						start: 'top 80%', // Adjust based on when you want the animation to start
-						//end,
-						toggleActions: 'play none none reverse',
-					},
-				}
-			);
-		} );
-	}
-}
+// class revealAnimations {
+// 	constructor() {
+// 		const easingMap = {
+// 			linear: 'none',
+// 			ease: 'power1.out',
+// 			'ease-in': 'power1.in',
+// 			'ease-out': 'power1.out',
+// 			'ease-in-out': 'power1.inOut',
+// 		};
+
+// 		gsap.utils.toArray( '.js-revealAnimation' ).forEach( ( section ) => {
+// 			const startTranslate = section.dataset.gsapStartTranslate || 'translateY(0)';
+// 			const endTranslate = section.dataset.gsapEndTranslate || 'translate(0)';
+// 			const duration = Number.parseFloat( section.dataset.gsapDuration ?? '1' );
+// 			const easing = section.dataset.gsapEasing || 'ease';
+// 			gsap.fromTo(
+// 				section,
+// 				{
+// 					transform: startTranslate,
+// 					opacity: 0,
+// 				},
+// 				{
+// 					transform: endTranslate,
+// 					opacity: 1,
+// 					duration,
+// 					ease: easingMap[ easing ] || easing,
+// 					scrollTrigger: {
+// 						trigger: section,
+// 						start: 'top 80%', // Adjust based on when you want the animation to start
+// 						//end,
+// 						toggleActions: 'play none none reverse',
+// 					},
+// 				}
+// 			);
+// 		} );
+// 	}
+// }
 
 class parallaxAnimations {
 	constructor() {
@@ -63,6 +74,22 @@ class parallaxAnimations {
 	}
 }
 
-new revealAnimations();
+class animationStateClasses {
+	constructor() {
+		gsap.utils.toArray( '.js-revealAnimation' ).forEach( ( section ) => {
+			ScrollTrigger.create( {
+				trigger: section,
+				start: 'top 80%',
+				onEnter: () => {
+					return section.classList.add( '--is-animated' );
+				},
+			} );
+		} );
+	}
+}
+
+//new revealAnimations();
 
 new parallaxAnimations();
+
+new animationStateClasses();

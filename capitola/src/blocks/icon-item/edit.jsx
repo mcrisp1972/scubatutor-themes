@@ -11,9 +11,10 @@ export default function Edit( props ) {
 	const themeObj = useSelect( ( select ) => {
 		return select( 'core' ).getCurrentTheme();
 	}, [] );
+	const blockProps = useBlockProps();
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<IconSelector
@@ -31,7 +32,7 @@ export default function Edit( props ) {
 				<div
 					className="wp-block-capitola-icon-item__icon"
 					style={ {
-						maskImage: `url(/wp-content/themes/${ themeObj?.stylesheet }/assets/svgs/icons/${ icon }.svg)`,
+						'--capitola-icon-image': `url(/wp-content/themes/${ themeObj?.stylesheet }/assets/svgs/icons/${ icon }.svg)`,
 					} }
 				></div>
 			</div>

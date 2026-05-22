@@ -120,13 +120,12 @@ export default function Edit( props ) {
 			taxonomy,
 		]
 	);
+	const blockProps = useBlockProps( {
+		className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Query Options" initialOpen={ true }>
 					<TextControl

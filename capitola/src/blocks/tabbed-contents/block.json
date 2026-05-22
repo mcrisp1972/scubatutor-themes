@@ -24,7 +24,8 @@
 				"top",
 				"bottom"
 			]
-		}
+		},
+		"html": false
 	},
 	"attributes": {
 		"anchor": {
@@ -36,16 +37,11 @@
 			"default": ""
 		},
 		"revealAnimation": {
-			"type": "string",
-			"default": "0"
-		},
-		"revealSection": {
-			"type": "string",
-			"default": "body"
-		},
-		"allowRevealSectionSelect": {
-			"type": "boolean",
-			"default": true
+			"type": "object",
+			"default": {
+				"animation": "",
+				"section": "block"
+			}
 		},
 		"introAlign": {
 			"type": "string",
@@ -132,7 +128,6 @@
 	"providesContext": {
 		"bodyTextOptions": "bodyTextOptions",
 		"revealAnimation": "revealAnimation",
-		"revealSection": "revealSection",
 		"introAlign": "introAlign"
 	},
 	"viewScript": "capitola-animations",

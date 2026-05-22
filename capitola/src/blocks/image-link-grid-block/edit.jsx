@@ -1,17 +1,34 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
-import { TruncateControl, ColorThemePanel, AnimationPanel } from '../../editor-controls';
+import {
+	TruncateControl,
+	ColorThemePanel,
+	AnimationPanel,
+	animationPreviewClass,
+} from '../../editor-controls';
 
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { gridLayout, gridGap, excerptLines, colorTheme } = attributes;
+	const { gridLayout, gridGap, excerptLines, colorTheme, revealAnimation } = attributes;
+
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `alignwide wp-block-capitola-image-link-grid-block__width ${ animationPreviewClass(
+				revealAnimation,
+				'block'
+			) }`,
+		},
+		{
+			template: [ [ 'capitola/body-text' ], [ 'capitola/image-link-grid' ] ],
+			templateLock: 'all',
+		}
+	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Layout" initialOpen={ true }>
 					<SelectControl
@@ -49,18 +66,7 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } initialOpen={ true } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: 'alignwide wp-block-capitola-image-link-grid-block__width',
-					},
-					{
-						template: [ [ 'capitola/body-text' ], [ 'capitola/image-link-grid' ] ],
-						templateLock: 'all',
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

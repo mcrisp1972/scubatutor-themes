@@ -12,7 +12,9 @@
 		"number",
 		"caption"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"parent": [
 		"capitola/stats-grid"
 	],

@@ -12,7 +12,9 @@
 		"gap",
 		"layout"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"styles": [
 		{
 			"name": "xxlarge",

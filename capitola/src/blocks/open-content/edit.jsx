@@ -11,12 +11,28 @@ export default function Edit( props ) {
 	const { attributes } = props;
 	const { contentJustify, textAlign, colorTheme } = attributes;
 
+	const blockProps = useBlockProps( {
+		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-open-content__content --justify-${ contentJustify } --align-${ textAlign }`,
+		},
+		{
+			allowedBlocks: [
+				'core/paragraph',
+				'core/image',
+				'core/heading',
+				'core/list',
+				'core/gallery',
+				'core/video',
+				'core/embed',
+			],
+		}
+	);
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<ColorThemePanel props={ props } initialOpen={ true } />
 			</InspectorControls>
@@ -37,24 +53,7 @@ export default function Edit( props ) {
 				</ToolbarGroup>
 			</BlockControls>
 			<div className="wp-block-capitola-open-content__width alignwide is-layout-constrained">
-				<div
-					{ ...useInnerBlocksProps(
-						{
-							className: `wp-block-capitola-open-content__content --justify-${ contentJustify } --align-${ textAlign }`,
-						},
-						{
-							allowedBlocks: [
-								'core/paragraph',
-								'core/image',
-								'core/heading',
-								'core/list',
-								'core/gallery',
-								'core/video',
-								'core/embed',
-							],
-						}
-					) }
-				/>
+				<div { ...innerBlocksProps } />
 			</div>
 		</div>
 	);

@@ -11,11 +11,12 @@ $animations = animation_attributes( $block->context );
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => $animations['figure-class'],
+		'style' => $animations['figure-styles'],
 	)
 );
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?> <?php echo wp_kses_data( $animations['figure-data'] ); ?>>
+<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-tabbed-contents-tabs__width ">
 		<div class="wp-block-capitola-tabbed-contents-tabs__body">
 			<div class="wp-block-capitola-tabbed-contents-tabs__tabs">

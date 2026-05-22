@@ -17,7 +17,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-icons__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo $attributes['iconBackground'] ? ' --has-icon-background' : ''; ?> --item-align-<?php echo esc_attr( $attributes['textAlignment'] ); ?> <?php echo esc_attr( $animations['block-class'] ); ?>" <?php echo wp_kses_data( $animations['block-data'] ); ?>>
+	<div class="wp-block-capitola-icons__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo $attributes['iconBackground'] ? ' --has-icon-background' : ''; ?> --item-align-<?php echo esc_attr( $attributes['textAlignment'] ); ?> <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 		<?php echo wp_kses_post( $content ); ?>
 	</div>
 </section>

@@ -15,7 +15,9 @@
 	"parent": [
 		"capitola/nav"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"attributes": {
 		"title": {
 			"type": "string",

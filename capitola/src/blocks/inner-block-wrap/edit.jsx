@@ -5,7 +5,9 @@ export default function Edit( props ) {
 
 	const { allowedBlocks, templateLock } = attributes;
 
-	const innerBlocksProps = useInnerBlocksProps( useBlockProps(), {
+	const blockProps = useBlockProps();
+
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		allowedBlocks,
 		templateLock,
 	} );

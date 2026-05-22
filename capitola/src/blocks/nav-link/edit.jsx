@@ -7,13 +7,12 @@ export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { link, title } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-nav__menu-item',
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'wp-block-capitola-nav__menu-item',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Layout" initialOpen={ true }>
 					<TextControl

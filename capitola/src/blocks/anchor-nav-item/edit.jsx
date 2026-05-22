@@ -5,12 +5,12 @@ export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { label, anchor } = attributes;
 
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-anchor-nav__item',
+	} );
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'wp-block-capitola-anchor-nav__item',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Link Settings" initialOpen={ true }>
 					<TextControl

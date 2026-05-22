@@ -6,7 +6,8 @@
 	"textdomain": "capitola",
 	"description": "Used only for block previews",
 	"supports": {
-		"inserter": false
+		"inserter": false,
+		"html": false
 	},
 	"editorScript": "file:./index.js"
 }

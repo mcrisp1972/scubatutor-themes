@@ -13,10 +13,15 @@
 		"list"
 	],
 	"supports": {
-		"inserter": false
+		"inserter": false,
+		"html": false
 	},
 	"parent": [
 		"capitola/detailed-links"
+	],
+	"usesContext": [
+		"introAlign",
+		"revealAnimation"
 	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"

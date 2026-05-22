@@ -15,6 +15,7 @@ import {
 	OverlayOpacitySlider,
 	JustifyToolbar,
 	VerticalAlignToolbar,
+	animationPreviewClass,
 } from '../../editor-controls';
 
 export default function Edit( props ) {
@@ -34,7 +35,7 @@ export default function Edit( props ) {
 		isHeroVariation,
 		imageParallax,
 	} = attributes;
-	const { bodyTextOptions, introAlign } = context;
+	const { bodyTextOptions, introAlign, revealAnimation } = context;
 
 	const postTitle = useSelect(
 		( select ) => {
@@ -51,17 +52,24 @@ export default function Edit( props ) {
 		introAlign === 'top' && textAlign === 'center' ? ' --is-centered-intro' : '';
 	const textAlignClass = textAlign === 'center' ? ' --text-align-center' : '';
 
+	const blockProps = useBlockProps( {
+		className: `${ justifyClass } ${ imageClass } ${ introPositionClass } ${ introAlignClass } ${ textAlignClass }`,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-body-text__intro',
+		},
+		{
+			allowedBlocks: bodyTextOptions?.allowedInnerBlocks
+				? bodyTextOptions?.allowedInnerBlocks
+				: [ 'core/paragraph', 'core/heading', 'core/list', 'core/image' ],
+			templateLock: false,
+		}
+	);
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className:
-					justifyClass +
-					imageClass +
-					introPositionClass +
-					introAlignClass +
-					textAlignClass,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				{ ! bodyTextOptions?.disableBackgroundImage && (
 					<PanelBody title="Image" initialOpen={ true }>
@@ -149,7 +157,12 @@ export default function Edit( props ) {
 					<img src={ backgroundImage.source_url } alt="" />
 				</div>
 			) }
-			<div className="wp-block-capitola-body-text__grid">
+			<div
+				className={ `wp-block-capitola-body-text__grid ${ animationPreviewClass(
+					revealAnimation,
+					'body'
+				) }` }
+			>
 				<RichText
 					className="wp-block-capitola-body-text__eyebrow --eyebrow"
 					value={ eyebrow }
@@ -168,19 +181,7 @@ export default function Edit( props ) {
 						setAttributes( { headline: value } );
 					} }
 				/>
-				<div
-					{ ...useInnerBlocksProps(
-						{
-							className: 'wp-block-capitola-body-text__intro',
-						},
-						{
-							allowedBlocks: bodyTextOptions?.allowedInnerBlocks
-								? bodyTextOptions?.allowedInnerBlocks
-								: [ 'core/paragraph', 'core/heading', 'core/list', 'core/image' ],
-							templateLock: false,
-						}
-					) }
-				/>
+				<div { ...innerBlocksProps } />
 				<div className="wp-block-capitola-body-text__ctas">
 					<CtaControl
 						className={

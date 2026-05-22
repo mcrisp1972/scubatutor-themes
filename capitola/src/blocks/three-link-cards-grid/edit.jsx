@@ -7,8 +7,26 @@ export default function Edit( props ) {
 
 	const staggeredClass = staggered ? ' --staggered' : '';
 
+	const blockProps = useBlockProps( {
+		className: `alignfull ${ staggeredClass }`,
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-three-link-cards-grid__width',
+		},
+		{
+			template: [
+				[ 'capitola/three-link-card' ],
+				[ 'capitola/three-link-card' ],
+				[ 'capitola/three-link-card' ],
+			],
+			templateLock: 'all',
+			directInsert: false,
+		}
+	);
+
 	return (
-		<div { ...useBlockProps( { className: 'alignfull' + staggeredClass } ) }>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Link Details" initialOpen={ true }>
 					<ToggleControl
@@ -29,24 +47,7 @@ export default function Edit( props ) {
 					) }
 				</PanelBody>
 			</InspectorControls>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: 'wp-block-capitola-three-link-cards-grid__width',
-					},
-					{
-						// defaultBlock: { name: 'capitola/three-link-card' },
-						// allowedBlocks: [ 'capitola/three-link-card' ],
-						template: [
-							[ 'capitola/three-link-card' ],
-							[ 'capitola/three-link-card' ],
-							[ 'capitola/three-link-card' ],
-						],
-						templateLock: 'all',
-						directInsert: false,
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

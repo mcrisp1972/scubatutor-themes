@@ -61,14 +61,16 @@ export default function Edit( props ) {
 		},
 		[ linkObj ]
 	);
+	const blockProps = useBlockProps( {
+		className: '--theme-image-overlay',
+		style: {
+			'--capitola-overlayOpacity': imageOpacity,
+			...( ! postId ? { overflow: 'visible' } : {} ),
+		},
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: '--theme-image-overlay',
-				style: { '--capitola-overlayOpacity': imageOpacity },
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Link Details" initialOpen={ true }>
 					<SelectControl

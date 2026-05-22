@@ -52,13 +52,12 @@ export default function Edit( props ) {
 		},
 		[ postType, posts ]
 	);
+	const blockProps = useBlockProps( {
+		className: 'alignfull is-layout-constrained has-global-padding ',
+	} );
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'alignfull is-layout-constrained has-global-padding ',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Query Options" initialOpen={ true }>
 					<SelectControl

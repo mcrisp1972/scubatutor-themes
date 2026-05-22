@@ -114,6 +114,10 @@ export default function Edit( props ) {
 		} );
 	};
 
+	const blockProps = useBlockProps( {
+		className: `alignfull capitola-listings --paginated is-layout-constrained has-global-padding --theme-${ colorTheme }`,
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: 'capitola-listings__width alignwide',
@@ -125,11 +129,7 @@ export default function Edit( props ) {
 	);
 
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull capitola-listings --paginated is-layout-constrained has-global-padding --theme-${ colorTheme }`,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Query Options" initialOpen={ true }>
 					<SelectControl
@@ -374,9 +374,8 @@ export default function Edit( props ) {
 					) }
 				</PanelBody>
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } />
+				<AnimationPanel props={ props } sections={ [] } />
 			</InspectorControls>
-
 			<div { ...innerBlocksProps }>
 				{ children }
 				<div className="capitola-listings__results-header">

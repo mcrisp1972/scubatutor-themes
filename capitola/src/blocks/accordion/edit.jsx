@@ -4,9 +4,23 @@ import { PanelBody, ToggleControl } from '@wordpress/components';
 export default function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { keepOpen } = attributes;
+	const blockProps = useBlockProps();
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'wp-block-capitola-accordion__list',
+			'data-auto-collapse': keepOpen ? '1' : '0',
+		},
+		{
+			defaultBlock: { name: 'capitola/accordion-item' },
+			allowedBlocks: [ 'capitola/accordion-item' ],
+			template: [ [ 'capitola/accordion-item' ] ],
+			templateLock: false,
+			directInsert: true,
+		}
+	);
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Accordion Options" initialOpen={ true }>
 					<ToggleControl
@@ -19,21 +33,7 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div
-				{ ...useInnerBlocksProps(
-					{
-						className: 'wp-block-capitola-accordion__list',
-						'data-auto-collapse': keepOpen ? '1' : '0',
-					},
-					{
-						defaultBlock: { name: 'capitola/accordion-item' },
-						allowedBlocks: [ 'capitola/accordion-item' ],
-						template: [ [ 'capitola/accordion-item' ] ],
-						templateLock: false,
-						directInsert: true,
-					}
-				) }
-			/>
+			<div { ...innerBlocksProps } />
 		</div>
 	);
 }

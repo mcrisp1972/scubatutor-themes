@@ -1,4 +1,4 @@
-export { default as AnimationPanel } from './animation-panel';
+export { default as AnimationPanel, animationPreviewClass } from './animation-panel';
 export { default as ColorThemePanel } from './color-theme-panel';
 export { default as ColorThemePicker } from './color-theme-picker';
 export { default as CtaControl } from './cta-control';

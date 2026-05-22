@@ -12,7 +12,9 @@
 		"cards",
 		"gallery"
 	],
-	"supports": {},
+	"supports": {
+		"html": false
+	},
 	"parent": [
 		"capitola/image-link-grid-block"
 	],

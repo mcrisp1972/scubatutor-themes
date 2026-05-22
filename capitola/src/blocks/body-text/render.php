@@ -38,8 +38,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-
-
 ?>
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
@@ -48,7 +46,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>
-	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>" <?php echo wp_kses_data( $animations['body-data'] ); ?>>
+	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>" style="<?php echo wp_kses_data( $animations['body-styles'] ); ?>">
 		<?php if ( $attributes['eyebrow'] ) : ?>
 			<div class="wp-block-capitola-body-text__eyebrow --eyebrow">
 				<?php echo esc_html( $attributes['eyebrow'] ); ?>

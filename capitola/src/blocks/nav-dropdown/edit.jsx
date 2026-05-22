@@ -67,12 +67,12 @@ export default function Edit( props ) {
 			: [ populationMethod, autoPopulatePostType ];
 	} );
 
+	const blockProps = useBlockProps( {
+		className: 'wp-block-capitola-nav__menu-item',
+	} );
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'wp-block-capitola-nav__menu-item',
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title="Dropdown Settings" initialOpen={ true }>
 					<TextControl

@@ -27,6 +27,18 @@ export default function Edit( props ) {
 		imageOpacity,
 	} = attributes;
 
+	const radiusClass =
+		introRadius !== 'none' && colorThemeBody ? ` --has-${ introRadius }-radius` : '';
+
+	const blockProps = useBlockProps( {
+		className: `alignfull ${
+			colorThemeBody ? `--theme-${ colorTheme }` : ' --theme-image-overlay'
+		} ${ radiusClass }`,
+		style: {
+			height: '750px',
+		},
+	} );
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-fixed-background__img js-background-image ${
@@ -44,20 +56,8 @@ export default function Edit( props ) {
 		}
 	);
 
-	const radiusClass =
-		introRadius !== 'none' && colorThemeBody ? ` --has-${ introRadius }-radius` : '';
-
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: `alignfull ${
-					colorThemeBody ? `--theme-${ colorTheme }` : ' --theme-image-overlay'
-				} ${ radiusClass }`,
-				style: {
-					height: '750px',
-				},
-			} ) }
-		>
+		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Background Images" initialOpen={ true }>
 					<ImageSelect
@@ -118,7 +118,7 @@ export default function Edit( props ) {
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
-				<AnimationPanel props={ props } />
+				<AnimationPanel props={ props } sections={ [] } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>

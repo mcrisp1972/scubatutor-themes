@@ -32,33 +32,32 @@ export default function Edit( props ) {
 			? ' --one-half-first --one-half-second --one-half-third'
 			: '';
 
+	const blockProps = useBlockProps( {
+		className: 'alignfull',
+		style: { '--wp--custom--truncate-lines': excerptLines },
+	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
+				gridGap ? '--grid-gap' : ''
+			}`,
+		},
+		{
+			defaultBlock: {
+				name: 'capitola/image-link-grid-item',
+			},
+			allowedBlocks: [ 'capitola/image-link-grid-item' ],
+			template: [ [ 'capitola/image-link-grid-item' ] ],
+			templateLock: false,
+			directInsert: true,
+			orientation: 'horizontal',
+		}
+	);
+
 	return (
-		<div
-			{ ...useBlockProps( {
-				className: 'alignfull',
-				style: { '--wp--custom--truncate-lines': excerptLines },
-			} ) }
-		>
+		<div { ...blockProps }>
 			<div className="wp-block-capitola-image-link-grid__width">
-				<div
-					{ ...useInnerBlocksProps(
-						{
-							className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
-								gridGap ? '--grid-gap' : ''
-							}`,
-						},
-						{
-							defaultBlock: {
-								name: 'capitola/image-link-grid-item',
-							},
-							allowedBlocks: [ 'capitola/image-link-grid-item' ],
-							template: [ [ 'capitola/image-link-grid-item' ] ],
-							templateLock: false,
-							directInsert: true,
-							orientation: 'horizontal',
-						}
-					) }
-				/>
+				<div { ...innerBlocksProps } />
 			</div>
 		</div>
 	);
