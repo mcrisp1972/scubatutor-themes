@@ -3,9 +3,16 @@
 	"apiVersion": 3,
 	"name": "capitola/page-nav",
 	"title": "Page Navigation",
-	"description": "",
+	"description": "Displays previous and next page navigation links with a configurable colour theme.",
 	"category": "nav",
-	"keywords": [],
+	"keywords": [
+		"navigation",
+		"pagination",
+		"prev",
+		"next",
+		"page",
+		"links"
+	],
 	"supports": {
 		"spacing": {
 			"padding": [
