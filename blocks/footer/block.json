@@ -15,7 +15,9 @@
     "consent"
   ],
   "supports": {
-    "multiple": false
+    "multiple": false,
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "showBusinessName": {

@@ -18,7 +18,9 @@ return array(
 			'consent'
 		),
 		'supports' => array(
-			'multiple' => false
+			'multiple' => false,
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'showBusinessName' => array(
@@ -80,7 +82,9 @@ return array(
 					'top',
 					'bottom'
 				)
-			)
+			),
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'colorTheme' => array(
