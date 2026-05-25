@@ -12,7 +12,6 @@ import { format } from '@wordpress/date';
 function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 	const year = yearPlaceholder ? yearPlaceholder : '1972-01-01';
 	const hour = value ? format( 'H', value ) : '00';

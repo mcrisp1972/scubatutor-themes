@@ -32,7 +32,6 @@ const GoogleMapControl = ( { label, value, onChange, mapsKey, help } ) => {
 		className: 'capitola-map-control',
 		label,
 		help,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	// Load the Google Maps JS SDK if it hasn't been loaded yet.
@@ -285,7 +284,6 @@ const GoogleMapControl = ( { label, value, onChange, mapsKey, help } ) => {
 						} }
 						placeholder="Enter address..."
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 				) }
 			</div>

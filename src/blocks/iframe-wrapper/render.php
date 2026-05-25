@@ -12,7 +12,6 @@ if ( ! preg_match( $iframe_pattern, $attributes['iframeHtml'] ) ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => '--' . $attributes['aspectRatio'] . ' align' . $attributes['align'],
 	)
 );

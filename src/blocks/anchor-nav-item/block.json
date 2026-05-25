@@ -16,7 +16,8 @@
 		"capitola/anchor-nav"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
 		"label": {

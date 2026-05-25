@@ -32,7 +32,6 @@ wp_localize_script( 'capitola-lightbox-gallery-view-script', 'lightboxGalleryIma
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'js-lightboxGallery --aspect-ratio-' . $attributes['aspectRatio'],
 	)
 );

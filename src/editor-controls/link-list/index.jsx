@@ -22,7 +22,6 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 
 	const { baseControlProps, controlProps } = useBaseControlProps( {
 		label: 'Link',
-		__nextHasNoMarginBottom: true,
 	} );
 	const toggleVisible = () => {
 		setIsVisible( ( state ) => {
@@ -133,7 +132,6 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 								onUpdate( newValue );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl
@@ -283,7 +281,6 @@ export default function LinkList( { onChange, linkClass, value, disableAdd = fal
 								setNewTitle( newValue );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl

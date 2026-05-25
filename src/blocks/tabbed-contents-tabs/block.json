@@ -15,7 +15,8 @@
 	"supports": {
 		"inserter": false,
 		"lock": false,
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {},
 	"providesContext": {

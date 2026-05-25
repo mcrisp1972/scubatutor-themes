@@ -13,7 +13,6 @@ $animations = animation_attributes( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'                  => $attributes['anchor'],
 		'class'               => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
 		'data-wp-interactive' => 'capitola-tabbed-contents',
 		'data-wp-context'     => wp_json_encode( array( 'activePanel' => $block->inner_blocks[1]->inner_blocks[0]->attributes['pillLabel'] ) ),

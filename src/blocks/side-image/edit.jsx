@@ -136,7 +136,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { externalImage: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'image' && ! externalImage && (
@@ -161,7 +160,6 @@ export default function Edit( props ) {
 								setAttributes( { imageUrl: value } );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'image' && externalImage && (
@@ -172,7 +170,6 @@ export default function Edit( props ) {
 								setAttributes( { imageAlt: value } );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'iframe' && (
@@ -182,7 +179,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { iframeCode: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'video' && (
@@ -210,7 +206,6 @@ export default function Edit( props ) {
 									setAttributes( { videoID: value } );
 								} }
 								__next40pxDefaultSize
-								__nextHasNoMarginBottom
 							/>
 						) }
 					{ mediaType === 'video' && videoSource === 'remote' && (
@@ -221,7 +216,6 @@ export default function Edit( props ) {
 								setAttributes( { videoUrl: value } );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'video' && videoSource === 'local' && (
@@ -245,7 +239,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showCaption: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ allowImageLayout && (
@@ -280,7 +273,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { imageParallax: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id && (
@@ -300,8 +292,7 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { stickyImage: value } );
 							} }
-							help={ 'Sticky image will not work if scroll animations are set.' }
-							__nextHasNoMarginBottom
+							help="Sticky image will not work if scroll animations are set."
 						/>
 					) }
 				</PanelBody>

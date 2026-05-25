@@ -14,7 +14,6 @@ $results = \Capitola\Blocks\Post_Feed\query_post_listings( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'capitola-listings alignfull is-layout-constrained has-global-padding ' . ( $has_slider ? ' js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
 	)
 );

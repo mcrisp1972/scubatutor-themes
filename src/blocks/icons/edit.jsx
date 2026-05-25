@@ -15,8 +15,7 @@ import {
 
 export default function Edit( props ) {
 	const { attributes } = props;
-	const { iconBackground, textAlignment, colorTheme, introAlign, revealAnimation } =
-		attributes;
+	const { iconBackground, textAlignment, colorTheme, introAlign, revealAnimation } = attributes;
 
 	const blockProps = useBlockProps( {
 		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
@@ -54,7 +53,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							props.setAttributes( { iconBackground: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<ColorThemePanel props={ props } initialOpen={ true } />

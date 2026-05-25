@@ -104,7 +104,6 @@ export default function Edit( props ) {
 							setAttributes( { useLogoColor: value } );
 						} }
 						help="Retain the logo's colors."
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Animations" initialOpen={ true }>
@@ -152,7 +151,6 @@ export default function Edit( props ) {
 												showAccountIcon: value,
 											} );
 										} }
-										__nextHasNoMarginBottom
 									/>
 									<ToggleControl
 										label="Show Cart Link"
@@ -163,7 +161,6 @@ export default function Edit( props ) {
 											} );
 										} }
 										help="Cart link only shows if there are itemns in the cart."
-										__nextHasNoMarginBottom
 									/>
 								</>
 							);
@@ -181,7 +178,6 @@ export default function Edit( props ) {
 								? ''
 								: 'Link will not appear unless you enter a contact phone number in the theme options.'
 						}
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Utility Links" initialOpen={ false }>
@@ -205,7 +201,6 @@ export default function Edit( props ) {
 										repeaterOnChange( attribute, 'title', value, index, props );
 									} }
 									__next40pxDefaultSize
-									__nextHasNoMarginBottom
 								/>,
 								<LinkSelect
 									key="link"

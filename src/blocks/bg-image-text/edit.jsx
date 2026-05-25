@@ -64,7 +64,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { imageParallax: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

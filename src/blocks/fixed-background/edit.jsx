@@ -104,7 +104,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { colorThemeBody: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					{ ! colorThemeBody && (
 						<OverlayOpacitySlider

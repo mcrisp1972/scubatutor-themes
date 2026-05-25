@@ -15,7 +15,8 @@
 	"supports": {
 		"multiple": false,
 		"interactivity": true,
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
 		"logo": {

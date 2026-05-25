@@ -5,7 +5,6 @@ function LinkSelect( { label, value, onChange, onRemove } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 		className: 'capitola-sidebar-link-control',
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (

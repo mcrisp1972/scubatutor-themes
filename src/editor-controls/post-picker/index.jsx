@@ -66,7 +66,6 @@ function PostPicker( { label, value, onChange, postType, orderBy } ) {
 
 	const { baseControlProps, controlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
@@ -79,7 +78,6 @@ function PostPicker( { label, value, onChange, postType, orderBy } ) {
 					onChange={ onChange }
 					onFilterValueChange={ debounce( handleKeydown, 300 ) }
 					__next40pxDefaultSize
-					__nextHasNoMarginBottom
 				/>
 			</div>
 		</BaseControl>

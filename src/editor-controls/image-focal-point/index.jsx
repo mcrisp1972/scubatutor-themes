@@ -41,7 +41,6 @@ export default function ImageFocalPoint( {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 		help,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (

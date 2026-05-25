@@ -13,7 +13,8 @@
 		"caption"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"parent": [
 		"capitola/stats-grid"

@@ -16,7 +16,6 @@ function TagSelect( { label, value, onChange } ) {
 			] }
 			onChange={ onChange }
 			__next40pxDefaultSize
-			__nextHasNoMarginBottom
 		/>
 	);
 }

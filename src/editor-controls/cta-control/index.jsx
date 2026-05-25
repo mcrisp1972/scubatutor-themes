@@ -24,7 +24,6 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 	const [ linkValue, setLinkValue ] = useState( value?.link ? value.link : null );
 	const { baseControlProps, controlProps } = useBaseControlProps( {
 		label: 'Link',
-		__nextHasNoMarginBottom: true,
 	} );
 
 	const [ shouldRebuild, setShouldRebuild ] = useState( value?.url );
@@ -98,7 +97,6 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 								} );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl

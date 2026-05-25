@@ -39,7 +39,8 @@
 		"className": true,
 		"html": false,
 		"__unstablePasteTextInline": true,
-		"__experimentalSlashInserter": true
+		"__experimentalSlashInserter": true,
+		"customCSS": false
 	},
 	"editorScript": "file:./index.js"
 }

@@ -163,7 +163,6 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 	const { baseControlProps } = useBaseControlProps( {
 		label: pluralLabel,
 		className: `capitola-repeater${ isFlat ? ' --flat' : '' }`,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (

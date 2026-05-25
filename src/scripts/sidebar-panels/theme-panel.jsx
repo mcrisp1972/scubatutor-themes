@@ -70,7 +70,6 @@ export default function ThemePanels() {
 							meta: newMeta,
 						} );
 					} }
-					__nextHasNoMarginBottom
 				/>
 				{ ! meta?.useDefColorTheme && (
 					<ColorThemePicker

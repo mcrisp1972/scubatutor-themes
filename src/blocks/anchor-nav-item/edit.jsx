@@ -19,6 +19,7 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { label: value } );
 						} }
+						__next40pxDefaultSize
 					/>
 					<TextControl
 						label="Anchor ID"
@@ -26,6 +27,7 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { anchor: value } );
 						} }
+						__next40pxDefaultSize
 					/>
 				</PanelBody>
 			</InspectorControls>

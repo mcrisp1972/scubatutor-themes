@@ -40,7 +40,6 @@ export default function Edit( props ) {
 								showImage: value,
 							} );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<ToggleControl
 						label="Show Excerpts"
@@ -50,7 +49,6 @@ export default function Edit( props ) {
 								showExcerpt: value,
 							} );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					{ showExcerpt && (
 						<TruncateControl

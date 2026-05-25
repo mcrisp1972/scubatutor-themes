@@ -24,7 +24,6 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 
 	const { baseControlProps, controlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (

@@ -158,7 +158,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ !! postTypes[ postType ].hiddenParams &&
 						Object.keys( postTypes[ postType ].hiddenParams ).map( ( slug ) => {
@@ -181,7 +180,6 @@ export default function Edit( props ) {
 											setHiddens: newValue,
 										} );
 									} }
-									__nextHasNoMarginBottom
 								/>
 							);
 						} ) }
@@ -203,7 +201,6 @@ export default function Edit( props ) {
 								setAttributes( { baseTerm: value } );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					<TextControl
@@ -215,7 +212,6 @@ export default function Edit( props ) {
 							setAttributes( { limit: parseInt( value ) } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<RadioControl
 						label="Order By"
@@ -250,7 +246,6 @@ export default function Edit( props ) {
 											showSearchFields: newValue,
 										} );
 									} }
-									__nextHasNoMarginBottom
 								/>
 							);
 						} ) }
@@ -280,7 +275,6 @@ export default function Edit( props ) {
 												showTaxFilters: newValue,
 											} );
 										} }
-										__nextHasNoMarginBottom
 									/>
 								);
 							} ) }
@@ -290,7 +284,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { showSorts: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Markup" initialOpen={ false }>
@@ -319,7 +312,6 @@ export default function Edit( props ) {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<TextControl
 						label="CTA Text"
@@ -329,7 +321,6 @@ export default function Edit( props ) {
 							setAttributes( { ctaText: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -338,7 +329,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showExcerpt: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ showExcerpt && (
@@ -369,7 +359,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showByline: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>

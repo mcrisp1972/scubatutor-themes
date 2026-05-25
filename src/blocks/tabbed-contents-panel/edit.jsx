@@ -49,7 +49,6 @@ export default function Edit( props ) {
 							setAttributes( { pillLabel: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

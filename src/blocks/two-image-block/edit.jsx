@@ -188,7 +188,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { rearImageShowCaption: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Front Image" initialOpen={ true }>
@@ -274,7 +273,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { frontImageShowCaption: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

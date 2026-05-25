@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => 'alignfull --theme-' . $attributes['colorTheme'],
-		'id'    => $attributes['anchor'],
 	)
 );
 

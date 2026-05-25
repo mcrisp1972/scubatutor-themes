@@ -31,7 +31,6 @@ function VideoSelect( { label, value, onChange } ) {
 
 	const { baseControlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	const emptyObject = {

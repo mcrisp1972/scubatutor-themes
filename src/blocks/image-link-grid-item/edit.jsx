@@ -84,7 +84,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<PostPicker
 						label="Link"
@@ -117,7 +116,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<TextControl
 						label="Title Override"
@@ -128,7 +126,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<TextareaControl
 						label="Excerpt Override"
@@ -138,7 +135,6 @@ export default function Edit( props ) {
 								excerptOverride: value,
 							} );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<TextControl
 						label="CTA Override"
@@ -149,7 +145,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<OverlayOpacitySlider
 						value={ imageOpacity }
