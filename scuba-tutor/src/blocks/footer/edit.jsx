@@ -60,7 +60,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { showBusinessName: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Socials"
@@ -68,7 +67,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { showSocials: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					</PanelBody>
 					<PanelBody title="Cookie Banner" initialOpen={ true }>
@@ -78,7 +76,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showCookieBanner: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						{ showCookieBanner && (
 							<ColorThemePicker

@@ -23,7 +23,9 @@
 				"top",
 				"bottom"
 			]
-		}
+		},
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
 		"colorTheme": {
