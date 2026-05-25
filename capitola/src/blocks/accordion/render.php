@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'                  => $attributes['anchor'],
 		'data-wp-interactive' => 'capitola-accordion',
 		'data-wp-context'     => wp_json_encode(
 			array(

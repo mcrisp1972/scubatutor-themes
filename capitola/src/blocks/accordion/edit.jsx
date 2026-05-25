@@ -29,7 +29,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { keepOpen: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

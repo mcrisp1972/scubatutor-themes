@@ -30,7 +30,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { showCaption: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					{ showCaption && (
 						<TextareaControl
@@ -41,7 +40,6 @@ export default function Edit( props ) {
 									captionOverride: value,
 								} );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ ! showFullImage && !! sideImage?.source_url && (

@@ -53,7 +53,6 @@ function ColorThemePicker( { label, onChange, value, help } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 		help,
-		__nextHasNoMarginBottom: true,
 		className: 'components-circular-option-picker',
 	} );
 

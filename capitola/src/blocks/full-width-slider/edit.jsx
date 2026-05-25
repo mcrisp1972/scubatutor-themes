@@ -106,7 +106,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { autoplay: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<RadioControl
 						label="Navigation"
@@ -126,8 +125,7 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { stickySlider: value } );
 						} }
-						help={ 'Sticky slider will not work if scroll animations are set.' }
-						__nextHasNoMarginBottom
+						help="Sticky slider will not work if scroll animations are set."
 					/>
 				</PanelBody>
 			</InspectorControls>

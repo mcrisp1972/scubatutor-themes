@@ -14,13 +14,10 @@
 	],
 	"supports": {
 		"anchor": true,
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
-		"anchor": {
-			"type": "string",
-			"default": ""
-		},
 		"links": {
 			"type": "array",
 			"default": []

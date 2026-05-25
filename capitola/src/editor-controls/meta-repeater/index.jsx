@@ -169,7 +169,6 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 	const { baseControlProps } = useBaseControlProps( {
 		label: pluralLabel,
 		className: `capitola-repeater${ isFlat ? ' --flat' : '' }`,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	let repeaterFields;

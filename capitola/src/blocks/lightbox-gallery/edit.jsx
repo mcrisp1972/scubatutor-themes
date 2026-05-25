@@ -33,7 +33,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { useFeaturedImage: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<SelectControl
 						label="Aspect Ratio"
@@ -48,7 +47,6 @@ export default function Edit( props ) {
 							setAttributes( { aspectRatio: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ allowSticky && (
 						<ToggleControl
@@ -57,7 +55,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { isSticky: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>

@@ -137,7 +137,6 @@ export default function Edit( props ) {
 							setAttributes( { limit: parseInt( value ) } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="H Tags" initialOpen={ false }>
@@ -181,7 +180,6 @@ export default function Edit( props ) {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout === 'sidescroll' && (
 						<ToggleControl
@@ -190,7 +188,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showSlideCount: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					<TextControl
@@ -201,7 +198,6 @@ export default function Edit( props ) {
 							setAttributes( { ctaText: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -210,7 +206,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showExcerpt: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ showExcerpt && (
@@ -242,7 +237,6 @@ export default function Edit( props ) {
 								setAttributes( { showByline: value } );
 							} }
 							help="Byline is only displayed for blog posts."
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>

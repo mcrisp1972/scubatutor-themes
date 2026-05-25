@@ -42,7 +42,6 @@ export default function Edit( props ) {
 							setAttributes( { gridLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<ToggleControl
 						label="Grid Gap"
@@ -52,7 +51,6 @@ export default function Edit( props ) {
 								gridGap: value,
 							} );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<TruncateControl
 						value={ excerptLines }

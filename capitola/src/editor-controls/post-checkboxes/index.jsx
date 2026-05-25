@@ -28,7 +28,6 @@ function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		className: 'capitola-post-checkboxes',
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
@@ -50,7 +49,6 @@ function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
 								onChange( value );
 							} }
 							style={ { marginBottom: '0' } }
-							__nextHasNoMarginBottom
 						/>
 					);
 				} ) }

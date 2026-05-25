@@ -82,7 +82,6 @@ export default function Edit( props ) {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<TextControl
 						label="CTA Text"
@@ -92,7 +91,6 @@ export default function Edit( props ) {
 							setAttributes( { ctaText: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -101,7 +99,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showExcerpt: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ showExcerpt && (

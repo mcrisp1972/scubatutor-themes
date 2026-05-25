@@ -70,7 +70,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<Repeater
 						props={ props }
@@ -143,7 +142,6 @@ export default function Edit( props ) {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout === 'sidescroll' && (
 						<ToggleControl
@@ -152,7 +150,6 @@ export default function Edit( props ) {
 							onChange={ ( state ) => {
 								setAttributes( { showSlideCount: state } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					<TextControl
@@ -163,7 +160,6 @@ export default function Edit( props ) {
 							setAttributes( { ctaText: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -172,7 +168,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showExcerpt: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ listLayout !== 'row' && (
@@ -196,7 +191,6 @@ export default function Edit( props ) {
 								setAttributes( { showByline: value } );
 							} }
 							help="Byline is only displayed for blog posts."
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>

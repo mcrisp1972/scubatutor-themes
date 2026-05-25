@@ -196,6 +196,7 @@ function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 							revealAnimation: newAttribute,
 						} );
 					} }
+					__next40pxDefaultSize
 				/>
 			</ToolsPanelItem>
 			{ allowSectionSelect && (

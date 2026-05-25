@@ -13,7 +13,6 @@ $radius_class = 'none' !== $attributes['introRadius'] && $attributes['colorTheme
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'alignfull ' . $theme_class . $radius_class,
 	)
 );

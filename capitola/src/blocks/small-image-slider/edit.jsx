@@ -64,7 +64,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { autoplay: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<ToggleControl
 						label="Grayscale Inactive Slides"
@@ -72,7 +71,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { grayscaleInactive: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

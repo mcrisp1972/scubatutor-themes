@@ -13,7 +13,8 @@
 		"layout"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"styles": [
 		{

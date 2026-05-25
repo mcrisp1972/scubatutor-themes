@@ -16,7 +16,8 @@
 		"capitola/nav"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
 		"title": {

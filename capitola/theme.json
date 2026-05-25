@@ -644,6 +644,7 @@
 			"text": "var(--capitola-color-body)"
 		},
 		"spacing": {
+			"blockGap": "0",
 			"padding": {
 				"right": "var(--wp--custom--spacing--gutter)",
 				"left": "var(--wp--custom--spacing--gutter)",

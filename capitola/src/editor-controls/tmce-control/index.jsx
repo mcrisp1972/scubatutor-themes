@@ -6,7 +6,6 @@ function TMCEControl( props ) {
 
 	const { baseControlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
@@ -15,7 +14,6 @@ function TMCEControl( props ) {
 			id={ baseControlProps.id }
 			label={ label }
 			className="capitola-tiny-mce-control"
-			__nextHasNoMarginBottom
 		>
 			<ClassicEdit content={ value } onChange={ onChange } editorId={ baseControlProps.id } />
 		</BaseControl>

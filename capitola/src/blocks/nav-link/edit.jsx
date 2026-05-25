@@ -22,7 +22,6 @@ export default function Edit( props ) {
 							setAttributes( { title: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<LinkSelect
 						label="Link"

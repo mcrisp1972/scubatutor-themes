@@ -46,7 +46,6 @@ export default function Edit( props ) {
 								} );
 							}
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

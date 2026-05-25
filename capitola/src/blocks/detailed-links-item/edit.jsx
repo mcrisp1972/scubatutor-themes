@@ -27,7 +27,6 @@ function BlockPlaceholder( { postType, postId, setAttributes, postTypeOptions } 
 					} );
 				} }
 				__next40pxDefaultSize
-				__nextHasNoMarginBottom
 			/>
 			<PostPicker
 				label="Linked Post"
@@ -78,7 +77,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<PostPicker
 						label="Linked Post"
@@ -113,7 +111,6 @@ export default function Edit( props ) {
 							} );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ context.showExcerpt && (
 						<TextareaControl
@@ -124,7 +121,6 @@ export default function Edit( props ) {
 									linkExcerpt: value,
 								} );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>

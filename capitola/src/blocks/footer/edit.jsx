@@ -81,7 +81,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showBusinessName: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Address"
@@ -89,7 +88,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showAddress: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Map Link"
@@ -97,7 +95,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showMapLink: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Phone Number"
@@ -105,7 +102,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showPhoneNumber: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Email"
@@ -113,7 +109,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showEmail: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Socials"
@@ -121,7 +116,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showSocials: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						<ToggleControl
 							label="Show Hours"
@@ -129,7 +123,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showHours: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					</PanelBody>
 					<PanelBody title="Cookie Banner" initialOpen={ false }>
@@ -139,7 +132,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showCookieBanner: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 						{ showCookieBanner && (
 							<ColorThemePicker

@@ -24,13 +24,10 @@
 				"bottom"
 			]
 		},
-		"html": false
+		"html": false,
+		"customCSS": false
 	},
 	"attributes": {
-		"anchor": {
-			"type": "string",
-			"default": ""
-		},
 		"introAlign": {
 			"type": "string",
 			"default": "left"

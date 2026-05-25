@@ -82,7 +82,6 @@ export default function Edit( props ) {
 							setAttributes( { title: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<LinkSelect
 						label="Link"
@@ -149,6 +148,7 @@ export default function Edit( props ) {
 							} }
 							help="Select which post type to pull items from for automatic population."
 							disabled={ populationMethod !== 'post-type' }
+							__next40pxDefaultSize
 						/>
 					) }
 				</PanelBody>

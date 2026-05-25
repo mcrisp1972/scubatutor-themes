@@ -28,7 +28,6 @@ function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		className: 'capitola-term-checkboxes',
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
@@ -50,7 +49,6 @@ function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 								onChange( value );
 							} }
 							style={ { marginBottom: '0' } }
-							__nextHasNoMarginBottom
 						/>
 					);
 				} ) }

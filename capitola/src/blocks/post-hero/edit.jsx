@@ -110,7 +110,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { showFeaturedImage: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					{ showFeaturedImage && (
 						<RadioControl
@@ -131,7 +130,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { showByline: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 					<ToggleControl
 						label="Show Social Shares"
@@ -139,7 +137,6 @@ export default function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { showSocials: value } );
 						} }
-						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 				<PanelBody title="Markup" initialOpen={ true }>

@@ -101,7 +101,6 @@ export default function Edit( props ) {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout === 'sidescroll' && (
 						<ToggleControl
@@ -110,7 +109,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showSlideCount: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					<TextControl
@@ -121,7 +119,6 @@ export default function Edit( props ) {
 							setAttributes( { ctaText: value } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -130,7 +127,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showExcerpt: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 					{ showExcerpt && (
@@ -161,7 +157,6 @@ export default function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { showByline: value } );
 							} }
-							__nextHasNoMarginBottom
 						/>
 					) }
 				</PanelBody>
@@ -189,7 +184,6 @@ export default function Edit( props ) {
 								setAttributes( { postCategory: value } );
 							} }
 							__next40pxDefaultSize
-							__nextHasNoMarginBottom
 						/>
 					) }
 					<TextControl
@@ -201,7 +195,6 @@ export default function Edit( props ) {
 							setAttributes( { limit: parseInt( value ) } );
 						} }
 						__next40pxDefaultSize
-						__nextHasNoMarginBottom
 					/>
 					<RadioControl
 						label="Ordering"

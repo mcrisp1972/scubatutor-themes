@@ -19,7 +19,6 @@ function DatePicker( { value, onChange, onClear, label } ) {
 	const formattedDate = value ? dateI18n( resolvedFormat, value, currentTimezone ) : buttonLabel;
 	const { baseControlProps, controlProps } = useBaseControlProps( {
 		label,
-		__nextHasNoMarginBottom: true,
 	} );
 
 	return (
