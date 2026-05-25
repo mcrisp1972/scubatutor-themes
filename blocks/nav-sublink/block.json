@@ -18,7 +18,8 @@
     "capitola/footer-link-column"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "title": {

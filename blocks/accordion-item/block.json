@@ -16,7 +16,8 @@
     "capitola/accordion"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "headline": {

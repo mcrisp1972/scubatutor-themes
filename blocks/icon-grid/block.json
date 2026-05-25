@@ -14,7 +14,8 @@
   ],
   "supports": {
     "lock": false,
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "parent": [
     "capitola/icons"

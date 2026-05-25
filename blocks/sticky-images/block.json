@@ -20,13 +20,10 @@
         "bottom"
       ]
     },
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
-    "anchor": {
-      "type": "string",
-      "default": ""
-    },
     "mediaWidth": {
       "type": "integer",
       "default": 50

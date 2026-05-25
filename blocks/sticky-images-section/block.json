@@ -14,16 +14,13 @@
   ],
   "supports": {
     "anchor": true,
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "parent": [
     "capitola/sticky-images"
   ],
   "attributes": {
-    "anchor": {
-      "type": "string",
-      "default": ""
-    },
     "sideImage": {
       "type": "object",
       "default": {

@@ -37,7 +37,6 @@ if ( 'inner' === $attributes['imageLayout'] && $attributes['showCaption'] ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( $animations['block-class'] || $animations['body-class'] || $animations['figure-class'] ? ' --has-animation' : '' ),
 	)
 );

@@ -16,7 +16,8 @@
     "capitola/footer"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "headline": {

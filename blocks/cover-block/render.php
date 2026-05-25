@@ -20,7 +20,6 @@ $cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-cover-block__cta -
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'alignfull --theme-image-overlay ' . ( $attributes['isHeroVariation'] ? '--hero-height' : '' ),
 	)
 );

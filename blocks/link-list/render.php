@@ -6,11 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\String_Helpers\render_link;
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'id' => $attributes['anchor'],
-	)
-);
+$wrapper_attributes = get_block_wrapper_attributes();
 
 ?>
 

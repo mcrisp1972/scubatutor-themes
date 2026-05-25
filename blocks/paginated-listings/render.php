@@ -14,7 +14,6 @@ wp_localize_script( 'capitola-paginated-listings-view-script', 'listingAttribute
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'capitola-listings --paginated alignfull is-layout-constrained has-global-padding js-paginatedListings --theme-' . $attributes['colorTheme'],
 	)
 );

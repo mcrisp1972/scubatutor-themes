@@ -18,13 +18,10 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'interactivity' => true,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'keepOpen' => array(
 				'type' => 'boolean',
 				'default' => false
@@ -82,7 +79,8 @@ return array(
 			'capitola/accordion'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -119,13 +117,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -235,7 +230,8 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'colorTheme' => array(
@@ -296,7 +292,8 @@ return array(
 			'capitola/anchor-nav'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'label' => array(
@@ -333,13 +330,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -463,7 +457,8 @@ return array(
 		'supports' => array(
 			'lock' => false,
 			'inserter' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'backgroundImage' => array(
@@ -586,7 +581,8 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
-			'interactivity' => true
+			'interactivity' => true,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'core/navigation'
@@ -622,7 +618,8 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
-			'reusable' => false
+			'reusable' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			
@@ -653,13 +650,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'backgroundImage' => array(
 				'type' => 'object',
 				'default' => array(
@@ -791,13 +785,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -923,7 +914,8 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'postType' => array(
@@ -973,7 +965,8 @@ return array(
 		),
 		'supports' => array(
 			'inserter' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/detailed-links'
@@ -1039,7 +1032,8 @@ return array(
 			'className' => true,
 			'html' => false,
 			'__unstablePasteTextInline' => true,
-			'__experimentalSlashInserter' => true
+			'__experimentalSlashInserter' => true,
+			'customCSS' => false
 		),
 		'editorScript' => 'file:./index.js'
 	),
@@ -1069,13 +1063,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -1185,13 +1176,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -1315,7 +1303,8 @@ return array(
 		),
 		'supports' => array(
 			'multiple' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'showBusinessName' => array(
@@ -1390,7 +1379,8 @@ return array(
 			'capitola/footer'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -1433,13 +1423,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -1538,13 +1525,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -1682,7 +1666,8 @@ return array(
 		),
 		'supports' => array(
 			'lock' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/icons'
@@ -1712,7 +1697,8 @@ return array(
 			'caption'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/icon-grid'
@@ -1760,13 +1746,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -1897,13 +1880,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'align' => array(
 				'type' => 'string',
 				'default' => ''
@@ -1940,7 +1920,8 @@ return array(
 			'gallery'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/image-link-grid-block'
@@ -1982,13 +1963,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'gridLayout' => array(
 				'type' => 'string',
 				'default' => '3-col'
@@ -2140,16 +2118,13 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/image-link-grid'
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'postType' => array(
 				'type' => 'string',
 				'default' => 'page'
@@ -2206,7 +2181,8 @@ return array(
 		'supports' => array(
 			'inserter' => false,
 			'lock' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'allowedBlocks' => array(
@@ -2244,13 +2220,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'images' => array(
 				'type' => 'array',
 				'default' => array(
@@ -2321,13 +2294,10 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'links' => array(
 				'type' => 'array',
 				'default' => array(
@@ -2392,7 +2362,8 @@ return array(
 		'supports' => array(
 			'multiple' => false,
 			'interactivity' => true,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'logo' => array(
@@ -2464,7 +2435,8 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2516,7 +2488,8 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2551,7 +2524,8 @@ return array(
 			'capitola/nav'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2613,7 +2587,8 @@ return array(
 			'capitola/footer-link-column'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'title' => array(
@@ -2652,13 +2627,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -2728,13 +2700,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -2962,13 +2931,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -3134,7 +3100,8 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'headline' => array(
@@ -3209,13 +3176,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -3351,7 +3315,8 @@ return array(
 		),
 		'supports' => array(
 			'multiple' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'colorTheme' => array(
@@ -3450,13 +3415,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -3693,7 +3655,8 @@ return array(
 			'layout'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'styles' => array(
 			array(
@@ -3747,13 +3710,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -3894,7 +3854,8 @@ return array(
 			'social media'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'exampleData' => array(
@@ -3943,13 +3904,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -4060,7 +4018,8 @@ return array(
 		),
 		'supports' => array(
 			'lock' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/stats'
@@ -4090,7 +4049,8 @@ return array(
 			'caption'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/stats-grid'
@@ -4130,13 +4090,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'mediaWidth' => array(
 				'type' => 'integer',
 				'default' => 50
@@ -4248,16 +4205,13 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/sticky-images'
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'sideImage' => array(
 				'type' => 'object',
 				'default' => array(
@@ -4327,13 +4281,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => ''
@@ -4455,7 +4406,8 @@ return array(
 			'tabbed content'
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			'pillLabel' => array(
@@ -4489,7 +4441,8 @@ return array(
 		'supports' => array(
 			'inserter' => false,
 			'lock' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
 			
@@ -4530,13 +4483,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -4684,13 +4634,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -4877,7 +4824,8 @@ return array(
 		'supports' => array(
 			'lock' => false,
 			'inserter' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/three-link-cards-grid'
@@ -4936,13 +4884,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -5050,7 +4995,8 @@ return array(
 		'supports' => array(
 			'lock' => false,
 			'inserter' => false,
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'parent' => array(
 			'capitola/three-link-cards'
@@ -5095,13 +5041,10 @@ return array(
 					'bottom'
 				)
 			),
-			'html' => false
+			'html' => false,
+			'customCSS' => false
 		),
 		'attributes' => array(
-			'anchor' => array(
-				'type' => 'string',
-				'default' => ''
-			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'

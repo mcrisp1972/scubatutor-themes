@@ -10,7 +10,6 @@ if ( ! $caption ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => 'wp-block-capitola-sticky-images__body-section js-stickyImagesSection',
 	)
 );

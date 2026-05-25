@@ -14,16 +14,13 @@
   ],
   "supports": {
     "anchor": true,
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "parent": [
     "capitola/image-link-grid"
   ],
   "attributes": {
-    "anchor": {
-      "type": "string",
-      "default": ""
-    },
     "postType": {
       "type": "string",
       "default": "page"

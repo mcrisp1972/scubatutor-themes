@@ -15,7 +15,8 @@
   ],
   "supports": {
     "html": false,
-    "reusable": false
+    "reusable": false,
+    "customCSS": false
   },
   "attributes": {},
   "textdomain": "capitola",

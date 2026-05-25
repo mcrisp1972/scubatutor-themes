@@ -21,7 +21,6 @@ if ( ! $image_id ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'id'    => $attributes['anchor'],
 		'class' => '--theme-image-overlay',
 	)
 );

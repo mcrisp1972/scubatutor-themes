@@ -13,7 +13,8 @@
     "tabbed content"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "pillLabel": {

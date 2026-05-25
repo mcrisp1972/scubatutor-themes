@@ -19,7 +19,8 @@
         "bottom"
       ]
     },
-    "html": false
+    "html": false,
+    "customCSS": false
   },
   "attributes": {
     "colorTheme": {
