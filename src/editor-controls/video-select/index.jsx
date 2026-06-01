@@ -16,7 +16,7 @@ function formatBytes( bytes, decimals = 2 ) {
 	return parseFloat( ( bytes / Math.pow( k, i ) ).toFixed( dm ) ) + ' ' + sizes[ i ];
 }
 
-function VideoSelect( { label, value, onChange } ) {
+export function VideoSelect( { label, value, onChange } ) {
 	const videoId = typeof value === 'object' ? value.id : value;
 
 	const videoObj = useSelect(
@@ -117,5 +117,3 @@ function VideoSelect( { label, value, onChange } ) {
 		</BaseControl>
 	);
 }
-
-export default VideoSelect;

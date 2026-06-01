@@ -1,7 +1,7 @@
 import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { label, anchor } = attributes;
 

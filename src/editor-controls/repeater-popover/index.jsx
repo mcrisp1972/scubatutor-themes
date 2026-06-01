@@ -12,7 +12,7 @@ import {
 	image,
 } from '@wordpress/icons';
 
-function RepeaterPopover( {
+export function RepeaterPopover( {
 	props,
 	attribute,
 	index,
@@ -221,5 +221,3 @@ function RepeaterPopover( {
 		</>
 	);
 }
-
-export default RepeaterPopover;

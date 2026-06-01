@@ -11,7 +11,7 @@ import { autop } from '@wordpress/autop';
 import { useEffect, useState } from '@wordpress/element';
 import { ColorThemePicker } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

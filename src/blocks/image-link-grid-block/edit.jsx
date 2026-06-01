@@ -5,10 +5,11 @@ import {
 	ColorThemePanel,
 	AnimationPanel,
 	animationPreviewClass,
+	AddGrandChildButton,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+export function Edit( props ) {
+	const { attributes, setAttributes, clientId } = props;
 	const { gridLayout, gridGap, excerptLines, colorTheme, revealAnimation } = attributes;
 
 	const blockProps = useBlockProps( {
@@ -64,6 +65,11 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } initialOpen={ true } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
+			<AddGrandChildButton
+				clientId={ clientId }
+				targetBlockName="capitola/image-link-grid"
+				label="Add Link Grid Item"
+			/>
 			<div { ...innerBlocksProps } />
 		</div>
 	);

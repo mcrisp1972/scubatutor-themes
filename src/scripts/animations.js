@@ -42,7 +42,7 @@ gsap.registerPlugin( ScrollTrigger );
 // 	}
 // }
 
-class parallaxAnimations {
+class parallaxAnimation {
 	constructor() {
 		gsap.utils.toArray( '.js-imgParallax img' ).forEach( ( section ) => {
 			gsap.fromTo(
@@ -60,17 +60,32 @@ class parallaxAnimations {
 				}
 			);
 		} );
+	}
+}
 
-		// gsap.to('img', {
-		//   scale: 1.5,
-		//   duration: 1,
-		//   scrollTrigger: {
-		//     trigger: 'img',
-		//     markers: true,
-		//     scrub: true,
-		//     start: 'bottom bottom'
-		//   }
-		// })
+class zoomAnimation {
+	constructor() {
+		gsap.utils.toArray( '.js-imgZoom img' ).forEach( ( image ) => {
+			const wrapper = image.parentElement;
+			const zoomEnd = '1.3';
+
+			gsap.fromTo(
+				image,
+				{
+					scale: 1,
+				},
+				{
+					scale: zoomEnd,
+					ease: 'none',
+					scrollTrigger: {
+						trigger: wrapper,
+						start: 'top bottom',
+						end: 'bottom top',
+						scrub: true,
+					},
+				}
+			);
+		} );
 	}
 }
 
@@ -90,6 +105,8 @@ class animationStateClasses {
 
 //new revealAnimations();
 
-new parallaxAnimations();
+new parallaxAnimation();
+
+new zoomAnimation();
 
 new animationStateClasses();

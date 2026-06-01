@@ -228,7 +228,7 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 	);
 }
 
-export default function LinkList( { onChange, linkClass, value, disableAdd = false } ) {
+export function LinkList( { onChange, linkClass, value, disableAdd = false } ) {
 	const [ isVisible, setIsVisible ] = useState( false );
 	const [ newTitle, setNewTitle ] = useState( '' );
 	const [ newLink, setNewLink ] = useState( {} );

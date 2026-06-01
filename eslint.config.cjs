@@ -1,0 +1,57 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const globals = require( 'globals' );
+const pluginWordPress = require( '@wordpress/eslint-plugin' );
+
+module.exports = [
+	{
+		ignores: [ '**/vendor/*.js', 'build/**', 'node_modules/**' ],
+	},
+	...pluginWordPress.configs.recommended,
+	{
+		files: [ '**/*.{js,jsx,mjs,cjs}' ],
+		settings: {
+			'import/core-modules': [
+				'@wordpress/api-fetch',
+				'@wordpress/autop',
+				'@wordpress/block-editor',
+				'@wordpress/blocks',
+				'@wordpress/components',
+				'@wordpress/compose',
+				'@wordpress/core-data',
+				'@wordpress/data',
+				'@wordpress/date',
+				'@wordpress/editor',
+				'@wordpress/element',
+				'@wordpress/hooks',
+				'@wordpress/html-entities',
+				'@wordpress/i18n',
+				'@wordpress/icons',
+				'@wordpress/interactivity',
+				'@wordpress/keycodes',
+				'@wordpress/plugins',
+				'@wordpress/server-side-render',
+				'@wordpress/url',
+			],
+		},
+		languageOptions: {
+			ecmaVersion: 'latest',
+			sourceType: 'module',
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true,
+				},
+			},
+			globals: {
+				...globals.browser,
+				...globals.jest,
+				lodash: 'readonly',
+				listingArgs: 'readonly',
+				wpApiSettings: 'readonly',
+			},
+		},
+		rules: {
+			'space-in-parens': [ 'error', 'always' ],
+			'arrow-body-style': [ 'error', 'always' ],
+		},
+	},
+];

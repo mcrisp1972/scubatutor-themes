@@ -12,7 +12,7 @@ export function repeaterOnChange( attribute, key, value, index, props ) {
 	props.setAttributes( { [ attribute ]: rows } );
 }
 
-function Repeater( { props, label, pluralLabel, fields, attribute, newObject, help } ) {
+export function Repeater( { props, label, pluralLabel, fields, attribute, newObject, help } ) {
 	const addRow = () => {
 		let rows = [];
 		if ( typeof newObject === 'object' ) {
@@ -178,5 +178,3 @@ function Repeater( { props, label, pluralLabel, fields, attribute, newObject, he
 		</BaseControl>
 	);
 }
-
-export default Repeater;

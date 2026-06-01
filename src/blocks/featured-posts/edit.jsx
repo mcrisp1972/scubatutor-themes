@@ -19,7 +19,7 @@ import {
 import postTile from '../post-feed/post-tile';
 import PostFeedTemplate from '../post-feed/post-feed-template';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

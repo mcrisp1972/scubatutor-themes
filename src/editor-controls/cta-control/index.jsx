@@ -17,7 +17,7 @@ function getDisplayTitle( value ) {
 	return false;
 }
 
-function CtaControl( { className, onChange, value, placeholder } ) {
+export function CtaControl( { className, onChange, value, placeholder } ) {
 	const [ popoverAnchor, setPopoverAnchor ] = useState();
 	const [ isVisible, setIsVisible ] = useState( false );
 	const [ titleValue, setTitleValue ] = useState( value?.title );
@@ -153,5 +153,3 @@ function CtaControl( { className, onChange, value, placeholder } ) {
 		</>
 	);
 }
-
-export default CtaControl;

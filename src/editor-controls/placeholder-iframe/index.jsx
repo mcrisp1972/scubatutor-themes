@@ -1,4 +1,4 @@
-function PlaceholderIframe( { style = {}, className = '' } ) {
+export function PlaceholderIframe( { style = {}, className = '' } ) {
 	const styleObj = {
 		...{ objectFit: 'contain', opacity: '0.5', backgroundColor: '#CCCCCC' },
 		...style,
@@ -12,5 +12,3 @@ function PlaceholderIframe( { style = {}, className = '' } ) {
 		/>
 	);
 }
-
-export default PlaceholderIframe;

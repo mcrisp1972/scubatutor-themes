@@ -1,8 +1,9 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
+import { AddChildButton } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+export function Edit( props ) {
+	const { attributes, setAttributes, clientId } = props;
 	const { keepOpen } = attributes;
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
@@ -32,6 +33,7 @@ export default function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+			<AddChildButton clientId={ clientId } label="Add Accordion Item" />
 			<div { ...innerBlocksProps } />
 		</div>
 	);

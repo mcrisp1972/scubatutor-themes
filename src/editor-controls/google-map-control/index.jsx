@@ -8,7 +8,7 @@ import {
 } from '@wordpress/components';
 import { Icon, closeSmall, mapMarker } from '@wordpress/icons';
 
-const GoogleMapControl = ( { label, value, onChange, mapsKey, help } ) => {
+export function GoogleMapControl( { label, value, onChange, mapsKey, help } ) {
 	// Parse the initial value — supports both string and { address, lat, lng } object formats.
 	const initialAddress =
 		typeof value === 'object' && value !== null ? value.address || '' : value || '';
@@ -301,6 +301,4 @@ const GoogleMapControl = ( { label, value, onChange, mapsKey, help } ) => {
 			</div>
 		</BaseControl>
 	);
-};
-
-export default GoogleMapControl;
+}

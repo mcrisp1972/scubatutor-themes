@@ -1,6 +1,6 @@
 import { SelectControl } from '@wordpress/components';
 
-function TagSelect( { label, value, onChange } ) {
+export function TagSelect( { label, value, onChange } ) {
 	return (
 		<SelectControl
 			label={ label }
@@ -19,5 +19,3 @@ function TagSelect( { label, value, onChange } ) {
 		/>
 	);
 }
-
-export default TagSelect;

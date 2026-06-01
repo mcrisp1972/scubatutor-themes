@@ -11,10 +11,11 @@ import {
 	IntroAlignToolbar,
 	JustifyToolbar,
 	animationPreviewClass,
+	AddGrandChildButton,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { attributes } = props;
+export function Edit( props ) {
+	const { attributes, clientId } = props;
 	const { iconBackground, textAlignment, colorTheme, introAlign, revealAnimation } = attributes;
 
 	const blockProps = useBlockProps( {
@@ -73,6 +74,11 @@ export default function Edit( props ) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
+			<AddGrandChildButton
+				clientId={ clientId }
+				targetBlockName="capitola/icon-grid"
+				label="Add Icon"
+			/>
 			<div { ...innerBlocksProps } />
 		</div>
 	);

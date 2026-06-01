@@ -1,6 +1,6 @@
 import { RangeControl } from '@wordpress/components';
 
-function TruncateControl( { label = 'Maximum Excerpt Lines', value, onChange } ) {
+export function TruncateControl( { label = 'Maximum Excerpt Lines', value, onChange } ) {
 	return (
 		<RangeControl
 			label={ label }
@@ -27,5 +27,3 @@ function TruncateControl( { label = 'Maximum Excerpt Lines', value, onChange } )
 		/>
 	);
 }
-
-export default TruncateControl;

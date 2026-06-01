@@ -1,7 +1,7 @@
 import { useSelect } from '@wordpress/data';
 import { BaseControl, useBaseControlProps, CheckboxControl, Flex } from '@wordpress/components';
 
-function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
+export function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
 	const { posts } = useSelect( ( select ) => {
 		if ( ! orderBy ) {
 			orderBy = 'title';
@@ -56,5 +56,3 @@ function PostCheckboxes( { label, value, onChange, postType, orderBy } ) {
 		</BaseControl>
 	);
 }
-
-export default PostCheckboxes;

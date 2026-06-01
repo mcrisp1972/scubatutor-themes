@@ -1,9 +1,14 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { PanelBody, ToggleControl } from '@wordpress/components';
-import { ColorThemePanel, AnimationPanel, animationPreviewClass } from '../../editor-controls';
+import {
+	ColorThemePanel,
+	AnimationPanel,
+	animationPreviewClass,
+	AddGrandChildButton,
+} from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, clientId } = props;
 	const { stickyIntro, colorTheme, revealAnimation } = attributes;
 
@@ -53,6 +58,11 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } initialOpen={ true } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
+			<AddGrandChildButton
+				clientId={ clientId }
+				targetBlockName="capitola/accordion"
+				label="Add Accordion Item"
+			/>
 			<div { ...innerBlocksProps } />
 		</div>
 	);

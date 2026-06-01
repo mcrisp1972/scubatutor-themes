@@ -9,7 +9,7 @@ import {
 	ImageSelectButton,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 
 	const { postType, postId, image, title, imageRadius } = attributes;

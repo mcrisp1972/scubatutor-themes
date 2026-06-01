@@ -18,7 +18,7 @@ export function MetaRepeaterOnChange( postMeta, metaKey, value, index, key ) {
 	} );
 }
 
-function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObject, help } ) {
+export function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObject, help } ) {
 	function getRowsForAdd( postMetaObject, postMetaKey, newRowObject ) {
 		if ( typeof newRowObject === 'object' ) {
 			return [ ...postMetaObject[ postMetaKey ] ];
@@ -211,5 +211,3 @@ function MetaRepeater( { postMeta, metaKey, label, pluralLabel, fields, newObjec
 		</BaseControl>
 	);
 }
-
-export default MetaRepeater;

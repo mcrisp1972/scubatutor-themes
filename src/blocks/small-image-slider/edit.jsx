@@ -17,7 +17,7 @@ import {
 	animationPreviewClass,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 	const { colorTheme, aspectRatio, grayscaleInactive, autoplay, slides, revealAnimation } =
 		attributes;

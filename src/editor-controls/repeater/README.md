@@ -87,7 +87,7 @@ import { Repeater, repeaterOnChange } from '../../editor-controls';
 ### Object-based Repeater (Complex Data)
 
 ```jsx
-export default function Edit( props ) {
+export function Edit( props ) {
 	const newTestimonial = {
 		author: '',
 		quote: '',
@@ -146,7 +146,7 @@ export default function Edit( props ) {
 ### Flat Repeater (Simple Values)
 
 ```jsx
-export default function Edit( props ) {
+export function Edit( props ) {
 	return (
 		<>
 			<InspectorControls>
@@ -185,7 +185,7 @@ export default function Edit( props ) {
 ```jsx
 import { ImageSelectButton } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const newSlide = {
 		image: '',
 		title: '',

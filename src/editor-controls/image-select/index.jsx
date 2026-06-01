@@ -9,7 +9,7 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 
-function ImageSelect( { label, value, onChange } ) {
+export function ImageSelect( { label, value, onChange } ) {
 	const imageId = typeof value === 'object' ? value.id : value;
 
 	const imageUrl = useSelect(
@@ -103,5 +103,3 @@ function ImageSelect( { label, value, onChange } ) {
 		</BaseControl>
 	);
 }
-
-export default ImageSelect;

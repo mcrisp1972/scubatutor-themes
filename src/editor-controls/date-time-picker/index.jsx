@@ -13,7 +13,7 @@ import { dateI18n, format } from '@wordpress/date';
 const currentTimezone =
 	typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
 
-function DateTimePicker( { value, onChange, onClear, label } ) {
+export function DateTimePicker( { value, onChange, onClear, label } ) {
 	const buttonLabel = 'Select Date';
 	const resolvedFormat = 'F j Y, g:ia';
 	const hour = value ? format( 'H', value ) : '00';
@@ -225,5 +225,3 @@ function DateTimePicker( { value, onChange, onClear, label } ) {
 		</BaseControl>
 	);
 }
-
-export default DateTimePicker;

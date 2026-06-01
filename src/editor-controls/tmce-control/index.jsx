@@ -1,7 +1,7 @@
 import { BaseControl, useBaseControlProps } from '@wordpress/components';
-import ClassicEdit from './tmce';
+import { ClassicEdit } from './tmce';
 
-function TMCEControl( props ) {
+export function TMCEControl( props ) {
 	const { label, onChange, value } = props;
 
 	const { baseControlProps } = useBaseControlProps( {
@@ -19,5 +19,3 @@ function TMCEControl( props ) {
 		</BaseControl>
 	);
 }
-
-export default TMCEControl;

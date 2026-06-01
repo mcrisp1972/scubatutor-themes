@@ -1,6 +1,6 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { stat, caption } = attributes;
 	const blockProps = useBlockProps();

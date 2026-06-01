@@ -2,7 +2,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 
-export default function Edit() {
+export function Edit() {
 	const [ socials, setSocials ] = useState( null );
 
 	useEffect( () => {

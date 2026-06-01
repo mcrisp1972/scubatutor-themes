@@ -1,10 +1,10 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { crop169 } from '../../editor-icons';
+import { link } from '@wordpress/icons';
 import metadata from './block.json';
-import Edit from './edit';
+import { Edit } from './edit';
 
 registerBlockType( metadata, {
-	icon: crop169,
+	icon: link,
 	edit: Edit,
 	save: () => {
 		return null;

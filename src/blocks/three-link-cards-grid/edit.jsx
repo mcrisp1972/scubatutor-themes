@@ -1,7 +1,7 @@
 import { useBlockProps, useInnerBlocksProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { staggered, parallax } = attributes;
 
@@ -20,7 +20,7 @@ export default function Edit( props ) {
 				[ 'capitola/three-link-card' ],
 				[ 'capitola/three-link-card' ],
 			],
-			templateLock: 'all',
+			templateLock: { move: true, remove: false, insert: false },
 			directInsert: false,
 		}
 	);

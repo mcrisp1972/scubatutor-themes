@@ -1,7 +1,7 @@
 import { registerBlockType, createBlock } from '@wordpress/blocks';
 import metadata from './block.json';
 import { link } from '../../editor-icons';
-import Edit from './edit';
+import { Edit } from './edit';
 
 registerBlockType( metadata, {
 	icon: link,

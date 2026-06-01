@@ -1,13 +1,13 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
-import { viewDay } from '../../editor-icons';
+import { accordion } from '@wordpress/icons';
 import metadata from './block.json';
-import Edit from './edit';
+import { Edit } from './edit';
 import './style.scss';
 import './editor.scss';
 
 registerBlockType( metadata, {
-	icon: viewDay,
+	icon: accordion,
 	edit: Edit,
 	save: () => {
 		return <InnerBlocks.Content />;

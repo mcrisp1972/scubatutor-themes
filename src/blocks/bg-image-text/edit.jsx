@@ -1,10 +1,17 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import {
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
 	BlockControls,
 } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl, ToolbarGroup } from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
+import {
+	ToolbarGroup,
+	RadioControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
 import {
 	ImageSelect,
 	ColorThemePanel,
@@ -15,11 +22,18 @@ import {
 	RadiusToolbar,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { introAlign, backgroundImage, imageFocalPoint, imageParallax, introRadius, colorTheme } =
-		attributes;
+	const {
+		introAlign,
+		backgroundImage,
+		imageFocalPoint,
+		imageScrollAnimation,
+		introRadius,
+		colorTheme,
+	} = attributes;
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
+	const defaultAttributes = getBlockType( props.name )?.attributes;
 	const blockProps = useBlockProps( {
 		className: `alignfull --theme-${ colorTheme }`,
 	} );
@@ -36,36 +50,89 @@ export default function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
-				<PanelBody title="Image" initialOpen={ true }>
-					<ImageSelect
-						label="Image"
-						value={ backgroundImage.id }
-						onChange={ ( value ) => {
-							return setAttributes( {
-								backgroundImage: {
-									id: value.id,
-									source_url: value.url,
-								},
+				<ToolsPanel
+					label="Image Settings"
+					resetAll={ () => {
+						setAttributes( {
+							backgroundImage: defaultAttributes?.backgroundImage.default,
+							imageFocalPoint: defaultAttributes?.imageFocalPoint.default,
+							imageScrollAnimation: defaultAttributes?.imageScrollAnimation.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return !! backgroundImage.id;
+						} }
+						isShownByDefault={ true }
+						label="Background Image"
+						onDeselect={ () => {
+							setAttributes( {
+								backgroundImage: defaultAttributes?.backgroundImage.default,
 							} );
 						} }
-					/>
-					{ !! backgroundImage.id && (
+					>
+						<ImageSelect
+							label="Background Image"
+							value={ backgroundImage.id }
+							onChange={ ( value ) => {
+								setAttributes( {
+									backgroundImage: {
+										id: value.id,
+										source_url: value.url,
+									},
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Focal Point"
+						hasValue={ () => {
+							return imageFocalPoint !== defaultAttributes?.imageFocalPoint.default;
+						} }
+						onDeselect={ () => {
+							setAttributes( {
+								imageFocalPoint: defaultAttributes.imageFocalPoint.default,
+							} );
+						} }
+					>
 						<ImageFocalPoint
+							image={ backgroundImage?.source_url }
 							value={ imageFocalPoint }
-							image={ backgroundImage.id }
 							onChange={ ( value ) => {
 								setAttributes( { imageFocalPoint: value } );
 							} }
 						/>
-					) }
-					<ToggleControl
-						label="Parallax Scrolling"
-						checked={ imageParallax }
-						onChange={ ( value ) => {
-							setAttributes( { imageParallax: value } );
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Scroll Animation"
+						hasValue={ () => {
+							return (
+								imageScrollAnimation !==
+								defaultAttributes?.imageScrollAnimation.default
+							);
 						} }
-					/>
-				</PanelBody>
+						onDeselect={ () => {
+							setAttributes( {
+								imageScrollAnimation:
+									defaultAttributes.imageScrollAnimation.default,
+							} );
+						} }
+					>
+						<RadioControl
+							label="Scroll Animation"
+							selected={ imageScrollAnimation }
+							options={ [
+								{ label: 'None', value: '' },
+								{ label: 'Parallax', value: 'parallax' },
+								{ label: 'Zoom', value: 'zoom' },
+							] }
+							onChange={ ( value ) => {
+								setAttributes( { imageScrollAnimation: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />

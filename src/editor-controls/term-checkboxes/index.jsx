@@ -2,7 +2,7 @@ import { useSelect } from '@wordpress/data';
 import { BaseControl, useBaseControlProps, CheckboxControl, Flex } from '@wordpress/components';
 import { decodeEntities } from '@wordpress/html-entities';
 
-function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
+export function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 	const { terms } = useSelect( ( select ) => {
 		if ( ! orderBy ) {
 			orderBy = 'name';
@@ -56,5 +56,3 @@ function TermCheckboxes( { label, value, onChange, taxonomy, orderBy } ) {
 		</BaseControl>
 	);
 }
-
-export default TermCheckboxes;

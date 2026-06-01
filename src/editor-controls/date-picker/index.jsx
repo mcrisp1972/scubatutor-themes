@@ -10,7 +10,7 @@ import { getSettings, dateI18n } from '@wordpress/date';
 const currentTimezone =
 	typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 0;
 
-function DatePicker( { value, onChange, onClear, label } ) {
+export function DatePicker( { value, onChange, onClear, label } ) {
 	const settings = getSettings();
 
 	const buttonLabel = 'Select Date';
@@ -107,5 +107,3 @@ function DatePicker( { value, onChange, onClear, label } ) {
 		</BaseControl>
 	);
 }
-
-export default DatePicker;

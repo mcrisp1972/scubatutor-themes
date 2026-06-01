@@ -9,13 +9,13 @@ import {
 	Placeholder,
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
-import { link } from '../../editor-icons';
+import { customLink } from '@wordpress/icons';
 import { PostPicker, ImageSelect, PlaceholderImage } from '../../editor-controls';
 import metadata from './block.json';
 
 function BlockPlaceholder( { postType, postId, setAttributes, postTypeOptions } ) {
 	return (
-		<Placeholder label={ metadata.title } icon={ link } isColumnLayout={ true }>
+		<Placeholder label={ metadata.title } icon={ customLink } isColumnLayout={ true }>
 			<SelectControl
 				label="Linked Post Type"
 				value={ postType }
@@ -42,7 +42,7 @@ function BlockPlaceholder( { postType, postId, setAttributes, postTypeOptions } 
 	);
 }
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, context } = props;
 	const { postType, postId, linkImage, linkTitle, linkExcerpt } = attributes;
 	const postTypeOptions = applyFilters( 'capitola.postTypeOptions' );

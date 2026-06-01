@@ -7,7 +7,7 @@ import {
 import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
 import { ImageFocalPoint, ImageSelectButton } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected, context } = props;
 	const { sideImage, imageFocalPoint, showCaption, captionOverride } = attributes;
 	const { showFullImage } = context;

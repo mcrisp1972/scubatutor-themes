@@ -12,7 +12,7 @@ import {
 	animationPreviewClass,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes } = props;
 	const { colorTheme, introAlign, revealAnimation } = attributes;
 

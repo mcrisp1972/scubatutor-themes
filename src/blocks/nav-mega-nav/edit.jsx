@@ -17,7 +17,7 @@ import { store as coreDataStore } from '@wordpress/core-data';
 import { useState } from '@wordpress/element';
 import { ImageSelect, LinkSelect } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const {
 		link,

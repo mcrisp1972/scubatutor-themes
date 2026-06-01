@@ -1,4 +1,4 @@
-function PlaceholderImage( { hasBgColor = true, style = {}, className = '' } ) {
+export function PlaceholderImage( { hasBgColor = true, style = {}, className = '' } ) {
 	const styleObj = {
 		...{
 			objectFit: 'contain',
@@ -16,5 +16,3 @@ function PlaceholderImage( { hasBgColor = true, style = {}, className = '' } ) {
 		/>
 	);
 }
-
-export default PlaceholderImage;

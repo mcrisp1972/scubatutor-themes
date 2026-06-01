@@ -7,7 +7,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { PanelBody, TextControl } from '@wordpress/components';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, clientId, context } = props;
 	const { pillLabel } = attributes;
 

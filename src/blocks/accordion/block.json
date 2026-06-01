@@ -13,6 +13,7 @@
 		"collapse"
 	],
 	"supports": {
+		"lock": false,
 		"anchor": true,
 		"interactivity": true,
 		"html": false,

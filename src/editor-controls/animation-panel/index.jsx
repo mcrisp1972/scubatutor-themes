@@ -68,7 +68,7 @@ export function animationPreviewClass( animationAttribute, animatedSection ) {
 	return '';
 }
 
-function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
+export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 	const { attributes, setAttributes } = props;
 	const { revealAnimation, introAlign } = attributes;
 	const [ isPreviewing, setIsPreviewing ] = useState( false );
@@ -400,5 +400,3 @@ function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 		</ToolsPanel>
 	);
 }
-
-export default AnimationPanel;

@@ -3,7 +3,7 @@ import { PanelBody, SelectControl, ToggleControl, Spinner } from '@wordpress/com
 import { useSelect } from '@wordpress/data';
 import { PlaceholderImage, ImageSelectButton } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 	const { images, aspectRatio, useFeaturedImage, isSticky, allowSticky } = attributes;
 

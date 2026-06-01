@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import {
 	InspectorControls,
 	useBlockProps,
@@ -5,7 +6,15 @@ import {
 	useInnerBlocksProps,
 	BlockControls,
 } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl, Spinner, ToolbarGroup } from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
+import {
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	PanelBody,
+	Spinner,
+	ToolbarGroup,
+	RadioControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import {
 	ImageSelect,
@@ -17,7 +26,7 @@ import {
 	JustifyToolbar,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {
@@ -25,7 +34,7 @@ export default function Edit( props ) {
 		backgroundImage,
 		imageOpacity,
 		imageFocalPoint,
-		imageParallax,
+		imageScrollAnimation,
 		eyebrow,
 		headline,
 		eyebrowTag,
@@ -74,6 +83,8 @@ export default function Edit( props ) {
 		[ isHeroVariation ]
 	);
 
+	const defaultAttributes = getBlockType( props.name )?.attributes;
+
 	const blockProps = useBlockProps( {
 		className: 'alignfull --theme-image-overlay ' + ( isHeroVariation ? '--hero-height' : '' ),
 	} );
@@ -90,20 +101,53 @@ export default function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls>
-				<PanelBody title="Image Settings" initialOpen={ true }>
-					<ImageSelect
-						label="Image"
-						value={ backgroundImage.id }
-						onChange={ ( value ) => {
+				<ToolsPanel
+					label="Image Settings"
+					resetAll={ () => {
+						setAttributes( {
+							backgroundImage: defaultAttributes?.backgroundImage.default,
+							imageFocalPoint: defaultAttributes?.imageFocalPoint.default,
+							imageOpacity: defaultAttributes?.imageOpacity.default,
+							imageScrollAnimation: defaultAttributes?.imageScrollAnimation.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return !! backgroundImage.id;
+						} }
+						label="Background Image"
+						isShownByDefault={ true }
+						onDeselect={ () => {
 							setAttributes( {
-								backgroundImage: {
-									id: value.id,
-									source_url: value.url,
-								},
+								backgroundImage: defaultAttributes?.backgroundImage.default,
 							} );
 						} }
-					/>
-					{ !! imageObject?.source_url && (
+					>
+						<ImageSelect
+							label="Background Image"
+							value={ backgroundImage.id }
+							onChange={ ( value ) => {
+								setAttributes( {
+									backgroundImage: {
+										id: value.id,
+										source_url: value.url,
+									},
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Focal Point"
+						hasValue={ () => {
+							return imageFocalPoint !== defaultAttributes?.imageFocalPoint.default;
+						} }
+						onDeselect={ () => {
+							setAttributes( {
+								imageFocalPoint: defaultAttributes.imageFocalPoint.default,
+							} );
+						} }
+					>
 						<ImageFocalPoint
 							image={ imageObject?.source_url }
 							value={ imageFocalPoint }
@@ -111,21 +155,54 @@ export default function Edit( props ) {
 								setAttributes( { imageFocalPoint: value } );
 							} }
 						/>
-					) }
-					<OverlayOpacitySlider
-						value={ imageOpacity }
-						onChange={ ( value ) => {
-							setAttributes( { imageOpacity: value } );
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Image Overlay Opacity"
+						hasValue={ () => {
+							return imageOpacity !== defaultAttributes?.imageOpacity.default;
 						} }
-					/>
-					<ToggleControl
-						label="Parallax Scrolling"
-						checked={ imageParallax }
-						onChange={ ( value ) => {
-							setAttributes( { imageParallax: value } );
+						onDeselect={ () => {
+							setAttributes( {
+								imageOpacity: defaultAttributes.imageOpacity.default,
+							} );
 						} }
-					/>
-				</PanelBody>
+					>
+						<OverlayOpacitySlider
+							value={ imageOpacity }
+							onChange={ ( value ) => {
+								setAttributes( { imageOpacity: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Scroll Animation"
+						hasValue={ () => {
+							return (
+								imageScrollAnimation !==
+								defaultAttributes?.imageScrollAnimation.default
+							);
+						} }
+						onDeselect={ () => {
+							setAttributes( {
+								imageScrollAnimation:
+									defaultAttributes.imageScrollAnimation.default,
+							} );
+						} }
+					>
+						<RadioControl
+							label="Scroll Animation"
+							selected={ imageScrollAnimation }
+							options={ [
+								{ label: 'None', value: '' },
+								{ label: 'Parallax', value: 'parallax' },
+								{ label: 'Zoom', value: 'zoom' },
+							] }
+							onChange={ ( value ) => {
+								setAttributes( { imageScrollAnimation: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 				<PanelBody title="Markup" initialOpen={ false }>
 					<TagSelect
 						label="Eyebrow Tag"

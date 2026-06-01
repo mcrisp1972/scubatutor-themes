@@ -1,7 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 import { LinkList } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { links, isExample } = attributes;
 	const blockProps = useBlockProps();

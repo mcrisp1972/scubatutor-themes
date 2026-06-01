@@ -11,7 +11,7 @@ import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../
 import termTile from './term-tile';
 import PostFeedTemplate from '../post-feed/post-feed-template';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

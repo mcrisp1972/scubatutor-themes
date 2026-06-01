@@ -6,7 +6,7 @@ import { PanelBody, ToggleControl, RadioControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { TagSelect } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {
