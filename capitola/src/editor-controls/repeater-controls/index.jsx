@@ -10,7 +10,7 @@ import {
 	image,
 } from '@wordpress/icons';
 
-function RepeaterControls( {
+export function RepeaterControls( {
 	props,
 	attribute,
 	index,
@@ -141,5 +141,3 @@ function RepeaterControls( {
 		</div>
 	);
 }
-
-export default RepeaterControls;

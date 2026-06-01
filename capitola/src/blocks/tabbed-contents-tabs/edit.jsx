@@ -4,7 +4,7 @@ import { useEffect } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
 import { animationPreviewClass } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, context, clientId } = props;
 	const { revealAnimation } = context;
 

@@ -1,14 +1,15 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import {
+	AddGrandChildButton,
 	ColorThemePanel,
 	AnimationPanel,
 	TruncateControl,
 	animationPreviewClass,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { attributes, setAttributes } = props;
+export function Edit( props ) {
+	const { attributes, setAttributes, clientId } = props;
 	const { colorTheme, showExcerpt, excerptLines, showImage, revealAnimation } = attributes;
 
 	const blockProps = useBlockProps( {
@@ -64,6 +65,11 @@ export default function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
+			<AddGrandChildButton
+				clientId={ clientId }
+				targetBlockName="capitola/detailed-links-list"
+				label="Add Detailed Link"
+			/>
 			<div { ...innerBlocksProps } />
 		</div>
 	);

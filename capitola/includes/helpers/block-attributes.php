@@ -7,13 +7,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Returns CSS class names for parallax images.
+ * Returns CSS class names for scroll animated images.
  *
- * @param bool $condition Whether to apply parallax classes.
+ * @param string $attribute Scroll animation.
  * @return string
  */
-function parallax_img_class( $condition ) {
-	return $condition ? '--img-parallax js-imgParallax' : '';
+function img_scroll_animation_class( $attribute ) {
+	if ( 'parallax' === $attribute ) {
+		return '--img-parallax js-imgParallax';
+	} elseif ( 'zoom' === $attribute ) {
+		return 'js-imgZoom';
+	}
+	return '';
 }
 
 /**

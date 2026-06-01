@@ -1,4 +1,4 @@
-function PlaceholderVideo( { hasBgColor = true, style = {}, className = '' } ) {
+export function PlaceholderVideo( { hasBgColor = true, style = {}, className = '' } ) {
 	const styleObj = {
 		...{
 			objectFit: 'contain',
@@ -16,5 +16,3 @@ function PlaceholderVideo( { hasBgColor = true, style = {}, className = '' } ) {
 		/>
 	);
 }
-
-export default PlaceholderVideo;

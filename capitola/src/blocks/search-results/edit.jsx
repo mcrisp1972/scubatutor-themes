@@ -11,7 +11,7 @@ import { TagSelect, ColorThemePanel, TruncateControl } from '../../editor-contro
 import postTile from '../post-feed/post-tile';
 import { layoutConditionals } from '../post-feed/layout-conditionals';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

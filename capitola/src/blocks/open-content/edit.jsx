@@ -7,7 +7,7 @@ import {
 import { ToolbarGroup } from '@wordpress/components';
 import { ColorThemePanel, JustifyToolbar, TextAlignToolbar } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes } = props;
 	const { contentJustify, textAlign, colorTheme } = attributes;
 

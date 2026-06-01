@@ -1,6 +1,6 @@
 import { RangeControl } from '@wordpress/components';
 
-function OverlayOpacitySlider( { label = 'Image Overlay Opacity', value, onChange } ) {
+export function OverlayOpacitySlider( { label = 'Image Overlay Opacity', value, onChange } ) {
 	return (
 		<RangeControl
 			label={ label }
@@ -64,5 +64,3 @@ function OverlayOpacitySlider( { label = 'Image Overlay Opacity', value, onChang
 		/>
 	);
 }
-
-export default OverlayOpacitySlider;

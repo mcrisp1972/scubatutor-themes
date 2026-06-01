@@ -20,13 +20,7 @@ function focalPointToString( obj ) {
 	return `${ x } ${ y }`;
 }
 
-export default function ImageFocalPoint( {
-	value,
-	image,
-	onChange,
-	label = 'Image focal point',
-	help,
-} ) {
+export function ImageFocalPoint( { value, image, onChange, label = 'Image focal point', help } ) {
 	const imageUrl = useSelect(
 		( select ) => {
 			if ( typeof image === 'number' ) {

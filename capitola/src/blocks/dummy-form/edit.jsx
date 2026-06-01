@@ -1,6 +1,6 @@
 //import { useBlockProps } from '@wordpress/block-editor';
 
-export default function Edit() {
+export function Edit() {
 	return (
 		<div className="wpforms-container wpforms-block">
 			<div className="wpforms-validate wpforms-form wpforms-ajax-form">

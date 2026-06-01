@@ -1,7 +1,7 @@
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 
-function ImageSelectButton( {
+export function ImageSelectButton( {
 	value,
 	onSelect,
 	allowedTypes = [ 'image' ],
@@ -56,5 +56,3 @@ function ImageSelectButton( {
 		</MediaUploadCheck>
 	);
 }
-
-export default ImageSelectButton;

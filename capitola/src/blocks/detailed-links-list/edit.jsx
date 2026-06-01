@@ -1,8 +1,8 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { animationPreviewClass } from '../../editor-controls';
+import { animationPreviewClass, AddChildButton } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { context } = props;
+export function Edit( props ) {
+	const { context, clientId } = props;
 	const { revealAnimation } = context;
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
@@ -23,6 +23,10 @@ export default function Edit( props ) {
 
 	return (
 		<div { ...blockProps }>
+			<AddChildButton
+				clientId={ clientId }
+				label="Add Detailed Link"
+			/>
 			<div { ...innerBlocksProps } />
 		</div>
 	);

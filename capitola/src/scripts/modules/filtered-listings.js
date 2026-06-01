@@ -312,7 +312,6 @@ export default class filteredListings {
 				}
 			} )
 			.catch( ( error ) => {
-				// eslint-disable-next-line no-console
 				console.error( error );
 				this.elements.navBar.classList.remove( '--is-loading' );
 				this.elements.list.innerHTML =

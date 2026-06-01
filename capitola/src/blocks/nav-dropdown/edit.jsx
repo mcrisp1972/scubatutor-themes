@@ -17,7 +17,7 @@ import { useSelect } from '@wordpress/data';
 import { store as coreDataStore } from '@wordpress/core-data';
 import { LinkSelect } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { link, title, alignment, populationMethod, autoPopulatePostType } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );

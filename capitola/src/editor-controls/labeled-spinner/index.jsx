@@ -1,6 +1,6 @@
 import { BaseControl, Spinner, useBaseControlProps } from '@wordpress/components';
 
-function LabeledSpinner( { label } ) {
+export function LabeledSpinner( { label } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 	} );
@@ -13,5 +13,3 @@ function LabeledSpinner( { label } ) {
 		</BaseControl>
 	);
 }
-
-export default LabeledSpinner;

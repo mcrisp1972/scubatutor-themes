@@ -1,8 +1,9 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
+import { AddChildButton } from '../../editor-controls';
 
-export default function Edit( props ) {
-	const { context } = props;
+export function Edit( props ) {
+	const { context, clientId } = props;
 	const { gridLayout, gridGap, excerptLines } = context;
 
 	const innerBlockCount = useSelect(
@@ -36,6 +37,7 @@ export default function Edit( props ) {
 		className: 'alignfull',
 		style: { '--wp--custom--truncate-lines': excerptLines },
 	} );
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
@@ -56,6 +58,7 @@ export default function Edit( props ) {
 
 	return (
 		<div { ...blockProps }>
+			<AddChildButton clientId={ clientId } label="Add Link Grid Item" />
 			<div className="wp-block-capitola-image-link-grid__width">
 				<div { ...innerBlocksProps } />
 			</div>

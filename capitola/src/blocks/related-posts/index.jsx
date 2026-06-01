@@ -1,11 +1,11 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
-import { gridView } from '../../editor-icons';
+import { category } from '@wordpress/icons';
 import metadata from './block.json';
-import Edit from './edit';
+import { Edit } from './edit';
 
 registerBlockType( metadata, {
-	icon: gridView,
+	icon: category,
 	edit: Edit,
 	save: () => {
 		return <InnerBlocks.Content />;

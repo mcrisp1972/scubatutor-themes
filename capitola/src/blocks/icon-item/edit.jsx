@@ -4,7 +4,7 @@ import { useSelect } from '@wordpress/data';
 import { IconSelector } from '../../editor-controls';
 import icons from '../../../assets/svgs/icons/icons.json';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { icon, title, caption } = attributes;
 

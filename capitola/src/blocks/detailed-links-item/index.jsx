@@ -1,11 +1,11 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import metadata from './block.json';
-import Edit from './edit';
-import { link } from '../../editor-icons';
+import { Edit } from './edit';
+import { customLink } from '@wordpress/icons';
 
 registerBlockType( metadata, {
-	icon: link,
+	icon: customLink,
 	edit: Edit,
 	save: () => {
 		return <InnerBlocks.Content />;

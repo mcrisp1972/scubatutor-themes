@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-expressions
 ( 'use strict' );
 
 import imageSelector from './modules/media-field';

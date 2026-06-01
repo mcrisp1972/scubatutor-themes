@@ -1,7 +1,7 @@
 import { LinkControl } from '@wordpress/block-editor';
 import { BaseControl, useBaseControlProps } from '@wordpress/components';
 
-function LinkSelect( { label, value, onChange, onRemove } ) {
+export function LinkSelect( { label, value, onChange, onRemove } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 		className: 'capitola-sidebar-link-control',
@@ -25,5 +25,3 @@ function LinkSelect( { label, value, onChange, onRemove } ) {
 		</BaseControl>
 	);
 }
-
-export default LinkSelect;

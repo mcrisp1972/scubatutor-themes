@@ -25,6 +25,8 @@ A collection of custom WordPress Gutenberg editor controls for building block ed
 - [TruncateControl](#truncatecontrol)
 - [VideoSelect](#videoselect)
 - [Toolbar Dropdowns](#toolbar-dropdowns)
+- [AddChildButton](#addchildbutton)
+- [AddGrandChildButton](#addgrandchildbutton)
 ### Template Components
 - [CtaControl](#ctacontrol)
 - [ImageSelectButton](#imageselectbutton)
@@ -338,6 +340,26 @@ A toolbar dropdown for border radius selection.
 ![RadiusToolbar Screenshot](./_screenshots/RadiusToolbar-1.png)
 
 [View Documentation →](./toolbar-dropdowns/README.md#radiustoolbar)
+
+---
+
+## `AddChildButton`
+
+A WordPress Gutenberg editor toolbar control for inserting a default child block into the current block.
+
+![AddChildButton Screenshot](./_screenshots/AddChildButton-1.png)
+
+[View Documentation →](./add-child-button/README.md)
+
+---
+
+## `AddGrandChildButton`
+
+A WordPress Gutenberg editor toolbar control for inserting a default block into a nested target child block.
+
+![AddGrandChildButton Screenshot](./_screenshots/AddChildButton-1.png)
+
+[View Documentation →](./add-grand-child-button/README.md)
 
 ---
 

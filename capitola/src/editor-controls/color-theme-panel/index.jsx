@@ -1,7 +1,7 @@
 import { PanelBody } from '@wordpress/components';
 import { ColorThemePicker } from '../';
 
-function ColorThemePanel( { props, initialOpen } ) {
+export function ColorThemePanel( { props, initialOpen } ) {
 	const { attributes, setAttributes } = props;
 
 	const { colorTheme } = attributes;
@@ -21,5 +21,3 @@ function ColorThemePanel( { props, initialOpen } ) {
 		</PanelBody>
 	);
 }
-
-export default ColorThemePanel;

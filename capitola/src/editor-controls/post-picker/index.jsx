@@ -3,7 +3,7 @@ import { BaseControl, useBaseControlProps, ComboboxControl } from '@wordpress/co
 import { useState } from '@wordpress/element';
 import { debounce } from '@wordpress/compose';
 
-function PostPicker( { label, value, onChange, postType, orderBy } ) {
+export function PostPicker( { label, value, onChange, postType, orderBy } ) {
 	const [ fieldValue, setFieldValue ] = useState( false );
 
 	const posts = useSelect(
@@ -83,5 +83,3 @@ function PostPicker( { label, value, onChange, postType, orderBy } ) {
 		</BaseControl>
 	);
 }
-
-export default PostPicker;

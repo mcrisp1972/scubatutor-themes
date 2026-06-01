@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 use function Capitola\Helpers\String_Helpers\render_link;
-use function Capitola\Helpers\Block_Attributes\parallax_img_class;
+use function Capitola\Helpers\Block_Attributes\img_scroll_animation_class;
 
 $animations = animation_attributes( $block->context );
 
@@ -42,7 +42,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
-		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( parallax_img_class( ( $attributes['imageParallax'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
+		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( img_scroll_animation_class( ( $attributes['imageScrollAnimation'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>

@@ -23,9 +23,10 @@ import {
 	RadiusToolbar,
 	VerticalAlignToolbar,
 	IntroAlignToolbar,
+	AddChildButton,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected, clientId, toggleSelection } = props;
 	const isMobile = useViewportMatch( 'medium', '<' );
 	const [ tempWidth, setTempWidth ] = useState( null );
@@ -168,6 +169,7 @@ export default function Edit( props ) {
 					) }
 				</ToolbarGroup>
 			</BlockControls>
+			<AddChildButton clientId={ clientId } label="Add Section" />
 			<div
 				className={ `wp-block-capitola-sticky-images__width ${
 					imageLayout === 'full' ? 'alignfull' : 'alignwide'

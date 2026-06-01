@@ -42,7 +42,7 @@ function ColorThemeOption( { theme, checked, onClick } ) {
 	);
 }
 
-function ColorThemePicker( { label, onChange, value, help } ) {
+export function ColorThemePicker( { label, onChange, value, help } ) {
 	// Apply filter inside component so child theme filters are registered first
 	const colorThemes = applyFilters( 'capitola.colorThemes' );
 
@@ -80,5 +80,3 @@ function ColorThemePicker( { label, onChange, value, help } ) {
 		</BaseControl>
 	);
 }
-
-export default ColorThemePicker;

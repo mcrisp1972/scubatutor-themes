@@ -1,31 +1,33 @@
-export { default as AnimationPanel, animationPreviewClass } from './animation-panel';
-export { default as ColorThemePanel } from './color-theme-panel';
-export { default as ColorThemePicker } from './color-theme-picker';
-export { default as CtaControl } from './cta-control';
-export { default as DatePicker } from './date-picker';
-export { default as DateTimePicker } from './date-time-picker';
-export { default as GoogleMapControl } from './google-map-control';
-export { default as IconSelector } from './icon-selector';
-export { default as ImageFocalPoint } from './image-focal-point';
-export { default as ImageSelect } from './image-select';
-export { default as ImageSelectButton } from './image-select-button';
-export { default as LabeledSpinner } from './labeled-spinner';
-export { default as LinkList } from './link-list';
-export { default as LinkSelect } from './link-select';
-export { default as MetaRepeater, MetaRepeaterOnChange } from './meta-repeater';
-export { default as OverlayOpacitySlider } from './overlay-opacity-slider';
-export { default as PlaceholderIframe } from './placeholder-iframe';
-export { default as PlaceholderImage } from './placeholder-image';
-export { default as PlaceholderVideo } from './placeholder-video';
-export { default as PostCheckboxes } from './post-checkboxes';
-export { default as TermCheckboxes } from './term-checkboxes';
-export { default as PostPicker } from './post-picker';
-export { default as Repeater, repeaterOnChange } from './repeater';
-export { default as RepeaterControls } from './repeater-controls';
-export { default as RepeaterPopover } from './repeater-popover';
-export { default as TagSelect } from './tag-select';
-export { default as TimePicker } from './time-picker';
-export { default as TMCEControl } from './tmce-control';
+export { AddChildButton } from './add-child-button';
+export { AddGrandChildButton } from './add-grand-child-button';
+export { AnimationPanel, animationPreviewClass } from './animation-panel';
+export { ColorThemePanel } from './color-theme-panel';
+export { ColorThemePicker } from './color-theme-picker';
+export { CtaControl } from './cta-control';
+export { DatePicker } from './date-picker';
+export { DateTimePicker } from './date-time-picker';
+export { GoogleMapControl } from './google-map-control';
+export { IconSelector } from './icon-selector';
+export { ImageFocalPoint } from './image-focal-point';
+export { ImageSelect } from './image-select';
+export { ImageSelectButton } from './image-select-button';
+export { LabeledSpinner } from './labeled-spinner';
+export { LinkList } from './link-list';
+export { LinkSelect } from './link-select';
+export { MetaRepeater, MetaRepeaterOnChange } from './meta-repeater';
+export { OverlayOpacitySlider } from './overlay-opacity-slider';
+export { PlaceholderIframe } from './placeholder-iframe';
+export { PlaceholderImage } from './placeholder-image';
+export { PlaceholderVideo } from './placeholder-video';
+export { PostCheckboxes } from './post-checkboxes';
+export { TermCheckboxes } from './term-checkboxes';
+export { PostPicker } from './post-picker';
+export { Repeater, repeaterOnChange } from './repeater';
+export { RepeaterControls } from './repeater-controls';
+export { RepeaterPopover } from './repeater-popover';
+export { TagSelect } from './tag-select';
+export { TimePicker } from './time-picker';
+export { TMCEControl } from './tmce-control';
 export {
 	JustifyToolbar,
 	VerticalAlignToolbar,
@@ -34,5 +36,5 @@ export {
 	RadiusToolbar,
 	TextAlignToolbar,
 } from './toolbar-dropdowns';
-export { default as TruncateControl } from './truncate-control';
-export { default as VideoSelect } from './video-select';
+export { TruncateControl } from './truncate-control';
+export { VideoSelect } from './video-select';

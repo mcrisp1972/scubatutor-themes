@@ -7,7 +7,7 @@ function isValidIframeHtml( html ) {
 	return pattern.test( html );
 }
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { aspectRatio, iframeHtml } = attributes;
 	const blockProps = useBlockProps( { className: '--' + aspectRatio } );

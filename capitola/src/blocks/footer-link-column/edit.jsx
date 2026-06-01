@@ -7,7 +7,7 @@ import {
 import { PanelBody, TextControl } from '@wordpress/components';
 import { LinkSelect } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { link, headline } = attributes;
 

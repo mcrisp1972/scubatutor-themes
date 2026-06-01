@@ -9,7 +9,7 @@ import {
 } from '@wordpress/components';
 import { format } from '@wordpress/date';
 
-function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
+export function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 	const { baseControlProps } = useBaseControlProps( {
 		label,
 	} );
@@ -209,5 +209,3 @@ function TimePicker( { value, onChange, onClear, label, yearPlaceholder } ) {
 		</BaseControl>
 	);
 }
-
-export default TimePicker;

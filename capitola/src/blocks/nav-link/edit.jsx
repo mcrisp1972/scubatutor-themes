@@ -3,7 +3,7 @@ import { PanelBody, TextControl, Popover } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { LinkSelect } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 	const { link, title } = attributes;
 	const [ isLinkControlVisible, setIsLinkControlVisible ] = useState( false );

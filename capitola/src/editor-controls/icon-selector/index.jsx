@@ -1,7 +1,7 @@
 import { CustomSelectControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 
-function IconSelector( { label, value, onChange, icons, iconPath } ) {
+export function IconSelector( { label, value, onChange, icons, iconPath } ) {
 	const themeObj = useSelect( ( select ) => {
 		return select( 'core' ).getCurrentTheme();
 	}, [] );
@@ -44,5 +44,3 @@ function IconSelector( { label, value, onChange, icons, iconPath } ) {
 		/>
 	);
 }
-
-export default IconSelector;

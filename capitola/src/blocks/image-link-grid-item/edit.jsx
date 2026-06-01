@@ -15,7 +15,7 @@ import {
 	OverlayOpacitySlider,
 } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

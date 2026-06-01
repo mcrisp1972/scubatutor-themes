@@ -3,7 +3,7 @@ const { wp } = window;
 import { useEffect, useRef } from '@wordpress/element';
 import { F10, isKeyboardEvent } from '@wordpress/keycodes';
 
-export default function ClassicEdit( props ) {
+export function ClassicEdit( props ) {
 	const { editorId, content, onChange } = props;
 
 	const didMount = useRef( false );

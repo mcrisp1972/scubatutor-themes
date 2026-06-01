@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import {
 	InspectorControls,
 	useBlockProps,
@@ -16,7 +16,10 @@ import {
 	ToolbarGroup,
 	ResizableBox,
 	RangeControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
 import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import {
@@ -35,7 +38,7 @@ import { Iframe } from './iframe';
 import { Video } from './video';
 import { Image } from './image';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, toggleSelection } = props;
 
 	const {
@@ -43,7 +46,7 @@ export default function Edit( props ) {
 		mediaWidth,
 		allowImageLayout,
 		imageLayout,
-		imageParallax,
+		imageScrollAnimation,
 		mediaType,
 		sideImage,
 		imageFocalPoint,
@@ -92,6 +95,11 @@ export default function Edit( props ) {
 		[ featuredImage, sideImage, externalImage, imageUrl ]
 	);
 
+	const showFocalPointControl =
+		mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id;
+
+	const showScrollAnimationControl = imageLayout === 'full' && mediaType === 'image';
+
 	const imageRatioClass = imageLayout === 'inner' ? '--' + ( videoID ? '16-9' : imageRatio ) : '';
 
 	const radiusClass =
@@ -99,6 +107,8 @@ export default function Edit( props ) {
 
 	const stickyClass =
 		stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
+
+	const defaultAttributes = getBlockType( props.name )?.attributes;
 
 	const blockProps = useBlockProps( {
 		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
@@ -266,25 +276,6 @@ export default function Edit( props ) {
 							__next40pxDefaultSize
 						/>
 					) }
-					{ imageLayout === 'full' && mediaType === 'image' && (
-						<ToggleControl
-							label="Parallax Scrolling"
-							checked={ imageParallax }
-							onChange={ ( value ) => {
-								setAttributes( { imageParallax: value } );
-							} }
-						/>
-					) }
-					{ mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id && (
-						<ImageFocalPoint
-							value={ imageFocalPoint }
-							image={ sideImage.id }
-							onChange={ ( value ) => {
-								setAttributes( { imageFocalPoint: value } );
-							} }
-							help="Set the image’s main focus point."
-						/>
-					) }
 					{ imageLayout === 'inner' && verticalAlign === 'top' && (
 						<ToggleControl
 							label="Sticky Image"
@@ -296,6 +287,73 @@ export default function Edit( props ) {
 						/>
 					) }
 				</PanelBody>
+				{ ( showScrollAnimationControl || showFocalPointControl ) && (
+					<ToolsPanel
+						label="Image Settings"
+						resetAll={ () => {
+							setAttributes( {
+								imageFocalPoint: defaultAttributes?.imageFocalPoint.default,
+								imageScrollAnimation:
+									defaultAttributes?.imageScrollAnimation.default,
+							} );
+						} }
+					>
+						{ showFocalPointControl && (
+							<ToolsPanelItem
+								label="Focal Point"
+								hasValue={ () => {
+									return (
+										imageFocalPoint !==
+										defaultAttributes?.imageFocalPoint.default
+									);
+								} }
+								onDeselect={ () => {
+									setAttributes( {
+										imageFocalPoint: defaultAttributes.imageFocalPoint.default,
+									} );
+								} }
+							>
+								<ImageFocalPoint
+									image={ sideImage?.source_url }
+									value={ imageFocalPoint }
+									onChange={ ( value ) => {
+										setAttributes( { imageFocalPoint: value } );
+									} }
+								/>
+							</ToolsPanelItem>
+						) }
+						{ showScrollAnimationControl && (
+							<ToolsPanelItem
+								label="Scroll Animation"
+								hasValue={ () => {
+									return (
+										imageScrollAnimation !==
+										defaultAttributes?.imageScrollAnimation.default
+									);
+								} }
+								onDeselect={ () => {
+									setAttributes( {
+										imageScrollAnimation:
+											defaultAttributes.imageScrollAnimation.default,
+									} );
+								} }
+							>
+								<RadioControl
+									label="Scroll Animation"
+									selected={ imageScrollAnimation }
+									options={ [
+										{ label: 'None', value: '' },
+										{ label: 'Parallax', value: 'parallax' },
+										{ label: 'Zoom', value: 'zoom' },
+									] }
+									onChange={ ( value ) => {
+										setAttributes( { imageScrollAnimation: value } );
+									} }
+								/>
+							</ToolsPanelItem>
+						) }
+					</ToolsPanel>
+				) }
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />

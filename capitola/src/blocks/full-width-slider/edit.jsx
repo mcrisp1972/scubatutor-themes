@@ -31,7 +31,7 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useRef } from '@wordpress/element';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 	const {
 		introAlign,

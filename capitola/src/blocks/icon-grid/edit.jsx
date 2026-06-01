@@ -1,8 +1,8 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { animationPreviewClass } from '../../editor-controls';
+import { animationPreviewClass, AddChildButton } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { context, clientId } = props;
 	const { revealAnimation } = context;
 	const innerBlockCount = useSelect(
@@ -26,5 +26,10 @@ export default function Edit( props ) {
 		orientation: 'horizontal',
 	} );
 
-	return <div { ...innerBlocksProps } />;
+	return (
+		<>
+			<AddChildButton clientId={ clientId } label="Add Icon" />
+			<div { ...innerBlocksProps } />
+		</>
+	);
 }

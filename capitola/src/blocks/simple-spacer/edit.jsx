@@ -1,5 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-export default function Edit() {
+export function Edit() {
 	const blockProps = useBlockProps();
 	return (
 		<div { ...blockProps }>

@@ -1,7 +1,7 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { ColorThemePanel } from '../../editor-controls';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes } = props;
 	const { colorTheme } = attributes;
 
