@@ -10,7 +10,7 @@ import { useEffect, useState } from '@wordpress/element';
 import { ColorThemePicker } from '../../../../capitola/src/editor-controls';
 import colorThemes from '../../../color-themes.json';
 
-export default function Edit( props ) {
+export function Edit( props ) {
 	const { attributes, setAttributes } = props;
 
 	const {

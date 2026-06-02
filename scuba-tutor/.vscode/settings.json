@@ -1,6 +1,21 @@
 {
 	"editor.formatOnSave": true,
 	"eslint.debug": true,
+	"eslint.run": "onType",
+	"eslint.workingDirectories": [
+		{
+			"mode": "auto"
+		}
+	],
+	"eslint.useFlatConfig": true,
+	"eslint.experimental.useFlatConfig": true,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact"
+	],
+	"[css]": {
+		"editor.formatOnSave": false
+	},
 	"[scss]": {
 		"editor.formatOnSave": false
 	},

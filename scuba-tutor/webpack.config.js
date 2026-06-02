@@ -80,11 +80,6 @@ const sass = glob.sync( './src/styles/**/*.scss' ).reduce( function ( obj, el ) 
 	return obj;
 }, {} );
 
-const woo = glob.sync('./src/scripts/woo/**.js').reduce(function (obj, el) {
-	obj[path.parse(el).dir.replace(/^(\.\/src)/, '') + '/' + path.parse(el).name] = el;
-	return obj;
-}, {});
-
 // Helper function to apply our customizations to a config
 const customizeConfig = ( config ) => {
 	// First update SVG rules, then override CSS publicPath
@@ -96,7 +91,6 @@ const customizeConfig = ( config ) => {
 			...( typeof config.entry === 'function' ? config.entry() : config.entry ),
 			...js,
 			...sass,
-			...woo,
 		},
 		module: {
 			...config.module,
