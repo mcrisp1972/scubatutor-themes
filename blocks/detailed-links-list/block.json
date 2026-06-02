@@ -15,7 +15,8 @@
   "supports": {
     "inserter": false,
     "html": false,
-    "customCSS": false
+    "customCSS": false,
+    "lock": false
   },
   "parent": [
     "capitola/detailed-links"

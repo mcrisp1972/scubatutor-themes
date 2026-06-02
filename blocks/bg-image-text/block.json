@@ -39,9 +39,9 @@
       "type": "string",
       "default": "50% 50%"
     },
-    "imageParallax": {
-      "type": "boolean",
-      "default": false
+    "imageScrollAnimation": {
+      "type": "string",
+      "default": ""
     },
     "introRadius": {
       "type": "string",

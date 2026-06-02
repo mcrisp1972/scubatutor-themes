@@ -16,6 +16,7 @@ return array(
 			'collapse'
 		),
 		'supports' => array(
+			'lock' => false,
 			'anchor' => true,
 			'interactivity' => true,
 			'html' => false,
@@ -117,6 +118,7 @@ return array(
 					'bottom'
 				)
 			),
+			'lock' => false,
 			'html' => false,
 			'customCSS' => false
 		),
@@ -349,9 +351,9 @@ return array(
 				'type' => 'string',
 				'default' => '50% 50%'
 			),
-			'imageParallax' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageScrollAnimation' => array(
+				'type' => 'string',
+				'default' => ''
 			),
 			'introRadius' => array(
 				'type' => 'string',
@@ -512,9 +514,9 @@ return array(
 				'type' => 'boolean',
 				'default' => false
 			),
-			'imageParallax' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageScrollAnimation' => array(
+				'type' => 'string',
+				'default' => ''
 			),
 			'allowedBlocks' => array(
 				'type' => 'array',
@@ -564,70 +566,6 @@ return array(
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
 	),
-	'core-nav-meganav' => array(
-		'$schema' => 'https://schemas.wp.org/trunk/block.json',
-		'apiVersion' => 3,
-		'name' => 'capitola/core-nav-meganav',
-		'title' => 'Core Nav Mega Menu',
-		'category' => 'design',
-		'textdomain' => 'capitola',
-		'description' => 'Add a multi-column mega navigation panel with links and optional featured content for core navigation blocks.',
-		'keywords' => array(
-			'mega menu',
-			'header',
-			'navigation',
-			'dropdown',
-			'core'
-		),
-		'supports' => array(
-			'html' => false,
-			'interactivity' => true,
-			'customCSS' => false
-		),
-		'parent' => array(
-			'core/navigation'
-		),
-		'attributes' => array(
-			'title' => array(
-				'type' => 'string',
-				'default' => ''
-			)
-		),
-		'allowedBlocks' => array(
-			'capitola/core-nav-meganav-column'
-		),
-		'render' => 'file:./render.php',
-		'style' => 'file:./style-index.css',
-		'editorScript' => 'file:./index.js',
-		'viewScriptModule' => 'file:./view.js'
-	),
-	'core-nav-meganav-column' => array(
-		'$schema' => 'https://schemas.wp.org/trunk/block.json',
-		'apiVersion' => 3,
-		'name' => 'capitola/core-nav-meganav-column',
-		'title' => 'Core Nav Mega Menu Column',
-		'category' => 'design',
-		'icon' => 'columns',
-		'description' => 'Column container for Core Nav Mega Menu.',
-		'parent' => array(
-			'capitola/core-nav-meganav'
-		),
-		'allowedBlocks' => array(
-			'core/image',
-			'core/navigation-link'
-		),
-		'supports' => array(
-			'html' => false,
-			'reusable' => false,
-			'customCSS' => false
-		),
-		'attributes' => array(
-			
-		),
-		'textdomain' => 'capitola',
-		'render' => 'file:./render.php',
-		'editorScript' => 'file:./index.js'
-	),
 	'cover-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -669,9 +607,9 @@ return array(
 				'type' => 'string',
 				'default' => '50% 50%'
 			),
-			'imageParallax' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageScrollAnimation' => array(
+				'type' => 'string',
+				'default' => ''
 			),
 			'introAlign' => array(
 				'type' => 'string',
@@ -966,7 +904,8 @@ return array(
 		'supports' => array(
 			'inserter' => false,
 			'html' => false,
-			'customCSS' => false
+			'customCSS' => false,
+			'lock' => false
 		),
 		'parent' => array(
 			'capitola/detailed-links'
@@ -1921,13 +1860,14 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
-			'customCSS' => false
+			'customCSS' => false,
+			'lock' => false
 		),
 		'parent' => array(
 			'capitola/image-link-grid-block'
 		),
-		'attributes' => array(
-			
+		'allowedBlocks' => array(
+			'capitola/image-link-grid-item'
 		),
 		'usesContext' => array(
 			'gridLayout',
@@ -1963,6 +1903,7 @@ return array(
 					'bottom'
 				)
 			),
+			'lock' => false,
 			'html' => false,
 			'customCSS' => false
 		),
@@ -3431,9 +3372,9 @@ return array(
 				'type' => 'string',
 				'default' => 'inner'
 			),
-			'imageParallax' => array(
-				'type' => 'boolean',
-				'default' => false
+			'imageScrollAnimation' => array(
+				'type' => 'string',
+				'default' => ''
 			),
 			'allowImageLayout' => array(
 				'type' => 'boolean',

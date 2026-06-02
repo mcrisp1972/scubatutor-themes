@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
-use function Capitola\Helpers\Block_Attributes\parallax_img_class;
+use function Capitola\Helpers\Block_Attributes\img_scroll_animation_class;
 
 $class = ' --has-' . $attributes['introAlign'] . '-intro';
 
@@ -21,7 +21,8 @@ if ( ! $attributes['sideImage']['id'] && $attributes['isHeroVariation'] ) {
 
 $animations = animation_attributes( $attributes, 'full' === $attributes['imageLayout'] );
 
-$parallax_class = parallax_img_class( ( $attributes['imageParallax'] && 'full' === $attributes['imageLayout'] ) );
+$parallax_class = 'full' === $attributes['imageLayout'] ? img_scroll_animation_class( $attributes['imageScrollAnimation'] ) : '';
+
 
 $sticky_class = $attributes['stickyImage'] && 'inner' === $attributes['imageLayout'] && 'top' === $attributes['verticalAlign'] ? ' --sticky' : '';
 

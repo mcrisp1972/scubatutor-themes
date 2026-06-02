@@ -14,12 +14,15 @@
   ],
   "supports": {
     "html": false,
-    "customCSS": false
+    "customCSS": false,
+    "lock": false
   },
   "parent": [
     "capitola/image-link-grid-block"
   ],
-  "attributes": {},
+  "allowedBlocks": [
+    "capitola/image-link-grid-item"
+  ],
   "usesContext": [
     "gridLayout",
     "gridGap",

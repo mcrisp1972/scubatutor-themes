@@ -40,9 +40,9 @@
       "type": "string",
       "default": "inner"
     },
-    "imageParallax": {
-      "type": "boolean",
-      "default": false
+    "imageScrollAnimation": {
+      "type": "string",
+      "default": ""
     },
     "allowImageLayout": {
       "type": "boolean",
