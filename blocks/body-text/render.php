@@ -48,9 +48,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<?php endif; ?>
 	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>" style="<?php echo wp_kses_data( $animations['body-styles'] ); ?>">
 		<?php if ( $attributes['eyebrow'] ) : ?>
-			<div class="wp-block-capitola-body-text__eyebrow --eyebrow">
+			<<?php echo tag_escape( $attributes['eyebrowTag'] ); ?> class="wp-block-capitola-body-text__eyebrow --eyebrow">
 				<?php echo esc_html( $attributes['eyebrow'] ); ?>
-			</div>
+			</<?php echo tag_escape( $attributes['eyebrowTag'] ); ?>>
 		<?php endif; ?>
 		<?php if ( $attributes['headline'] ) : ?>
 			<<?php echo tag_escape( $attributes['headlineTag'] ); ?> class="wp-block-capitola-body-text__headline --hl-l">

@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use function Capitola\Helpers\Block_Attributes\alternate_theme;
+use function Capitola\Helpers\String_Helpers\phone_link_number;
 
 $contact_info = get_option( 'capitola_contact' );
 
@@ -35,7 +36,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<a class="wp-block-capitola-footer__contact-link --map" href="<?php echo esc_url( $contact_info['gmap_link'] ); ?>" target="_blank">Directions</a>
 				<?php endif; ?>
 				<?php if ( $attributes['showPhoneNumber'] ) : ?>
-					<a class="wp-block-capitola-footer__contact-link --phone" href="tel:<?php echo esc_attr( \Capitola\Helpers\String_Helpers\phone_link_number( $contact_info['phone'] ) ); ?>"><?php echo esc_html( $contact_info['phone'] ); ?></a>
+					<a class="wp-block-capitola-footer__contact-link --phone" href="tel:<?php echo esc_attr( phone_link_number( $contact_info['phone'] ) ); ?>"><?php echo esc_html( $contact_info['phone'] ); ?></a>
 				<?php endif; ?>
 				<?php if ( $attributes['showEmail'] ) : ?>
 					<a class="wp-block-capitola-footer__contact-link --email" href="mailto:<?php echo esc_attr( $contact_info['email'] ); ?>"><?php echo esc_html( $contact_info['email'] ); ?></a>
