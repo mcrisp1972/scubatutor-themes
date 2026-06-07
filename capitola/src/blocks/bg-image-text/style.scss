@@ -43,10 +43,7 @@
 			padding: 320px var(--wp--custom--spacing--gutter) var(--wp--custom--spacing--block-padding) var(--wp--custom--spacing--gutter);
 
 			@include mq("medium") {
-				margin: {
-					left: auto;
-					right: 0;
-				}
+				margin-inline: auto 0;
 				padding: var(--wp--custom--spacing--block-padding) var(--wp--custom--wide-size-padding) var(--wp--custom--spacing--block-padding) 0;
 			}
 		}
@@ -55,10 +52,7 @@
 
 			.wp-block-capitola-body-text {
 				@include mq("medium") {
-					margin: {
-						left: 0;
-						right: auto;
-					}
+					margin-inline: 0 auto;
 					padding: {
 						right: 0;
 						left: var(--wp--custom--wide-size-padding);

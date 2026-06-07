@@ -10,10 +10,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin headline-xl {
@@ -24,10 +21,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin headline-l {
@@ -38,10 +32,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin headline-m {
@@ -52,10 +43,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin headline-s {
@@ -66,10 +54,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin headline-xs {
@@ -80,10 +65,7 @@
 	}
 	line-height: var(--wp--custom--line-height--hl);
 	color: var(--capitola-color-headline);
-	margin: {
-		top: 0;
-		bottom: 0;
-	}
+	margin-block: 0;
 }
 
 @mixin regular-text {

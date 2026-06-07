@@ -5,10 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use function Capitola\Helpers\String_Helpers\render_link;
+use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
 $navigation = 'thumbnails' === $attributes['navigation'] || 'arrows' === $attributes['navigation'] ? 'arrows' : 'bullets';
 
-$animations = \Capitola\Helpers\Block_Attributes\animation_attributes( $attributes );
+$animations = animation_attributes( $attributes );
 
 $radius_class = 'none' !== $attributes['sliderRadius'] ? ' --has-' . $attributes['sliderRadius'] . '-radius' : '';
 
@@ -49,8 +50,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 						<?php endforeach; ?>
 					</div>
 					<?php if ( 'arrows' === $navigation ) : ?>
-						<button type="button" class="swiper-button-next" aria-label="Previous Slide"></button>
-						<button type="button" class="swiper-button-prev" aria-label="Next Slide"></button>
+						<button type="button" class="swiper-button-prev" aria-label="Previous Slide"></button>
+						<button type="button" class="swiper-button-next" aria-label="Next Slide"></button>
 					<?php endif; ?>
 					<?php if ( 'bullets' === $navigation ) : ?>
 						<div class="swiper-pagination"></div>

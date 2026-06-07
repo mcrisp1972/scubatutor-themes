@@ -2,10 +2,7 @@
 
 .wp-block-capitola-open-content {
 	background: var(--capitola-color-background);
-	padding: {
-		top: var(--wp--custom--spacing--block-padding);
-		bottom: var(--wp--custom--spacing--block-padding);
-	}
+	padding-block: var(--wp--custom--spacing--block-padding);
 
 	&__content {
 

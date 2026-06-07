@@ -38,7 +38,7 @@
 		@include mq("large") {
 			position: absolute;
 			inset: 80px 0 auto 50%;
-			width: 100vw;
+			width: 100dvw;
 			transform: translateX(-50%);
 			background: var(--capitola-color-background);
 			transition: grid-template-rows var(--capitola-dropdownSpeed);
@@ -71,7 +71,7 @@
 
 		@include mq("large") {
 			display: block;
-			margin: var(--wp--custom--spacing--medium) 0 0;
+			margin-top: var(--wp--custom--spacing--medium);
 			grid: {
 				column: 1;
 				row: 1;
@@ -105,7 +105,7 @@
 			gap: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--large);
 			align-self: start;
 			justify-self: start;
-			margin: var(--wp--custom--spacing--small) 0 var(--wp--custom--spacing--medium);
+			margin-block: var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
 
 			&.--row-limit-1 {
 				grid-template-rows: repeat(1, auto);

@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-capitola-post-hero {
-	padding: var(--wp--custom--spacing--medium) 0;
+	padding-block: var(--wp--custom--spacing--medium);
 	display: flex;
 	flex-flow: column;
 	gap: var(--wp--custom--spacing--large);

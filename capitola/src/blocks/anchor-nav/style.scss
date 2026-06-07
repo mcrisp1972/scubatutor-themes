@@ -13,9 +13,9 @@
 		gap: var(--wp--custom--spacing--small);
 		align-items: center;
 		list-style: none;
-		margin: 0;
+		margin-block: 0;
 		overflow-x: scroll;
-		padding: 0 var(--wp--custom--wide-size-padding);
+		padding-inline: var(--wp--custom--wide-size-padding);
 
 		&::-webkit-scrollbar {
 			height: 8px;
@@ -57,7 +57,7 @@
 		font-weight: var(--wp--custom--font-weight--bold);
 		text-decoration: none;
 		white-space: nowrap !important;
-		margin: 4px 0 0;
+		margin-top: 4px;
 
 		&.--current {
 			color: var(--capitola-color-body);

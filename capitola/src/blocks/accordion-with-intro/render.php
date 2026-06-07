@@ -1,10 +1,10 @@
 <?php
 
-use function Capitola\Helpers\Block_Attributes\animation_attributes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
 $animations = animation_attributes( $attributes );
 

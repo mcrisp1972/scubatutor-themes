@@ -15,10 +15,7 @@
 	position: relative;
 	height: 60px;
 	width: 60px;
-	margin: {
-		left: auto;
-		right: auto;
-	}
+	margin-inline: auto;
 	background-color: var(--capitola-color-body);
 	mask: {
 		image: url(#{$image_path}utility/fa-spinner.svg);

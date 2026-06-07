@@ -9,7 +9,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 
-
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-open-content__width alignwide is-layout-constrained">

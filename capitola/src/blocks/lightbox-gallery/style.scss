@@ -18,7 +18,7 @@
 		display: flex;
 		position: relative;
 		border-radius: $radius-small;
-		margin: 0 0 var(--wp--custom--spacing--xxsmall);
+		margin-bottom: var(--wp--custom--spacing--xxsmall);
 		width: 100%;
 		justify-content: center;
 		align-items: center;
@@ -222,7 +222,7 @@
 
 	&__lightbox-caption {
 		width: var(--wp--custom--content-size-padded);
-		margin: 0 auto;
+		margin-inline: auto;
 		text-align: center;
 		color: var(--wp--preset--color--white);
 		transition: opacity 0.5s;

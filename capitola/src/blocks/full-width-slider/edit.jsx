@@ -324,8 +324,8 @@ export function Edit( props ) {
 									);
 								} ) }
 							<div
-								ref={ navigationNextRef }
-								className="swiper-button-next"
+								ref={ navigationPrevRef }
+								className="swiper-button-prev"
 								style={
 									navigation === 'arrows' || navigation === 'thumbnails'
 										? {}
@@ -333,8 +333,8 @@ export function Edit( props ) {
 								}
 							/>
 							<div
-								ref={ navigationPrevRef }
-								className="swiper-button-prev"
+								ref={ navigationNextRef }
+								className="swiper-button-next"
 								style={
 									navigation === 'arrows' || navigation === 'thumbnails'
 										? {}

@@ -16,11 +16,7 @@
 
 		&.--has-bg-image {
 			width: unset;
-
-			margin: {
-				left: unset;
-				right: unset;
-			}
+			margin-inline: unset;
 		}
 	}
 
@@ -102,7 +98,7 @@
 
 		.--is-top-intro.--is-centered-intro.--has-bg-image & {
 			width: var(--wp--custom--content-size-padded);
-			margin: 0 auto;
+			margin-inline: auto;
 		}
 
 		@include mq("medium") {
@@ -138,7 +134,7 @@
 
 	&__eyebrow {
 		position: relative;
-		margin: 0 0 var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--custom--spacing--xsmall);
 
 		.--is-top-intro & {
 			@include mq("medium") {
@@ -152,7 +148,6 @@
 
 	&__headline {
 		position: relative;
-		margin: 0;
 
 		.--is-top-intro & {
 			@include mq("medium") {
@@ -166,7 +161,7 @@
 
 	&__intro {
 		position: relative;
-		margin: var(--wp--custom--spacing--small) 0 0;
+		margin-top: var(--wp--custom--spacing--small);
 
 		&:first-child {
 			margin-top: 0;

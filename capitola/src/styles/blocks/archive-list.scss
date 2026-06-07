@@ -14,7 +14,7 @@
 	}
 
 	&__body {
-		margin: 0 0 var(--wp--custom--spacing--medium);
+		margin-bottom: var(--wp--custom--spacing--medium);
 	}
 
 	&__scroll-buttons {
@@ -24,7 +24,7 @@
 		gap: var(--wp--custom--spacing--xsmall);
 		justify-content: center;
 		align-items: center;
-		margin: var(--wp--custom--spacing--small) 0 0;
+		margin-top: var(--wp--custom--spacing--small);
 
 		.swiper {
 			@include swiper-button(false);
@@ -118,7 +118,7 @@
 
 			.capitola-result {
 				flex: 0 0 275px;
-				margin: 0 var(--wp--custom--spacing--xsmall) 0 0;
+				margin-right: var(--wp--custom--spacing--xsmall);
 
 				&:last-of-type {
 					margin-right: 0;
@@ -204,7 +204,7 @@
 			.capitola-result__byline {
 
 				&:last-child {
-					margin: auto 0 0;
+					margin-top: auto;
 				}
 			}
 		}
@@ -246,7 +246,7 @@
 			&.--sidescroll {
 
 				.capitola-result {
-					margin: 0 var(--wp--custom--spacing--medium) 0 0;
+					margin-right: var(--wp--custom--spacing--medium);
 
 					&:last-of-type {
 						margin-right: 0;
@@ -282,7 +282,7 @@
 				flex: 0 0 25px;
 				height: 25px;
 				align-self: center;
-				margin: 0 0 0 -30px;
+				margin-left: -30px;
 				border: none;
 				outline: none;
 				cursor: pointer;
@@ -327,7 +327,7 @@
 		&-count {
 			color: var(--capitola-color-body);
 			flex: 0 0 100%;
-			margin: 0 0 var(--wp--custom--spacing--small);
+			margin-bottom: var(--wp--custom--spacing--small);
 		}
 	}
 }
@@ -470,7 +470,7 @@
 	}
 
 	&__body-cat {
-		margin: 0 0 var(--wp--custom--spacing--xxsmall);
+		margin-bottom: var(--wp--custom--spacing--xxsmall);
 	}
 
 	&__title {
@@ -508,7 +508,7 @@
 
 	&__thumb-cta {
 		position: relative;
-		margin: var(--wp--custom--spacing--small) 0 0;
+		margin-top: var(--wp--custom--spacing--small);
 		align-self: center;
 	}
 
@@ -529,7 +529,7 @@
 
 			&.star-rating {
 				@include star-rating {
-					margin: var(--wp--custom--spacing--xsmall) 0 0;
+					margin-top: var(--wp--custom--spacing--xsmall);
 				}
 
 				&::before {
@@ -541,7 +541,7 @@
 
 	&__cta {
 		align-self: flex-start;
-		margin: auto 0 0;
+		margin-top: auto;
 	}
 
 	&__badge {
