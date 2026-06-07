@@ -1,17 +1,17 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-capitola-sticky-images {
-	$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
+	$sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
 	$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
-	--sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
+	--sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
 	--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
 
 	:has(.wp-block-capitola-anchor-nav) & {
-		$sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
+		$sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
 		$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
 
-		--sticky-height: calc(100vh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
+		--sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
 		--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
 	}
 
@@ -73,7 +73,7 @@
 			position: sticky;
 			top: var(--sticky-top);
 			height: var(--sticky-height);
-			padding: var(--wp--custom--spacing--block-padding) 0;
+			padding-block: var(--wp--custom--spacing--block-padding);
 
 			.--layout-full & {
 				padding: 0;
@@ -208,7 +208,6 @@
 		gap: var(--wp--custom--spacing--block-padding);
 		justify-content: flex-start;
 		background: var(--capitola-color-background);
-		padding: 0;
 
 		&:last-child {
 			padding-bottom: var(--wp--custom--spacing--block-padding);
@@ -217,7 +216,7 @@
 		@include mq("medium") {
 			position: sticky;
 			height: var(--sticky-height);
-			padding: var(--wp--custom--spacing--block-padding) 0;
+			padding-block: var(--wp--custom--spacing--block-padding);
 			justify-content: center;
 
 			.--has-fade-transition & {

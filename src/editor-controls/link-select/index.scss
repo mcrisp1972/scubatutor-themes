@@ -10,40 +10,30 @@
 	.block-editor-link-control {
 		min-width: 100%;
 
+		&__preview {
+			padding-inline: 0;
+		}
+
 		&__field {
 			margin: {
+				inline: 0;
 				top: 0;
-				left: 0;
-				right: 0;
 			}
 		}
 
 		&__tools {
-			padding: {
-				left: 0;
-				right: 0;
-			}
+			padding-inline: 0;
 		}
 
 		&__search-results {
-			padding: {
-				left: 0;
-				right: 0;
-			}
+			padding-inline: 0;
 		}
 
 		&__search-item {
-			padding: {
-				left: 0;
-				right: 0;
-			}
+			padding-inline: 0;
 
 			&.is-current {
-				padding: {
-					top: 0;
-					left: 0;
-					right: 0;
-				}
+				padding-top: 0;
 			}
 
 			&.is-preview {

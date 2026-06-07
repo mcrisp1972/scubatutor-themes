@@ -36,20 +36,14 @@
 		&:not(.is-opened) {
 
 			> .components-panel__body-title {
-				margin: {
-					left: -16px;
-					right: -16px;
-				}
+				margin-inline: -16px;
 			}
 		}
 
 		&.is-opened {
 
 			> .components-panel__body-title {
-				margin: {
-					left: -16px;
-					right: -16px;
-				}
+				margin-inline: -16px;
 			}
 		}
 	}

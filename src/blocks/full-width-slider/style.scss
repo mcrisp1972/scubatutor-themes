@@ -135,15 +135,14 @@
 			text-align: center;
 			transition: opacity $transition;
 			justify-content: center;
-			gap: var(--wp--custom--spacing--xsmall);
-			margin: var(--wp--custom--spacing--small) 0 0;
+			gap: var(--wp--custom--spacing--small);
+			margin-top: var(--wp--custom--spacing--small);
 
 			&-bullet {
-				width: var(--wp--custom--spacing--small);
-				height: var(--wp--custom--spacing--small);
+				width: 24px;
+				height: 24px;
 				border-radius: 50%;
 				border: 1px solid var(--capitola-color-button);
-				margin: 0 4px;
 				cursor: pointer;
 				transition: box-shadow $transition;
 
@@ -180,7 +179,7 @@
 
 	&__slide-cta {
 		justify-content: center;
-		margin: var(--wp--custom--spacing--xsmall) 0 0;
+		margin-top: var(--wp--custom--spacing--small);
 	}
 
 	&__thumbs {
@@ -193,7 +192,7 @@
 		.swiper {
 			touch-action: pan-y;
 			overflow: hidden;
-			margin: var(--wp--custom--spacing--xsmall) 0 0;
+			margin-top: var(--wp--custom--spacing--xsmall);
 		}
 
 		.swiper-wrapper {

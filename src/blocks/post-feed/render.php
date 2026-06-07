@@ -5,12 +5,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
+use function Capitola\Blocks\Post_Feed\query_post_listings;
+use function Capitola\Helpers\Block_Attributes\layout_conditionals;
 
 $animations = animation_attributes( $attributes );
 
 $has_slider = ( 'sidescroll' === $attributes['listLayout'] );
 
-$results = \Capitola\Blocks\Post_Feed\query_post_listings( $attributes );
+$results = query_post_listings( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -33,7 +35,7 @@ if ( $results->have_posts() ) :
 							get_post_type(),
 							array(
 								'attributes'   => $attributes,
-								'conditionals' => \Capitola\Helpers\Block_Attributes\layout_conditionals( $attributes ),
+								'conditionals' => layout_conditionals( $attributes ),
 							)
 						);
 					endwhile;

@@ -54,7 +54,7 @@
 		}
 
 		.--landscape & {
-			height: calc(calc(min(550px, 60vw) * 1.2) / 1.66666666);
+			height: calc(calc(min(550px, 60dvw) * 1.2) / 1.66666666);
 		}
 	}
 
@@ -142,7 +142,8 @@
 	}
 
 	.wp-block-capitola-small-image-slider__caption {
-		@include contentSize($top: var(--wp--custom--spacing--small));
+		@include contentSize;
+		margin-top: var(--wp--custom--spacing--small);
 		text-align: center;
 		color: var(--capitola-color-body);
 

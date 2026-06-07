@@ -71,20 +71,20 @@
 		&.--align-left {
 
 			@include mq("large") {
-				margin-left: var(--wp--custom--wide-size-padding);
+				margin-inline-start: var(--wp--custom--wide-size-padding);
 			}
 		}
 
 		&.--align-right {
 
 			@include mq("large") {
-				margin-right: var(--wp--custom--wide-size-padding);
+				margin-inline-end: var(--wp--custom--wide-size-padding);
 			}
 		}
 	}
 
 	&__eyebrow {
-		margin: 0 0 var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--custom--spacing--xsmall);
 
 		.--align-left &,
 		.--align-right & {
@@ -109,7 +109,7 @@
 
 	&__caption {
 		text-align: center;
-		margin: var(--wp--custom--spacing--small) 0 0;
+		margin-top: var(--wp--custom--spacing--small);
 
 		.--align-left &,
 		.--align-right & {

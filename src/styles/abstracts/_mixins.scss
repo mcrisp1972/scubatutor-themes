@@ -214,7 +214,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--wp--custom--spacing--small);
-	margin: var(--wp--custom--spacing--small) 0 0;
+	margin-top: var(--wp--custom--spacing--small);
 }
 
 // apply to the .swiper class Button classnames are output by this mixin
@@ -361,28 +361,14 @@
 	}
 }
 
-@mixin contentSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
+@mixin contentSize {
 	width: var(--wp--custom--content-size-padded);
-
-	@if $top == $bottom and $right == $left {
-		margin: $top $right;
-	} @else if $right == $left {
-		margin: $top $right $bottom;
-	} @else {
-		margin: $top $right $bottom $left;
-	}
+	margin-inline: auto;
 }
 
 @mixin wideSize( $top: 0, $bottom: 0, $left: auto, $right: auto ) {
 	width: var(--wp--custom--wide-size-padded);
-
-	@if $top == $bottom and $right == $left {
-		margin: $top $right;
-	} @else if $right == $left {
-		margin: $top $right $bottom;
-	} @else {
-		margin: $top $right $bottom $left;
-	}
+	margin-inline: auto;
 }
 
 @mixin truncate-lines {
@@ -497,10 +483,7 @@
 	position: relative;
 	background: var(--capitola-color-background);
 	overflow: hidden;
-	padding: {
-		top: var(--wp--custom--spacing--block-padding);
-		bottom: var(--wp--custom--spacing--block-padding);
-	}
+	padding-block: var(--wp--custom--spacing--block-padding);
 }
 
 @mixin block-inner-wrap( $reverse-mobile: false ) {

@@ -46,7 +46,7 @@
 	}
 
 	&__panels {
-		padding: var(--wp--custom--spacing--small) 0 0;
+		padding-top: var(--wp--custom--spacing--small);
 
 		&:not(:has(.--active)) {
 

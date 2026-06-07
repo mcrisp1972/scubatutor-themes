@@ -205,13 +205,12 @@
 	}
 
 	&__subtitle {
-		margin: 0 0 var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--custom--spacing--xsmall);
 	}
 
 	.wp-block-capitola-image-link-grid-item__excerpt {
 		@include truncate-lines;
 		@include micro-text;
-		margin: 0;
 	}
 
 	&__cta {

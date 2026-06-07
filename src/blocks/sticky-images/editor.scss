@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 .wp-block-capitola-sticky-images {
-	$sticky-height: calc(100vh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
+	$sticky-height: calc(100dvh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
 
 	&__imagewrap {
 		@include mq("medium") {

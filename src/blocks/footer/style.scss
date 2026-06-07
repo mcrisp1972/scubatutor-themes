@@ -3,10 +3,7 @@
 .wp-block-capitola-footer {
 	background: var(--capitola-color-background);
 	color: var(--capitola-color-body);
-	padding: {
-		top: var(--wp--custom--spacing--block-padding);
-		bottom: var(--wp--custom--spacing--block-padding);
-	}
+	padding-block: var(--wp--custom--spacing--block-padding);
 
 	a {
 		@include nav-link;
@@ -214,7 +211,7 @@
 	&__copyright {
 		@include micro-text;
 		text-align: center;
-		margin: var(--wp--custom--spacing--large) 0 0;
+		margin-top: var(--wp--custom--spacing--large);
 	}
 }
 
@@ -223,10 +220,7 @@
 	inset: auto 0 0 0;
 	z-index: 1;
 	background: var(--capitola-color-background);
-	padding: {
-		top: var(--wp--custom--spacing--small);
-		bottom: var(--wp--custom--spacing--small);
-	}
+	padding-block: var(--wp--custom--spacing--small);
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
 	&__body {

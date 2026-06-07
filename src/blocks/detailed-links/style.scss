@@ -20,8 +20,8 @@
 	flex-flow: row;
 	align-items: flex-start;
 	gap: var(--wp--custom--spacing--small);
-	padding: 0 0 var(--wp--custom--spacing--small);
-	margin: var(--wp--custom--spacing--small) 0 0;
+	padding-bottom: var(--wp--custom--spacing--small);
+	margin-top: var(--wp--custom--spacing--small);
 	border-bottom: 1px solid var(--capitola-color-accent);
 
 	&:has(a:hover),

@@ -5,7 +5,7 @@
 	&__results-header {
 		display: flex;
 		justify-content: space-between;
-		margin: var(--wp--custom--spacing--block-padding) 0 var(--wp--custom--spacing--small);
+		margin-block: var(--wp--custom--spacing--block-padding) var(--wp--custom--spacing--small);
 		align-items: flex-end;
 
 		@include mq("medium") {
@@ -87,7 +87,7 @@
 
 		.--open-filters & {
 			position: absolute;
-			height: 60vh;
+			height: 60dvh;
 			bottom: 0;
 			width: 100%;
 			background: var(--wp--preset--color--white);
