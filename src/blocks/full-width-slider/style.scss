@@ -12,7 +12,7 @@
 
 		@include mq("medium") {
 			display: grid;
-			grid-template-columns: calc(50% - (var(--wp--custom--spacing--block-padding) / 2)) calc(50% - (var(--wp--custom--spacing--block-padding) / 2));
+			grid-template-columns: calc(50% - (var(--wp--custom--spacing--block-section-column-gap) / 2)) calc(50% - (var(--wp--custom--spacing--block-section-column-gap) / 2));
 			align-items: center;
 
 			&:has(.wp-block-capitola-body-text.--justify-top) {

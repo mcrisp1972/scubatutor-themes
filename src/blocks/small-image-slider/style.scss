@@ -17,7 +17,7 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--block-padding);
+		gap: var(--wp--custom--spacing--block-section-row-gap);
 	}
 
 	.wp-block-capitola-body-text {

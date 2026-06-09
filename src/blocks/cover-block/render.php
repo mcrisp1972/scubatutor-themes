@@ -43,7 +43,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			</<?php echo tag_escape( $attributes['headlineTag'] ); ?>>
 		<?php endif; ?>
 		<?php if ( $content ) : ?>
-			<div class="wp-block-capitola-cover-block__caption">
+			<div class="wp-block-capitola-cover-block__intro">
 				<?php echo wp_kses_post( $content ); ?>
 			</div>
 		<?php endif; ?>

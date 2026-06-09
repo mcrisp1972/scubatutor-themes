@@ -30,7 +30,7 @@
 	&__width {
 		display: flex;
 		position: relative;
-		gap: var(--wp--custom--spacing--block-padding);
+		gap: var(--wp--custom--spacing--block-section-row-gap) var(--wp--custom--spacing--block-section-column-gap);
 		flex-flow: column;
 
 		@include mq("medium") {
@@ -48,7 +48,7 @@
 		@include mq("medium") {
 			display: block;
 			position: relative;
-			flex: 0 0 var(--capitola-flex-basis);
+			flex: 1 0 0;
 
 			.--has-fade-transition & {
 				position: sticky;
@@ -205,7 +205,7 @@
 	&__body-section {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--block-padding);
+		gap: var(--wp--custom--spacing--block-section-row-gap);
 		justify-content: flex-start;
 		background: var(--capitola-color-background);
 

@@ -120,12 +120,12 @@
 		@include mq("50-50") {
 
 			.--is-left-intro.--has-bg-image & {
-				padding-right: var(--wp--custom--spacing--gutter);
+				padding-right: var(--wp--custom--spacing--block-section-column-gap);
 			}
 
 			.--is-right-intro.--has-bg-image & {
 				padding: {
-					left: var(--wp--custom--spacing--gutter);
+					left: var(--wp--custom--spacing--block-section-column-gap);
 					right: 0;
 				}
 			}
@@ -134,9 +134,10 @@
 
 	&__eyebrow {
 		position: relative;
-		margin-bottom: var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--custom--spacing--body-eyebrow-bottom);
 
 		.--is-top-intro & {
+
 			@include mq("medium") {
 				grid: {
 					column: 1;
@@ -161,7 +162,7 @@
 
 	&__intro {
 		position: relative;
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--custom--spacing--body-intro-top);
 
 		&:first-child {
 			margin-top: 0;
@@ -192,11 +193,9 @@
 					column: 2;
 					row: 1 / 3;
 				}
-
 				align-self: end;
 				justify-self: end;
 				flex-wrap: nowrap;
-
 				margin: {
 					top: 0;
 					left: var(--wp--custom--spacing--large);

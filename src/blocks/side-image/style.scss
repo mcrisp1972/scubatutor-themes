@@ -22,7 +22,7 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--block-padding);
+		gap: var(--wp--custom--spacing--block-section-row-gap) var(--wp--custom--spacing--block-section-column-gap);
 
 		@include mq("50-50") {
 			flex-flow: row;

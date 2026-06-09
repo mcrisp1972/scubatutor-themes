@@ -91,7 +91,7 @@ export function Edit( props ) {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'wp-block-capitola-cover-block__caption',
+			className: 'wp-block-capitola-cover-block__intro',
 		},
 		{
 			allowedBlocks: [ 'core/paragraph' ],
