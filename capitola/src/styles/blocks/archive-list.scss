@@ -6,10 +6,14 @@
 	&__width {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--block-padding);
+		gap: var(--wp--custom--spacing--block-section-row-gap);
 
 		.--paginated & {
 			gap: unset;
+		}
+
+		&:has(.wp-block-capitola-body-text.--has-bg-image) {
+			gap: var(--wp--custom--spacing--block-padding);
 		}
 	}
 

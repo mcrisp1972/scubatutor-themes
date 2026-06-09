@@ -403,7 +403,12 @@
 				"openContent": "16px",
 				"openContentHeadline": "var(--wp--custom--fluid--24-32)",
 				"blockPadding": "var(--wp--custom--fluid--40-80)",
-				"gutter": "var(--wp--custom--fluid--16-80)"
+				"gutter": "var(--wp--custom--fluid--16-80)",
+				"bodyEyebrowBottom": "var(--wp--custom--spacing--xsmall)",
+				"bodyIntroTop": "var(--wp--custom--spacing--small)",
+				"bodyCtasTop": "var(--wp--custom--spacing--small)",
+				"blockSectionRowGap": "var(--wp--custom--fluid--32-48)",
+				"blockSectionColumnGap": "var(--wp--custom--fluid--40-80)"
 			}
 		},
 		"blocks": {

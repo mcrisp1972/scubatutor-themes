@@ -84,7 +84,7 @@
 	}
 
 	&__eyebrow {
-		margin-bottom: var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--custom--spacing--body-eyebrow-bottom);
 
 		.--align-left &,
 		.--align-right & {
@@ -107,9 +107,9 @@
 		}
 	}
 
-	&__caption {
+	&__intro {
 		text-align: center;
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--custom--spacing--body-intro-top);
 
 		.--align-left &,
 		.--align-right & {
