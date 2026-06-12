@@ -21,7 +21,7 @@
 			position: center;
 			size: contain;
 		}
-		transition: background-color $transition;
+		transition: background-color var(--wp--custom--transitions--default);
 		height: 30px;
 		width: 30px;
 

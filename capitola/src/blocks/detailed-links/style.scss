@@ -49,7 +49,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			transition: scale $transition;
+			transition: scale var(--wp--custom--transitions--default);
 		}
 	}
 
@@ -69,7 +69,7 @@
 		justify-content: space-between;
 		font-weight: var(--wp--custom--font-weight--bold);
 		color: var(--capitola-color-link);
-		transition: color $transition;
+		transition: color var(--wp--custom--transitions--default);
 
 		&::after {
 			content: "";
@@ -77,7 +77,7 @@
 			flex: 0 0 30px;
 			mask: url(#{$image_path}arrows/fa-arrow-right.svg) center right / contain no-repeat;
 			background: var(--capitola-color-link);
-			transition: background-color $transition, scale $transition;
+			transition: background-color var(--wp--custom--transitions--default), scale var(--wp--custom--transitions--default);
 		}
 
 		&:hover,

@@ -39,7 +39,7 @@
 			cursor: pointer;
 			background: var(--wp--preset--color--white);
 			mask: url(#{$image_path}symbols/fa-xmark.svg) center / contain no-repeat;
-			transition: scale $transition;
+			transition: scale var(--wp--custom--transitions--default);
 
 			&:hover,
 			&:active,
@@ -171,7 +171,7 @@
 					position: absolute;
 					background: var(--capitola-color-body);
 					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
-					transition: background-color $transition;
+					transition: background-color var(--wp--custom--transitions--default);
 					width: var(--wp--custom--spacing--small);
 					height: 100%;
 					right: 0;
@@ -231,9 +231,9 @@
 			background: none;
 			padding: 0;
 			transition:
-				border $transition,
-				box-shadow $transition,
-				color $transition;
+				border var(--wp--custom--transitions--default),
+				box-shadow var(--wp--custom--transitions--default),
+				color var(--wp--custom--transitions--default);
 
 			&:focus,
 			&:hover,

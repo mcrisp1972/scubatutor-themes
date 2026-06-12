@@ -134,7 +134,7 @@
 		&:focus {
 
 			.wp-block-capitola-image-link-grid-item__opacity-layer {
-				transition: opacity $transition;
+				transition: opacity var(--wp--custom--transitions--default);
 				opacity: calc(var(--capitola-overlayOpacity) + 0.2);
 			}
 

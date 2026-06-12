@@ -39,11 +39,6 @@ body {
 	box-sizing: border-box;
 }
 
-
-.editor-styles-wrapper a {
-	@include hyperlink;
-}
-
 .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .is-reusable:where(:not(.alignleft):not(.alignright)) {
 	width: 100%;
 	max-width: unset;

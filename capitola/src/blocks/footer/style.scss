@@ -120,7 +120,7 @@
 		width: 30px;
 		background-color: var(--capitola-color-body);
 		mask: url(#{$image_path}social/fa-x-twitter.svg) center / contain no-repeat;
-		transition: background-color $transition;
+		transition: background-color var(--wp--custom--transitions--default);
 
 		&:hover,
 		&:active,
@@ -173,7 +173,7 @@
 			width: 20px;
 			background: var(--capitola-color-body);
 			mask: url(#{$image_path}utility/fa-envelope-solid.svg) center / contain no-repeat;
-			transition: background-color $transition;
+			transition: background-color var(--wp--custom--transitions--default);
 		}
 
 		&:hover,

@@ -227,7 +227,7 @@
 					height: unset;
 					width: 100%;
 					aspect-ratio: 1;
-					transition: scale $transition;
+					transition: scale var(--wp--custom--transitions--default);
 					padding: 5%;
 
 					img {
@@ -292,7 +292,7 @@
 				cursor: pointer;
 				background: var(--capitola-color-body);
 				mask: url(#{$image_path}utility/fa-magnifying-glass.svg) center / contain no-repeat;
-				transition: background-color $transition;
+				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:focus,
@@ -419,7 +419,7 @@
 
 		img {
 			position: absolute;
-			transition: scale $transition;
+			transition: scale var(--wp--custom--transitions--default);
 			height: 100%;
 			width: 100%;
 			object-fit: cover;
