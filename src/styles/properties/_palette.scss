@@ -21,7 +21,7 @@
 	.--theme-default-dark,
 	[data-theme="default-dark"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -41,7 +41,7 @@
 	.--theme-summer-splash-light,
 	[data-theme="summer-splash-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -61,7 +61,7 @@
 	.--theme-summer-splash,
 	[data-theme="summer-splash"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -81,7 +81,7 @@
 	.--theme-deep-blue-light,
 	[data-theme="deep-blue-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -101,7 +101,7 @@
 	.--theme-deep-blue,
 	[data-theme="deep-blue"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -121,7 +121,7 @@
 	.--theme-middle-eastern-light,
 	[data-theme="middle-eastern-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -141,7 +141,7 @@
 	.--theme-middle-eastern,
 	[data-theme="middle-eastern"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -161,7 +161,7 @@
 	.--theme-red-beanie-light,
 	[data-theme="red-beanie-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -181,7 +181,7 @@
 	.--theme-red-beanie,
 	[data-theme="red-beanie"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -201,7 +201,7 @@
 	.--theme-pomegranate-light,
 	[data-theme="pomegranate-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -221,7 +221,7 @@
 	.--theme-pomegranate,
 	[data-theme="pomegranate"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -241,7 +241,7 @@
 	.--theme-dawn-light,
 	[data-theme="dawn-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -261,7 +261,7 @@
 	.--theme-dawn,
 	[data-theme="dawn"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -281,7 +281,7 @@
 	.--theme-pulp-slices-light,
 	[data-theme="pulp-slices-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -301,7 +301,7 @@
 	.--theme-pulp-slices,
 	[data-theme="pulp-slices"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -321,7 +321,7 @@
 	.--theme-geometry-light,
 	[data-theme="geometry-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -341,7 +341,7 @@
 	.--theme-geometry,
 	[data-theme="geometry"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);
@@ -361,7 +361,7 @@
 	.--theme-salmon-light,
 	[data-theme="salmon-light"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--black);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--black);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--black);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--black);
 		--wp--custom--forms--label--color: var(--wp--preset--color--black);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--black);
@@ -381,7 +381,7 @@
 	.--theme-salmon,
 	[data-theme="salmon"] {
 		--wp--custom--forms--field--color: var(--wp--preset--color--white);
-		--wp--custom--forms--field--border--color: var(--wp--preset--color--white);
+		--wp--custom--forms--field--border-color: var(--wp--preset--color--white);
 		--wp--custom--forms--field--focus-shadow-color: var(--wp--preset--color--white);
 		--wp--custom--forms--label--color: var(--wp--preset--color--white);
 		--wp--custom--forms--radio-cb--label--color: var(--wp--preset--color--white);

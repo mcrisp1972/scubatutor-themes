@@ -117,7 +117,7 @@
 			cursor: pointer;
 			background: var(--capitola-color-body);
 			mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
-			transition: scale $transition;
+			transition: scale var(--wp--custom--transitions--default);
 
 			&.--is-hidden {
 				display: none;
@@ -221,7 +221,7 @@
 					size: contain;
 				}
 
-				transition: background-color $transition;
+				transition: background-color var(--wp--custom--transitions--default);
 			}
 
 			&.--account {
@@ -266,7 +266,7 @@
 
 			background: var(--capitola-color-link);
 			height: 100%;
-			transition: background-color $transition;
+			transition: background-color var(--wp--custom--transitions--default);
 
 			&:hover,
 			&:focus {
@@ -325,7 +325,7 @@
 
 			.--shrink-utility & {
 				grid-template-rows: 1fr auto;
-				transition: grid-template-rows $transition;
+				transition: grid-template-rows var(--wp--custom--transitions--default);
 			}
 
 			.--sticky-nav.--shrink-utility & {
@@ -410,7 +410,7 @@
 			background: var(--capitola-color-link);
 			mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 			transform: rotate(-90deg);
-			transition: background-color $transition, transform $transition;
+			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 
 			&:hover,
 			&:focus,
@@ -436,7 +436,7 @@
 				height: 1em;
 				background: var(--capitola-color-link);
 				mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
-				transition: background-color $transition;
+				transition: background-color var(--wp--custom--transitions--default);
 			}
 		}
 	}
@@ -451,7 +451,7 @@
 		}
 
 		color: var(--capitola-color-link);
-		transition: color $transition;
+		transition: color var(--wp--custom--transitions--default);
 		text-decoration: none;
 
 		&:not(.--no-hover) {
@@ -521,7 +521,7 @@
 			width: 100%;
 			background: var(--capitola-color-link);
 			border-radius: 3px;
-			transition: background-color $transition, transform 1s, opacity 1s, transform-origin 1s;
+			transition: background-color var(--wp--custom--transitions--default), transform 1s, opacity 1s, transform-origin 1s;
 		}
 
 		&:hover,
@@ -548,7 +548,7 @@
 			height: 24px;
 			background: var(--capitola-color-link);
 			mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
-			transition: background-color $transition;
+			transition: background-color var(--wp--custom--transitions--default);
 			cursor: pointer;
 
 			&:hover,
@@ -620,7 +620,7 @@
 				cursor: pointer;
 				background: var(--capitola-color-body);
 				mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
-				transition: background-color $transition;
+				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:active,
@@ -656,7 +656,7 @@
 				margin-left: -25px;
 				background: var(--capitola-color-body);
 				mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
-				transition: background-color $transition;
+				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:focus,
@@ -676,7 +676,7 @@
 				font-size: 1.25rem;
 				letter-spacing: 0.8px;
 				background: transparent linear-gradient(90deg, var(--capitola-color-accent) 0%, var(--capitola-color-accent) 50%, var(--capitola-color-body) 50%, var(--capitola-color-body) 100%) no-repeat scroll 100% 100% / 200% 4px padding-box border-box;
-				transition: background-position $transition;
+				transition: background-position var(--wp--custom--transitions--default);
 
 				&::-webkit-search-decoration,
 				&::-webkit-search-cancel-button,

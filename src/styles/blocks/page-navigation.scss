@@ -56,7 +56,7 @@
 
 		background: var(--capitola-color-button);
 		padding: 0 var(--wp--custom--spacing--xsmall) 0;
-		transition: background-color $transition, color $transition;
+		transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
 
 		&.--next,
 		&.--prev {
@@ -70,8 +70,8 @@
 				width: var(--wp--custom--spacing--small);
 				height: 1em;
 				transition:
-					background-color $transition,
-					transform $transition;
+					background-color var(--wp--custom--transitions--default),
+					transform var(--wp--custom--transitions--default);
 			}
 
 			&:focus,
@@ -129,8 +129,8 @@
 				cursor: pointer;
 				background: transparent;
 				transition:
-					background-color $transition,
-					color $transition;
+					background-color var(--wp--custom--transitions--default),
+					color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:active,

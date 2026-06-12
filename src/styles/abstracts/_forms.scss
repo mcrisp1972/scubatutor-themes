@@ -2,19 +2,19 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-$field-border: var(--wp--custom--forms--field--border--width) solid var(--wp--custom--forms--field--border--color);
+$field-border: var(--wp--custom--forms--field--border-width) solid var(--wp--custom--forms--field--border-color);
 $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--custom--forms--field--focus-shadow-color);
 
 @mixin base-field {
 	font: {
-		family: var(--wp--custom--forms--field--font--family);
-		size: var(--wp--custom--forms--field--font--size);
+		family: var(--wp--custom--forms--field--font-family);
+		size: var(--wp--custom--forms--field--font-size);
 	}
 	line-height: var(--wp--custom--forms--field--line-height);
 	margin: 0;
 	color: var(--wp--custom--forms--field--color);
 	border: $field-border;
-	border-radius: var(--wp--custom--forms--field--border--radius);
+	border-radius: var(--wp--custom--forms--field--border-radius);
 	outline: none;
 	padding: var(--wp--custom--forms--field--padding);
 	transition: var(--wp--custom--forms--field--transition);
@@ -48,8 +48,8 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 @mixin form-label {
 	line-height: var(--wp--custom--forms--label--line-height);
 	font: {
-		weight: var(--wp--custom--forms--label--font--weight);
-		size: var(--wp--custom--forms--label--font--size);
+		weight: var(--wp--custom--forms--label--font-weight);
+		size: var(--wp--custom--forms--label--font-size);
 	}
 	letter-spacing: var(--wp--custom--forms--label--letter-spacing);
 	color: var(--wp--custom--forms--label--color);
@@ -95,7 +95,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		transform: scale(0);
 		background: var(--wp--custom--forms--field--color);
 		border-radius: 50%;
-		transition: transform $transition;
+		transition: transform var(--wp--custom--transitions--default);
 	}
 
 	&:hover,
@@ -131,7 +131,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	width: var(--wp--custom--forms--radio-cb--input-size);
 	height: var(--wp--custom--forms--radio-cb--input-size);
 	border: $field-border;
-	border-radius: var(--wp--custom--forms--field--border--radius);
+	border-radius: var(--wp--custom--forms--field--border-radius);
 	cursor: pointer;
 	padding: 0;
 	transition: var(--wp--custom--forms--field--transition);
@@ -145,7 +145,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		transform: scale(0);
 		background: var(--wp--custom--forms--field--color);
 		mask: url("#{$image_path}symbols/fa-check.svg") center / contain no-repeat;
-		transition: transform $transition;
+		transition: transform var(--wp--custom--transitions--default);
 	}
 
 	&:hover,
@@ -213,7 +213,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	border: 1px solid var(--capitola-color-button);
 	cursor: pointer;
 	margin: 0;
-	transition: border-radius $transition;
+	transition: border-radius var(--wp--custom--transitions--default);
 	white-space: nowrap;
 	padding: 0 var(--wp--custom--spacing--xsmall);
 	line-height: 2;

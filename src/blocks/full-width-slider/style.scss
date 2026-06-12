@@ -133,7 +133,7 @@
 			display: flex;
 			width: 100%;
 			text-align: center;
-			transition: opacity $transition;
+			transition: opacity var(--wp--custom--transitions--default);
 			justify-content: center;
 			gap: var(--wp--custom--spacing--small);
 			margin-top: var(--wp--custom--spacing--small);
@@ -144,7 +144,7 @@
 				border-radius: 50%;
 				border: 1px solid var(--capitola-color-button);
 				cursor: pointer;
-				transition: box-shadow $transition;
+				transition: box-shadow var(--wp--custom--transitions--default);
 
 				&-active {
 					opacity: 1;

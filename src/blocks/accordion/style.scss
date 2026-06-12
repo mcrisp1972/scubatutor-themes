@@ -47,10 +47,10 @@
 		@include unstyle-button;
 		font-size: var(--wp--custom--font-size--hl-s);
 		text-align: left;
-		transition: color $transition;
+		transition: color var(--wp--custom--transitions--default);
 
 		&::after {
-			transition: background-color $transition, scale $transition;
+			transition: background-color var(--wp--custom--transitions--default), scale var(--wp--custom--transitions--default);
 		}
 
 		&:hover,
@@ -68,7 +68,7 @@
 	&__body {
 		display: grid;
 		grid-template-rows: 0fr;
-		transition: grid-template-rows $transition;
+		transition: grid-template-rows var(--wp--custom--transitions--default);
 
 		.--is-open & {
 			grid-template-rows: 1fr;

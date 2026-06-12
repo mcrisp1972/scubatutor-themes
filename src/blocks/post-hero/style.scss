@@ -97,7 +97,7 @@
 			position: center;
 			size: contain;
 		}
-		transition: background-color $transition;
+		transition: background-color var(--wp--custom--transitions--default);
 
 		&:hover {
 			background: var(--capitola-color-body);

@@ -1,5 +1,4 @@
 @use "abstracts" as *;
-
 @use "properties";
 @use "helper-classes";
 @use "modules";
@@ -28,8 +27,4 @@ body {
 main {
 	flex-grow: 1;
 	margin-top: var(--capitola-header-height);
-}
-
-a {
-	@include hyperlink;
 }

@@ -87,7 +87,7 @@
 						line-height: 2;
 						font-family: var(--wp--preset--font-family--primary);
 						padding: 0;
-						transition: box-shadow $transition;
+						transition: box-shadow var(--wp--custom--transitions--default);
 						background-color: transparent;
 
 						&:hover {
