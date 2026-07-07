@@ -15,7 +15,7 @@ import {
 } from '@wordpress/components';
 import { store as coreDataStore } from '@wordpress/core-data';
 import { useState } from '@wordpress/element';
-import { ImageSelect, LinkSelect } from '../../editor-controls';
+import { ImageSelect, LinkSelect } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;

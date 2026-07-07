@@ -124,10 +124,10 @@
 		"viewportWidth": 1440
 	},
 	"providesContext": {
-		"revealAnimation": "revealAnimation",
-		"showExcerpt": "showExcerpt",
-		"showImage": "showImage",
-		"introAlign": "introAlign"
+		"capitola/revealAnimation": "revealAnimation",
+		"capitola/showExcerpt": "showExcerpt",
+		"capitola/showImage": "showImage",
+		"capitola/introAlign": "introAlign"
 	},
 	"viewScript": "capitola-animations",
 	"style": "capitola-side-detailed-link-list",

@@ -24,7 +24,7 @@ import {
 	VerticalAlignToolbar,
 	IntroAlignToolbar,
 	AddChildButton,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected, clientId, toggleSelection } = props;
@@ -150,7 +150,7 @@ export function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<InspectorControls group="styles">
-				<ColorThemePanel props={ props } initialOpen={ true } />
+				<ColorThemePanel props={ props } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>

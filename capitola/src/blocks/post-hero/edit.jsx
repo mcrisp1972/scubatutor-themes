@@ -1,13 +1,21 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
 import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { date } from '@wordpress/date';
-import { PanelBody, ToggleControl, RadioControl } from '@wordpress/components';
+import {
+	PanelBody,
+	ToggleControl,
+	RadioControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
 import { useSelect } from '@wordpress/data';
-import { TagSelect } from '../../editor-controls';
+import { TagSelect } from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 
 	const {
 		headline,
@@ -47,6 +55,8 @@ export function Edit( props ) {
 		},
 		[ isTemplate, postAuthor ]
 	);
+
+	const defaultAttributes = getBlockType( name ).attributes;
 
 	const authorImage = useSelect(
 		( select ) => {
@@ -139,15 +149,35 @@ export function Edit( props ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title="Markup" initialOpen={ true }>
-					<TagSelect
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							headlineTag: defaultAttributes.headlineTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Headline Tag"
-						value={ headlineTag }
-						onChange={ ( value ) => {
-							setAttributes( { headlineTag: value } );
+						hasValue={ () => {
+							return headlineTag !== defaultAttributes.headlineTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								headlineTag: defaultAttributes.headlineTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Headline Tag"
+							value={ headlineTag }
+							onChange={ ( value ) => {
+								setAttributes( { headlineTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			{ showFeaturedImage && (
 				<div className="wp-block-capitola-post-hero__hero">

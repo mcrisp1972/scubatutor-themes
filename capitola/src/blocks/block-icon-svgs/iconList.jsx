@@ -1,4 +1,4 @@
-import * as svgs from '../../editor-icons';
+import * as svgs from '@capitola/editor-icons';
 
 function IconList() {
 	return (

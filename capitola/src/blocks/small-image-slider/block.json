@@ -59,7 +59,10 @@
 			"type": "array",
 			"default": [
 				{
-					"image": 0,
+					"image": {
+						"id": 0,
+						"source_url": ""
+					},
 					"caption": ""
 				}
 			]
@@ -141,9 +144,9 @@
 		"viewportWidth": 1440
 	},
 	"providesContext": {
-		"bodyTextOptions": "bodyTextOptions",
-		"revealAnimation": "revealAnimation",
-		"introAlign": "introAlign"
+		"capitola/bodyTextOptions": "bodyTextOptions",
+		"capitola/revealAnimation": "revealAnimation",
+		"capitola/introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
 	"style": "capitola-small-image-slider",

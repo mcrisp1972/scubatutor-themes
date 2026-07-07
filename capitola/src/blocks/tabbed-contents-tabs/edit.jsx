@@ -2,11 +2,10 @@ import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-e
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
-import { animationPreviewClass } from '../../editor-controls';
+import { animationPreviewClass } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, context, clientId } = props;
-	const { revealAnimation } = context;
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
@@ -24,7 +23,10 @@ export function Edit( props ) {
 	}, [ attributes.activePanel, innerBlocks, setAttributes ] );
 
 	const blockProps = useBlockProps( {
-		className: `alignfull ${ animationPreviewClass( revealAnimation, 'figure' ) }`,
+		className: `alignfull ${ animationPreviewClass(
+			context[ 'capitola/revealAnimation' ],
+			'figure'
+		) }`,
 	} );
 	const innerBlocksProps = useInnerBlocksProps(
 		{

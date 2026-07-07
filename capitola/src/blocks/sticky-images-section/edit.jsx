@@ -5,12 +5,11 @@ import {
 	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextareaControl } from '@wordpress/components';
-import { ImageFocalPoint, ImageSelectButton } from '../../editor-controls';
+import { ImageFocalPoint, ImageSelectButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected, context } = props;
 	const { sideImage, imageFocalPoint, showCaption, captionOverride } = attributes;
-	const { showFullImage } = context;
 
 	const blockProps = useBlockProps( {
 		className: 'wp-block-capitola-sticky-images__body-section',
@@ -42,7 +41,7 @@ export function Edit( props ) {
 							} }
 						/>
 					) }
-					{ ! showFullImage && !! sideImage?.source_url && (
+					{ ! context[ 'capitola/showFullImage' ] && !! sideImage?.source_url && (
 						<ImageFocalPoint
 							image={ sideImage?.source_url }
 							value={ imageFocalPoint }

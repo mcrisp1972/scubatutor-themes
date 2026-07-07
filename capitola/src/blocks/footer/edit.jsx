@@ -9,7 +9,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { applyFilters } from '@wordpress/hooks';
 import { autop } from '@wordpress/autop';
 import { useEffect, useState } from '@wordpress/element';
-import { ColorThemePicker } from '../../editor-controls';
+import { ColorThemePicker } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;

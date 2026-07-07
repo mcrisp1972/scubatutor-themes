@@ -20,10 +20,10 @@ import {
 	ImageFocalPoint,
 	IntroAlignToolbar,
 	RadiusToolbar,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, name, setAttributes } = props;
 	const {
 		introAlign,
 		backgroundImage,
@@ -33,7 +33,7 @@ export function Edit( props ) {
 		colorTheme,
 	} = attributes;
 	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
-	const defaultAttributes = getBlockType( props.name )?.attributes;
+	const defaultAttributes = getBlockType( name ).attributes;
 	const blockProps = useBlockProps( {
 		className: `alignfull --theme-${ colorTheme }`,
 	} );

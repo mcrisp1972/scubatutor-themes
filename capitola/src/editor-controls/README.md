@@ -24,6 +24,7 @@ A collection of custom WordPress Gutenberg editor controls for building block ed
 - [TMCEControl](#tmcecontrol)
 - [TruncateControl](#truncatecontrol)
 - [VideoSelect](#videoselect)
+- [RepeaterBlockControls](#repeaterblockcontrols)
 - [Toolbar Dropdowns](#toolbar-dropdowns)
 - [AddChildButton](#addchildbutton)
 - [AddGrandChildButton](#addgrandchildbutton)
@@ -39,7 +40,7 @@ A collection of custom WordPress Gutenberg editor controls for building block ed
 
 ---
 
-## `CtaControl`
+## CtaControl
 
 ![CtaControl Screenshot](./_screenshots/CtaControl-2.png)
 
@@ -49,7 +50,7 @@ A WordPress Gutenberg editor control component for creating call-to-action butto
 
 ---
 
-## `DatePicker`
+## DatePicker
 
 ![DatePicker Screenshot](./_screenshots/DatePicker-2.png)
 
@@ -59,7 +60,7 @@ A WordPress Gutenberg editor control component for selecting dates. For use in b
 
 ---
 
-## `DateTimePicker`
+## DateTimePicker
 
 ![DateTimePicker Screenshot](./_screenshots/DateTimePicker-1.png)
 
@@ -69,7 +70,7 @@ A WordPress Gutenberg editor control component for selecting both dates and time
 
 ---
 
-## `GoogleMapControl`
+## GoogleMapControl
 
 ![GoogleMapControl Screenshot](./_screenshots/GoogleMapControl-1.png)
 
@@ -79,7 +80,7 @@ A WordPress Gutenberg editor control component for selecting locations using Goo
 
 ---
 
-## `IconSelector`
+## IconSelector
 
 ![IconSelector Screenshot](./_screenshots/IconSelector-1.png)
 
@@ -89,7 +90,7 @@ A WordPress Gutenberg editor control component for selecting icons from a predef
 
 ---
 
-## `ImageFocalPoint`
+## ImageFocalPoint
 
 ![ImageFocalPoint Screenshot](./_screenshots/ImageFocalPoint-1.png)
 
@@ -99,7 +100,7 @@ A WordPress Gutenberg editor control component for selecting the most important 
 
 ---
 
-## `ImageSelect`
+## ImageSelect
 
 ![ImageSelect Screenshot](./_screenshots/ImageSelect-1.png)
 
@@ -109,7 +110,7 @@ A WordPress Gutenberg editor control component for use in the block sidebar. It 
 
 ---
 
-## `ImageSelectButton`
+## ImageSelectButton
 
 ![ImageSelectButton Screenshot](./_screenshots/ImageSelectButton-1.png)
 
@@ -119,7 +120,7 @@ A WordPress Gutenberg editor control component that provides a button interface 
 
 ---
 
-## `LabeledSpinner`
+## LabeledSpinner
 
 ![LabeledSpinner Screenshot](./_screenshots/LabeledSpinner-1.png)
 
@@ -129,7 +130,7 @@ A simple WordPress Gutenberg editor control component that displays a loading sp
 
 ---
 
-## `LinkList`
+## LinkList
 
 ![LinkList Screenshot](./_screenshots/LinkList-1.png)
 
@@ -139,7 +140,7 @@ A WordPress Gutenberg editor control component for managing a list of links. Pro
 
 ---
 
-## `LinkSelect`
+## LinkSelect
 
 ![LinkSelect Screenshot](./_screenshots/LinkSelect-3.png)
 
@@ -149,7 +150,7 @@ A WordPress Gutenberg editor control component for managing links with URL and t
 
 ---
 
-## `MetaRepeater`
+## MetaRepeater
 
 ![MetaRepeater Screenshot](./_screenshots/MetaRepeater-1.png)
 
@@ -159,7 +160,7 @@ A WordPress Gutenberg editor control component for managing repeating field grou
 
 ---
 
-## `OverlayOpacitySlider`
+## OverlayOpacitySlider
 
 ![OverlayOpacitySlider Screenshot](./_screenshots/OverlayOpacitySlider-1.png)
 
@@ -169,7 +170,7 @@ A WordPress Gutenberg editor control component for adjusting image overlay opaci
 
 ---
 
-## `PlaceholderIframe`
+## PlaceholderIframe
 
 ![PlaceholderIframe Screenshot](./_screenshots/PlaceholderIframe-1.png)
 
@@ -179,7 +180,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder ifra
 
 ---
 
-## `PlaceholderImage`
+## PlaceholderImage
 
 ![PlaceholderImage Screenshot](./_screenshots/PlaceholderImage-1.png)
 
@@ -189,7 +190,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder imag
 
 ---
 
-## `PlaceholderVideo`
+## PlaceholderVideo
 
 ![PlaceholderVideo Screenshot](./_screenshots/PlaceholderVideo-1.png)
 
@@ -199,7 +200,7 @@ A WordPress Gutenberg editor control component for displaying a placeholder vide
 
 ---
 
-## `PostCheckboxes`
+## PostCheckboxes
 
 ![PostCheckboxes Screenshot](./_screenshots/PostCheckboxes-1.png)
 
@@ -209,7 +210,7 @@ A WordPress Gutenberg editor control component for selecting multiple posts via 
 
 ---
 
-## `PostPicker`
+## PostPicker
 
 ![PostPicker Screenshot](./_screenshots/PostPicker-2.png)
 
@@ -219,7 +220,7 @@ A WordPress Gutenberg editor control component for selecting a single post via a
 
 ---
 
-## `Repeater`
+## Repeater
 
 ![Repeater Screenshot](./_screenshots/MetaRepeater-1.png)
 
@@ -229,7 +230,7 @@ A WordPress Gutenberg editor control component for managing repeating field grou
 
 ---
 
-## `RepeaterControls`
+## RepeaterControls
 
 ![RepeaterControls Screenshot](./_screenshots/RepeaterControls-1.png)
 
@@ -239,7 +240,7 @@ A WordPress Gutenberg editor control component that provides a toolbar interface
 
 ---
 
-## `RepeaterPopover`
+## RepeaterPopover
 
 ![RepeaterPopover Screenshot](./_screenshots/RepeaterPopover-3.png)
 
@@ -249,7 +250,7 @@ A WordPress Gutenberg editor control component that provides a popover interface
 
 ---
 
-## `TagSelect`
+## TagSelect
 
 ![TagSelect Screenshot](./_screenshots/TagSelect-1.png)
 
@@ -259,7 +260,7 @@ A WordPress Gutenberg editor control component for selecting HTML tag elements. 
 
 ---
 
-## `TermCheckboxes`
+## TermCheckboxes
 
 ![TermCheckboxes Screenshot](./_screenshots/TermCheckboxes-1.png)
 
@@ -269,7 +270,7 @@ A WordPress Gutenberg editor control component for selecting multiple taxonomy t
 
 ---
 
-## `TimePicker`
+## TimePicker
 
 ![TimePicker Screenshot](./_screenshots/TimePicker-1.png)
 
@@ -279,7 +280,7 @@ A WordPress Gutenberg editor control component for selecting times. For use in b
 
 ---
 
-## `TMCEControl`
+## TMCEControl
 
 ![TMCEControl Screenshot](./_screenshots/TMCEControl-1.png)
 
@@ -289,11 +290,21 @@ A WordPress Gutenberg editor control component that provides a TinyMCE (Tiny MCE
 
 ---
 
+## RepeaterBlockControls
+
+![RepeaterBlockControls Screenshot](./_screenshots/RepeaterBlockControls-1.png)
+
+Renders a set of action buttons for adding, removing, moving, and managing repeater items directly in the block's toolbar.
+
+[View Documentation →](./repeater-block-controls/README.md)
+
+---
+
 ## Toolbar Dropdowns
 
 A collection of reusable toolbar dropdown controls for WordPress Gutenberg blocks. These controls provide intuitive dropdown menus for various alignment, spacing, and formatting options.
 
-### `JustifyToolbar`
+### JustifyToolbar
 
 A toolbar dropdown for horizontal justification/alignment options.
 
@@ -301,7 +312,7 @@ A toolbar dropdown for horizontal justification/alignment options.
 
 [View Documentation →](./toolbar-dropdowns/README.md#justifytoolbar)
 
-### `VerticalAlignToolbar`
+### VerticalAlignToolbar
 
 A toolbar dropdown for vertical alignment options.
 
@@ -309,7 +320,7 @@ A toolbar dropdown for vertical alignment options.
 
 [View Documentation →](./toolbar-dropdowns/README.md#verticalaligntoolbar)
 
-### `IntroAlignToolbar`
+### IntroAlignToolbar
 
 A toolbar dropdown for intro/media positioning options.
 
@@ -317,7 +328,7 @@ A toolbar dropdown for intro/media positioning options.
 
 [View Documentation →](./toolbar-dropdowns/README.md#introaligntoolbar)
 
-### `TextAlignToolbar`
+### TextAlignToolbar
 
 A toolbar dropdown for text alignment options.
 
@@ -325,7 +336,7 @@ A toolbar dropdown for text alignment options.
 
 [View Documentation →](./toolbar-dropdowns/README.md#textaligntoolbar)
 
-### `AspectRatioToolbar`
+### AspectRatioToolbar
 
 A toolbar dropdown for media aspect ratio selection.
 
@@ -333,7 +344,7 @@ A toolbar dropdown for media aspect ratio selection.
 
 [View Documentation →](./toolbar-dropdowns/README.md#aspectratiotoolbar)
 
-### `RadiusToolbar`
+### RadiusToolbar
 
 A toolbar dropdown for border radius selection.
 
@@ -343,7 +354,7 @@ A toolbar dropdown for border radius selection.
 
 ---
 
-## `AddChildButton`
+## AddChildButton
 
 A WordPress Gutenberg editor toolbar control for inserting a default child block into the current block.
 
@@ -353,7 +364,7 @@ A WordPress Gutenberg editor toolbar control for inserting a default child block
 
 ---
 
-## `AddGrandChildButton`
+## AddGrandChildButton
 
 A WordPress Gutenberg editor toolbar control for inserting a default block into a nested target child block.
 
@@ -363,7 +374,7 @@ A WordPress Gutenberg editor toolbar control for inserting a default block into 
 
 ---
 
-## `TruncateControl`
+## TruncateControl
 
 ![TruncateControl Screenshot](./_screenshots/TruncateControl-1.png)
 
@@ -373,7 +384,7 @@ A WordPress Gutenberg editor control component for setting the maximum number of
 
 ---
 
-# `VideoSelect`
+# VideoSelect
 
 ![VideoSelect Screenshot](./_screenshots/VideoSelect-1.png)
 

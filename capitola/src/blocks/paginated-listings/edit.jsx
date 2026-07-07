@@ -1,11 +1,15 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { decodeEntities } from '@wordpress/html-entities';
+import { getBlockType } from '@wordpress/blocks';
 import {
 	PanelBody,
 	RadioControl,
 	SelectControl,
 	ToggleControl,
 	TextControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import {
@@ -14,13 +18,13 @@ import {
 	AnimationPanel,
 	LabeledSpinner,
 	TruncateControl,
-} from '../../editor-controls';
-import postTile from '../post-feed/post-tile';
-import buildTermsTree from '../../scripts/modules/term-tree';
-import { layoutConditionals } from '../post-feed/layout-conditionals';
+} from '@capitola/editor-controls';
+import PostTile from '@capitola/blocks/post-feed/post-tile';
+import buildTermsTree from '@capitola/scripts/modules/term-tree';
+import { layoutConditionals } from '@capitola/blocks/post-feed/layout-conditionals';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 
 	const {
 		colorTheme,
@@ -67,7 +71,7 @@ export function Edit( props ) {
 				filtered_listings: true,
 			};
 
-			if ( baseTaxonomy && baseTerm !== '0' ) {
+			if ( baseTaxonomy && baseTerm !== 0 ) {
 				postArgs[ taxParams[ baseTaxonomy ] ] = [ baseTerm ];
 			}
 
@@ -118,6 +122,26 @@ export function Edit( props ) {
 		className: `alignfull capitola-listings --paginated is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 	} );
 
+	const defaultAttributes = getBlockType( name ).attributes;
+
+	const resetPostTypeQuery = ( nextPostType ) => {
+		setAttributes( {
+			postType: nextPostType,
+			baseTaxonomy: !! postTypes[ nextPostType ].taxonomies
+				? postTypes[ nextPostType ].taxonomies[ 0 ]
+				: '',
+			baseTerm: 0,
+			showTaxFilters: postTypes[ nextPostType ].taxonomies,
+			showSearchFields: !! postTypes[ nextPostType ].searchParams
+				? Object.keys( postTypes[ nextPostType ].searchParams )
+				: [],
+			setHiddens: !! postTypes[ nextPostType ].hiddenParams
+				? Object.keys( postTypes[ nextPostType ].hiddenParams )
+				: [],
+			orderBy: postTypes[ nextPostType ].sorts[ 0 ],
+		} );
+	};
+
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
 			className: 'capitola-listings__width alignwide',
@@ -131,101 +155,166 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
-				<PanelBody title="Query Options" initialOpen={ true }>
-					<SelectControl
-						label="Post Type"
-						value={ postType }
-						options={ [
-							...Object.keys( postTypes ).map( ( i ) => {
-								return { label: postTypes[ i ].name, value: i };
-							} ),
-						] }
-						onChange={ ( value ) => {
-							setAttributes( {
-								postType: value,
-								baseTaxonomy: !! postTypes[ value ].taxonomies
-									? postTypes[ value ].taxonomies[ 0 ]
-									: '',
-								baseTerm: 0,
-								showTaxFilters: postTypes[ value ].taxonomies,
-								showSearchFields: !! postTypes[ value ].searchParams
-									? Object.keys( postTypes[ value ].searchParams )
-									: [],
-								setHiddens: !! postTypes[ value ].hiddenParams
-									? Object.keys( postTypes[ value ].hiddenParams )
-									: [],
-								orderBy: postTypes[ value ].sorts[ 0 ],
-							} );
+				<ToolsPanel
+					label="Query Options"
+					resetAll={ () => {
+						resetPostTypeQuery( defaultAttributes.postType.default );
+						setAttributes( {
+							limit: defaultAttributes.limit.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return postType !== defaultAttributes.postType.default;
 						} }
-						__next40pxDefaultSize
-					/>
+						isShownByDefault={ true }
+						label="Post Type"
+						onDeselect={ () => {
+							resetPostTypeQuery( defaultAttributes.postType.default );
+						} }
+					>
+						<SelectControl
+							label="Post Type"
+							value={ postType }
+							options={ [
+								...Object.keys( postTypes ).map( ( i ) => {
+									return { label: postTypes[ i ].name, value: i };
+								} ),
+							] }
+							onChange={ ( value ) => {
+								resetPostTypeQuery( value );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
 					{ !! postTypes[ postType ].hiddenParams &&
 						Object.keys( postTypes[ postType ].hiddenParams ).map( ( slug ) => {
 							const hidden = postTypes[ postType ].hiddenParams[ slug ];
 							return (
-								<ToggleControl
+								<ToolsPanelItem
 									key={ slug }
+									isShownByDefault={ true }
+									hasValue={ () => {
+										return !! setHiddens ? setHiddens.includes( slug ) : false;
+									} }
 									label={ hidden.label }
-									checked={ !! setHiddens ? setHiddens.includes( slug ) : false }
-									onChange={ ( value ) => {
-										let newValue = [ ...setHiddens ];
-										if ( value && ! newValue.includes( slug ) ) {
-											newValue.push( slug );
-										} else if ( ! value && newValue.includes( slug ) ) {
-											newValue = newValue.filter( function ( hiddenItem ) {
-												return hiddenItem !== slug;
-											} );
-										}
+									onDeselect={ () => {
 										setAttributes( {
-											setHiddens: newValue,
+											setHiddens: !! setHiddens
+												? setHiddens.filter( ( hiddenItem ) => {
+														return hiddenItem !== slug;
+												  } )
+												: [],
 										} );
 									} }
-								/>
+								>
+									<ToggleControl
+										label={ hidden.label }
+										checked={
+											!! setHiddens ? setHiddens.includes( slug ) : false
+										}
+										onChange={ ( value ) => {
+											let newValue = [ ...setHiddens ];
+											if ( value && ! newValue.includes( slug ) ) {
+												newValue.push( slug );
+											} else if ( ! value && newValue.includes( slug ) ) {
+												newValue = newValue.filter(
+													function ( hiddenItem ) {
+														return hiddenItem !== slug;
+													}
+												);
+											}
+											setAttributes( {
+												setHiddens: newValue,
+											} );
+										} }
+									/>
+								</ToolsPanelItem>
 							);
 						} ) }
-					{ terms !== false && ! terms && <LabeledSpinner label="Category" /> }
-					{ !! terms && terms.length && (
-						<SelectControl
-							label="Category"
-							value={ baseTerm }
-							options={ [
-								{ label: 'All', value: 0 },
-								...buildTermsTree( terms ).map( ( i ) => {
-									return {
-										label: decodeEntities( i.name ),
-										value: i.id,
-									};
-								} ),
-							] }
+					<ToolsPanelItem
+						hasValue={ () => {
+							return baseTerm !== defaultAttributes.baseTerm.default;
+						} }
+						label="Category"
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								postType: defaultAttributes.postType.default,
+							} );
+						} }
+					>
+						{ terms !== false && ! terms && <LabeledSpinner label="Category" /> }
+						{ !! terms && terms.length && (
+							<SelectControl
+								label="Category"
+								value={ baseTerm }
+								options={ [
+									{ label: 'All', value: 0 },
+									...buildTermsTree( terms ).map( ( i ) => {
+										return {
+											label: decodeEntities( i.name ),
+											value: i.id,
+										};
+									} ),
+								] }
+								onChange={ ( value ) => {
+									setAttributes( { baseTerm: parseInt( value ) } );
+								} }
+								__next40pxDefaultSize
+							/>
+						) }
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return limit !== defaultAttributes.limit.default;
+						} }
+						label="Limit"
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								limit: defaultAttributes.limit.default,
+							} );
+						} }
+					>
+						<TextControl
+							type="number"
+							min="1"
+							label="Limit"
+							value={ limit }
 							onChange={ ( value ) => {
-								setAttributes( { baseTerm: value } );
+								setAttributes( { limit: parseInt( value ) } );
 							} }
 							__next40pxDefaultSize
 						/>
-					) }
-					<TextControl
-						type="number"
-						min="1"
-						label="Limit"
-						value={ limit }
-						onChange={ ( value ) => {
-							setAttributes( { limit: parseInt( value ) } );
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return orderBy !== postTypes[ postType ].sorts[ 0 ];
 						} }
-						__next40pxDefaultSize
-					/>
-					<RadioControl
 						label="Order By"
-						selected={ orderBy }
-						options={ getOrderOptions() }
-						onChange={ ( value ) => {
+						isShownByDefault={ true }
+						onDeselect={ () => {
 							setAttributes( {
-								orderBy: value,
-								order: orderbyOptions[ value ].order,
+								orderBy: postTypes[ postType ].sorts[ 0 ],
 							} );
 						} }
-					/>
-				</PanelBody>
-				<PanelBody title="Filters" initialOpen={ false }>
+					>
+						<RadioControl
+							label="Order By"
+							selected={ orderBy }
+							options={ getOrderOptions() }
+							onChange={ ( value ) => {
+								setAttributes( {
+									orderBy: value,
+									order: orderbyOptions[ value ].order,
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+				<PanelBody title="Filters" initialOpen={ true }>
 					{ !! postTypes[ postType ]?.searchParams &&
 						Object.keys( postTypes[ postType ].searchParams ).map( ( slug ) => {
 							return (
@@ -286,15 +375,35 @@ export function Edit( props ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title="Markup" initialOpen={ false }>
-					<TagSelect
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
@@ -438,10 +547,14 @@ export function Edit( props ) {
 						className={ `capitola-listings__list --${ listLayout }` }
 						style={ { '--wp--custom--truncate-lines': excerptLines } }
 					>
-						{ posts.map( ( i ) => {
+						{ posts.map( ( post ) => {
 							return (
-								<div key={ i.id } className="capitola-result">
-									{ postTile( attributes, layoutConditionals( attributes ), i ) }
+								<div key={ post.id } className="capitola-result">
+									<PostTile
+										attributes
+										conditionals={ layoutConditionals( attributes ) }
+										item={ post }
+									/>
 								</div>
 							);
 						} ) }

@@ -1,6 +1,6 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
-import { AddChildButton } from '../../editor-controls';
+import { AddChildButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, clientId } = props;

@@ -1,4 +1,4 @@
-import Cookies from '../../scripts/modules/cookies';
+import Cookies from '@capitola/scripts/modules/cookies';
 
 import { store, getContext, getElement } from '@wordpress/interactivity';
 

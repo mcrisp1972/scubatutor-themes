@@ -1,4 +1,4 @@
-@use "../../styles/abstracts" as *;
+@use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-cover-block {
 	@include block-outer-wrap;
@@ -97,6 +97,7 @@
 
 	&__headline {
 		text-align: center;
+		margin-top: 0;
 
 		.--align-left &,
 		.--align-right & {

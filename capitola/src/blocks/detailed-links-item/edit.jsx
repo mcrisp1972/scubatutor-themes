@@ -10,7 +10,7 @@ import {
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import { customLink } from '@wordpress/icons';
-import { PostPicker, ImageSelect, PlaceholderImage } from '../../editor-controls';
+import { PostPicker, ImageSelect, PlaceholderImage } from '@capitola/editor-controls';
 import metadata from './block.json';
 
 function BlockPlaceholder( { postType, postId, setAttributes, postTypeOptions } ) {
@@ -88,7 +88,7 @@ export function Edit( props ) {
 						} }
 						postType={ postType }
 					/>
-					{ context.showImage && (
+					{ context[ 'capitola/showImage' ] && (
 						<ImageSelect
 							label="Image Override"
 							value={ linkImage.id }
@@ -112,7 +112,7 @@ export function Edit( props ) {
 						} }
 						__next40pxDefaultSize
 					/>
-					{ context.showExcerpt && (
+					{ context[ 'capitola/showExcerpt' ] && (
 						<TextareaControl
 							label="Excerpt Override"
 							value={ linkExcerpt }
@@ -134,7 +134,7 @@ export function Edit( props ) {
 				/>
 			) : (
 				<>
-					{ context.showImage && (
+					{ context[ 'capitola/showImage' ] && (
 						<div className="wp-block-capitola-detailed-links-item__image">
 							{ ( () => {
 								if ( imageUrl ) {
@@ -150,7 +150,7 @@ export function Edit( props ) {
 						<div className="wp-block-capitola-detailed-links-item__title --hl-s">
 							{ !! linkTitle ? linkTitle : linkObj?.title.raw }
 						</div>
-						{ !! context.showExcerpt && (
+						{ !! context[ 'capitola/showExcerpt' ] && (
 							<p className="wp-block-capitola-detailed-links-item__excerpt">
 								{ !! linkExcerpt ? linkExcerpt : linkObj?.excerpt.raw }
 							</p>

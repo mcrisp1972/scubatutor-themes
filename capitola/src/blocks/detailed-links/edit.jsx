@@ -6,7 +6,7 @@ import {
 	AnimationPanel,
 	TruncateControl,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, clientId } = props;

@@ -12,7 +12,7 @@ $excerpt  = $attributes['linkExcerpt'] ? $attributes['linkExcerpt'] : get_post_f
 
 ?>
 <article <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
-	<?php if ( ! empty( $block->context['showImage'] ) && $image_id ) : ?>
+	<?php if ( ! empty( $block->context['capitola/showImage'] ) && $image_id ) : ?>
 		<figure class="wp-block-capitola-detailed-links-item__image">
 			<?php echo wp_get_attachment_image( $image_id, 'medium' ); ?>
 		</figure>
@@ -21,7 +21,7 @@ $excerpt  = $attributes['linkExcerpt'] ? $attributes['linkExcerpt'] : get_post_f
 		<a class="wp-block-capitola-detailed-links-item__title --hl-s" href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>">
 			<?php echo esc_html( $attributes['linkTitle'] ? $attributes['linkTitle'] : get_the_title( $attributes['postId'] ) ); ?>
 		</a>
-		<?php if ( $excerpt && ! empty( $block->context['showExcerpt'] ) ) : ?>
+		<?php if ( $excerpt && ! empty( $block->context['capitola/showExcerpt'] ) ) : ?>
 			<p class="wp-block-capitola-detailed-links-item__excerpt">
 				<?php echo esc_html( $excerpt ); ?>
 			</p>

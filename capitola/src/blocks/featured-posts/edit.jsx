@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -5,7 +6,10 @@ import {
 	ToggleControl,
 	TextControl,
 	RadioControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
 import { applyFilters } from '@wordpress/hooks';
 import { useSelect } from '@wordpress/data';
 import {
@@ -15,18 +19,16 @@ import {
 	PostPicker,
 	Repeater,
 	repeaterOnChange,
-} from '../../editor-controls';
-import postTile from '../post-feed/post-tile';
-import PostFeedTemplate from '../post-feed/post-feed-template';
+} from '@capitola/editor-controls';
+import PostTile from '@capitola/blocks/post-feed/post-tile';
+import PostFeedTemplate from '@capitola/blocks/post-feed/post-feed-template';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 
 	const {
 		listLayout,
 		showSlideCount,
-		headlineTag,
-		eyebrowTag,
 		titleTag,
 		ctaText,
 		showExcerpt,
@@ -53,8 +55,10 @@ export function Edit( props ) {
 		[ postType, posts ]
 	);
 	const blockProps = useBlockProps( {
-		className: 'alignfull is-layout-constrained has-global-padding ',
+		className: 'capitola-listings alignfull is-layout-constrained has-global-padding ',
 	} );
+
+	const defaultAttributes = getBlockType( name ).attributes;
 
 	return (
 		<div { ...blockProps }>
@@ -101,29 +105,35 @@ export function Edit( props ) {
 						} }
 					/>
 				</PanelBody>
-				<PanelBody title="H Tags" initialOpen={ false }>
-					<TagSelect
-						label="Eyebrow Tag"
-						value={ eyebrowTag }
-						onChange={ ( value ) => {
-							setAttributes( { eyebrowTag: value } );
-						} }
-					/>
-					<TagSelect
-						label="Headline Tag"
-						value={ headlineTag }
-						onChange={ ( value ) => {
-							setAttributes( { headlineTag: value } );
-						} }
-					/>
-					<TagSelect
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
@@ -197,7 +207,12 @@ export function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ PostFeedTemplate( props, postObjects, postTile ) }
+			<PostFeedTemplate
+				props={ props }
+				items={ postObjects }
+				CardTemplate={ PostTile }
+				noResultsMsg="No posts selected. The block will not be displayed."
+			/>
 		</div>
 	);
 }

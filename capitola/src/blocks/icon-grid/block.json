@@ -22,8 +22,8 @@
 	],
 	"attributes": {},
 	"usesContext": [
-		"revealAnimation",
-		"introAlign"
+		"capitola/revealAnimation",
+		"capitola/introAlign"
 	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"

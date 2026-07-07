@@ -3,50 +3,53 @@ import { useRef } from '@wordpress/element';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { layoutConditionals } from './layout-conditionals';
-import { animationPreviewClass } from '../../editor-controls';
+import { animationPreviewClass } from '@capitola/editor-controls';
 
-function SwiperTemplate( { attributes, cardTemplate, items } ) {
+function SwiperTemplate( { attributes, CardTemplate, items } ) {
 	const { showSlideCount } = attributes;
 	const navigationPrevRef = useRef( null );
 	const navigationNextRef = useRef( null );
 	const paginationRef = useRef( null );
 
+	const swiperProps = {
+		wrapperClass: 'capitola-listings__list --sidescroll',
+		style: { '--wp--custom--truncate-lines': attributes.excerptLines },
+		modules: [ Navigation, Pagination ],
+		navigation: {
+			nextEl: navigationNextRef.current,
+			prevEl: navigationPrevRef.current,
+			addIcons: false,
+		},
+		pagination: showSlideCount
+			? {
+					el: paginationRef.current,
+					type: 'custom',
+					renderCustom: ( swiper, current, total ) => {
+						return current + ' of ' + total;
+					},
+			  }
+			: false,
+		speed: 800,
+		slidesPerGroup: 1,
+		slidesPerGroupAuto: true,
+		slidesPerView: 'auto',
+		onBeforeInit: ( swiper ) => {
+			swiper.params.navigation.prevEl = navigationPrevRef.current;
+			swiper.params.navigation.nextEl = navigationNextRef.current;
+			swiper.params.pagination.el = paginationRef.current;
+		},
+	};
+
 	return (
-		<Swiper
-			className="capitola-listings__sidescroll"
-			wrapperClass="capitola-listings__list --sidescroll"
-			style={ { '--wp--custom--truncate-lines': attributes.excerptLines } }
-			modules={ [ Navigation, Pagination ] }
-			navigation={ {
-				nextEl: navigationNextRef.current,
-				prevEl: navigationPrevRef.current,
-				addIcons: false,
-			} }
-			pagination={
-				showSlideCount
-					? {
-							el: paginationRef.current,
-							type: 'custom',
-							renderCustom: ( swiper, current, total ) => {
-								return current + ' of ' + total;
-							},
-					  }
-					: false
-			}
-			speed={ 800 }
-			slidesPerGroup={ 1 }
-			slidesPerGroupAuto={ true }
-			slidesPerView="auto"
-			onBeforeInit={ ( swiper ) => {
-				swiper.params.navigation.prevEl = navigationPrevRef.current;
-				swiper.params.navigation.nextEl = navigationNextRef.current;
-				swiper.params.pagination.el = paginationRef.current;
-			} }
-		>
-			{ items.map( ( i ) => {
+		<Swiper className="capitola-listings__sidescroll" { ...swiperProps }>
+			{ items.map( ( term ) => {
 				return (
-					<SwiperSlide key={ i.id } className="capitola-result">
-						{ cardTemplate( attributes, layoutConditionals( attributes ), i ) }
+					<SwiperSlide key={ term.id } className="capitola-result">
+						<CardTemplate
+							attributes={ attributes }
+							conditionals={ layoutConditionals( attributes ) }
+							item={ term }
+						/>
 					</SwiperSlide>
 				);
 			} ) }
@@ -67,7 +70,7 @@ function SwiperTemplate( { attributes, cardTemplate, items } ) {
 	);
 }
 
-function GridTemplate( { attributes, cardTemplate, items } ) {
+function GridTemplate( { attributes, CardTemplate, items } ) {
 	const { listLayout } = attributes;
 	return (
 		<div className="capitola-listings__sidescroll">
@@ -77,15 +80,14 @@ function GridTemplate( { attributes, cardTemplate, items } ) {
 					'--wp--custom--truncate-lines': attributes.excerptLines,
 				} }
 			>
-				{ items.map( ( i, index ) => {
+				{ items.map( ( item, index ) => {
 					return (
 						<article key={ index } className="capitola-result">
-							{ cardTemplate(
-								attributes,
-								layoutConditionals( attributes ),
-								i,
-								index
-							) }
+							<CardTemplate
+								attributes={ attributes }
+								conditionals={ layoutConditionals( attributes ) }
+								item={ item }
+							/>
 						</article>
 					);
 				} ) }
@@ -94,7 +96,12 @@ function GridTemplate( { attributes, cardTemplate, items } ) {
 	);
 }
 
-export default function PostFeedTemplate( props, items, cardTemplate ) {
+export default function PostFeedTemplate( {
+	props,
+	items,
+	CardTemplate,
+	noResultsMsg = 'No Results Found. The block will not be displayed.',
+} ) {
 	const { attributes } = props;
 	const { listLayout, revealAnimation } = attributes;
 	const hasSlider = listLayout === 'sidescroll';
@@ -119,16 +126,12 @@ export default function PostFeedTemplate( props, items, cardTemplate ) {
 				if ( ! items ) {
 					return <div className="--spinner" />;
 				} else if ( items.length === 0 ) {
-					return (
-						<p className="--block-notice">
-							No Results Found. The block will not be displayed.
-						</p>
-					);
+					return <p className="--block-notice">{ noResultsMsg }</p>;
 				} else if ( hasSlider ) {
 					return (
 						<SwiperTemplate
 							attributes={ attributes }
-							cardTemplate={ cardTemplate }
+							CardTemplate={ CardTemplate }
 							items={ items }
 						/>
 					);
@@ -136,7 +139,7 @@ export default function PostFeedTemplate( props, items, cardTemplate ) {
 				return (
 					<GridTemplate
 						attributes={ attributes }
-						cardTemplate={ cardTemplate }
+						CardTemplate={ CardTemplate }
 						items={ items }
 					/>
 				);

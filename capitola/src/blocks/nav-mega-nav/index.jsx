@@ -1,7 +1,7 @@
 import { registerBlockType, createBlock } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import metadata from './block.json';
-import { verticalSplit } from '../../editor-icons';
+import { verticalSplit } from '@capitola/editor-icons';
 import { Edit } from './edit';
 import './style.scss';
 

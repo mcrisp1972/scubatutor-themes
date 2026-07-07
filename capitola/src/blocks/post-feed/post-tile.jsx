@@ -1,21 +1,21 @@
 import { decodeEntities } from '@wordpress/html-entities';
 
-export default function postTile( attributes, conditionals, post ) {
+export default function PostTile( { attributes, conditionals, item } ) {
 	return (
 		<div className="capitola-result__link">
 			<div className="capitola-result__image-col --theme-image-overlay">
-				<img src={ post.thumbnail_urls.large } alt="" />
+				<img src={ item.thumbnail_urls.large } alt="" />
 				{ ( conditionals.titleLocation === 'image' ||
 					conditionals.ctaLocation === 'image' ) && <div className="__opacity-layer" /> }
 				<div className="capitola-result__thumb-content">
 					{ conditionals.titleLocation === 'image' && (
 						<>
 							<div className="capitola-result__thumb-title --hl-s">
-								{ post.title.raw }
+								{ item.title.raw }
 							</div>
-							{ post.event_dates && (
+							{ item.event_dates && (
 								<div className="capitola-result__thumb-subtitle">
-									{ post.event_dates }
+									{ item.event_dates }
 								</div>
 							) }
 						</>
@@ -26,9 +26,9 @@ export default function postTile( attributes, conditionals, post ) {
 						</span>
 					) }
 				</div>
-				{ conditionals.titleLocation === 'image' && post.category_name && (
+				{ conditionals.titleLocation === 'image' && item.category_name && (
 					<div className="capitola-result__thumb-cat">
-						{ decodeEntities( post.category_name ) }
+						{ decodeEntities( item.category_name ) }
 					</div>
 				) }
 			</div>
@@ -36,39 +36,39 @@ export default function postTile( attributes, conditionals, post ) {
 				<div className="capitola-result__content">
 					{ conditionals.titleLocation === 'body' && (
 						<div>
-							{ post.category_name && (
+							{ item.category_name && (
 								<div className="capitola-result__body-cat --eyebrow">
-									{ decodeEntities( post.category_name ) }
+									{ decodeEntities( item.category_name ) }
 								</div>
 							) }
-							<div className="capitola-result__title --hl-s">{ post.title.raw }</div>
-							{ post.event_dates && (
+							<div className="capitola-result__title --hl-s">{ item.title.raw }</div>
+							{ item.event_dates && (
 								<div className="capitola-result__subtitle">
-									{ post.event_dates }
+									{ item.event_dates }
 								</div>
 							) }
 						</div>
 					) }
-					{ post.excerpt.rendered && conditionals.showExcerpt && (
+					{ item.excerpt.rendered && conditionals.showExcerpt && (
 						<div
 							className="capitola-result__excerpt"
 							dangerouslySetInnerHTML={ {
-								__html: post.excerpt.rendered,
+								__html: item.excerpt.rendered,
 							} }
 						/>
 					) }
 					{ conditionals.showByline && (
 						<div className="capitola-result__byline">
-							{ post.byline.author_image && (
+							{ item.byline.author_image && (
 								<div className="capitola-result__byline-img-wrap">
 									<img
-										src={ post.byline.author_image }
-										alt={ post.byline.name }
+										src={ item.byline.author_image }
+										alt={ item.byline.name }
 									/>
 								</div>
 							) }
 							<div className="capitola-result__byline-date">
-								{ post.byline.name } <br /> { post.byline.date }
+								{ item.byline.name } <br /> { item.byline.date }
 							</div>
 						</div>
 					) }

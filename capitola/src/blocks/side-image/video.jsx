@@ -1,4 +1,4 @@
-import { PlaceholderVideo } from '../../editor-controls';
+import { PlaceholderVideo } from '@capitola/editor-controls';
 
 export function Video( { radiusClass, videoObject, props } ) {
 	const { attributes } = props;

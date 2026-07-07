@@ -1,4 +1,4 @@
-@use "../../styles/abstracts" as *;
+@use "@capitola/styles/abstracts" as *;
 
 @keyframes small-image-slider--fadeIn {
 
@@ -62,7 +62,7 @@
 		display: flex;
 		flex-flow: column;
 		position: relative;
-		overflow: hidden;
+		overflow: visible;
 		transition: scale 0.6s linear, filter 0.6s linear;
 		justify-content: center;
 		align-items: center;

@@ -9,7 +9,7 @@ import {
 	Spinner,
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
-import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '../../editor-controls';
+import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '@capitola/editor-controls';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 import { useState, useEffect } from '@wordpress/element';

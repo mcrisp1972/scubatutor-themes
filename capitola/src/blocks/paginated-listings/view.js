@@ -1,4 +1,4 @@
-import filteredListings from '../../scripts/modules/filtered-listings';
+import filteredListings from '@capitola/scripts/modules/filtered-listings';
 
 class filteredListingsToggles {
 	constructor( wrapper ) {

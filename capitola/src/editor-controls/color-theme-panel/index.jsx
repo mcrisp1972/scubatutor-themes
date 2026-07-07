@@ -1,13 +1,13 @@
 import { PanelBody } from '@wordpress/components';
 import { ColorThemePicker } from '../';
 
-export function ColorThemePanel( { props, initialOpen } ) {
+export function ColorThemePanel( { props, initialOpen = true } ) {
 	const { attributes, setAttributes } = props;
 
 	const { colorTheme } = attributes;
 
 	return (
-		<PanelBody title="Theme" initialOpen={ initialOpen ? true : false }>
+		<PanelBody title="Theme" initialOpen={ ! initialOpen ? false : true }>
 			{ props.attributes.hasOwnProperty( 'colorTheme' ) && (
 				<ColorThemePicker
 					label="Block Color Theme"

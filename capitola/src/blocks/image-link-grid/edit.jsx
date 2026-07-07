@@ -1,10 +1,9 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { AddChildButton } from '../../editor-controls';
+import { AddChildButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { context, clientId } = props;
-	const { gridLayout, gridGap, excerptLines } = context;
 
 	const innerBlockCount = useSelect(
 		( select ) => {
@@ -21,27 +20,31 @@ export function Edit( props ) {
 		( innerBlockCount + 2 ) % 3 === 0 ? ' --two-thirds-first --two-thirds-second' : '';
 
 	const oneHalfFirstClass =
-		gridLayout === '4-col' && ( innerBlockCount + 1 ) % 4 === 0 ? ' --one-half-first' : '';
+		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 1 ) % 4 === 0
+			? ' --one-half-first'
+			: '';
 
 	const oneHalfFirstTwoClass =
-		gridLayout === '4-col' && ( innerBlockCount + 2 ) % 4 === 0
+		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 2 ) % 4 === 0
 			? ' --one-half-first --one-half-second'
 			: '';
 
 	const oneHalfFirstThreeClass =
-		gridLayout === '4-col' && ( innerBlockCount + 3 ) % 4 === 0
+		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 3 ) % 4 === 0
 			? ' --one-half-first --one-half-second --one-half-third'
 			: '';
 
 	const blockProps = useBlockProps( {
 		className: 'alignfull',
-		style: { '--wp--custom--truncate-lines': excerptLines },
+		style: { '--wp--custom--truncate-lines': context[ 'capitola/excerptLines' ] },
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
-				gridGap ? '--grid-gap' : ''
+			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${
+				context[ 'capitola/gridLayout' ]
+			} ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
+				context[ 'capitola/gridGap' ] ? '--grid-gap' : ''
 			}`,
 		},
 		{

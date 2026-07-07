@@ -7,7 +7,6 @@ import {
 	BlockControls,
 } from '@wordpress/block-editor';
 import {
-	PanelBody,
 	ToolbarGroup,
 	RadioControl,
 	__experimentalToolsPanel as ToolsPanel,
@@ -24,10 +23,10 @@ import {
 	JustifyToolbar,
 	VerticalAlignToolbar,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { attributes, setAttributes, context } = props;
+	const { attributes, setAttributes, name, context } = props;
 	const {
 		backgroundImage,
 		imageOpacity,
@@ -43,7 +42,10 @@ export function Edit( props ) {
 		isHeroVariation,
 		imageScrollAnimation,
 	} = attributes;
-	const { bodyTextOptions, introAlign, revealAnimation } = context;
+
+	const bodyTextOptions = context[ 'capitola/bodyTextOptions' ];
+	const introAlign = context[ 'capitola/introAlign' ];
+	const revealAnimation = context[ 'capitola/revealAnimation' ];
 
 	const postTitle = useSelect(
 		( select ) => {
@@ -60,7 +62,7 @@ export function Edit( props ) {
 		introAlign === 'top' && textAlign === 'center' ? ' --is-centered-intro' : '';
 	const textAlignClass = textAlign === 'center' ? ' --text-align-center' : '';
 
-	const defaultAttributes = getBlockType( props.name )?.attributes;
+	const defaultAttributes = getBlockType( name ).attributes;
 
 	const blockProps = useBlockProps( {
 		className: `${ justifyClass } ${ imageClass } ${ introPositionClass } ${ introAlignClass } ${ textAlignClass }`,
@@ -188,25 +190,56 @@ export function Edit( props ) {
 						</ToolsPanelItem>
 					</ToolsPanel>
 				) }
-				<PanelBody
-					title="Markup"
-					initialOpen={ bodyTextOptions?.disableBackgroundImage ? true : false }
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							eyebrowTag: defaultAttributes.eyebrowTag.default,
+							headlineTag: defaultAttributes.headlineTag.default,
+						} );
+					} }
 				>
-					<TagSelect
+					<ToolsPanelItem
 						label="Eyebrow Tag"
-						value={ eyebrowTag }
-						onChange={ ( value ) => {
-							setAttributes( { eyebrowTag: value } );
+						hasValue={ () => {
+							return eyebrowTag !== defaultAttributes.eyebrowTag.default;
 						} }
-					/>
-					<TagSelect
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								eyebrowTag: defaultAttributes.eyebrowTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Eyebrow Tag"
+							value={ eyebrowTag }
+							onChange={ ( value ) => {
+								setAttributes( { eyebrowTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
 						label="Headline Tag"
-						value={ headlineTag }
-						onChange={ ( value ) => {
-							setAttributes( { headlineTag: value } );
+						hasValue={ () => {
+							return headlineTag !== defaultAttributes.headlineTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								headlineTag: defaultAttributes.headlineTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Headline Tag"
+							value={ headlineTag }
+							onChange={ ( value ) => {
+								setAttributes( { headlineTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>

@@ -7,6 +7,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Normalizes block attribute keys by removing known namespace prefixes.
+ *
+ * @param array $attributes Block attributes.
+ * @return array
+ */
+function normalize_attribute_keys( $attributes ) {
+	if ( ! is_array( $attributes ) ) {
+		return $attributes;
+	}
+
+	$normalized = array();
+
+	foreach ( $attributes as $key => $value ) {
+		if ( is_string( $key ) && 0 === strpos( $key, 'capitola/' ) ) {
+			$key = substr( $key, strlen( 'capitola/' ) );
+		}
+		$normalized[ $key ] = $value;
+	}
+
+	return $normalized;
+}
+
+/**
  * Returns CSS class names for scroll animated images.
  *
  * @param string $attribute Scroll animation.
@@ -29,6 +52,8 @@ function img_scroll_animation_class( $attribute ) {
  * @return array
  */
 function animation_attributes( $attributes, $force_body = false ) {
+	$attributes = normalize_attribute_keys( $attributes );
+
 	if ( ! isset( $attributes['revealAnimation'] ) ) {
 		return array(
 			'block-class'   => '',
@@ -129,6 +154,8 @@ function animation_attributes( $attributes, $force_body = false ) {
  * @return array
  */
 function layout_conditionals( $attributes ) {
+	$attributes = normalize_attribute_keys( $attributes );
+
 	$show_excerpt   = 'row' === $attributes['listLayout'] ? 1 : $attributes['showExcerpt'];
 	$show_byline    = isset( $attributes['postType'] ) && 'post' === $attributes['postType'] && ! empty( $attributes['showByline'] ) ? 1 : 0;
 	$title_location = 'row' === $attributes['listLayout'] ? 'body' : $attributes['titleLocation'];
@@ -152,6 +179,8 @@ function layout_conditionals( $attributes ) {
  * @return array
  */
 function alternate_theme( $attributes, $section ) {
+	$attributes = normalize_attribute_keys( $attributes );
+
 	$object = get_queried_object();
 	$colors = wp_json_file_decode(
 		CAPITOLA_CHILD_THEME_DIR . '/color-themes.json',

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import { PlaceholderIframe } from '../../editor-controls';
+import { PlaceholderIframe } from '@capitola/editor-controls';
 
 function isValidIframeHtml( html ) {
 	const pattern = /<iframe[^>]*>([\s\S]*?)<\/iframe>/gm;
