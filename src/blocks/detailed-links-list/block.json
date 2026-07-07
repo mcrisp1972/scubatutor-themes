@@ -22,8 +22,8 @@
 		"capitola/detailed-links"
 	],
 	"usesContext": [
-		"introAlign",
-		"revealAnimation"
+		"capitola/introAlign",
+		"capitola/revealAnimation"
 	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"

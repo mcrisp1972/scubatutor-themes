@@ -18,9 +18,9 @@ if ( ! $attributes['headline'] && $attributes['isHeroVariation'] ) {
 	$attributes['headline'] = get_the_title();
 }
 
-$intro_position_class = ' --is-' . $block->context['introAlign'] . '-intro';
+$intro_position_class = ' --is-' . $block->context['capitola/introAlign'] . '-intro';
 
-$intro_align_class = 'top' === $block->context['introAlign'] && 'center' === $attributes['textAlign'] ? ' --is-centered-intro' : '';
+$intro_align_class = 'top' === $block->context['capitola/introAlign'] && 'center' === $attributes['textAlign'] ? ' --is-centered-intro' : '';
 
 $justify_class = 'top' === $attributes['verticalAlign'] ? ' --justify-top' : '';
 

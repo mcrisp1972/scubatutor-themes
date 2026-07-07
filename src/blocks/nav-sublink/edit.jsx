@@ -2,7 +2,7 @@ import { InspectorControls, useBlockProps, RichText, LinkControl } from '@wordpr
 import { createBlock } from '@wordpress/blocks';
 import { PanelBody, TextControl, Popover } from '@wordpress/components';
 import { Platform, useState } from '@wordpress/element';
-import { LinkSelect } from '../../editor-controls';
+import { LinkSelect } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, onReplace, clientId } = props;

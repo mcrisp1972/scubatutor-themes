@@ -1,4 +1,4 @@
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, createBlock, getBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { mediaAndText } from '@wordpress/icons';
 import metadata from './block.json';
@@ -10,5 +10,38 @@ registerBlockType( metadata, {
 	edit: Edit,
 	save: () => {
 		return <InnerBlocks.Content />;
+	},
+	transforms: {
+		to: [
+			{
+				type: 'block',
+				blocks: [ 'capitola/side-image' ],
+				transform: ( attributes, innerBlocks ) => {
+					attributes = {
+						...attributes,
+						sideImage: attributes.frontImage,
+						showCaption: attributes.frontImageShowCaption,
+						imageCaption: attributes.frontImageCaption,
+						imageRadius: attributes.frontImageRadius,
+					};
+					return createBlock( 'capitola/side-image', attributes, innerBlocks );
+				},
+			},
+			{
+				type: 'block',
+				blocks: [ 'capitola/two-image-block' ],
+				transform: ( attributes, innerBlocks ) => {
+					const defaultAttributes = getBlockType( 'capitola/two-image-block' ).attributes;
+					attributes = {
+						...attributes,
+						rearImageHeight: defaultAttributes.rearImageHeight.default,
+						rearImageWidth: defaultAttributes.rearImageWidth.default,
+						frontImageHeight: defaultAttributes.frontImageHeight.default,
+						frontImageWidth: defaultAttributes.frontImageWidth.default,
+					};
+					return createBlock( 'capitola/two-image-block', attributes, innerBlocks );
+				},
+			},
+		],
 	},
 } );

@@ -1,7 +1,7 @@
 import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
 import { PanelBody } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { IconSelector } from '../../editor-controls';
+import { IconSelector } from '@capitola/editor-controls';
 import icons from '../../../assets/svgs/icons/icons.json';
 
 export function Edit( props ) {

@@ -25,6 +25,7 @@ export { PostPicker } from './post-picker';
 export { Repeater, repeaterOnChange } from './repeater';
 export { RepeaterControls } from './repeater-controls';
 export { RepeaterPopover } from './repeater-popover';
+export { RepeaterBlockControls } from './repeater-block-controls';
 export { TagSelect } from './tag-select';
 export { TimePicker } from './time-picker';
 export { TMCEControl } from './tmce-control';

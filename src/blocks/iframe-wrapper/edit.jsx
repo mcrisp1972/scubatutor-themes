@@ -1,6 +1,6 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, TextareaControl } from '@wordpress/components';
-import { PlaceholderIframe } from '../../editor-controls';
+import { PlaceholderIframe } from '@capitola/editor-controls';
 
 function isValidIframeHtml( html ) {
 	const pattern = /<iframe[^>]*>([\s\S]*?)<\/iframe>/gm;

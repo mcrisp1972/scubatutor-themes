@@ -6,7 +6,7 @@ import {
 	AnimationPanel,
 	animationPreviewClass,
 	AddGrandChildButton,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, clientId } = props;
@@ -18,6 +18,7 @@ export function Edit( props ) {
 	} );
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
+
 	const blockProps = useBlockProps( {
 		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 	} );

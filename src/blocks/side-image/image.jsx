@@ -1,7 +1,7 @@
 import { MediaPlaceholder } from '@wordpress/block-editor';
 import { Spinner } from '@wordpress/components';
 
-import { PlaceholderImage, ImageSelectButton } from '../../editor-controls';
+import { PlaceholderImage, ImageSelectButton } from '@capitola/editor-controls';
 
 export function Image( {
 	imageObject,

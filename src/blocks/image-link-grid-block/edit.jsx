@@ -6,7 +6,7 @@ import {
 	AnimationPanel,
 	animationPreviewClass,
 	AddGrandChildButton,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, clientId } = props;
@@ -62,7 +62,7 @@ export function Edit( props ) {
 				</PanelBody>
 			</InspectorControls>
 			<InspectorControls group="styles">
-				<ColorThemePanel props={ props } initialOpen={ true } />
+				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
 			<AddGrandChildButton

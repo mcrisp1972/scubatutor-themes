@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -5,14 +6,23 @@ import {
 	SelectControl,
 	ToggleControl,
 	TextControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
+import { getBlockType } from '@wordpress/blocks';
+import { useMemo } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
-import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
-import termTile from './term-tile';
-import PostFeedTemplate from '../post-feed/post-feed-template';
+import {
+	TagSelect,
+	ColorThemePanel,
+	AnimationPanel,
+	TruncateControl,
+} from '@capitola/editor-controls';
+import TermTile from './term-tile';
+import PostFeedTemplate from '@capitola/blocks/post-feed/post-feed-template';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { name, attributes, setAttributes } = props;
 
 	const {
 		listLayout,
@@ -41,6 +51,11 @@ export function Edit( props ) {
 		},
 		[ limit, orderBy, taxonomy ]
 	);
+
+	const defaultAttributes = useMemo( () => {
+		return getBlockType( name ).attributes;
+	}, [ name ] );
+
 	const blockProps = useBlockProps( {
 		className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 	} );
@@ -48,47 +63,115 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
-				<PanelBody title="Query Options" initialOpen={ true }>
-					<SelectControl
-						label="Taxonomy"
-						value={ taxonomy }
-						options={ availableTaxonomies }
-						onChange={ ( value ) => {
-							setAttributes( { taxonomy: value } );
+				<ToolsPanel
+					label="Query Options"
+					resetAll={ () => {
+						setAttributes( {
+							taxonomy: defaultAttributes.taxonomy.default,
+							limit: defaultAttributes.limit.default,
+							orderBy: defaultAttributes.orderBy.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return defaultAttributes.taxonomy.default !== taxonomy;
 						} }
-						__next40pxDefaultSize
-					/>
-					<TextControl
-						type="number"
-						min="1"
+						isShownByDefault={ true }
+						label="Category"
+						onDeselect={ () => {
+							setAttributes( {
+								taxonomy: defaultAttributes?.taxonomy,
+							} );
+						} }
+					>
+						<SelectControl
+							label="Taxonomy"
+							value={ taxonomy }
+							options={ availableTaxonomies }
+							onChange={ ( value ) => {
+								setAttributes( { taxonomy: value } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return defaultAttributes.limit.default !== limit;
+						} }
 						label="Limit"
-						value={ limit }
-						onChange={ ( value ) => {
-							setAttributes( { limit: parseInt( value ) } );
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								limit: defaultAttributes.limit.default,
+							} );
 						} }
-						__next40pxDefaultSize
-					/>
-					<RadioControl
+					>
+						<TextControl
+							type="number"
+							min="1"
+							label="Limit"
+							value={ limit }
+							onChange={ ( value ) => {
+								setAttributes( { limit: parseInt( value ) } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return defaultAttributes?.orderBy.default !== orderBy;
+						} }
 						label="Ordering"
-						selected={ orderBy }
-						options={ [
-							{ label: 'Name', value: 'name' },
-							{ label: 'Number of Posts', value: 'count' },
-						] }
-						onChange={ ( value ) => {
-							setAttributes( { orderBy: value } );
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								orderBy: defaultAttributes?.orderBy.default,
+							} );
 						} }
-					/>
-				</PanelBody>
-				<PanelBody title="Markup" initialOpen={ false }>
-					<TagSelect
+					>
+						<RadioControl
+							label="Ordering"
+							selected={ orderBy }
+							options={ [
+								{ label: 'Name', value: 'name' },
+								{ label: 'Number of Posts', value: 'count' },
+							] }
+							onChange={ ( value ) => {
+								setAttributes( { orderBy: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
@@ -160,7 +243,7 @@ export function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ PostFeedTemplate( props, terms, termTile ) }
+			<PostFeedTemplate props={ props } items={ terms } CardTemplate={ TermTile } />
 		</div>
 	);
 }

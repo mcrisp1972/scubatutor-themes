@@ -1,5 +1,5 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { ColorThemePanel } from '../../editor-controls';
+import { ColorThemePanel } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes } = props;

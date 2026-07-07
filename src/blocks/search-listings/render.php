@@ -20,17 +20,17 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="capitola-listings__width alignwide">
-		<div class="capitola-listings__search-head">
+		<div class="wp-block-capitola-search-listings__search-head">
 			<?php if ( $attributes['headline'] ) : ?>
 				<<?php echo tag_escape( $attributes['headlineTag'] ); ?> class="capitola-listings__search-headline --hl-l">
 					<?php echo esc_html( $attributes['headline'] ); ?>
 				</<?php echo tag_escape( $attributes['headlineTag'] ); ?>>
 			<?php endif; ?>
-			<form class="capitola-listings__search-form" action="/" autocomplete="off">
+			<form class="wp-block-capitola-search-listings__search-form" action="/" autocomplete="off">
 				<input type="search" name="s" value="<?php echo esc_attr( $search_string ? sanitize_text_field( $search_string ) : '' ); ?>" aria-label="search" placeholder="What are you looking for?"/>
 				<button type="submit" class="search-icon" aria-label="submit search"></button>
 			</form>
-			<div class="capitola-listings__search-count">
+			<div class="wp-block-capitola-search-listings__search-count">
 				We found <?php echo esc_html( $wp_query->found_posts . ' ' . $not_singular ); ?> in your search.
 			</div>
 		</div>

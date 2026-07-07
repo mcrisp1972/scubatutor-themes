@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -5,7 +6,10 @@ import {
 	SelectControl,
 	ToggleControl,
 	TextControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
+import { getBlockType, store as blocksStore } from '@wordpress/blocks';
 import { useSelect } from '@wordpress/data';
 import { decodeEntities } from '@wordpress/html-entities';
 import { applyFilters } from '@wordpress/hooks';
@@ -15,12 +19,12 @@ import {
 	AnimationPanel,
 	LabeledSpinner,
 	TruncateControl,
-} from '../../editor-controls';
-import postTile from './post-tile';
+} from '@capitola/editor-controls';
+import PostTile from './post-tile';
 import PostFeedTemplate from './post-feed-template';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { name, attributes, setAttributes } = props;
 
 	const {
 		listLayout,
@@ -42,6 +46,26 @@ export function Edit( props ) {
 	} = attributes;
 
 	const postTypeCats = applyFilters( 'capitola.postTypeCats' );
+
+	const defaultAttributes = getBlockType( name ).attributes;
+
+	const blockDefaults = Object.fromEntries(
+		Object.entries( defaultAttributes ?? {} ).map( ( [ key, def ] ) => {
+			return [ key, def?.default ];
+		} )
+	);
+
+	const activeVariation = useSelect(
+		( select ) => {
+			return select( blocksStore ).getActiveBlockVariation( name, attributes );
+		},
+		[ name, attributes ]
+	);
+
+	const effectiveDefaults = {
+		...blockDefaults,
+		...( activeVariation?.attributes ?? {} ),
+	};
 
 	const posts = useSelect(
 		( select ) => {
@@ -164,67 +188,134 @@ export function Edit( props ) {
 				<AnimationPanel props={ props } />
 			</InspectorControls>
 			<InspectorControls group="settings">
-				<PanelBody title="Query Options" initialOpen={ true }>
-					{ ! terms && <LabeledSpinner label="Category" /> }
-					{ !! terms && (
-						<SelectControl
-							multiple
-							label="Category"
-							value={ postCategory }
-							options={ [
-								{ label: 'All', value: 0 },
-								...terms.map( ( i ) => {
-									return {
-										label: decodeEntities( i.name ),
-										value: i.id,
-									};
-								} ),
-							] }
+				<ToolsPanel
+					label="Query Options"
+					resetAll={ () => {
+						setAttributes( {
+							postCategory: effectiveDefaults?.postCategory,
+							limit: effectiveDefaults?.limit,
+							orderBy: effectiveDefaults?.orderBy,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return postCategory.length > 0;
+						} }
+						isShownByDefault={ true }
+						label="Category"
+						onDeselect={ () => {
+							setAttributes( {
+								postCategory: effectiveDefaults?.postCategory,
+							} );
+						} }
+					>
+						{ ! terms && <LabeledSpinner label="Category" /> }
+						{ !! terms && (
+							<SelectControl
+								multiple
+								label="Category"
+								value={ postCategory }
+								options={ [
+									...terms.map( ( i ) => {
+										return {
+											label: decodeEntities( i.name ),
+											value: i.id,
+										};
+									} ),
+								] }
+								onChange={ ( value ) => {
+									setAttributes( { postCategory: value } );
+								} }
+								__next40pxDefaultSize
+							/>
+						) }
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return effectiveDefaults?.limit !== limit;
+						} }
+						label="Limit"
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								limit: effectiveDefaults?.limit,
+							} );
+						} }
+					>
+						<TextControl
+							type="number"
+							min="1"
+							label="Limit"
+							value={ limit }
 							onChange={ ( value ) => {
-								setAttributes( { postCategory: value } );
+								setAttributes( { limit: parseInt( value ) } );
 							} }
 							__next40pxDefaultSize
 						/>
-					) }
-					<TextControl
-						type="number"
-						min="1"
-						label="Limit"
-						value={ limit }
-						onChange={ ( value ) => {
-							setAttributes( { limit: parseInt( value ) } );
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return effectiveDefaults?.orderBy !== orderBy;
 						} }
-						__next40pxDefaultSize
-					/>
-					<RadioControl
 						label="Ordering"
-						selected={ orderBy }
-						options={ orderingOptions }
-						onChange={ ( value ) => {
-							let newOrder;
-							if ( value === 'event_date' || value === 'title' ) {
-								newOrder = 'asc';
-							} else {
-								newOrder = 'desc';
-							}
+						isShownByDefault={ true }
+						onDeselect={ () => {
 							setAttributes( {
-								orderBy: value,
-								order: newOrder,
+								orderBy: effectiveDefaults?.orderBy,
 							} );
 						} }
-					/>
-				</PanelBody>
-				<PanelBody title="Markup" initialOpen={ false }>
-					<TagSelect
+					>
+						<RadioControl
+							label="Ordering"
+							selected={ orderBy }
+							options={ orderingOptions }
+							onChange={ ( value ) => {
+								let newOrder;
+								if ( value === 'event_date' || value === 'title' ) {
+									newOrder = 'asc';
+								} else {
+									newOrder = 'desc';
+								}
+								setAttributes( {
+									orderBy: value,
+									order: newOrder,
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
-			{ PostFeedTemplate( props, posts, postTile ) }
+			<PostFeedTemplate props={ props } items={ posts } CardTemplate={ PostTile } />
 		</div>
 	);
 }

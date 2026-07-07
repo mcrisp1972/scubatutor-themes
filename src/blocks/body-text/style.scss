@@ -1,4 +1,4 @@
-@use "../../styles/abstracts" as *;
+@use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-body-text {
 	display: flex;
@@ -149,6 +149,7 @@
 
 	&__headline {
 		position: relative;
+		margin-top: 0;
 
 		.--is-top-intro & {
 			@include mq("medium") {

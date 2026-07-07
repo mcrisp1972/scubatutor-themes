@@ -5,7 +5,7 @@ import {
 	BlockControls,
 } from '@wordpress/block-editor';
 import { ToolbarGroup } from '@wordpress/components';
-import { ColorThemePanel, JustifyToolbar, TextAlignToolbar } from '../../editor-controls';
+import { ColorThemePanel, JustifyToolbar, TextAlignToolbar } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes } = props;
@@ -34,7 +34,7 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls>
-				<ColorThemePanel props={ props } initialOpen={ true } />
+				<ColorThemePanel props={ props } />
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarGroup>

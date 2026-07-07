@@ -13,7 +13,7 @@ import {
 	ImageSelect,
 	PlaceholderImage,
 	OverlayOpacitySlider,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;

@@ -17,6 +17,7 @@ export function RepeaterPopover( {
 	attribute,
 	index,
 	newValues,
+	showToolbar = true,
 	fullButton = false,
 	vertical = false,
 	onImageChange = false,
@@ -193,17 +194,19 @@ export function RepeaterPopover( {
 						}
 					} }
 				>
-					<div className="capitola-repeater-popover__toolbar" style={ style }>
-						{ ( allowNull || props.attributes[ attribute ].length > 1 ) && (
-							<DeleteButton />
-						) }
-						{ index !== 0 && <MoveBeforeButton /> }
-						{ index !== props.attributes[ attribute ].length - 1 && (
-							<MoveAfterButton />
-						) }
-						<AddAfterButton />
-						{ onImageChange ? imageButton( index ) : null }
-					</div>
+					{ showToolbar && (
+						<div className="capitola-repeater-popover__toolbar" style={ style }>
+							{ ( allowNull || props.attributes[ attribute ].length > 1 ) && (
+								<DeleteButton />
+							) }
+							{ index !== 0 && <MoveBeforeButton /> }
+							{ index !== props.attributes[ attribute ].length - 1 && (
+								<MoveAfterButton />
+							) }
+							<AddAfterButton />
+							{ onImageChange ? imageButton( index ) : null }
+						</div>
+					) }
 					{ children && (
 						<div className="capitola-repeater-popover__fields">
 							{ children }

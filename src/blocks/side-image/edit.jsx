@@ -33,13 +33,13 @@ import {
 	VideoSelect,
 	ImageFocalPoint,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 import { Iframe } from './iframe';
 import { Video } from './video';
 import { Image } from './image';
 
 export function Edit( props ) {
-	const { attributes, setAttributes, toggleSelection } = props;
+	const { attributes, setAttributes, name, toggleSelection } = props;
 
 	const {
 		introAlign,
@@ -108,7 +108,7 @@ export function Edit( props ) {
 	const stickyClass =
 		stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
 
-	const defaultAttributes = getBlockType( props.name )?.attributes;
+	const defaultAttributes = getBlockType( name ).attributes;
 
 	const blockProps = useBlockProps( {
 		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,

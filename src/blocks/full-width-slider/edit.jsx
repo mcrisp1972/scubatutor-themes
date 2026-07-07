@@ -9,7 +9,7 @@ import { PanelBody, RadioControl, ToggleControl, ToolbarGroup } from '@wordpress
 import {
 	ColorThemePanel,
 	AnimationPanel,
-	RepeaterControls,
+	RepeaterBlockControls,
 	ImageSelectButton,
 	CtaControl,
 	PlaceholderImage,
@@ -17,7 +17,7 @@ import {
 	AspectRatioToolbar,
 	RadiusToolbar,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 import {
 	Navigation,
@@ -31,13 +31,74 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useRef } from '@wordpress/element';
 
+function SlideBody( { slide, index, slides, setAttributes, isSelected, swiperIndex } ) {
+	return (
+		<>
+			{ slide.image.source_url && <img src={ slide.image.source_url } alt="" /> }
+			{ ! slide.image.source_url && <PlaceholderImage /> }
+			{ isSelected && swiperIndex === index && slides[ index ].image === 0 && (
+				<ImageSelectButton
+					onSelect={ ( value ) => {
+						const newSlides = [ ...slides ];
+						newSlides[ index ] = {
+							...newSlides[ index ],
+							image: {
+								id: value.id,
+								source_url: value.url,
+							},
+						};
+						setAttributes( {
+							slides: newSlides,
+						} );
+					} }
+					value={ slide.image.id }
+				/>
+			) }
+			{ slide.image.id !== 0 && (
+				<div className="wp-block-capitola-full-width-slider__slide-caption">
+					<RichText
+						tagName="p"
+						value={ slide.caption }
+						placeholder="Caption..."
+						onChange={ ( value ) => {
+							const newSlides = [ ...slides ];
+							newSlides[ index ] = {
+								...newSlides[ index ],
+								caption: value,
+							};
+							setAttributes( {
+								slides: newSlides,
+							} );
+						} }
+					/>
+					<CtaControl
+						className="wp-block-capitola-full-width-slider__slide-cta --cta --tertiary"
+						value={ slide.link }
+						placeholder="Link..."
+						onChange={ ( value ) => {
+							const newSlides = [ ...slides ];
+							newSlides[ index ] = {
+								...newSlides[ index ],
+								link: value,
+							};
+							setAttributes( {
+								slides: newSlides,
+							} );
+						} }
+					/>
+				</div>
+			) }
+		</>
+	);
+}
+
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 	const {
 		introAlign,
 		colorTheme,
-		aspectRatio,
 		sliderRadius,
+		aspectRatio,
 		autoplay,
 		navigation,
 		transition,
@@ -73,7 +134,6 @@ export function Edit( props ) {
 	const radiusClass = sliderRadius !== 'none' ? ` --has-${ sliderRadius }-radius` : '';
 	const stickyClass = stickySlider ? ' --sticky' : '';
 
-	// Determine Swiper effect without nested ternary
 	let swiperEffect;
 	if ( transition === 'fade' ) {
 		swiperEffect = 'fade';
@@ -82,6 +142,56 @@ export function Edit( props ) {
 	} else {
 		swiperEffect = 'slide';
 	}
+
+	const swiperProps = {
+		onSwiper: ( swiper ) => {
+			return ( swiperRef.current = swiper );
+		},
+		modules: [ Navigation, Pagination, Thumbs, Autoplay, EffectFade, EffectCreative ],
+		loop: false,
+		spaceBetween: 0,
+		speed: transition === 'fade' ? 2000 : 600,
+		grabCursor: true,
+		allowTouchMove: true,
+		navigation: {
+			nextEl: navigationNextRef.current,
+			prevEl: navigationPrevRef.current,
+			addIcons: false,
+		},
+		pagination: {
+			el: paginationRef.current,
+			clickable: true,
+		},
+		onBeforeInit: ( swiper ) => {
+			swiper.params.navigation.prevEl = navigationPrevRef.current;
+			swiper.params.navigation.nextEl = navigationNextRef.current;
+			swiper.params.pagination.el = paginationRef.current;
+		},
+		autoplay: false,
+		effect: swiperEffect,
+		fadeEffect:
+			transition === 'fade'
+				? {
+						crossFade: true,
+				  }
+				: false,
+		creativeEffect:
+			transition === 'stack'
+				? {
+						prev: {
+							shadow: true,
+							translate: [ '-20%', 0, -1 ],
+						},
+						next: {
+							translate: [ '100%', 0, 0 ],
+						},
+				  }
+				: false,
+		thumbs: { swiper: thumbsSwiper },
+		onSlideChange: ( swiper ) => {
+			setSwiperIndex( swiper.realIndex );
+		},
+	};
 
 	return (
 		<div { ...blockProps }>
@@ -152,6 +262,39 @@ export function Edit( props ) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
+			<RepeaterBlockControls
+				index={ swiperIndex }
+				attribute="slides"
+				itemLabel="slide"
+				props={ props }
+				newValues={ {
+					caption: '',
+					image: {
+						id: 0,
+						source_url: '',
+					},
+					link: {},
+				} }
+				onImageChange={ ( image ) => {
+					const newSlides = [ ...slides ];
+					newSlides[ swiperIndex ] = {
+						...newSlides[ swiperIndex ],
+						image: {
+							id: image.id,
+							source_url: image.url,
+						},
+					};
+					setAttributes( {
+						slides: newSlides,
+					} );
+				} }
+				imageValue={ slides[ swiperIndex ].image.id }
+				onAddAfter={ () => {
+					if ( swiperRef.current ) {
+						swiperRef.current.slideTo( swiperIndex + 1 );
+					}
+				} }
+			/>
 			<div { ...innerBlocksProps }>
 				{ children }
 				<div
@@ -161,66 +304,7 @@ export function Edit( props ) {
 					) }` }
 				>
 					<div className="wp-block-capitola-full-width-slider__main">
-						<Swiper
-							key={ transition }
-							className={ radiusClass }
-							onSwiper={ ( swiper ) => {
-								return ( swiperRef.current = swiper );
-							} }
-							modules={ [
-								Navigation,
-								Pagination,
-								Thumbs,
-								Autoplay,
-								EffectFade,
-								EffectCreative,
-							] }
-							loop={ false }
-							spaceBetween={ 0 }
-							speed={ transition === 'fade' ? 2000 : 600 }
-							grabCursor={ true }
-							allowTouchMove={ true }
-							navigation={ {
-								nextEl: navigationNextRef.current,
-								prevEl: navigationPrevRef.current,
-								addIcons: false,
-							} }
-							pagination={ {
-								el: paginationRef.current,
-								clickable: true,
-							} }
-							onBeforeInit={ ( swiper ) => {
-								swiper.params.navigation.prevEl = navigationPrevRef.current;
-								swiper.params.navigation.nextEl = navigationNextRef.current;
-								swiper.params.pagination.el = paginationRef.current;
-							} }
-							autoplay={ false }
-							effect={ swiperEffect }
-							fadeEffect={
-								transition === 'fade'
-									? {
-											crossFade: true,
-									  }
-									: false
-							}
-							creativeEffect={
-								transition === 'stack'
-									? {
-											prev: {
-												shadow: true,
-												translate: [ '-20%', 0, -1 ],
-											},
-											next: {
-												translate: [ '100%', 0, 0 ],
-											},
-									  }
-									: false
-							}
-							thumbs={ { swiper: thumbsSwiper } }
-							onSlideChange={ ( swiper ) => {
-								setSwiperIndex( swiper.realIndex );
-							} }
-						>
+						<Swiper key={ transition } className={ radiusClass } { ...swiperProps }>
 							{ slides !== null &&
 								slides.map( ( slide, index ) => {
 									return (
@@ -228,98 +312,14 @@ export function Edit( props ) {
 											key={ index }
 											className={ `--${ aspectRatio } --theme-image-overlay` }
 										>
-											{ slide.image.source_url && (
-												<img src={ slide.image.source_url } alt="" />
-											) }
-											{ ! slide.image.source_url && <PlaceholderImage /> }
-											{ isSelected &&
-												swiperIndex === index &&
-												slides[ index ].image === 0 && (
-													<ImageSelectButton
-														onSelect={ ( value ) => {
-															const newSlides = [ ...slides ];
-															newSlides[ index ] = {
-																...newSlides[ index ],
-																image: {
-																	id: value.id,
-																	source_url: value.url,
-																},
-															};
-															setAttributes( {
-																slides: newSlides,
-															} );
-														} }
-														value={ slide.image.id }
-													/>
-												) }
-											{ slide.image.id !== 0 && (
-												<div className="wp-block-capitola-full-width-slider__slide-caption">
-													<RichText
-														tagName="p"
-														value={ slide.caption }
-														placeholder="Caption..."
-														onChange={ ( value ) => {
-															const newSlides = [ ...slides ];
-															newSlides[ index ] = {
-																...newSlides[ index ],
-																caption: value,
-															};
-															setAttributes( {
-																slides: newSlides,
-															} );
-														} }
-													/>
-													<CtaControl
-														className="wp-block-capitola-full-width-slider__slide-cta --cta --tertiary"
-														value={ slide.link }
-														placeholder="Link..."
-														onChange={ ( value ) => {
-															const newSlides = [ ...slides ];
-															newSlides[ index ] = {
-																...newSlides[ index ],
-																link: value,
-															};
-															setAttributes( {
-																slides: newSlides,
-															} );
-														} }
-													/>
-												</div>
-											) }
-											{ swiperIndex === index && (
-												<RepeaterControls
-													index={ index }
-													attribute="slides"
-													props={ props }
-													newValues={ {
-														caption: '',
-														image: {
-															id: 0,
-															source_url: '',
-														},
-														link: {},
-													} }
-													onImageChange={ ( image ) => {
-														const newSlides = [ ...slides ];
-														newSlides[ index ] = {
-															...newSlides[ index ],
-															image: {
-																id: image.id,
-																source_url: image.url,
-															},
-														};
-														setAttributes( {
-															slides: newSlides,
-														} );
-													} }
-													imageValue={ slides[ index ].image.id }
-													onAddAfter={ () => {
-														if ( swiperRef.current ) {
-															swiperRef.current.slideTo( index + 1 );
-														}
-													} }
-												/>
-											) }
+											<SlideBody
+												slide={ slide }
+												index={ index }
+												slides={ slides }
+												setAttributes={ setAttributes }
+												isSelected={ isSelected }
+												swiperIndex={ swiperIndex }
+											/>
 										</SwiperSlide>
 									);
 								} ) }

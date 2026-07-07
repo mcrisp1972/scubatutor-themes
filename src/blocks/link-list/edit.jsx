@@ -1,5 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { LinkList } from '../../editor-controls';
+import { LinkList } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;

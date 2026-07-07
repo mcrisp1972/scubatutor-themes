@@ -36,8 +36,8 @@ function date_time_range( $start, $end, $all_day = false ) {
 	$end_year        = $end ? gmdate( 'Y', $end_timestamp ) : $start_year;
 	$start_month     = gmdate( 'M', $start_timestamp );
 	$end_month       = $end ? gmdate( 'M', $end_timestamp ) : $start_month;
-	$start_day       = gmdate( 'j', $start_timestamp );
-	$end_day         = $end ? gmdate( 'j', $end_timestamp ) : $start_day;
+	$start_day       = gmdate( 'jS', $start_timestamp );
+	$end_day         = $end ? gmdate( 'jS', $end_timestamp ) : $start_day;
 	$start_minute    = gmdate( 'i', $start_timestamp );
 	$end_minute      = $end ? gmdate( 'i', $end_timestamp ) : $start_minute;
 	$start_meridiem  = gmdate( 'a', $start_timestamp );
@@ -66,9 +66,7 @@ function date_time_range( $start, $end, $all_day = false ) {
 		return $string;
 	} else {
 		$string = $start_month . ' ' . $start_day;
-		if ( $current_year !== $start_year ) {
-			$string .= ' ' . $start_year;
-		}
+
 		if ( ! $all_day ) {
 			$start_time_format = ', g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a';
 			$string           .= gmdate( $start_time_format, $start_timestamp );
@@ -77,6 +75,9 @@ function date_time_range( $start, $end, $all_day = false ) {
 		if ( ! $all_day ) {
 			$end_time_format = ', g' . ( '00' !== $end_minute ? ':i' : '' ) . 'a';
 			$string         .= gmdate( $end_time_format, $end_timestamp );
+		}
+		if ( $current_year !== $end_year ) {
+			$string .= ' ' . $end_year;
 		}
 		return $string;
 	}

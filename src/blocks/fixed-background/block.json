@@ -118,9 +118,9 @@
 		"viewportWidth": 1440
 	},
 	"providesContext": {
-		"bodyTextOptions": "bodyTextOptions",
-		"revealAnimation": "revealAnimation",
-		"introAlign": "introAlign"
+		"capitola/bodyTextOptions": "bodyTextOptions",
+		"capitola/revealAnimation": "revealAnimation",
+		"capitola/introAlign": "introAlign"
 	},
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js",

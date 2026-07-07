@@ -1,5 +1,5 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { ColorThemePanel, AnimationPanel, animationPreviewClass } from '../../editor-controls';
+import { ColorThemePanel, AnimationPanel, animationPreviewClass } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes } = props;
@@ -24,7 +24,7 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="styles">
-				<ColorThemePanel props={ props } initialOpen={ true } />
+				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
 			<div { ...innerBlocksProps } />

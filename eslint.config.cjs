@@ -11,6 +11,16 @@ module.exports = [
 		files: [ '**/*.{js,jsx,mjs,cjs}' ],
 		settings: {
 			'import/core-modules': [
+				'@capitola/editor-controls',
+				'@capitola/scripts/modules/cookies',
+				'@capitola/scripts/modules/filtered-listings',
+				'@capitola/blocks/post-feed/post-tile',
+				'@capitola/blocks/post-feed/post-feed-template',
+				'@capitola/blocks/post-feed/layout-conditionals',
+				'@capitola/scripts/modules/template-post-type',
+				'@capitola/scripts/modules/term-tree',
+				'@capitola/scripts',
+				'@capitola/editor-icons',
 				'@wordpress/api-fetch',
 				'@wordpress/autop',
 				'@wordpress/block-editor',

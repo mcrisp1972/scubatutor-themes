@@ -122,8 +122,8 @@
 		"viewportWidth": 1440
 	},
 	"providesContext": {
-		"revealAnimation": "revealAnimation",
-		"introAlign": "introAlign"
+		"capitola/revealAnimation": "revealAnimation",
+		"capitola/introAlign": "introAlign"
 	},
 	"viewScript": "capitola-animations",
 	"render": "file:./render.php",

@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -5,14 +6,17 @@ import {
 	ToggleControl,
 	TextControl,
 	RadioControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { TagSelect, ColorThemePanel, TruncateControl } from '../../editor-controls';
-import postTile from '../post-feed/post-tile';
-import { layoutConditionals } from '../post-feed/layout-conditionals';
+import { getBlockType } from '@wordpress/blocks';
+import { TagSelect, ColorThemePanel, TruncateControl } from '@capitola/editor-controls';
+import PostTile from '@capitola/blocks/post-feed/post-tile';
+import { layoutConditionals } from '@capitola/blocks/post-feed/layout-conditionals';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 
 	const {
 		colorTheme,
@@ -45,25 +49,61 @@ export function Edit( props ) {
 		className: `alignfull capitola-listings is-layout-constrained has-global-padding js-paginatedListings --theme-${ colorTheme }`,
 	} );
 
+	const defaultAttributes = getBlockType( name ).attributes;
+
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
-				<PanelBody title="H Tags" initialOpen={ true }>
-					<TagSelect
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+							headlineTag: defaultAttributes.headlineTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Headline Tag"
-						value={ headlineTag }
-						onChange={ ( value ) => {
-							setAttributes( { headlineTag: value } );
+						hasValue={ () => {
+							return headlineTag !== defaultAttributes.headlineTag.default;
 						} }
-					/>
-					<TagSelect
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								headlineTag: defaultAttributes.headlineTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Headline Tag"
+							value={ headlineTag }
+							onChange={ ( value ) => {
+								setAttributes( { headlineTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
@@ -126,9 +166,9 @@ export function Edit( props ) {
 				<ColorThemePanel props={ props } />
 			</InspectorControls>
 			<div className="capitola-listings__width alignwide">
-				<div className="capitola-listings__search-head">
+				<div className="wp-block-capitola-search-listings__search-head">
 					<RichText
-						className="capitola-listings__headline --hl-l"
+						className="wp-block-capitola-search-listings__headline --hl-l"
 						value={ headline }
 						allowedFormats={ [] }
 						placeholder="Headline..."
@@ -136,7 +176,7 @@ export function Edit( props ) {
 							setAttributes( { headline: value } );
 						} }
 					/>
-					<form className="capitola-listings__search-form" action="/">
+					<form className="wp-block-capitola-search-listings__search-form" action="/">
 						<input
 							type="search"
 							name="s"
@@ -146,7 +186,7 @@ export function Edit( props ) {
 						/>
 						<button type="button" className="search-icon" />
 					</form>
-					<div className="capitola-listings__search-count">
+					<div className="wp-block-capitola-search-listings__search-count">
 						We found # results in your search.
 					</div>
 				</div>
@@ -154,18 +194,17 @@ export function Edit( props ) {
 				{ posts && posts.length === 0 && 'No Posts Found' }
 				{ posts && posts.length > 0 && (
 					<div className={ 'capitola-listings__list --' + listLayout }>
-						{ posts.map( ( i, index ) => {
+						{ posts.map( ( post, index ) => {
 							return (
 								<article key={ index } className="capitola-result">
-									{ postTile(
-										attributes,
-										layoutConditionals( {
+									<PostTile
+										attributes
+										conditionals={ layoutConditionals( {
 											...attributes,
-											...{ postType: i.type },
-										} ),
-										i,
-										index
-									) }
+											...{ postType: post.type },
+										} ) }
+										item={ post }
+									/>
 								</article>
 							);
 						} ) }

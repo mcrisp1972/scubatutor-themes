@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
-import { panZoom } from '../../editor-icons';
+import { panZoom } from '@capitola/editor-icons';
 import { Edit } from './edit';
 import save from './save';
 

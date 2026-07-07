@@ -1,7 +1,7 @@
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { InspectorControls } from '@wordpress/block-editor';
-import { ColorThemePanel } from '../../editor-controls';
+import { ColorThemePanel } from '@capitola/editor-controls';
 
 const themedBlocks = [ 'core/column', 'core/group' ];
 

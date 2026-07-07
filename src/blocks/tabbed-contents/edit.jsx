@@ -10,7 +10,7 @@ import {
 	AnimationPanel,
 	IntroAlignToolbar,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes } = props;
@@ -38,7 +38,7 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="styles">
-				<ColorThemePanel props={ props } initialOpen={ true } />
+				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } sections={ [ 'block', 'body', 'figure' ] } />
 			</InspectorControls>
 			<BlockControls>

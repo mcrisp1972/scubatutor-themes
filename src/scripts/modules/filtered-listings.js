@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { addQueryArgs } from '@wordpress/url';
-import { layoutConditionals } from '../../blocks/post-feed/layout-conditionals';
+import { layoutConditionals } from '@capitola/blocks/post-feed/layout-conditionals';
 
 /**
  * Manages AJAX-powered filtered post/product listings with pagination.

@@ -1,6 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
-import { photoLibrary } from '../../editor-icons';
+import { photoLibrary } from '@capitola/editor-icons';
 import { Edit } from './edit';
 import './style.scss';
 

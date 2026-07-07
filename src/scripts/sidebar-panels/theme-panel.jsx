@@ -3,7 +3,7 @@ import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { ToggleControl, Flex } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { useState, useEffect } from '@wordpress/element';
-import { ColorThemePicker } from '../../editor-controls';
+import { ColorThemePicker } from '@capitola/editor-controls';
 
 export default function ThemePanels() {
 	// Detect if loaded in the Site Editor (template editing)

@@ -28,6 +28,17 @@
 		"customCSS": false
 	},
 	"attributes": {
+		"frontImage": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"source_url": ""
+			}
+		},
+		"gridAspectRatio": {
+			"type": "string",
+			"default": "1"
+		},
 		"introAlign": {
 			"type": "string",
 			"default": "left"
@@ -36,20 +47,24 @@
 			"type": "integer",
 			"default": 50
 		},
-		"gridAspectRatio": {
-			"type": "string",
-			"default": "1"
-		},
-		"rearImagePosition": {
-			"type": "string",
-			"default": "top-left"
-		},
 		"rearImage": {
 			"type": "object",
 			"default": {
 				"id": 0,
 				"source_url": ""
 			}
+		},
+		"rearImagePosition": {
+			"type": "string",
+			"default": "top-left"
+		},
+		"rearImageHeight": {
+			"type": "integer",
+			"default": 7
+		},
+		"rearImageWidth": {
+			"type": "integer",
+			"default": 9
 		},
 		"middleImage": {
 			"type": "object",
@@ -58,38 +73,19 @@
 				"source_url": ""
 			}
 		},
-		"frontImage": {
-			"type": "object",
-			"default": {
-				"id": 0,
-				"source_url": ""
-			}
-		},
-		"rearImageHeight": {
+		"middleImageHeight": {
 			"type": "integer",
-			"default": 7
-		},
-		"middleImageTopPos": {
-			"type": "integer",
-			"default": 9
+			"default": 4
 		},
 		"middleImageLeftPos": {
 			"type": "integer",
 			"default": 6
 		},
-		"middleImageHeight": {
-			"type": "integer",
-			"default": 4
-		},
-		"frontImageHeight": {
-			"type": "integer",
-			"default": 7
-		},
-		"rearImageWidth": {
+		"middleImageTopPos": {
 			"type": "integer",
 			"default": 9
 		},
-		"middleImageWidth": {
+		"frontImageHeight": {
 			"type": "integer",
 			"default": 7
 		},
@@ -97,27 +93,31 @@
 			"type": "integer",
 			"default": 11
 		},
-		"rearImageFocalPoint": {
+		"frontImageFocalPoint": {
 			"type": "string",
 			"default": "50% 50%"
+		},
+		"frontImageRadius": {
+			"type": "string",
+			"default": "small"
+		},
+		"middleImageWidth": {
+			"type": "integer",
+			"default": 7
 		},
 		"middleImageFocalPoint": {
 			"type": "string",
 			"default": "50% 50%"
 		},
-		"frontImageFocalPoint": {
-			"type": "string",
-			"default": "50% 50%"
-		},
-		"rearImageRadius": {
-			"type": "string",
-			"default": "small"
-		},
 		"middleImageRadius": {
 			"type": "string",
 			"default": "small"
 		},
-		"frontImageRadius": {
+		"rearImageFocalPoint": {
+			"type": "string",
+			"default": "50% 50%"
+		},
+		"rearImageRadius": {
 			"type": "string",
 			"default": "small"
 		},
@@ -188,9 +188,9 @@
 		"viewportWidth": 1440
 	},
 	"providesContext": {
-		"bodyTextOptions": "bodyTextOptions",
-		"revealAnimation": "revealAnimation",
-		"introAlign": "introAlign"
+		"capitola/bodyTextOptions": "bodyTextOptions",
+		"capitola/revealAnimation": "revealAnimation",
+		"capitola/introAlign": "introAlign"
 	},
 	"viewScript": "capitola-animations",
 	"render": "file:./render.php",

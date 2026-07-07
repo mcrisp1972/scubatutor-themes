@@ -1,7 +1,7 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl, Spinner } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { PlaceholderImage, ImageSelectButton } from '../../editor-controls';
+import { PlaceholderImage, ImageSelectButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;

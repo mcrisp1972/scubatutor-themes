@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import {
 	InspectorControls,
 	useBlockProps,
@@ -8,6 +9,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { useViewportMatch } from '@wordpress/compose';
+import { getBlockType } from '@wordpress/blocks';
 import {
 	PanelBody,
 	RadioControl,
@@ -15,6 +17,8 @@ import {
 	ToggleControl,
 	ToolbarGroup,
 	ResizableBox,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -26,10 +30,45 @@ import {
 	IntroAlignToolbar,
 	AspectRatioToolbar,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
+
+function ImageCard( {
+	className,
+	image,
+	focalPoint,
+	height,
+	width,
+	radius,
+	showCaption,
+	caption,
+	captionPlaceholder,
+	onCaptionChange,
+} ) {
+	return (
+		<figure
+			className={ `${ className } ${ radius ? ` --has-${ radius }-radius` : '' }` }
+			style={ {
+				'--image-height': height,
+				'--image-width': width,
+				'--capitola-objectPosition': focalPoint,
+			} }
+		>
+			{ image?.source_url ? <img src={ image?.source_url } alt="" /> : <PlaceholderImage /> }
+			{ showCaption && (
+				<RichText
+					tagName="figcaption"
+					value={ caption }
+					placeholder={ captionPlaceholder || 'Caption...' }
+					allowedFormats={ [] }
+					onChange={ onCaptionChange }
+				/>
+			) }
+		</figure>
+	);
+}
 
 export function Edit( props ) {
-	const { attributes, setAttributes, toggleSelection } = props;
+	const { attributes, setAttributes, name, toggleSelection } = props;
 
 	const {
 		introAlign,
@@ -93,6 +132,8 @@ export function Edit( props ) {
 		[ frontImage.id ]
 	);
 
+	const defaultAttributes = getBlockType( name ).attributes;
+
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
@@ -108,173 +149,356 @@ export function Edit( props ) {
 						__next40pxDefaultSize
 					/>
 				</PanelBody>
-				<PanelBody title="Rear Image" initialOpen={ true }>
-					<ImageSelect
+				<ToolsPanel
+					label="Rear Image"
+					resetAll={ () => {
+						setAttributes( {
+							rearImage: defaultAttributes?.rearImage.default,
+							rearImageRadius: defaultAttributes?.rearImageRadius.default,
+							rearImageHeight: defaultAttributes?.rearImageHeight.default,
+							rearImageWidth: defaultAttributes?.rearImageWidth.default,
+							rearImageFocalPoint: defaultAttributes?.rearImageFocalPoint.default,
+							rearImagePosition: defaultAttributes?.rearImagePosition.default,
+							rearImageShowCaption: defaultAttributes?.rearImageShowCaption.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return rearImage.id;
+						} }
+						isShownByDefault={ true }
 						label="Image"
-						value={ rearImage.id }
-						onChange={ ( value ) => {
+						onDeselect={ () => {
 							setAttributes( {
-								rearImage: {
-									id: value.id,
-									source_url: value.url,
-								},
+								rearImage: defaultAttributes?.rearImage.default,
 							} );
 						} }
-					/>
-					<RadioControl
-						label="Radius"
-						selected={ rearImageRadius }
-						options={ [
-							{ label: 'None', value: '' },
-							{ label: 'Small', value: 'small' },
-							{ label: 'Medium', value: 'medium' },
-							{ label: 'Large', value: 'large' },
-						] }
-						onChange={ ( value ) => {
-							return setAttributes( { rearImageRadius: value } );
-						} }
-					/>
-					<RangeControl
-						label="Height"
-						value={ rearImageHeight }
-						withInputField={ false }
-						min={ 1 }
-						max={ 20 }
-						step={ 1 }
-						onChange={ ( value ) => {
-							return setAttributes( { rearImageHeight: value } );
-						} }
-						__next40pxDefaultSize
-					/>
-					<RangeControl
-						label="Width"
-						value={ rearImageWidth }
-						withInputField={ false }
-						min={ 1 }
-						max={ 20 }
-						step={ 1 }
-						onChange={ ( value ) => {
-							return setAttributes( { rearImageWidth: value } );
-						} }
-						__next40pxDefaultSize
-					/>
-					{ !! rearImage?.source_url && (
-						<ImageFocalPoint
-							image={ rearImage.source_url }
-							value={ rearImageFocalPoint }
-							onChange={ ( value ) => {
-								setAttributes( { rearImageFocalPoint: value } );
-							} }
-						/>
-					) }
-					<RadioControl
-						label="Image Position"
-						selected={ rearImagePosition }
-						options={ [
-							{ label: 'Top Left', value: 'top-left' },
-							{ label: 'Top Right', value: 'top-right' },
-							{ label: 'Bottom Left', value: 'bottom-left' },
-							{ label: 'Bottom Right', value: 'bottom-right' },
-						] }
-						onChange={ ( value ) => {
-							return setAttributes( {
-								rearImagePosition: value,
-							} );
-						} }
-					/>
-					<ToggleControl
-						label="Show Caption"
-						checked={ rearImageShowCaption }
-						onChange={ ( value ) => {
-							setAttributes( { rearImageShowCaption: value } );
-						} }
-					/>
-				</PanelBody>
-				<PanelBody title="Front Image" initialOpen={ true }>
-					<ImageSelect
-						label="Image"
-						value={ frontImage.id }
-						onChange={ ( value ) => {
-							setAttributes( {
-								frontImage: {
-									id: value.id,
-									source_url: value.url,
-								},
-							} );
-						} }
-					/>
-					<RadioControl
-						label="Radius"
-						selected={ frontImageRadius }
-						options={ [
-							{ label: 'None', value: '' },
-							{ label: 'Small', value: 'small' },
-							{ label: 'Medium', value: 'medium' },
-							{ label: 'Large', value: 'large' },
-						] }
-						onChange={ ( value ) => {
-							return setAttributes( { frontImageRadius: value } );
-						} }
-					/>
-					<RangeControl
-						label="Height"
-						value={ frontImageHeight }
-						withInputField={ false }
-						min={ 1 }
-						max={ 20 }
-						step={ 1 }
-						onChange={ ( value ) => {
-							return setAttributes( { frontImageHeight: value } );
-						} }
-						__next40pxDefaultSize
-					/>
-					<RangeControl
-						label="Width"
-						value={ frontImageWidth }
-						withInputField={ false }
-						min={ 1 }
-						max={ 20 }
-						step={ 1 }
-						onChange={ ( value ) => {
-							return setAttributes( { frontImageWidth: value } );
-						} }
-						__next40pxDefaultSize
-					/>
-					{ !! frontImage?.source_url && (
-						<ImageFocalPoint
-							image={ frontImage.source_url }
-							value={ frontImageFocalPoint }
+					>
+						<ImageSelect
+							label="Image"
+							value={ rearImage.id }
 							onChange={ ( value ) => {
 								setAttributes( {
-									frontImageFocalPoint: value,
+									rearImage: {
+										id: value.id,
+										source_url: value.url,
+									},
 								} );
 							} }
-							help="Set the image’s main focus point."
 						/>
-					) }
-					<RadioControl
-						label="Image Position"
-						selected={ rearImagePosition }
-						options={ [
-							{ label: 'Top Right', value: 'bottom-left' },
-							{ label: 'Top Left', value: 'bottom-right' },
-							{ label: 'Bottom Right', value: 'top-left' },
-							{ label: 'Bottom Left', value: 'top-right' },
-						] }
-						onChange={ ( value ) => {
-							return setAttributes( {
-								rearImagePosition: value,
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return rearImageRadius !== defaultAttributes?.rearImageRadius.default;
+						} }
+						label="Radius"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImageRadius: defaultAttributes?.rearImageRadius.default,
 							} );
 						} }
-					/>
-					<ToggleControl
-						label="Show Caption"
-						checked={ frontImageShowCaption }
-						onChange={ ( value ) => {
-							setAttributes( { frontImageShowCaption: value } );
+					>
+						<RadioControl
+							label="Radius"
+							selected={ rearImageRadius }
+							options={ [
+								{ label: 'None', value: '' },
+								{ label: 'Small', value: 'small' },
+								{ label: 'Medium', value: 'medium' },
+								{ label: 'Large', value: 'large' },
+							] }
+							onChange={ ( value ) => {
+								return setAttributes( { rearImageRadius: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return rearImageHeight !== defaultAttributes?.rearImageHeight.default;
 						} }
-					/>
-				</PanelBody>
+						label="Height"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImageHeight: defaultAttributes?.rearImageHeight.default,
+							} );
+						} }
+					>
+						<RangeControl
+							label="Height"
+							value={ rearImageHeight }
+							withInputField={ false }
+							min={ 1 }
+							max={ 20 }
+							step={ 1 }
+							onChange={ ( value ) => {
+								return setAttributes( { rearImageHeight: value } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return rearImageWidth !== defaultAttributes?.rearImageWidth.default;
+						} }
+						label="Width"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImageWidth: defaultAttributes?.rearImageWidth.default,
+							} );
+						} }
+					>
+						<RangeControl
+							label="Width"
+							value={ rearImageWidth }
+							withInputField={ false }
+							min={ 1 }
+							max={ 20 }
+							step={ 1 }
+							onChange={ ( value ) => {
+								return setAttributes( { rearImageWidth: value } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return (
+								rearImageFocalPoint !==
+								defaultAttributes?.rearImageFocalPoint.default
+							);
+						} }
+						label="Focal Point"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImageFocalPoint: defaultAttributes?.rearImageFocalPoint.default,
+							} );
+						} }
+					>
+						{ rearImage.source_url && (
+							<ImageFocalPoint
+								image={ rearImage.source_url }
+								value={ rearImageFocalPoint }
+								onChange={ ( value ) => {
+									setAttributes( { rearImageFocalPoint: value } );
+								} }
+							/>
+						) }
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return (
+								rearImagePosition !== defaultAttributes?.rearImagePosition.default
+							);
+						} }
+						isShownByDefault={ true }
+						label="Image Position"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImagePosition: defaultAttributes?.rearImagePosition.default,
+							} );
+						} }
+					>
+						<RadioControl
+							label="Image Position"
+							selected={ rearImagePosition }
+							options={ [
+								{ label: 'Top Left', value: 'top-left' },
+								{ label: 'Top Right', value: 'top-right' },
+								{ label: 'Bottom Left', value: 'bottom-left' },
+								{ label: 'Bottom Right', value: 'bottom-right' },
+							] }
+							onChange={ ( value ) => {
+								return setAttributes( {
+									rearImagePosition: value,
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return (
+								rearImageShowCaption !==
+								defaultAttributes?.rearImageShowCaption.default
+							);
+						} }
+						label="Show Caption"
+						onDeselect={ () => {
+							setAttributes( {
+								rearImageShowCaption:
+									defaultAttributes?.rearImageShowCaption.default,
+							} );
+						} }
+					>
+						<ToggleControl
+							label="Show Caption"
+							checked={ rearImageShowCaption }
+							onChange={ ( value ) => {
+								setAttributes( { rearImageShowCaption: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+				<ToolsPanel
+					label="Front Image"
+					resetAll={ () => {
+						setAttributes( {
+							frontImage: defaultAttributes?.frontImage.default,
+							frontImageRadius: defaultAttributes?.frontImageRadius.default,
+							frontImageHeight: defaultAttributes?.frontImageHeight.default,
+							frontImageWidth: defaultAttributes?.frontImageWidth.default,
+							frontImageFocalPoint: defaultAttributes?.frontImageFocalPoint.default,
+							frontImageShowCaption: defaultAttributes?.frontImageShowCaption.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return frontImage.id;
+						} }
+						isShownByDefault={ true }
+						label="Image"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImage: defaultAttributes?.frontImage.default,
+							} );
+						} }
+					>
+						<ImageSelect
+							label="Image"
+							value={ frontImage.id }
+							onChange={ ( value ) => {
+								setAttributes( {
+									rearImage: {
+										id: value.id,
+										source_url: value.url,
+									},
+								} );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return frontImageRadius !== defaultAttributes?.frontImageRadius.default;
+						} }
+						label="Radius"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImageRadius: defaultAttributes?.frontImageRadius.default,
+							} );
+						} }
+					>
+						<RadioControl
+							label="Radius"
+							selected={ frontImageRadius }
+							options={ [
+								{ label: 'None', value: '' },
+								{ label: 'Small', value: 'small' },
+								{ label: 'Medium', value: 'medium' },
+								{ label: 'Large', value: 'large' },
+							] }
+							onChange={ ( value ) => {
+								return setAttributes( { frontImageRadius: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return frontImageHeight !== defaultAttributes?.frontImageHeight.default;
+						} }
+						label="Height"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImageHeight: defaultAttributes?.frontImageHeight.default,
+							} );
+						} }
+					>
+						<RangeControl
+							label="Height"
+							value={ frontImageHeight }
+							withInputField={ false }
+							min={ 1 }
+							max={ 20 }
+							step={ 1 }
+							onChange={ ( value ) => {
+								return setAttributes( { frontImageHeight: value } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return frontImageWidth !== defaultAttributes?.frontImageWidth.default;
+						} }
+						label="Width"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImageWidth: defaultAttributes?.frontImageWidth.default,
+							} );
+						} }
+					>
+						<RangeControl
+							label="Width"
+							value={ frontImageWidth }
+							withInputField={ false }
+							min={ 1 }
+							max={ 20 }
+							step={ 1 }
+							onChange={ ( value ) => {
+								return setAttributes( { frontImageWidth: value } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return (
+								frontImageFocalPoint !==
+								defaultAttributes?.frontImageFocalPoint.default
+							);
+						} }
+						label="Focal Point"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImageFocalPoint:
+									defaultAttributes?.frontImageFocalPoint.default,
+							} );
+						} }
+					>
+						{ frontImage.source_url && (
+							<ImageFocalPoint
+								image={ frontImage.source_url }
+								value={ frontImageFocalPoint }
+								onChange={ ( value ) => {
+									setAttributes( { frontImageFocalPoint: value } );
+								} }
+							/>
+						) }
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						hasValue={ () => {
+							return (
+								frontImageShowCaption !==
+								defaultAttributes?.rearImageShowCaption.default
+							);
+						} }
+						label="Show Caption"
+						onDeselect={ () => {
+							setAttributes( {
+								frontImageShowCaption:
+									defaultAttributes?.frontImageShowCaption.default,
+							} );
+						} }
+					>
+						<ToggleControl
+							label="Show Caption"
+							checked={ frontImageShowCaption }
+							onChange={ ( value ) => {
+								setAttributes( { frontImageShowCaption: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
@@ -332,72 +556,38 @@ export function Edit( props ) {
 						toggleSelection( false );
 					} }
 				>
-					<figure
-						className={ `wp-block-capitola-two-image-block__rear-image ${
-							rearImageRadius ? ' --has-' + rearImageRadius + '-radius' : ''
-						}` }
-						style={ {
-							'--image-height': rearImageHeight,
-							'--image-width': rearImageWidth,
-							'--capitola-objectPosition': rearImageFocalPoint,
+					<ImageCard
+						className="wp-block-capitola-two-image-block__rear-image"
+						image={ rearImage }
+						focalPoint={ rearImageFocalPoint }
+						height={ rearImageHeight }
+						width={ rearImageWidth }
+						radius={ rearImageRadius }
+						showCaption={ rearImageShowCaption }
+						caption={ rearImageCaption }
+						captionPlaceholder={ rearImageObj?.caption?.raw }
+						onCaptionChange={ ( value ) => {
+							setAttributes( {
+								rearImageCaption: value,
+							} );
 						} }
-					>
-						{ rearImage?.source_url ? (
-							<img src={ rearImage?.source_url } alt="" />
-						) : (
-							<PlaceholderImage />
-						) }
-						{ rearImageShowCaption && (
-							<RichText
-								tagName="figcaption"
-								value={ rearImageCaption }
-								placeholder={
-									rearImageObj?.caption?.raw
-										? rearImageObj.caption.raw
-										: 'Caption...'
-								}
-								allowedFormats={ [] }
-								onChange={ ( value ) => {
-									setAttributes( {
-										rearImageCaption: value,
-									} );
-								} }
-							/>
-						) }
-					</figure>
-					<figure
-						className={ `wp-block-capitola-two-image-block__front-image ${
-							frontImageRadius ? ' --has-' + frontImageRadius + '-radius' : ''
-						}` }
-						style={ {
-							'--image-height': frontImageHeight,
-							'--image-width': frontImageWidth,
-							'--capitola-objectPosition': frontImageFocalPoint,
+					/>
+					<ImageCard
+						className="wp-block-capitola-two-image-block__front-image"
+						image={ frontImage }
+						focalPoint={ frontImageFocalPoint }
+						height={ frontImageHeight }
+						width={ frontImageWidth }
+						radius={ frontImageRadius }
+						showCaption={ frontImageShowCaption }
+						caption={ frontImageCaption }
+						captionPlaceholder={ frontImageObj?.caption?.raw }
+						onCaptionChange={ ( value ) => {
+							setAttributes( {
+								frontImageCaption: value,
+							} );
 						} }
-					>
-						{ frontImage?.source_url ? (
-							<img src={ frontImage.source_url } alt="" />
-						) : (
-							<PlaceholderImage />
-						) }
-						{ frontImageShowCaption && (
-							<RichText
-								tagName="figcaption"
-								value={ frontImageCaption }
-								placeholder={
-									frontImageObj?.caption?.raw
-										? frontImageObj.caption.raw
-										: 'Caption...'
-								}
-								allowedFormats={ [] }
-								onChange={ ( value ) => {
-									setAttributes( {
-										frontImageCaption: value,
-									} );
-								} }
-							/>
-						) }
-					</figure>
+					/>
 				</ResizableBox>
 			</div>
 		</div>

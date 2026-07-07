@@ -1,4 +1,4 @@
-@use "../../styles/abstracts" as *;
+@use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-two-image-block {
 	@include block-outer-wrap;
@@ -163,6 +163,7 @@
 	}
 
 	figcaption {
+		color: var(--capitola-color-body);
 		text-align: left;
 		font-size: var(--wp--custom--font-size--p-s);
 		width: 100%;

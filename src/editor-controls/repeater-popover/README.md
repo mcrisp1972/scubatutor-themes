@@ -23,6 +23,7 @@ With fields
 | `index`         | `number`    | Yes      |         | The current row index |
 | `newValues`     | any         | Yes      |         | Default values for new rows |
 | `fullButton`    | `boolean`   | No       | `false` | Whether the trigger button should fill the entire parent container. This is the best option when all values will be set inside the popover instead of inline editing using RichText. |
+| `showToolbar`    | `boolean`   | No       | `true` | Set to false if no toolbar should display in the popover. Normally you'll use false if you are using the [RepeaterBlockControls](../repeater-block-controls/README.md) component. |
 | `vertical`      | `boolean`   | No       | `false` | Whether to use vertical icons for the move buttons (up/down vs left/right) |
 | `onImageChange` | `function`  | No       | `false` | Callback when an image is selected |
 | `imageValue`    | `number`    | No       | `false` | Current image ID if the onImageChange prop is set |

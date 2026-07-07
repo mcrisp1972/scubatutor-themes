@@ -69,10 +69,10 @@ export function animationPreviewClass( animationAttribute, animatedSection ) {
 }
 
 export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 	const { revealAnimation, introAlign } = attributes;
 	const [ isPreviewing, setIsPreviewing ] = useState( false );
-	const defaultAttribute = getBlockType( props.name )?.attributes?.revealAnimation?.default || {};
+	const defaultAttribute = getBlockType( name )?.attributes?.revealAnimation?.default || {};
 	const allowSectionSelect = sections && sections.length > 0 && revealAnimation.animation !== '';
 
 	const findPreviewTarget = () => {
@@ -143,7 +143,7 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 		<ToolsPanel
 			label="Animation"
 			resetAll={ () => {
-				const blockMetadata = getBlockType( props.name );
+				const blockMetadata = getBlockType( name );
 				return setAttributes( {
 					revealAnimation: blockMetadata.attributes.revealAnimation.default,
 				} );

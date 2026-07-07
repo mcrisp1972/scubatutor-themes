@@ -5,7 +5,7 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
-import { LinkSelect } from '../../editor-controls';
+import { LinkSelect } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;

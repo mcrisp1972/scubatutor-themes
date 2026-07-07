@@ -11,20 +11,77 @@ import { useState, useRef } from '@wordpress/element';
 import {
 	ColorThemePanel,
 	AnimationPanel,
-	RepeaterControls,
+	RepeaterBlockControls,
 	ImageSelectButton,
 	PlaceholderImage,
 	animationPreviewClass,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
+
+function SlideBody( { slide, index, slides, setAttributes, isSelected, swiperIndex } ) {
+	return (
+		<>
+			{ !! slide.image.source_url && <img src={ slide.image.source_url } alt="" /> }
+			{ ! slide.image.source_url && <PlaceholderImage /> }
+			{ isSelected && swiperIndex === index && slides[ index ].image.id === 0 && (
+				<ImageSelectButton
+					onSelect={ ( value ) => {
+						const newSlides = [ ...slides ];
+						newSlides[ index ] = {
+							...newSlides[ index ],
+							image: {
+								id: value.id,
+								source_url: value.url,
+							},
+						};
+						setAttributes( {
+							slides: newSlides,
+						} );
+					} }
+					value={ slide.image.id }
+				/>
+			) }
+		</>
+	);
+}
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
 	const { colorTheme, aspectRatio, grayscaleInactive, autoplay, slides, revealAnimation } =
 		attributes;
 	const [ swiperIndex, setSwiperIndex ] = useState( 0 );
-
 	const navigationPrevRef = useRef( null );
 	const navigationNextRef = useRef( null );
+
+	const swiperProps = {
+		wrapperClass: `wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper ${
+			grayscaleInactive ? ' --grayscale-inactive' : ''
+		}`,
+		modules: [ Navigation ],
+		grabCursor: false,
+		speed: 600,
+		spaceBetween: 0,
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		coverflowEffect: {
+			rotate: aspectRatio === 'square' ? 0 : 50,
+			stretch: 0,
+			depth: 100,
+			modifier: 1,
+			slideShadows: true,
+		},
+		navigation: {
+			nextEl: navigationNextRef.current,
+			prevEl: navigationPrevRef.current,
+			addIcons: false,
+		},
+		onSlideChange: ( swiper ) => {
+			setSwiperIndex( swiper.activeIndex );
+		},
+		onBeforeInit: ( swiper ) => {
+			swiper.params.navigation.prevEl = navigationPrevRef.current;
+			swiper.params.navigation.nextEl = navigationNextRef.current;
+		},
+	};
 
 	const blockProps = useBlockProps( {
 		className: `alignfull --theme-${ colorTheme }`,
@@ -78,6 +135,34 @@ export function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
+			<RepeaterBlockControls
+				index={ swiperIndex }
+				attribute="slides"
+				itemLabel="slide"
+				newValues={ {
+					caption: '',
+					image: {
+						id: 0,
+						source_url: '',
+					},
+				} }
+				props={ props }
+				onImageChange={ ( image ) => {
+					const newSlides = [ ...slides ];
+					newSlides[ swiperIndex ] = {
+						...newSlides[ swiperIndex ],
+						image: {
+							id: image.id,
+							source_url: image.url,
+						},
+					};
+					setAttributes( {
+						slides: newSlides,
+					} );
+				} }
+				imageValue={ slides[ swiperIndex ].image.id }
+			/>
+
 			<div { ...innerBlocksProps }>
 				{ children }
 				<div className="wp-block-capitola-small-image-slider__slider-parent">
@@ -86,34 +171,7 @@ export function Edit( props ) {
 						className={ `wp-block-capitola-small-image-slider__swiper swiper ${
 							aspectRatio === 'square' ? ' --square' : ' --landscape'
 						}` }
-						wrapperClass={ `wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper ${
-							grayscaleInactive ? ' --grayscale-inactive' : ''
-						}` }
-						modules={ [ Navigation ] }
-						grabCursor={ false }
-						speed={ 600 }
-						spaceBetween={ 0 }
-						centeredSlides={ true }
-						slidesPerView="auto"
-						coverflowEffect={ {
-							rotate: aspectRatio === 'square' ? 0 : 50,
-							stretch: 0,
-							depth: 100,
-							modifier: 1,
-							slideShadows: true,
-						} }
-						navigation={ {
-							nextEl: navigationNextRef.current,
-							prevEl: navigationPrevRef.current,
-							addIcons: false,
-						} }
-						onSlideChange={ ( swiper ) => {
-							setSwiperIndex( swiper.activeIndex );
-						} }
-						onBeforeInit={ ( swiper ) => {
-							swiper.params.navigation.prevEl = navigationPrevRef.current;
-							swiper.params.navigation.nextEl = navigationNextRef.current;
-						} }
+						{ ...swiperProps }
 					>
 						{ slides !== null &&
 							slides.map( ( slide, index ) => {
@@ -123,65 +181,16 @@ export function Edit( props ) {
 										className={ `wp-block-capitola-small-image-slider__swiper-slide swiper-slide ${
 											aspectRatio === 'square' ? '--square' : ''
 										}` }
+										data-slide-index={ index }
 									>
-										{ !! slide.image.source_url && (
-											<img src={ slide.image.source_url } alt="" />
-										) }
-										{ ! slide.image.source_url && <PlaceholderImage /> }
-										{ isSelected &&
-											swiperIndex === index &&
-											slides[ index ].image.id === 0 && (
-												<ImageSelectButton
-													onSelect={ ( value ) => {
-														const newSlides = [ ...slides ];
-														newSlides[ index ] = {
-															...newSlides[ index ],
-															image: {
-																id: value.id,
-																source_url: value.url,
-															},
-														};
-														setAttributes( {
-															slides: newSlides,
-														} );
-													} }
-													value={ slide.image.id }
-												/>
-											) }
-										{ swiperIndex === index && (
-											<RepeaterControls
-												index={ index }
-												attribute="slides"
-												newValues={ {
-													caption: '',
-													image: {
-														id: 0,
-														source_url: '',
-													},
-												} }
-												props={ props }
-												onImageChange={ ( image ) => {
-													const newSlides = [ ...slides ];
-													newSlides[ index ] = {
-														...newSlides[ index ],
-														image: {
-															id: image.id,
-															source_url: image.url,
-														},
-													};
-													setAttributes( {
-														slides: newSlides,
-													} );
-												} }
-												imageValue={ slides[ index ].image.id }
-												style={ {
-													left: '10px',
-													right: '10px',
-													gap: aspectRatio === 'square' ? '8px' : '16px',
-													borderRadius: '10px 10px 0 0',
-												} }
-											/>
-										) }
+										<SlideBody
+											slide={ slide }
+											index={ index }
+											slides={ slides }
+											setAttributes={ setAttributes }
+											isSelected={ isSelected }
+											swiperIndex={ swiperIndex }
+										/>
 									</SwiperSlide>
 								);
 							} ) }

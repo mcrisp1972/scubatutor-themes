@@ -7,7 +7,7 @@ import {
 	PlaceholderImage,
 	RadiusToolbar,
 	ImageSelectButton,
-} from '../../editor-controls';
+} from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;

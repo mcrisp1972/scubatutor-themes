@@ -54,8 +54,8 @@
 		}
 	},
 	"providesContext": {
-		"bodyTextOptions": "bodyTextOptions",
-		"introAlign": "introAlign"
+		"capitola/bodyTextOptions": "bodyTextOptions",
+		"capitola/introAlign": "introAlign"
 	},
 	"usesContext": [
 		"showFullImage"

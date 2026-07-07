@@ -1,10 +1,9 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { animationPreviewClass, AddChildButton } from '../../editor-controls';
+import { animationPreviewClass, AddChildButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { context, clientId } = props;
-	const { revealAnimation } = context;
 	const innerBlockCount = useSelect(
 		( select ) => {
 			return select( 'core/block-editor' ).getBlockCount( clientId );
@@ -14,7 +13,7 @@ export function Edit( props ) {
 	const blockProps = useBlockProps( {
 		className: `${
 			innerBlockCount < 4 ? ` --count-${ innerBlockCount }` : ''
-		} ${ animationPreviewClass( revealAnimation, 'figure' ) }`,
+		} ${ animationPreviewClass( context[ 'capitola/revealAnimation' ], 'figure' ) }`,
 	} );
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		defaultBlock: { name: 'capitola/stats-item' },

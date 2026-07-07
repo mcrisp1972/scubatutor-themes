@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -5,23 +6,29 @@ import {
 	ToggleControl,
 	TextControl,
 	RadioControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { TagSelect, ColorThemePanel, AnimationPanel, TruncateControl } from '../../editor-controls';
+import { getBlockType } from '@wordpress/blocks';
+import {
+	TagSelect,
+	ColorThemePanel,
+	AnimationPanel,
+	TruncateControl,
+} from '@capitola/editor-controls';
 import { applyFilters } from '@wordpress/hooks';
-import postTile from '../post-feed/post-tile';
-import PostFeedTemplate from '../post-feed/post-feed-template';
-import { templatePostType } from '../../scripts/modules/template-post-type';
+import PostTile from '@capitola/blocks/post-feed/post-tile';
+import PostFeedTemplate from '@capitola/blocks/post-feed/post-feed-template';
+import { templatePostType } from '@capitola/scripts/modules/template-post-type';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, name } = props;
 
 	const {
 		colorTheme,
 		listLayout,
 		showSlideCount,
-		headlineTag,
-		eyebrowTag,
 		titleTag,
 		ctaText,
 		showExcerpt,
@@ -38,6 +45,8 @@ export function Edit( props ) {
 	}, [] );
 
 	const postTypeCats = applyFilters( 'capitola.postTypeCats' );
+
+	const defaultAttributes = getBlockType( name ).attributes;
 
 	const postType = useSelect(
 		( select ) => {
@@ -127,41 +136,67 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
-				<PanelBody title="Query Options" initialOpen={ true }>
-					<TextControl
-						type="number"
-						min="1"
+				<ToolsPanel
+					label="Query Options"
+					resetAll={ () => {
+						setAttributes( {
+							limit: defaultAttributes.limit.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Limit"
-						value={ limit }
-						onChange={ ( value ) => {
-							setAttributes( { limit: parseInt( value ) } );
+						hasValue={ () => {
+							return limit !== defaultAttributes.limit.default;
 						} }
-						__next40pxDefaultSize
-					/>
-				</PanelBody>
-				<PanelBody title="H Tags" initialOpen={ false }>
-					<TagSelect
-						label="Eyebrow Tag"
-						value={ eyebrowTag }
-						onChange={ ( value ) => {
-							setAttributes( { eyebrowTag: value } );
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								limit: defaultAttributes.limit.default,
+							} );
 						} }
-					/>
-					<TagSelect
-						label="Headline Tag"
-						value={ headlineTag }
-						onChange={ ( value ) => {
-							setAttributes( { headlineTag: value } );
-						} }
-					/>
-					<TagSelect
+					>
+						<TextControl
+							type="number"
+							min="1"
+							label="Limit"
+							value={ limit }
+							onChange={ ( value ) => {
+								setAttributes( { limit: parseInt( value ) } );
+							} }
+							__next40pxDefaultSize
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+				<ToolsPanel
+					label="H-Tags"
+					resetAll={ () => {
+						setAttributes( {
+							titleTag: defaultAttributes.titleTag.default,
+						} );
+					} }
+				>
+					<ToolsPanelItem
 						label="Card Title Tag"
-						value={ titleTag }
-						onChange={ ( value ) => {
-							setAttributes( { titleTag: value } );
+						hasValue={ () => {
+							return titleTag !== defaultAttributes.titleTag.default;
 						} }
-					/>
-				</PanelBody>
+						isShownByDefault={ true }
+						onDeselect={ () => {
+							setAttributes( {
+								titleTag: defaultAttributes.titleTag.default,
+							} );
+						} }
+					>
+						<TagSelect
+							label="Card Title Tag"
+							value={ titleTag }
+							onChange={ ( value ) => {
+								setAttributes( { titleTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 			<InspectorControls group="styles">
 				<PanelBody title="Listing Layout" initialOpen={ true }>
@@ -243,11 +278,11 @@ export function Edit( props ) {
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />
 			</InspectorControls>
-			{ PostFeedTemplate(
-				{ ...props, attributes: { ...attributes, postType } },
-				relatedPosts,
-				postTile
-			) }
+			<PostFeedTemplate
+				props={ { ...props, attributes: { ...attributes, postType } } }
+				items={ relatedPosts }
+				CardTemplate={ PostTile }
+			/>
 		</div>
 	);
 }
