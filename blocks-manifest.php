@@ -31,9 +31,6 @@ return array(
 		'allowedBlocks' => array(
 			'capitola/accordion-item'
 		),
-		'usesContext' => array(
-			'parentAutoCollapse'
-		),
 		'example' => array(
 			'innerBlocks' => array(
 				array(
@@ -202,9 +199,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-accordion-with-intro',
@@ -361,7 +358,7 @@ return array(
 			),
 			'colorTheme' => array(
 				'type' => 'string',
-				'default' => false
+				'default' => ''
 			),
 			'revealAnimation' => array(
 				'type' => 'object',
@@ -416,9 +413,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -540,9 +537,9 @@ return array(
 			)
 		),
 		'usesContext' => array(
-			'bodyTextOptions',
-			'introAlign',
-			'revealAnimation'
+			'capitola/bodyTextOptions',
+			'capitola/introAlign',
+			'capitola/revealAnimation'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-block-body-text',
@@ -823,10 +820,10 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'revealAnimation' => 'revealAnimation',
-			'showExcerpt' => 'showExcerpt',
-			'showImage' => 'showImage',
-			'introAlign' => 'introAlign'
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/showExcerpt' => 'showExcerpt',
+			'capitola/showImage' => 'showImage',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-side-detailed-link-list',
@@ -881,8 +878,8 @@ return array(
 			)
 		),
 		'usesContext' => array(
-			'showExcerpt',
-			'showImage'
+			'capitola/showExcerpt',
+			'capitola/showImage'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -911,8 +908,8 @@ return array(
 			'capitola/detailed-links'
 		),
 		'usesContext' => array(
-			'introAlign',
-			'revealAnimation'
+			'capitola/introAlign',
+			'capitola/revealAnimation'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -1080,10 +1077,10 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign',
-			'isExample' => 'isExample'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign',
+			'capitola/isExample' => 'isExample'
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
@@ -1213,9 +1210,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js',
@@ -1426,8 +1423,8 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -1574,9 +1571,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
 		'style' => array(
@@ -1615,8 +1612,8 @@ return array(
 			
 		),
 		'usesContext' => array(
-			'revealAnimation',
-			'introAlign'
+			'capitola/revealAnimation',
+			'capitola/introAlign'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -1783,8 +1780,8 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -1870,9 +1867,9 @@ return array(
 			'capitola/image-link-grid-item'
 		),
 		'usesContext' => array(
-			'gridLayout',
-			'gridGap',
-			'excerptLines'
+			'capitola/gridLayout',
+			'capitola/gridGap',
+			'capitola/excerptLines'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -2031,12 +2028,12 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign',
-			'gridLayout' => 'gridLayout',
-			'gridGap' => 'gridGap',
-			'excerptLines' => 'excerptLines'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign',
+			'capitola/gridLayout' => 'gridLayout',
+			'capitola/gridGap' => 'gridGap',
+			'capitola/excerptLines' => 'excerptLines'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-image-link-grid-block',
@@ -2705,8 +2702,8 @@ return array(
 				'default' => 'category'
 			),
 			'baseTerm' => array(
-				'type' => 'string',
-				'default' => '0'
+				'type' => 'integer',
+				'default' => 0
 			),
 			'limit' => array(
 				'type' => 'integer',
@@ -2830,9 +2827,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
 		'style' => array(
@@ -3007,9 +3004,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
@@ -3228,9 +3225,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
@@ -3240,7 +3237,7 @@ return array(
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
 	),
-	'search-results' => array(
+	'search-listings' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'capitola/search-listings',
@@ -3326,7 +3323,8 @@ return array(
 		'render' => 'file:./render.php',
 		'style' => array(
 			'capitola-post-listing',
-			'capitola-page-navigation'
+			'capitola-page-navigation',
+			'capitola-search-listings'
 		),
 		'editorScript' => 'file:./index.js'
 	),
@@ -3571,9 +3569,9 @@ return array(
 			)
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -3686,7 +3684,10 @@ return array(
 				'type' => 'array',
 				'default' => array(
 					array(
-						'image' => 0,
+						'image' => array(
+							'id' => 0,
+							'source_url' => ''
+						),
 						'caption' => ''
 					)
 				)
@@ -3768,9 +3769,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
 		'style' => 'capitola-small-image-slider',
@@ -3935,8 +3936,8 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -3969,8 +3970,8 @@ return array(
 			
 		),
 		'usesContext' => array(
-			'revealAnimation',
-			'introAlign'
+			'capitola/revealAnimation',
+			'capitola/introAlign'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -4077,7 +4078,7 @@ return array(
 			)
 		),
 		'providesContext' => array(
-			'showFullImage' => 'showFullImage'
+			'capitola/showFullImage' => 'showFullImage'
 		),
 		'example' => array(
 			'attributes' => array(
@@ -4186,8 +4187,8 @@ return array(
 			)
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'usesContext' => array(
 			'showFullImage'
@@ -4322,9 +4323,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'viewScriptModule' => 'file:./view.js',
@@ -4392,8 +4393,8 @@ return array(
 			'capitola/activePanel' => 'activePanel'
 		),
 		'usesContext' => array(
-			'revealAnimation',
-			'introAlign'
+			'capitola/revealAnimation',
+			'capitola/introAlign'
 		),
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'
@@ -4461,7 +4462,7 @@ return array(
 			),
 			'ctaText' => array(
 				'type' => 'string',
-				'default' => 'Read More'
+				'default' => 'View Items'
 			),
 			'showExcerpt' => array(
 				'type' => 'boolean',
@@ -4537,9 +4538,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js',
@@ -4579,6 +4580,17 @@ return array(
 			'customCSS' => false
 		),
 		'attributes' => array(
+			'frontImage' => array(
+				'type' => 'object',
+				'default' => array(
+					'id' => 0,
+					'source_url' => ''
+				)
+			),
+			'gridAspectRatio' => array(
+				'type' => 'string',
+				'default' => '1'
+			),
 			'introAlign' => array(
 				'type' => 'string',
 				'default' => 'left'
@@ -4587,20 +4599,24 @@ return array(
 				'type' => 'integer',
 				'default' => 50
 			),
-			'gridAspectRatio' => array(
-				'type' => 'string',
-				'default' => '1'
-			),
-			'rearImagePosition' => array(
-				'type' => 'string',
-				'default' => 'top-left'
-			),
 			'rearImage' => array(
 				'type' => 'object',
 				'default' => array(
 					'id' => 0,
 					'source_url' => ''
 				)
+			),
+			'rearImagePosition' => array(
+				'type' => 'string',
+				'default' => 'top-left'
+			),
+			'rearImageHeight' => array(
+				'type' => 'integer',
+				'default' => 7
+			),
+			'rearImageWidth' => array(
+				'type' => 'integer',
+				'default' => 9
 			),
 			'middleImage' => array(
 				'type' => 'object',
@@ -4609,38 +4625,19 @@ return array(
 					'source_url' => ''
 				)
 			),
-			'frontImage' => array(
-				'type' => 'object',
-				'default' => array(
-					'id' => 0,
-					'source_url' => ''
-				)
-			),
-			'rearImageHeight' => array(
+			'middleImageHeight' => array(
 				'type' => 'integer',
-				'default' => 7
-			),
-			'middleImageTopPos' => array(
-				'type' => 'integer',
-				'default' => 9
+				'default' => 4
 			),
 			'middleImageLeftPos' => array(
 				'type' => 'integer',
 				'default' => 6
 			),
-			'middleImageHeight' => array(
-				'type' => 'integer',
-				'default' => 4
-			),
-			'frontImageHeight' => array(
-				'type' => 'integer',
-				'default' => 7
-			),
-			'rearImageWidth' => array(
+			'middleImageTopPos' => array(
 				'type' => 'integer',
 				'default' => 9
 			),
-			'middleImageWidth' => array(
+			'frontImageHeight' => array(
 				'type' => 'integer',
 				'default' => 7
 			),
@@ -4648,27 +4645,31 @@ return array(
 				'type' => 'integer',
 				'default' => 11
 			),
-			'rearImageFocalPoint' => array(
+			'frontImageFocalPoint' => array(
 				'type' => 'string',
 				'default' => '50% 50%'
+			),
+			'frontImageRadius' => array(
+				'type' => 'string',
+				'default' => 'small'
+			),
+			'middleImageWidth' => array(
+				'type' => 'integer',
+				'default' => 7
 			),
 			'middleImageFocalPoint' => array(
 				'type' => 'string',
 				'default' => '50% 50%'
 			),
-			'frontImageFocalPoint' => array(
-				'type' => 'string',
-				'default' => '50% 50%'
-			),
-			'rearImageRadius' => array(
-				'type' => 'string',
-				'default' => 'small'
-			),
 			'middleImageRadius' => array(
 				'type' => 'string',
 				'default' => 'small'
 			),
-			'frontImageRadius' => array(
+			'rearImageFocalPoint' => array(
+				'type' => 'string',
+				'default' => '50% 50%'
+			),
+			'rearImageRadius' => array(
 				'type' => 'string',
 				'default' => 'small'
 			),
@@ -4739,9 +4740,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -4911,8 +4912,8 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',
@@ -5128,9 +5129,9 @@ return array(
 			'viewportWidth' => 1440
 		),
 		'providesContext' => array(
-			'bodyTextOptions' => 'bodyTextOptions',
-			'revealAnimation' => 'revealAnimation',
-			'introAlign' => 'introAlign'
+			'capitola/bodyTextOptions' => 'bodyTextOptions',
+			'capitola/revealAnimation' => 'revealAnimation',
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'render' => 'file:./render.php',

@@ -152,12 +152,12 @@
     "viewportWidth": 1440
   },
   "providesContext": {
-    "bodyTextOptions": "bodyTextOptions",
-    "revealAnimation": "revealAnimation",
-    "introAlign": "introAlign",
-    "gridLayout": "gridLayout",
-    "gridGap": "gridGap",
-    "excerptLines": "excerptLines"
+    "capitola/bodyTextOptions": "bodyTextOptions",
+    "capitola/revealAnimation": "revealAnimation",
+    "capitola/introAlign": "introAlign",
+    "capitola/gridLayout": "gridLayout",
+    "capitola/gridGap": "gridGap",
+    "capitola/excerptLines": "excerptLines"
   },
   "viewScript": "capitola-animations",
   "style": "capitola-image-link-grid-block",

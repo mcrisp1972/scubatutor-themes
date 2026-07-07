@@ -28,9 +28,6 @@
   "allowedBlocks": [
     "capitola/accordion-item"
   ],
-  "usesContext": [
-    "parentAutoCollapse"
-  ],
   "example": {
     "innerBlocks": [
       {

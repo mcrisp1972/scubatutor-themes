@@ -96,9 +96,9 @@
     }
   ],
   "usesContext": [
-    "bodyTextOptions",
-    "introAlign",
-    "revealAnimation"
+    "capitola/bodyTextOptions",
+    "capitola/introAlign",
+    "capitola/revealAnimation"
   ],
   "viewScript": "capitola-animations",
   "style": "capitola-block-body-text",

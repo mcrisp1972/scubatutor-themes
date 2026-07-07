@@ -89,8 +89,8 @@
       "default": "category"
     },
     "baseTerm": {
-      "type": "string",
-      "default": "0"
+      "type": "integer",
+      "default": 0
     },
     "limit": {
       "type": "integer",
@@ -208,9 +208,9 @@
     "viewportWidth": 1440
   },
   "providesContext": {
-    "bodyTextOptions": "bodyTextOptions",
-    "revealAnimation": "revealAnimation",
-    "introAlign": "introAlign"
+    "capitola/bodyTextOptions": "bodyTextOptions",
+    "capitola/revealAnimation": "revealAnimation",
+    "capitola/introAlign": "introAlign"
   },
   "render": "file:./render.php",
   "style": [

@@ -24,9 +24,9 @@
     "capitola/image-link-grid-item"
   ],
   "usesContext": [
-    "gridLayout",
-    "gridGap",
-    "excerptLines"
+    "capitola/gridLayout",
+    "capitola/gridGap",
+    "capitola/excerptLines"
   ],
   "render": "file:./render.php",
   "editorScript": "file:./index.js"

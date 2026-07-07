@@ -46,8 +46,8 @@
     }
   },
   "usesContext": [
-    "showExcerpt",
-    "showImage"
+    "capitola/showExcerpt",
+    "capitola/showImage"
   ],
   "render": "file:./render.php",
   "editorScript": "file:./index.js"

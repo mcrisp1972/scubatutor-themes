@@ -23,8 +23,8 @@
     "capitola/activePanel": "activePanel"
   },
   "usesContext": [
-    "revealAnimation",
-    "introAlign"
+    "capitola/revealAnimation",
+    "capitola/introAlign"
   ],
   "editorScript": "file:./index.js",
   "render": "file:./render.php"
