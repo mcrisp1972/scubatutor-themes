@@ -7,7 +7,7 @@ import {
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { useEffect, useState } from '@wordpress/element';
-import { ColorThemePicker } from '../../../../capitola/src/editor-controls';
+import { ColorThemePicker } from '@capitola/editor-controls';
 import colorThemes from '../../../color-themes.json';
 
 export function Edit( props ) {

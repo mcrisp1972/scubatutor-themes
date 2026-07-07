@@ -11,6 +11,8 @@ module.exports = [
 		files: [ '**/*.{js,jsx,mjs,cjs}' ],
 		settings: {
 			'import/core-modules': [
+				'@capitola/editor-controls',
+				'@capitola/editor-icons',
 				'@wordpress/api-fetch',
 				'@wordpress/autop',
 				'@wordpress/block-editor',

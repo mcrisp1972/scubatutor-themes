@@ -21,6 +21,11 @@ const path = require( 'path' );
 // update this to the theme path, used for css url paths
 const themeURL = '/wp-content/themes/scuba-tutor/build/';
 
+const capitolaAliases = {
+	'@capitola': path.resolve( __dirname, '../capitola/src' ),
+	'@capitola-child': path.resolve( __dirname, 'src' ),
+};
+
 // Helper to update rules
 function updateSvgRules( rules ) {
 	return rules.map( ( rule ) => {
@@ -92,9 +97,29 @@ const customizeConfig = ( config ) => {
 			...js,
 			...sass,
 		},
+		resolve: {
+			...( config.resolve || {} ),
+			alias: {
+				...( config.resolve?.alias || {} ),
+				...capitolaAliases,
+			},
+		},
 		module: {
 			...config.module,
 			rules,
+		},
+	};
+};
+
+const addThemeAliases = ( config ) => {
+	return {
+		...config,
+		resolve: {
+			...( config.resolve || {} ),
+			alias: {
+				...( config.resolve?.alias || {} ),
+				...capitolaAliases,
+			},
 		},
 	};
 };
@@ -105,7 +130,7 @@ if ( hasExperimentalModulesFlag ) {
 	// Apply customizations to the scriptConfig only (first item)
 	module.exports = [
 		customizeConfig( defaultConfig[ 0 ] ),
-		defaultConfig[ 1 ], // Keep moduleConfig as-is
+		addThemeAliases( defaultConfig[ 1 ] ),
 	];
 } else {
 	// When experimental modules are disabled, defaultConfig is a single object
