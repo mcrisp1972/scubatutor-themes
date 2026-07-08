@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
-class listingSidescroll {
+class listingSlider {
 	constructor( wrapper ) {
 		const swiperContainer = wrapper.querySelector( '.swiper' );
 		this.swiper = new Swiper( swiperContainer, {
@@ -26,6 +26,6 @@ class listingSidescroll {
 	}
 }
 
-document.querySelectorAll( '.js-sidescroll-list' ).forEach( ( slider ) => {
-	new listingSidescroll( slider );
+document.querySelectorAll( '.js-slider-list' ).forEach( ( slider ) => {
+	new listingSlider( slider );
 } );

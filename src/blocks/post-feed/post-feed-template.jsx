@@ -12,7 +12,7 @@ function SwiperTemplate( { attributes, CardTemplate, items } ) {
 	const paginationRef = useRef( null );
 
 	const swiperProps = {
-		wrapperClass: 'capitola-listings__list --sidescroll',
+		wrapperClass: 'capitola-listings__list --slider',
 		style: { '--wp--custom--truncate-lines': attributes.excerptLines },
 		modules: [ Navigation, Pagination ],
 		navigation: {
@@ -41,7 +41,7 @@ function SwiperTemplate( { attributes, CardTemplate, items } ) {
 	};
 
 	return (
-		<Swiper className="capitola-listings__sidescroll" { ...swiperProps }>
+		<Swiper className="capitola-listings__slider" { ...swiperProps }>
 			{ items.map( ( term ) => {
 				return (
 					<SwiperSlide key={ term.id } className="capitola-result">
@@ -73,7 +73,7 @@ function SwiperTemplate( { attributes, CardTemplate, items } ) {
 function GridTemplate( { attributes, CardTemplate, items } ) {
 	const { listLayout } = attributes;
 	return (
-		<div className="capitola-listings__sidescroll">
+		<div className="capitola-listings__slider">
 			<div
 				className={ `capitola-listings__list --${ listLayout }` }
 				style={ {
@@ -104,7 +104,7 @@ export default function PostFeedTemplate( {
 } ) {
 	const { attributes } = props;
 	const { listLayout, revealAnimation } = attributes;
-	const hasSlider = listLayout === 'sidescroll';
+	const hasSlider = listLayout === 'slider';
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function theme_scripts() {
-	wp_register_script( 'capitola-listing-sidescroll', CAPITOLA_JS_URL . 'listing-sidescroll.js', array(), CAPITOLA_THEME_VER, true );
+	wp_register_script( 'capitola-listing-slider', CAPITOLA_JS_URL . 'listing-slider.js', array(), CAPITOLA_THEME_VER, true );
 	wp_register_script( 'capitola-animations', CAPITOLA_JS_URL . 'animations.js', array(), CAPITOLA_THEME_VER, true );
 }
 

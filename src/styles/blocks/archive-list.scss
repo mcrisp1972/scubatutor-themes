@@ -39,9 +39,9 @@
 		}
 	}
 
-	&__sidescroll {
+	&__slider {
 
-		.--logos.--sidescroll {
+		.--logos.--slider {
 			flex-wrap: nowrap;
 			justify-content: unset;
 			gap: unset;
@@ -116,7 +116,7 @@
 			}
 		}
 
-		&.--sidescroll {
+		&.--slider {
 			display: flex;
 			flex-wrap: nowrap;
 			gap: unset;
@@ -203,7 +203,7 @@
 		&.--masonry,
 		&.--column-2,
 		&.--column-3,
-		&.--sidescroll,
+		&.--slider,
 		&.--card {
 
 			.capitola-result__byline {
@@ -248,7 +248,7 @@
 				}
 			}
 
-			&.--sidescroll {
+			&.--slider {
 
 				.capitola-result {
 					margin-right: var(--wp--custom--spacing--medium);
