@@ -13,6 +13,7 @@ import { useSelect } from '@wordpress/data';
 import { getBlockType } from '@wordpress/blocks';
 import { TagSelect, ColorThemePanel, TruncateControl } from '@capitola/editor-controls';
 import PostTile from '@capitola/blocks/post-feed/post-tile';
+import { listingLayouts } from '@capitola/blocks/post-feed/listing-layouts';
 import { layoutConditionals } from '@capitola/blocks/post-feed/layout-conditionals';
 
 export function Edit( props ) {
@@ -110,14 +111,7 @@ export function Edit( props ) {
 					<SelectControl
 						label="Layout"
 						value={ listLayout }
-						options={ [
-							{ label: 'Rows', value: 'row' },
-							{ label: 'Squares', value: 'card' },
-							{ label: '2 Columns', value: 'column-2' },
-							{ label: '3 Columns', value: 'column-3' },
-							{ label: 'Masonry', value: 'masonry' },
-							{ label: 'Sidescroll', value: 'sidescroll' },
-						] }
+						options={ listingLayouts }
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }

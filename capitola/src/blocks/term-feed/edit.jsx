@@ -20,6 +20,7 @@ import {
 } from '@capitola/editor-controls';
 import TermTile from './term-tile';
 import PostFeedTemplate from '@capitola/blocks/post-feed/post-feed-template';
+import { listingLayouts } from '@capitola/blocks/post-feed/listing-layouts';
 
 export function Edit( props ) {
 	const { name, attributes, setAttributes } = props;
@@ -178,20 +179,13 @@ export function Edit( props ) {
 					<SelectControl
 						label="Layout"
 						value={ listLayout }
-						options={ [
-							{ label: 'Rows', value: 'row' },
-							{ label: 'Squares', value: 'card' },
-							{ label: '2 Columns', value: 'column-2' },
-							{ label: '3 Columns', value: 'column-3' },
-							{ label: 'Masonry', value: 'masonry' },
-							{ label: 'Sidescroll', value: 'sidescroll' },
-						] }
+						options={ listingLayouts }
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
 					/>
-					{ listLayout === 'sidescroll' && (
+					{ listLayout === 'slider' && (
 						<ToggleControl
 							label="Show Slide Count"
 							checked={ showSlideCount }

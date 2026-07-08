@@ -19,6 +19,7 @@ import {
 } from '@capitola/editor-controls';
 import { applyFilters } from '@wordpress/hooks';
 import PostTile from '@capitola/blocks/post-feed/post-tile';
+import { listingLayouts } from '@capitola/blocks/post-feed/listing-layouts';
 import PostFeedTemplate from '@capitola/blocks/post-feed/post-feed-template';
 import { templatePostType } from '@capitola/scripts/modules/template-post-type';
 
@@ -203,20 +204,13 @@ export function Edit( props ) {
 					<SelectControl
 						label="Layout"
 						value={ listLayout }
-						options={ [
-							{ label: 'Rows', value: 'row' },
-							{ label: 'Squares', value: 'card' },
-							{ label: '2 Columns', value: 'column-2' },
-							{ label: '3 Columns', value: 'column-3' },
-							{ label: 'Masonry', value: 'masonry' },
-							{ label: 'Sidescroll', value: 'sidescroll' },
-						] }
+						options={ listingLayouts }
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
 						__next40pxDefaultSize
 					/>
-					{ listLayout === 'sidescroll' && (
+					{ listLayout === 'slider' && (
 						<ToggleControl
 							label="Show Slide Count"
 							checked={ showSlideCount }
