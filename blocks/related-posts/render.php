@@ -9,12 +9,12 @@ use function Capitola\Blocks\Related_Posts\query_related_posts;
 use function Capitola\Helpers\Block_Attributes\layout_conditionals;
 
 $animations = animation_attributes( $attributes );
-$has_slider = ( 'sidescroll' === $attributes['listLayout'] );
+$has_slider = ( 'slider' === $attributes['listLayout'] );
 $results    = query_related_posts( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'capitola-listings alignfull is-layout-constrained has-global-padding ' . ( $has_slider ? 'js-sidescroll-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
+		'class' => 'capitola-listings alignfull is-layout-constrained has-global-padding ' . ( $has_slider ? 'js-slider-list' : '' ) . ' --theme-' . $attributes['colorTheme'],
 	)
 );
 
@@ -22,7 +22,7 @@ if ( $results && $results->have_posts() ) : ?>
 	<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 		<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 			<?php echo wp_kses_post( $content ); ?>
-			<div class="capitola-listings__sidescroll swiper">
+			<div class="capitola-listings__slider swiper">
 				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 					<?php
 					while ( $results->have_posts() ) :

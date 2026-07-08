@@ -163,7 +163,7 @@
   },
   "style": "capitola-post-listing",
   "viewScript": [
-    "capitola-listing-sidescroll",
+    "capitola-listing-slider",
     "capitola-animations"
   ],
   "render": "file:./render.php",

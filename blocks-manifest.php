@@ -1084,7 +1084,7 @@ return array(
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
-			'capitola-listing-sidescroll',
+			'capitola-listing-slider',
 			'capitola-animations'
 		),
 		'render' => 'file:./render.php',
@@ -3010,7 +3010,7 @@ return array(
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
-			'capitola-listing-sidescroll',
+			'capitola-listing-slider',
 			'capitola-animations'
 		),
 		'render' => 'file:./render.php',
@@ -3231,7 +3231,7 @@ return array(
 		),
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
-			'capitola-listing-sidescroll',
+			'capitola-listing-slider',
 			'capitola-animations'
 		),
 		'render' => 'file:./render.php',
@@ -4546,7 +4546,7 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'capitola-post-listing',
 		'viewScript' => array(
-			'capitola-listing-sidescroll',
+			'capitola-listing-slider',
 			'capitola-animations'
 		)
 	),
