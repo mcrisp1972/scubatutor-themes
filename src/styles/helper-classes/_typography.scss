@@ -1,34 +1,33 @@
 @use "@capitola/styles/abstracts" as *;
 
-:where(.--hl-xxl) {
+.--hl-xxl {
 	@include headline-xxl;
 }
 
-:where(.--hl-xl) {
+.--hl-xl {
 	@include headline-xl;
 }
 
-:where(.--hl-l) {
+.--hl-l {
 	@include headline-l;
 }
 
-:where(.--hl-m) {
+.--hl-m {
 	@include headline-m;
 }
 
-:where(.--hl-s) {
+.--hl-s {
 	@include headline-s;
 }
 
-:where(.--hl-xs) {
+.--hl-xs {
 	@include headline-xs;
 }
 
-:where(.--micro-text) {
+.--micro-text {
 	@include micro-text;
 }
 
-// not using :where here, links are a different situation because of wp's a:where(:not(.wp-element-button))
 .--cta:not(.--secondary):not(.--tertiary) {
 	@include button-primary;
 }
@@ -41,11 +40,11 @@
 	@include button-tertiary;
 }
 
-:where(.--eyebrow) {
+.--eyebrow {
 	@include eyebrow;
 }
 
-:where(.--hyperlink) {
+.--hyperlink {
 	@include hyperlink;
 }
 

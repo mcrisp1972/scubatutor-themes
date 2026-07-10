@@ -20,7 +20,19 @@
 	"parent": [
 		"capitola/stats"
 	],
-	"attributes": {},
+	"attributes": {
+		"animatedStats": {
+			"type": "boolean",
+			"default": true
+		},
+		"animatedStatsSpeed": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"providesContext": {
+		"capitola/animatedStats": "animatedStats"
+	},
 	"usesContext": [
 		"capitola/revealAnimation",
 		"capitola/introAlign"

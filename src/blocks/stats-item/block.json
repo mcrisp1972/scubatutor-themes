@@ -29,6 +29,9 @@
 			"default": ""
 		}
 	},
+	"usesContext": [
+		"capitola/animatedStats"
+	],
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }
