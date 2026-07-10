@@ -21,6 +21,7 @@ module.exports = [
 				'@capitola/blocks/post-feed/listing-layouts',
 				'@capitola/scripts/modules/template-post-type',
 				'@capitola/scripts/modules/term-tree',
+				'@capitola/blocks/stats-grid/preview',
 				'@capitola/scripts',
 				'@capitola/editor-icons',
 				'@wordpress/api-fetch',
