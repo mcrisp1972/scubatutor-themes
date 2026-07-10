@@ -12,7 +12,8 @@ $count = count( $block->inner_blocks );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'alignfull ' . ( $count < 4 ? ' --count-' . $count : '' ) . $animations['figure-class'],
+		'class'                     => 'alignfull ' . ( $count < 4 ? ' --count-' . $count : '' ) . $animations['figure-class'] . ( $attributes['animatedStats'] ? ' js-animated-stats-grid' : '' ),
+		'data-animated-stats-speed' => $attributes['animatedStatsSpeed'],
 	)
 );
 

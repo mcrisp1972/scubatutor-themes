@@ -117,7 +117,10 @@
     "capitola/revealAnimation": "revealAnimation",
     "capitola/introAlign": "introAlign"
   },
-  "viewScript": "capitola-animations",
+  "viewScript": [
+    "capitola-animations",
+    "file:./view.js"
+  ],
   "render": "file:./render.php",
   "style": "capitola-stats",
   "editorScript": "file:./index.js"

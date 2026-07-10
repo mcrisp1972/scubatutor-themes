@@ -3939,7 +3939,10 @@ return array(
 			'capitola/revealAnimation' => 'revealAnimation',
 			'capitola/introAlign' => 'introAlign'
 		),
-		'viewScript' => 'capitola-animations',
+		'viewScript' => array(
+			'capitola-animations',
+			'file:./view.js'
+		),
 		'render' => 'file:./render.php',
 		'style' => 'capitola-stats',
 		'editorScript' => 'file:./index.js'
@@ -3967,7 +3970,17 @@ return array(
 			'capitola/stats'
 		),
 		'attributes' => array(
-			
+			'animatedStats' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'animatedStatsSpeed' => array(
+				'type' => 'number',
+				'default' => 2
+			)
+		),
+		'providesContext' => array(
+			'capitola/animatedStats' => 'animatedStats'
 		),
 		'usesContext' => array(
 			'capitola/revealAnimation',
@@ -4006,6 +4019,9 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			)
+		),
+		'usesContext' => array(
+			'capitola/animatedStats'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
