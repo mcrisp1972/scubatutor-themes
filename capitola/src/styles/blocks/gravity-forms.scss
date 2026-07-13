@@ -50,7 +50,7 @@
 	}
 
 	&_submission_error {
-		@include micro-text;
+		@include text-s;
 		text-transform: none;
 		margin-bottom: 0;
 	}
@@ -147,7 +147,7 @@
 	}
 
 	&_validation_message {
-		@include micro-text;
+		@include text-s;
 		text-transform: none;
 		color: $error_color;
 	}

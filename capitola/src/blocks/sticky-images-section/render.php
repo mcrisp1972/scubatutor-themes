@@ -20,7 +20,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php echo wp_get_attachment_image( $attributes['sideImage']['id'], 'large' ); ?>
 		<?php if ( $attributes['showCaption'] ) : ?>
 			<?php if ( $caption ) : ?>
-				<figcaption class="wp-block-capitola-sticky-images__image-caption --micro-text">
+				<figcaption class="wp-block-capitola-sticky-images__image-caption --text-s">
 					<?php echo esc_html( $caption ); ?>
 				</figcaption>
 			<?php endif; ?>

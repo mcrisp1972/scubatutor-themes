@@ -18,7 +18,7 @@ export function Edit( props ) {
 			/>
 			<RichText
 				tagName="p"
-				className="wp-block-capitola-stats-item__caption --micro-text"
+				className="wp-block-capitola-stats-item__caption --text-s"
 				value={ caption }
 				allowedFormats={ [] }
 				placeholder="Caption..."

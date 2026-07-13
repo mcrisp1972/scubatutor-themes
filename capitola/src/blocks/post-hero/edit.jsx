@@ -202,7 +202,7 @@ export function Edit( props ) {
 				/>
 			) }
 			<div className="wp-block-capitola-post-hero__details">
-				<div className="wp-block-capitola-post-hero__byline">
+				<div className="wp-block-capitola-post-hero__byline --text-s">
 					{ ( isTemplate || postType === 'post' ) && showByline && (
 						<>
 							<div className="wp-block-capitola-post-hero__byline-img-wrap">

@@ -58,6 +58,7 @@ function SlideBody( { slide, index, slides, setAttributes, isSelected, swiperInd
 				<div className="wp-block-capitola-full-width-slider__slide-caption">
 					<RichText
 						tagName="p"
+						className="--text-s"
 						value={ slide.caption }
 						placeholder="Caption..."
 						onChange={ ( value ) => {

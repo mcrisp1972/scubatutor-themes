@@ -34,7 +34,7 @@ use function Capitola\Helpers\Images\term_thumb_id;
 				endif;
 				if ( $args['conditionals']['showExcerpt'] && $args['term']->description ) :
 					?>
-					<p class="capitola-result__excerpt">
+					<p class="capitola-result__excerpt --text-s">
 						<?php echo esc_html( $args['term']->description ); ?>
 					</p>
 				<?php endif; ?>

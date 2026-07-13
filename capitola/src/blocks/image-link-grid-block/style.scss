@@ -210,7 +210,6 @@
 
 	.wp-block-capitola-image-link-grid-item__excerpt {
 		@include truncate-lines;
-		@include micro-text;
 	}
 
 	&__cta {

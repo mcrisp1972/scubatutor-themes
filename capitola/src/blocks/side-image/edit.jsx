@@ -453,6 +453,7 @@ export function Edit( props ) {
 							{ imageLayout === 'inner' && showCaption && (
 								<RichText
 									tagName="figcaption"
+									className="--text-s"
 									style={ {
 										position: 'relative',
 										zIndex: 1,

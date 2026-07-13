@@ -393,6 +393,7 @@
 		position: relative;
 		text-align: center;
 		color: var(--capitola-color-body);
+		margin-top: var(--wp--custom--spacing--xsmall);
 	}
 
 	&__thumb-cat {
@@ -413,12 +414,10 @@
 	}
 
 	&__subtitle {
-		@include micro-text;
 		color: var(--capitola-color-body);
 	}
 
 	&__byline {
-		@include micro-text;
 		display: flex;
 		color: var(--capitola-color-body);
 		gap: var(--wp--custom--spacing--small);
@@ -449,7 +448,6 @@
 
 	// increasing specificity to override root p
 	.capitola-result__excerpt {
-		@include micro-text;
 		color: var(--capitola-color-body);
 		@include truncate-lines;
 		margin: 0;

@@ -24,8 +24,20 @@
 	@include headline-xs;
 }
 
-.--micro-text {
-	@include micro-text;
+.--text-l {
+	@include text-l;
+}
+
+.--text-m {
+	@include text-m;
+}
+
+.--text-s {
+	@include text-s;
+}
+
+.--text-xs {
+	@include text-xs;
 }
 
 .--cta:not(.--secondary):not(.--tertiary) {

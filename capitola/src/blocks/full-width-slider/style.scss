@@ -168,13 +168,8 @@
 		padding:
 			100px calc(min(calc((100% - 200px) / 2), calc(100% - (var(--wp--custom--spacing--gutter) * 2))) / 2)
 			var(--wp--custom--spacing--medium);
-		color: var(--wp--preset--color--white);
 		background: linear-gradient(0deg, var(--wp--custom--opacity--solid), transparent);
 		text-align: center;
-
-		p {
-			@include micro-text;
-		}
 	}
 
 	&__slide-cta {

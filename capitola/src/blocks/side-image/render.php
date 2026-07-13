@@ -62,7 +62,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			);
 			?>
 			<?php if ( $caption ) : ?>
-				<figcaption>
+				<figcaption class="--text-s">
 					<?php echo esc_html( $caption ); ?>
 				</figcaption>
 			<?php endif; ?>

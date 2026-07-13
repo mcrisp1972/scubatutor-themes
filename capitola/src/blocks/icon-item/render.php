@@ -14,7 +14,7 @@ $style = '"--capitola-icon-image: url(' . esc_url( get_template_directory_uri() 
 	<div class="wp-block-capitola-icon-item__title --hl-s">
 		<?php echo esc_html( $attributes['title'] ); ?>
 	</div>
-	<p class="wp-block-capitola-icon-item__caption --micro-text">
+	<p class="wp-block-capitola-icon-item__caption --text-s">
 		<?php echo esc_html( $attributes['caption'] ); ?>
 	</p>
 </div>

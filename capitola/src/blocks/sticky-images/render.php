@@ -33,7 +33,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							}
 							?>
 							<?php if ( $caption ) : ?>
-								<div class="wp-block-capitola-sticky-images__image-caption --micro-text">
+								<div class="wp-block-capitola-sticky-images__image-caption --text-s">
 								<?php echo esc_html( $caption ); ?>
 								</div>
 							<?php endif; ?>

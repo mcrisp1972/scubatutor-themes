@@ -93,7 +93,6 @@
 	}
 
 	.wp-block-capitola-detailed-links-item__excerpt {
-		@include micro-text;
 		@include truncate-lines;
 		margin: 0;
 	}

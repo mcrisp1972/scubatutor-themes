@@ -24,7 +24,7 @@
 	}
 
 	figcaption {
-		@include micro-text;
+		@include text-s;
 		color: var(--capitola-color-body);
 		margin: var(--wp--custom--spacing--xsmall) 0 0;
 	}
