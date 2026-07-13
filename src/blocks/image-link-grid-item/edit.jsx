@@ -173,7 +173,7 @@ export function Edit( props ) {
 					</div>
 				</div>
 				<div className="wp-block-capitola-image-link-grid-item__excerpt-wrap">
-					<div className="wp-block-capitola-image-link-grid-item__excerpt">
+					<div className="wp-block-capitola-image-link-grid-item__excerpt --text-s">
 						{ excerptOverride ? excerptOverride : linkObj?.excerpt.raw }
 					</div>
 					{ ( ctaOverride || linkObj?.cta_label ) && (

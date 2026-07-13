@@ -470,7 +470,7 @@ export default class filteredListings {
               ${
 					itemData.event_dates
 						? `
-                <div class="capitola-result__thumb-subtitle">
+                <div class="capitola-result__thumb-subtitle --text-s">
                   ${ itemData.event_dates }
                 </div>`
 						: ''
@@ -523,14 +523,14 @@ export default class filteredListings {
 			}
             ${
 				itemData.excerpt.rendered && this.attr.showExcerpt
-					? `<p class="capitola-result__excerpt">
+					? `<p class="capitola-result__excerpt --text-s">
                 ${ itemData.excerpt.rendered }
               </p>`
 					: ''
 			}
             ${
 				conditionals.showByline
-					? `<div class="capitola-result__byline">
+					? `<div class="capitola-result__byline --text-xs">
                 ${
 					itemData.byline.author_image
 						? `<div class="capitola-result__byline-img-wrap">
@@ -634,7 +634,7 @@ export default class filteredListings {
             </div>
             ${
 				this.attr.showExcerpt && itemData.short_description
-					? `<p class="capitola-result__excerpt">
+					? `<p class=" --text-s">
                 ${ itemData.short_description }
               </p>`
 					: ''

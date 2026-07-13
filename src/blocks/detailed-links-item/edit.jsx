@@ -151,9 +151,9 @@ export function Edit( props ) {
 							{ !! linkTitle ? linkTitle : linkObj?.title.raw }
 						</div>
 						{ !! context[ 'capitola/showExcerpt' ] && (
-							<p className="wp-block-capitola-detailed-links-item__excerpt">
+							<div className="wp-block-capitola-detailed-links-item__excerpt --text-s">
 								{ !! linkExcerpt ? linkExcerpt : linkObj?.excerpt.raw }
-							</p>
+							</div>
 						) }
 					</div>
 				</>

@@ -54,7 +54,7 @@ $category_name = get_post_term_name( get_the_ID() );
 				endif;
 				if ( $excerpt && $args['conditionals']['showExcerpt'] ) :
 					?>
-					<p class="capitola-result__excerpt">
+					<p class="capitola-result__excerpt --text-s">
 						<?php echo esc_html( $excerpt ); ?>
 					</p>
 					<?php
@@ -64,7 +64,7 @@ $category_name = get_post_term_name( get_the_ID() );
 					$name            = esc_html( get_the_author_meta( 'display_name' ) );
 					$author_image    = wp_get_attachment_image_src( $author_image_id, 'thumbnail' );
 					?>
-					<div class="capitola-result__byline">
+					<div class="capitola-result__byline --text-xs">
 						<?php if ( $author_image ) : ?>
 							<div class="capitola-result__byline-img-wrap">
 								<img src="<?php echo esc_url( $author_image[0] ); ?>" alt="<?php echo esc_html( $name ); ?>"/>

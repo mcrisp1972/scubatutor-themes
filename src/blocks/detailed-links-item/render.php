@@ -22,7 +22,7 @@ $excerpt  = $attributes['linkExcerpt'] ? $attributes['linkExcerpt'] : get_post_f
 			<?php echo esc_html( $attributes['linkTitle'] ? $attributes['linkTitle'] : get_the_title( $attributes['postId'] ) ); ?>
 		</a>
 		<?php if ( $excerpt && ! empty( $block->context['capitola/showExcerpt'] ) ) : ?>
-			<p class="wp-block-capitola-detailed-links-item__excerpt">
+			<p class="wp-block-capitola-detailed-links-item__excerpt --text-s">
 				<?php echo esc_html( $excerpt ); ?>
 			</p>
 		<?php endif; ?>

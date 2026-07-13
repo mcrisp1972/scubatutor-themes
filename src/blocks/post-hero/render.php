@@ -32,7 +32,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php echo esc_html( $attributes['headline'] ? $attributes['headline'] : get_the_title() ); ?>
 	</<?php echo tag_escape( $attributes['headlineTag'] ); ?>>
 	<div class="wp-block-capitola-post-hero__details">
-		<div class="wp-block-capitola-post-hero__byline">
+		<div class="wp-block-capitola-post-hero__byline --text-s">
 		<?php if ( get_post_type() === 'post' ) : ?>
 			<?php if ( $attributes['showByline'] ) : ?>
 				<?php if ( $author_image_src ) : ?>

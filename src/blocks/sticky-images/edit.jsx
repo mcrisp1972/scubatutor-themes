@@ -243,7 +243,7 @@ export function Edit( props ) {
 											) }
 											{ innerBlocks[ index ].attributes.showCaption && (
 												<RichText
-													className="wp-block-capitola-sticky-images__image-caption --micro-text"
+													className="wp-block-capitola-sticky-images__image-caption --text-s"
 													value={
 														innerBlocks[ index ].attributes
 															.captionOverride

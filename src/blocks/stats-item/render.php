@@ -16,7 +16,7 @@ use function Capitola\Blocks\Stats_Item\get_stat_parts;
 			<?php echo esc_html( $attributes['stat'] ); ?>
 		<?php endif; ?>
 	</div>
-	<p class="wp-block-capitola-stats-item__caption --micro-text">
+	<p class="wp-block-capitola-stats-item__caption --text-s">
 		<?php echo esc_html( $attributes['caption'] ); ?>
 	</p>
 </div>

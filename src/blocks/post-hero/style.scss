@@ -53,7 +53,6 @@
 	}
 
 	&__byline {
-		@include micro-text;
 		display: flex;
 		color: var(--capitola-color-body);
 		gap: var(--wp--custom--spacing--xsmall);

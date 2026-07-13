@@ -296,6 +296,7 @@
 			"wideSizePadding": "max(var(--wp--custom--spacing--gutter), calc((100% - var(--wp--custom--wide-size)) / 2))",
 			"wideSizeMargin": "max(var(--wp--custom--spacing--gutter), calc((100vw - var(--wp--custom--wide-size)) / 2))",
 			"fluid": {
+				"12-14": "clamp(0.75rem, 0.675rem + 0.25vw, 0.875rem)",
 				"14-16": "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
 				"16-18": "clamp(1rem, 0.925rem + 0.25vw, 1.125rem)",
 				"16-80": "clamp(1rem, -1.4rem + 8vw, 5rem)",
@@ -362,6 +363,7 @@
 				"hl": "700"
 			},
 			"fontSize": {
+				"p-xs": "var(--wp--custom--fluid--12-14)",
 				"p-s": "var(--wp--custom--fluid--14-16)",
 				"p-m": "var(--wp--custom--fluid--16-18)",
 				"p-l": "var(--wp--custom--fluid--18-20)",

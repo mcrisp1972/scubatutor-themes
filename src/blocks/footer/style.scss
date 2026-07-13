@@ -40,13 +40,13 @@
 	}
 
 	&__top-link {
-		@include micro-text;
+		@include text-s;
 		font-weight: var(--wp--custom--font-weight--bold);
 	}
 
 	.wp-block-capitola-nav-sublink__link {
 		@include unstyle-link;
-		@include micro-text;
+		@include text-s;
 		@include nav-link;
 	}
 
@@ -72,7 +72,7 @@
 	}
 
 	&__contact-info {
-		@include micro-text;
+		@include text-s;
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
@@ -80,7 +80,7 @@
 	}
 
 	&__hours {
-		@include micro-text;
+		@include text-s;
 		display: flex;
 		flex-flow: column;
 		gap: var(--wp--custom--spacing--xsmall);
@@ -209,7 +209,7 @@
 	}
 
 	&__copyright {
-		@include micro-text;
+		@include text-s;
 		text-align: center;
 		margin-top: var(--wp--custom--spacing--large);
 	}

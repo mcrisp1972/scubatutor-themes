@@ -14,7 +14,7 @@ export default function PostTile( { attributes, conditionals, item } ) {
 								{ item.title.raw }
 							</div>
 							{ item.event_dates && (
-								<div className="capitola-result__thumb-subtitle">
+								<div className="capitola-result__thumb-subtitle --text-s">
 									{ item.event_dates }
 								</div>
 							) }
@@ -51,14 +51,14 @@ export default function PostTile( { attributes, conditionals, item } ) {
 					) }
 					{ item.excerpt.rendered && conditionals.showExcerpt && (
 						<div
-							className="capitola-result__excerpt"
+							className="capitola-result__excerpt --text-s"
 							dangerouslySetInnerHTML={ {
 								__html: item.excerpt.rendered,
 							} }
 						/>
 					) }
 					{ conditionals.showByline && (
-						<div className="capitola-result__byline">
+						<div className="capitola-result__byline --text-xs">
 							{ item.byline.author_image && (
 								<div className="capitola-result__byline-img-wrap">
 									<img

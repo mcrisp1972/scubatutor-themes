@@ -29,7 +29,7 @@ export default function TermTile( { attributes, conditionals, item } ) {
 						</div>
 					) }
 					{ conditionals.showExcerpt && item.description && (
-						<div className="capitola-result__excerpt">
+						<div className="capitola-result__excerpt --text-s">
 							{ decodeEntities( item.description ) }
 						</div>
 					) }

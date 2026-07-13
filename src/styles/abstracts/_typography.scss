@@ -68,13 +68,20 @@
 	margin-block: 0;
 }
 
-@mixin regular-text {
-	font-size: var(--wp--custom--font-size--p-m);
-	line-height: var(--wp--custom--line-height--p);
+@mixin text-l {
+	font-size: var(--wp--custom--font-size--p-l);
 }
 
-@mixin micro-text {
+@mixin text-m {
+	font-size: var(--wp--custom--font-size--p-m);
+}
+
+@mixin text-s {
 	font-size: var(--wp--custom--font-size--p-s);
+}
+
+@mixin text-xs {
+	font-size: var(--wp--custom--font-size--p-xs);
 }
 
 @mixin eyebrow {
