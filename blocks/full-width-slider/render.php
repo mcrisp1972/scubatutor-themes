@@ -39,7 +39,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 										<?php if ( $slide['caption'] || $cta ) : ?>
 											<figcaption>
 												<?php if ( $slide['caption'] ) : ?>
-													<p><?php echo esc_html( $slide['caption'] ); ?></p>
+													<p class="--text-s"><?php echo esc_html( $slide['caption'] ); ?></p>
 												<?php endif; ?>
 												<?php echo wp_kses_post( $cta ); ?>
 											</figcaption>

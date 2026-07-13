@@ -41,7 +41,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		</div>
 		<div class="wp-block-capitola-image-link-grid-item__excerpt-wrap">
 			<?php if ( $excerpt ) : ?>
-				<p class="wp-block-capitola-image-link-grid-item__excerpt">
+				<p class="wp-block-capitola-image-link-grid-item__excerpt --text-s">
 					<?php echo esc_html( $excerpt ); ?>
 				</p>
 			<?php endif; ?>
