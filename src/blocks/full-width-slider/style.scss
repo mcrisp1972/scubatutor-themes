@@ -100,19 +100,15 @@
 			align-items: center;
 
 			&.--16-9 {
-				aspect-ratio: 16/9;
-			}
-
-			&.--21-9 {
-				aspect-ratio: 21/9;
+				aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 			}
 
 			&.--3-2 {
-				aspect-ratio: 3/2;
+				aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
 			}
 
 			&.--4-3 {
-				aspect-ratio: 4/3;
+				aspect-ratio: var(--wp--preset--aspect-ratio--4-3);
 			}
 
 			img {
@@ -197,7 +193,7 @@
 		.swiper-slide {
 			position: relative;
 			flex: 1 0 20%;
-			aspect-ratio: 1;
+			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 			opacity: 0.4;
 			cursor: pointer;
 

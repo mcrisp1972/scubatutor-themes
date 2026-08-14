@@ -16,7 +16,7 @@
 
 	&__image {
 		position: relative;
-		aspect-ratio: 16/9;
+		aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 		overflow: hidden;
 
 		@include mq("medium") {
@@ -61,7 +61,7 @@
 		&-img-wrap {
 			position: relative;
 			flex: 0 0 40px;
-			aspect-ratio: 1;
+			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 			border-radius: 50%;
 			overflow: hidden;
 

@@ -33,30 +33,7 @@
 	}
 
 	&__button {
-		display: flex;
-		border: 1px solid var(--capitola-color-button);
-		border-radius: $radius-small;
-		color: var(--capitola-color-button-text);
-		justify-content: center;
-		align-items: center;
-
-		font: {
-			size: to-rem(14px);
-			weight: var(--wp--custom--font-weight--bold);
-		}
-
-		margin: 0;
-		height: 32px;
-		min-width: 32px;
-
-		text: {
-			align: center;
-			decoration: none;
-		}
-
-		background: var(--capitola-color-button);
-		padding: 0 var(--wp--custom--spacing--xsmall) 0;
-		transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
+		@include nav-button;
 
 		&.--next,
 		&.--prev {
@@ -150,22 +127,6 @@
 			&:hover {
 				cursor: default;
 			}
-		}
-
-		&:focus,
-		&:hover:not([disabled]),
-		&:active {
-			background: none;
-			color: var(--capitola-color-button);
-			cursor: pointer;
-			border-radius: $radius-small;
-			outline: none;
-		}
-
-		&:disabled,
-		&.--disabled {
-			opacity: 0.5;
-			pointer-events: none;
 		}
 	}
 

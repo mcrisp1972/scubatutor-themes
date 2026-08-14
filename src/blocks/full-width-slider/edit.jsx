@@ -254,7 +254,7 @@ export function Edit( props ) {
 					<AspectRatioToolbar
 						props={ props }
 						attribute="aspectRatio"
-						options={ [ '21-9', '16-9', '3-2', '4-3' ] }
+						options={ [ '16-9', '3-2', '4-3' ] }
 					/>
 					<RadiusToolbar
 						props={ props }

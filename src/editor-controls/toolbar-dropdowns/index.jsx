@@ -49,11 +49,6 @@ const mediaAlignIcons = {
 };
 
 const ratioIcons = {
-	'21-9': (
-		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-			<Rect x="4" y="8.5" width="16" height="6.86" rx="1" ry="1" />
-		</SVG>
-	),
 	'16-9': (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 			<Rect x="4" y="8" width="16" height="9" rx="1" ry="1" />
@@ -283,18 +278,6 @@ export function AspectRatioToolbar( {
 			icon={ ratioIcons[ value ] }
 			label={ label }
 			controls={ [
-				...( options.includes( '21-9' )
-					? [
-							{
-								title: '21/9',
-								icon: ratioIcons[ '21-9' ],
-								isActive: value === '21-9',
-								onClick: () => {
-									setAttributes( { [ attribute ]: '21-9' } );
-								},
-							},
-					  ]
-					: [] ),
 				...( options.includes( '16-9' )
 					? [
 							{

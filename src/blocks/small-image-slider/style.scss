@@ -78,7 +78,7 @@
 		.--landscape & {
 			max-width: 550px;
 			flex: 0 0 60%;
-			aspect-ratio: 550/330;
+			aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 
 			&.swiper-slide-active {
 				scale: 1.2;
@@ -95,7 +95,7 @@
 			}
 
 			img {
-				aspect-ratio: 1;
+				aspect-ratio: var(--wp--preset--aspect-ratio--square);
 				transition: border-radius 0.6s linear;
 			}
 		}

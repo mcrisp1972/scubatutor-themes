@@ -48,7 +48,7 @@
 
 	&__image {
 		position: relative;
-		aspect-ratio: 1;
+		aspect-ratio: var(--wp--preset--aspect-ratio--square);
 		overflow: hidden;
 
 		&.--has-small-radius {

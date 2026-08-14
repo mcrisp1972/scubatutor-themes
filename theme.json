@@ -229,7 +229,33 @@
 			"customFontSize": false,
 			"textTransform": false,
 			"textDecoration": false,
-			"fontSizes": [],
+			"fontSizes": [
+				{
+					"slug": "xsmall",
+					"size": "var(--wp--custom--font-size--p-xs)",
+					"name": "X-Small"
+				},
+				{
+					"slug": "small",
+					"size": "var(--wp--custom--font-size--p-s)",
+					"name": "Small"
+				},
+				{
+					"slug": "medium",
+					"size": "var(--wp--custom--font-size--p-m)",
+					"name": "Medium"
+				},
+				{
+					"slug": "large",
+					"size": "var(--wp--custom--font-size--p-l)",
+					"name": "Large"
+				},
+				{
+					"slug": "x-large",
+					"size": "var(--wp--custom--font-size--p-xl)",
+					"name": "x-large"
+				}
+			],
 			"defaultFontSizes": false,
 			"fontStyle": false,
 			"fontWeight": false,
@@ -301,6 +327,7 @@
 				"16-18": "clamp(1rem, 0.925rem + 0.25vw, 1.125rem)",
 				"16-80": "clamp(1rem, -1.4rem + 8vw, 5rem)",
 				"18-20": "clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem)",
+				"20-22": "clamp(1.25rem, 1.175rem + 0.25vw, 1.375rem)",
 				"20-24": "clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem)",
 				"24-32": "clamp(1.5rem, 1.2rem + 1vw, 2rem)",
 				"32-40": "clamp(2rem, 1.7rem + 1vw, 2.5rem)",
@@ -330,7 +357,8 @@
 					"fontFamily": "var(--wp--preset--font-family--primary)",
 					"fontSize": "var(--wp--custom--font-size--p-s)",
 					"lineHeight": "1.5",
-					"padding": "var(--wp--custom--spacing--xxsmall) var(--wp--custom--spacing--xsmall)",
+					"paddingBlock": "var(--wp--custom--spacing--xxsmall)",
+					"paddingInline": "var(--wp--custom--spacing--xsmall)",
 					"transition": "box-shadow 0.2s ease-in"
 				},
 				"radioCb": {
@@ -367,6 +395,7 @@
 				"p-s": "var(--wp--custom--fluid--14-16)",
 				"p-m": "var(--wp--custom--fluid--16-18)",
 				"p-l": "var(--wp--custom--fluid--18-20)",
+				"p-xl": "var(--wp--custom--fluid--20-22)",
 				"hl-xs": "var(--wp--custom--fluid--18-20)",
 				"hl-s": "var(--wp--custom--fluid--20-24)",
 				"hl-m": "var(--wp--custom--fluid--24-32)",

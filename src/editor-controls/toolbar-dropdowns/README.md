@@ -123,7 +123,6 @@ A toolbar dropdown for media aspect ratio selection.
 
 ### Available Options:
 
-- `21-9` - Ultra-wide aspect ratio (21:9)
 - `16-9` - Widescreen aspect ratio (16:9)
 - `3-2` - Standard aspect ratio (3:2)
 - `4-3` - Traditional aspect ratio (4:3)
