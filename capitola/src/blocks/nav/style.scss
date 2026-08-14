@@ -214,13 +214,11 @@
 				height: 12px;
 				width: 12px;
 				background: var(--capitola-color-link);
-
 				mask: {
 					repeat: no-repeat;
 					position: center;
 					size: contain;
 				}
-
 				transition: background-color var(--wp--custom--transitions--default);
 			}
 

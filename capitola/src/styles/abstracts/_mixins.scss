@@ -108,11 +108,15 @@
 	&:disabled,
 	&.disabled {
 		cursor: not-allowed;
-		opacity: 0.5;
+		opacity: 0.7;
 
 		&:hover {
 			color: inherit;
 			background: #ebe9eb;
+		}
+
+		&::after {
+			opacity: 0.7;
 		}
 	}
 }
@@ -358,6 +362,92 @@
 		&::after {
 			transform: translateX(var(--wp--custom--spacing--xxsmall));
 		}
+	}
+}
+
+@mixin nav-button {
+	display: flex;
+	border: 1px solid var(--capitola-color-button);
+	border-radius: $radius-small;
+	color: var(--capitola-color-button-text);
+	justify-content: center;
+	align-items: center;
+	font: {
+		size: var(--wp--custom--font-size--p-xs);
+		weight: var(--wp--custom--font-weight--bold);
+	}
+	margin: 0;
+	height: 32px;
+	min-width: 32px;
+	text: {
+		align: center;
+		decoration: none;
+	}
+	background: var(--capitola-color-button);
+	padding: 0 var(--wp--custom--spacing--xsmall) 0;
+	transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
+
+	&.--next,
+	&.--prev,
+	&--previous,
+	&--next {
+		position: relative;
+		gap: var(--wp--custom--spacing--xxsmall);
+
+		&::after {
+			content: "";
+			background: var(--capitola-color-button-text);
+			mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
+			width: var(--wp--custom--spacing--small);
+			height: 1em;
+			transition:
+				background-color var(--wp--custom--transitions--default),
+				transform var(--wp--custom--transitions--default);
+		}
+
+		&:focus,
+		&:hover:not([disabled]),
+		&:active {
+
+			&::after {
+				background: var(--capitola-color-button);
+				transform: translateX(4px);
+			}
+		}
+	}
+
+	&.--prev,
+	&--previous {
+		flex-flow: row-reverse;
+
+		&::after {
+			transform: rotate(180deg);
+		}
+
+		&:focus,
+		&:hover:not([disabled]),
+		&:active {
+
+			&::after {
+				transform: translateX(-4px) rotate(180deg);
+			}
+		}
+	}
+
+	&:focus,
+	&:hover:not([disabled]),
+	&:active {
+		background: none;
+		color: var(--capitola-color-button);
+		cursor: pointer;
+		border-radius: $radius-small;
+		outline: none;
+	}
+
+	&:disabled,
+	&.--disabled {
+		opacity: 0.5;
+		pointer-events: none;
 	}
 }
 

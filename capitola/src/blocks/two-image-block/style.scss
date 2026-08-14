@@ -25,31 +25,31 @@
 		grid: repeat(20, 1fr) / repeat(20, 1fr);
 
 		&.--aspect-ratio-1 {
-			aspect-ratio: 1;
+			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 		}
 
 		&.--aspect-ratio-16-9 {
-			aspect-ratio: 16/9;
+			aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 		}
 
 		&.--aspect-ratio-4-3 {
-			aspect-ratio: 4/3;
+			aspect-ratio: var(--wp--preset--aspect-ratio--4-3);
 		}
 
 		&.--aspect-ratio-3-2 {
-			aspect-ratio: 3/2;
+			aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
 		}
 
 		&.--aspect-ratio-2-3 {
-			aspect-ratio: 2/3;
+			aspect-ratio: var(--wp--preset--aspect-ratio--2-3);
 		}
 
 		&.--aspect-ratio-3-4 {
-			aspect-ratio: 3/4;
+			aspect-ratio: var(--wp--preset--aspect-ratio--3-4);
 		}
 
 		&.--aspect-ratio-9-16 {
-			aspect-ratio: 9/16;
+			aspect-ratio: var(--wp--preset--aspect-ratio--9-16);
 		}
 
 		@include mq("50-50") {

@@ -16,7 +16,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	border: $field-border;
 	border-radius: var(--wp--custom--forms--field--border-radius);
 	outline: none;
-	padding: var(--wp--custom--forms--field--padding);
+	padding: var(--wp--custom--forms--field--padding-block) var(--wp--custom--forms--field--padding-inline);
 	transition: var(--wp--custom--forms--field--transition);
 	background: var(--wp--custom--forms--field--background);
 	@content;
@@ -31,18 +31,6 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	&:active {
 		box-shadow: $focus-shadow;
 	}
-
-	&:user-invalid {
-		border-color: $error_color;
-	}
-
-	&:required:invalid {
-		//border-color: $error_color;
-	}
-
-	&:invalid {
-		// border: 1px solid blue;
-	}
 }
 
 @mixin form-label {
@@ -53,6 +41,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	}
 	letter-spacing: var(--wp--custom--forms--label--letter-spacing);
 	color: var(--wp--custom--forms--label--color);
+	@content;
 }
 
 @mixin text-field {
@@ -73,6 +62,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	display: inline-flex;
 	position: relative;
 	border: $field-border;
+	background: none;
 	outline: none;
 	transition: var(--wp--custom--forms--field--transition);
 	-webkit-appearance: none;
@@ -131,8 +121,10 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	width: var(--wp--custom--forms--radio-cb--input-size);
 	height: var(--wp--custom--forms--radio-cb--input-size);
 	border: $field-border;
+	background: none;
 	border-radius: var(--wp--custom--forms--field--border-radius);
 	cursor: pointer;
+	background: none;
 	padding: 0;
 	transition: var(--wp--custom--forms--field--transition);
 	@content;

@@ -131,7 +131,7 @@
 		border-radius: $radius-med;
 		align-items: center;
 		justify-content: center;
-		aspect-ratio: 16 / 9;
+		aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 		margin: 0;
 
 		.--layout-full & {

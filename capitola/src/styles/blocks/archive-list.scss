@@ -130,7 +130,7 @@
 				}
 
 				&__image-col {
-					aspect-ratio: 1;
+					aspect-ratio: var(--wp--preset--aspect-ratio--square);
 					height: auto;
 				}
 			}
@@ -145,7 +145,7 @@
 
 				&__image-col {
 					height: unset;
-					aspect-ratio: 1;
+					aspect-ratio: var(--wp--preset--aspect-ratio--square);
 				}
 			}
 		}
@@ -227,7 +227,7 @@
 				&__link {
 					height: unset;
 					width: 100%;
-					aspect-ratio: 1;
+					aspect-ratio: var(--wp--preset--aspect-ratio--square);
 					transition: scale var(--wp--custom--transitions--default);
 					padding: 5%;
 
@@ -426,7 +426,7 @@
 
 		&-img-wrap {
 			position: relative;
-			aspect-ratio: 1;
+			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 			border-radius: 50%;
 			overflow: hidden;
 			flex: 0 0 40px;
@@ -480,7 +480,7 @@
 	&__badge {
 		display: flex;
 		position: absolute;
-		aspect-ratio: 1;
+		aspect-ratio: var(--wp--preset--aspect-ratio--square);
 		align-items: center;
 		font: {
 			weight: var(--wp--custom--font-weight--bold);
