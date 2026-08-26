@@ -13,7 +13,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'],
 	)
 );
-
 ?>
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
