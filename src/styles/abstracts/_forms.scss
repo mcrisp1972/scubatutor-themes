@@ -222,6 +222,6 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	&:hover,
 	&:active,
 	&:focus {
-		border-radius: var(--wp--custom--buttons--border-radius-hover);
+		border-radius: var(--wp--custom--buttons--hover--border-radius);
 	}
 }
