@@ -43,7 +43,7 @@
 				height: calc(2em + 2px);
 				color: var(--field-text);
 				border: 1px solid var(--capitola-color-body);
-				border-radius: $radius-small;
+				border-radius: var(--wp--custom--forms--field--border-radius);
 
 				.select2-selection__arrow {
 					height: 100%;

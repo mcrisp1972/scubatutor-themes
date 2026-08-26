@@ -96,7 +96,6 @@ export function CtaControl( { className, onChange, value, placeholder } ) {
 									...{ title: newValue },
 								} );
 							} }
-							__next40pxDefaultSize
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl

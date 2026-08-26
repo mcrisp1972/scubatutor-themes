@@ -54,7 +54,13 @@ export function Edit( props ) {
 			</InspectorControls>
 			<div
 				className="wp-block-capitola-sticky-images__mobile-imageratio"
-				style={ { '--capitola-objectPosition': imageFocalPoint } }
+				style={ {
+					borderRadius:
+						'inner' === context[ 'capitola/imageLayout' ]
+							? `var(--wp--preset--border-radius--${ context[ 'capitola/imageRadius' ] })`
+							: 'var(--wp--preset--border-radius--none)',
+					'--capitola-objectPosition': imageFocalPoint,
+				} }
 			>
 				{ sideImage.source_url ? (
 					<>

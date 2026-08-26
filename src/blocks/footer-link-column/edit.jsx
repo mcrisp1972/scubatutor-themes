@@ -36,7 +36,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { headline: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					<LinkSelect
 						label="Link"

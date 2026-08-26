@@ -1,7 +1,7 @@
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl, Spinner } from '@wordpress/components';
+import { InspectorControls, useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { PanelBody, ToggleControl, Spinner, ToolbarGroup } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { PlaceholderImage, ImageSelectButton } from '@capitola/editor-controls';
+import { PlaceholderImage, ImageSelectButton, AspectRatioToolbar } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes, isSelected } = props;
@@ -20,7 +20,9 @@ export function Edit( props ) {
 
 	const combinedImages = useFeaturedImage ? [ featuredImageObj, ...images ] : images;
 	const blockProps = useBlockProps( {
-		className: '--aspect-ratio-' + aspectRatio,
+		style: {
+			'--capitola--lightbox-gallery--aspect-ratio': `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+		},
 	} );
 
 	return (
@@ -34,20 +36,6 @@ export function Edit( props ) {
 							setAttributes( { useFeaturedImage: value } );
 						} }
 					/>
-					<SelectControl
-						label="Aspect Ratio"
-						value={ aspectRatio }
-						options={ [
-							{ label: '16:9', value: '16-9' },
-							{ label: '3:2', value: '3-2' },
-							{ label: '4:3', value: '4-3' },
-							{ label: '1:1', value: '1' },
-						] }
-						onChange={ ( value ) => {
-							setAttributes( { aspectRatio: value } );
-						} }
-						__next40pxDefaultSize
-					/>
 					{ allowSticky && (
 						<ToggleControl
 							label="Sticky"
@@ -59,6 +47,15 @@ export function Edit( props ) {
 					) }
 				</PanelBody>
 			</InspectorControls>
+			<BlockControls>
+				<ToolbarGroup>
+					<AspectRatioToolbar
+						props={ props }
+						attribute="aspectRatio"
+						options={ [ '16-9', '3-2', '4-3', 'square' ] }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 			<div
 				className={
 					'wp-block-capitola-lightbox-gallery__inner-wrap' +

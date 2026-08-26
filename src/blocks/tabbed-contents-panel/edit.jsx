@@ -48,7 +48,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { pillLabel: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 				</PanelBody>
 			</InspectorControls>

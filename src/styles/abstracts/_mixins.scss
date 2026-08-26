@@ -76,7 +76,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		border-radius: 30px;
+		border-radius: var(--wp--custom--buttons--border-radius-hover);
 	}
 }
 
@@ -205,7 +205,7 @@
 }
 
 @mixin cta-hover {
-	border-radius: 50px;
+	border-radius: var(--wp--custom--buttons--border-radius-hover);
 	color: var(--capitola-color-button-text);
 	@content;
 
@@ -233,7 +233,7 @@
 			cursor: pointer;
 			background-color: var(--capitola-color-button);
 			display: flex;
-			border-radius: var(--swiper-button-size);
+			border-radius: var(--wp--preset--border-radius--full);
 			justify-content: center;
 			align-items: center;
 			transition: opacity var(--wp--custom--transitions--default);
@@ -368,7 +368,7 @@
 @mixin nav-button {
 	display: flex;
 	border: 1px solid var(--capitola-color-button);
-	border-radius: $radius-small;
+	border-radius: var(--wp--custom--buttons--border-radius);
 	color: var(--capitola-color-button-text);
 	justify-content: center;
 	align-items: center;
@@ -440,7 +440,7 @@
 		background: none;
 		color: var(--capitola-color-button);
 		cursor: pointer;
-		border-radius: $radius-small;
+		border-radius: var(--wp--custom--buttons--border-radius);
 		outline: none;
 	}
 

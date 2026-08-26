@@ -43,7 +43,7 @@
 		aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
 		margin: 0;
 		overflow: hidden;
-		border-radius: $radius-small;
+		border-radius: var(--wp--preset--border-radius--small);
 
 		img {
 			width: 100%;

@@ -71,7 +71,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	cursor: pointer;
 	width: var(--wp--custom--forms--radio-cb--input-size);
 	height: var(--wp--custom--forms--radio-cb--input-size);
-	border-radius: 50%;
+	border-radius: var(--wp--preset--border-radius--full);
 	align-items: center;
 	justify-content: center;
 	padding: 0;
@@ -84,7 +84,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		height: 8px;
 		transform: scale(0);
 		background: var(--wp--custom--forms--field--color);
-		border-radius: 50%;
+		border-radius: var(--wp--preset--border-radius--full);
 		transition: transform var(--wp--custom--transitions--default);
 	}
 
@@ -124,7 +124,6 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	background: none;
 	border-radius: var(--wp--custom--forms--field--border-radius);
 	cursor: pointer;
-	background: none;
 	padding: 0;
 	transition: var(--wp--custom--forms--field--transition);
 	@content;
@@ -201,7 +200,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		decoration: none;
 	}
 	color: var(--capitola-color-button-text);
-	border-radius: $radius-small;
+	border-radius: var(--wp--custom--forms--field--border-radius);
 	border: 1px solid var(--capitola-color-button);
 	cursor: pointer;
 	margin: 0;
@@ -223,6 +222,6 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	&:hover,
 	&:active,
 	&:focus {
-		border-radius: 50px;
+		border-radius: var(--wp--custom--buttons--border-radius-hover);
 	}
 }

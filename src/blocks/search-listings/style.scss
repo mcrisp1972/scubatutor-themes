@@ -48,7 +48,7 @@
 			font-size: 1.25rem;
 			letter-spacing: 0.8px;
 			padding: 0 0 0 var(--wp--custom--spacing--small);
-			border-radius: 4px;
+			border-radius: var(--wp--custom--forms--field--border-radius);
 			background: transparent;
 
 			&::-webkit-search-decoration,

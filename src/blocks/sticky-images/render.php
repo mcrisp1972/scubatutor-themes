@@ -13,17 +13,19 @@ $images = array_map(
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( 'fade' === $attributes['transitionMode'] ? ' --has-fade-transition js-stickyImageScroller' : ' --has-scroll-transition' ) . ( 'full' === $attributes['imageLayout'] ? ' --layout-full' : '' ) . ' --intro-' . $attributes['introAlign'] . ( 'inner' === $attributes['imageLayout'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '' ) . ( $attributes['showFullImage'] && 'inner' === $attributes['imageLayout'] ? ' --full-image' : '' ),
+		'class' => 'alignfull is-layout-constrained has-global-padding --theme-' . $attributes['colorTheme'] . ( 'fade' === $attributes['transitionMode'] ? ' --has-fade-transition js-stickyImageScroller' : ' --has-scroll-transition' ) . ( 'full' === $attributes['imageLayout'] ? ' --layout-full' : '' ) . ' --intro-' . $attributes['introAlign'] . ( $attributes['showFullImage'] && 'inner' === $attributes['imageLayout'] ? ' --full-image' : '' ),
 	)
 );
 
 ?>
 <section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?>  js-stickyImagesContainer">
+	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?> js-stickyImagesContainer">
 		<div class="wp-block-capitola-sticky-images__image-column" style="--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
-					<div class="wp-block-capitola-sticky-images__imageratio" style="--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageFocalPoint'] ); ?>;">
+					<div
+						class="wp-block-capitola-sticky-images__imageratio"
+						style="<?php echo 'inner' === $attributes['imageLayout'] ? 'border-radius: var(--wp--preset--border-radius--' . esc_attr( $attributes['imageRadius'] ) . '); ' : ''; ?>--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageFocalPoint'] ); ?>;">
 						<?php echo wp_get_attachment_image( $image['id'], 'large' ); ?>
 						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php

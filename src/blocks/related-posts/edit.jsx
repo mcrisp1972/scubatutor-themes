@@ -165,7 +165,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { limit: parseInt( value ) } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
@@ -208,7 +207,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout === 'slider' && (
 						<ToggleControl
@@ -226,7 +224,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { ctaText: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl

@@ -13,6 +13,6 @@
 	@return math.div(strip-unit($pxValue), strip-unit($fontsize));
 }
 
-@function transparentize($color, $amount: 20%) {
+@function make-transparent($color, $amount: 20%) {
 	@return color-mix(in srgb, $color $amount, transparent);
 }

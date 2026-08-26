@@ -55,15 +55,18 @@ function iFrameAspect( iframe ) {
 	return '16/9'; // Default to 16:9
 }
 
-export function Iframe( { iframeCode, radiusClass } ) {
+export function Iframe( { iframeCode, radius } ) {
 	if ( ! isValidIframeHtml( iframeCode ) ) {
-		return <PlaceholderIframe className={ `${ radiusClass } --16-9` } />;
+		return <PlaceholderIframe className="--16-9" />;
 	}
 
 	return (
 		<div
-			className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
-			style={ { aspectRatio: iFrameAspect( iframeCode ) } }
+			className="wp-block-capitola-side-image__iframe-wrap"
+			style={ {
+				aspectRatio: iFrameAspect( iframeCode ),
+				borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+			} }
 		>
 			<iframe { ...parseIframeAttributes( iframeCode ) } />
 		</div>

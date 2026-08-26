@@ -17,27 +17,11 @@
 		@include unstyle-button;
 		display: flex;
 		position: relative;
-		border-radius: $radius-small;
 		margin-bottom: var(--wp--custom--spacing--xxsmall);
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-
-		.--aspect-ratio-1 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--square);
-		}
-
-		.--aspect-ratio-16-9 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
-		}
-
-		.--aspect-ratio-3-2 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
-		}
-
-		.--aspect-ratio-4-3 & {
-			aspect-ratio: 4/3;
-		}
+		aspect-ratio: var(--capitola--lightbox-gallery--aspect-ratio);
 
 		img {
 			position: absolute;
@@ -95,23 +79,10 @@
 		flex: 0 0 calc((100% / 3) - ((var(--wp--custom--spacing--xxsmall) * 2) / 3));
 		justify-content: center;
 		align-items: center;
-		aspect-ratio: var(--wp--preset--aspect-ratio--square);
+		aspect-ratio: var(--capitola--lightbox-gallery--aspect-ratio);
 		height: 100%;
 		margin: 0;
-		border-radius: $radius-small;
 		transition: opacity var(--wp--custom--transitions--default);
-
-		.--aspect-ratio-16-9 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
-		}
-
-		.--aspect-ratio-3-2 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
-		}
-
-		.--aspect-ratio-4-3 & {
-			aspect-ratio: var(--wp--preset--aspect-ratio--4-3);
-		}
 
 		&::after {
 			content: "";

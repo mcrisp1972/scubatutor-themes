@@ -12,7 +12,8 @@ if ( ! preg_match( $iframe_pattern, $attributes['iframeHtml'] ) ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => '--' . $attributes['aspectRatio'] . ' align' . $attributes['align'],
+		'class' => 'align' . $attributes['align'],
+		'style' => 'border-radius: var(--wp--preset--border-radius--' . $attributes['radius'] . '); aspect-ratio: var(--wp--preset--aspect-ratio--' . $attributes['aspectRatio'] . ');',
 	)
 );
 

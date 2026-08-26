@@ -259,7 +259,7 @@ export function Edit( props ) {
 					<RadiusToolbar
 						props={ props }
 						attribute="sliderRadius"
-						options={ [ 'none', 'small', 'medium' ] }
+						options={ [ 'none', 'xsmall', 'small', 'medium', 'large' ] }
 					/>
 				</ToolbarGroup>
 			</BlockControls>
@@ -305,13 +305,23 @@ export function Edit( props ) {
 					) }` }
 				>
 					<div className="wp-block-capitola-full-width-slider__main">
-						<Swiper key={ transition } className={ radiusClass } { ...swiperProps }>
+						<Swiper
+							key={ transition }
+							className={ radiusClass }
+							style={ {
+								borderRadius: `var(--wp--preset--border-radius--${ sliderRadius })`,
+							} }
+							{ ...swiperProps }
+						>
 							{ slides !== null &&
 								slides.map( ( slide, index ) => {
 									return (
 										<SwiperSlide
 											key={ index }
-											className={ `--${ aspectRatio } --theme-image-overlay` }
+											className="--theme-image-overlay"
+											style={ {
+												aspectRatio: `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+											} }
 										>
 											<SlideBody
 												slide={ slide }

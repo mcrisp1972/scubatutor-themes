@@ -42,7 +42,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { gridLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					<ToggleControl
 						label="Grid Gap"

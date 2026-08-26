@@ -3,20 +3,16 @@ import { Spinner } from '@wordpress/components';
 
 import { PlaceholderImage, ImageSelectButton } from '@capitola/editor-controls';
 
-export function Image( {
-	imageObject,
-	imageRatioClass = '',
-	radiusClass = '',
-	featuredImage,
-	props,
-} ) {
+export function Image( { imageObject, aspectRatio, radius = '', featuredImage, props } ) {
 	// if we have an image URL to display (either internal or external)
 	if ( imageObject?.source_url ) {
 		return (
 			<>
 				<img
-					className={ `${ imageRatioClass } ${ radiusClass }` }
+					//className={ `${ imageRatioClass }` }
 					style={ {
+						aspectRatio: `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+						borderRadius: `var(--wp--preset--border-radius--${ radius })`,
 						'--capitola-objectPosition': props.attributes.imageFocalPoint,
 					} }
 					src={ imageObject.source_url }
@@ -45,7 +41,6 @@ export function Image( {
 	) {
 		return (
 			<MediaPlaceholder
-				className={ `${ imageRatioClass } ${ radiusClass }` }
 				onSelect={ ( value ) => {
 					props.setAttributes( {
 						sideImage: { id: value.id, source_url: value.url },
@@ -72,5 +67,11 @@ export function Image( {
 			/>
 		);
 	}
-	return <PlaceholderImage className={ `${ imageRatioClass } ${ radiusClass }` } />;
+	return (
+		<PlaceholderImage
+			style={ {
+				borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+			} }
+		/>
+	);
 }

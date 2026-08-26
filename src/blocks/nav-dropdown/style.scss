@@ -37,7 +37,6 @@
 			top: 100%;
 			min-width: 100%;
 			background: var(--capitola-color-background);
-			border-radius: 0 0 6px 6px;
 			transition: grid-template-rows var(--capitola-dropdownSpeed);
 
 			&.--right-align {

@@ -131,7 +131,6 @@ function LinkListItem( { linksObj, index, onUpdate, className } ) {
 								newValue[ index ].title = value;
 								onUpdate( newValue );
 							} }
-							__next40pxDefaultSize
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl
@@ -280,7 +279,6 @@ export function LinkList( { onChange, linkClass, value, disableAdd = false } ) {
 							onChange={ ( newValue ) => {
 								setNewTitle( newValue );
 							} }
-							__next40pxDefaultSize
 						/>
 						<BaseControl { ...baseControlProps }>
 							<LinkControl

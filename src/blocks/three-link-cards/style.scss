@@ -51,22 +51,6 @@
 		aspect-ratio: var(--wp--preset--aspect-ratio--square);
 		overflow: hidden;
 
-		&.--has-small-radius {
-			border-radius: $radius-med;
-		}
-
-		&.--has-medium-radius {
-			border-radius: $radius-large;
-		}
-
-		&.--has-large-radius {
-			border-radius: $radius-xlarge;
-		}
-
-		&.--has-arch-radius {
-			border-radius: 50% 50% 0 0;
-		}
-
 		img {
 			width: 100%;
 			height: 100%;

@@ -64,7 +64,7 @@ const ratioIcons = {
 			<Rect x="4" y="6" width="16" height="12" rx="1" ry="1" />
 		</SVG>
 	),
-	1: (
+	square: (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 			<Rect x="4" y="4" width="16" height="16" rx="1" ry="1" />
 		</SVG>
@@ -99,24 +99,29 @@ const radiusIcons = {
 			<Path d="M4 20 H6 V6 H20 V4 H4 Z" />
 		</SVG>
 	),
+	xsmall: (
+		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<Path d="M4 20 H6 V7.5 C6 6.6 6.6 6 7.5 6 H20 V4 H7.5 C5.1 4 4 5.1 4 7.5 Z" />
+		</SVG>
+	),
 	small: (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-			<Path d="M4 20 H6 V10 Q6 6 10 6 H20 V4 H10 Q4 4 4 10 Z" />
+			<Path d="M4 20 H6 V10 C6 7.8 7.8 6 10 6 H20 V4 H10 C6.7 4 4 6.7 4 10 Z" />
 		</SVG>
 	),
 	medium: (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-			<Path d="M4 20 H6 V12 Q6 6 12 6 H20 V4 H12 Q4 4 4 12 Z" />
+			<Path d="M4 20 H6 V12 C6 8.7 8.7 6 12 6 H20 V4 H12 C7.6 4 4 7.6 4 12 Z" />
 		</SVG>
 	),
 	large: (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-			<Path d="M4 20 H6 V14 Q6 6 14 6 H20 V4 H14 Q4 4 4 14 Z" />
+			<Path d="M4 20 H6 V14 C6 9.6 9.6 6 14 6 H20 V4 H14 C8.5 4 4 8.5 4 14 Z" />
 		</SVG>
 	),
-	arch: (
-		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 -2 24 26">
-			<Path d="M4 20 H6 V6 A6 6 0 0 1 18 6 V20 H20 V6 A8 8 0 0 0 4 6 Z" />
+	xlarge: (
+		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<Path d="M4 20 H6 V16 C6 10.5 10.5 6 16 6 H20 V4 H16 C9.4 4 4 9.4 4 16 Z" />
 		</SVG>
 	),
 };
@@ -314,14 +319,14 @@ export function AspectRatioToolbar( {
 							},
 					  ]
 					: [] ),
-				...( options.includes( '1' )
+				...( options.includes( 'square' )
 					? [
 							{
 								title: 'Square',
-								icon: ratioIcons[ '1' ],
-								isActive: value === '1',
+								icon: ratioIcons.square,
+								isActive: value === 'square',
 								onClick: () => {
-									setAttributes( { [ attribute ]: '1' } );
+									setAttributes( { [ attribute ]: 'square' } );
 								},
 							},
 					  ]
@@ -382,7 +387,7 @@ export function AspectRatioToolbar( {
 export function RadiusToolbar( {
 	props,
 	attribute,
-	options = [ 'none', 'small', 'medium', 'large', 'arch' ],
+	options = [ 'none', 'xsmall', 'small', 'medium', 'large', 'xlarge' ],
 } ) {
 	const { attributes, setAttributes } = props;
 	const value = attributes[ attribute ];
@@ -400,6 +405,18 @@ export function RadiusToolbar( {
 								isActive: value === 'none',
 								onClick: () => {
 									setAttributes( { [ attribute ]: 'none' } );
+								},
+							},
+					  ]
+					: [] ),
+				...( options.includes( 'xsmall' )
+					? [
+							{
+								title: 'X-Small',
+								icon: radiusIcons.xsmall,
+								isActive: value === 'xsmall',
+								onClick: () => {
+									setAttributes( { [ attribute ]: 'xsmall' } );
 								},
 							},
 					  ]
@@ -442,14 +459,14 @@ export function RadiusToolbar( {
 							},
 					  ]
 					: [] ),
-				...( options.includes( 'arch' )
+				...( options.includes( 'xlarge' )
 					? [
 							{
-								title: 'Arch',
-								icon: radiusIcons.arch,
-								isActive: value === 'arch',
+								title: 'X-Large',
+								icon: radiusIcons.xlarge,
+								isActive: value === 'xlarge',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'arch' } );
+									setAttributes( { [ attribute ]: 'xlarge' } );
 								},
 							},
 					  ]

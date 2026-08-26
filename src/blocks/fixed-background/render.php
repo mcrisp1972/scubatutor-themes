@@ -6,14 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use function Capitola\Helpers\Block_Attributes\animation_attributes;
 
-$theme_class  = $attributes['colorThemeBody'] ? ' --theme-' . $attributes['colorTheme'] : ' --theme-image-overlay';
-$align_class  = $attributes['introAlign'] ? ' --align-' . $attributes['introAlign'] : '';
-$animations   = animation_attributes( $attributes );
-$radius_class = 'none' !== $attributes['introRadius'] && $attributes['colorThemeBody'] ? ' --has-' . $attributes['introRadius'] . '-radius' : '';
+$theme_class = $attributes['colorThemeBody'] ? ' --theme-' . $attributes['colorTheme'] : ' --theme-image-overlay';
+$align_class = $attributes['introAlign'] ? ' --align-' . $attributes['introAlign'] : '';
+$animations  = animation_attributes( $attributes );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'alignfull ' . $theme_class . $radius_class,
+		'class' => 'alignfull ' . $theme_class,
 	)
 );
 

@@ -128,15 +128,10 @@
 		position: relative;
 		width: 100%;
 		overflow: hidden;
-		border-radius: $radius-med;
 		align-items: center;
 		justify-content: center;
 		aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
 		margin: 0;
-
-		.--layout-full & {
-			border-radius: 0;
-		}
 
 		@include mq("medium") {
 			display: none;
@@ -151,22 +146,6 @@
 				fit: cover;
 				position: var(--capitola-objectPosition);
 			}
-		}
-	}
-
-	&__imageratio,
-	&__mobile-imageratio {
-
-		.--has-small-radius & {
-			border-radius: $radius-med;
-		}
-
-		.--has-medium-radius & {
-			border-radius: $radius-large;
-		}
-
-		.--has-large-radius & {
-			border-radius: $radius-xlarge;
 		}
 	}
 

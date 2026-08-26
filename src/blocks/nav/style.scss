@@ -518,7 +518,7 @@
 			height: 3px;
 			width: 100%;
 			background: var(--capitola-color-link);
-			border-radius: 3px;
+			border-radius: var(--wp--preset--border-radius--full);
 			transition: background-color var(--wp--custom--transitions--default), transform 1s, opacity 1s, transform-origin 1s;
 		}
 

@@ -27,8 +27,6 @@ export function Edit( props ) {
 
 	const renderedImage = !! image.source_url ? image.source_url : linkObj?.thumbnail_urls.large;
 
-	const radiusClass = imageRadius ? ` --has-${ imageRadius }-radius` : '';
-
 	const blockProps = useBlockProps();
 
 	return (
@@ -45,7 +43,6 @@ export function Edit( props ) {
 								postId: 0,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<PostPicker
 						label="Link"
@@ -64,7 +61,10 @@ export function Edit( props ) {
 					<RadiusToolbar props={ props } attribute="imageRadius" />
 				</ToolbarGroup>
 			</BlockControls>
-			<div className={ `wp-block-capitola-three-link-card__image  ${ radiusClass }` }>
+			<div
+				className="wp-block-capitola-three-link-card__image"
+				style={ { borderRadius: `var(--wp--preset--border-radius--${ imageRadius })` } }
+			>
 				{ ( () => {
 					if ( !! renderedImage ) {
 						return (

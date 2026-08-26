@@ -83,7 +83,6 @@ export function Edit( props ) {
 								postId: 0,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<PostPicker
 						label="Link"
@@ -115,7 +114,6 @@ export function Edit( props ) {
 								eyebrowOverride: value,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<TextControl
 						label="Title Override"
@@ -125,7 +123,6 @@ export function Edit( props ) {
 								titleOverride: value,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<TextareaControl
 						label="Excerpt Override"
@@ -144,7 +141,6 @@ export function Edit( props ) {
 								ctaOverride: value,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<OverlayOpacitySlider
 						value={ imageOpacity }

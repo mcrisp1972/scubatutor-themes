@@ -88,7 +88,6 @@
 
 		.wp-block-capitola-body-text__grid {
 			padding: 0;
-			border-radius: 0;
 
 			&::before {
 				background-color: unset;
@@ -101,20 +100,6 @@
 			.wp-block-capitola-body-text__cta.--secondary {
 				@include button-tertiary;
 			}
-		}
-	}
-
-	&.--has-small-radius {
-
-		.wp-block-capitola-body-text__grid {
-			border-radius: $radius-med;
-		}
-	}
-
-	&.--has-medium-radius {
-
-		.wp-block-capitola-body-text__grid {
-			border-radius: $radius-large;
 		}
 	}
 }

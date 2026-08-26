@@ -22,6 +22,7 @@ import {
 	OverlayOpacitySlider,
 	JustifyToolbar,
 	VerticalAlignToolbar,
+	RadiusToolbar,
 	animationPreviewClass,
 } from '@capitola/editor-controls';
 
@@ -29,6 +30,7 @@ export function Edit( props ) {
 	const { attributes, setAttributes, name, context } = props;
 	const {
 		backgroundImage,
+		borderRadius,
 		imageOpacity,
 		imageFocalPoint,
 		verticalAlign,
@@ -249,6 +251,9 @@ export function Edit( props ) {
 					{ ! bodyTextOptions?.disableVerticalAlign && introAlign !== 'top' && (
 						<VerticalAlignToolbar props={ props } attribute="verticalAlign" />
 					) }
+					{ bodyTextOptions?.enableRadius && (
+						<RadiusToolbar props={ props } attribute="borderRadius" />
+					) }
 				</ToolbarGroup>
 			</BlockControls>
 			{ !! backgroundImage.source_url && (
@@ -267,6 +272,12 @@ export function Edit( props ) {
 					revealAnimation,
 					'body'
 				) }` }
+				style={ {
+					borderRadius:
+						borderRadius !== 'none'
+							? `var(--wp--preset--border-radius--${ borderRadius })`
+							: '',
+				} }
 			>
 				<RichText
 					className="wp-block-capitola-body-text__eyebrow --eyebrow"

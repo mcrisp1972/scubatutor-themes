@@ -118,7 +118,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout === 'slider' && (
 						<ToggleControl
@@ -136,7 +135,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { ctaText: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl
@@ -221,7 +219,6 @@ export function Edit( props ) {
 								onChange={ ( value ) => {
 									setAttributes( { postCategory: value } );
 								} }
-								__next40pxDefaultSize
 							/>
 						) }
 					</ToolsPanelItem>
@@ -245,7 +242,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { limit: parseInt( value ) } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem

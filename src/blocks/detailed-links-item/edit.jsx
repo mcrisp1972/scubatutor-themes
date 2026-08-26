@@ -26,7 +26,6 @@ function BlockPlaceholder( { postType, postId, setAttributes, postTypeOptions } 
 						postId: 0,
 					} );
 				} }
-				__next40pxDefaultSize
 			/>
 			<PostPicker
 				label="Linked Post"
@@ -76,7 +75,6 @@ export function Edit( props ) {
 								postId: 0,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<PostPicker
 						label="Linked Post"
@@ -110,7 +108,6 @@ export function Edit( props ) {
 								linkTitle: value,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ context[ 'capitola/showExcerpt' ] && (
 						<TextareaControl

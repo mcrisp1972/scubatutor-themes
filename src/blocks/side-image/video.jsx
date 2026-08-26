@@ -1,13 +1,23 @@
 import { PlaceholderVideo } from '@capitola/editor-controls';
 
-export function Video( { radiusClass, videoObject, props } ) {
+export function Video( { radius, videoObject, props } ) {
 	const { attributes } = props;
 	const { videoSource, videoID, videoUrl } = attributes;
 	if ( videoSource === 'local' && videoObject.source_url ) {
-		return <video controls className={ `${ radiusClass }` } src={ videoObject.source_url } />;
+		return (
+			<video
+				controls
+				src={ videoObject.source_url }
+				style={ { borderRadius: `var(--wp--preset--border-radius--${ radius })` } }
+			/>
+		);
 	} else if ( videoSource === 'remote' && videoUrl ) {
 		return (
-			<video controls className={ `${ radiusClass }` } key={ videoUrl }>
+			<video
+				controls
+				key={ videoUrl }
+				style={ { borderRadius: `var(--wp--preset--border-radius--${ radius })` } }
+			>
 				<source src={ videoUrl } type="video/mp4"></source>
 			</video>
 		);
@@ -15,8 +25,11 @@ export function Video( { radiusClass, videoObject, props } ) {
 		if ( videoSource === 'youtube' ) {
 			return (
 				<div
-					className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
-					style={ { aspectRatio: '560/315' } }
+					className="wp-block-capitola-side-image__iframe-wrap"
+					style={ {
+						aspectRatio: '560/315',
+						borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+					} }
 				>
 					<iframe
 						width="560"
@@ -33,8 +46,11 @@ export function Video( { radiusClass, videoObject, props } ) {
 
 		return (
 			<div
-				className={ `wp-block-capitola-side-image__iframe-wrap ${ radiusClass }` }
-				style={ { aspectRatio: '640/360' } }
+				className="wp-block-capitola-side-image__iframe-wrap"
+				style={ {
+					aspectRatio: '640/360',
+					borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+				} }
 			>
 				<iframe
 					title="sideimagePlayer"
@@ -48,5 +64,12 @@ export function Video( { radiusClass, videoObject, props } ) {
 			</div>
 		);
 	}
-	return <PlaceholderVideo className={ `${ radiusClass } --16-9` } />;
+	return (
+		<PlaceholderVideo
+			className="--16-9"
+			style={ {
+				borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+			} }
+		/>
+	);
 }

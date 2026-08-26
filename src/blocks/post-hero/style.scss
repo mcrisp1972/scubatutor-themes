@@ -62,7 +62,7 @@
 			position: relative;
 			flex: 0 0 40px;
 			aspect-ratio: var(--wp--preset--aspect-ratio--square);
-			border-radius: 50%;
+			border-radius: var(--wp--preset--border-radius--full);
 			overflow: hidden;
 
 			img {
