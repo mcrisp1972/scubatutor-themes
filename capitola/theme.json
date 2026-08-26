@@ -361,17 +361,17 @@
 			"wideSizePadding": "max(var(--wp--custom--spacing--gutter), calc((100% - var(--wp--custom--wide-size)) / 2))",
 			"wideSizeMargin": "max(var(--wp--custom--spacing--gutter), calc((100vw - var(--wp--custom--wide-size)) / 2))",
 			"buttons": {
-				"font": {
-					"family": "var(--wp--preset--font-family--primary)",
-					"size": "var(--wp--custom--fluid--16-18)",
-					"weight": "var(--wp--custom--font-weight--bold)"
-				},
+				"fontFamily": "var(--wp--preset--font-family--primary)",
+				"fontSize": "var(--wp--custom--fluid--16-18)",
+				"fontWeight": "var(--wp--custom--font-weight--bold)",
 				"borderRadius": "3px",
-				"borderRadiusHover": "calc( (var(--wp--custom--buttons--font--size) + ( var(--wp--custom--buttons--padding-block) * 2) + 4px + 4px ) / 2 )",
 				"paddingBlock": "var(--wp--custom--spacing--xsmall)",
 				"paddingInline": "var(--wp--custom--spacing--small)",
 				"padding": "var(--wp--custom--buttons--padding-block) var(--wp--custom--buttons--padding-inline)",
-				"lineHeight": "1.15"
+				"lineHeight": "1.15",
+				"hover": {
+					"borderRadius": "calc( (var(--wp--custom--buttons--font-size) + ( var(--wp--custom--buttons--padding-block) * 2) + 4px + 4px ) / 2 )"
+				}
 			},
 			"fluid": {
 				"12-14": "clamp(0.75rem, 0.675rem + 0.25vw, 0.875rem)",
