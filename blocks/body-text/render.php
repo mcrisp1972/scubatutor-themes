@@ -35,7 +35,7 @@ $cta_2 = render_link( $attributes['cta2'], 'wp-block-capitola-body-text__cta --c
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => $intro_position_class . $intro_align_class . $bg_class . $justify_class,
-	)
+	),
 );
 
 ?>
@@ -46,7 +46,17 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>
-	<div class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>" style="<?php echo wp_kses_data( $animations['body-styles'] ); ?>">
+	<div
+		class="wp-block-capitola-body-text__grid <?php echo esc_attr( $animations['body-class'] ); ?>"
+		style="
+			<?php
+			echo esc_attr(
+				( 'none' !== $attributes['borderRadius'] ? 'border-radius: var(--wp--preset--border-radius--' . esc_attr( $attributes['borderRadius'] ) . ')' : '' ) .
+				$animations['body-styles']
+			);
+			?>
+		"
+	>
 		<?php if ( $attributes['eyebrow'] ) : ?>
 			<<?php echo tag_escape( $attributes['eyebrowTag'] ); ?> class="wp-block-capitola-body-text__eyebrow --eyebrow">
 				<?php echo esc_html( $attributes['eyebrow'] ); ?>

@@ -352,10 +352,6 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'introRadius' => array(
-				'type' => 'string',
-				'default' => 'small'
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => ''
@@ -371,7 +367,9 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'disableBackgroundImage' => true,
-					'disableVerticalAlign' => true
+					'disableVerticalAlign' => true,
+					'disableBackgroundColor' => true,
+					'enableRadius' => true
 				)
 			)
 		),
@@ -466,6 +464,10 @@ return array(
 					'id' => 0,
 					'source_url' => ''
 				)
+			),
+			'borderRadius' => array(
+				'type' => 'string',
+				'default' => 'none'
 			),
 			'imageOpacity' => array(
 				'type' => 'number',
@@ -1143,15 +1145,11 @@ return array(
 			),
 			'colorThemeBody' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => true
 			),
 			'imageOpacity' => array(
 				'type' => 'number',
 				'default' => 0.5
-			),
-			'introRadius' => array(
-				'type' => 'string',
-				'default' => 'small'
 			),
 			'colorTheme' => array(
 				'type' => 'string',
@@ -1168,7 +1166,9 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'disableBackgroundImage' => true,
-					'disableVerticalAlign' => true
+					'disableVerticalAlign' => true,
+					'disableBackgroundColor' => true,
+					'enableRadius' => true
 				)
 			)
 		),
@@ -1827,6 +1827,10 @@ return array(
 			'aspectRatio' => array(
 				'type' => 'string',
 				'default' => '16-9'
+			),
+			'radius' => array(
+				'type' => 'string',
+				'default' => 'none'
 			),
 			'iframeHtml' => array(
 				'type' => 'string',
@@ -4094,7 +4098,9 @@ return array(
 			)
 		),
 		'providesContext' => array(
-			'capitola/showFullImage' => 'showFullImage'
+			'capitola/showFullImage' => 'showFullImage',
+			'capitola/imageRadius' => 'imageRadius',
+			'capitola/imageLayout' => 'imageLayout'
 		),
 		'example' => array(
 			'attributes' => array(
@@ -4207,7 +4213,9 @@ return array(
 			'capitola/introAlign' => 'introAlign'
 		),
 		'usesContext' => array(
-			'showFullImage'
+			'capitola/showFullImage',
+			'capitola/imageRadius',
+			'capitola/imageLayout'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -4605,7 +4613,7 @@ return array(
 			),
 			'gridAspectRatio' => array(
 				'type' => 'string',
-				'default' => '1'
+				'default' => 'square'
 			),
 			'introAlign' => array(
 				'type' => 'string',

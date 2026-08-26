@@ -26,6 +26,10 @@
         "source_url": ""
       }
     },
+    "borderRadius": {
+      "type": "string",
+      "default": "none"
+    },
     "imageOpacity": {
       "type": "number",
       "default": 0.5

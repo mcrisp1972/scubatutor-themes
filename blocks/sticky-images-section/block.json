@@ -58,7 +58,9 @@
     "capitola/introAlign": "introAlign"
   },
   "usesContext": [
-    "showFullImage"
+    "capitola/showFullImage",
+    "capitola/imageRadius",
+    "capitola/imageLayout"
   ],
   "render": "file:./render.php",
   "editorScript": "file:./index.js"

@@ -51,15 +51,11 @@
     },
     "colorThemeBody": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "imageOpacity": {
       "type": "number",
       "default": 0.5
-    },
-    "introRadius": {
-      "type": "string",
-      "default": "small"
     },
     "colorTheme": {
       "type": "string",
@@ -76,7 +72,9 @@
       "type": "object",
       "default": {
         "disableBackgroundImage": true,
-        "disableVerticalAlign": true
+        "disableVerticalAlign": true,
+        "disableBackgroundColor": true,
+        "enableRadius": true
       }
     }
   },
