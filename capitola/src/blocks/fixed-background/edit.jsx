@@ -4,6 +4,7 @@ import {
 	useInnerBlocksProps,
 	BlockControls,
 } from '@wordpress/block-editor';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { PanelBody, ToolbarGroup, ToggleControl } from '@wordpress/components';
 import {
 	ImageSelect,
@@ -11,33 +12,41 @@ import {
 	OverlayOpacitySlider,
 	AnimationPanel,
 	JustifyToolbar,
-	RadiusToolbar,
 } from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, clientId } = props;
 	const {
 		introAlign,
 		mobileImage,
 		tabletImage,
 		desktopImage,
 		colorThemeBody,
-		introRadius,
 		colorTheme,
 		imageOpacity,
+		bodyTextOptions,
 	} = attributes;
 
-	const radiusClass =
-		introRadius !== 'none' && colorThemeBody ? ` --has-${ introRadius }-radius` : '';
+	const bodyBlockId = useSelect(
+		( select ) => {
+			const block = select( 'core/block-editor' ).getBlock( clientId );
+			return block.innerBlocks[ 0 ].clientId;
+		},
+		[ clientId ]
+	);
+
+	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
 	const blockProps = useBlockProps( {
 		className: `alignfull ${
 			colorThemeBody ? `--theme-${ colorTheme }` : ' --theme-image-overlay'
-		} ${ radiusClass }`,
+		}`,
 		style: {
 			height: '750px',
 		},
 	} );
+
+	const defaultBodyRadius = 'medium';
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
 		{
@@ -51,7 +60,7 @@ export function Edit( props ) {
 				: {},
 		},
 		{
-			template: [ [ 'capitola/body-text' ] ],
+			template: [ [ 'capitola/body-text', { borderRadius: defaultBodyRadius } ] ],
 			templateLock: 'all',
 		}
 	);
@@ -102,7 +111,16 @@ export function Edit( props ) {
 						label="Color Theme Body"
 						checked={ colorThemeBody }
 						onChange={ ( value ) => {
-							setAttributes( { colorThemeBody: value } );
+							setAttributes( {
+								colorThemeBody: value,
+								bodyTextOptions: {
+									...bodyTextOptions,
+									enableRadius: value,
+								},
+							} );
+							updateBlockAttributes( bodyBlockId, {
+								borderRadius: value ? defaultBodyRadius : 'none',
+							} );
 						} }
 					/>
 					{ ! colorThemeBody && (
@@ -126,13 +144,6 @@ export function Edit( props ) {
 						attribute="introAlign"
 						options={ [ 'right', 'left', 'center' ] }
 					/>
-					{ colorThemeBody && (
-						<RadiusToolbar
-							props={ props }
-							attribute="introRadius"
-							options={ [ 'none', 'small', 'medium' ] }
-						/>
-					) }
 				</ToolbarGroup>
 			</BlockControls>
 			<div { ...innerBlocksProps }>

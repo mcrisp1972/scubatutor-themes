@@ -185,7 +185,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								resetPostTypeQuery( value );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					{ !! postTypes[ postType ].hiddenParams &&
@@ -262,7 +261,6 @@ export function Edit( props ) {
 								onChange={ ( value ) => {
 									setAttributes( { baseTerm: parseInt( value ) } );
 								} }
-								__next40pxDefaultSize
 							/>
 						) }
 					</ToolsPanelItem>
@@ -286,7 +284,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { limit: parseInt( value ) } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -420,7 +417,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					<TextControl
 						label="CTA Text"
@@ -429,7 +425,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { ctaText: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl

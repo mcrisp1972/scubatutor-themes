@@ -78,9 +78,7 @@ export function Edit( props ) {
 		className: `alignfull --has-scroll-transition is-layout-constrained has-global-padding --theme-${ colorTheme }
           		${ imageLayout === 'full' ? ' --layout-full' : '' }
            		--intro-${ introAlign }
-          		${ justifyClass } ${ imageLayout === 'inner' ? `--has-${ imageRadius }-radius` : '' } ${
-					showFullImage && imageLayout === 'inner' ? ' --full-image' : ''
-				}`,
+          		${ justifyClass } ${ showFullImage && imageLayout === 'inner' ? ' --full-image' : '' }`,
 	} );
 	const innerBlocksProps = useInnerBlocksProps(
 		{
@@ -119,7 +117,6 @@ export function Edit( props ) {
 						} }
 						min={ 20 }
 						max={ 50 }
-						__next40pxDefaultSize
 					/>
 					{ imageLayout === 'inner' && (
 						<ToggleControl
@@ -217,6 +214,10 @@ export function Edit( props ) {
 								<div
 									className="wp-block-capitola-sticky-images__imageratio"
 									style={ {
+										borderRadius:
+											imageLayout === 'inner'
+												? `var(--wp--preset--border-radius--${ imageRadius })`
+												: '0',
 										'--capitola-objectPosition':
 											innerBlocks[ index ].attributes.imageFocalPoint,
 									} }

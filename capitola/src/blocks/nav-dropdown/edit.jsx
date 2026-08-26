@@ -81,7 +81,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { title: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					<LinkSelect
 						label="Link"
@@ -148,7 +147,6 @@ export function Edit( props ) {
 							} }
 							help="Select which post type to pull items from for automatic population."
 							disabled={ populationMethod !== 'post-type' }
-							__next40pxDefaultSize
 						/>
 					) }
 				</PanelBody>

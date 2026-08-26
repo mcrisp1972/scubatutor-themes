@@ -43,10 +43,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"introRadius": {
-			"type": "string",
-			"default": "small"
-		},
 		"colorTheme": {
 			"type": "string",
 			"default": ""
@@ -62,7 +58,9 @@
 			"type": "object",
 			"default": {
 				"disableBackgroundImage": true,
-				"disableVerticalAlign": true
+				"disableVerticalAlign": true,
+				"disableBackgroundColor": true,
+				"enableRadius": true
 			}
 		}
 	},

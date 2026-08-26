@@ -68,14 +68,6 @@
 				}
 			}
 
-			&.--has-small-radius {
-				border-radius: $radius-med;
-			}
-
-			&.--has-medium-radius {
-				border-radius: $radius-large;
-			}
-
 			@include swiper-button;
 		}
 
@@ -98,18 +90,6 @@
 			margin: 0;
 			justify-content: center;
 			align-items: center;
-
-			&.--16-9 {
-				aspect-ratio: var(--wp--preset--aspect-ratio--16-9);
-			}
-
-			&.--3-2 {
-				aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
-			}
-
-			&.--4-3 {
-				aspect-ratio: var(--wp--preset--aspect-ratio--4-3);
-			}
 
 			img {
 				display: block;
@@ -137,7 +117,7 @@
 			&-bullet {
 				width: 24px;
 				height: 24px;
-				border-radius: 50%;
+				border-radius: var(--wp--preset--border-radius--full);
 				border: 1px solid var(--capitola-color-button);
 				cursor: pointer;
 				transition: box-shadow var(--wp--custom--transitions--default);

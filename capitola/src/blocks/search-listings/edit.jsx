@@ -115,7 +115,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					<TextControl
 						label="CTA Text"
@@ -124,7 +123,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { ctaText: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl

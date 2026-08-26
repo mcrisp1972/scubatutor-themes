@@ -60,7 +60,6 @@ export function OverlayOpacitySlider( { label = 'Image Overlay Opacity', value, 
 				></div>
 			}
 			help="0.5 is recommended to ensure there is enough contrast. Reduce for darker images."
-			__next40pxDefaultSize
 		/>
 	);
 }

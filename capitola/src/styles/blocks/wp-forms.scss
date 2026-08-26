@@ -82,8 +82,8 @@
 
 					.choices__inner {
 						color: var(--capitola-color-body);
-						border: 1px solid var(--capitola-color-body);
-						border-radius: $radius-small;
+						border: var(--wp--custom--forms--field--border-width) solid var(--capitola-color-body);
+						border-radius: var(--wp--custom--forms--field--border-radius);
 						line-height: 2;
 						font-family: var(--wp--preset--font-family--primary);
 						padding: 0;

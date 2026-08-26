@@ -77,7 +77,6 @@ export function PostPicker( { label, value, onChange, postType, orderBy } ) {
 					value={ value }
 					onChange={ onChange }
 					onFilterValueChange={ debounce( handleKeydown, 300 ) }
-					__next40pxDefaultSize
 				/>
 			</div>
 		</BaseControl>

@@ -133,7 +133,6 @@ export function Edit( props ) {
 						step={ 0.1 }
 						showTooltip={ true }
 						help="Reveal speed in fractions of a second. Does not apply to mobile."
-						__next40pxDefaultSize
 					/>
 				</PanelBody>
 				<PanelBody title="Utility Icon Links" initialOpen={ true }>
@@ -200,7 +199,6 @@ export function Edit( props ) {
 									onChange={ ( value ) => {
 										repeaterOnChange( attribute, 'title', value, index, props );
 									} }
-									__next40pxDefaultSize
 								/>,
 								<LinkSelect
 									key="link"

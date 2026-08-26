@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( is_valid_iframe( $args['attributes']['iframeCode'] ) ) : ?>
 
-	<div class="wp-block-capitola-side-image__iframe-wrap <?php echo esc_attr( $args['radius'] ); ?>" style="aspect-ratio: <?php echo esc_attr( iframe_aspect_ratio( $args['attributes']['iframeCode'] ) ); ?>">
+	<div class="wp-block-capitola-side-image__iframe-wrap" style="aspect-ratio: <?php echo esc_attr( iframe_aspect_ratio( $args['attributes']['iframeCode'] ) ); ?>; border-radius: var(--wp--preset--border-radius--<?php echo esc_attr( $args['radius'] ); ?>);">
 		<?php echo $args['attributes']['iframeCode']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 	<?php

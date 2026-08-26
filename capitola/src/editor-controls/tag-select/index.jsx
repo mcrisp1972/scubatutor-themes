@@ -15,7 +15,6 @@ export function TagSelect( { label, value, onChange } ) {
 				{ label: 'H6', value: 'h6' },
 			] }
 			onChange={ onChange }
-			__next40pxDefaultSize
 		/>
 	);
 }

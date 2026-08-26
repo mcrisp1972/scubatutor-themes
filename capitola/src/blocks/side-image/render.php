@@ -55,9 +55,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				'build/blocks/side-image/template-parts/' . $attributes['mediaType'],
 				'',
 				array(
-					'attributes'  => $attributes,
-					'image_ratio' => 'inner' === $attributes['imageLayout'] && ! $attributes['isIframeVariation'] && ! $attributes['isVideoVariation'] ? '--' . $attributes['imageRatio'] : '',
-					'radius'      => 'inner' === $attributes['imageLayout'] && $attributes['imageRadius'] ? ' --has-' . $attributes['imageRadius'] . '-radius' : '',
+					'attributes'   => $attributes,
+					'aspect_ratio' => 'inner' === $attributes['imageLayout'] && ! $attributes['isIframeVariation'] && ! $attributes['isVideoVariation'] ? $attributes['imageRatio'] : '',
+					'radius'       => 'inner' === $attributes['imageLayout'] && $attributes['imageRadius'] ? $attributes['imageRadius'] : '',
 				)
 			);
 			?>

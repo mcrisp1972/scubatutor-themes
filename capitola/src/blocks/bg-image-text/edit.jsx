@@ -19,30 +19,22 @@ import {
 	PlaceholderImage,
 	ImageFocalPoint,
 	IntroAlignToolbar,
-	RadiusToolbar,
 } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, name, setAttributes } = props;
-	const {
-		introAlign,
-		backgroundImage,
-		imageFocalPoint,
-		imageScrollAnimation,
-		introRadius,
-		colorTheme,
-	} = attributes;
-	const radiusClass = introRadius !== 'none' ? ` --has-${ introRadius }-radius` : '';
+	const { introAlign, backgroundImage, imageFocalPoint, imageScrollAnimation, colorTheme } =
+		attributes;
 	const defaultAttributes = getBlockType( name ).attributes;
 	const blockProps = useBlockProps( {
 		className: `alignfull --theme-${ colorTheme }`,
 	} );
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `wp-block-capitola-bg-image-text__width --has-${ introAlign }-intro ${ radiusClass }`,
+			className: `wp-block-capitola-bg-image-text__width --has-${ introAlign }-intro`,
 		},
 		{
-			template: [ [ 'capitola/body-text' ] ],
+			template: [ [ 'capitola/body-text', { borderRadius: 'medium' } ] ],
 			templateLock: 'all',
 		}
 	);
@@ -144,11 +136,6 @@ export function Edit( props ) {
 						props={ props }
 						attribute="introAlign"
 						options={ [ 'right', 'left' ] }
-					/>
-					<RadiusToolbar
-						props={ props }
-						attribute="introRadius"
-						options={ [ 'none', 'small', 'medium' ] }
 					/>
 				</ToolbarGroup>
 			</BlockControls>

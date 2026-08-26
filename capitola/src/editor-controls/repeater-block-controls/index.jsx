@@ -101,7 +101,6 @@ export function RepeaterBlockControls( {
 					return removeRow( index );
 				} }
 				icon={ trash }
-				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -116,7 +115,6 @@ export function RepeaterBlockControls( {
 					return moveBefore( index );
 				} }
 				icon={ vertical ? chevronUp : chevronLeft }
-				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -131,7 +129,6 @@ export function RepeaterBlockControls( {
 					return moveAfter( index );
 				} }
 				icon={ vertical ? chevronDown : chevronRight }
-				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -151,7 +148,6 @@ export function RepeaterBlockControls( {
 					}
 				} }
 				icon={ plus }
-				__next40pxDefaultSize
 			/>
 		);
 	}
@@ -164,7 +160,6 @@ export function RepeaterBlockControls( {
 				label={ `Set current ${ itemLabel } image` }
 				onClick={ openImageModal }
 				icon={ image }
-				__next40pxDefaultSize
 			/>
 		);
 	}

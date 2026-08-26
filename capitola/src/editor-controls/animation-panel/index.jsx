@@ -196,7 +196,6 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 							revealAnimation: newAttribute,
 						} );
 					} }
-					__next40pxDefaultSize
 				/>
 			</ToolsPanelItem>
 			{ allowSectionSelect && (
@@ -297,7 +296,6 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 							} );
 							previewAnimation( newAttribute );
 						} }
-						__next40pxDefaultSize
 					/>
 				</ToolsPanelItem>
 			) }
@@ -343,7 +341,6 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 								} );
 								previewAnimation( newAttribute );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 				) }

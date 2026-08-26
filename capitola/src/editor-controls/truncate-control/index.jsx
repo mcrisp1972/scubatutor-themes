@@ -23,7 +23,6 @@ export function TruncateControl( { label = 'Maximum Excerpt Lines', value, onCha
 				{ value: 10, label: '10' },
 			] }
 			onChange={ onChange }
-			__next40pxDefaultSize
 		/>
 	);
 }

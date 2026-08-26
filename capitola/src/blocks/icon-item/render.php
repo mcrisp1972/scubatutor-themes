@@ -3,8 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$style = '"--capitola-icon-image: url(' . esc_url( get_template_directory_uri() )
-. '/assets/svgs/icons/' . $attributes['icon'] . '.svg);"';
+$style = '--capitola-icon-image: url(' . esc_url( get_template_directory_uri() )
+. '/assets/svgs/icons/' . $attributes['icon'] . '.svg);';
 
 ?>
 <div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>

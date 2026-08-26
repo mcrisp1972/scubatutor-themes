@@ -36,6 +36,10 @@
 			"type": "string",
 			"default": "16-9"
 		},
+		"radius": {
+			"type": "string",
+			"default": "none"
+		},
 		"iframeHtml": {
 			"type": "string",
 			"default": ""

@@ -41,8 +41,9 @@ function ImageCard( {
 } ) {
 	return (
 		<figure
-			className={ `${ className } ${ radius ? ` --has-${ radius }-radius` : '' }` }
+			className={ `${ className }` }
 			style={ {
+				borderRadius: `var(--wp--preset--border-radius--${ radius } )`,
 				'--image-top-pos': topPos,
 				'--image-left-pos': leftPos,
 				'--image-height': height,
@@ -119,7 +120,6 @@ export function Edit( props ) {
 						} }
 						min={ 20 }
 						max={ 50 }
-						__next40pxDefaultSize
 					/>
 				</PanelBody>
 				<ToolsPanel
@@ -179,6 +179,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
+								{ label: 'X-Large', value: 'xlarge' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { rearImageRadius: value } );
@@ -206,7 +207,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { rearImageHeight: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -230,7 +230,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { rearImageWidth: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -348,6 +347,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
+								{ label: 'X-Large', value: 'xlarge' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { middleImageRadius: value } );
@@ -379,7 +379,6 @@ export function Edit( props ) {
 									middleImageTopPos: value,
 								} );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -407,7 +406,6 @@ export function Edit( props ) {
 									middleImageLeftPos: value,
 								} );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -433,7 +431,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { middleImageHeight: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -457,7 +454,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { middleImageWidth: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -542,6 +538,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
+								{ label: 'X-Large', value: 'xlarge' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { frontImageRadius: value } );
@@ -569,7 +566,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { frontImageHeight: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -593,7 +589,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								return setAttributes( { frontImageWidth: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					</ToolsPanelItem>
 					<ToolsPanelItem
@@ -638,7 +633,7 @@ export function Edit( props ) {
 					<AspectRatioToolbar
 						props={ props }
 						attribute="gridAspectRatio"
-						options={ [ '16-9', '3-2', '4-3', '1', '3-4', '2-3', '9-16' ] }
+						options={ [ '16-9', '3-2', '4-3', 'square', '3-4', '2-3', '9-16' ] }
 						label="Change image grid aspect ratio"
 					/>
 				</ToolbarGroup>
@@ -646,7 +641,7 @@ export function Edit( props ) {
 			<div { ...innerBlocksProps }>
 				{ children }
 				<ResizableBox
-					className={ `wp-block-capitola-three-image-block__imagecol --aspect-ratio-${ gridAspectRatio } --rear-position-${ rearImagePosition } ${ animationPreviewClass(
+					className={ `wp-block-capitola-three-image-block__imagecol --rear-position-${ rearImagePosition } ${ animationPreviewClass(
 						revealAnimation,
 						'figure'
 					) }` }
@@ -656,6 +651,7 @@ export function Edit( props ) {
 					style={ {
 						flexBasis: 'unset',
 						'--capitola-flex-basis': mediaWidth + '%',
+						aspectRatio: `var(--wp--preset--aspect-ratio--${ gridAspectRatio })`,
 					} }
 					minWidth="20%"
 					maxWidth={ isMobile ? '100%' : '50%' }

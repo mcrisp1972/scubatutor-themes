@@ -60,20 +60,6 @@
 				}
 			}
 		}
-
-		&.--has-small-radius {
-
-			.wp-block-capitola-body-text__grid {
-				border-radius: $radius-med;
-			}
-		}
-
-		&.--has-medium-radius {
-
-			.wp-block-capitola-body-text__grid {
-				border-radius: $radius-large;
-			}
-		}
 	}
 
 	.wp-block-capitola-body-text__grid {

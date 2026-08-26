@@ -283,7 +283,6 @@ export function GoogleMapControl( { label, value, onChange, mapsKey, help } ) {
 							fetchSuggestions( filterValue );
 						} }
 						placeholder="Enter address..."
-						__next40pxDefaultSize
 					/>
 				) }
 			</div>

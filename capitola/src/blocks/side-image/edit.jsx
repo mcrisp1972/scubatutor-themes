@@ -100,11 +100,6 @@ export function Edit( props ) {
 
 	const showScrollAnimationControl = imageLayout === 'full' && mediaType === 'image';
 
-	const imageRatioClass = imageLayout === 'inner' ? '--' + ( videoID ? '16-9' : imageRatio ) : '';
-
-	const radiusClass =
-		imageLayout === 'inner' && imageRadius ? ` --has-${ imageRadius }-radius` : '';
-
 	const stickyClass =
 		stickyImage && imageLayout === 'inner' && verticalAlign === 'top' ? ' --sticky' : '';
 
@@ -169,7 +164,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { imageUrl: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					) }
 					{ mediaType === 'image' && externalImage && (
@@ -179,7 +173,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { imageAlt: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					) }
 					{ mediaType === 'iframe' && (
@@ -215,7 +208,6 @@ export function Edit( props ) {
 								onChange={ ( value ) => {
 									setAttributes( { videoID: value } );
 								} }
-								__next40pxDefaultSize
 							/>
 						) }
 					{ mediaType === 'video' && videoSource === 'remote' && (
@@ -225,7 +217,6 @@ export function Edit( props ) {
 							onChange={ ( value ) => {
 								setAttributes( { videoUrl: value } );
 							} }
-							__next40pxDefaultSize
 						/>
 					) }
 					{ mediaType === 'video' && videoSource === 'local' && (
@@ -273,7 +264,6 @@ export function Edit( props ) {
 							} }
 							min={ 20 }
 							max={ 50 }
-							__next40pxDefaultSize
 						/>
 					) }
 					{ imageLayout === 'inner' && verticalAlign === 'top' && (
@@ -379,7 +369,7 @@ export function Edit( props ) {
 						<AspectRatioToolbar
 							props={ props }
 							attribute="imageRatio"
-							options={ [ '16-9', '3-2', '4-3', '1', 'full' ] }
+							options={ [ '16-9', '3-2', '4-3', 'square', 'full' ] }
 						/>
 					) }
 				</ToolbarGroup>
@@ -433,7 +423,7 @@ export function Edit( props ) {
 							{ mediaType === 'video' && (
 								<Video
 									videoObject={ videoObject }
-									radiusClass={ radiusClass }
+									radius={ imageRadius }
 									props={ props }
 									key={ videoUrl }
 								/>
@@ -441,14 +431,17 @@ export function Edit( props ) {
 							{ mediaType === 'image' && (
 								<Image
 									imageObject={ imageObject }
-									imageRatioClass={ imageRatioClass }
-									radiusClass={ radiusClass }
+									aspectRatio={ imageRatio }
+									radius={ imageLayout === 'inner' ? imageRadius : '' }
 									props={ props }
 									featuredImage={ featuredImage }
 								/>
 							) }
 							{ mediaType === 'iframe' && (
-								<Iframe iframeCode={ iframeCode } radiusClass={ radiusClass } />
+								<Iframe
+									iframeCode={ iframeCode }
+									radius={ imageLayout === 'inner' ? imageRadius : '' }
+								/>
 							) }
 							{ imageLayout === 'inner' && showCaption && (
 								<RichText

@@ -5,21 +5,21 @@
 	&.is-style-small-radius {
 
 		img {
-			border-radius: $radius-med;
+			border-radius: var(--wp--preset--border-radius--small);
 		}
 	}
 
 	&.is-style-medium-radius {
 
 		img {
-			border-radius: $radius-large;
+			border-radius: var(--wp--preset--border-radius--medium);
 		}
 	}
 
 	&.is-style-large-radius {
 
 		img {
-			border-radius: $radius-xlarge;
+			border-radius: var(--wp--preset--border-radius--large);
 		}
 	}
 

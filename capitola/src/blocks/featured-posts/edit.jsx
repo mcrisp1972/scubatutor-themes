@@ -74,7 +74,6 @@ export function Edit( props ) {
 								postType: value,
 							} );
 						} }
-						__next40pxDefaultSize
 					/>
 					<Repeater
 						props={ props }
@@ -145,7 +144,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { listLayout: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout === 'slider' && (
 						<ToggleControl
@@ -163,7 +161,6 @@ export function Edit( props ) {
 						onChange={ ( value ) => {
 							setAttributes( { ctaText: value } );
 						} }
-						__next40pxDefaultSize
 					/>
 					{ listLayout !== 'row' && (
 						<ToggleControl

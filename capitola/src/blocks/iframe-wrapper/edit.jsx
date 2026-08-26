@@ -1,6 +1,6 @@
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, TextareaControl } from '@wordpress/components';
-import { PlaceholderIframe } from '@capitola/editor-controls';
+import { InspectorControls, useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { PanelBody, TextareaControl, ToolbarGroup } from '@wordpress/components';
+import { PlaceholderIframe, RadiusToolbar, AspectRatioToolbar } from '@capitola/editor-controls';
 
 function isValidIframeHtml( html ) {
 	const pattern = /<iframe[^>]*>([\s\S]*?)<\/iframe>/gm;
@@ -9,8 +9,13 @@ function isValidIframeHtml( html ) {
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;
-	const { aspectRatio, iframeHtml } = attributes;
-	const blockProps = useBlockProps( { className: '--' + aspectRatio } );
+	const { aspectRatio, radius, iframeHtml } = attributes;
+	const blockProps = useBlockProps( {
+		style: {
+			aspectRatio: `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+			borderRadius: `var(--wp--preset--border-radius--${ radius })`,
+		},
+	} );
 
 	return (
 		<>
@@ -23,21 +28,22 @@ export function Edit( props ) {
 							setAttributes( { iframeHtml: value } );
 						} }
 					/>
-					<SelectControl
-						label="Aspect Ratio"
-						value={ aspectRatio }
-						options={ [
-							{ label: '3:2', value: '3-2' },
-							{ label: '4:3', value: '4-3' },
-							{ label: '16:9', value: '16-9' },
-						] }
-						onChange={ ( value ) => {
-							setAttributes( { aspectRatio: value } );
-						} }
-						__next40pxDefaultSize
-					/>
 				</PanelBody>
 			</InspectorControls>
+			<BlockControls>
+				<ToolbarGroup>
+					<AspectRatioToolbar
+						props={ props }
+						attribute="aspectRatio"
+						options={ [ '16-9', '3-2', '4-3' ] }
+					/>
+					<RadiusToolbar
+						props={ props }
+						attribute="radius"
+						options={ [ 'none', 'xsmall', 'small', 'medium', 'large' ] }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 			{ isValidIframeHtml( iframeHtml ) ? (
 				<figure { ...blockProps } dangerouslySetInnerHTML={ { __html: iframeHtml } } />
 			) : (
