@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$style_attribute = 'border-radius: var(--wp--preset--border-radius--' . $args['radius'] . '); aspect-ratio: var(--wp--preset--aspect-ratio--' . $args['aspect_ratio'] . ');';
+$style_attribute = 'border-radius: var(--wp--preset--border-radius--' . $args['radius'] . ');' . ( $args['aspect_ratio'] && 'full' !== $args['aspect_ratio'] ? ' aspect-ratio: var(--wp--preset--aspect-ratio--' . $args['aspect_ratio'] . ');' : '' );
 
 ?>
 
