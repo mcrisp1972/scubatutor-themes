@@ -70,16 +70,23 @@ function overrideCssPublicPath( rules ) {
 	} );
 }
 
+function addEntryFromSourceFile( entries, filePath ) {
+	const parsed = path.parse( filePath );
+	entries[ parsed.dir.replace( /^(\.\/)?src/, '' ) + '/' + parsed.name ] = `./${ filePath.replace(
+		/^\.\/?/,
+		''
+	) }`;
+}
+
 const js = glob.sync( './src/scripts/**.{js,jsx}' ).reduce( function ( obj, el ) {
-	obj[ path.parse( el ).dir.replace( /^(\.\/src)/, '' ) + '/' + path.parse( el ).name ] = el;
+	addEntryFromSourceFile( obj, el );
 	return obj;
 }, {} );
 
 // styles
 const sass = glob.sync( './src/styles/**/*.scss' ).reduce( function ( obj, el ) {
 	if ( ! path.parse( el ).name.startsWith( '_' ) ) {
-		obj[ path.parse( el ).dir.replace( /^(\.\/src)/, '' ) + '/' + path.parse( el ).name ] = el;
-		return obj;
+		addEntryFromSourceFile( obj, el );
 	}
 	return obj;
 }, {} );
