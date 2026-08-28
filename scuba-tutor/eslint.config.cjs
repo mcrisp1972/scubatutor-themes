@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const globals = require( 'globals' );
 const pluginWordPress = require( '@wordpress/eslint-plugin' );
 
@@ -10,30 +9,7 @@ module.exports = [
 	{
 		files: [ '**/*.{js,jsx,mjs,cjs}' ],
 		settings: {
-			'import/core-modules': [
-				'@capitola/editor-controls',
-				'@capitola/editor-icons',
-				'@wordpress/api-fetch',
-				'@wordpress/autop',
-				'@wordpress/block-editor',
-				'@wordpress/blocks',
-				'@wordpress/components',
-				'@wordpress/compose',
-				'@wordpress/core-data',
-				'@wordpress/data',
-				'@wordpress/date',
-				'@wordpress/editor',
-				'@wordpress/element',
-				'@wordpress/hooks',
-				'@wordpress/html-entities',
-				'@wordpress/i18n',
-				'@wordpress/icons',
-				'@wordpress/interactivity',
-				'@wordpress/keycodes',
-				'@wordpress/plugins',
-				'@wordpress/server-side-render',
-				'@wordpress/url',
-			],
+			'import/core-modules': [ '@capitola/editor-controls', '@capitola/editor-icons' ],
 		},
 		languageOptions: {
 			ecmaVersion: 'latest',
@@ -52,6 +28,12 @@ module.exports = [
 			},
 		},
 		rules: {
+			// WordPress packages are treated as externals by WP build tooling.
+			// Ignore unresolved checks here so we don't have to mirror that list in ESLint.
+			'import/no-unresolved': [ 'error', { ignore: [ '^@wordpress/' ] } ],
+			// Theme scripts import WordPress packages provided by the editor runtime,
+			// so these should not need to exist as direct package.json dependencies.
+			'import/no-extraneous-dependencies': 'off',
 			'space-in-parens': [ 'error', 'always' ],
 			'arrow-body-style': [ 'error', 'always' ],
 		},
