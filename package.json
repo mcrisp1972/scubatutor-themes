@@ -20,12 +20,15 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^13.2.0",
+		"@wordpress/icons": "^15.5.0",
 		"gsap": "^3.15.0",
-		"swiper": "^12.2.0"
+		"swiper": "^14.2.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^32.3.0"
+		"@wordpress/scripts": "^34.1.0"
+	},
+	"engines": {
+		"node": "24.x"
 	},
 	"files": [
 		"*",
