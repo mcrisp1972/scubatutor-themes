@@ -18,15 +18,6 @@
 			align-items: center;
 			gap: var(--wp--custom--spacing--xsmall);
 		}
-
-		&:hover,
-		&:focus {
-
-			&::before,
-			&::after {
-				background-color: var(--capitola-color-link-hover);
-			}
-		}
 	}
 
 	&__prev {
@@ -35,13 +26,10 @@
 		&::before {
 			content: "";
 			display: block;
-			mask-size: contain;
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--capitola-color-link);
+			mask: url(~/assets/svgs/arrows/fa-angle-left.svg) center / contain no-repeat;
+			background: currentColor;
 			width: 16px;
 			height: 16px;
-			mask-image: url(~/assets/svgs/arrows/fa-angle-left.svg);
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 		}
 
@@ -60,13 +48,10 @@
 		&::after {
 			content: "";
 			display: block;
-			mask-size: contain;
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--capitola-color-link);
+			mask: url(~/assets/svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
+			background: currentColor;
 			width: 16px;
 			height: 16px;
-			mask-image: url(~/assets/svgs/arrows/fa-angle-right.svg);
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 		}
 
