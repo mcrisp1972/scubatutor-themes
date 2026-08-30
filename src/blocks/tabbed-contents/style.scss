@@ -39,9 +39,12 @@
 			}
 		}
 
-		&:hover,
-		&:focus {
-			border-color: var(--capitola-color-accent);
+		&:not(.--is-selected) {
+
+			&:hover,
+			&:focus {
+				border-color: currentColor;
+			}
 		}
 	}
 

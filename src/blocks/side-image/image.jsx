@@ -9,9 +9,11 @@ export function Image( { imageObject, aspectRatio, radius = '', featuredImage, p
 		return (
 			<>
 				<img
-					//className={ `${ imageRatioClass }` }
 					style={ {
-						aspectRatio: `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+						aspectRatio:
+							aspectRatio !== 'full'
+								? `var(--wp--preset--aspect-ratio--${ aspectRatio })`
+								: '',
 						borderRadius: `var(--wp--preset--border-radius--${ radius })`,
 						'--capitola-objectPosition': props.attributes.imageFocalPoint,
 					} }

@@ -5,7 +5,7 @@
 	color: var(--capitola-color-body);
 	padding-block: var(--wp--custom--spacing--block-padding);
 
-	a {
+	a:not(.wp-block-capitola-footer__social-link) {
 		@include nav-link;
 	}
 
@@ -118,7 +118,7 @@
 		display: block;
 		height: 30px;
 		width: 30px;
-		background-color: var(--capitola-color-body);
+		background: var(--capitola-color-body);
 		mask: url(#{$image_path}social/fa-x-twitter.svg) center / contain no-repeat;
 		transition: background-color var(--wp--custom--transitions--default);
 
@@ -171,7 +171,7 @@
 			display: block;
 			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 			width: 20px;
-			background: var(--capitola-color-body);
+			background: currentColor;
 			mask: url(#{$image_path}utility/fa-envelope-solid.svg) center / contain no-repeat;
 			transition: background-color var(--wp--custom--transitions--default);
 		}

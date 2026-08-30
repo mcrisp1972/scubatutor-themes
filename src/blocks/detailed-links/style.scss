@@ -76,7 +76,7 @@
 			height: 1em;
 			flex: 0 0 30px;
 			mask: url(#{$image_path}arrows/fa-arrow-right.svg) center right / contain no-repeat;
-			background: var(--capitola-color-link);
+			background: currentColor;
 			transition: background-color var(--wp--custom--transitions--default), scale var(--wp--custom--transitions--default);
 		}
 
@@ -86,7 +86,6 @@
 			color: var(--capitola-color-link-hover);
 
 			&::after {
-				background: var(--capitola-color-link-hover);
 				scale: 1.1;
 			}
 		}
