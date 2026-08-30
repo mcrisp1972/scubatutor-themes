@@ -26,7 +26,7 @@ $breakpoint-4-col: 1236px;
 
 $error_color: var(--wp--preset--color--crimson-bolt);
 
-$select-arrow-gradient: linear-gradient(315deg, transparent 22%, var(--capitola-color-body) 22%, var(--capitola-color-body) 30%, transparent 30%), linear-gradient(45deg, transparent 22%, var(--capitola-color-body) 22%, var(--capitola-color-body) 30%, transparent 30%);
+$select-arrow-gradient: linear-gradient(315deg, transparent 22%, currentColor 22%, currentColor 30%, transparent 30%), linear-gradient(45deg, transparent 22%, currentColor 22%, currentColor 30%, transparent 30%);
 
 $select-arrow-size: 12px 11.5px;
 

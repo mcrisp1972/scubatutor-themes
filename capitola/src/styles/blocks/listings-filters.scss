@@ -169,7 +169,7 @@
 					content: "";
 					display: block;
 					position: absolute;
-					background: var(--capitola-color-body);
+					background: currentColor;
 					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 					transition: background-color var(--wp--custom--transitions--default);
 					width: var(--wp--custom--spacing--small);
@@ -193,7 +193,7 @@
 					&::-webkit-calendar-picker-indicator {
 						background: {
 							image: unset;
-							color: var(--capitola-color-body);
+							color: currentColor;
 						}
 						mask: url(~/assets/svgs/icons/fa-calendar.svg) center / contain no-repeat;
 						cursor: pointer;
@@ -226,6 +226,7 @@
 			height: 44px;
 			border: none;
 			border-bottom: 1px solid var(--capitola-color-body);
+			border-radius: 0;
 			color: var(--capitola-color-body);
 			background: none;
 			padding: 0;

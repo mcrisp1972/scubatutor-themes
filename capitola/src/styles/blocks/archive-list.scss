@@ -307,10 +307,6 @@
 
 				.capitola-result__cta.--cta.--tertiary {
 					color: var(--capitola-color-tile-primary);
-
-					&::after {
-						background: var(--capitola-color-tile-primary);
-					}
 				}
 			}
 		}
@@ -377,10 +373,6 @@
 
 		.capitola-result__cta.--cta {
 			color: var(--capitola-color-body);
-
-			&::after {
-				background: var(--capitola-color-body);
-			}
 		}
 	}
 

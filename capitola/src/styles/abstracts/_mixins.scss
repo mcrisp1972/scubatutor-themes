@@ -94,7 +94,7 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: var(--capitola-color-button-text);
+		background: currentColor;
 		mask: url("#{$image_path}arrows/fa-chevron-right.svg") center / contain no-repeat;
 		transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 	}
@@ -149,7 +149,7 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: var(--capitola-color-button);
+		background: currentColor;
 		mask: url(~/assets/svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
 		transition: transform var(--wp--custom--transitions--default);
 	}
@@ -190,7 +190,7 @@
 		width: 12px;
 		height: 16px;
 		mask: url(#{$image_path}arrows/fa-chevron-right.svg) center / contain no-repeat;
-		background: var(--capitola-color-button);
+		background: currentColor;
 		transition: transform var(--wp--custom--transitions--default);
 	}
 
