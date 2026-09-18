@@ -10,13 +10,21 @@ export default function PostTile( { attributes, conditionals, item } ) {
 				<div className="capitola-result__thumb-content">
 					{ conditionals.titleLocation === 'image' && (
 						<>
+							{ item.category_name && (
+								<div className="capitola-result__thumb-cat">
+									{ decodeEntities( item.category_name ) }
+								</div>
+							) }
 							<div className="capitola-result__thumb-title --hl-s">
 								{ item.title.raw }
 							</div>
-							{ item.event_dates && (
-								<div className="capitola-result__thumb-subtitle --text-s">
-									{ item.event_dates }
-								</div>
+							{ item.event_dates_html && (
+								<div
+									className="capitola-result__thumb-subtitle --text-s"
+									dangerouslySetInnerHTML={ {
+										__html: item.event_dates_html,
+									} }
+								/>
 							) }
 						</>
 					) }
@@ -26,28 +34,26 @@ export default function PostTile( { attributes, conditionals, item } ) {
 						</span>
 					) }
 				</div>
-				{ conditionals.titleLocation === 'image' && item.category_name && (
-					<div className="capitola-result__thumb-cat">
-						{ decodeEntities( item.category_name ) }
-					</div>
-				) }
 			</div>
 			{ conditionals.hasBottom && (
 				<div className="capitola-result__content">
 					{ conditionals.titleLocation === 'body' && (
-						<div>
+						<>
 							{ item.category_name && (
 								<div className="capitola-result__body-cat --eyebrow">
 									{ decodeEntities( item.category_name ) }
 								</div>
 							) }
 							<div className="capitola-result__title --hl-s">{ item.title.raw }</div>
-							{ item.event_dates && (
-								<div className="capitola-result__subtitle">
-									{ item.event_dates }
-								</div>
+							{ item.event_dates_html && (
+								<div
+									className="capitola-result__subtitle --text-s"
+									dangerouslySetInnerHTML={ {
+										__html: item.event_dates_html,
+									} }
+								/>
 							) }
-						</div>
+						</>
 					) }
 					{ item.excerpt.rendered && conditionals.showExcerpt && (
 						<div

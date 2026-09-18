@@ -76,8 +76,8 @@
 
 		&-body {
 			display: flex;
-			gap: var(--wp--custom--spacing--small);
-			padding-block: var(--wp--custom--spacing--small);
+			gap: var(--wp--preset--spacing--small);
+			padding-block: var(--wp--preset--spacing--small);
 			color: var(--capitola-color-body);
 
 			p {
@@ -145,7 +145,7 @@
 		position: relative;
 		align-items: center;
 		height: 100%;
-		padding-block: var(--wp--custom--spacing--xsmall);
+		padding-block: var(--wp--preset--spacing--xsmall);
 
 		@include mq("large") {
 			display: grid;
@@ -158,14 +158,14 @@
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
-		gap: var(--wp--custom--spacing--small);
+		gap: var(--wp--preset--spacing--small);
 		order: 2;
-		margin-block: var(--wp--custom--spacing--xlarge) 0;
+		margin-block: var(--wp--preset--spacing--xlarge) 0;
 		padding: 0;
 		list-style: none;
 
 		@include mq("large") {
-			margin-top: var(--wp--custom--spacing--xsmall);
+			margin-top: var(--wp--preset--spacing--xsmall);
 			order: 0;
 			flex-flow: row;
 
@@ -206,7 +206,7 @@
 		&.--phone {
 			display: flex;
 			position: relative;
-			gap: var(--wp--custom--spacing--xsmall);
+			gap: var(--wp--preset--spacing--xsmall);
 			align-items: center;
 
 			&::before {
@@ -280,7 +280,7 @@
 			grid-column: 1;
 
 			&.--has-svg-mask {
-				height: calc(100% - (var(--wp--custom--spacing--xsmall) * 2));
+				height: calc(100% - (var(--wp--preset--spacing--xsmall) * 2));
 			}
 		}
 
@@ -296,7 +296,7 @@
 		position: fixed;
 		flex-flow: column;
 		inset: var(--wp-admin--admin-bar--height, 0) 0 0 0;
-		padding: calc(var(--capitola-header-height) + var(--wp--custom--spacing--medium)) var(--wp--custom--spacing--gutter) 0;
+		padding: calc(var(--capitola-header-height) + var(--wp--preset--spacing--medium)) var(--wp--custom--spacing--gutter) 0;
 		overflow: auto;
 		clip-path: circle(0.3% at 100% 0);
 		transition: clip-path 0.5s ease-in;
@@ -343,12 +343,12 @@
 	&__menu-items {
 		list-style: none;
 		margin: 0;
-		padding: var(--wp--custom--spacing--large) 0 0;
+		padding: var(--wp--preset--spacing--large) 0 0;
 
 		@include mq("large") {
 			display: flex;
 			align-items: center;
-			gap: var(--wp--custom--spacing--small);
+			gap: var(--wp--preset--spacing--small);
 			padding: 0;
 		}
 	}
@@ -360,7 +360,7 @@
 		color: var(--capitola-color-body);
 
 		+.wp-block-capitola-nav__menu-item {
-			margin-top: var(--wp--custom--spacing--small);
+			margin-top: var(--wp--preset--spacing--small);
 
 			@include mq("large") {
 				margin-top: 0;
@@ -369,11 +369,11 @@
 
 		@include mq("large") {
 			align-items: center;
-			gap: var(--wp--custom--spacing--xsmall);
+			gap: var(--wp--preset--spacing--xsmall);
 			height: 100%;
 
 			.--shrink-utility & {
-				padding-bottom: var(--wp--custom--spacing--xsmall);
+				padding-bottom: var(--wp--preset--spacing--xsmall);
 			}
 
 			&:hover {
@@ -464,18 +464,18 @@
 
 	.wp-block-capitola-nav-sublink {
 		display: flex;
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--preset--spacing--small);
 
 		@include mq("large") {
 			margin-top: 0;
 			padding: 0;
 
 			&:first-child {
-				padding-top: var(--wp--custom--spacing--small);
+				padding-top: var(--wp--preset--spacing--small);
 			}
 
 			&:last-child {
-				padding-bottom: var(--wp--custom--spacing--small);
+				padding-bottom: var(--wp--preset--spacing--small);
 			}
 		}
 
@@ -494,7 +494,7 @@
 			@include mq("large") {
 				display: block;
 				font-size: var(--capitola-nav-link-fontSize);
-				padding: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--medium);
+				padding: var(--wp--preset--spacing--xsmall) var(--wp--preset--spacing--medium);
 			}
 		}
 	}

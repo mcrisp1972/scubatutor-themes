@@ -58,7 +58,7 @@
 	.wp-block-capitola-body-text {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--small);
+		gap: var(--wp--preset--spacing--small);
 		min-height: 25dvh;
 		margin-inline: var(--wp--custom--wide-size-padding);
 
@@ -71,7 +71,7 @@
 		display: flex;
 		position: relative;
 		flex-flow: column;
-		padding: var(--wp--custom--spacing--large);
+		padding: var(--wp--preset--spacing--large);
 		overflow: hidden;
 
 		&::before {

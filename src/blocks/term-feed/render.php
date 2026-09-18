@@ -51,7 +51,7 @@ if ( $results->get_terms() ) : ?>
 					<div class="capitola-listings__scroll-buttons">
 						<button class="swiper-button-prev" aria-label="scroll-left"></button>
 						<?php if ( $attributes['showSlideCount'] ) : ?>
-							<div class="swiper-pagination"></div>
+							<div class="swiper-pagination" role="status"></div>
 						<?php endif; ?>
 						<button class="swiper-button-next" aria-label="scroll-right"></button>
 					</div>

@@ -21,11 +21,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<div class="wp-block-capitola-footer__grid alignwide">
-		<div class="wp-block-capitola-footer__menus">
+		<nav class="wp-block-capitola-footer__menus" aria-label="Footer Navigation">
 			<?php echo wp_kses_post( $content ); ?>
-		</div>
+		</nav>
 		<div class="wp-block-capitola-footer__contact">
-			<div class="wp-block-capitola-footer__contact-info">
+			<address class="wp-block-capitola-footer__contact-info">
 				<?php if ( $attributes['showBusinessName'] ) : ?>
 					<div><?php echo esc_html( $contact_info['business_name'] ); ?></div>
 				<?php endif; ?>
@@ -41,19 +41,17 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				<?php if ( $attributes['showEmail'] ) : ?>
 					<a class="wp-block-capitola-footer__contact-link --email" href="mailto:<?php echo esc_attr( $contact_info['email'] ); ?>"><?php echo esc_html( $contact_info['email'] ); ?></a>
 				<?php endif; ?>
-			</div>
+			</address>
 			<?php
 			if ( $attributes['showHours'] ) :
 				$opening_hours = get_option( 'capitola_hours' );
 				?>
-				<ul class="wp-block-capitola-footer__hours">
+				<dl class="wp-block-capitola-footer__hours">
 					<?php foreach ( $opening_hours as $day => $hours ) : ?>
-						<li>
-							<strong><?php echo esc_html( $day ); ?>:</strong>
-							<span><?php echo ( $hours ? esc_html( $hours ) : 'Closed' ); ?></span>
-						</li>
+						<dt><?php echo esc_html( $day ); ?>:</dt>
+						<dd><?php echo ( $hours ? esc_html( $hours ) : 'Closed' ); ?></dd>
 					<?php endforeach; ?>
-				</ul>
+				</dl>
 			<?php endif; ?>
 			<?php
 			$socials = get_option( 'capitola_social_links' );

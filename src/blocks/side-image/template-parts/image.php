@@ -12,7 +12,6 @@ $style_attribute = 'border-radius: var(--wp--preset--border-radius--' . $args['r
 	<img
 		src="<?php echo esc_url( $args['attributes']['imageUrl'] ); ?>"
 		alt="<?php echo esc_attr( $args['attributes']['imageAlt'] ); ?>"
-		class="<?php echo esc_attr( $args['image_ratio'] ); ?>"
 		loading="<?php echo $args['attributes']['isHeroVariation'] ? 'eager' : 'lazy'; ?>" style="<?php echo esc_attr( $style_attribute ); ?>"/>
 <?php else : ?>
 	<?php
@@ -21,7 +20,6 @@ $style_attribute = 'border-radius: var(--wp--preset--border-radius--' . $args['r
 		'large',
 		null,
 		array(
-			'class' => $args['image_ratio'],
 			'style' => $style_attribute,
 		)
 	)

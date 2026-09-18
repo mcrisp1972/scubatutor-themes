@@ -1,7 +1,5 @@
 import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import {
-	TruncateControl,
 	ColorThemePanel,
 	AnimationPanel,
 	animationPreviewClass,
@@ -9,8 +7,8 @@ import {
 } from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { attributes, setAttributes, clientId } = props;
-	const { gridLayout, gridGap, excerptLines, colorTheme, revealAnimation } = attributes;
+	const { attributes, clientId } = props;
+	const { colorTheme, revealAnimation } = attributes;
 
 	const blockProps = useBlockProps( {
 		className: `alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
@@ -30,36 +28,6 @@ export function Edit( props ) {
 
 	return (
 		<div { ...blockProps }>
-			<InspectorControls group="settings">
-				<PanelBody title="Layout" initialOpen={ true }>
-					<SelectControl
-						label="Layout"
-						value={ gridLayout }
-						options={ [
-							{ label: '3 Col', value: '3-col' },
-							{ label: '4 Col', value: '4-col' },
-						] }
-						onChange={ ( value ) => {
-							setAttributes( { gridLayout: value } );
-						} }
-					/>
-					<ToggleControl
-						label="Grid Gap"
-						checked={ gridGap }
-						onChange={ ( value ) => {
-							setAttributes( {
-								gridGap: value,
-							} );
-						} }
-					/>
-					<TruncateControl
-						value={ excerptLines }
-						onChange={ ( value ) => {
-							setAttributes( { excerptLines: value } );
-						} }
-					/>
-				</PanelBody>
-			</InspectorControls>
 			<InspectorControls group="styles">
 				<ColorThemePanel props={ props } />
 				<AnimationPanel props={ props } />

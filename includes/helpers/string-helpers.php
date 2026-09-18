@@ -17,14 +17,14 @@ function phone_link_number( $phone_number ) {
 }
 
 /**
- * Builds a human-friendly date/time range string.
+ * Builds a human-friendly date/time range string formatted in html time element.
  *
  * @param string      $start   Start date/time string.
  * @param string|null $end     End date/time string.
  * @param bool        $all_day Whether the event is all-day.
  * @return string
  */
-function date_time_range( $start, $end, $all_day = false ) {
+function date_time_range_html( $start, $end, $all_day = false ) {
 	$current_year    = gmdate( 'Y', time() );
 	$start_timestamp = strtotime( $start );
 	$end_timestamp   = $end ? strtotime( $end ) : $start_timestamp;
@@ -52,26 +52,25 @@ function date_time_range( $start, $end, $all_day = false ) {
 		if ( ! $all_day ) {
 			$string .= gmdate( ', g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a', $start_timestamp );
 		}
-		return $string;
+		return '<time datetime="' . esc_attr( $start_date ) . '">' . $string . '</time>';
 	} elseif ( $start_date === $end_date ) {
-		$string = $start_month . ' ' . $start_day;
+		$string = '<time datetime="' . esc_attr( $start ) . '">' . $start_month . ' ' . $start_day;
 		if ( $current_year !== $end_year ) {
 			$string .= ' ' . $end_year;
 		}
 		if ( ! $all_day ) {
 			$start_time_format = 'g' . ( '00' !== $start_minute ? ':i' : '' ) . ( $start_meridiem !== $end_meridiem ? 'a' : '' );
 			$end_time_format   = 'g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a';
-			$string           .= ', ' . gmdate( $start_time_format, $start_timestamp ) . '-' . gmdate( $end_time_format, $end_timestamp );
+			$string           .= ', ' . gmdate( $start_time_format, $start_timestamp ) . '</time>-<time datetime="' . esc_attr( $end ) . '">' . gmdate( $end_time_format, $end_timestamp );
 		}
-		return $string;
+		return $string . '</time>';
 	} else {
-		$string = $start_month . ' ' . $start_day;
-
+		$string = '<time datetime="' . esc_attr( $all_day ? $start_date : $start ) . '">' . $start_month . ' ' . $start_day;
 		if ( ! $all_day ) {
 			$start_time_format = ', g' . ( '00' !== $start_minute ? ':i' : '' ) . 'a';
 			$string           .= gmdate( $start_time_format, $start_timestamp );
 		}
-		$string .= ' - ' . $end_month . ' ' . $end_day;
+		$string .= '</time> - <time datetime="' . esc_attr( $all_day ? $end_date : $end ) . '">' . $end_month . ' ' . $end_day;
 		if ( ! $all_day ) {
 			$end_time_format = ', g' . ( '00' !== $end_minute ? ':i' : '' ) . 'a';
 			$string         .= gmdate( $end_time_format, $end_timestamp );
@@ -79,6 +78,7 @@ function date_time_range( $start, $end, $all_day = false ) {
 		if ( $current_year !== $end_year ) {
 			$string .= ' ' . $end_year;
 		}
+		$string .= '</time>';
 		return $string;
 	}
 }

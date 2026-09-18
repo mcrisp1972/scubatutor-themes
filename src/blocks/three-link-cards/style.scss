@@ -12,7 +12,7 @@
 
 	&__width {
 		display: flex;
-		gap: var(--wp--custom--spacing--medium);
+		gap: var(--wp--preset--spacing--medium);
 		align-items: flex-start;
 	}
 }
@@ -22,7 +22,7 @@
 	display: flex;
 	flex: 1 1 0;
 	flex-flow: column;
-	gap: var(--wp--custom--spacing--small);
+	gap: var(--wp--preset--spacing--small);
 
 	.--staggered & {
 

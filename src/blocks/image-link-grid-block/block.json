@@ -29,18 +29,6 @@
 		"customCSS": false
 	},
 	"attributes": {
-		"gridLayout": {
-			"type": "string",
-			"default": "3-col"
-		},
-		"gridGap": {
-			"type": "boolean",
-			"default": true
-		},
-		"excerptLines": {
-			"type": "integer",
-			"default": 4
-		},
 		"colorTheme": {
 			"type": "string",
 			"default": false
@@ -154,10 +142,7 @@
 	"providesContext": {
 		"capitola/bodyTextOptions": "bodyTextOptions",
 		"capitola/revealAnimation": "revealAnimation",
-		"capitola/introAlign": "introAlign",
-		"capitola/gridLayout": "gridLayout",
-		"capitola/gridGap": "gridGap",
-		"capitola/excerptLines": "excerptLines"
+		"capitola/introAlign": "introAlign"
 	},
 	"viewScript": "capitola-animations",
 	"style": "capitola-image-link-grid-block",

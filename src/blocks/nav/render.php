@@ -60,7 +60,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		</div>
 	<?php endif; ?>
 
-	<nav class="wp-block-capitola-nav__background alignfull is-layout-constrained has-global-padding  --theme-<?php echo esc_attr( $attributes['colorTheme'] ); ?>">
+	<nav class="wp-block-capitola-nav__background alignfull is-layout-constrained has-global-padding  --theme-<?php echo esc_attr( $attributes['colorTheme'] ); ?>" aria-label="Main Navigation">
 		<div class="wp-block-capitola-nav__grid alignwide">
 			<?php if ( ! empty( $logo_object ) ) : ?>
 				<?php if ( str_starts_with( $logo_object['sizes']['medium']['mime-type'], 'image/svg' ) && ! $attributes['useLogoColor'] ) : ?>

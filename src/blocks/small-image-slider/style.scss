@@ -48,6 +48,9 @@
 		transition-property: transform;
 		width: 100%;
 		align-items: center;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
 		.--square & {
 			height: 260px;
@@ -59,14 +62,9 @@
 	}
 
 	&__swiper-slide {
-		display: flex;
-		flex-flow: column;
 		position: relative;
-		overflow: visible;
 		transition: scale 0.6s linear, filter 0.6s linear;
 		justify-content: center;
-		align-items: center;
-		margin: 0;
 
 		.--grayscale-inactive & {
 
@@ -143,7 +141,7 @@
 
 	.wp-block-capitola-small-image-slider__caption {
 		@include contentSize;
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--preset--spacing--small);
 		text-align: center;
 		color: var(--capitola-color-body);
 

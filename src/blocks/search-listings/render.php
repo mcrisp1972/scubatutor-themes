@@ -34,7 +34,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				We found <?php echo esc_html( $wp_query->found_posts . ' ' . $not_singular ); ?> in your search.
 			</div>
 		</div>
-		<div class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
+		<ul class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :
@@ -50,7 +50,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				endwhile;
 			endif;
 			?>
-		</div>
+		</ul>
 		<?php get_template_part( 'template-parts/pagination-search' ); ?>
 	</div>
 </section>

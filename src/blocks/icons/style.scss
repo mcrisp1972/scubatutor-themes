@@ -13,7 +13,7 @@
 	position: relative;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: var(--wp--custom--spacing--large);
+	gap: var(--wp--preset--spacing--large);
 	container: {
 		name: icon-grid;
 		type: inline-size;
@@ -25,9 +25,9 @@
 }
 
 .wp-block-capitola-icon-item {
-	$two-column: calc(50% - (var(--wp--custom--spacing--large) / 2));
-	$three-column: calc((100% / 3) - ((var(--wp--custom--spacing--large) * 2) / 3));
-	$four-column: calc(25% - ((var(--wp--custom--spacing--large) * 3) / 4));
+	$two-column: calc(50% - (var(--wp--preset--spacing--large) / 2));
+	$three-column: calc((100% / 3) - ((var(--wp--preset--spacing--large) * 2) / 3));
+	$four-column: calc(25% - ((var(--wp--preset--spacing--large) * 3) / 4));
 	display: flex;
 	flex-flow: column;
 	text-align: center;
@@ -99,10 +99,10 @@
 	}
 
 	&__title {
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--preset--spacing--small);
 	}
 
 	&__caption {
-		margin-top: var(--wp--custom--spacing--xsmall);
+		margin-top: var(--wp--preset--spacing--xsmall);
 	}
 }

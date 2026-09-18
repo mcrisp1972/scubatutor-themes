@@ -455,107 +455,117 @@ export default class filteredListings {
 	renderItem( itemData ) {
 		const conditionals = layoutConditionals( this.attr );
 		const card = `
-    <article class="capitola-result swiper-slide">
-      <a class="capitola-result__link" href="${ itemData.link }">
-        <div class="capitola-result__image-col --theme-image-overlay">
-          ${ itemData.image_html.large }
-          ${ conditionals.titleLocation === 'image' ? `<div class="__opacity-layer"></div>` : '' }
-          <div class="capitola-result__thumb-content">
-            ${
-				conditionals.titleLocation === 'image'
-					? `
-              <${ this.attr.titleTag } class="capitola-result__thumb-title --hl-s">
-                ${ itemData.title.rendered }
-              </${ this.attr.titleTag }>
-              ${
-					itemData.event_dates
-						? `
-                <div class="capitola-result__thumb-subtitle --text-s">
-                  ${ itemData.event_dates }
-                </div>`
-						: ''
-				}
-            `
-					: ''
-			}
-            ${
-				this.attr.ctaText && conditionals.ctaLocation === 'image'
-					? `<span class="capitola-result__thumb-cta --cta --tertiary">${ this.attr.ctaText }</span>`
-					: ''
-			}
-          </div>
-          ${
-				itemData.category_name && conditionals.titleLocation === 'image'
-					? `
-            <div class="capitola-result__thumb-cat">
-              ${ itemData.category_name }
-            </div>`
-					: ''
-			}
-        </div>
-        ${
-			conditionals.hasBottom
-				? `
-          <div class="capitola-result__content">
-            ${
-				conditionals.titleLocation === 'body'
-					? `
-
-                <div>
-                ${
-					itemData.category_name
-						? `<div class="capitola-result__body-cat --eyebrow">${ itemData.category_name }</div>`
-						: ''
-				}
-              <${ this.attr.titleTag } class="capitola-result__title --hl-s">
-                ${ itemData.title.rendered }
-              </${ this.attr.titleTag }>
-              </div>
-              ${
-					itemData.event_dates
-						? `
-                <div class="capitola-result__subtitle">
-                  ${ itemData.event_dates }
-                </div>`
-						: ''
-				}`
-					: ''
-			}
-            ${
-				itemData.excerpt.rendered && this.attr.showExcerpt
-					? `<p class="capitola-result__excerpt --text-s">
-                ${ itemData.excerpt.rendered }
-              </p>`
-					: ''
-			}
-            ${
-				conditionals.showByline
-					? `<div class="capitola-result__byline --text-xs">
-                ${
-					itemData.byline.author_image
-						? `<div class="capitola-result__byline-img-wrap">
-                    <img src="${ itemData.byline.author_image }" alt="${ itemData.byline.name }"/>
-                  </div>`
-						: ``
-				}
-                <div class="capitola-result__byline-date">${ itemData.byline.name }<br>${
-					itemData.byline.date
-				}</div>
-              </div>`
-					: ''
-			}
-            ${
-				this.attr.ctaText && conditionals.ctaLocation === 'body'
-					? `<div class="capitola-result__cta --cta --tertiary">
-                ${ this.attr.ctaText }
-              </div>`
-					: ''
-			}
-          </div>`
-				: ''
-		}
-      </a>
-    </article>`;
+			<li class="capitola-result swiper-slide">
+				<a class="capitola-result__link" href="${ itemData.link }">
+					<div class="capitola-result__image-col --theme-image-overlay">
+						${ itemData.image_html.large }
+						${
+							conditionals.titleLocation === 'image' ||
+							conditionals.ctaLocation === 'image'
+								? `<div class="__opacity-layer"></div>`
+								: ''
+						}
+						<div class="capitola-result__thumb-content">
+							${
+								conditionals.titleLocation === 'image'
+									? `
+										${
+											itemData.category_name &&
+											conditionals.titleLocation === 'image'
+												? `<div class="capitola-result__thumb-cat">${ itemData.category_name }</div>`
+												: ''
+										}
+										<${ this.attr.titleTag } class="capitola-result__thumb-title --hl-s">
+											${ itemData.title.rendered }
+										</${ this.attr.titleTag }>
+										${
+											itemData.event_dates_html
+												? `
+													<div class="capitola-result__thumb-subtitle --text-s">
+														${ itemData.event_dates_html }
+													</div>`
+												: ''
+										}
+										`
+									: ''
+							}
+							${
+								this.attr.ctaText && conditionals.ctaLocation === 'image'
+									? `<span class="capitola-result__thumb-cta --cta --tertiary">${ this.attr.ctaText }</span>`
+									: ''
+							}
+						</div>
+					</div>
+					${
+						conditionals.hasBottom
+							? `<div class="capitola-result__content">
+								${
+									conditionals.titleLocation === 'body'
+										? `
+											${
+												itemData.category_name
+													? `<div class="capitola-result__body-cat --eyebrow">${ itemData.category_name }</div>`
+													: ''
+											}
+											<${ this.attr.titleTag } class="capitola-result__title --hl-s">
+												${ itemData.title.rendered }
+											</${ this.attr.titleTag }>
+											${
+												itemData.event_dates_html
+													? `
+														<div class="capitola-result__subtitle --text-s">
+															${ itemData.event_dates_html }
+														</div>
+													`
+													: ''
+											}
+											`
+										: ''
+								}
+								${
+									itemData.excerpt.rendered && this.attr.showExcerpt
+										? `
+											<p class="capitola-result__excerpt --text-s">
+												${ itemData.excerpt.rendered }
+											</p>
+										`
+										: ''
+								}
+								${
+									conditionals.showByline
+										? `
+											<div class="capitola-result__byline --text-xs">
+												${
+													itemData.byline.author_image
+														? `
+															<div class="capitola-result__byline-img-wrap">
+																<img src="${ itemData.byline.author_image }" alt="${ itemData.byline.name }"/>
+															</div>
+														`
+														: ''
+												}
+												<div class="capitola-result__byline-date">${ itemData.byline.name }
+													<br>
+													<time datetime="${ itemData.byline.date_iso }">${ itemData.byline.date }</time>
+												</div>
+											</div>
+										`
+										: ''
+								}
+								${
+									this.attr.ctaText && conditionals.ctaLocation === 'body'
+										? `
+											<div class="capitola-result__cta --cta --tertiary">
+												${ this.attr.ctaText }
+											</div>
+											`
+										: ''
+								}
+							</div>`
+							: ''
+					}
+				</a>
+			</li>`;
 		return card;
 	}
 
@@ -569,84 +579,82 @@ export default class filteredListings {
 	 */
 	renderProduct( itemData ) {
 		const card = `
-      <article class="capitola-result">
-        <a class="capitola-result__link --contain" href="${ itemData.link }" aria-label="${
-			itemData.post_title
-		}">
-          <div class="capitola-result__image-col --contain">
-            ${ itemData.image_html }
-            ${ itemData.on_sale ? `<span class="capitola-result__badge">Sale!</span>` : '' }
-          </div>
-          <div class="capitola-result__content --product-grid">
-            <${ this.attr.titleTag } class="capitola-result__title --hl-s">
-              ${ itemData.post_title }
-            </${ this.attr.titleTag }>
-            <div class="capitola-result__product-meta">
-              ${
-					this.attr.showBrand && itemData.capitola_brand
-						? `<div class="capitola-result__product-meta-detail">
-                  <span>
-                    ${ itemData.capitola_brand }
-                  </span>
-                </div>`
-						: ''
-				}
-              ${
-					this.attr.showPartNumber && itemData.part_number
-						? `<div class="capitola-result__product-meta-detail">
-                  ${
-						this.attr.partNumberPrefix
-							? '<span>' + this.attr.partNumberPrefix + '</span>'
+		<li class="capitola-result">
+			<a class="capitola-result__link --contain" href="${ itemData.link }" aria-label="${
+				itemData.post_title
+			}">
+				<div class="capitola-result__image-col --contain">
+					${ itemData.image_html }
+					${ itemData.on_sale ? `<span class="capitola-result__badge">Sale!</span>` : '' }
+				</div>
+				<div class="capitola-result__content --product-grid">
+					<${ this.attr.titleTag } class="capitola-result__title --hl-s">
+					${ itemData.post_title }
+					</${ this.attr.titleTag }>
+					<div class="capitola-result__product-meta">
+					${
+						this.attr.showBrand && itemData.capitola_brand
+							? `<div class="capitola-result__product-meta-detail">
+						<span>
+							${ itemData.capitola_brand }
+						</span>
+						</div>`
 							: ''
 					}
-                  <span>${ itemData.part_number }</span>
-                </div>`
-						: ''
-				}
-              ${
-					this.attr.showMSRP && itemData.capitola_msrp_range
-						? `<div class="capitola-result__product-meta-detail">
-                  ${
-						this.attr.msrpPrefix
-							? `<span>
-                      ${ this.attr.msrpPrefix }
-                    </span>`
+					${
+						this.attr.showPartNumber && itemData.part_number
+							? `<div class="capitola-result__product-meta-detail">
+						${ this.attr.partNumberPrefix ? '<span>' + this.attr.partNumberPrefix + '</span>' : '' }
+						<span>${ itemData.part_number }</span>
+						</div>`
 							: ''
 					}
-                  <span>${ itemData.capitola_msrp_range }</span>
-                </div>`
-						: ''
-				}
-              <div class="capitola-result__product-meta-detail">
-                ${
-					this.attr.ourPricePrefix && this.attr.showMSRP && itemData.capitola_msrp_range
-						? `<span>${ this.attr.ourPricePrefix }
-                  </span>`
-						: ''
-				}
-                <span>${ itemData.price_html }</span>
-              </div>
-              ${
-					this.attr.showRating && itemData.rating
-						? `<div class="capitola-result__product-meta-detail star-rating" role="img" aria-label="Rated ${ itemData.rating } out of 5" data-rating="${ itemData.rating }"></div>`
-						: ''
-				}
-            </div>
-            ${
-				this.attr.showExcerpt && itemData.short_description
-					? `<p class=" --text-s">
-                ${ itemData.short_description }
-              </p>`
-					: ''
-			}
-            ${
-				this.attr.ctaText
-					? `<div class="capitola-result__cta --cta --tertiary">${ this.attr.ctaText }</div>`
-					: ''
-			}
-          </div>
-        </a>
-      </article>
+					${
+						this.attr.showMSRP && itemData.capitola_msrp_range
+							? `<div class="capitola-result__product-meta-detail">
+						${
+							this.attr.msrpPrefix
+								? `<span>
+							${ this.attr.msrpPrefix }
+							</span>`
+								: ''
+						}
+						<span>${ itemData.capitola_msrp_range }</span>
+						</div>`
+							: ''
+					}
+					<div class="capitola-result__product-meta-detail">
+						${
+							this.attr.ourPricePrefix &&
+							this.attr.showMSRP &&
+							itemData.capitola_msrp_range
+								? `<span>${ this.attr.ourPricePrefix }
+						</span>`
+								: ''
+						}
+						<span>${ itemData.price_html }</span>
+					</div>
+					${
+						this.attr.showRating && itemData.rating
+							? `<div class="capitola-result__product-meta-detail star-rating" role="img" aria-label="Rated ${ itemData.rating } out of 5" data-rating="${ itemData.rating }"></div>`
+							: ''
+					}
+					</div>
+					${
+						this.attr.showExcerpt && itemData.short_description
+							? `<p class=" --text-s">
+						${ itemData.short_description }
+					</p>`
+							: ''
+					}
+					${
+						this.attr.ctaText
+							? `<div class="capitola-result__cta --cta --tertiary">${ this.attr.ctaText }</div>`
+							: ''
+					}
+				</div>
+			</a>
+		</li>
     `;
 		return card;
 	}

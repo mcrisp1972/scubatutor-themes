@@ -546,7 +546,7 @@ export function Edit( props ) {
 							return (
 								<div key={ post.id } className="capitola-result">
 									<PostTile
-										attributes
+										attributes={ attributes }
 										conditionals={ layoutConditionals( attributes ) }
 										item={ post }
 									/>

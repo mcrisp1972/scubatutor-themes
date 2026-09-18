@@ -14,8 +14,8 @@
 .capitola-page-nav {
 	display: flex;
 	justify-content: center;
-	gap: var(--wp--custom--spacing--xsmall);
-	margin-top: var(--wp--custom--spacing--small);
+	gap: var(--wp--preset--spacing--xsmall);
+	margin-top: var(--wp--preset--spacing--small);
 
 	&.--hidden {
 		display: none;
@@ -28,7 +28,7 @@
 		list-style-type: none;
 
 		@include mq("medium") {
-			gap: var(--wp--custom--spacing--xsmall);
+			gap: var(--wp--preset--spacing--xsmall);
 		}
 	}
 
@@ -38,13 +38,13 @@
 		&.--next,
 		&.--prev {
 			position: relative;
-			gap: var(--wp--custom--spacing--xxsmall);
+			gap: var(--wp--preset--spacing--xxsmall);
 
 			&::after {
 				content: "";
 				background: var(--capitola-color-button-text);
 				mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
-				width: var(--wp--custom--spacing--small);
+				width: var(--wp--preset--spacing--small);
 				height: 1em;
 				transition:
 					background-color var(--wp--custom--transitions--default),
