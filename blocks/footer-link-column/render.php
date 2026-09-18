@@ -14,13 +14,15 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
 	<?php if ( $attributes['headline'] ) : ?>
 		<?php if ( ! empty( $attributes['link']['url'] ) ) : ?>
-			<a href="<?php echo esc_url( $attributes['link']['url'] ); ?>" class="wp-block-capitola-footer__top-link" <?php echo ! empty( $attributes['link']['opensInNewTab'] ) ? ' target="_blank"' : ''; ?>>
-				<?php echo esc_html( $attributes['headline'] ); ?>
-			</a>
+			<h2 class="wp-block-capitola-footer__top-link">
+				<a href="<?php echo esc_url( $attributes['link']['url'] ); ?>"<?php echo ! empty( $attributes['link']['opensInNewTab'] ) ? ' target="_blank"' : ''; ?>>
+					<?php echo esc_html( $attributes['headline'] ); ?>
+				</a>
+			</h2>
 		<?php else : ?>
-			<div class="wp-block-capitola-footer__top-link">
+			<h2 class="wp-block-capitola-footer__top-link">
 				<?php echo esc_html( $attributes['headline'] ); ?>
-			</div>
+			</h2>
 		<?php endif; ?>
 	<?php endif; ?>
 	<ul class="wp-block-capitola-footer__menu-items">

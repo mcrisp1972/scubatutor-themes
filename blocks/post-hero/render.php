@@ -42,7 +42,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				<?php endif; ?>
 				<div class="wp-block-capitola-post-hero__byline-date">
 					<div><?php echo esc_html( $author_name ); ?></div>
-					<div><?php echo get_the_date( "M jS 'y" ); ?></div>
+					<time datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>"><?php echo get_the_date( "M jS 'y" ); ?></time>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>

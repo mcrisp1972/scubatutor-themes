@@ -57,6 +57,9 @@
       "default": 0.5
     }
   },
+  "usesContext": [
+    "capitola/titleTag"
+  ],
   "render": "file:./render.php",
   "editorScript": "file:./index.js"
 }

@@ -1864,16 +1864,32 @@ return array(
 			'customCSS' => false,
 			'lock' => false
 		),
+		'attributes' => array(
+			'titleTag' => array(
+				'type' => 'string',
+				'default' => 'h3'
+			),
+			'gridLayout' => array(
+				'type' => 'string',
+				'default' => '3-col'
+			),
+			'gridGap' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'excerptLines' => array(
+				'type' => 'integer',
+				'default' => 4
+			)
+		),
 		'parent' => array(
 			'capitola/image-link-grid-block'
 		),
 		'allowedBlocks' => array(
 			'capitola/image-link-grid-item'
 		),
-		'usesContext' => array(
-			'capitola/gridLayout',
-			'capitola/gridGap',
-			'capitola/excerptLines'
+		'providesContext' => array(
+			'capitola/titleTag' => 'titleTag'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
@@ -1909,18 +1925,6 @@ return array(
 			'customCSS' => false
 		),
 		'attributes' => array(
-			'gridLayout' => array(
-				'type' => 'string',
-				'default' => '3-col'
-			),
-			'gridGap' => array(
-				'type' => 'boolean',
-				'default' => true
-			),
-			'excerptLines' => array(
-				'type' => 'integer',
-				'default' => 4
-			),
 			'colorTheme' => array(
 				'type' => 'string',
 				'default' => false
@@ -2034,10 +2038,7 @@ return array(
 		'providesContext' => array(
 			'capitola/bodyTextOptions' => 'bodyTextOptions',
 			'capitola/revealAnimation' => 'revealAnimation',
-			'capitola/introAlign' => 'introAlign',
-			'capitola/gridLayout' => 'gridLayout',
-			'capitola/gridGap' => 'gridGap',
-			'capitola/excerptLines' => 'excerptLines'
+			'capitola/introAlign' => 'introAlign'
 		),
 		'viewScript' => 'capitola-animations',
 		'style' => 'capitola-image-link-grid-block',
@@ -2102,6 +2103,9 @@ return array(
 				'type' => 'number',
 				'default' => 0.5
 			)
+		),
+		'usesContext' => array(
+			'capitola/titleTag'
 		),
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'

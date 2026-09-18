@@ -5,7 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'alignfull anchor-menu js-anchorBar --theme-' . $attributes['colorTheme'],
+		'class'      => 'alignfull anchor-menu js-anchorBar --theme-' . $attributes['colorTheme'],
+		'aria-label' => 'Anchor Navigation',
 	)
 );
 ?>

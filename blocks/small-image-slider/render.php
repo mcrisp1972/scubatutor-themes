@@ -21,19 +21,32 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="wp-block-capitola-small-image-slider__slider-parent">
 			<div class="wp-block-capitola-small-image-slider__swiper swiper<?php echo ( 'square' === $attributes['aspectRatio'] ? ' --square' : ' --landscape' ); ?>"<?php echo ( $attributes['autoplay'] ? ' data-autoplay="1"' : '' ); ?>>
-				<div class="wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper <?php echo $attributes['grayscaleInactive'] ? ' --grayscale-inactive' : ''; ?>">
-					<?php foreach ( $attributes['slides'] as $slide ) : ?>
-						<figure class="wp-block-capitola-small-image-slider__swiper-slide swiper-slide" data-caption="<?php echo esc_attr( $slide['caption'] ); ?>">
+				<ul
+					class="wp-block-capitola-small-image-slider__swiper-wrapper swiper-wrapper <?php echo $attributes['grayscaleInactive'] ? ' --grayscale-inactive' : ''; ?>"
+					role="region"
+					aria-roledescription="carousel"
+				>
+					<?php
+					$total_slides = count( $attributes['slides'] );
+					foreach ( $attributes['slides'] as $key => $slide ) :
+						$current = $key + 1;
+						?>
+						<li
+							class="wp-block-capitola-small-image-slider__swiper-slide swiper-slide"
+							data-caption="<?php echo esc_attr( $slide['caption'] ); ?>"
+							role="group"
+							aria-roledescription="slide"
+							aria-label="<?php echo esc_attr( $current ); ?> of <?php echo esc_attr( $total_slides ); ?>" >
 							<?php echo wp_get_attachment_image( $slide['image']['id'], 'large' ); ?>
-						</figure>
+						</li>
 					<?php endforeach; ?>
-				</div>
+				</ul>
 				<div class="wp-block-capitola-small-image-slider__nav-buttons">
-					<button class="swiper-button-next"></button>
-					<button class="swiper-button-prev"></button>
+					<button class="swiper-button-next" aria-label="Next Slide"></button>
+					<button class="swiper-button-prev" aria-label="Previous Slide"></button>
 				</div>
 			</div>
-			<p class="wp-block-capitola-small-image-slider__caption">
+			<p class="wp-block-capitola-small-image-slider__caption" role="status">
 				<?php echo esc_html( $attributes['slides'][0]['caption'] ); ?>
 			</p>
 		</div>

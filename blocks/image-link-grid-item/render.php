@@ -22,32 +22,37 @@ if ( ! $image_id ) {
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => '--theme-image-overlay',
+		'style' => '--capitola-overlayOpacity: ' . $attributes['imageOpacity'] . ';',
 	)
 );
 
 ?>
 
-<a <?php echo wp_kses_data( $wrapper_attributes ); ?> href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>;">
-	<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
-	<div class="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
-	<div class="wp-block-capitola-image-link-grid-item__text-content">
-		<div class="wp-block-capitola-image-link-grid-item__title-wrap">
-			<?php if ( $subtitle ) : ?>
-				<div class="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
-					<?php echo esc_html( $subtitle ); ?>
+<li <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+	<a class="wp-block-capitola-image-link-grid-item__link" href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>">
+		<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
+		<div class="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
+		<div class="wp-block-capitola-image-link-grid-item__text-content">
+			<div class="wp-block-capitola-image-link-grid-item__title-wrap">
+				<?php if ( $subtitle ) : ?>
+					<div class="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
+						<?php echo esc_html( $subtitle ); ?>
+					</div>
+				<?php endif; ?>
+				<<?php echo tag_escape( $block->context['capitola/titleTag'] ); ?> class="wp-block-capitola-image-link-grid-item__title --hl-s">
+					<?php echo esc_html( $post_title ); ?>
+				</<?php echo tag_escape( $block->context['capitola/titleTag'] ); ?>>
+			</div>
+			<div class="wp-block-capitola-image-link-grid-item__excerpt-wrap">
+				<?php if ( $excerpt ) : ?>
+					<p class="wp-block-capitola-image-link-grid-item__excerpt --text-s">
+						<?php echo esc_html( $excerpt ); ?>
+					</p>
+				<?php endif; ?>
+				<div class="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
+					<?php echo esc_html( $cta_label ); ?>
 				</div>
-			<?php endif; ?>
-			<div class="wp-block-capitola-image-link-grid-item__title --hl-s"><?php echo esc_html( $post_title ); ?></div>
-		</div>
-		<div class="wp-block-capitola-image-link-grid-item__excerpt-wrap">
-			<?php if ( $excerpt ) : ?>
-				<p class="wp-block-capitola-image-link-grid-item__excerpt --text-s">
-					<?php echo esc_html( $excerpt ); ?>
-				</p>
-			<?php endif; ?>
-			<div class="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
-				<?php echo esc_html( $cta_label ); ?>
 			</div>
 		</div>
-	</div>
-</a>
+	</a>
+</li>
