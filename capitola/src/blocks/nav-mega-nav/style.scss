@@ -60,7 +60,7 @@
 			@include wideSize;
 			display: grid;
 			grid: auto auto 1fr / 1fr auto;
-			column-gap: var(--wp--custom--spacing--medium);
+			column-gap: var(--wp--preset--spacing--medium);
 			background: var(--capitola-color-background);
 		}
 	}
@@ -70,7 +70,7 @@
 
 		@include mq("large") {
 			display: block;
-			margin-top: var(--wp--custom--spacing--medium);
+			margin-top: var(--wp--preset--spacing--medium);
 			grid: {
 				column: 1;
 				row: 1;
@@ -81,7 +81,7 @@
 	&__headline {
 
 		+ .wp-block-capitola-nav-mega-nav__intro {
-			margin-top: var(--wp--custom--spacing--small);
+			margin-top: var(--wp--preset--spacing--small);
 		}
 	}
 
@@ -101,10 +101,10 @@
 				row: 2;
 				column: 1;
 			}
-			gap: var(--wp--custom--spacing--xsmall) var(--wp--custom--spacing--large);
+			gap: var(--wp--preset--spacing--xsmall) var(--wp--preset--spacing--large);
 			align-self: start;
 			justify-self: start;
-			margin-block: var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
+			margin-block: var(--wp--preset--spacing--small) var(--wp--preset--spacing--medium);
 
 			&.--row-limit-1 {
 				grid-template-rows: repeat(1, auto);

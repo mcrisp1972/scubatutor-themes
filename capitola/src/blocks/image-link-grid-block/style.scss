@@ -24,6 +24,9 @@
 	&__grid {
 		display: grid;
 		grid: auto-flow minmax(200px, min-content) / 1fr;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
 		@media (hover: hover) {
 			grid-auto-rows: 300px;
@@ -113,33 +116,38 @@
 		}
 
 		&.--grid-gap {
-			gap: var(--wp--custom--spacing--xsmall);
+			gap: var(--wp--preset--spacing--xsmall);
 		}
 	}
 }
 
 .wp-block-capitola-image-link-grid-item {
-	@include unstyle-link;
-	display: flex;
-	position: relative;
 	overflow: hidden;
-	text-align: center;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
 
-	@media (hover: hover) {
+	&__link {
+		@include unstyle-link;
+		display: flex;
+		position: relative;
+		text-align: center;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
 
-		&:hover,
-		&:focus {
+		@media (hover: hover) {
 
-			.wp-block-capitola-image-link-grid-item__opacity-layer {
-				transition: opacity var(--wp--custom--transitions--default);
-				opacity: calc(var(--capitola-overlayOpacity) + 0.2);
-			}
+			&:hover,
+			&:focus {
 
-			.wp-block-capitola-image-link-grid-item__text-content {
-				transform: translateY(-100%);
+				.wp-block-capitola-image-link-grid-item__opacity-layer {
+					transition: opacity var(--wp--custom--transitions--default);
+					opacity: calc(var(--capitola-overlayOpacity) + 0.2);
+				}
+
+				.wp-block-capitola-image-link-grid-item__text-content {
+					transform: translateY(-100%);
+				}
 			}
 		}
 	}
@@ -157,8 +165,8 @@
 		flex-flow: column;
 		align-items: center;
 		justify-content: space-between;
-		gap: var(--wp--custom--spacing--medium);
-		padding: var(--wp--custom--spacing--medium);
+		gap: var(--wp--preset--spacing--medium);
+		padding: var(--wp--preset--spacing--medium);
 		min-height: 100%;
 
 		@media (hover: hover) {
@@ -183,7 +191,7 @@
 			flex: 0 0 100%;
 			justify-content: center;
 			overflow: hidden;
-			padding: var(--wp--custom--spacing--medium);
+			padding: var(--wp--preset--spacing--medium);
 		}
 	}
 
@@ -192,7 +200,7 @@
 		position: relative;
 		color: var(--capitola-color-body);
 		flex-flow: column;
-		gap: var(--wp--custom--spacing--small);
+		gap: var(--wp--preset--spacing--small);
 
 		@media (hover: hover) {
 			display: flex;
@@ -200,12 +208,12 @@
 			flex: 0 0 100%;
 			justify-content: flex-end;
 			overflow: hidden;
-			padding: var(--wp--custom--spacing--medium);
+			padding: var(--wp--preset--spacing--medium);
 		}
 	}
 
 	&__subtitle {
-		margin-bottom: var(--wp--custom--spacing--xsmall);
+		margin-bottom: var(--wp--preset--spacing--xsmall);
 	}
 
 	.wp-block-capitola-image-link-grid-item__excerpt {

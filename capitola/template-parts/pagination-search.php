@@ -33,7 +33,7 @@ if ( $total_pages <= 6 ) {
 
 ?>
 
-<nav class="capitola-page-nav js-pageNav">
+<nav class="capitola-page-nav js-pageNav" aria-label="Search Results Pagination">
 	<?php if ( 1 === $current_page ) : ?>
 		<span class="capitola-page-nav__button --prev --disabled">Prev</span>
 	<?php else : ?>

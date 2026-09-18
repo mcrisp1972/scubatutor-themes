@@ -177,23 +177,20 @@ export function Edit( props ) {
 							) }
 						</div>
 						{ showHours && themeOptions !== null && (
-							<div className="wp-block-capitola-footer__hours">
+							<dl className="wp-block-capitola-footer__hours">
 								{ Object.keys( themeOptions.capitola_hours ).map( ( key ) => {
-									if ( themeOptions.capitola_hours[ key ] ) {
-										return (
-											<div key={ key }>
-												<strong>{ key }: </strong>
-												<span>
-													{ themeOptions.capitola_hours[ key ]
-														? themeOptions.capitola_hours[ key ]
-														: 'Closed' }{ ' ' }
-												</span>
-											</div>
-										);
-									}
-									return null;
+									return (
+										<>
+											<dt>{ key }:</dt>
+											<dd>
+												{ themeOptions.capitola_hours[ key ]
+													? themeOptions.capitola_hours[ key ]
+													: 'Closed' }{ ' ' }
+											</dd>
+										</>
+									);
 								} ) }
-							</div>
+							</dl>
 						) }
 						{ showSocials && themeOptions !== null && (
 							<div className="wp-block-capitola-footer__social-links">

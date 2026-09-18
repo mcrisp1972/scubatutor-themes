@@ -20,11 +20,6 @@ class lightboxGallery {
 		this.images = lightboxGalleryImages;
 	}
 
-	closeModal() {
-		const m = document.getElementById( 'js-lighboxModal' );
-		m.parentNode.removeChild( m );
-	}
-
 	updateImage = function ( e ) {
 		const clicked = e.currentTarget;
 		this.index = clicked.dataset.index;
@@ -41,37 +36,53 @@ class lightboxGallery {
 	};
 
 	openLightbox = function () {
+		const totalSlides = this.images.length;
 		const elem = `
-      <div id="js-lighboxModal" class="wp-block-capitola-lightbox-gallery__lightbox">
-        <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-close js-close" aria-label="Close Lightbox"></button>
-        <div class="wp-block-capitola-lightbox-gallery__lightbox-content swiper js-lightboxContent">
-          <div class="wp-block-capitola-lightbox-gallery__lightbox-slides swiper-wrapper">
-            ${ this.images
-				.map( ( image ) => {
-					return `
-                  <figure class="wp-block-capitola-lightbox-gallery__lightbox-grid swiper-slide">
-                    <div class="wp-block-capitola-lightbox-gallery__lightbox-img-wrap">
-                      <img src="${ image.largeSrc }" alt="${ image.alt }">
-                    </div>
-                    <figcaption class="wp-block-capitola-lightbox-gallery__lightbox-caption">${ image.caption }</figcaption>
-                  </figure>
-                  `;
-				} )
-				.join( '' ) }
-          </div>
-          <div class="wp-block-capitola-lightbox-gallery__lightbox-nav">
-            <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-prev swiper-button-prev" aria-label="Previous"></button>
-            <div class="wp-block-capitola-lightbox-gallery__lightbox-page-count swiper-pagination"></div>
-            <button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-next swiper-button-next" aria-label="Next"></button>
-          </div>
-        </div>
-      </div>`;
+      	<dialog id="js-lighboxModal" class="wp-block-capitola-lightbox-gallery__lightbox">
+			<button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-close js-close" aria-label="Close Lightbox"></button>
+			<div class="wp-block-capitola-lightbox-gallery__lightbox-content swiper js-lightboxContent">
+				<ul class="wp-block-capitola-lightbox-gallery__lightbox-slides swiper-wrapper" role="region" aria-roledescription="carousel">
+					${ this.images
+						.map( ( image, key ) => {
+							return `
+							<li class="wp-block-capitola-lightbox-gallery__lightbox-grid swiper-slide" role="group" aria-roledescription="slide" aria-label="${
+								key + 1
+							} of ${ totalSlides }">
+								<figure>
+									<div class="wp-block-capitola-lightbox-gallery__lightbox-img-wrap">
+									<img src="${ image.largeSrc }" alt="${ image.alt }">
+									</div>
+									<figcaption class="wp-block-capitola-lightbox-gallery__lightbox-caption">${
+										image.caption
+									}</figcaption>
+								</figure>
+							</li>
+						`;
+						} )
+						.join( '' ) }
+				</ul>
+				<div class="wp-block-capitola-lightbox-gallery__lightbox-nav">
+					<button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-prev swiper-button-prev" aria-label="Previous"></button>
+					<div class="wp-block-capitola-lightbox-gallery__lightbox-page-count swiper-pagination" role="status"></div>
+					<button type="button" class="wp-block-capitola-lightbox-gallery__lightbox-nav-next swiper-button-next" aria-label="Next"></button>
+				</div>
+			</div>
+      </dialog>`;
 
 		const dom = document.createRange().createContextualFragment( elem );
-		dom.querySelector( '.js-close' ).addEventListener( 'click', this.closeModal );
-		document.body.appendChild( dom );
+		const dialogEl = dom.querySelector( '#js-lighboxModal' );
 
-		new Swiper( document.body.querySelector( '.js-lightboxContent' ), {
+		dialogEl.querySelector( '.js-close' ).addEventListener( 'click', () => {
+			dialogEl.close();
+		} );
+		dialogEl.addEventListener( 'close', () => {
+			dialogEl.remove();
+		} );
+
+		document.body.appendChild( dom );
+		dialogEl.showModal();
+
+		new Swiper( dialogEl.querySelector( '.js-lightboxContent' ), {
 			modules: [ Pagination, Navigation, EffectFade ],
 			grabCursor: true,
 			speed: 600,

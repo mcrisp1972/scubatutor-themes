@@ -150,33 +150,35 @@ export function Edit( props ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			{ ( () => {
-				if ( imageUrl ) {
-					return <img src={ imageUrl } alt="" />;
-				} else if ( ! linkObj && postId ) {
-					return <Spinner style={ { width: '33%', height: '33%', margin: 0 } } />;
-				}
-				return <PlaceholderImage hasBgColor={ false } />;
-			} )() }
-			<div className="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
-			<div className="wp-block-capitola-image-link-grid-item__text-content">
-				<div className="wp-block-capitola-image-link-grid-item__title-wrap">
-					<div className="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
-						{ eyebrowOverride ? eyebrowOverride : linkTag }
-					</div>
-					<div className="wp-block-capitola-image-link-grid-item__title --hl-s">
-						{ titleOverride ? titleOverride : linkObj?.title.raw }
-					</div>
-				</div>
-				<div className="wp-block-capitola-image-link-grid-item__excerpt-wrap">
-					<div className="wp-block-capitola-image-link-grid-item__excerpt --text-s">
-						{ excerptOverride ? excerptOverride : linkObj?.excerpt.raw }
-					</div>
-					{ ( ctaOverride || linkObj?.cta_label ) && (
-						<div className="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
-							{ ctaOverride ? ctaOverride : linkObj?.cta_label }
+			<div className="wp-block-capitola-image-link-grid-item__link">
+				{ ( () => {
+					if ( imageUrl ) {
+						return <img src={ imageUrl } alt="" />;
+					} else if ( ! linkObj && postId ) {
+						return <Spinner style={ { width: '33%', height: '33%', margin: 0 } } />;
+					}
+					return <PlaceholderImage hasBgColor={ false } />;
+				} )() }
+				<div className="wp-block-capitola-image-link-grid-item__opacity-layer"></div>
+				<div className="wp-block-capitola-image-link-grid-item__text-content">
+					<div className="wp-block-capitola-image-link-grid-item__title-wrap">
+						<div className="wp-block-capitola-image-link-grid-item__subtitle --eyebrow">
+							{ eyebrowOverride ? eyebrowOverride : linkTag }
 						</div>
-					) }
+						<div className="wp-block-capitola-image-link-grid-item__title --hl-s">
+							{ titleOverride ? titleOverride : linkObj?.title.raw }
+						</div>
+					</div>
+					<div className="wp-block-capitola-image-link-grid-item__excerpt-wrap">
+						<div className="wp-block-capitola-image-link-grid-item__excerpt --text-s">
+							{ excerptOverride ? excerptOverride : linkObj?.excerpt.raw }
+						</div>
+						{ ( ctaOverride || linkObj?.cta_label ) && (
+							<div className="wp-block-capitola-image-link-grid-item__cta --cta --tertiary">
+								{ ctaOverride ? ctaOverride : linkObj?.cta_label }
+							</div>
+						) }
+					</div>
 				</div>
 			</div>
 		</div>

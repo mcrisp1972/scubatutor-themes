@@ -17,17 +17,33 @@
 		"customCSS": false,
 		"lock": false
 	},
+	"attributes": {
+		"titleTag": {
+			"type": "string",
+			"default": "h3"
+		},
+		"gridLayout": {
+			"type": "string",
+			"default": "3-col"
+		},
+		"gridGap": {
+			"type": "boolean",
+			"default": true
+		},
+		"excerptLines": {
+			"type": "integer",
+			"default": 4
+		}
+	},
 	"parent": [
 		"capitola/image-link-grid-block"
 	],
 	"allowedBlocks": [
 		"capitola/image-link-grid-item"
 	],
-	"usesContext": [
-		"capitola/gridLayout",
-		"capitola/gridGap",
-		"capitola/excerptLines"
-	],
+	"providesContext": {
+		"capitola/titleTag": "titleTag"
+	},
 	"render": "file:./render.php",
 	"editorScript": "file:./index.js"
 }

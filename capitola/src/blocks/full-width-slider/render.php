@@ -24,29 +24,39 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="wp-block-capitola-full-width-slider__sliders <?php echo esc_attr( $attributes['stickySlider'] ? ' --sticky' : '' ); ?>">
 			<div class="wp-block-capitola-full-width-slider__main">
-				<div class="swiper js-mainSlider <?php echo esc_attr( $animations['figure-class'] ); ?>" style="border-radius: var(--wp--preset--border-radius--<?php echo esc_attr( $attributes['sliderRadius'] ); ?>); <?php echo wp_kses_data( $animations['figure-styles'] ); ?>" <?php echo wp_kses_data( $attributes['autoplay'] ? ' data-autoplay=1' : '' ); ?> data-navigation="<?php echo esc_attr( $navigation ); ?>" data-transition="<?php echo esc_attr( $attributes['transition'] ); ?>">
-					<div class="swiper-wrapper">
+				<div
+					class="swiper js-mainSlider <?php echo esc_attr( $animations['figure-class'] ); ?>"
+					style="border-radius: var(--wp--preset--border-radius--<?php echo esc_attr( $attributes['sliderRadius'] ); ?>); <?php echo wp_kses_data( $animations['figure-styles'] ); ?>"
+					<?php echo wp_kses_data( $attributes['autoplay'] ? ' data-autoplay=1' : '' ); ?>
+					data-navigation="<?php echo esc_attr( $navigation ); ?>" data-transition="<?php echo esc_attr( $attributes['transition'] ); ?>"
+				>
+					<ul class="swiper-wrapper" role="region" aria-roledescription="carousel">
 						<?php
-						foreach ( $attributes['slides'] as $slide ) :
-							$cta = render_link( $slide['link'], 'wp-block-capitola-full-width-slider__slide-cta --cta --tertiary' );
+						$total_slides = count( $attributes['slides'] );
+						foreach ( $attributes['slides'] as $key => $slide ) :
+							$cta     = render_link( $slide['link'], 'wp-block-capitola-full-width-slider__slide-cta --cta --tertiary' );
+							$current = $key + 1;
 							?>
-							<figure class="swiper-slide --theme-image-overlay" style="aspect-ratio: var(--wp--preset--aspect-ratio--<?php echo esc_attr( $attributes['aspectRatio'] ); ?>);">
-								<?php echo wp_get_attachment_image( $slide['image']['id'], 'large' ); ?>
-								<?php if ( $slide['caption'] || $cta ) : ?>
-									<div class="wp-block-capitola-full-width-slider__slide-caption">
-										<?php if ( $slide['caption'] || $cta ) : ?>
-											<figcaption>
-												<?php if ( $slide['caption'] ) : ?>
-													<p class="--text-s"><?php echo esc_html( $slide['caption'] ); ?></p>
-												<?php endif; ?>
-												<?php echo wp_kses_post( $cta ); ?>
-											</figcaption>
-										<?php endif; ?>
-									</div>
-								<?php endif; ?>
-							</figure>
+							<li
+								class="swiper-slide --theme-image-overlay"
+								role="group"
+								aria-roledescription="slide"
+								aria-label="<?php echo esc_attr( $current ); ?> of <?php echo esc_attr( $total_slides ); ?>"
+								style="aspect-ratio: var(--wp--preset--aspect-ratio--<?php echo esc_attr( $attributes['aspectRatio'] ); ?>);">
+								<figure>
+									<?php echo wp_get_attachment_image( $slide['image']['id'], 'large' ); ?>
+									<?php if ( $slide['caption'] || $cta ) : ?>
+										<figcaption class="wp-block-capitola-full-width-slider__slide-caption">
+											<?php if ( $slide['caption'] ) : ?>
+												<p class="--text-s"><?php echo esc_html( $slide['caption'] ); ?></p>
+											<?php endif; ?>
+											<?php echo wp_kses_post( $cta ); ?>
+										</figcaption>
+									<?php endif; ?>
+								</figure>
+							</li>
 						<?php endforeach; ?>
-					</div>
+					</ul>
 					<?php if ( 'arrows' === $navigation ) : ?>
 						<button type="button" class="swiper-button-prev" aria-label="Previous Slide"></button>
 						<button type="button" class="swiper-button-next" aria-label="Next Slide"></button>

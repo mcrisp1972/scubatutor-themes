@@ -1,5 +1,5 @@
 @use "@capitola/styles/abstracts" as *;
 
 .--eyebrow + .wp-block-heading {
-	margin-top: var(--wp--custom--spacing--xsmall);
+	margin-top: var(--wp--preset--spacing--xsmall);
 }

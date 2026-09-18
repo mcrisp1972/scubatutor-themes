@@ -5,11 +5,11 @@
 	&__results-header {
 		display: flex;
 		justify-content: space-between;
-		margin-block: var(--wp--custom--spacing--block-section-row-gap) var(--wp--custom--spacing--small);
+		margin-block: var(--wp--custom--spacing--block-section-row-gap) var(--wp--preset--spacing--small);
 		align-items: flex-end;
 
 		@include mq("medium") {
-			gap: var(--wp--custom--spacing--small);
+			gap: var(--wp--preset--spacing--small);
 		}
 
 		&:first-child {
@@ -119,8 +119,8 @@
 
 	&__filters {
 		display: flex;
-		padding: var(--wp--custom--spacing--small);
-		gap: var(--wp--custom--spacing--small);
+		padding: var(--wp--preset--spacing--small);
+		gap: var(--wp--preset--spacing--small);
 		flex-flow: column;
 		justify-content: flex-start;
 
@@ -172,7 +172,7 @@
 					background: currentColor;
 					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
 					transition: background-color var(--wp--custom--transitions--default);
-					width: var(--wp--custom--spacing--small);
+					width: var(--wp--preset--spacing--small);
 					height: 100%;
 					right: 0;
 					pointer-events: none;
@@ -180,7 +180,7 @@
 
 				select {
 					cursor: pointer;
-					padding: 0 calc(var(--wp--custom--spacing--xsmall) + var(--wp--custom--spacing--xsmall) + var(--wp--custom--spacing--small)) 0 0;
+					padding: 0 calc(var(--wp--preset--spacing--xsmall) + var(--wp--preset--spacing--xsmall) + var(--wp--preset--spacing--small)) 0 0;
 					width: 100%;
 				}
 			}

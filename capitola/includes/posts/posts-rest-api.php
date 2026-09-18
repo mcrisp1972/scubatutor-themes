@@ -37,6 +37,7 @@ function get_post_byline() {
 		'author_image' => wp_get_attachment_image_url( $author_image, 'thumbnail' ),
 		'name'         => get_the_author_meta( 'display_name' ),
 		'date'         => get_the_date( "M jS 'y" ),
+		'date_iso'     => get_the_date( 'Y-m-d' ),
 	);
 }
 

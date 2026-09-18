@@ -24,7 +24,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 		<?php echo wp_kses_post( $content ); ?>
 		<div class="capitola-listings__results-header">
-			<div class="capitola-listings__filters-count js-resultsCount"></div>
+			<div class="capitola-listings__filters-count js-resultsCount" role="status"></div>
 			<?php if ( $has_filters ) : ?>
 				<button type="button" class="capitola-listings__filters-mbl-open js-toggleFilters" aria-label="Open Filters">Filter Results</button>
 			<?php endif; ?>
@@ -46,7 +46,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							?>
 							<input type="hidden" class="js-filter" name="<?php echo esc_attr( $hidden_name ); ?>" value="<?php echo esc_attr( $hidden['default'] ); ?>"/>
 						<?php endforeach; ?>
-
 						<?php
 						foreach ( $attributes['showSearchFields'] as $search_field ) :
 							$options = $attributes['postTypes'][ $attributes['postType'] ]['searchParams'][ $search_field ];
@@ -58,7 +57,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 								</div>
 							</div>
 						<?php endforeach; ?>
-
 						<?php
 						foreach ( $attributes['showTaxFilters'] as $tax_filter ) :
 							$labels = get_taxonomy_labels( get_taxonomy( $tax_filter ) );
@@ -101,8 +99,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				</div>
 			</div>
 		</div>
-		<div class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
-		</div>
+		<ul class="capitola-listings__list js-list --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
+		</ul>
 		<?php get_template_part( 'template-parts/pagination' ); ?>
 	</div>
 </section>

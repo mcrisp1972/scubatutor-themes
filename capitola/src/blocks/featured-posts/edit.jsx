@@ -37,6 +37,7 @@ export function Edit( props ) {
 		showByline,
 		postType,
 		posts,
+		colorTheme,
 	} = attributes;
 
 	const postTypeOptions = applyFilters( 'capitola.postTypeOptions' );
@@ -56,7 +57,7 @@ export function Edit( props ) {
 		[ postType, posts ]
 	);
 	const blockProps = useBlockProps( {
-		className: 'capitola-listings alignfull is-layout-constrained has-global-padding ',
+		className: `capitola-listings alignfull is-layout-constrained has-global-padding --theme-${ colorTheme }`,
 	} );
 
 	const defaultAttributes = getBlockType( name ).attributes;

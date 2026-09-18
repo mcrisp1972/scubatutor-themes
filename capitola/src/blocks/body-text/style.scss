@@ -199,14 +199,14 @@
 				flex-wrap: nowrap;
 				margin: {
 					top: 0;
-					left: var(--wp--custom--spacing--large);
+					left: var(--wp--preset--spacing--large);
 				}
 			}
 
 			.--is-top-intro:not(.--is-centered-intro):not(:has(.wp-block-capitola-body-text__headline)) & {
 				grid-row: 3;
 				align-self: start;
-				margin-top: var(--wp--custom--spacing--small);
+				margin-top: var(--wp--preset--spacing--small);
 			}
 		}
 	}

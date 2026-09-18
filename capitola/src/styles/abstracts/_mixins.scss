@@ -84,7 +84,7 @@
 
 	@include button {
 		display: flex;
-		gap: var(--wp--custom--spacing--xsmall);
+		gap: var(--wp--preset--spacing--xsmall);
 		align-items: center;
 		@content;
 	}
@@ -138,7 +138,7 @@
 	transition: border-radius var(--wp--custom--transitions--default);
 	white-space: nowrap;
 	display: flex;
-	gap: var(--wp--custom--spacing--xsmall);
+	gap: var(--wp--preset--spacing--xsmall);
 	align-items: center;
 	background: transparent;
 	color: var(--capitola-color-button);
@@ -176,7 +176,7 @@
 	margin: 0;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--wp--custom--spacing--xsmall);
+	gap: var(--wp--preset--spacing--xsmall);
 	align-items: center;
 	background: transparent;
 	border: none;
@@ -217,7 +217,7 @@
 @mixin cta-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--wp--custom--spacing--small);
+	gap: var(--wp--preset--spacing--small);
 	margin-top: var(--wp--custom--spacing--body-ctas-top);
 }
 
@@ -341,7 +341,7 @@
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	gap: var(--wp--custom--spacing--xxsmall);
+	gap: var(--wp--preset--spacing--xxsmall);
 	@content;
 
 	&::after {
@@ -360,7 +360,7 @@
 		text-decoration: none;
 
 		&::after {
-			transform: translateX(var(--wp--custom--spacing--xxsmall));
+			transform: translateX(var(--wp--preset--spacing--xxsmall));
 		}
 	}
 }
@@ -384,7 +384,7 @@
 		decoration: none;
 	}
 	background: var(--capitola-color-button);
-	padding: 0 var(--wp--custom--spacing--xsmall) 0;
+	padding: 0 var(--wp--preset--spacing--xsmall) 0;
 	transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
 
 	&.--next,
@@ -392,13 +392,13 @@
 	&--previous,
 	&--next {
 		position: relative;
-		gap: var(--wp--custom--spacing--xxsmall);
+		gap: var(--wp--preset--spacing--xxsmall);
 
 		&::after {
 			content: "";
 			background: var(--capitola-color-button-text);
 			mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
-			width: var(--wp--custom--spacing--small);
+			width: var(--wp--preset--spacing--small);
 			height: 1em;
 			transition:
 				background-color var(--wp--custom--transitions--default),

@@ -1,10 +1,11 @@
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
+import { TruncateControl, AddChildButton, TagSelect } from '@capitola/editor-controls';
 import { useSelect } from '@wordpress/data';
-import { AddChildButton } from '@capitola/editor-controls';
 
 export function Edit( props ) {
-	const { context, clientId } = props;
-
+	const { attributes, setAttributes, clientId } = props;
+	const { gridLayout, gridGap, excerptLines, titleTag } = attributes;
 	const innerBlockCount = useSelect(
 		( select ) => {
 			return select( 'core/block-editor' ).getBlockCount( props.clientId );
@@ -20,31 +21,27 @@ export function Edit( props ) {
 		( innerBlockCount + 2 ) % 3 === 0 ? ' --two-thirds-first --two-thirds-second' : '';
 
 	const oneHalfFirstClass =
-		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 1 ) % 4 === 0
-			? ' --one-half-first'
-			: '';
+		gridLayout === '4-col' && ( innerBlockCount + 1 ) % 4 === 0 ? ' --one-half-first' : '';
 
 	const oneHalfFirstTwoClass =
-		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 2 ) % 4 === 0
+		gridLayout === '4-col' && ( innerBlockCount + 2 ) % 4 === 0
 			? ' --one-half-first --one-half-second'
 			: '';
 
 	const oneHalfFirstThreeClass =
-		context[ 'capitola/gridLayout' ] === '4-col' && ( innerBlockCount + 3 ) % 4 === 0
+		gridLayout === '4-col' && ( innerBlockCount + 3 ) % 4 === 0
 			? ' --one-half-first --one-half-second --one-half-third'
 			: '';
 
 	const blockProps = useBlockProps( {
 		className: 'alignfull',
-		style: { '--wp--custom--truncate-lines': context[ 'capitola/excerptLines' ] },
+		style: { '--wp--custom--truncate-lines': excerptLines },
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${
-				context[ 'capitola/gridLayout' ]
-			} ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
-				context[ 'capitola/gridGap' ] ? '--grid-gap' : ''
+			className: `wp-block-capitola-image-link-grid__grid --theme-image-overlay --layout-${ gridLayout } ${ oddChildrenClass } ${ twoThirdsFirstClass } ${ twoThirdsFirstTwoClass } ${ oneHalfFirstClass } ${ oneHalfFirstTwoClass } ${ oneHalfFirstThreeClass } ${
+				gridGap ? '--grid-gap' : ''
 			}`,
 		},
 		{
@@ -61,6 +58,43 @@ export function Edit( props ) {
 
 	return (
 		<div { ...blockProps }>
+			<InspectorControls group="settings">
+				<PanelBody title="Layout" initialOpen={ true }>
+					<SelectControl
+						label="Layout"
+						value={ gridLayout }
+						options={ [
+							{ label: '3 Col', value: '3-col' },
+							{ label: '4 Col', value: '4-col' },
+						] }
+						onChange={ ( value ) => {
+							setAttributes( { gridLayout: value } );
+						} }
+					/>
+					<ToggleControl
+						label="Grid Gap"
+						checked={ gridGap }
+						onChange={ ( value ) => {
+							setAttributes( {
+								gridGap: value,
+							} );
+						} }
+					/>
+					<TruncateControl
+						value={ excerptLines }
+						onChange={ ( value ) => {
+							setAttributes( { excerptLines: value } );
+						} }
+					/>
+					<TagSelect
+						label="Title Tag"
+						value={ titleTag }
+						onChange={ ( value ) => {
+							setAttributes( { titleTag: value } );
+						} }
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<AddChildButton clientId={ clientId } label="Add Link Grid Item" />
 			<div className="wp-block-capitola-image-link-grid__width">
 				<div { ...innerBlocksProps } />

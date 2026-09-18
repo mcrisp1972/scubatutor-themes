@@ -152,7 +152,7 @@
 	&__image-caption {
 		position: absolute;
 		inset: auto 0 0 0;
-		padding: var(--wp--custom--spacing--xxlarge) var(--wp--custom--spacing--medium) var(--wp--custom--spacing--medium);
+		padding: var(--wp--preset--spacing--xxlarge) var(--wp--preset--spacing--medium) var(--wp--preset--spacing--medium);
 		background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
 		color: var(--wp--preset--color--white);
 		text-align: center;

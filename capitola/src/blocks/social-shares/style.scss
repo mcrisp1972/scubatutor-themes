@@ -2,12 +2,12 @@
 
 .wp-block-capitola-social-shares {
 	position: relative;
-	padding: var(--wp--custom--spacing--small) 0;
+	padding: var(--wp--preset--spacing--small) 0;
 
 	&__social-links {
 		display: flex;
 		justify-content: flex-end;
-		gap: var(--wp--custom--spacing--xsmall);
+		gap: var(--wp--preset--spacing--xsmall);
 		margin: 0;
 		padding: 0;
 		list-style: none;

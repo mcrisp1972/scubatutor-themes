@@ -74,6 +74,9 @@
 		.swiper-wrapper {
 			display: flex;
 			position: relative;
+			margin: 0;
+			padding: 0;
+			list-style: none;
 			transform: translateZ(0);
 			transform-style: preserve-3d;
 			transition-property: transform;
@@ -90,6 +93,11 @@
 			margin: 0;
 			justify-content: center;
 			align-items: center;
+
+			figure {
+				width: 100%;
+				height: 100%;
+			}
 
 			img {
 				display: block;
@@ -111,8 +119,8 @@
 			text-align: center;
 			transition: opacity var(--wp--custom--transitions--default);
 			justify-content: center;
-			gap: var(--wp--custom--spacing--small);
-			margin-top: var(--wp--custom--spacing--small);
+			gap: var(--wp--preset--spacing--small);
+			margin-top: var(--wp--preset--spacing--small);
 
 			&-bullet {
 				width: 24px;
@@ -143,14 +151,14 @@
 		inset: auto 0 0 0;
 		padding:
 			100px calc(min(calc((100% - 200px) / 2), calc(100% - (var(--wp--custom--spacing--gutter) * 2))) / 2)
-			var(--wp--custom--spacing--medium);
+			var(--wp--preset--spacing--medium);
 		background: linear-gradient(0deg, var(--wp--custom--opacity--solid), transparent);
 		text-align: center;
 	}
 
 	&__slide-cta {
 		justify-content: center;
-		margin-top: var(--wp--custom--spacing--small);
+		margin-top: var(--wp--preset--spacing--small);
 	}
 
 	&__thumbs {
@@ -163,7 +171,7 @@
 		.swiper {
 			touch-action: pan-y;
 			overflow: hidden;
-			margin-top: var(--wp--custom--spacing--xsmall);
+			margin-top: var(--wp--preset--spacing--xsmall);
 		}
 
 		.swiper-wrapper {

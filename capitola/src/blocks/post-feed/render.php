@@ -26,7 +26,7 @@ if ( $results->have_posts() ) :
 		<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
 			<?php echo wp_kses_post( $content ); ?>
 			<div class="capitola-listings__slider swiper">
-				<div class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
+				<ul class="capitola-listings__list swiper-wrapper --<?php echo esc_attr( $attributes['listLayout'] ); ?>" style="--wp--custom--truncate-lines: <?php echo esc_attr( $attributes['excerptLines'] ); ?>;">
 					<?php
 					while ( $results->have_posts() ) :
 						$results->the_post();
@@ -40,12 +40,12 @@ if ( $results->have_posts() ) :
 						);
 					endwhile;
 					?>
-				</div>
+				</ul>
 				<?php if ( $has_slider ) : ?>
 					<div class="capitola-listings__scroll-buttons">
 						<button class="swiper-button-prev" aria-label="scroll-left"></button>
 						<?php if ( $attributes['showSlideCount'] ) : ?>
-							<div class="swiper-pagination"></div>
+							<div class="swiper-pagination" role="status"></div>
 						<?php endif; ?>
 						<button class="swiper-button-next" aria-label="scroll-right"></button>
 					</div>
