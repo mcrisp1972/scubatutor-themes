@@ -1,7 +1,7 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-page-nav {
-	padding-bottom: var(--wp--custom--spacing--large);
+	padding-bottom: var(--wp--preset--spacing--large);
 	background: var(--capitola-color-background);
 
 	&__width {
@@ -16,7 +16,7 @@
 			display: flex;
 			text-decoration: none;
 			align-items: center;
-			gap: var(--wp--custom--spacing--xsmall);
+			gap: var(--wp--preset--spacing--xsmall);
 		}
 	}
 

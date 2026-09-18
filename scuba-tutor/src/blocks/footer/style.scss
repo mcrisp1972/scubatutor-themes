@@ -3,13 +3,13 @@
 .wp-block-capitola-footer {
 	background: var(--capitola-color-background);
 	color: var(--capitola-color-body);
-	padding-block: var(--wp--custom--spacing--small);
+	padding-block: var(--wp--preset--spacing--small);
 
 	&__grid {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: var(--wp--custom--spacing--large);
+		gap: var(--wp--preset--spacing--large);
 
 		@include mq("large") {
 			flex-wrap: nowrap;
@@ -27,13 +27,13 @@
 	inset: auto 0 0 0;
 	z-index: 1;
 	background: var(--capitola-color-background);
-	padding-block: var(--wp--custom--spacing--small);
+	padding-block: var(--wp--preset--spacing--small);
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
 	&__body {
 		display: flex;
 		align-items: center;
-		gap: var(--wp--custom--spacing--medium);
+		gap: var(--wp--preset--spacing--medium);
 		color: var(--capitola-color-body);
 	}
 
