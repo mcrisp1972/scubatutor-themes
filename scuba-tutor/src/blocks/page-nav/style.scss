@@ -26,8 +26,8 @@
 		&::before {
 			content: "";
 			display: block;
-			mask: url(~/assets/svgs/arrows/fa-angle-left.svg) center / contain no-repeat;
-			background: currentColor;
+			mask: url(@capitola-svgs/arrows/fa-angle-left.svg) center / contain no-repeat;
+			background: currentcolor;
 			width: 16px;
 			height: 16px;
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
@@ -48,8 +48,8 @@
 		&::after {
 			content: "";
 			display: block;
-			mask: url(~/assets/svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
-			background: currentColor;
+			mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
+			background: currentcolor;
 			width: 16px;
 			height: 16px;
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);

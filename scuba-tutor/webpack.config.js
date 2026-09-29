@@ -22,6 +22,7 @@ const themeURL = '/wp-content/themes/scuba-tutor/build/';
 
 const capitolaAliases = {
 	'@capitola': path.resolve( __dirname, '../capitola/src' ),
+	'@capitola-svgs': path.resolve( __dirname, '../capitola/assets/svgs' ),
 	'@capitola-child': path.resolve( __dirname, 'src' ),
 };
 
