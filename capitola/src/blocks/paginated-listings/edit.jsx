@@ -56,7 +56,7 @@ export function Edit( props ) {
 				? select( 'core' ).getTaxonomies( {
 						type: postType,
 						per_page: 100,
-				  } )
+					} )
 				: undefined;
 		},
 		[ postType ]
@@ -103,7 +103,7 @@ export function Edit( props ) {
 						per_page: -1,
 						orderby: 'name',
 						order: 'asc',
-				  } )
+					} )
 				: false;
 		},
 		[ baseTaxonomy ]
@@ -203,7 +203,7 @@ export function Edit( props ) {
 											setHiddens: !! setHiddens
 												? setHiddens.filter( ( hiddenItem ) => {
 														return hiddenItem !== slug;
-												  } )
+													} )
 												: [],
 										} );
 									} }

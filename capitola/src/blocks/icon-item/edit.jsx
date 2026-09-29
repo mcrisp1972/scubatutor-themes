@@ -2,7 +2,7 @@ import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-edi
 import { PanelBody } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { IconSelector } from '@capitola/editor-controls';
-import icons from '../../../assets/svgs/icons/icons.json';
+import icons from '../../../assets/svgs/icons.json';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -16,7 +16,7 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls>
-				<PanelBody title="Layout" initialOpen={ true }>
+				<PanelBody title="Icon" initialOpen={ true }>
 					<IconSelector
 						label="Icon"
 						value={ icon }
@@ -24,7 +24,7 @@ export function Edit( props ) {
 							setAttributes( { icon: value } );
 						} }
 						icons={ icons }
-						iconPath="assets/svgs/icons"
+						iconPath="assets/svgs"
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -32,7 +32,7 @@ export function Edit( props ) {
 				<div
 					className="wp-block-capitola-icon-item__icon"
 					style={ {
-						'--capitola-icon-image': `url(/wp-content/themes/${ themeObj?.stylesheet }/assets/svgs/icons/${ icon }.svg)`,
+						'--capitola-icon-image': `url(/wp-content/themes/${ themeObj?.template }/assets/svgs/${ icon }.svg)`,
 					} }
 				></div>
 			</div>

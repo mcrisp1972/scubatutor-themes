@@ -24,14 +24,14 @@
 			content: "";
 			flex: 0 0 var(--wp--custom--font-size--hl-s);
 			height: var(--wp--custom--font-size--hl-s);
-			background: currentColor;
-			mask: url(#{$image_path}symbols/fa-plus.svg) center / contain no-repeat;
+			background: currentcolor;
+			mask: url(@capitola-svgs/symbols/fa-plus.svg) center / contain no-repeat;
 		}
 
 		.--is-open & {
 
 			&::after {
-				mask-image: url(#{$image_path}symbols/fa-minus.svg);
+				mask-image: url(@capitola-svgs/symbols/fa-minus.svg);
 			}
 		}
 	}

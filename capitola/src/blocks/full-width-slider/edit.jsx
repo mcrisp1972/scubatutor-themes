@@ -174,7 +174,7 @@ export function Edit( props ) {
 			transition === 'fade'
 				? {
 						crossFade: true,
-				  }
+					}
 				: false,
 		creativeEffect:
 			transition === 'stack'
@@ -186,7 +186,7 @@ export function Edit( props ) {
 						next: {
 							translate: [ '100%', 0, 0 ],
 						},
-				  }
+					}
 				: false,
 		thumbs: { swiper: thumbsSwiper },
 		onSlideChange: ( swiper ) => {

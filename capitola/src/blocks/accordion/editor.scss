@@ -8,7 +8,7 @@
 		.wp-block-capitola-accordion-item__headline {
 
 			&::after {
-				mask-image: url(#{$image_path}symbols/fa-minus.svg);
+				mask-image: url(@capitola-svgs/symbols/fa-minus.svg);
 			}
 		}
 

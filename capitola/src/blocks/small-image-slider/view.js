@@ -12,7 +12,7 @@ class smallImageSlider {
 			autoplay: swiperMain.dataset.autoplay
 				? {
 						delay: 5000,
-				  }
+					}
 				: false,
 			speed: 600,
 			loop: true,

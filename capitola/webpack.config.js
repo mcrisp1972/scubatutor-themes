@@ -23,6 +23,7 @@ const themeURL = '/wp-content/themes/capitola/build/';
 
 const capitolaAliases = {
 	'@capitola': path.resolve( __dirname, 'src' ),
+	'@capitola-svgs': path.resolve( __dirname, '/assets/svgs' ),
 };
 
 // Helper to update rules

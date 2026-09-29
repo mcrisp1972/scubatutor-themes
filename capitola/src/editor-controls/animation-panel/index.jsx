@@ -181,13 +181,13 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 									...revealAnimation,
 									...animationSets[ value ]?.defaults,
 									animation: value,
-							  }
+								}
 							: {
 									...defaultAttribute,
 									section: revealAnimation.section,
 									allowSectionSelect: revealAnimation.allowSectionSelect,
 									animation: '',
-							  };
+								};
 
 						if ( value ) {
 							previewAnimation( newAttribute );
@@ -210,7 +210,7 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 											label: 'Whole Block',
 											value: 'block',
 										},
-								  ]
+									]
 								: [] ),
 							...( sections.includes( 'body' )
 								? [
@@ -218,7 +218,7 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 											label: 'Intro Section Only',
 											value: 'body',
 										},
-								  ]
+									]
 								: [] ),
 							...( sections.includes( 'figure' )
 								? [
@@ -226,7 +226,7 @@ export function AnimationPanel( { props, sections = [ 'block', 'body' ] } ) {
 											label: 'Figure Section Only',
 											value: 'figure',
 										},
-								  ]
+									]
 								: [] ),
 						] }
 						onChange={ ( value ) => {

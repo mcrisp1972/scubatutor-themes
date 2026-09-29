@@ -1,4 +1,6 @@
 @use "abstracts" as *;
+@import "select2/dist/css/select2.min.css";
+
 
 .form-field.--hidden {
 	display: none;
@@ -72,4 +74,69 @@
 
 .column-capitola-tax-img {
 	width: 50px;
+}
+
+.select2-container--default {
+
+	.capitola-select2-icon {
+
+		.select2-selection__rendered {
+			line-height: unset;
+			padding-left: 0;
+		}
+
+		.select2-selection__arrow {
+			display: none;
+		}
+
+		.capitola-select2-icon {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+
+			&::before {
+				content: "";
+				mask: var(--icon-path) center / contain no-repeat;
+				width: 16px;
+				height: 16px;
+				background-color: currentcolor;
+			}
+		}
+	}
+}
+
+.js-capitola-admin-icons-field {
+
+	.select2-container--default .select2-selection--single {
+		font-size: 14px;
+		line-height: 2.71428571;
+		color: #1e1e1e;
+		border-color: #949494;
+		box-shadow: none;
+		border-radius: 2px;
+		padding: 0 24px 0 12px;
+		min-height: 40px;
+		max-width: 25rem;
+		-webkit-appearance: none;
+		background: #fff url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%231e1e1e%22%2F%3E%3C%2Fsvg%3E) no-repeat right 8px top 55%;
+		background-size: 16px 16px;
+		cursor: pointer;
+		vertical-align: middle;
+	}
+}
+
+.select2-results__options {
+
+	.capitola-select2-icon {
+		display: flex;
+		gap: 8px;
+
+		&::before {
+			content: "";
+			mask: var(--icon-path) center / contain no-repeat;
+			width: 16px;
+			height: 16px;
+			background-color: currentcolor;
+		}
+	}
 }

@@ -116,7 +116,7 @@
 			flex: 0 0 25px;
 			cursor: pointer;
 			background: var(--capitola-color-body);
-			mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
+			mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 			transition: scale var(--wp--custom--transitions--default);
 
 			&.--is-hidden {
@@ -213,7 +213,7 @@
 				content: "";
 				height: 12px;
 				width: 12px;
-				background: currentColor;
+				background: currentcolor;
 				mask: {
 					repeat: no-repeat;
 					position: center;
@@ -225,14 +225,14 @@
 			&.--account {
 
 				&::before {
-					mask-image: url(#{$image_path}utility/fa-user.svg);
+					mask-image: url(@capitola-svgs/utility/fa-user.svg);
 				}
 			}
 
 			&.--phone {
 
 				&::before {
-					mask-image: url(#{$image_path}utility/fa-phone.svg);
+					mask-image: url(@capitola-svgs/utility/fa-phone.svg);
 				}
 			}
 
@@ -406,7 +406,7 @@
 			height: 20px;
 			cursor: pointer;
 			background: var(--capitola-color-link);
-			mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
+			mask: url(@capitola-svgs/arrows/fa-angle-down.svg) center / contain no-repeat;
 			transform: rotate(-90deg);
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 
@@ -433,7 +433,7 @@
 				width: 20px;
 				height: 1em;
 				background: var(--capitola-color-link);
-				mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
+				mask: url(@capitola-svgs/arrows/fa-angle-down.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 			}
 		}
@@ -545,7 +545,7 @@
 			width: 24px;
 			height: 24px;
 			background: var(--capitola-color-link);
-			mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
+			mask: url(@capitola-svgs/utility/fa-magnifying-glass.svg) center / contain no-repeat;
 			transition: background-color var(--wp--custom--transitions--default);
 			cursor: pointer;
 
@@ -617,7 +617,7 @@
 				outline: none;
 				cursor: pointer;
 				background: var(--capitola-color-body);
-				mask: url("#{$image_path}symbols/fa-xmark.svg") center / contain no-repeat;
+				mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
@@ -653,7 +653,7 @@
 				align-self: center;
 				margin-left: -25px;
 				background: var(--capitola-color-body);
-				mask: url("#{$image_path}utility/fa-magnifying-glass.svg") center / contain no-repeat;
+				mask: url(@capitola-svgs/utility/fa-magnifying-glass.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,

@@ -18,7 +18,7 @@
 	margin-inline: auto;
 	background-color: var(--capitola-color-body);
 	mask: {
-		image: url(#{$image_path}utility/fa-spinner.svg);
+		image: url(@capitola-svgs/utility/fa-spinner.svg);
 		repeat: no-repeat;
 		position: center;
 		size: contain;

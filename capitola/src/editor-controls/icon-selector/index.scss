@@ -1,0 +1,26 @@
+.capitola-icon-selector {
+
+	.capitola-icon-selector__option {
+		justify-content: flex-start;
+		gap: 8px;
+
+		span:has(svg) {
+			margin-left: auto;
+		}
+
+		&::before {
+			content: "";
+			mask: var(--icon) center / contain no-repeat;
+			width: 16px;
+			height: 16px;
+			background-color: currentcolor;
+		}
+	}
+}
+
+.capitola-icon-category-selector {
+
+	.components-select-control__input {
+		text-transform: capitalize;
+	}
+}

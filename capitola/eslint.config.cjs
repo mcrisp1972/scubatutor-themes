@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const globals = require( 'globals' );
 const pluginWordPress = require( '@wordpress/eslint-plugin' );
 

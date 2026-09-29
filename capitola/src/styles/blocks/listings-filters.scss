@@ -38,7 +38,7 @@
 			height: 24px;
 			cursor: pointer;
 			background: var(--wp--preset--color--white);
-			mask: url(#{$image_path}symbols/fa-xmark.svg) center / contain no-repeat;
+			mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 			transition: scale var(--wp--custom--transitions--default);
 
 			&:hover,
@@ -169,8 +169,8 @@
 					content: "";
 					display: block;
 					position: absolute;
-					background: currentColor;
-					mask: url("#{$image_path}arrows/fa-angle-down.svg") center / contain no-repeat;
+					background: currentcolor;
+					mask: url(@capitola-svgs/arrows/fa-angle-down.svg) center / contain no-repeat;
 					transition: background-color var(--wp--custom--transitions--default);
 					width: var(--wp--preset--spacing--small);
 					height: 100%;
@@ -193,9 +193,9 @@
 					&::-webkit-calendar-picker-indicator {
 						background: {
 							image: unset;
-							color: currentColor;
+							color: currentcolor;
 						}
-						mask: url(~/assets/svgs/icons/fa-calendar.svg) center / contain no-repeat;
+						mask: url(@capitola-svgs/utility/fa-calendar.svg) center / contain no-repeat;
 						cursor: pointer;
 
 						&:hover {

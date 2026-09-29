@@ -150,7 +150,7 @@ export function JustifyToolbar( {
 									setAttributes( { [ attribute ]: 'left' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'center' )
 					? [
@@ -164,7 +164,7 @@ export function JustifyToolbar( {
 									} );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'right' )
 					? [
@@ -176,7 +176,7 @@ export function JustifyToolbar( {
 									setAttributes( { [ attribute ]: 'right' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 			] }
 		/>
@@ -237,7 +237,7 @@ export function IntroAlignToolbar( {
 									setAttributes( { [ attribute ]: 'right' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'left' )
 					? [
@@ -249,7 +249,7 @@ export function IntroAlignToolbar( {
 									setAttributes( { [ attribute ]: 'left' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				,
 				...( options.includes( 'top' )
@@ -262,7 +262,7 @@ export function IntroAlignToolbar( {
 									setAttributes( { [ attribute ]: 'top' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 			] }
 		/>
@@ -293,7 +293,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '16-9' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( '3-2' )
 					? [
@@ -305,7 +305,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '3-2' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( '4-3' )
 					? [
@@ -317,7 +317,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '4-3' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'square' )
 					? [
@@ -329,7 +329,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: 'square' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( '3-4' )
 					? [
@@ -341,7 +341,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '3-4' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( '2-3' )
 					? [
@@ -353,7 +353,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '2-3' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( '9-16' )
 					? [
@@ -365,7 +365,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: '9-16' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'full' )
 					? [
@@ -377,7 +377,7 @@ export function AspectRatioToolbar( {
 									setAttributes( { [ attribute ]: 'full' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 			] }
 		/>
@@ -407,7 +407,7 @@ export function RadiusToolbar( {
 									setAttributes( { [ attribute ]: 'none' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'xsmall' )
 					? [
@@ -419,7 +419,7 @@ export function RadiusToolbar( {
 									setAttributes( { [ attribute ]: 'xsmall' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'small' )
 					? [
@@ -431,7 +431,7 @@ export function RadiusToolbar( {
 									setAttributes( { [ attribute ]: 'small' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'medium' )
 					? [
@@ -445,7 +445,7 @@ export function RadiusToolbar( {
 									} );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'large' )
 					? [
@@ -457,7 +457,7 @@ export function RadiusToolbar( {
 									setAttributes( { [ attribute ]: 'large' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'xlarge' )
 					? [
@@ -469,7 +469,7 @@ export function RadiusToolbar( {
 									setAttributes( { [ attribute ]: 'xlarge' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 			] }
 		/>
@@ -495,7 +495,7 @@ export function TextAlignToolbar( { props, attribute, options = [ 'left', 'cente
 									setAttributes( { [ attribute ]: 'left' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'center' )
 					? [
@@ -509,7 +509,7 @@ export function TextAlignToolbar( { props, attribute, options = [ 'left', 'cente
 									} );
 								},
 							},
-					  ]
+						]
 					: [] ),
 				...( options.includes( 'right' )
 					? [
@@ -521,7 +521,7 @@ export function TextAlignToolbar( { props, attribute, options = [ 'left', 'cente
 									setAttributes( { [ attribute ]: 'right' } );
 								},
 							},
-					  ]
+						]
 					: [] ),
 			] }
 		/>

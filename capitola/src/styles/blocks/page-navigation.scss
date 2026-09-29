@@ -43,7 +43,7 @@
 			&::after {
 				content: "";
 				background: var(--capitola-color-button-text);
-				mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
+				mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 				width: var(--wp--preset--spacing--small);
 				height: 1em;
 				transition:
@@ -141,7 +141,7 @@
 			height: 60px;
 			width: 60px;
 			background: var(--capitola-color-body);
-			mask: url(#{$image_path}utility/fa-spinner.svg) center / contain no-repeat;
+			mask: url(@capitola-svgs/utility/fa-spinner.svg) center / contain no-repeat;
 			animation: rotation 2s infinite linear;
 			top: -80px;
 			left: calc(50% - 30px);
