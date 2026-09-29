@@ -94,8 +94,8 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: currentColor;
-		mask: url("#{$image_path}arrows/fa-chevron-right.svg") center / contain no-repeat;
+		background: currentcolor;
+		mask: url(@capitola-svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
 		transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
 	}
 
@@ -149,8 +149,8 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		background: currentColor;
-		mask: url(~/assets/svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
+		background: currentcolor;
+		mask: url(@capitola-svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
 		transition: transform var(--wp--custom--transitions--default);
 	}
 
@@ -189,8 +189,8 @@
 		display: block;
 		width: 12px;
 		height: 16px;
-		mask: url(#{$image_path}arrows/fa-chevron-right.svg) center / contain no-repeat;
-		background: currentColor;
+		mask: url(@capitola-svgs/arrows/fa-chevron-right.svg) center / contain no-repeat;
+		background: currentcolor;
 		transition: transform var(--wp--custom--transitions--default);
 	}
 
@@ -251,7 +251,7 @@
 				display: block;
 				background-color: var(--capitola-color-button-text);
 				mask: {
-					image: url("#{$image_path}arrows/fa-angle-left.svg");
+					image: url(@capitola-svgs/arrows/fa-angle-left.svg);
 					repeat: no-repeat;
 					position: center;
 					size: contain;
@@ -348,7 +348,7 @@
 		content: "";
 		display: block;
 		background: var(--capitola-color-link);
-		mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
+		mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 		height: 1em;
 		width: 20px;
 		transition: transform var(--wp--custom--transitions--default);
@@ -397,7 +397,7 @@
 		&::after {
 			content: "";
 			background: var(--capitola-color-button-text);
-			mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
+			mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 			width: var(--wp--preset--spacing--small);
 			height: 1em;
 			transition:
@@ -468,6 +468,42 @@
 	overflow: hidden;
 }
 
+@mixin detail-list {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	margin: 0;
+	@content;
+
+	dt {
+		font-weight: var(--wp--custom--font-weight--bold);
+		grid-column: 1 / 3;
+
+		@include mq("mobile") {
+			grid-column: 1;
+			text-align: right;
+			white-space: nowrap;
+		}
+	}
+
+	dd {
+		margin-bottom: var(--wp--preset--spacing--small);
+		margin-left: 0;
+
+		@include mq("mobile") {
+			margin-left: var(--wp--preset--spacing--xsmall);
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	ul,
+	ol {
+		padding-left: calc(var(--wp--preset--spacing--small) + 2px);
+	}
+}
+
 @mixin star-rating {
 	overflow: hidden;
 	position: relative;
@@ -500,7 +536,7 @@
 	&[data-rating="1"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-1.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-1.svg);
 		}
 	}
 
@@ -508,7 +544,7 @@
 	&[data-rating="1.5"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-1point5.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-1point5.svg);
 		}
 	}
 
@@ -516,7 +552,7 @@
 	&[data-rating="2"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-2.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-2.svg);
 		}
 	}
 
@@ -524,7 +560,7 @@
 	&[data-rating="2.5"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-2point5.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-2point5.svg);
 		}
 	}
 
@@ -532,7 +568,7 @@
 	&[data-rating="3"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-3.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-3.svg);
 		}
 	}
 
@@ -540,7 +576,7 @@
 	&[data-rating="3.5"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-3point5.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-3point5.svg);
 		}
 	}
 
@@ -548,7 +584,7 @@
 	&[data-rating="4"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-4.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-4.svg);
 		}
 	}
 
@@ -556,7 +592,7 @@
 	&[data-rating="4.5"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-4point5.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-4point5.svg);
 		}
 	}
 
@@ -564,7 +600,7 @@
 	&[data-rating="5"] {
 
 		&::before {
-			mask-image: url(#{$image_path}stars/star-rating-5.svg);
+			mask-image: url(@capitola-svgs/stars/star-rating-5.svg);
 		}
 	}
 }

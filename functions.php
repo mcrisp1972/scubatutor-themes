@@ -13,6 +13,8 @@ define( 'CAPITOLA_IMAGES_URL', CAPITOLA_THEME_URL . '/assets/images/' );
 define( 'CAPITOLA_JS_URL', CAPITOLA_THEME_URL . '/build/scripts/' );
 define( 'CAPITOLA_CSS_URL', CAPITOLA_THEME_URL . '/build/styles/' );
 define( 'CAPITOLA_CSS_DIR', CAPITOLA_THEME_DIR . '/build/styles/' );
+define( 'CAPITOLA_SVG_DIR', CAPITOLA_THEME_DIR . '/assets/svgs/' );
+define( 'CAPITOLA_SVG_URL', CAPITOLA_THEME_URL . '/assets/svgs/' );
 define( 'CAPITOLA_BLOCKS_URL', CAPITOLA_THEME_URL . '/build/blocks/' );
 define( 'CAPITOLA_CHILD_THEME_DIR', get_stylesheet_directory() );
 define( 'CAPITOLA_CHILD_THEME_URL', get_stylesheet_directory_uri() );

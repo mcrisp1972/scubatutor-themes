@@ -176,6 +176,57 @@ array(
 ),
 ```
 
+## Icon Selector
+
+Fields for filtering and selecting svg icons
+
+### Properties
+
+| Property           | Type      | Required | Description |
+|--------------------|-----------|----------|-------------|
+| `type`             | `string`  | Yes      | Must be `'icon_select'` |
+| `label`            | `string`  | No       | Label to display next to the field |
+| `name`             | `string`  | Yes      | Field name (setting, post_meta, or term_meta) |
+| `id`               | `string`  | No       | Field id attribute (defaults to the name value) |
+| `icons`            | `array`   | Yes      | Array of available icons, grouped by category. See example for structure |
+| `allow_null`       | `boolean` | No       | Allows selection of an empty (null) value. Defaults to true |
+| `help`             | `string`  | No       | Help text to display below the field |
+
+### Example
+
+```php
+array(
+	'type'             => 'select',
+	'label'            => 'Default Color Theme',
+	'name'             => 'capitola_default_color_theme',
+	'icons'          => array(
+		'social' => array(
+			array(
+				'name' => 'Facebook',
+				'slug' => 'facebook',
+			),
+			array(
+				'name' => 'Instagram',
+				'slug' => 'instagram',
+			),
+		),
+		'symbols' => array(
+			array(
+				'name' => 'Check',
+				'slug' => 'check',
+			),
+			array(
+				'name' => 'Check Circle',
+				'slug' => 'circle-check',
+			),
+		),
+	),
+	'null_option_text' => 'Select a color theme',
+	'help'             => 'Choose the default color theme for your site. This can be overridden on individual pages.',
+),
+```
+
+
 ## WYSIWYG
 
 Rich text editor (TinyMCE).

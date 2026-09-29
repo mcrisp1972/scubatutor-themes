@@ -125,7 +125,7 @@
 		height: 30px;
 		width: 30px;
 		background: var(--capitola-color-body);
-		mask: url(#{$image_path}social/fa-x-twitter.svg) center / contain no-repeat;
+		mask: url(@capitola-svgs/social/fa-x-twitter.svg) center / contain no-repeat;
 		transition: background-color var(--wp--custom--transitions--default);
 
 		&:hover,
@@ -135,31 +135,31 @@
 		}
 
 		&.--twitter {
-			//mask-image: url(#{$image_path}social/fa-x-twitter.svg);
+			//mask-image: url(@capitola-svgs/social/fa-x-twitter.svg);
 		}
 
 		&.--facebook {
-			mask-image: url(#{$image_path}social/fa-facebook-f.svg);
+			mask-image: url(@capitola-svgs/social/fa-facebook-f.svg);
 		}
 
 		&.--youtube {
-			mask-image: url(#{$image_path}social/fa-youtube.svg);
+			mask-image: url(@capitola-svgs/social/fa-youtube.svg);
 		}
 
 		&.--instagram {
-			mask-image: url(#{$image_path}social/fa-instagram.svg);
+			mask-image: url(@capitola-svgs/social/fa-instagram.svg);
 		}
 
 		&.--pinterest {
-			mask-image: url(#{$image_path}social/fa-pinterest-p.svg);
+			mask-image: url(@capitola-svgs/social/fa-pinterest-p.svg);
 		}
 
 		&.--tiktok {
-			mask-image: url(#{$image_path}social/fa-tiktok.svg);
+			mask-image: url(@capitola-svgs/social/fa-tiktok.svg);
 		}
 
 		&.--linkedin {
-			mask-image: url(#{$image_path}social/fa-linkedin-in.svg);
+			mask-image: url(@capitola-svgs/social/fa-linkedin-in.svg);
 		}
 	}
 
@@ -177,8 +177,8 @@
 			display: block;
 			aspect-ratio: var(--wp--preset--aspect-ratio--square);
 			width: 20px;
-			background: currentColor;
-			mask: url(#{$image_path}utility/fa-envelope-solid.svg) center / contain no-repeat;
+			background: currentcolor;
+			mask: url(@capitola-svgs/utility/fa-envelope-solid.svg) center / contain no-repeat;
 			transition: background-color var(--wp--custom--transitions--default);
 		}
 
@@ -195,21 +195,21 @@
 		&.--email {
 
 			&::before {
-				//mask-image: url(#{$image_path}utility/fa-envelope-solid.svg);
+				//mask-image: url(@capitola-svgs/utility/fa-envelope-solid.svg);
 			}
 		}
 
 		&.--map {
 
 			&::before {
-				mask-image: url(#{$image_path}utility/fa-map-location-dot.svg);
+				mask-image: url(@capitola-svgs/utility/fa-map-location-dot.svg);
 			}
 		}
 
 		&.--phone {
 
 			&::before {
-				mask-image: url(#{$image_path}utility/fa-mobile-screen-button.svg);
+				mask-image: url(@capitola-svgs/utility/fa-mobile-screen-button.svg);
 			}
 		}
 	}

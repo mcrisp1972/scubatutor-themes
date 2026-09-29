@@ -47,7 +47,7 @@ export function Edit( props ) {
 					return (
 						type.supports?.[ 'page-attributes' ] && type.visibility?.show_in_nav_menus
 					);
-			  } )
+				} )
 			: [ populationMethod, autoPopulatePostType ];
 	} );
 
@@ -150,8 +150,8 @@ export function Edit( props ) {
 							populationMethod === 'children'
 								? 'Automatically populate with child pages of the main linked page.'
 								: populationMethod === 'post-type'
-								? 'Automatically populate with items from a selected post type.'
-								: 'Add submenu items manually.'
+									? 'Automatically populate with items from a selected post type.'
+									: 'Add submenu items manually.'
 						}
 					/>
 					{ populationMethod === 'post-type' && (

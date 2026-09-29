@@ -16,7 +16,7 @@
 		padding-block: var(--wp--custom--spacing--block-padding);
 
 		&.--no-image {
-			background: #ccc url(~/assets/svgs/icons/fa-image.svg) no-repeat center / contain;
+			background: #ccc url(@capitola-svgs/utility/fa-image.svg) no-repeat center / contain;
 		}
 
 		&.--align-center {

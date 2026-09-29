@@ -34,7 +34,7 @@ export function PostPicker( { label, value, onChange, postType, orderBy } ) {
 			return value
 				? select( 'core' ).getEntityRecords( 'postType', postType, {
 						include: [ value ],
-				  } )
+					} )
 				: null;
 		},
 		[ postType, value ]

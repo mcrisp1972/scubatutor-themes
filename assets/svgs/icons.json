@@ -1,0 +1,1138 @@
+{
+	"amenities": [
+		{
+			"name": "Accessible",
+			"slug": "fa-accessible-icon"
+		},
+		{
+			"name": "Bath",
+			"slug": "fa-bath"
+		},
+		{
+			"name": "Bed",
+			"slug": "fa-bed"
+		},
+		{
+			"name": "Computer",
+			"slug": "fa-computer"
+		},
+		{
+			"name": "Couch",
+			"slug": "fa-couch"
+		},
+		{
+			"name": "Dog Friendly",
+			"slug": "fa-dog"
+		},
+		{
+			"name": "Fan",
+			"slug": "fa-fan"
+		},
+		{
+			"name": "Faucet",
+			"slug": "fa-faucet"
+		},
+		{
+			"name": "Fire Burner",
+			"slug": "fa-fire-burner"
+		},
+		{
+			"name": "Kitchen Set",
+			"slug": "fa-kitchen-set"
+		},
+		{
+			"name": "Plug Circle Bolt",
+			"slug": "fa-plug-circle-bolt"
+		},
+		{
+			"name": "Plug",
+			"slug": "fa-plug"
+		},
+		{
+			"name": "Shower",
+			"slug": "fa-shower"
+		},
+		{
+			"name": "Spoon",
+			"slug": "fa-spoon"
+		},
+		{
+			"name": "Toilet",
+			"slug": "fa-toilet"
+		},
+		{
+			"name": "Tower Cell",
+			"slug": "fa-tower-cell"
+		},
+		{
+			"name": "TV",
+			"slug": "fa-tv"
+		},
+		{
+			"name": "WiFi",
+			"slug": "fa-wifi"
+		}
+	],
+	"arrows": [
+		{
+			"name": "Angle Up",
+			"slug": "fa-angle-up"
+		},
+		{
+			"name": "Angle Right",
+			"slug": "fa-angle-right"
+		},
+		{
+			"name": "Angle Down",
+			"slug": "fa-angle-down"
+		},
+		{
+			"name": "Angle Left",
+			"slug": "fa-angle-left"
+		},
+		{
+			"name": "Angles Up",
+			"slug": "fa-angles-up"
+		},
+		{
+			"name": "Angles Right",
+			"slug": "fa-angles-right"
+		},
+		{
+			"name": "Angles Down",
+			"slug": "fa-angles-down"
+		},
+		{
+			"name": "Angles Left",
+			"slug": "fa-angles-left"
+		},
+		{
+			"name": "Arrow Up",
+			"slug": "fa-arrow-up"
+		},
+		{
+			"name": "Arrow Right",
+			"slug": "fa-arrow-right"
+		},
+		{
+			"name": "Arrow Down",
+			"slug": "fa-arrow-down"
+		},
+		{
+			"name": "Arrow Left",
+			"slug": "fa-arrow-left"
+		},
+		{
+			"name": "Arrow Up Long",
+			"slug": "fa-arrow-up-long"
+		},
+		{
+			"name": "Arrow Right Long",
+			"slug": "fa-arrow-right-long"
+		},
+		{
+			"name": "Arrow Down Long",
+			"slug": "fa-arrow-down-long"
+		},
+		{
+			"name": "Arrow Left Long",
+			"slug": "fa-arrow-left-long"
+		},
+		{
+			"name": "Caret Up",
+			"slug": "fa-caret-up"
+		},
+		{
+			"name": "Caret Right",
+			"slug": "fa-caret-right"
+		},
+		{
+			"name": "Caret Down",
+			"slug": "fa-caret-down"
+		},
+		{
+			"name": "Caret Left",
+			"slug": "fa-caret-down"
+		},
+		{
+			"name": "Chevron Up",
+			"slug": "fa-chevron-up"
+		},
+		{
+			"name": "Chevron Right",
+			"slug": "fa-chevron-right"
+		},
+		{
+			"name": "Chevron Down",
+			"slug": "fa-chevron-down"
+		},
+		{
+			"name": "Chevron Left",
+			"slug": "fa-chevron-left"
+		},
+		{
+			"name": "Circle Arrow Up",
+			"slug": "fa-circle-arrow-up-solid"
+		},
+		{
+			"name": "Circle Arrow Right",
+			"slug": "fa-circle-arrow-right-solid"
+		},
+		{
+			"name": "Circle Arrow Down",
+			"slug": "fa-circle-arrow-down-solid"
+		},
+		{
+			"name": "Circle Arrow Left",
+			"slug": "fa-circle-arrow-left-solid"
+		},
+		{
+			"name": "Circle Chevron Up",
+			"slug": "fa-circle-chevron-up-solid"
+		},
+		{
+			"name": "Circle Chevron Right",
+			"slug": "fa-circle-chevron-right-solid"
+		},
+		{
+			"name": "Circle Chevron Down",
+			"slug": "fa-circle-chevron-down-solid"
+		},
+		{
+			"name": "Circle Chevron Left",
+			"slug": "fa-circle-chevron-left-solid"
+		},
+		{
+			"name": "Circle Up Solid",
+			"slug": "fa-circle-up-solid"
+		},
+		{
+			"name": "Circle Right Solid",
+			"slug": "fa-circle-right-solid"
+		},
+		{
+			"name": "Circle Down Solid",
+			"slug": "fa-circle-down-solid"
+		},
+		{
+			"name": "Circle Left Solid",
+			"slug": "fa-circle-left-solid"
+		},
+		{
+			"name": "Circle Up",
+			"slug": "fa-circle-up"
+		},
+		{
+			"name": "Circle Right",
+			"slug": "fa-circle-right"
+		},
+		{
+			"name": "Circle Down",
+			"slug": "fa-circle-down"
+		},
+		{
+			"name": "Circle Left",
+			"slug": "fa-circle-left"
+		},
+		{
+			"name": "Square Caret Up",
+			"slug": "fa-square-caret-up"
+		},
+		{
+			"name": "Square Caret Right",
+			"slug": "fa-square-caret-right"
+		},
+		{
+			"name": "Square Caret Down",
+			"slug": "fa-square-caret-down"
+		},
+		{
+			"name": "Square Caret Left",
+			"slug": "fa-square-caret-left"
+		},
+		{
+			"name": "Square Caret Up Solid",
+			"slug": "fa-square-caret-up-solid"
+		},
+		{
+			"name": "Square Caret Right Solid",
+			"slug": "fa-square-caret-right-solid"
+		},
+		{
+			"name": "Square Caret Down Solid",
+			"slug": "fa-square-caret-down-solid"
+		},
+		{
+			"name": "Square Caret Left Solid",
+			"slug": "fa-square-caret-left-solid"
+		},
+		{
+			"name": "Up-Down",
+			"slug": "fa-up-down"
+		},
+		{
+			"name": "Left-Right",
+			"slug": "fa-left-right"
+		},
+		{
+			"name": "Maximize",
+			"slug": "fa-maximize"
+		}
+	],
+	"awards": [
+		{
+			"name": "Award",
+			"slug": "fa-award"
+		},
+		{
+			"name": "Certificate",
+			"slug": "fa-certificate"
+		},
+		{
+			"name": "Graduation Cap",
+			"slug": "fa-graduation-cap"
+		},
+		{
+			"name": "Medal",
+			"slug": "fa-medal"
+		},
+		{
+			"name": "Ranking Star",
+			"slug": "fa-ranking-star"
+		},
+		{
+			"name": "Trophy",
+			"slug": "fa-trophy"
+		},
+		{
+			"name": "User Graduate",
+			"slug": "fa-user-graduate"
+		}
+	],
+	"credit-cards": [
+		{
+			"name": "American Express",
+			"slug": "fa-cc-amex"
+		},
+		{
+			"name": "Discover",
+			"slug": "fa-cc-discover"
+		},
+		{
+			"name": "Mastercard",
+			"slug": "fa-cc-mastercard"
+		},
+		{
+			"name": "Visa",
+			"slug": "fa-cc-visa"
+		},
+		{
+			"name": "Generic",
+			"slug": "fa-credit-card"
+		},
+		{
+			"name": "Generic Solid",
+			"slug": "fa-credit-card-solid"
+		}
+	],
+	"food-drink": [
+		{
+			"name": "Apple",
+			"slug": "fa-apple-whole"
+		},
+		{
+			"name": "Bacon",
+			"slug": "fa-bacon"
+		},
+		{
+			"name": "Beer Mug",
+			"slug": "fa-beer-mug-empty"
+		},
+		{
+			"name": "Birthday Cake",
+			"slug": "fa-cake-candles"
+		},
+		{
+			"name": "Blender",
+			"slug": "fa-blender"
+		},
+		{
+			"name": "Bottleed Water",
+			"slug": "fa-bottle-water"
+		},
+		{
+			"name": "Bread Slice",
+			"slug": "fa-bread-slice"
+		},
+		{
+			"name": "Burger",
+			"slug": "fa-burger"
+		},
+		{
+			"name": "Champagne Glasses",
+			"slug": "fa-champagne-glasses"
+		},
+		{
+			"name": "Cheese",
+			"slug": "fa-cheese"
+		},
+		{
+			"name": "Cookie Bite",
+			"slug": "fa-cookie-bite"
+		},
+		{
+			"name": "Fish Fins",
+			"slug": "fa-fish-fins"
+		},
+		{
+			"name": "Fish",
+			"slug": "fa-fish"
+		},
+		{
+			"name": "Glass Water",
+			"slug": "fa-glass-water"
+		},
+		{
+			"name": "Hotdog",
+			"slug": "fa-hotdog"
+		},
+		{
+			"name": "Ice Cream",
+			"slug": "fa-ice-cream"
+		},
+		{
+			"name": "Martini Glass Citrus",
+			"slug": "fa-martini-glass-citrus"
+		},
+		{
+			"name": "Martini Glass",
+			"slug": "fa-martini-glass"
+		},
+		{
+			"name": "Mug Hot",
+			"slug": "fa-mug-hot"
+		},
+		{
+			"name": "Mug Saucer",
+			"slug": "fa-mug-saucer"
+		},
+		{
+			"name": "Utensils",
+			"slug": "fa-utensils"
+		},
+		{
+			"name": "Whiskey Glass",
+			"slug": "fa-whiskey-glass"
+		},
+		{
+			"name": "Wine Bottle",
+			"slug": "fa-wine-bottle"
+		},
+		{
+			"name": "Wine Glass",
+			"slug": "fa-wine-glass"
+		}
+	],
+	"medical": [
+		{
+			"name": "Briefcase Medical",
+			"slug": "fa-briefcase-medical"
+		},
+		{
+			"name": "Hospital",
+			"slug": "fa-hospital"
+		},
+		{
+			"name": "Hospital Solid",
+			"slug": "fa-hospital-solid"
+		},
+		{
+			"name": "Pills",
+			"slug": "fa-pills"
+		},
+		{
+			"name": "Prescription",
+			"slug": "fa-prescription"
+		},
+		{
+			"name": "Stethoscope",
+			"slug": "fa-stethoscope"
+		}
+	],
+	"recreation": [
+		{
+			"name": "Baseball",
+			"slug": "fa-baseball-bat-ball"
+		},
+		{
+			"name": "Binoculars",
+			"slug": "fa-binoculars"
+		},
+		{
+			"name": "Camera",
+			"slug": "fa-camera-retro"
+		},
+		{
+			"name": "Dumbbell",
+			"slug": "fa-dumbbell"
+		},
+		{
+			"name": "Football",
+			"slug": "fa-football"
+		},
+		{
+			"name": "Golf",
+			"slug": "fa-golf-ball-tee"
+		},
+		{
+			"name": "Masks Theater",
+			"slug": "fa-masks-theater"
+		},
+		{
+			"name": "Mountain Sun",
+			"slug": "fa-mountain-sun"
+		},
+		{
+			"name": "Person Biking",
+			"slug": "fa-person-biking"
+		},
+		{
+			"name": "Person Hiking",
+			"slug": "fa-person-hiking"
+		},
+		{
+			"name": "Person Running",
+			"slug": "fa-person-running"
+		},
+		{
+			"name": "Person Skiing",
+			"slug": "fa-person-skiing"
+		},
+		{
+			"name": "Person Swimming",
+			"slug": "fa-person-swimming"
+		},
+		{
+			"name": "Person Walking",
+			"slug": "fa-person-walking"
+		},
+		{
+			"name": "Table Tennis",
+			"slug": "fa-table-tennis-paddle-ball"
+		},
+		{
+			"name": "Umbrella Beach",
+			"slug": "fa-umbrella-beach"
+		},
+		{
+			"name": "Tank",
+			"slug": "tank"
+		}
+	],
+	"social": [
+		{
+			"name": "Bluesky",
+			"slug": "fa-bluesky"
+		},
+		{
+			"name": "Bluesky Square",
+			"slug": "fa-square-bluesky"
+		},
+		{
+			"name": "Facebook",
+			"slug": "fa-facebook-f"
+		},
+		{
+			"name": "Facebook Circle",
+			"slug": "fa-facebook"
+		},
+		{
+			"name": "Facebook Square",
+			"slug": "fa-square-facebook"
+		},
+		{
+			"name": "Instagram",
+			"slug": "fa-instagram"
+		},
+		{
+			"name": "Instagram Square",
+			"slug": "fa-square-instagram"
+		},
+		{
+			"name": "Linkedin",
+			"slug": "fa-linkedin-in"
+		},
+		{
+			"name": "Linkedin Square",
+			"slug": "fa-linkedin"
+		},
+		{
+			"name": "Pinterest",
+			"slug": "fa-pinterest-p"
+		},
+		{
+			"name": "Pinterest Square",
+			"slug": "fa-square-pinterest"
+		},
+		{
+			"name": "Pinterest Circle",
+			"slug": "fa-pinterest"
+		},
+		{
+			"name": "Tiktok",
+			"slug": "fa-tiktok"
+		},
+		{
+			"name": "X / Twitter",
+			"slug": "fa-x-twitter"
+		},
+		{
+			"name": "X / Twitter Square",
+			"slug": "fa-square-x-twitter"
+		},
+		{
+			"name": "YouTube",
+			"slug": "fa-youtube"
+		},
+		{
+			"name": "YouTube Square",
+			"slug": "fa-square-youtube"
+		}
+	],
+	"symbols": [
+		{
+			"name": "Check",
+			"slug": "fa-check"
+		},
+		{
+			"name": "Check Circle",
+			"slug": "fa-circle-check"
+		},
+		{
+			"name": "Check Circle Solid",
+			"slug": "fa-circle-check-solid"
+		},
+		{
+			"name": "Check Square",
+			"slug": "fa-square-check"
+		},
+		{
+			"name": "Check Square Solid",
+			"slug": "fa-square-check-solid"
+		},
+		{
+			"name": "Exclamation",
+			"slug": "fa-exclamation"
+		},
+		{
+			"name": "Exclamation Circle",
+			"slug": "fa-circle-exclamation"
+		},
+		{
+			"name": "Exclamation Triangle",
+			"slug": "fa-triangle-exclamation-solid"
+		},
+		{
+			"name": "Info",
+			"slug": "fa-info"
+		},
+		{
+			"name": "Info Circle",
+			"slug": "fa-circle-info"
+		},
+		{
+			"name": "Minus",
+			"slug": "fa-minus"
+		},
+		{
+			"name": "Minus Circle",
+			"slug": "fa-circle-minus-solid"
+		},
+		{
+			"name": "Minus Square",
+			"slug": "fa-square-minus"
+		},
+		{
+			"name": "Minus Square Solid",
+			"slug": "fa-square-minus-solid"
+		},
+		{
+			"name": "Plus",
+			"slug": "fa-plus"
+		},
+		{
+			"name": "Plus Circle",
+			"slug": "fa-circle-plus-solid"
+		},
+		{
+			"name": "Plus Square",
+			"slug": "fa-square-plus"
+		},
+		{
+			"name": "Plus Square Solid",
+			"slug": "fa-square-plus-solid"
+		},
+		{
+			"name": "Question",
+			"slug": "fa-question"
+		},
+		{
+			"name": "Question Circle",
+			"slug": "fa-circle-question"
+		},
+		{
+			"name": "Question Circle Solid",
+			"slug": "fa-circle-question-solid"
+		},
+		{
+			"name": "X-Mark",
+			"slug": "fa-xmark"
+		},
+		{
+			"name": "X-Mark Circle",
+			"slug": "fa-circle-xmark"
+		},
+		{
+			"name": "X-Mark Circle Solid",
+			"slug": "fa-circle-xmark-solid"
+		},
+		{
+			"name": "X-Mark Square",
+			"slug": "fa-square-xmark-solid"
+		}
+	],
+	"travel": [
+		{
+			"name": "Bicycle",
+			"slug": "fa-bicycle"
+		},
+		{
+			"name": "Bus",
+			"slug": "fa-bus"
+		},
+		{
+			"name": "Bus Side",
+			"slug": "fa-bus-side"
+		},
+		{
+			"name": "Bus Simple",
+			"slug": "fa-bus-simple"
+		},
+		{
+			"name": "Cable Car",
+			"slug": "fa-cable-car"
+		},
+		{
+			"name": "Car",
+			"slug": "fa-car"
+		},
+		{
+			"name": "Car Side",
+			"slug": "fa-car-side"
+		},
+		{
+			"name": "Ferry",
+			"slug": "fa-ferry"
+		},
+		{
+			"name": "Helicopter",
+			"slug": "fa-helicopter"
+		},
+		{
+			"name": "Hotel",
+			"slug": "fa-hotel"
+		},
+		{
+			"name": "Motorcycle",
+			"slug": "fa-motorcycle"
+		},
+		{
+			"name": "Plane Arrival",
+			"slug": "fa-plane-arrival"
+		},
+		{
+			"name": "Plane Departure",
+			"slug": "fa-plane-departure"
+		},
+		{
+			"name": "Plane Up",
+			"slug": "fa-plane-up"
+		},
+		{
+			"name": "Plane",
+			"slug": "fa-plane"
+		},
+		{
+			"name": "Sailboat",
+			"slug": "fa-sailboat"
+		},
+		{
+			"name": "Ship",
+			"slug": "fa-ship"
+		},
+		{
+			"name": "Suitcase",
+			"slug": "fa-suitcase"
+		},
+		{
+			"name": "Suitcase Rolling",
+			"slug": "fa-suitcase-rolling"
+		},
+		{
+			"name": "Taxi",
+			"slug": "fa-taxi"
+		},
+		{
+			"name": "Train",
+			"slug": "fa-train"
+		},
+		{
+			"name": "Train Subway",
+			"slug": "fa-train-subway"
+		},
+		{
+			"name": "Train Tram",
+			"slug": "fa-train-tram"
+		},
+		{
+			"name": "Truck",
+			"slug": "fa-truck"
+		},
+		{
+			"name": "Van Shuttle",
+			"slug": "fa-van-shuttle"
+		}
+	],
+	"utility": [
+		{
+			"name": "Address Card",
+			"slug": "fa-address-card"
+		},
+		{
+			"name": "Address Card Solid",
+			"slug": "fa-address-card-solid"
+		},
+		{
+			"name": "Shopping Basket",
+			"slug": "fa-basket-shopping"
+		},
+		{
+			"name": "Bell",
+			"slug": "fa-bell"
+		},
+		{
+			"name": "Bell Solid",
+			"slug": "fa-bell-solid"
+		},
+		{
+			"name": "Calendar",
+			"slug": "fa-calendar"
+		},
+		{
+			"name": "Calendar Solid",
+			"slug": "fa-calendar-solid"
+		},
+		{
+			"name": "Calendar Plus",
+			"slug": "fa-calendar-plus"
+		},
+		{
+			"name": "Shopping Cart",
+			"slug": "fa-cart-shopping"
+		},
+		{
+			"name": "Clock",
+			"slug": "fa-clock"
+		},
+		{
+			"name": "Clock Solid",
+			"slug": "fa-clock-solid"
+		},
+		{
+			"name": "Cloud Arrow DOwn",
+			"slug": "fa-cloud-arrow-down"
+		},
+		{
+			"name": "Comment",
+			"slug": "fa-comment"
+		},
+		{
+			"name": "Comment Solid",
+			"slug": "fa-comment-solid"
+		},
+		{
+			"name": "Dashboard",
+			"slug": "fa-dashboard"
+		},
+		{
+			"name": "Envelope",
+			"slug": "fa-envelope"
+		},
+		{
+			"name": "Envelope Solid",
+			"slug": "fa-envelope-solid"
+		},
+		{
+			"name": "Eye",
+			"slug": "fa-eye"
+		},
+		{
+			"name": "Eye Solid",
+			"slug": "fa-eye-solid"
+		},
+		{
+			"name": "Eye Slash",
+			"slug": "fa-eye-slash"
+		},
+		{
+			"name": "Eye Slash Solid",
+			"slug": "fa-eye-slash-solid"
+		},
+		{
+			"name": "File Zipper",
+			"slug": "fa-file-zipper"
+		},
+		{
+			"name": "Filter",
+			"slug": "fa-filter"
+		},
+		{
+			"name": "Flag",
+			"slug": "fa-flag"
+		},
+		{
+			"name": "Flag Solid",
+			"slug": "fa-flag-solid"
+		},
+		{
+			"name": "Handshake",
+			"slug": "fa-handshake"
+		},
+		{
+			"name": "Handshake Solid",
+			"slug": "fa-handshake-solid"
+		},
+		{
+			"name": "Heart",
+			"slug": "fa-heart"
+		},
+		{
+			"name": "Heart Solid",
+			"slug": "fa-heart-solid"
+		},
+		{
+			"name": "House",
+			"slug": "fa-house"
+		},
+		{
+			"name": "House Solid",
+			"slug": "fa-house-solid"
+		},
+		{
+			"name": "Image Solid",
+			"slug": "fa-image-solid"
+		},
+		{
+			"name": "Image",
+			"slug": "fa-image"
+		},
+		{
+			"name": "Images Solid",
+			"slug": "fa-images-solid"
+		},
+		{
+			"name": "Images",
+			"slug": "fa-images"
+		},
+		{
+			"name": "Lightbulb",
+			"slug": "fa-lightbulb"
+		},
+		{
+			"name": "Lightbulb Solid",
+			"slug": "fa-Lightbulb-solid"
+		},
+		{
+			"name": "Location Dot",
+			"slug": "fa-location-dot"
+		},
+		{
+			"name": "Magnifying Glass",
+			"slug": "fa-magnifying-glass"
+		},
+		{
+			"name": "Map Location Dot",
+			"slug": "fa-map-location-dot"
+		},
+		{
+			"name": "Map Pin",
+			"slug": "fa-map-pin"
+		},
+		{
+			"name": "Map",
+			"slug": "fa-map"
+		},
+		{
+			"name": "Map Solid",
+			"slug": "fa-map-solid"
+		},
+		{
+			"name": "Mobile Phone",
+			"slug": "fa-mobile-screen-button"
+		},
+		{
+			"name": "Phone",
+			"slug": "fa-phone"
+		},
+		{
+			"name": "Quote Left",
+			"slug": "fa-quote-left"
+		},
+		{
+			"name": "Quote Right",
+			"slug": "fa-quote-right"
+		},
+		{
+			"name": "Receipt",
+			"slug": "fa-receipt"
+		},
+		{
+			"name": "Right From Bracket",
+			"slug": "fa-right-from-bracket"
+		},
+		{
+			"name": "Sort",
+			"slug": "fa-sort"
+		},
+		{
+			"name": "Spinner",
+			"slug": "fa-spinner"
+		},
+		{
+			"name": "Tag",
+			"slug": "fa-tag"
+		},
+		{
+			"name": "Ticket",
+			"slug": "fa-ticket"
+		},
+		{
+			"name": "Trash Can",
+			"slug": "fa-trash-can"
+		},
+		{
+			"name": "Trash Can Solid",
+			"slug": "fa-trash-can-solid"
+		},
+		{
+			"name": "User",
+			"slug": "fa-user"
+		},
+		{
+			"name": "User Solid",
+			"slug": "fa-user-solid"
+		},
+		{
+			"name": "Video",
+			"slug": "fa-video"
+		}
+	],
+	"weather": [
+		{
+			"name": "Cloudy",
+			"slug": "fa-cloud"
+		},
+		{
+			"name": "Evening Clouds",
+			"slug": "fa-cloud-moon"
+		},
+		{
+			"name": "Evening Rain",
+			"slug": "fa-cloud-moon-rain"
+		},
+		{
+			"name": "Heavy Showers",
+			"slug": "fa-cloud-showers-heavy"
+		},
+		{
+			"name": "Moon",
+			"slug": "fa-moon"
+		},
+		{
+			"name": "No Precipitation",
+			"slug": "fa-droplet-slash"
+		},
+		{
+			"name": "Partly Cloudy",
+			"slug": "fa-cloud-sun"
+		},
+		{
+			"name": "Precipitation",
+			"slug": "fa-droplet"
+		},
+		{
+			"name": "Rain",
+			"slug": "fa-cloud-rain"
+		},
+		{
+			"name": "Smog",
+			"slug": "fa-smog"
+		},
+		{
+			"name": "Snowflake",
+			"slug": "fa-snowflake"
+		},
+		{
+			"name": "Sunny",
+			"slug": "fa-sun-solid"
+		},
+		{
+			"name": "Sun & Rain",
+			"slug": "fa-cloud-sun-rain"
+		},
+		{
+			"name": "Thunder and Lightning",
+			"slug": "fa-cloud-bolt"
+		},
+		{
+			"name": "Empty Temperature",
+			"slug": "fa-temperature-empty"
+		},
+		{
+			"name": "Full Temperature",
+			"slug": "fa-temperature-full"
+		},
+		{
+			"name": "1/2 Temperature",
+			"slug": "fa-temperature-half"
+		},
+		{
+			"name": "High Temperature",
+			"slug": "fa-temperature-high"
+		},
+		{
+			"name": "Low Temperature",
+			"slug": "fa-temperature-low"
+		},
+		{
+			"name": "1/4 Temperature",
+			"slug": "fa-temperature-quarter"
+		},
+		{
+			"name": "3/4 Temperature",
+			"slug": "fa-temperature-three-quarters"
+		},
+		{
+			"name": "Sunset",
+			"slug": "sunset"
+		},
+		{
+			"name": "Sunrise",
+			"slug": "sunrise"
+		},
+		{
+			"name": "Wind",
+			"slug": "fa-wind"
+		}
+	]
+}

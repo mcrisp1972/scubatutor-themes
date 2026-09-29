@@ -56,7 +56,7 @@ export function Edit( props ) {
 			style: desktopImage.source_url
 				? {
 						backgroundImage: 'url(' + desktopImage.source_url + ' )',
-				  }
+					}
 				: {},
 		},
 		{

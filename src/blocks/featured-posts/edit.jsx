@@ -51,7 +51,7 @@ export function Edit( props ) {
 						} ),
 						per_page: -1,
 						orderby: 'include',
-				  } )
+					} )
 				: [];
 		},
 		[ postType, posts ]

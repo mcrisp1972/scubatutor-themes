@@ -60,7 +60,7 @@
 			height: 32px;
 			width: 32px;
 			background: var(--wp--preset--color--white);
-			mask: url(#{$image_path}arrows/fa-maximize.svg) center / contain no-repeat;
+			mask: url(@capitola-svgs/arrows/fa-maximize.svg) center / contain no-repeat;
 		}
 	}
 
@@ -136,7 +136,7 @@
 		height: 24px;
 		width: 24px;
 		background: var(--wp--preset--color--white);
-		mask: url(#{$image_path}symbols/fa-xmark.svg) center / contain no-repeat;
+		mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 		transition: opacity var(--wp--custom--transitions--default);
 		cursor: pointer;
 
@@ -220,7 +220,7 @@
 		&-prev,
 		&-next {
 			background: var(--wp--preset--color--white);
-			mask: url(#{$image_path}arrows/fa-angle-right.svg) center / contain no-repeat;
+			mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 			height: 24px;
 			width: 24px;
 			cursor: pointer;
@@ -233,7 +233,7 @@
 		}
 
 		&-prev {
-			mask-image: url(#{$image_path}arrows/fa-angle-left.svg);
+			mask-image: url(@capitola-svgs/arrows/fa-angle-left.svg);
 		}
 	}
 }

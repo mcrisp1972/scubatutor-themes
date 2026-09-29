@@ -75,8 +75,8 @@
 			content: "";
 			height: 1em;
 			flex: 0 0 30px;
-			mask: url(#{$image_path}arrows/fa-arrow-right.svg) center right / contain no-repeat;
-			background: currentColor;
+			mask: url(@capitola-svgs/arrows/fa-arrow-right.svg) center right / contain no-repeat;
+			background: currentcolor;
 			transition: background-color var(--wp--custom--transitions--default), scale var(--wp--custom--transitions--default);
 		}
 

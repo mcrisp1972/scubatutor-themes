@@ -135,7 +135,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		height: 10px;
 		transform: scale(0);
 		background: var(--wp--custom--forms--field--color);
-		mask: url("#{$image_path}symbols/fa-check.svg") center / contain no-repeat;
+		mask: url(@capitola-svgs/symbols/fa-check.svg) center / contain no-repeat;
 		transition: transform var(--wp--custom--transitions--default);
 	}
 

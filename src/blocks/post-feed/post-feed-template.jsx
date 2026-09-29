@@ -27,7 +27,7 @@ function SwiperTemplate( { attributes, CardTemplate, items } ) {
 					renderCustom: ( swiper, current, total ) => {
 						return current + ' of ' + total;
 					},
-			  }
+				}
 			: false,
 		speed: 800,
 		slidesPerGroup: 1,

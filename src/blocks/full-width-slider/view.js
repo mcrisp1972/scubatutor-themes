@@ -51,19 +51,19 @@ class fullWidthSlider {
 							nextEl: '.swiper-button-next',
 							prevEl: '.swiper-button-prev',
 							addIcons: false,
-					  }
+						}
 					: false,
 			pagination:
 				navigation === 'bullets'
 					? {
 							el: '.swiper-pagination',
 							clickable: true,
-					  }
+						}
 					: false,
 			autoplay: autoplay
 				? {
 						delay: 6000,
-				  }
+					}
 				: false,
 			effect: getSwiperEffect( transition ),
 			creativeEffect:
@@ -76,13 +76,13 @@ class fullWidthSlider {
 							next: {
 								translate: [ '100%', 0, 0 ],
 							},
-					  }
+						}
 					: false,
 			fadeEffect:
 				transition === 'fade'
 					? {
 							crossFade: true,
-					  }
+						}
 					: false,
 			thumbs: {
 				swiper: thumbSwiper,
