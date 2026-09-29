@@ -1,0 +1,1 @@
+.svg-list__list{display:grid;grid-template-columns:1fr 1fr 1fr}.svg-list__item,.svg-list__list{gap:var(--wp--preset--spacing--small)}.svg-list__item{align-items:center;border:1px solid var(--capitola-color-accent);display:flex;flex-direction:column;padding:var(--wp--preset--spacing--medium)}.svg-list__item img{height:56px;object-fit:contain;object-position:center;width:56px}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "capitola/svg-list-block",
+  "title": "SVG Library",
+  "textdomain": "capitola",
+  "description": "Just for design needs, lists available SVGs in the theme",
+  "category": "capitola-custom-blocks",
+  "keywords": [],
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide"
+    ],
+    "html": false
+  },
+  "style": "capitola-svg-list",
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

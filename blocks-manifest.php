@@ -4224,6 +4224,28 @@ return array(
 		'render' => 'file:./render.php',
 		'editorScript' => 'file:./index.js'
 	),
+	'svg-list' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'capitola/svg-list-block',
+		'title' => 'SVG Library',
+		'textdomain' => 'capitola',
+		'description' => 'Just for design needs, lists available SVGs in the theme',
+		'category' => 'capitola-custom-blocks',
+		'keywords' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'align' => array(
+				'wide'
+			),
+			'html' => false
+		),
+		'style' => 'capitola-svg-list',
+		'render' => 'file:./render.php',
+		'editorScript' => 'file:./index.js'
+	),
 	'tabbed-contents' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
