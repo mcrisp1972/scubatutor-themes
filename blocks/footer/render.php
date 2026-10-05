@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $contact_info    = get_option( 'capitola_contact' );
-$attributes      = \Capitola\Helpers\Block_Attributes\alternate_theme( $attributes, 'footerTheme' );
 $current_weather = get_option( 'capitola_current_weather' );
 
 $wrapper_attributes = get_block_wrapper_attributes(

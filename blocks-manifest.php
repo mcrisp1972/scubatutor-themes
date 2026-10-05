@@ -46,6 +46,10 @@ return array(
 			'cookieBannerTheme' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'colorTheme' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'example' => array(
