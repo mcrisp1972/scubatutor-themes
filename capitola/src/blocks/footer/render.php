@@ -4,12 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use function Capitola\Helpers\Block_Attributes\alternate_theme;
 use function Capitola\Helpers\String_Helpers\phone_link_number;
 
 $contact_info = get_option( 'capitola_contact' );
-
-$attributes = alternate_theme( $attributes, 'footerTheme' );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(

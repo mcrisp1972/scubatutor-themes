@@ -2,6 +2,8 @@
 
 namespace Capitola\Helpers\Block_Attributes;
 
+use function Capitola\Helpers\Options\get_color_themes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -169,33 +171,4 @@ function layout_conditionals( $attributes ) {
 		'hasBottom'     => $show_excerpt || 'body' === $title_location || $show_byline,
 
 	);
-}
-
-/**
- * Applies an alternate color theme based on the current post or defaults.
- *
- * @param array  $attributes Block attributes.
- * @param string $section Theme section key to apply.
- * @return array
- */
-function alternate_theme( $attributes, $section ) {
-	$attributes = normalize_attribute_keys( $attributes );
-
-	$object = get_queried_object();
-	$colors = wp_json_file_decode(
-		CAPITOLA_CHILD_THEME_DIR . '/color-themes.json',
-		array( 'associative' => true )
-	);
-
-	if ( is_object( $object ) && get_class( $object ) === 'WP_Post' ) {
-		$use_default              = get_post_meta( $object->ID, 'useDefColorTheme', true );
-		$theme                    = $use_default ? get_option( 'capitola_default_page_color_theme' ) : get_post_meta( $object->ID, 'pageColorTheme', true );
-		$key                      = array_search( $theme, array_column( $colors, 'slug' ), true );
-		$attributes['colorTheme'] = $colors[ $key ][ $section ];
-	} else {
-		$theme                    = get_option( 'capitola_default_page_color_theme' );
-		$key                      = array_search( $theme, array_column( $colors, 'slug' ), true );
-		$attributes['colorTheme'] = $colors[ $key ][ $section ];
-	}
-	return $attributes;
 }

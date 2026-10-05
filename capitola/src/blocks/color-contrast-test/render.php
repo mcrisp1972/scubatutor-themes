@@ -1,14 +1,12 @@
 <?php
 
+use function Capitola\Helpers\Options\get_color_themes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$colors        = wp_json_file_decode(
-	CAPITOLA_CHILD_THEME_DIR . '/color-themes.json',
-	array( 'associative' => true )
-);
-$colors        = is_array( $colors ) ? $colors : array();
+$colors        = get_color_themes();
 $color_options = array();
 foreach ( $colors as $color ) {
 	echo wp_kses_post(

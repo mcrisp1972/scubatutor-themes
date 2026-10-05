@@ -9,7 +9,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { applyFilters } from '@wordpress/hooks';
 import { autop } from '@wordpress/autop';
 import { useEffect, useState } from '@wordpress/element';
-import { ColorThemePicker } from '@capitola/editor-controls';
+import { ColorThemePicker, ColorThemePanel } from '@capitola/editor-controls';
 
 export function Edit( props ) {
 	const { attributes, setAttributes } = props;
@@ -26,22 +26,16 @@ export function Edit( props ) {
 		cookieBannerText,
 		cookieBannerCloseText,
 		cookieBannerTheme,
+		colorTheme,
 	} = attributes;
 	const colorThemes = applyFilters( 'capitola.colorThemes' );
 
 	const [ themeOptions, setThemeOptions ] = useState( null );
-	const [ colorTheme, setColorTheme ] = useState( '' );
 	const [ siteInfo, setSiteInfo ] = useState( null );
 	const year = new Date().getFullYear();
 
 	useEffect( () => {
 		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
-			const key = colorThemes.findIndex( ( color ) => {
-				return color.slug === result.capitola_default_page_color_theme;
-			} );
-			if ( key !== -1 ) {
-				setColorTheme( colorThemes[ key ].footerTheme );
-			}
 			setThemeOptions( result );
 		} );
 	}, [ colorThemes ] );
@@ -57,7 +51,7 @@ export function Edit( props ) {
 	} );
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'wp-block-capitola-footer__menus',
+			className: `wp-block-capitola-footer__menus --theme-${ colorTheme }`,
 		},
 		{
 			defaultBlock: {
@@ -145,6 +139,7 @@ export function Edit( props ) {
 							/>
 						) }
 					</PanelBody>
+					<ColorThemePanel props={ props } />
 				</InspectorControls>
 				<div className="wp-block-capitola-footer__grid alignwide">
 					<div { ...innerBlocksProps } />
