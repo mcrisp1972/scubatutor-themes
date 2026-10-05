@@ -3,6 +3,7 @@
 namespace Capitola\ThemeOptions;
 
 use Capitola\Admin_Forms\Settings_Form;
+use function Capitola\Helpers\Options\get_color_themes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -21,9 +22,7 @@ const GROUP_COLOR_THEME = 'capitola-color-theme';
  * @return void
  */
 function add_options_page() {
-
-	$json_string   = file_get_contents( get_stylesheet_directory() . '/color-themes.json' );
-	$colors        = json_decode( $json_string, true );
+	$colors        = get_color_themes();
 	$color_options = array();
 	foreach ( $colors as $color ) {
 		$color_options[ $color['slug'] ] = $color['name'];

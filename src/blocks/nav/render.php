@@ -5,12 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use function Capitola\Helpers\String_Helpers\phone_link_number;
-use function Capitola\Helpers\Block_Attributes\alternate_theme;
 
 $contact_info  = get_option( 'capitola_contact' );
 $contact_phone = $contact_info['phone'];
-
-$attributes = alternate_theme( $attributes, 'headerTheme' );
 
 $logo_object = $attributes['logo'] ? wp_get_attachment_metadata( $attributes['logo'] ) : false;
 
@@ -34,7 +31,7 @@ if ( CAPITOLA_WOO_ACTIVE ) {
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class'                       => $attributes['stickyStyle'],
+		'class'                       => $attributes['stickyStyle'] . ' --theme-' . $attributes['colorTheme'],
 		'style'                       => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
 		'data-wp-interactive'         => 'capitola-nav',
 		'data-wp-init'                => 'callbacks.init',

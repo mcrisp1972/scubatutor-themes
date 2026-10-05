@@ -61,6 +61,10 @@
 		"cookieBannerTheme": {
 			"type": "string",
 			"default": ""
+		},
+		"colorTheme": {
+			"type": "string",
+			"default": false
 		}
 	},
 	"example": {

@@ -8,8 +8,13 @@ import {
 	RangeControl,
 	Spinner,
 } from '@wordpress/components';
-import { applyFilters } from '@wordpress/hooks';
-import { ImageSelect, LinkSelect, Repeater, repeaterOnChange } from '@capitola/editor-controls';
+import {
+	ImageSelect,
+	LinkSelect,
+	Repeater,
+	repeaterOnChange,
+	ColorThemePanel,
+} from '@capitola/editor-controls';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 import { useState, useEffect } from '@wordpress/element';
@@ -25,11 +30,12 @@ export function Edit( props ) {
 		utilityLinks,
 		stickyStyle,
 		dropdownSpeed,
+		colorTheme,
 		isExample,
 	} = attributes;
-	const colorThemes = applyFilters( 'capitola.colorThemes' );
-	const [ themeOptions, setThemeOptions ] = useState( null );
-	const [ colorTheme, setColorTheme ] = useState( '' );
+
+	const [ themeOptions ] = useState( null );
+
 	const [ wooActive, setWooActive ] = useState( null );
 
 	const imageObject = useSelect(
@@ -43,7 +49,7 @@ export function Edit( props ) {
 
 	const blockProps = useBlockProps( {
 		className: 'alignfull',
-		style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s` },
+		style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s --theme-${ colorTheme }` },
 	} );
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(
@@ -73,18 +79,6 @@ export function Edit( props ) {
 			setWooActive( result.length > 0 ? true : false );
 		} );
 	}, [] );
-
-	useEffect( () => {
-		apiFetch( { path: '/wp/v2/settings' } ).then( ( result ) => {
-			const key = colorThemes.findIndex( ( color ) => {
-				return color.slug === result.capitola_default_page_color_theme;
-			} );
-			if ( key !== -1 ) {
-				setColorTheme( colorThemes[ key ].headerTheme );
-			}
-			setThemeOptions( result );
-		} );
-	}, [ colorThemes ] );
 
 	return (
 		<div { ...blockProps }>
@@ -215,6 +209,7 @@ export function Edit( props ) {
 						} }
 					/>
 				</PanelBody>
+				<ColorThemePanel props={ props } />
 			</InspectorControls>
 			<nav
 				className={ `wp-block-capitola-nav__background is-layout-constrained has-global-padding --theme-${ colorTheme }` }
