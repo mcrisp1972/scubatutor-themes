@@ -1286,6 +1286,10 @@ return array(
 			'cookieBannerTheme' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'colorTheme' => array(
+				'type' => 'string',
+				'default' => false
 			)
 		),
 		'example' => array(
@@ -2345,6 +2349,10 @@ return array(
 			'dropdownSpeed' => array(
 				'type' => 'number',
 				'default' => '0.2'
+			),
+			'colorTheme' => array(
+				'type' => 'string',
+				'default' => false
 			),
 			'isExample' => array(
 				'type' => 'boolean',
