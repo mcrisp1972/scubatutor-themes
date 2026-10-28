@@ -14,7 +14,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 ?>
 
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-footer__copyright">
 		&copy;<?php echo esc_html( gmdate( 'Y' ) . ', ' . get_bloginfo( 'name' ) ); ?>
 	</div>

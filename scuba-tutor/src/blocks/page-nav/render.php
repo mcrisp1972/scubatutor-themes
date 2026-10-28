@@ -16,9 +16,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<nav <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<nav <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-page-nav__width alignwide">
-		<?php echo wp_kses_post( render_link( $attributes['prevPage'], 'wp-block-capitola-page-nav__prev' ) ); ?>
-		<?php echo wp_kses_post( render_link( $attributes['nextPage'], 'wp-block-capitola-page-nav__next' ) ); ?>
+		<?php echo render_link( $attributes['prevPage'], 'wp-block-capitola-page-nav__prev' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php echo render_link( $attributes['nextPage'], 'wp-block-capitola-page-nav__next' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 </nav>

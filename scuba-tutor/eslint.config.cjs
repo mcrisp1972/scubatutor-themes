@@ -9,7 +9,11 @@ module.exports = [
 	{
 		files: [ '**/*.{js,jsx,mjs,cjs}' ],
 		settings: {
-			'import/core-modules': [ '@capitola/editor-controls', '@capitola/editor-icons' ],
+			'import/core-modules': [
+				'@capitola/editor-controls',
+				'@capitola/editor-icons',
+				'@capitola/scripts/modules/cookies',
+			],
 		},
 		languageOptions: {
 			ecmaVersion: 'latest',
