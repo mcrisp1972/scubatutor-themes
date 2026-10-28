@@ -28,7 +28,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<li <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<li <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<a class="wp-block-capitola-image-link-grid-item__link" href="<?php echo esc_url( get_the_permalink( $attributes['postId'] ) ); ?>">
 		<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
 		<div class="wp-block-capitola-image-link-grid-item__opacity-layer"></div>

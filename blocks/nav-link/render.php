@@ -17,8 +17,8 @@ $rendered_link = render_link( $attributes, 'wp-block-capitola-nav__menu-item-lin
 if ( $rendered_link ) :
 
 	?>
-	<li <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-		<?php echo wp_kses_post( $rendered_link ); ?>
+	<li <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php echo $rendered_link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</li>
 
 <?php endif; ?>

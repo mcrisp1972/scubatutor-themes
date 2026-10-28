@@ -10,7 +10,7 @@ $rendered_link = render_link( $attributes, 'wp-block-capitola-nav-sublink__link'
 
 if ( $rendered_link ) :
 	?>
-	<li <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
-		<?php echo wp_kses_post( $rendered_link ); ?>
+	<li <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php echo $rendered_link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</li>
 <?php endif; ?>

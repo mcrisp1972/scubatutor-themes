@@ -16,10 +16,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-footer__grid alignwide">
 		<nav class="wp-block-capitola-footer__menus" aria-label="Footer Navigation">
-			<?php echo wp_kses_post( $content ); ?>
+			<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</nav>
 		<div class="wp-block-capitola-footer__contact">
 			<address class="wp-block-capitola-footer__contact-info">

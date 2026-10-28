@@ -16,9 +16,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
-		<?php echo wp_kses_post( $content ); ?>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<div class="wp-block-capitola-small-image-slider__width alignfull is-layout-constrained has-global-padding <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo $animations['block-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<div class="wp-block-capitola-small-image-slider__slider-parent">
 			<div class="wp-block-capitola-small-image-slider__swiper swiper<?php echo ( 'square' === $attributes['aspectRatio'] ? ' --square' : ' --landscape' ); ?>"<?php echo ( $attributes['autoplay'] ? ' data-autoplay="1"' : '' ); ?>>
 				<ul

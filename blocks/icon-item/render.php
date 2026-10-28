@@ -7,7 +7,7 @@ $style = '--capitola-icon-image: url(' . esc_url( CAPITOLA_SVG_URL )
 . $attributes['icon'] . '.svg);';
 
 ?>
-<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
+<div <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-icon-item__icon-wrapper">
 		<div class="wp-block-capitola-icon-item__icon" style="<?php echo esc_attr( $style ); ?>"></div>
 	</div>

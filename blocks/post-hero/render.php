@@ -20,7 +20,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $attributes['showFeaturedImage'] && $image_id ) : ?>
 		<div class="wp-block-capitola-post-hero__hero">
 			<div class="wp-block-capitola-post-hero__image">

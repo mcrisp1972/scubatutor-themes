@@ -13,5 +13,5 @@
 		'wp-html-entities',
 		'wp-keycodes'
 	),
-	'version' => 'b23db565374df190c255'
+	'version' => '1a54fbf76d25133a6b93'
 );

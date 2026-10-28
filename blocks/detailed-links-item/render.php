@@ -11,7 +11,7 @@ $image_id = $attributes['linkImage']['id'] ? $attributes['linkImage']['id'] : ge
 $excerpt  = $attributes['linkExcerpt'] ? $attributes['linkExcerpt'] : get_post_field( 'post_excerpt', $attributes['postId'] );
 
 ?>
-<article <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
+<article <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( ! empty( $block->context['capitola/showImage'] ) && $image_id ) : ?>
 		<figure class="wp-block-capitola-detailed-links-item__image">
 			<?php echo wp_get_attachment_image( $image_id, 'medium' ); ?>

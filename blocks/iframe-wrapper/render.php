@@ -18,6 +18,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<figure <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<figure <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php echo $attributes['iframeHtml']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </figure>
