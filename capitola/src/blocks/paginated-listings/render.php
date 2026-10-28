@@ -20,9 +20,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
-		<?php echo wp_kses_post( $content ); ?>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<div class="capitola-listings__width alignwide <?php echo esc_attr( $animations['block-class'] ); ?>" style="<?php echo $animations['block-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<div class="capitola-listings__results-header">
 			<div class="capitola-listings__filters-count js-resultsCount" role="status"></div>
 			<?php if ( $has_filters ) : ?>

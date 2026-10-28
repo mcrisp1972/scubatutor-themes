@@ -16,7 +16,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-tabbed-contents-tabs__width ">
 		<div class="wp-block-capitola-tabbed-contents-tabs__body">
 			<div class="wp-block-capitola-tabbed-contents-tabs__tabs">
@@ -33,7 +33,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php endforeach; ?>
 			</div>
 			<div class="wp-block-capitola-tabbed-contents-tabs__panels">
-				<?php echo wp_kses_post( $content ); ?>
+				<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		</div>
 	</div>

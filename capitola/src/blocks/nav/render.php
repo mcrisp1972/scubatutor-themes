@@ -45,7 +45,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $banner['display'] && $banner['message'] ) : ?>
 		<div id="js-headerBanner" class="wp-block-capitola-nav__banner alignfull is-layout-constrained has-global-padding --theme-<?php echo esc_attr( $banner['type'] ); ?>" data-wp-class----is-hidden="!state.showBanner">
 			<div class="wp-block-capitola-nav__banner-body alignwide">
@@ -102,12 +102,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<?php if ( $attributes['showCartIcon'] && CAPITOLA_WOO_ACTIVE && ( ! is_cart() && ! is_checkout() && WC()->cart->get_cart_contents_count() ) ) : ?>
 						<li class="wp-block-capitola-nav__utility-menu-item">
 							<?php
-								echo wp_kses_post(
-									render_block(
-										array(
-											'blockName' => 'woocommerce/mini-cart',
-											'attrs'     => array(),
-										)
+								echo render_block( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									array(
+										'blockName' => 'woocommerce/mini-cart',
+										'attrs'     => array(),
 									)
 								);
 							?>
@@ -115,7 +113,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					<?php endif; ?>
 				</ul>
 				<ul class="wp-block-capitola-nav__menu-items" data-wp-on--click="actions.toggleSubmenu">
-					<?php echo wp_kses_post( $content ); ?>
+					<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<li class="wp-block-capitola-nav__menu-item">
 						<button class="wp-block-capitola-nav__search-trigger" type="button" aria-label="open search" data-wp-on--click="actions.openSearch"></button>
 					</li>

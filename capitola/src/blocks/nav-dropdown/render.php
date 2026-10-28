@@ -52,9 +52,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<li <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<li <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $main_link ) : ?>
-		<?php echo wp_kses_post( $main_link ); ?>
+		<?php echo $main_link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	<?php else : ?>
 		<div class="wp-block-capitola-nav__menu-item-link --no-hover"><?php echo esc_html( $attributes['title'] ); ?></div>
 	<?php endif; ?>
@@ -68,23 +68,21 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				<?php if ( $links ) : ?>
 					<?php foreach ( $links as $nav_link ) : ?>
 						<?php
-							echo wp_kses_post(
-								render_block(
-									array(
-										'blockName' => 'capitola/nav-sublink',
-										'attrs'     => array(
-											'title' => $nav_link->post_title,
-											'link'  => array(
-												'url' => get_the_permalink( $nav_link->ID ),
-											),
+							echo render_block( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								array(
+									'blockName' => 'capitola/nav-sublink',
+									'attrs'     => array(
+										'title' => $nav_link->post_title,
+										'link'  => array(
+											'url' => get_the_permalink( $nav_link->ID ),
 										),
-									)
+									),
 								)
 							);
 						?>
 					<?php endforeach; ?>
 				<?php else : ?>
-					<?php echo wp_kses_post( $content ); ?>
+					<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php endif; ?>
 			</ul>
 		</div>

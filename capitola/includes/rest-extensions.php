@@ -2,6 +2,8 @@
 
 namespace Capitola\Rest_Api\Post_Images;
 
+use function Capitola\Helpers\Images\term_thumb_id;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -45,7 +47,7 @@ function post_add_image_html( $post ) {
  * @return array
  */
 function term_add_images( $term ) {
-	$image_id = \Capitola\Helpers\Images\term_thumb_id( $term );
+	$image_id = term_thumb_id( $term );
 	return array(
 		'thumbnail'    => $image_id ? wp_get_attachment_image_url( $image_id, 'thumbnail' ) : '',
 		'medium'       => $image_id ? wp_get_attachment_image_url( $image_id, 'medium' ) : '',

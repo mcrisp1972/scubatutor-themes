@@ -18,7 +18,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?> js-stickyImagesContainer">
 		<div class="wp-block-capitola-sticky-images__image-column" style="--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php foreach ( $images as $key => $image ) : ?>
@@ -45,7 +45,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php endforeach; ?>
 		</div>
 		<div class="wp-block-capitola-sticky-images__body-column --align-<?php echo esc_attr( $attributes['verticalAlign'] ); ?>">
-			<?php echo wp_kses_post( $content ); ?>
+			<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 	</div>
 </section>

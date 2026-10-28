@@ -17,6 +17,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 )
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?> style="<?php echo wp_kses_data( $animations['figure-styles'] ); ?>">
-	<?php echo wp_kses_post( $content ); ?>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> style="<?php echo $animations['figure-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+	<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </div>

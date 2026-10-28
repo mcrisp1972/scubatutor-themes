@@ -121,7 +121,7 @@ function link_href( $link_object ) {
 function link_attributes( $link_object ) {
 	$url = link_href( $link_object );
 	if ( $url ) {
-		return ' href="' . $url . '"' . link_target( $link_object );
+		return ' href="' . $url . '"' . esc_attr( link_target( $link_object ) );
 	}
 	return '';
 }

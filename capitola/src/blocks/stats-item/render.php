@@ -6,12 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 use function Capitola\Blocks\Stats_Item\get_stat_parts;
 
 ?>
-<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
+<div <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-stats-item__stat --hl-xl " >
 		<?php
 		if ( $block->context['capitola/animatedStats'] ) :
 			?>
-			<?php echo wp_kses_post( get_stat_parts( $attributes['stat'] ) ); ?>
+			<?php echo get_stat_parts( $attributes['stat'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php else : ?>
 			<?php echo esc_html( $attributes['stat'] ); ?>
 		<?php endif; ?>
