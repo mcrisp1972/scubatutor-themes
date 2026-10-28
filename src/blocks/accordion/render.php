@@ -15,8 +15,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 ?>
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-accordion__list">
-		<?php echo wp_kses_post( $content ); ?>
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 </section>

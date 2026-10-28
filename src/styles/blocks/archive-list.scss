@@ -459,6 +459,8 @@
 			&.star-rating {
 				@include star-rating {
 					margin-top: var(--wp--preset--spacing--xsmall);
+					// override default float when in a product page
+					float: unset;
 				}
 
 				&::before {

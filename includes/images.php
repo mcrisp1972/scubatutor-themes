@@ -2,6 +2,8 @@
 
 namespace Capitola\Images;
 
+use function Capitola\Helpers\Images\post_image_id;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -40,7 +42,7 @@ function fallback_thumbnail_id( $thumbnail_id, $post ) {
 	}
 
 	if ( ! $thumbnail_id ) {
-		return \Capitola\Helpers\Images\post_image_id( $post );
+		return post_image_id( $post );
 	}
 }
 

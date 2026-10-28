@@ -368,6 +368,14 @@
 				"medium": "#00000066",
 				"light": "#00000033"
 			},
+			"table": {
+				"borderColor": "var(--capitola-color-accent)",
+				"backgroundTh": "#000",
+				"colorTh": "#fff",
+				"colorTd": "#000",
+				"backgroundRowLight": "#fff",
+				"backgroundRowDark": "#f0f0f0"
+			},
 			"transitions": {
 				"default": "0.2s ease-in"
 			},

@@ -96,7 +96,7 @@ class Fields {
 		?>
 			<input type="text" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $class ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 		<?php if ( self::help( $field ) ) : ?>
-				<?php echo wp_kses_post( self::help( $field ) ); ?>
+				<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
 		<?php
 	}
@@ -122,7 +122,7 @@ class Fields {
 		?>
 			<input type="date" id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $class ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 		<?php if ( self::help( $field ) ) : ?>
-				<?php echo wp_kses_post( self::help( $field ) ); ?>
+				<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
 		<?php
 	}
@@ -151,7 +151,7 @@ class Fields {
 				<?php endforeach; ?>
 			</select>
 				<?php if ( self::help( $field ) ) : ?>
-					<?php echo wp_kses_post( self::help( $field ) ); ?>
+					<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
 			<?php
 	}
@@ -198,7 +198,7 @@ class Fields {
 				?>
 			</select>
 			<?php if ( self::help( $field ) ) : ?>
-				<?php echo wp_kses_post( self::help( $field ) ); ?>
+				<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
 		</div>
 		<?php
@@ -218,11 +218,14 @@ class Fields {
 			'full'   => 'large-text',
 		);
 		?>
-			<textarea id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $size_class[ $field['size'] ?? 'large' ] ); ?> <?php echo esc_attr( $field['class'] ?? '' ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" rows="<?php echo esc_attr( $field['rows'] ?? 3 ); ?>"><?php echo esc_html( $value ); ?></textarea>
-				<?php if ( self::help( $field ) ) : ?>
-					<?php echo wp_kses_post( self::help( $field ) ); ?>
+		<textarea
+			id="<?php echo esc_attr( $field['id'] ); ?>"
+			class="<?php echo esc_attr( $size_class[ $field['size'] ?? 'large' ] ); ?> <?php echo esc_attr( $field['class'] ?? '' ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" rows="<?php echo esc_attr( $field['rows'] ?? 3 ); ?>"><?php echo esc_html( $value ); ?>
+		</textarea>
+			<?php if ( self::help( $field ) ) : ?>
+				<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
-				<?php
+		<?php
 	}
 
 	/**
@@ -238,7 +241,7 @@ class Fields {
 			<label>
 		<?php endif; ?>
 			<input type="checkbox" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" value="1" <?php echo checked( $value ); ?>/>
-				<?php echo ! empty( $field['help'] ) ? wp_kses_post( $field['help'] ) : ''; ?>
+				<?php echo ! empty( $field['help'] ) ? $field['help'] : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php if ( ! empty( $field['help'] ) ) : ?>
 			</label>
 		<?php endif; ?>
@@ -262,7 +265,7 @@ class Fields {
 			<?php endforeach; ?>
 		</fieldset>
 				<?php if ( self::help( $field ) ) : ?>
-					<?php echo wp_kses_post( self::help( $field ) ); ?>
+					<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php endif; ?>
 				<?php
 	}
@@ -276,7 +279,7 @@ class Fields {
 	 */
 	protected static function tinymce( $field, $value ) {
 		$settings = array(
-			'teeny'         => true,
+			'teeny'         => false,
 			'media_buttons' => false,
 			'textarea_rows' => $field['rows'] ?? 4,
 			'textarea_name' => $field['name'],
@@ -307,7 +310,7 @@ class Fields {
 			)
 		);
 		if ( self::help( $field ) ) :
-			echo wp_kses_post( self::help( $field ) );
+			echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		endif;
 	}
 
@@ -333,7 +336,7 @@ class Fields {
 			)
 		);
 		if ( self::help( $field ) ) :
-			echo wp_kses_post( self::help( $field ) );
+			echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		endif;
 	}
 
@@ -390,10 +393,10 @@ class Fields {
 			</div>
 			<input type="hidden" name="<?php echo esc_attr( $field['name'] ); ?>" class="js-value" value="<?php echo esc_attr( $value ); ?>">
 		</div>
-				<?php if ( self::help( $field ) ) : ?>
-					<?php echo wp_kses_post( self::help( $field ) ); ?>
+		<?php if ( self::help( $field ) ) : ?>
+			<?php echo self::help( $field ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php endif; ?>
-				<?php
+		<?php
 	}
 
 	/**

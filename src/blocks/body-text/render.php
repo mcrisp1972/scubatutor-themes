@@ -40,7 +40,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
 		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( img_scroll_animation_class( ( $attributes['imageScrollAnimation'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
@@ -69,13 +69,13 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php endif; ?>
 		<?php if ( $content ) : ?>
 			<div class="wp-block-capitola-body-text__intro">
-				<?php echo wp_kses_post( $content ); ?>
+				<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		<?php endif; ?>
 		<?php if ( $cta_1 || $cta_2 ) : ?>
 			<div class="wp-block-capitola-body-text__ctas">
-				<?php echo wp_kses_post( $cta_1 ); ?>
-				<?php echo wp_kses_post( $cta_2 ); ?>
+				<?php echo $cta_1; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo $cta_2; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		<?php endif; ?>
 	</div>

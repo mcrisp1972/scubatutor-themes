@@ -11,7 +11,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
 ?>
-<div <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $attributes['headline'] ) : ?>
 		<?php if ( ! empty( $attributes['link']['url'] ) ) : ?>
 			<h2 class="wp-block-capitola-footer__top-link">
@@ -26,6 +26,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php endif; ?>
 	<?php endif; ?>
 	<ul class="wp-block-capitola-footer__menu-items">
-		<?php echo wp_kses_post( $content ); ?>
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</ul>
 </div>

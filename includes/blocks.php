@@ -38,7 +38,7 @@ const BLACKLIST = array(
 	'core/post-excerpt',
 	'core/post-featured-image',
 	// 'core/post-navigation-link',
-	'core/post-terms',
+	// 'core/post-terms',
 	// 'core/post-title',
 	'core/preformatted',
 	// 'core/pullquote',

@@ -39,7 +39,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<figure <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<figure <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-lightbox-gallery__inner-wrap<?php echo $attributes['isSticky'] ? ' --is-sticky' : ''; ?>">
 		<button type="button" class="wp-block-capitola-lightbox-gallery__main-image js-largeImageLink">
 			<?php

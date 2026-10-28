@@ -17,7 +17,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-fixed-background__img js-background-image <?php echo esc_attr( $align_class ); ?>">
 		<picture>
 			<?php if ( $attributes['desktopImage']['id'] ) : ?>
@@ -31,6 +31,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php endif; ?>
 		</picture>
 		<div class="wp-block-capitola-fixed-background__opacity" style="opacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>"></div>
-		<?php echo wp_kses_post( $content ); ?>
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 </section>

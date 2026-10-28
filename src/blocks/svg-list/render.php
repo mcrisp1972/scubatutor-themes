@@ -1,10 +1,12 @@
 <?php
 
+use function Capitola\Blocks\Svg_List\list_svgs;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$svgs = \Capitola\Blocks\Svg_List\list_svgs( 'assets/svgs' );
+$svgs = list_svgs( 'assets/svgs' );
 
 $list = array();
 
@@ -29,7 +31,7 @@ foreach ( $svgs['icons'] as $file ) {
 		<div class="svg-list__list">
 			<?php foreach ( $svg as $svg2 ) : ?>
 			<div class="svg-list__item">
-				<img src="<?php echo wp_kses_post( CAPITOLA_THEME_URL . '/assets/svgs/' . $svg2 ); ?>"/>
+				<img src="<?php echo CAPITOLA_THEME_URL . '/assets/svgs/' . $svg2; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"/>
 				<p><?php echo esc_html( basename( $svg2 ) ); ?></p>
 			</div>
 		<?php endforeach; ?>

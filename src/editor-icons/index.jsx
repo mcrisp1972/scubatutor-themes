@@ -43,6 +43,7 @@ export { default as event } from './library/event';
 export { default as eventList } from './library/eventList';
 export { default as eventNote } from './library/eventNote';
 export { default as explore } from './library/explore';
+export { default as factory } from './library/factory';
 export { default as feed } from './library/feed';
 export { default as filterNone } from './library/filterNone';
 export { default as formatListNumberedRtl } from './library/formatListNumberedRtl';

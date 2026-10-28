@@ -13,7 +13,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 ?>
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<ul class="wp-block-capitola-social-shares__social-links">
 		<?php
 		foreach ( $socials as $social_slug => $social_enabled ) :

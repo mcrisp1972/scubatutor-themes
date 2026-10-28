@@ -36,10 +36,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 ?>
 
-<section <?php echo wp_kses_data( $wrapper_attributes ); ?>>
-	<div class="wp-block-capitola-two-image-block__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo esc_attr( $animations['block-class'] ); ?><?php echo ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" style="<?php echo wp_kses_data( $animations['block-styles'] ); ?>">
-		<?php echo wp_kses_post( $content ); ?>
-		<div class="wp-block-capitola-two-image-block__imagecol <?php echo esc_attr( $animations['figure-class'] ); ?> --rear-position-<?php echo esc_attr( $attributes['rearImagePosition'] ); ?>" style="aspect-ratio: var(--wp--preset--aspect-ratio--<?php echo esc_attr( $attributes['gridAspectRatio'] ); ?>); --capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%; <?php echo wp_kses_data( $animations['figure-styles'] ); ?>">
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<div class="wp-block-capitola-two-image-block__width alignwide --has-<?php echo esc_attr( $attributes['introAlign'] ); ?>-intro <?php echo esc_attr( $animations['block-class'] ); ?><?php echo ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" style="<?php echo $animations['block-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<div class="wp-block-capitola-two-image-block__imagecol <?php echo esc_attr( $animations['figure-class'] ); ?> --rear-position-<?php echo esc_attr( $attributes['rearImagePosition'] ); ?>" style="aspect-ratio: var(--wp--preset--aspect-ratio--<?php echo esc_attr( $attributes['gridAspectRatio'] ); ?>); --capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%; <?php echo $animations['figure-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 			<figure class="wp-block-capitola-two-image-block__rear-image" style="border-radius: var(--wp--preset--border-radius--<?php echo esc_attr( $attributes['rearImageRadius'] ); ?>); --image-height: <?php echo esc_attr( $attributes['rearImageHeight'] ); ?>; --image-width:<?php echo esc_attr( $attributes['rearImageWidth'] ); ?>; --capitola-objectPosition:<?php echo esc_attr( $attributes['rearImageFocalPoint'] ); ?>;">
 				<?php echo wp_get_attachment_image( $attributes['rearImage']['id'], 'large' ); ?>
 				<?php if ( $rear_image_caption ) : ?>
