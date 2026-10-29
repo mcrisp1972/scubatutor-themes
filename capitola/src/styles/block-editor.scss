@@ -5,26 +5,26 @@
 @use "@capitola/editor-controls";
 
 :root {
-	--capitola-admin-blockEditorAdminbar-height: var(--wp-admin--admin-bar--height, 0px); /* stylelint-disable-line length-zero-no-unit */
-	--capitola-admin-blockEditorToolbar-height: 60px;
-	--capitola-admin-blockEditorFooter-height: 0px; /* stylelint-disable-line length-zero-no-unit */
+	--wp--custom--admin--block-editor-adminbar-height: var(--wp-admin--admin-bar--height, 0px); /* stylelint-disable-line length-zero-no-unit */
+	--wp--custom--admin--block-editor-toolbar-height: 60px;
+	--wp--custom--admin--block-editor-footer-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 }
 
 body {
 
 	&.is-fullscreen-mode {
-		--capitola-admin-blockEditorAdminbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
+		--wp--custom--admin--block-editor-adminbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 	}
 }
 
 .editor-editor-interface {
 
 	&.is-distraction-free {
-		--capitola-admin-blockEditorToolbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
+		--wp--custom--admin--block-editor-toolbar-height: 0px; /* stylelint-disable-line length-zero-no-unit */
 	}
 
 	&.has-footer {
-		--capitola-admin-blockEditorFooter-height: 25px;
+		--wp--custom--admin--block-editor-footer-height: 25px;
 	}
 }
 

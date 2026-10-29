@@ -194,14 +194,14 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 		weight: var(--wp--custom--font-weight--bold);
 		size: 1rem;
 	}
-	background-color: var(--capitola-color-button);
+	background-color: var(--wp--custom--color--button-bg);
 	text: {
 		transform: capitalize;
 		decoration: none;
 	}
-	color: var(--capitola-color-button-text);
+	color: var(--wp--custom--color--button-text);
 	border-radius: var(--wp--custom--forms--field--border-radius);
-	border: 1px solid var(--capitola-color-button);
+	border: 1px solid var(--wp--custom--color--button-bg);
 	cursor: pointer;
 	margin: 0;
 	transition: border-radius var(--wp--custom--transitions--default);

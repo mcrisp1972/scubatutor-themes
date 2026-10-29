@@ -64,7 +64,7 @@ export function Edit( props ) {
 	const blockProps = useBlockProps( {
 		className: '--theme-image-overlay',
 		style: {
-			'--capitola-overlayOpacity': imageOpacity,
+			'--wp--custom--overlay-opacity': imageOpacity,
 			...( ! postId ? { overflow: 'visible' } : {} ),
 		},
 	} );

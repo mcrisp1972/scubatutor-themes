@@ -22,7 +22,7 @@
 	gap: var(--wp--preset--spacing--small);
 	padding-bottom: var(--wp--preset--spacing--small);
 	margin-top: var(--wp--preset--spacing--small);
-	border-bottom: 1px solid var(--capitola-color-accent);
+	border-bottom: 1px solid var(--wp--custom--color--accent);
 
 	&:has(a:hover),
 	&:has(a:focus),
@@ -68,7 +68,7 @@
 		align-items: flex-start;
 		justify-content: space-between;
 		font-weight: var(--wp--custom--font-weight--bold);
-		color: var(--capitola-color-link);
+		color: var(--wp--custom--color--link);
 		transition: color var(--wp--custom--transitions--default);
 
 		&::after {
@@ -83,7 +83,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			color: var(--capitola-color-link-hover);
+			color: var(--wp--custom--color--link-hover);
 
 			&::after {
 				scale: 1.1;

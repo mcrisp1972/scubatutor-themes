@@ -49,7 +49,7 @@ export function Edit( props ) {
 
 	const blockProps = useBlockProps( {
 		className: 'alignfull',
-		style: { '--capitola-dropdownSpeed': `${ dropdownSpeed }s --theme-${ colorTheme }` },
+		style: { '--wp--custom--nav--dropdown-speed': `${ dropdownSpeed }s --theme-${ colorTheme }` },
 	} );
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps(

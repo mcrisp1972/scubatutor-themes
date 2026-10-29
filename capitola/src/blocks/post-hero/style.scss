@@ -54,7 +54,7 @@
 
 	&__byline {
 		display: flex;
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		gap: var(--wp--preset--spacing--xsmall);
 		align-items: flex-start;
 
@@ -90,7 +90,7 @@
 		display: block;
 		height: 30px;
 		width: 30px;
-		background: var(--capitola-color-link);
+		background: var(--wp--custom--color--link);
 		mask: {
 			repeat: no-repeat;
 			position: center;
@@ -99,7 +99,7 @@
 		transition: background-color var(--wp--custom--transitions--default);
 
 		&:hover {
-			background: var(--capitola-color-body);
+			background: var(--wp--custom--color--body);
 		}
 
 		&.--twitter {

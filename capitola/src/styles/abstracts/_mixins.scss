@@ -4,7 +4,7 @@
 @mixin hyperlink {
 	cursor: pointer;
 	text-decoration: underline;
-	color: var(--capitola-color-link);
+	color: var(--wp--custom--color--link);
 	transition: color var(--wp--custom--transitions--default);
 	font-weight: var(--wp--custom--font-weight--normal);
 	@content;
@@ -12,7 +12,7 @@
 	&:hover,
 	&:focus,
 	&:active {
-		color: var(--capitola-color-link-hover);
+		color: var(--wp--custom--color--link-hover);
 		text-decoration-thickness: 3px;
 	}
 }
@@ -36,7 +36,7 @@
 }
 
 @mixin nav-link {
-	color: var(--capitola-color-body);
+	color: var(--wp--custom--color--body);
 	transition: color var(--wp--custom--transitions--default);
 	text-decoration: none;
 	@content;
@@ -44,7 +44,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		color: var(--capitola-color-link);
+		color: var(--wp--custom--color--link);
 
 		text: {
 			decoration: underline;
@@ -60,12 +60,12 @@
 		size: var(--wp--custom--buttons--font-size);
 		weight: var(--wp--custom--buttons--font-weight);
 	}
-	background: var(--capitola-color-button);
+	background: var(--wp--custom--color--button-bg);
 	text-decoration: none;
 	padding: var(--wp--custom--buttons--padding);
-	color: var(--capitola-color-button-text);
+	color: var(--wp--custom--color--button-text);
 	border-radius: var(--wp--custom--buttons--border-radius);
-	border: 2px solid var(--capitola-color-button);
+	border: 2px solid var(--wp--custom--color--button-bg);
 	cursor: pointer;
 	line-height: var(--wp--custom--buttons--line-height);
 	margin: 0;
@@ -131,7 +131,7 @@
 	text-decoration: none;
 	padding: var(--wp--custom--buttons--padding);
 	border-radius: var(--wp--custom--buttons--border-radius);
-	border: 2px solid var(--capitola-color-button);
+	border: 2px solid var(--wp--custom--color--button-bg);
 	cursor: pointer;
 	line-height: var(--wp--custom--buttons--line-height);
 	margin: 0;
@@ -141,7 +141,7 @@
 	gap: var(--wp--preset--spacing--xsmall);
 	align-items: center;
 	background: transparent;
-	color: var(--capitola-color-button);
+	color: var(--wp--custom--color--button-bg);
 	@content;
 
 	&::after {
@@ -158,7 +158,7 @@
 	&:active,
 	&:focus {
 		@include cta-hover {
-			color: var(--capitola-color-button);
+			color: var(--wp--custom--color--button-bg);
 		}
 	}
 }
@@ -181,7 +181,7 @@
 	background: transparent;
 	border: none;
 	padding: 0;
-	color: var(--capitola-color-button);
+	color: var(--wp--custom--color--button-bg);
 	@content;
 
 	&::after {
@@ -206,7 +206,7 @@
 
 @mixin cta-hover {
 	border-radius: var(--wp--custom--buttons--hover--border-radius);
-	color: var(--capitola-color-button-text);
+	color: var(--wp--custom--color--button-text);
 	@content;
 
 	&::after {
@@ -228,10 +228,10 @@
 
 		&-next,
 		&-prev {
-			width: var(--swiper-button-size);
-			height: var(--swiper-button-size);
+			width: var(--wp--custom--swiper-button-size);
+			height: var(--wp--custom--swiper-button-size);
 			cursor: pointer;
-			background-color: var(--capitola-color-button);
+			background-color: var(--wp--custom--color--button-bg);
 			display: flex;
 			border-radius: var(--wp--preset--border-radius--full);
 			justify-content: center;
@@ -243,13 +243,13 @@
 
 			@if $absolute {
 				position: absolute;
-				top: calc(50% - (var(--swiper-button-size) / 2));
+				top: calc(50% - (var(--wp--custom--swiper-button-size) / 2));
 			}
 
 			&::after {
 				content: "";
 				display: block;
-				background-color: var(--capitola-color-button-text);
+				background-color: var(--wp--custom--color--button-text);
 				mask: {
 					image: url(@capitola-svgs/arrows/fa-angle-left.svg);
 					repeat: no-repeat;
@@ -347,7 +347,7 @@
 	&::after {
 		content: "";
 		display: block;
-		background: var(--capitola-color-link);
+		background: var(--wp--custom--color--link);
 		mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 		height: 1em;
 		width: 20px;
@@ -367,9 +367,9 @@
 
 @mixin nav-button {
 	display: flex;
-	border: 1px solid var(--capitola-color-button);
+	border: 1px solid var(--wp--custom--color--button-bg);
 	border-radius: var(--wp--custom--buttons--border-radius);
-	color: var(--capitola-color-button-text);
+	color: var(--wp--custom--color--button-text);
 	justify-content: center;
 	align-items: center;
 	font: {
@@ -383,7 +383,7 @@
 		align: center;
 		decoration: none;
 	}
-	background: var(--capitola-color-button);
+	background: var(--wp--custom--color--button-bg);
 	padding: 0 var(--wp--preset--spacing--xsmall) 0;
 	transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
 
@@ -396,7 +396,7 @@
 
 		&::after {
 			content: "";
-			background: var(--capitola-color-button-text);
+			background: var(--wp--custom--color--button-text);
 			mask: url(@capitola-svgs/arrows/fa-angle-right.svg) center / contain no-repeat;
 			width: var(--wp--preset--spacing--small);
 			height: 1em;
@@ -410,7 +410,7 @@
 		&:active {
 
 			&::after {
-				background: var(--capitola-color-button);
+				background: var(--wp--custom--color--button-bg);
 				transform: translateX(4px);
 			}
 		}
@@ -438,7 +438,7 @@
 	&:hover:not([disabled]),
 	&:active {
 		background: none;
-		color: var(--capitola-color-button);
+		color: var(--wp--custom--color--button-bg);
 		cursor: pointer;
 		border-radius: var(--wp--custom--buttons--border-radius);
 		outline: none;
@@ -512,7 +512,7 @@
 
 	&::before {
 		content: "";
-		background: var(--capitola-color-accent);
+		background: var(--wp--custom--color--accent);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -607,7 +607,7 @@
 
 @mixin block-outer-wrap {
 	position: relative;
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	overflow: hidden;
 	padding-block: var(--wp--custom--spacing--block-padding);
 }

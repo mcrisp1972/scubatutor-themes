@@ -1,7 +1,7 @@
 .--has-reveal-animation {
-	transform: translate(var(--reveal-x-position), var(--reveal-y-position));
+	transform: translate(var(--wp--custom--reveal-x-position), var(--wp--custom--reveal-y-position));
 	opacity: 0;
-	transition: transform var(--reveal-duration) var(--reveal-easing), opacity var(--reveal-duration) var(--reveal-easing);
+	transition: transform var(--wp--custom--reveal-duration) var(--wp--custom--reveal-easing), opacity var(--wp--custom--reveal-duration) var(--wp--custom--reveal-easing);
 
 	&.--is-animated {
 		transform: translate(0);

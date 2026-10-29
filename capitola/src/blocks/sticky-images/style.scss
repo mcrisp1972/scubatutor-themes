@@ -1,22 +1,22 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-sticky-images {
-	$sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
-	$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
+	$sticky-height: calc(100dvh - var(--wp--custom--nav--height) - var(--wp-admin--admin-bar--height, 0px));
+	$sticky-top: calc(var(--wp--custom--nav--height) + var(--wp-admin--admin-bar--height, 0px));
 
-	--sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px));
-	--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px));
+	--wp--custom--sticky-height: calc(100dvh - var(--wp--custom--nav--height) - var(--wp-admin--admin-bar--height, 0px));
+	--wp--custom--sticky-top: calc(var(--wp--custom--nav--height) + var(--wp-admin--admin-bar--height, 0px));
 
 	:has(.wp-block-capitola-anchor-nav) & {
-		$sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
-		$sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
+		$sticky-height: calc(100dvh - var(--wp--custom--nav--height) - var(--wp-admin--admin-bar--height, 0px) - var(--wp--custom--anchor-menu-height));
+		$sticky-top: calc(var(--wp--custom--nav--height) + var(--wp-admin--admin-bar--height, 0px) + var(--wp--custom--anchor-menu-height));
 
-		--sticky-height: calc(100dvh - var(--capitola-header-height) - var(--wp-admin--admin-bar--height, 0px) - var(--capitola-anchor-menu-height));
-		--sticky-top: calc(var(--capitola-header-height) + var(--wp-admin--admin-bar--height, 0px) + var(--capitola-anchor-menu-height));
+		--wp--custom--sticky-height: calc(100dvh - var(--wp--custom--nav--height) - var(--wp-admin--admin-bar--height, 0px) - var(--wp--custom--anchor-menu-height));
+		--wp--custom--sticky-top: calc(var(--wp--custom--nav--height) + var(--wp-admin--admin-bar--height, 0px) + var(--wp--custom--anchor-menu-height));
 	}
 
 	position: relative;
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	padding-top: var(--wp--custom--spacing--block-padding);
 
 	&.--layout-full {
@@ -52,8 +52,8 @@
 
 			.--has-fade-transition & {
 				position: sticky;
-				top: var(--sticky-top);
-				height: var(--sticky-height);
+				top: var(--wp--custom--sticky-top);
+				height: var(--wp--custom--sticky-height);
 			}
 
 			.--layout-full & {
@@ -71,8 +71,8 @@
 
 		@include mq("medium") {
 			position: sticky;
-			top: var(--sticky-top);
-			height: var(--sticky-height);
+			top: var(--wp--custom--sticky-top);
+			height: var(--wp--custom--sticky-height);
 			padding-block: var(--wp--custom--spacing--block-padding);
 
 			.--layout-full & {
@@ -108,7 +108,7 @@
 
 			object: {
 				fit: cover;
-				position: var(--capitola-objectPosition);
+				position: var(--wp--custom--object-position);
 			}
 		}
 
@@ -144,7 +144,7 @@
 
 			object: {
 				fit: cover;
-				position: var(--capitola-objectPosition);
+				position: var(--wp--custom--object-position);
 			}
 		}
 	}
@@ -186,7 +186,7 @@
 		flex-flow: column;
 		gap: var(--wp--custom--spacing--block-section-row-gap);
 		justify-content: flex-start;
-		background: var(--capitola-color-background);
+		background: var(--wp--custom--color--bg);
 
 		&:last-child {
 			padding-bottom: var(--wp--custom--spacing--block-padding);
@@ -194,12 +194,12 @@
 
 		@include mq("medium") {
 			position: sticky;
-			height: var(--sticky-height);
+			height: var(--wp--custom--sticky-height);
 			padding-block: var(--wp--custom--spacing--block-padding);
 			justify-content: center;
 
 			.--has-fade-transition & {
-				min-height: var(--sticky-height);
+				min-height: var(--wp--custom--sticky-height);
 				height: unset;
 			}
 
@@ -235,14 +235,14 @@
 
 				&::-webkit-scrollbar-thumb {
 					background: {
-						image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--capitola-color-link) 40%, var(--capitola-color-link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);
+						image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, var(--wp--custom--color--link) 40%, var(--wp--custom--color--link) 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 60%);
 						clip: padding-box;
 					}
 
 					transition: background-image var(--wp--custom--transitions--default);
 
 					&:hover {
-						background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, var(--capitola-color-link) 30%, var(--capitola-color-link) 70%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 70%);
+						background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, var(--wp--custom--color--link) 30%, var(--wp--custom--color--link) 70%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 70%);
 					}
 				}
 

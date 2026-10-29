@@ -21,7 +21,7 @@
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-		aspect-ratio: var(--capitola--lightbox-gallery--aspect-ratio);
+		aspect-ratio: var(--wp--custom--gallery--aspect-ratio);
 
 		img {
 			position: absolute;
@@ -79,7 +79,7 @@
 		flex: 0 0 calc((100% / 3) - ((var(--wp--preset--spacing--xxsmall) * 2) / 3));
 		justify-content: center;
 		align-items: center;
-		aspect-ratio: var(--capitola--lightbox-gallery--aspect-ratio);
+		aspect-ratio: var(--wp--custom--gallery--aspect-ratio);
 		height: 100%;
 		margin: 0;
 		transition: opacity var(--wp--custom--transitions--default);

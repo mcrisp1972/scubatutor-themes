@@ -11,7 +11,7 @@
 	&::before,
 	&::after {
 		display: block;
-		color: var(--capitola-color-accent);
+		color: var(--wp--custom--color--accent);
 		font-size: 5rem;
 		line-height: 1;
 		flex-shrink: 0;

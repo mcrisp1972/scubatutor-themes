@@ -21,7 +21,7 @@ export function Edit( props ) {
 	const combinedImages = useFeaturedImage ? [ featuredImageObj, ...images ] : images;
 	const blockProps = useBlockProps( {
 		style: {
-			'--capitola--lightbox-gallery--aspect-ratio': `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
+			'--wp--custom--gallery--aspect-ratio': `var(--wp--preset--aspect-ratio--${ aspectRatio })`,
 		},
 	} );
 

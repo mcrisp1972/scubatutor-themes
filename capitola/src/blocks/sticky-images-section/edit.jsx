@@ -59,7 +59,7 @@ export function Edit( props ) {
 						'inner' === context[ 'capitola/imageLayout' ]
 							? `var(--wp--preset--border-radius--${ context[ 'capitola/imageRadius' ] })`
 							: 'var(--wp--preset--border-radius--none)',
-					'--capitola-objectPosition': imageFocalPoint,
+					'--wp--custom--object-position': imageFocalPoint,
 				} }
 			>
 				{ sideImage.source_url ? (

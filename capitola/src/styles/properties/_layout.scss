@@ -1,11 +1,11 @@
 @use "@capitola/styles/abstracts" as *;
 
 :root {
-	--capitola-header-height: 56px;
-	--capitola-anchor-menu-height: 40px;
+	--wp--custom--nav--height: 56px;
+	--wp--custom--anchor-menu-height: 40px;
 
 	@include mq("large") {
-		--capitola-header-height: 80px;
-		--capitola-anchor-menu-height: 60px;
+		--wp--custom--nav--height: 80px;
+		--wp--custom--anchor-menu-height: 60px;
 	}
 }

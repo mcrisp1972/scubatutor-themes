@@ -141,7 +141,7 @@ export function Edit( props ) {
 			</BlockControls>
 			<div
 				className="wp-block-capitola-bg-image-text__imagewrap"
-				style={ { '--capitola-objectPosition': imageFocalPoint } }
+				style={ { '--wp--custom--object-position': imageFocalPoint } }
 			>
 				{ backgroundImage.source_url ? (
 					<img src={ backgroundImage.source_url } alt="" />

@@ -1,7 +1,7 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-sticky-images {
-	$sticky-height: calc(100dvh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
+	$sticky-height: calc(100dvh - var(--wp--custom--admin--block-editor-adminbar-height) - var(--wp--custom--admin--block-editor-toolbar-height) - var(--wp--custom--admin--block-editor-footer-height));
 
 	&__imagewrap {
 		@include mq("medium") {
@@ -15,7 +15,7 @@
 	}
 
 	&__imageratio {
-		background-color: var(--capitola-color-background);
+		background-color: var(--wp--custom--color--bg);
 	}
 
 	&__body-section {

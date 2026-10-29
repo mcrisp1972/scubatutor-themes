@@ -32,7 +32,7 @@ if ( CAPITOLA_WOO_ACTIVE ) {
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class'                       => $attributes['stickyStyle'] . ' --theme-' . $attributes['colorTheme'],
-		'style'                       => '--capitola-dropdownSpeed: ' . $attributes['dropdownSpeed'] . 's;',
+		'style'                       => '--wp--custom--nav--dropdown-speed: ' . $attributes['dropdownSpeed'] . 's;',
 		'data-wp-interactive'         => 'capitola-nav',
 		'data-wp-init'                => 'callbacks.init',
 		'data-wp-on-window--resize'   => 'actions.handleResize',
@@ -61,7 +61,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="wp-block-capitola-nav__grid alignwide">
 			<?php if ( ! empty( $logo_object ) ) : ?>
 				<?php if ( str_starts_with( $logo_object['sizes']['medium']['mime-type'], 'image/svg' ) && ! $attributes['useLogoColor'] ) : ?>
-					<a class="wp-block-capitola-nav__logo --has-svg-mask js-trapMobile" href="<?php echo esc_url( get_home_url() ); ?>" style="aspect-ratio: <?php echo esc_attr( $logo_object['width'] . '/' . $logo_object['height'] ); ?>;--mask-image: url(<?php echo esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>);" aria-label="home">
+					<a class="wp-block-capitola-nav__logo --has-svg-mask js-trapMobile" href="<?php echo esc_url( get_home_url() ); ?>" style="aspect-ratio: <?php echo esc_attr( $logo_object['width'] . '/' . $logo_object['height'] ); ?>;--wp--custom--nav--mask-image: url(<?php echo esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>);" aria-label="home">
 						<img src="<?php echo esc_url( wp_get_attachment_image_url( $attributes['logo'], 'medium' ) ); ?>" class="custom-logo" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" height="<?php echo esc_attr( $logo_object['height'] ); ?>" width="<?php echo esc_attr( $logo_object['width'] ); ?>"/>
 					</a>
 				<?php else : ?>

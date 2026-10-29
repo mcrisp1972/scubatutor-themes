@@ -15,7 +15,7 @@ export function Image( { imageObject, aspectRatio, radius = '', featuredImage, p
 								? `var(--wp--preset--aspect-ratio--${ aspectRatio })`
 								: '',
 						borderRadius: `var(--wp--preset--border-radius--${ radius })`,
-						'--capitola-objectPosition': props.attributes.imageFocalPoint,
+						'--wp--custom--object-position': props.attributes.imageFocalPoint,
 					} }
 					src={ imageObject.source_url }
 					alt=""

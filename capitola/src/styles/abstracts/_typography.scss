@@ -9,7 +9,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -20,7 +20,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -31,7 +31,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -42,7 +42,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -53,7 +53,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -64,7 +64,7 @@
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
-	color: var(--capitola-color-headline);
+	color: var(--wp--custom--color--headline);
 	margin-block: 0;
 }
 
@@ -91,14 +91,14 @@
 	}
 	line-height: line-height(16px, 14px);
 	letter-spacing: to-rem(1px);
-	color: var(--capitola-color-body);
+	color: var(--wp--custom--color--body);
 	// letter-spacing: ;
 	text-transform: uppercase;
 	margin-bottom: 0;
 }
 
 @mixin wizzy {
-	color: var(--capitola-color-body);
+	color: var(--wp--custom--color--body);
 
 	p,
 	ul,

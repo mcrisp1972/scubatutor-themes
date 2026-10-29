@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$style = '--capitola-icon-image: url(' . esc_url( CAPITOLA_SVG_URL )
+$style = '--wp--custom--icon-image: url(' . esc_url( CAPITOLA_SVG_URL )
 . $attributes['icon'] . '.svg);';
 
 ?>

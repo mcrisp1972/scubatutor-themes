@@ -1,16 +1,16 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-nav {
-	--capitola-dropdownSpeed: 0.2s;
-	--capitola-nav-link-fontSize: #{to-rem(20px)};
+	--wp--custom--nav--dropdown-speed: 0.2s;
+	--wp--custom--nav--link-font-size: #{to-rem(20px)};
 	position: relative;
 	z-index: 100;
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	height: 0;
 	width: 100%;
 
 	@include mq("large") {
-		--capitola-nav-link-fontSize: #{to-rem(16px)};
+		--wp--custom--nav--link-font-size: #{to-rem(16px)};
 	}
 
 	&.--is-shown {
@@ -46,8 +46,8 @@
 
 	&.--sticky-nav.--reveal-down {
 		position: fixed;
-		top: calc(var(--capitola-header-height) * -1);
-		transform: translateY(var(--capitola-header-height));
+		top: calc(var(--wp--custom--nav--height) * -1);
+		transform: translateY(var(--wp--custom--nav--height));
 		transition: transform 1s;
 		z-index: 1100; // calculated for woo form overlays
 
@@ -62,23 +62,23 @@
 	}
 
 	&__banner {
-		background: var(--capitola-color-background);
+		background: var(--wp--custom--color--bg);
 
 		&.--theme-alert {
-			--capitola-color-background: #b00;
-			--capitola-color-body: var(--wp--preset--color--white);
+			--wp--custom--color--bg: #b00;
+			--wp--custom--color--body: var(--wp--preset--color--white);
 		}
 
 		&.--theme-update {
-			--capitola-color-background: #f5d904;
-			--capitola-color-body: var(--wp--preset--color--black);
+			--wp--custom--color--bg: #f5d904;
+			--wp--custom--color--body: var(--wp--preset--color--black);
 		}
 
 		&-body {
 			display: flex;
 			gap: var(--wp--preset--spacing--small);
 			padding-block: var(--wp--preset--spacing--small);
-			color: var(--capitola-color-body);
+			color: var(--wp--custom--color--body);
 
 			p {
 				margin: 0;
@@ -115,7 +115,7 @@
 			padding: 0;
 			flex: 0 0 25px;
 			cursor: pointer;
-			background: var(--capitola-color-body);
+			background: var(--wp--custom--color--body);
 			mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 			transition: scale var(--wp--custom--transitions--default);
 
@@ -136,8 +136,8 @@
 	}
 
 	&__background {
-		background: var(--capitola-color-background);
-		height: var(--capitola-header-height);
+		background: var(--wp--custom--color--bg);
+		height: var(--wp--custom--nav--height);
 	}
 
 	&__grid {
@@ -185,20 +185,20 @@
 			size: to-rem(14px);
 		}
 
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 	}
 
 	&__utility-menu-item-link {
 		@include nav-link {
 			display: block;
-			color: var(--capitola-color-link);
+			color: var(--wp--custom--color--link);
 			background: none;
 		}
 
 		&:hover,
 		&:focus,
 		&:active {
-			color: var(--capitola-color-body);
+			color: var(--wp--custom--color--body);
 			text-decoration: none;
 		}
 
@@ -241,7 +241,7 @@
 			&:active {
 
 				&::before {
-					background-color: var(--capitola-color-body);
+					background-color: var(--wp--custom--color--body);
 				}
 			}
 		}
@@ -257,18 +257,18 @@
 
 		&.--has-svg-mask {
 			mask: {
-				image: var(--mask-image);
+				image: var(--wp--custom--nav--mask-image);
 				repeat: no-repeat;
 				size: contain;
 			}
 
-			background: var(--capitola-color-link);
+			background: var(--wp--custom--color--link);
 			height: 100%;
 			transition: background-color var(--wp--custom--transitions--default);
 
 			&:hover,
 			&:focus {
-				background: var(--capitola-color-link-hover);
+				background: var(--wp--custom--color--link-hover);
 			}
 
 			img {
@@ -296,11 +296,11 @@
 		position: fixed;
 		flex-flow: column;
 		inset: var(--wp-admin--admin-bar--height, 0) 0 0 0;
-		padding: calc(var(--capitola-header-height) + var(--wp--preset--spacing--medium)) var(--wp--custom--spacing--gutter) 0;
+		padding: calc(var(--wp--custom--nav--height) + var(--wp--preset--spacing--medium)) var(--wp--custom--spacing--gutter) 0;
 		overflow: auto;
 		clip-path: circle(0.3% at 100% 0);
 		transition: clip-path 0.5s ease-in;
-		background: var(--capitola-color-background);
+		background: var(--wp--custom--color--bg);
 		z-index: -1;
 
 		.--is-shown & {
@@ -357,7 +357,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 
 		+.wp-block-capitola-nav__menu-item {
 			margin-top: var(--wp--preset--spacing--small);
@@ -381,7 +381,7 @@
 				.wp-block-capitola-nav__menu-item-caret {
 
 					@include mq("large") {
-						background: var(--capitola-color-link-hover);
+						background: var(--wp--custom--color--link-hover);
 					}
 				}
 			}
@@ -392,7 +392,7 @@
 				.wp-block-capitola-nav__menu-item-caret {
 
 					@include mq("large") {
-						background: var(--capitola-color-link-hover);
+						background: var(--wp--custom--color--link-hover);
 					}
 				}
 			}
@@ -405,7 +405,7 @@
 			flex: 0 0 20px;
 			height: 20px;
 			cursor: pointer;
-			background: var(--capitola-color-link);
+			background: var(--wp--custom--color--link);
 			mask: url(@capitola-svgs/arrows/fa-angle-down.svg) center / contain no-repeat;
 			transform: rotate(-90deg);
 			transition: background-color var(--wp--custom--transitions--default), transform var(--wp--custom--transitions--default);
@@ -413,7 +413,7 @@
 			&:hover,
 			&:focus,
 			&:active {
-				background: var(--capitola-color-link-hover);
+				background: var(--wp--custom--color--link-hover);
 			}
 
 			@include mq("large") {
@@ -432,7 +432,7 @@
 				display: block;
 				width: 20px;
 				height: 1em;
-				background: var(--capitola-color-link);
+				background: var(--wp--custom--color--link);
 				mask: url(@capitola-svgs/arrows/fa-angle-down.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 			}
@@ -445,10 +445,10 @@
 
 		font: {
 			weight: var(--wp--custom--font-weight--bold);
-			size: var(--capitola-nav-link-fontSize);
+			size: var(--wp--custom--nav--link-font-size);
 		}
 
-		color: var(--capitola-color-link);
+		color: var(--wp--custom--color--link);
 		transition: color var(--wp--custom--transitions--default);
 		text-decoration: none;
 
@@ -457,7 +457,7 @@
 			&:hover,
 			&:active,
 			&:focus {
-				color: var(--capitola-color-link-hover);
+				color: var(--wp--custom--color--link-hover);
 			}
 		}
 	}
@@ -493,7 +493,7 @@
 
 			@include mq("large") {
 				display: block;
-				font-size: var(--capitola-nav-link-fontSize);
+				font-size: var(--wp--custom--nav--link-font-size);
 				padding: var(--wp--preset--spacing--xsmall) var(--wp--preset--spacing--medium);
 			}
 		}
@@ -517,7 +517,7 @@
 		.burger-line {
 			height: 3px;
 			width: 100%;
-			background: var(--capitola-color-link);
+			background: var(--wp--custom--color--link);
 			border-radius: var(--wp--preset--border-radius--full);
 			transition: background-color var(--wp--custom--transitions--default), transform 1s, opacity 1s, transform-origin 1s;
 		}
@@ -526,7 +526,7 @@
 		&:focus {
 
 			.burger-line {
-				background: var(--capitola-color-link-hover);
+				background: var(--wp--custom--color--link-hover);
 			}
 		}
 
@@ -544,7 +544,7 @@
 			position: relative;
 			width: 24px;
 			height: 24px;
-			background: var(--capitola-color-link);
+			background: var(--wp--custom--color--link);
 			mask: url(@capitola-svgs/utility/fa-magnifying-glass.svg) center / contain no-repeat;
 			transition: background-color var(--wp--custom--transitions--default);
 			cursor: pointer;
@@ -552,7 +552,7 @@
 			&:hover,
 			&:focus,
 			&:active {
-				background: var(--capitola-color-link-hover);
+				background: var(--wp--custom--color--link-hover);
 			}
 		}
 	}
@@ -582,7 +582,7 @@
 			inset: 0;
 			height: 100dvh;
 			z-index: 999999999;
-			background: var(--capitola-color-background);
+			background: var(--wp--custom--color--bg);
 			clip-path: circle(0.3% at 100% 0);
 			transition: clip-path 0.5s ease-in;
 		}
@@ -616,14 +616,14 @@
 				border: none;
 				outline: none;
 				cursor: pointer;
-				background: var(--capitola-color-body);
+				background: var(--wp--custom--color--body);
 				mask: url(@capitola-svgs/symbols/fa-xmark.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:active,
 				&:focus {
-					background: var(--capitola-color-link);
+					background: var(--wp--custom--color--link);
 				}
 			}
 		}
@@ -633,7 +633,7 @@
 
 			@include mq("large") {
 				display: block;
-				color: var(--capitola-color-body);
+				color: var(--wp--custom--color--body);
 			}
 		}
 
@@ -652,14 +652,14 @@
 				height: 25px;
 				align-self: center;
 				margin-left: -25px;
-				background: var(--capitola-color-body);
+				background: var(--wp--custom--color--body);
 				mask: url(@capitola-svgs/utility/fa-magnifying-glass.svg) center / contain no-repeat;
 				transition: background-color var(--wp--custom--transitions--default);
 
 				&:hover,
 				&:focus,
 				&:active {
-					background: var(--capitola-color-link);
+					background: var(--wp--custom--color--link);
 				}
 			}
 
@@ -670,10 +670,10 @@
 				border: none;
 				flex: 1 0 0;
 				height: 60px;
-				color: var(--capitola-color-body);
+				color: var(--wp--custom--color--body);
 				font-size: 1.25rem;
 				letter-spacing: 0.8px;
-				background: transparent linear-gradient(90deg, var(--capitola-color-accent) 0%, var(--capitola-color-accent) 50%, var(--capitola-color-body) 50%, var(--capitola-color-body) 100%) no-repeat scroll 100% 100% / 200% 4px padding-box border-box;
+				background: transparent linear-gradient(90deg, var(--wp--custom--color--accent) 0%, var(--wp--custom--color--accent) 50%, var(--wp--custom--color--body) 50%, var(--wp--custom--color--body) 100%) no-repeat scroll 100% 100% / 200% 4px padding-box border-box;
 				transition: background-position var(--wp--custom--transitions--default);
 
 				&::-webkit-search-decoration,
@@ -684,7 +684,7 @@
 				}
 
 				&::placeholder {
-					color: var(--capitola-color-body);
+					color: var(--wp--custom--color--body);
 					opacity: 0.8;
 				}
 

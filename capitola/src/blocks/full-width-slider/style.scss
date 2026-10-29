@@ -43,7 +43,7 @@
 
 			&.--sticky {
 				position: sticky;
-				top: calc(var(--capitola-header-height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
+				top: calc(var(--wp--custom--nav--height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
 			}
 		}
 	}
@@ -52,7 +52,7 @@
 		min-width: 0;
 
 		.swiper {
-			--swiper-button-size: 32px;
+			--wp--custom--swiper-button-size: 32px;
 			position: relative;
 			touch-action: pan-y;
 			overflow: hidden;
@@ -126,17 +126,17 @@
 				width: 24px;
 				height: 24px;
 				border-radius: var(--wp--preset--border-radius--full);
-				border: 1px solid var(--capitola-color-button);
+				border: 1px solid var(--wp--custom--color--button-bg);
 				cursor: pointer;
 				transition: box-shadow var(--wp--custom--transitions--default);
 
 				&-active {
 					opacity: 1;
-					background: var(--capitola-color-button);
+					background: var(--wp--custom--color--button-bg);
 				}
 
 				&:hover {
-					box-shadow: 0 0 0 1px var(--capitola-color-button);
+					box-shadow: 0 0 0 1px var(--wp--custom--color--button-bg);
 				}
 			}
 		}

@@ -382,7 +382,7 @@ export function Edit( props ) {
 					} }
 					style={ {
 						flexBasis: 'unset',
-						'--capitola-flex-basis': mediaWidth + '%',
+						'--wp--custom--figure-col-width': mediaWidth + '%',
 						position: stickyClass ? 'sticky' : 'relative',
 					} }
 					minWidth="20%"

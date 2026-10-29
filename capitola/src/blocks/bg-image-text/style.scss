@@ -20,7 +20,7 @@
 			height: 100%;
 			object: {
 				fit: cover;
-				position: var(--capitola-objectPosition);
+				position: var(--wp--custom--object-position);
 			}
 		}
 
@@ -71,7 +71,7 @@
 			content: "";
 			position: absolute;
 			inset: 0;
-			background: var(--capitola-color-background);
+			background: var(--wp--custom--color--bg);
 			opacity: 0.8;
 		}
 	}

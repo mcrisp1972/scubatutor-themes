@@ -44,11 +44,11 @@ function ImageCard( {
 			className={ `${ className }` }
 			style={ {
 				borderRadius: `var(--wp--preset--border-radius--${ radius } )`,
-				'--image-top-pos': topPos,
-				'--image-left-pos': leftPos,
-				'--image-height': height,
-				'--image-width': width,
-				'--capitola-objectPosition': focalPoint,
+				'--wp--custom--image-top-pos': topPos,
+				'--wp--custom--image-left-pos': leftPos,
+				'--wp--custom--image-height': height,
+				'--wp--custom--image-width': width,
+				'--wp--custom--object-position': focalPoint,
 			} }
 		>
 			{ image?.source_url ? <img src={ image?.source_url } alt="" /> : <PlaceholderImage /> }
@@ -650,7 +650,7 @@ export function Edit( props ) {
 					} }
 					style={ {
 						flexBasis: 'unset',
-						'--capitola-flex-basis': mediaWidth + '%',
+						'--wp--custom--figure-col-width': mediaWidth + '%',
 						aspectRatio: `var(--wp--preset--aspect-ratio--${ gridAspectRatio })`,
 					} }
 					minWidth="20%"
