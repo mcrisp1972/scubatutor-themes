@@ -20,7 +20,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<figure
 		class="wp-block-capitola-sticky-images__mobile-imageratio"
-		style="<?php echo esc_attr( $radius_style ); ?>--capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
+		style="<?php echo esc_attr( $radius_style ); ?>--wp--custom--object-position: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
 		<?php echo wp_get_attachment_image( $attributes['sideImage']['id'], 'large' ); ?>
 		<?php if ( $attributes['showCaption'] ) : ?>
 			<?php if ( $caption ) : ?>

@@ -25,7 +25,7 @@
 
 	figcaption {
 		@include text-s;
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		margin: var(--wp--preset--spacing--xsmall) 0 0;
 	}
 }

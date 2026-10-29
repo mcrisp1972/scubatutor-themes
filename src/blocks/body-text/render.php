@@ -42,7 +42,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $attributes['backgroundImage']['id'] ) : ?>
-		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( img_scroll_animation_class( ( $attributes['imageScrollAnimation'] ) ) ); ?>" style="--capitola-overlayOpacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
+		<div class="wp-block-capitola-body-text__bg-image <?php echo esc_attr( img_scroll_animation_class( ( $attributes['imageScrollAnimation'] ) ) ); ?>" style="--wp--custom--overlay-opacity: <?php echo esc_attr( $attributes['imageOpacity'] ); ?>; --wp--custom--object-position: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;">
 			<?php echo wp_get_attachment_image( $attributes['backgroundImage']['id'], 'large' ); ?>
 		</div>
 	<?php endif; ?>

@@ -46,7 +46,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-side-image__width <?php echo 'inner' === $attributes['imageLayout'] ? 'alignwide' : 'alignfull'; ?> <?php echo esc_attr( $class ); ?><?php echo esc_attr( $animations['block-class'] ); ?><?php echo ( 'top' === $attributes['verticalAlign'] ? ' --align-top' : '' ); ?>" style="<?php echo $animations['block-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
-		<div class="wp-block-capitola-side-image__imagewrap <?php echo esc_attr( $sticky_class . ' ' . $parallax_class ); ?>" style="--capitola-objectPosition: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
+		<div class="wp-block-capitola-side-image__imagewrap <?php echo esc_attr( $sticky_class . ' ' . $parallax_class ); ?>" style="--wp--custom--object-position: <?php echo esc_attr( $attributes['imageFocalPoint'] ); ?>;--wp--custom--figure-col-width: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php if ( 'inner' === $attributes['imageLayout'] ) : ?>
 				<figure class="wp-block-capitola-side-image__imageratio <?php echo esc_attr( $animations['figure-class'] ); ?>" style="<?php echo $animations['figure-styles']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 			<?php endif; ?>

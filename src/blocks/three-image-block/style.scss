@@ -25,7 +25,7 @@
 		grid: repeat(20, 1fr) / repeat(20, 1fr);
 
 		@include mq("50-50") {
-			flex: 0 0 var(--capitola-flex-basis);
+			flex: 0 0 var(--wp--custom--figure-col-width);
 		}
 	}
 
@@ -44,29 +44,29 @@
 
 		.--rear-position-top-left & {
 			grid: {
-				row: 1 / span var(--image-height);
-				column: 1 / span var(--image-width);
+				row: 1 / span var(--wp--custom--image-height);
+				column: 1 / span var(--wp--custom--image-width);
 			}
 		}
 
 		.--rear-position-top-right & {
 			grid: {
-				column: span var(--image-width) / 21;
-				row: 1 / span var(--image-height);
+				column: span var(--wp--custom--image-width) / 21;
+				row: 1 / span var(--wp--custom--image-height);
 			}
 		}
 
 		.--rear-position-bottom-left & {
 			grid: {
-				column: 1 / span var(--image-width);
-				row: span var(--image-height) / 21;
+				column: 1 / span var(--wp--custom--image-width);
+				row: span var(--wp--custom--image-height) / 21;
 			}
 		}
 
 		.--rear-position-bottom-right & {
 			grid: {
-				column: span var(--image-width) / 21;
-				row: span var(--image-height) / 21;
+				column: span var(--wp--custom--image-width) / 21;
+				row: span var(--wp--custom--image-height) / 21;
 			}
 		}
 	}
@@ -74,8 +74,8 @@
 	&__middle-image {
 
 		grid: {
-			column: var(--image-left-pos) / span var(--image-width);
-			row: var(--image-top-pos) / span var(--image-height);
+			column: var(--wp--custom--image-left-pos) / span var(--wp--custom--image-width);
+			row: var(--wp--custom--image-top-pos) / span var(--wp--custom--image-height);
 		}
 	}
 
@@ -83,29 +83,29 @@
 
 		.--rear-position-top-left & {
 			grid: {
-				column: span var(--image-width) / 21;
-				row: span var(--image-height) / 21;
+				column: span var(--wp--custom--image-width) / 21;
+				row: span var(--wp--custom--image-height) / 21;
 			}
 		}
 
 		.--rear-position-top-right & {
 			grid: {
-				column: 1 / span var(--image-width);
-				row: span var(--image-height) / 21;
+				column: 1 / span var(--wp--custom--image-width);
+				row: span var(--wp--custom--image-height) / 21;
 			}
 		}
 
 		.--rear-position-bottom-left & {
 			grid: {
-				column: span var(--image-width) / 21;
-				row: 1 / span var(--image-height);
+				column: span var(--wp--custom--image-width) / 21;
+				row: 1 / span var(--wp--custom--image-height);
 			}
 		}
 
 		.--rear-position-bottom-right & {
 			grid: {
-				column: 1 / span var(--image-width);
-				row: 1 / span var(--image-height);
+				column: 1 / span var(--wp--custom--image-width);
+				row: 1 / span var(--wp--custom--image-height);
 			}
 		}
 	}
@@ -113,7 +113,7 @@
 	img {
 		object: {
 			fit: cover;
-			position: var(--capitola-objectPosition);
+			position: var(--wp--custom--object-position);
 		}
 
 		width: 100%;

@@ -22,7 +22,7 @@
 	}
 
 	&__scroll-buttons {
-		--swiper-button-size: 32px;
+		--wp--custom--swiper-button-size: 32px;
 		display: flex;
 		position: relative;
 		gap: var(--wp--preset--spacing--xsmall);
@@ -34,7 +34,7 @@
 			@include swiper-button(false);
 
 			&-pagination {
-				color: var(--capitola-color-body);
+				color: var(--wp--custom--color--body);
 			}
 		}
 	}
@@ -75,7 +75,7 @@
 						min-height: 100%;
 
 						&.--contain {
-							border: 1px solid var(--capitola-color-background);
+							border: 1px solid var(--wp--custom--color--bg);
 							border-radius: var(--wp--preset--border-radius--small) 0 0 var(--wp--preset--border-radius--small);
 						}
 					}
@@ -224,7 +224,7 @@
 			gap: var(--wp--preset--spacing--medium);
 
 			.capitola-result {
-				--capitola-color-background: var(--wp--preset--color--white);
+				--wp--custom--color--bg: var(--wp--preset--color--white);
 				flex-basis: 150px;
 
 				&__link {
@@ -270,10 +270,10 @@
 }
 
 .capitola-result {
-	--capitola-color-accent: var(--capitola-color-tile-primary);
-	--capitola-color-body: var(--capitola-color-tile-body);
-	--capitola-color-background: var(--capitola-color-tile-background);
-	background: var(--capitola-color-background);
+	--wp--custom--color--accent: var(--wp--custom--color--tile-primary);
+	--wp--custom--color--body: var(--wp--custom--color--tile-body);
+	--wp--custom--color--bg: var(--wp--custom--color--tile-bg);
+	background: var(--wp--custom--color--bg);
 	overflow: hidden;
 	border-radius: var(--wp--preset--border-radius--small);
 
@@ -290,7 +290,7 @@
 
 			.--cta {
 				@include cta-hover {
-					color: var(--capitola-color-body);
+					color: var(--wp--custom--color--body);
 				}
 			}
 
@@ -305,7 +305,7 @@
 			.capitola-result__content {
 
 				.capitola-result__cta.--cta.--tertiary {
-					color: var(--capitola-color-tile-primary);
+					color: var(--wp--custom--color--tile-primary);
 				}
 			}
 		}
@@ -325,7 +325,7 @@
 		background: var(--wp--preset--color--white);
 
 		&.--contain {
-			border: 1px solid var(--capitola-color-background);
+			border: 1px solid var(--wp--custom--color--bg);
 			border-bottom: none;
 			border-radius: var(--wp--preset--border-radius--small) var(--wp--preset--border-radius--small) 0 0;
 
@@ -375,7 +375,7 @@
 		}
 
 		.capitola-result__cta.--cta {
-			color: var(--capitola-color-body);
+			color: var(--wp--custom--color--body);
 		}
 	}
 
@@ -388,7 +388,7 @@
 		position: relative;
 		text-align: center;
 		font-weight: var(--wp--custom--font-weight--bold);
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		margin-top: var(--wp--preset--spacing--xsmall);
 	}
 
@@ -405,17 +405,17 @@
 	}
 
 	&__title {
-		color: var(--capitola-color-tile-primary);
+		color: var(--wp--custom--color--tile-primary);
 		margin-top: 0;
 	}
 
 	&__subtitle {
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 	}
 
 	&__byline {
 		display: flex;
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		gap: var(--wp--preset--spacing--small);
 		flex: 0 1 auto;
 		align-items: center;
@@ -444,13 +444,13 @@
 
 	// increasing specificity to override root p
 	.capitola-result__excerpt {
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		@include truncate-lines;
 		margin: 0;
 	}
 
 	&__product-meta {
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 
 		&-detail {
 			display: flex;

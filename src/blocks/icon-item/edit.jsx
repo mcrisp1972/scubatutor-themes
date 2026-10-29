@@ -32,7 +32,7 @@ export function Edit( props ) {
 				<div
 					className="wp-block-capitola-icon-item__icon"
 					style={ {
-						'--capitola-icon-image': `url(/wp-content/themes/${ themeObj?.template }/assets/svgs/${ icon }.svg)`,
+						'--wp--custom--icon-image': `url(/wp-content/themes/${ themeObj?.template }/assets/svgs/${ icon }.svg)`,
 					} }
 				></div>
 			</div>

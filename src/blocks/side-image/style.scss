@@ -1,7 +1,7 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-side-image {
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	padding-top: var(--wp--custom--spacing--block-padding);
 	padding-bottom: var(--wp--custom--spacing--block-padding);
 
@@ -62,12 +62,12 @@
 			flex: 0 0 50%;
 
 			.--inset-img & {
-				flex: 0 0 var(--capitola-flex-basis);
+				flex: 0 0 var(--wp--custom--figure-col-width);
 			}
 
 			&.--sticky {
 				position: sticky;
-				top: calc(var(--capitola-header-height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
+				top: calc(var(--wp--custom--nav--height) + var(--wp--custom--spacing--block-padding) + var(--wp-admin--admin-bar--height, 0px));
 			}
 		}
 	}
@@ -101,7 +101,7 @@
 
 		object: {
 			fit: cover;
-			position: var(--capitola-objectPosition);
+			position: var(--wp--custom--object-position);
 		}
 	}
 
@@ -169,7 +169,7 @@
 	}
 
 	figcaption {
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 		margin-top: var(--wp--preset--spacing--xsmall);
 	}
 }

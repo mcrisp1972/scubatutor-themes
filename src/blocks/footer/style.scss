@@ -1,8 +1,8 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-footer {
-	background: var(--capitola-color-background);
-	color: var(--capitola-color-body);
+	background: var(--wp--custom--color--bg);
+	color: var(--wp--custom--color--body);
 	padding-block: var(--wp--custom--spacing--block-padding);
 
 	a:not(.wp-block-capitola-footer__social-link) {
@@ -43,7 +43,7 @@
 	&__top-link a {
 		@include text-m;
 		font-weight: var(--wp--custom--font-weight--bold);
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 	}
 
 	.wp-block-capitola-nav-sublink__link {
@@ -124,14 +124,14 @@
 		display: block;
 		height: 30px;
 		width: 30px;
-		background: var(--capitola-color-body);
+		background: var(--wp--custom--color--body);
 		mask: url(@capitola-svgs/social/fa-x-twitter.svg) center / contain no-repeat;
 		transition: background-color var(--wp--custom--transitions--default);
 
 		&:hover,
 		&:active,
 		&:focus {
-			background: var(--capitola-color-link);
+			background: var(--wp--custom--color--link);
 		}
 
 		&.--twitter {
@@ -188,7 +188,7 @@
 			text-decoration: none;
 
 			&::before {
-				background: var(--capitola-color-link);
+				background: var(--wp--custom--color--link);
 			}
 		}
 
@@ -225,7 +225,7 @@
 	position: fixed;
 	inset: auto 0 0 0;
 	z-index: 1;
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	padding-block: var(--wp--preset--spacing--small);
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
@@ -233,7 +233,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--wp--preset--spacing--medium);
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 	}
 
 	&__notice {

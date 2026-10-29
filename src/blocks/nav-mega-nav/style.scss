@@ -40,8 +40,8 @@
 			inset: 80px 0 auto 50%;
 			width: 100dvw;
 			transform: translateX(-50%);
-			background: var(--capitola-color-background);
-			transition: grid-template-rows var(--capitola-dropdownSpeed);
+			background: var(--wp--custom--color--bg);
+			transition: grid-template-rows var(--wp--custom--nav--dropdown-speed);
 
 			&:has(a:focus) {
 				grid-template-rows: 1fr;
@@ -61,7 +61,7 @@
 			display: grid;
 			grid: auto auto 1fr / 1fr auto;
 			column-gap: var(--wp--preset--spacing--medium);
-			background: var(--capitola-color-background);
+			background: var(--wp--custom--color--bg);
 		}
 	}
 

@@ -128,7 +128,7 @@
 			position: absolute;
 			overflow: auto;
 			inset: 0;
-			background: var(--capitola-color-background);
+			background: var(--wp--custom--color--bg);
 		}
 
 		@include mq("medium") {
@@ -141,7 +141,7 @@
 		}
 
 		&-count {
-			color: var(--capitola-color-body);
+			color: var(--wp--custom--color--body);
 
 			@include mq("large") {
 				flex: 1 1 auto;
@@ -153,7 +153,7 @@
 			label {
 				@include form-label;
 				display: block;
-				color: var(--capitola-color-body);
+				color: var(--wp--custom--color--body);
 			}
 		}
 
@@ -199,7 +199,7 @@
 						cursor: pointer;
 
 						&:hover {
-							background: var(--capitola-color-link);
+							background: var(--wp--custom--color--link);
 						}
 					}
 				}
@@ -208,7 +208,7 @@
 			&:hover {
 
 				&::before {
-					background: var(--capitola-color-link);
+					background: var(--wp--custom--color--link);
 				}
 			}
 		}
@@ -225,9 +225,9 @@
 			-webkit-appearance: none;
 			height: 44px;
 			border: none;
-			border-bottom: 1px solid var(--capitola-color-body);
+			border-bottom: 1px solid var(--wp--custom--color--body);
 			border-radius: 0;
-			color: var(--capitola-color-body);
+			color: var(--wp--custom--color--body);
 			background: none;
 			padding: 0;
 			transition:
@@ -238,10 +238,10 @@
 			&:focus,
 			&:hover,
 			&:active {
-				border-bottom: 1px solid var(--capitola-color-link);
-				box-shadow: 0 1px 0 0 var(--capitola-color-link);
+				border-bottom: 1px solid var(--wp--custom--color--link);
+				box-shadow: 0 1px 0 0 var(--wp--custom--color--link);
 				outline: none;
-				color: var(--capitola-color-body);
+				color: var(--wp--custom--color--body);
 			}
 		}
 	}

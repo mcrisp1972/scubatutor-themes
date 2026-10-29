@@ -81,20 +81,20 @@
 
 		.--has-icon-background & {
 			border-radius: var(--wp--preset--border-radius--full);
-			background: var(--capitola-color-tile-background);
+			background: var(--wp--custom--color--tile-bg);
 		}
 	}
 
 	&__icon {
-		mask: var(--capitola-icon-image) center / contain no-repeat;
-		background: var(--capitola-color-tile-background);
+		mask: var(--wp--custom--icon-image) center / contain no-repeat;
+		background: var(--wp--custom--color--tile-bg);
 		height: 100%;
 		width: 100%;
 
 		.--has-icon-background & {
 			height: 50%;
 			width: 50%;
-			background: var(--capitola-color-tile-body);
+			background: var(--wp--custom--color--tile-body);
 		}
 	}
 

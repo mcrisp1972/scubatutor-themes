@@ -260,8 +260,8 @@ export function Edit( props ) {
 				<div
 					className="wp-block-capitola-body-text__bg-image"
 					style={ {
-						'--capitola-overlayOpacity': imageOpacity,
-						'--capitola-objectPosition': imageFocalPoint,
+						'--wp--custom--overlay-opacity': imageOpacity,
+						'--wp--custom--object-position': imageFocalPoint,
 					} }
 				>
 					<img src={ backgroundImage.source_url } alt="" />

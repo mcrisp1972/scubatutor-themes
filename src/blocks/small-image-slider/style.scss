@@ -36,10 +36,10 @@
 	&__swiper {
 		position: relative;
 		touch-action: pan-y;
-		--swiper-button-size: 32px;
+		--wp--custom--swiper-button-size: 32px;
 
 		@include mq("wide") {
-			--swiper-button-size: 48px;
+			--wp--custom--swiper-button-size: 48px;
 		}
 	}
 
@@ -126,14 +126,14 @@
 		top: 50%;
 
 		.--square & {
-			$nav-width: calc(260px + (var(--swiper-button-size) * 2) + 20px);
+			$nav-width: calc(260px + (var(--wp--custom--swiper-button-size) * 2) + 20px);
 			width: $nav-width;
 			left: calc(50% - ($nav-width / 2));
 		}
 
 		.--landscape & {
-			max-width: calc(636px + (var(--swiper-button-size) * 2) + 20px);
-			width: calc((60% * 1.2) + (var(--swiper-button-size) * 2));
+			max-width: calc(636px + (var(--wp--custom--swiper-button-size) * 2) + 20px);
+			width: calc((60% * 1.2) + (var(--wp--custom--swiper-button-size) * 2));
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
@@ -143,7 +143,7 @@
 		@include contentSize;
 		margin-top: var(--wp--preset--spacing--small);
 		text-align: center;
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 
 		span {
 			animation: small-image-slider--fadeIn 3s;

@@ -95,13 +95,13 @@ function animation_attributes( $attributes, $force_body = false ) {
 	}
 
 	$gsap_styles = array(
-		'fadeIn'     => '--reveal-x-position: 0; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+		'fadeIn'     => '--wp--custom--reveal-x-position: 0; --wp--custom--reveal-y-position: 0; --wp--custom--reveal-duration: ' . $animation['duration'] . 's; --wp--custom--reveal-easing: ' . $animation['easing'] . ';',
 
-		'fadeUp'     => '--reveal-x-position: 0; --reveal-y-position: ' . $animation['startPosition'] . '; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+		'fadeUp'     => '--wp--custom--reveal-x-position: 0; --wp--custom--reveal-y-position: ' . $animation['startPosition'] . '; --wp--custom--reveal-duration: ' . $animation['duration'] . 's; --wp--custom--reveal-easing: ' . $animation['easing'] . ';',
 
-		'sideReveal' => '--reveal-x-position: ' . $animation['startPosition'] . '; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+		'sideReveal' => '--wp--custom--reveal-x-position: ' . $animation['startPosition'] . '; --wp--custom--reveal-y-position: 0; --wp--custom--reveal-duration: ' . $animation['duration'] . 's; --wp--custom--reveal-easing: ' . $animation['easing'] . ';',
 
-		'sideShift'  => '--reveal-x-position: ' . $animation['startPosition'] . '; --reveal-y-position: 0; --reveal-duration: ' . $animation['duration'] . 's; --reveal-easing: ' . $animation['easing'] . ';',
+		'sideShift'  => '--wp--custom--reveal-x-position: ' . $animation['startPosition'] . '; --wp--custom--reveal-y-position: 0; --wp--custom--reveal-duration: ' . $animation['duration'] . 's; --wp--custom--reveal-easing: ' . $animation['easing'] . ';',
 	);
 
 	$class = '';

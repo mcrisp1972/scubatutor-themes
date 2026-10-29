@@ -1,7 +1,7 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-open-content {
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	padding-block: var(--wp--custom--spacing--block-padding);
 
 	&__content {

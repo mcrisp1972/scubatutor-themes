@@ -17,7 +17,7 @@
 	&__tabs {
 		display: flex;
 		flex-wrap: wrap;
-		border-bottom: 1px solid var(--capitola-color-accent);
+		border-bottom: 1px solid var(--wp--custom--color--accent);
 	}
 
 	&__tab {
@@ -25,17 +25,17 @@
 		padding: var(--wp--preset--spacing--xsmall) var(--wp--preset--spacing--small);
 		border: 1px solid transparent;
 		border-bottom: unset;
-		color: var(--capitola-color-accent);
+		color: var(--wp--custom--color--accent);
 		font-weight: var(--wp--custom--font-weight--bold);
 		transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default), border-color var(--wp--custom--transitions--default);
 
 		&.--is-selected {
-			background: var(--capitola-color-accent);
-			color: var(--capitola-color-background);
+			background: var(--wp--custom--color--accent);
+			color: var(--wp--custom--color--bg);
 
 			&:focus-visible {
 				background: none;
-				color: var(--capitola-color-accent);
+				color: var(--wp--custom--color--accent);
 			}
 		}
 

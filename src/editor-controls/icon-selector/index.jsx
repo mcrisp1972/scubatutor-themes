@@ -23,7 +23,7 @@ export function IconSelector( { label, value, onChange, icons, iconPath } ) {
 				name: icon.name,
 				key: icon.slug,
 				style: {
-					'--icon': icon.slug
+					'--icon-path': icon.slug
 						? `url(/wp-content/themes/${ themeObj?.template }/${ iconPath }/${ selectedCategory }/${ icon.slug }.svg)`
 						: '',
 				},

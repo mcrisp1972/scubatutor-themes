@@ -1,7 +1,7 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-fixed-background {
-	$sticky-height: calc(100dvh - var(--capitola-admin-blockEditorAdminbar-height) - var(--capitola-admin-blockEditorToolbar-height) - var(--capitola-admin-blockEditorFooter-height));
+	$sticky-height: calc(100dvh - var(--wp--custom--admin--block-editor-adminbar-height) - var(--wp--custom--admin--block-editor-toolbar-height) - var(--wp--custom--admin--block-editor-footer-height));
 
 	position: relative;
 	overflow: hidden;

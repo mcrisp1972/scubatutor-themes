@@ -179,7 +179,7 @@ export function Edit( props ) {
 					} }
 					style={ {
 						flexBasis: 'unset',
-						'--capitola-flex-basis': mediaWidth + '%',
+						'--wp--custom--figure-col-width': mediaWidth + '%',
 					} }
 					minWidth="20%"
 					maxWidth={ isMobile ? '100%' : '50%' }
@@ -218,7 +218,7 @@ export function Edit( props ) {
 											imageLayout === 'inner'
 												? `var(--wp--preset--border-radius--${ imageRadius })`
 												: '0',
-										'--capitola-objectPosition':
+										'--wp--custom--object-position':
 											innerBlocks[ index ].attributes.imageFocalPoint,
 									} }
 								>

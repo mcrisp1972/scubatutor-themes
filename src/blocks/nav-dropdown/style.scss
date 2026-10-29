@@ -36,8 +36,8 @@
 			position: absolute;
 			top: 100%;
 			min-width: 100%;
-			background: var(--capitola-color-background);
-			transition: grid-template-rows var(--capitola-dropdownSpeed);
+			background: var(--wp--custom--color--bg);
+			transition: grid-template-rows var(--wp--custom--nav--dropdown-speed);
 
 			&.--right-align {
 				right: 0;
