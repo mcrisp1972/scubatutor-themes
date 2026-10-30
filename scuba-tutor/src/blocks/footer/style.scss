@@ -1,8 +1,8 @@
 @use "@capitola/styles/abstracts" as *;
 
 .wp-block-capitola-footer {
-	background: var(--capitola-color-background);
-	color: var(--capitola-color-body);
+	background: var(--wp--custom--color--bg);
+	color: var(--wp--custom--color--body);
 	padding-block: var(--wp--preset--spacing--small);
 
 	&__grid {
@@ -26,7 +26,7 @@
 	position: fixed;
 	inset: auto 0 0 0;
 	z-index: 1;
-	background: var(--capitola-color-background);
+	background: var(--wp--custom--color--bg);
 	padding-block: var(--wp--preset--spacing--small);
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 
@@ -34,7 +34,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--wp--preset--spacing--medium);
-		color: var(--capitola-color-body);
+		color: var(--wp--custom--color--body);
 	}
 
 	&__notice {
