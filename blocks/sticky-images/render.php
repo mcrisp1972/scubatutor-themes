@@ -20,12 +20,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 <section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="wp-block-capitola-sticky-images__width <?php echo 'full' === $attributes['imageLayout'] ? 'alignfull' : 'alignwide'; ?> js-stickyImagesContainer">
-		<div class="wp-block-capitola-sticky-images__image-column" style="--capitola-flex-basis: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
+		<div class="wp-block-capitola-sticky-images__image-column" style="--wp--custom--figure-col-width: <?php echo esc_attr( $attributes['mediaWidth'] ); ?>%;">
 			<?php foreach ( $images as $key => $image ) : ?>
 				<div class="wp-block-capitola-sticky-images__imagewrap js-stickyImagesImage">
 					<div
 						class="wp-block-capitola-sticky-images__imageratio"
-						style="<?php echo 'inner' === $attributes['imageLayout'] ? 'border-radius: var(--wp--preset--border-radius--' . esc_attr( $attributes['imageRadius'] ) . '); ' : ''; ?>--capitola-objectPosition: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageFocalPoint'] ); ?>;">
+						style="<?php echo 'inner' === $attributes['imageLayout'] ? 'border-radius: var(--wp--preset--border-radius--' . esc_attr( $attributes['imageRadius'] ) . '); ' : ''; ?>--wp--custom--object-position: <?php echo esc_attr( $block->inner_blocks[ $key ]->attributes['imageFocalPoint'] ); ?>;">
 						<?php echo wp_get_attachment_image( $image['id'], 'large' ); ?>
 						<?php if ( $block->inner_blocks[ $key ]->attributes['showCaption'] ) : ?>
 							<?php

@@ -22,7 +22,7 @@ if ( ! $image_id ) {
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => '--theme-image-overlay',
-		'style' => '--capitola-overlayOpacity: ' . $attributes['imageOpacity'] . ';',
+		'style' => '--wp--custom--overlay-opacity: ' . $attributes['imageOpacity'] . ';',
 	)
 );
 
