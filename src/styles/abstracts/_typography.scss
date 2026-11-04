@@ -2,43 +2,10 @@
 @use "mixins" as *;
 @use "variables" as *;
 
-@mixin headline-xxl {
+@mixin headline-xs {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-xxl);
-		weight: var(--wp--custom--font-weight--hl);
-	}
-	line-height: var(--wp--custom--line-height--hl);
-	color: var(--wp--custom--color--headline);
-	margin-block: 0;
-}
-
-@mixin headline-xl {
-	font: {
-		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-xl);
-		weight: var(--wp--custom--font-weight--hl);
-	}
-	line-height: var(--wp--custom--line-height--hl);
-	color: var(--wp--custom--color--headline);
-	margin-block: 0;
-}
-
-@mixin headline-l {
-	font: {
-		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-l);
-		weight: var(--wp--custom--font-weight--hl);
-	}
-	line-height: var(--wp--custom--line-height--hl);
-	color: var(--wp--custom--color--headline);
-	margin-block: 0;
-}
-
-@mixin headline-m {
-	font: {
-		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-m);
+		size: var(--wp--preset--font-size--medium);
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
@@ -49,7 +16,7 @@
 @mixin headline-s {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-s);
+		size: var(--wp--preset--font-size--large);
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
@@ -57,10 +24,10 @@
 	margin-block: 0;
 }
 
-@mixin headline-xs {
+@mixin headline-m {
 	font: {
 		family: var(--wp--preset--font-family--heading);
-		size: var(--wp--custom--font-size--hl-xs);
+		size: var(--wp--preset--font-size--x-large);
 		weight: var(--wp--custom--font-weight--hl);
 	}
 	line-height: var(--wp--custom--line-height--hl);
@@ -68,20 +35,42 @@
 	margin-block: 0;
 }
 
-@mixin text-l {
-	font-size: var(--wp--custom--font-size--p-l);
+@mixin headline-l {
+	font: {
+		family: var(--wp--preset--font-family--heading);
+		size: var(--wp--preset--font-size--xx-large);
+		weight: var(--wp--custom--font-weight--hl);
+	}
+	line-height: var(--wp--custom--line-height--hl);
+	color: var(--wp--custom--color--headline);
+	margin-block: 0;
 }
 
-@mixin text-m {
-	font-size: var(--wp--custom--font-size--p-m);
-}
-
-@mixin text-s {
-	font-size: var(--wp--custom--font-size--p-s);
+@mixin headline-xl {
+	font: {
+		family: var(--wp--preset--font-family--heading);
+		size: var(--wp--preset--font-size--xxx-large);
+		weight: var(--wp--custom--font-weight--hl);
+	}
+	line-height: var(--wp--custom--line-height--hl);
+	color: var(--wp--custom--color--headline);
+	margin-block: 0;
 }
 
 @mixin text-xs {
-	font-size: var(--wp--custom--font-size--p-xs);
+	font-size: var(--wp--preset--font-size--xx-small);
+}
+
+@mixin text-s {
+	font-size: var(--wp--preset--font-size--x-small);
+}
+
+@mixin text-m {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+@mixin text-l {
+	font-size: var(--wp--preset--font-size--medium);
 }
 
 @mixin eyebrow {

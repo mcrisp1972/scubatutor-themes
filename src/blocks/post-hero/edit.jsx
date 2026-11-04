@@ -193,7 +193,7 @@ export function Edit( props ) {
 			) }
 			{ ! isTemplate && (
 				<RichText
-					className="wp-block-capitola-post-hero__title --hl-xxl"
+					className="wp-block-capitola-post-hero__title --hl-xl"
 					placeholder={ postTitle ? postTitle : 'Headline...' }
 					value={ headline }
 					onChange={ ( value ) => {

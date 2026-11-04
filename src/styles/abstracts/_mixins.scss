@@ -20,7 +20,7 @@
 @mixin unstyle-button {
 	font: {
 		family: var(--wp--preset--font-family--primary);
-		size: var(--wp--custom--font-size--p-m);
+		size: var(--wp--preset--font-size--small);
 	}
 	border: none;
 	background: none;
@@ -373,7 +373,7 @@
 	justify-content: center;
 	align-items: center;
 	font: {
-		size: var(--wp--custom--font-size--p-xs);
+		size: var(--wp--preset--font-size--xx-small);
 		weight: var(--wp--custom--font-weight--bold);
 	}
 	margin: 0;
