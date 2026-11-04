@@ -289,7 +289,7 @@ export function Edit( props ) {
 					} }
 				/>
 				<RichText
-					className="wp-block-capitola-cover-block__headline --hl-xxl"
+					className="wp-block-capitola-cover-block__headline --hl-xl"
 					value={ headline }
 					allowedFormats={ [] }
 					placeholder={ postTitle ? postTitle : 'Headline...' }

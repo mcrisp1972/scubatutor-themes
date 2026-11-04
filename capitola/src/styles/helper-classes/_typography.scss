@@ -1,9 +1,5 @@
 @use "@capitola/styles/abstracts" as *;
 
-.--hl-xxl {
-	@include headline-xxl;
-}
-
 .--hl-xl {
 	@include headline-xl;
 }

@@ -7,7 +7,7 @@ use function Capitola\Blocks\Stats_Item\get_stat_parts;
 
 ?>
 <div <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-	<div class="wp-block-capitola-stats-item__stat --hl-xl " >
+	<div class="wp-block-capitola-stats-item__stat --hl-l " >
 		<?php
 		if ( $block->context['capitola/animatedStats'] ) :
 			?>

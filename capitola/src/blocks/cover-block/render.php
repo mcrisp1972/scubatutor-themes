@@ -38,7 +38,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			</<?php echo tag_escape( $attributes['eyebrowTag'] ); ?>>
 		<?php endif; ?>
 		<?php if ( $attributes['headline'] ) : ?>
-			<<?php echo tag_escape( $attributes['headlineTag'] ); ?> class="wp-block-capitola-cover-block__headline --hl-xxl">
+			<<?php echo tag_escape( $attributes['headlineTag'] ); ?> class="wp-block-capitola-cover-block__headline --hl-xl">
 				<?php echo esc_html( $attributes['headline'] ); ?>
 			</<?php echo tag_escape( $attributes['headlineTag'] ); ?>>
 		<?php endif; ?>

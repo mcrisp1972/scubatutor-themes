@@ -8,7 +8,7 @@ export function Edit( props ) {
 	return (
 		<div { ...blockProps }>
 			<RichText
-				className="wp-block-capitola-stats-item__stat --hl-xl"
+				className="wp-block-capitola-stats-item__stat --hl-l"
 				value={ stat }
 				allowedFormats={ [] }
 				placeholder="Stat..."
