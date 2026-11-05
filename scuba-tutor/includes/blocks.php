@@ -23,11 +23,6 @@ function register_blocks() {
 			}
 		}
 	}
-
-	// wp_register_block_types_from_metadata_collection(
-	// CAPITOLA_CHILD_THEME_DIR . '/build/blocks',
-	// CAPITOLA_CHILD_THEME_DIR . '/build/blocks-manifest.php'
-	// );.
 }
 
 add_action( 'init', __NAMESPACE__ . '\register_blocks' );
