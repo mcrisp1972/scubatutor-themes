@@ -13,5 +13,5 @@
 		'wp-keycodes',
 		'wp-primitives'
 	),
-	'version' => 'c161c25501b1b7477e1a'
+	'version' => '8c7d6603e8ed941b5739'
 );
