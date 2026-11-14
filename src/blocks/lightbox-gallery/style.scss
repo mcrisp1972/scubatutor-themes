@@ -17,7 +17,7 @@
 		@include unstyle-button;
 		display: flex;
 		position: relative;
-		margin-bottom: var(--wp--preset--spacing--xxsmall);
+		margin-bottom: var(--wp--preset--spacing--xx-small);
 		width: 100%;
 		justify-content: center;
 		align-items: center;
@@ -69,14 +69,14 @@
 		position: relative;
 		overflow: hidden;
 		flex-wrap: wrap;
-		gap: var(--wp--preset--spacing--xxsmall);
+		gap: var(--wp--preset--spacing--xx-small);
 	}
 
 	&__thumbnail {
 		@include unstyle-button;
 		display: flex;
 		position: relative;
-		flex: 0 0 calc((100% / 3) - ((var(--wp--preset--spacing--xxsmall) * 2) / 3));
+		flex: 0 0 calc((100% / 3) - ((var(--wp--preset--spacing--xx-small) * 2) / 3));
 		justify-content: center;
 		align-items: center;
 		aspect-ratio: var(--wp--custom--gallery--aspect-ratio);
@@ -177,7 +177,7 @@
 			height: 100%;
 			display: flex;
 			flex-flow: column;
-			gap: var(--wp--preset--spacing--xsmall);
+			gap: var(--wp--preset--spacing--x-small);
 		}
 	}
 

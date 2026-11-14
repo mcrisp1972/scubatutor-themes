@@ -99,7 +99,7 @@ const radiusIcons = {
 			<Path d="M4 20 H6 V6 H20 V4 H4 Z" />
 		</SVG>
 	),
-	xsmall: (
+	'x-small': (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 			<Path d="M4 20 H6 V7.5 C6 6.6 6.6 6 7.5 6 H20 V4 H7.5 C5.1 4 4 5.1 4 7.5 Z" />
 		</SVG>
@@ -119,7 +119,7 @@ const radiusIcons = {
 			<Path d="M4 20 H6 V14 C6 9.6 9.6 6 14 6 H20 V4 H14 C8.5 4 4 8.5 4 14 Z" />
 		</SVG>
 	),
-	xlarge: (
+	'x-large': (
 		<SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 			<Path d="M4 20 H6 V16 C6 10.5 10.5 6 16 6 H20 V4 H16 C9.4 4 4 9.4 4 16 Z" />
 		</SVG>
@@ -387,7 +387,7 @@ export function AspectRatioToolbar( {
 export function RadiusToolbar( {
 	props,
 	attribute,
-	options = [ 'none', 'xsmall', 'small', 'medium', 'large', 'xlarge' ],
+	options = [ 'none', 'x-small', 'small', 'medium', 'large', 'x-large' ],
 } ) {
 	const { attributes, setAttributes } = props;
 	const value = attributes[ attribute ];
@@ -409,14 +409,14 @@ export function RadiusToolbar( {
 							},
 						]
 					: [] ),
-				...( options.includes( 'xsmall' )
+				...( options.includes( 'x-small' )
 					? [
 							{
 								title: 'X-Small',
-								icon: radiusIcons.xsmall,
-								isActive: value === 'xsmall',
+								icon: radiusIcons[ 'x-small' ],
+								isActive: value === 'x-small',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'xsmall' } );
+									setAttributes( { [ attribute ]: 'x-small' } );
 								},
 							},
 						]
@@ -459,14 +459,14 @@ export function RadiusToolbar( {
 							},
 						]
 					: [] ),
-				...( options.includes( 'xlarge' )
+				...( options.includes( 'x-large' )
 					? [
 							{
 								title: 'X-Large',
-								icon: radiusIcons.xlarge,
-								isActive: value === 'xlarge',
+								icon: radiusIcons[ 'x-large' ],
+								isActive: value === 'x-large',
 								onClick: () => {
-									setAttributes( { [ attribute ]: 'xlarge' } );
+									setAttributes( { [ attribute ]: 'x-large' } );
 								},
 							},
 						]

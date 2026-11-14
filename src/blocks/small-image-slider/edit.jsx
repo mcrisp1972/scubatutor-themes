@@ -59,8 +59,8 @@ export function Edit( props ) {
 		modules: [ Navigation ],
 		grabCursor: false,
 		speed: 600,
-		spaceBetween: 0,
 		centeredSlides: true,
+		spaceBetween: 20,
 		slidesPerView: 'auto',
 		coverflowEffect: {
 			rotate: aspectRatio === 'square' ? 0 : 50,

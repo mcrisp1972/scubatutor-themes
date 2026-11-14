@@ -17,6 +17,7 @@ class smallImageSlider {
 			speed: 600,
 			loop: true,
 			centeredSlides: true,
+			spaceBetween: 20,
 			slidesPerView: 'auto',
 			navigation: {
 				nextEl: '.swiper-button-next',

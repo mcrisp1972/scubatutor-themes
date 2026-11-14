@@ -40,7 +40,7 @@ export function Edit( props ) {
 					<RadiusToolbar
 						props={ props }
 						attribute="radius"
-						options={ [ 'none', 'xsmall', 'small', 'medium', 'large' ] }
+						options={ [ 'none', 'x-small', 'small', 'medium', 'large' ] }
 					/>
 				</ToolbarGroup>
 			</BlockControls>

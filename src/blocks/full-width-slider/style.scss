@@ -52,7 +52,6 @@
 		min-width: 0;
 
 		.swiper {
-			--wp--custom--swiper-button-size: 32px;
 			position: relative;
 			touch-action: pan-y;
 			overflow: hidden;
@@ -171,7 +170,7 @@
 		.swiper {
 			touch-action: pan-y;
 			overflow: hidden;
-			margin-top: var(--wp--preset--spacing--xsmall);
+			margin-top: var(--wp--preset--spacing--x-small);
 		}
 
 		.swiper-wrapper {

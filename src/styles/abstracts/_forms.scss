@@ -206,7 +206,7 @@ $focus-shadow: var(--wp--custom--forms--field--focus-shadow-size) var(--wp--cust
 	margin: 0;
 	transition: border-radius var(--wp--custom--transitions--default);
 	white-space: nowrap;
-	padding: 0 var(--wp--preset--spacing--xsmall);
+	padding: 0 var(--wp--preset--spacing--x-small);
 	line-height: 2;
 	@content;
 

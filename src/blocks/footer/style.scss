@@ -29,7 +29,7 @@
 	&__menu {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		align-items: flex-start;
 	}
 
@@ -79,14 +79,14 @@
 		display: flex;
 		flex-flow: column;
 		align-items: flex-start;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 	}
 
 	&__hours {
 		@include text-s;
 		display: grid;
 		grid-template-columns: auto 1fr;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		margin: 0;
 		padding: 0;
 
@@ -106,7 +106,7 @@
 			basis: 100%;
 		}
 		justify-content: center;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		margin: 0;
 		list-style: none;
 		padding: 0;
@@ -168,7 +168,7 @@
 		@include nav-link {
 			display: flex;
 			position: relative;
-			gap: var(--wp--preset--spacing--xsmall);
+			gap: var(--wp--preset--spacing--x-small);
 			align-items: center;
 		}
 

@@ -84,7 +84,7 @@
 
 	@include button {
 		display: flex;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		align-items: center;
 		@content;
 	}
@@ -138,7 +138,7 @@
 	transition: border-radius var(--wp--custom--transitions--default);
 	white-space: nowrap;
 	display: flex;
-	gap: var(--wp--preset--spacing--xsmall);
+	gap: var(--wp--preset--spacing--x-small);
 	align-items: center;
 	background: transparent;
 	color: var(--wp--custom--color--button-bg);
@@ -176,7 +176,7 @@
 	margin: 0;
 	white-space: nowrap;
 	display: flex;
-	gap: var(--wp--preset--spacing--xsmall);
+	gap: var(--wp--preset--spacing--x-small);
 	align-items: center;
 	background: transparent;
 	border: none;
@@ -228,8 +228,8 @@
 
 		&-next,
 		&-prev {
-			width: var(--wp--custom--swiper-button-size);
-			height: var(--wp--custom--swiper-button-size);
+			width: var(--wp--custom--swiper-button--size);
+			height: var(--wp--custom--swiper-button--size);
 			cursor: pointer;
 			background-color: var(--wp--custom--color--button-bg);
 			display: flex;
@@ -243,7 +243,7 @@
 
 			@if $absolute {
 				position: absolute;
-				top: calc(50% - (var(--wp--custom--swiper-button-size) / 2));
+				top: calc(50% - (var(--wp--custom--swiper-button--size) / 2));
 			}
 
 			&::after {
@@ -341,7 +341,7 @@
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	gap: var(--wp--preset--spacing--xxsmall);
+	gap: var(--wp--preset--spacing--xx-small);
 	@content;
 
 	&::after {
@@ -360,7 +360,7 @@
 		text-decoration: none;
 
 		&::after {
-			transform: translateX(var(--wp--preset--spacing--xxsmall));
+			transform: translateX(var(--wp--preset--spacing--xx-small));
 		}
 	}
 }
@@ -384,7 +384,7 @@
 		decoration: none;
 	}
 	background: var(--wp--custom--color--button-bg);
-	padding: 0 var(--wp--preset--spacing--xsmall) 0;
+	padding: 0 var(--wp--preset--spacing--x-small) 0;
 	transition: background-color var(--wp--custom--transitions--default), color var(--wp--custom--transitions--default);
 
 	&.--next,
@@ -392,7 +392,7 @@
 	&--previous,
 	&--next {
 		position: relative;
-		gap: var(--wp--preset--spacing--xxsmall);
+		gap: var(--wp--preset--spacing--xx-small);
 
 		&::after {
 			content: "";
@@ -490,7 +490,7 @@
 		margin-left: 0;
 
 		@include mq("mobile") {
-			margin-left: var(--wp--preset--spacing--xsmall);
+			margin-left: var(--wp--preset--spacing--x-small);
 		}
 
 		&:last-of-type {

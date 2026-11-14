@@ -22,10 +22,9 @@
 	}
 
 	&__scroll-buttons {
-		--wp--custom--swiper-button-size: 32px;
 		display: flex;
 		position: relative;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		justify-content: center;
 		align-items: center;
 		margin-top: var(--wp--preset--spacing--small);
@@ -52,7 +51,7 @@
 		display: grid;
 		position: relative;
 		grid: auto / 1fr;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		padding: 0;
 		margin: 0;
 		list-style: none;
@@ -126,7 +125,7 @@
 
 			.capitola-result {
 				flex: 0 0 275px;
-				margin-right: var(--wp--preset--spacing--xsmall);
+				margin-right: var(--wp--preset--spacing--x-small);
 
 				&:last-of-type {
 					margin-right: 0;
@@ -371,7 +370,7 @@
 		padding: var(--wp--preset--spacing--small);
 
 		.capitola-result__subtitle {
-			margin-top: calc((var(--wp--preset--spacing--small) * -1 ) + var(--wp--preset--spacing--xxsmall));
+			margin-top: calc((var(--wp--preset--spacing--small) * -1 ) + var(--wp--preset--spacing--xx-small));
 		}
 
 		.capitola-result__cta.--cta {
@@ -389,7 +388,7 @@
 		text-align: center;
 		font-weight: var(--wp--custom--font-weight--bold);
 		color: var(--wp--custom--color--body);
-		margin-top: var(--wp--preset--spacing--xsmall);
+		margin-top: var(--wp--preset--spacing--x-small);
 	}
 
 	&__thumb-cat {
@@ -397,11 +396,11 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: var(--wp--preset--spacing--xsmall);
+		padding: var(--wp--preset--spacing--x-small);
 	}
 
 	&__body-cat {
-		margin-bottom: var(--wp--preset--spacing--xxsmall);
+		margin-bottom: var(--wp--preset--spacing--xx-small);
 	}
 
 	&__title {
@@ -454,11 +453,11 @@
 
 		&-detail {
 			display: flex;
-			gap: var(--wp--preset--spacing--xsmall);
+			gap: var(--wp--preset--spacing--x-small);
 
 			&.star-rating {
 				@include star-rating {
-					margin-top: var(--wp--preset--spacing--xsmall);
+					margin-top: var(--wp--preset--spacing--x-small);
 					// override default float when in a product page
 					float: unset;
 				}
@@ -484,10 +483,10 @@
 			weight: var(--wp--custom--font-weight--bold);
 			size: to-rem(12px);
 		}
-		padding: 0 var(--wp--preset--spacing--xsmall);
+		padding: 0 var(--wp--preset--spacing--x-small);
 		text-align: center;
-		top: var(--wp--preset--spacing--xsmall);
-		left: var(--wp--preset--spacing--xsmall);
+		top: var(--wp--preset--spacing--x-small);
+		left: var(--wp--preset--spacing--x-small);
 		border-radius: var(--wp--preset--border-radius--full);
 		background: #059af4;
 		color: var(--wp--preset--color--white);
