@@ -56,14 +56,14 @@
 	&__body {
 		display: flex;
 		flex-flow: column;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		flex: 1 0 0;
 	}
 
 	&__title {
 		@include unstyle-link;
 		display: flex;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		width: 100%;
 		align-items: flex-start;
 		justify-content: space-between;

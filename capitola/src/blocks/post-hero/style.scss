@@ -55,7 +55,7 @@
 	&__byline {
 		display: flex;
 		color: var(--wp--custom--color--body);
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		align-items: flex-start;
 
 		&-img-wrap {
@@ -76,7 +76,7 @@
 	&__social-links {
 		display: flex;
 		justify-content: flex-end;
-		gap: var(--wp--preset--spacing--xsmall);
+		gap: var(--wp--preset--spacing--x-small);
 		margin: 0;
 		padding: 0;
 		list-style: none;

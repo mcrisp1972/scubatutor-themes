@@ -179,7 +179,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
-								{ label: 'X-Large', value: 'xlarge' },
+								{ label: 'X-Large', value: 'x-large' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { rearImageRadius: value } );
@@ -347,7 +347,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
-								{ label: 'X-Large', value: 'xlarge' },
+								{ label: 'X-Large', value: 'x-large' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { middleImageRadius: value } );
@@ -538,7 +538,7 @@ export function Edit( props ) {
 								{ label: 'Small', value: 'small' },
 								{ label: 'Medium', value: 'medium' },
 								{ label: 'Large', value: 'large' },
-								{ label: 'X-Large', value: 'xlarge' },
+								{ label: 'X-Large', value: 'x-large' },
 							] }
 							onChange={ ( value ) => {
 								return setAttributes( { frontImageRadius: value } );

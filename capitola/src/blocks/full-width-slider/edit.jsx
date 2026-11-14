@@ -259,7 +259,7 @@ export function Edit( props ) {
 					<RadiusToolbar
 						props={ props }
 						attribute="sliderRadius"
-						options={ [ 'none', 'xsmall', 'small', 'medium', 'large' ] }
+						options={ [ 'none', 'x-small', 'small', 'medium', 'large' ] }
 					/>
 				</ToolbarGroup>
 			</BlockControls>
