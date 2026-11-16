@@ -501,6 +501,10 @@ return array(
 				'type' => 'string',
 				'default' => 'h2'
 			),
+			'headlineSize' => array(
+				'type' => 'string',
+				'default' => '--hl-l'
+			),
 			'cta' => array(
 				'type' => 'object',
 				'default' => false

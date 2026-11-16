@@ -62,6 +62,10 @@
       "type": "string",
       "default": "h2"
     },
+    "headlineSize": {
+      "type": "string",
+      "default": "--hl-l"
+    },
     "cta": {
       "type": "object",
       "default": false
