@@ -87,5 +87,19 @@
 			"contentSize": "1000px",
 			"wideSize": "1000px"
 		}
+	},
+	"styles": {
+		"elements": {
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|xx-large"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|x-large"
+				}
+			}
+		}
 	}
 }

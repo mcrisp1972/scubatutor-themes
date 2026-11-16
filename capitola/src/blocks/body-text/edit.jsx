@@ -9,6 +9,7 @@ import {
 import {
 	ToolbarGroup,
 	RadioControl,
+	SelectControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -39,6 +40,7 @@ export function Edit( props ) {
 		headline,
 		eyebrowTag,
 		headlineTag,
+		headlineSize,
 		cta,
 		cta2,
 		isHeroVariation,
@@ -193,11 +195,12 @@ export function Edit( props ) {
 					</ToolsPanel>
 				) }
 				<ToolsPanel
-					label="H-Tags"
+					label="Headline Options"
 					resetAll={ () => {
 						setAttributes( {
 							eyebrowTag: defaultAttributes.eyebrowTag.default,
 							headlineTag: defaultAttributes.headlineTag.default,
+							headlineSize: defaultAttributes.headlineSize.default,
 						} );
 					} }
 				>
@@ -238,6 +241,31 @@ export function Edit( props ) {
 							value={ headlineTag }
 							onChange={ ( value ) => {
 								setAttributes( { headlineTag: value } );
+							} }
+						/>
+					</ToolsPanelItem>
+					<ToolsPanelItem
+						label="Headline Size"
+						hasValue={ () => {
+							return headlineSize !== defaultAttributes.headlineSize.default;
+						} }
+						onDeselect={ () => {
+							setAttributes( {
+								headlineTag: defaultAttributes.headlineSize.default,
+							} );
+						} }
+					>
+						<SelectControl
+							label="Headline Size"
+							value={ headlineSize }
+							options={ [
+								{ label: 'X-Large', value: '--hl-xl' },
+								{ label: 'Large', value: '--hl-l' },
+								{ label: 'Medium', value: '--hl-m' },
+								{ label: 'Small', value: '--hl-s' },
+							] }
+							onChange={ ( value ) => {
+								setAttributes( { headlineSize: value } );
 							} }
 						/>
 					</ToolsPanelItem>
@@ -289,7 +317,7 @@ export function Edit( props ) {
 					} }
 				/>
 				<RichText
-					className="wp-block-capitola-body-text__headline --hl-l"
+					className={ `wp-block-capitola-body-text__headline ${ headlineSize }` }
 					value={ headline }
 					placeholder={ postTitle ? postTitle : 'Headline...' }
 					allowedFormats={ [] }
