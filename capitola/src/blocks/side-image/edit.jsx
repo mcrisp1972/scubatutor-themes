@@ -86,16 +86,17 @@ export function Edit( props ) {
 		( select ) => {
 			if ( externalImage ) {
 				return imageUrl ? { source_url: imageUrl } : undefined;
+			} else if ( isHeroVariation && ! sideImage.id ) {
+				return select( 'core' ).getEntityRecord( 'postType', 'attachment', featuredImage );
 			}
-			const imageId = sideImage.id ? sideImage.id : featuredImage;
-			return imageId
-				? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
-				: undefined;
+			return sideImage;
+			// const imageId = sideImage.id ? sideImage.id : featuredImage;
+			// return imageId
+			// 	? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
+			// 	: undefined;
 		},
 		[ featuredImage, sideImage, externalImage, imageUrl ]
 	);
-
-	console.log(imageObject);
 
 	const showFocalPointControl =
 		mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id;
@@ -154,6 +155,7 @@ export function Edit( props ) {
 									sideImage: {
 										id: value.id,
 										source_url: value.url,
+										caption: value.caption,
 									},
 								} );
 							} }
@@ -455,7 +457,7 @@ export function Edit( props ) {
 									} }
 									value={ imageCaption }
 									allowedFormats={ [] }
-									placeholder={ imageObject?.caption?.raw || 'Caption...' }
+									placeholder={ imageObject?.caption || 'Caption...' }
 									onChange={ ( value ) => {
 										setAttributes( {
 											imageCaption: value,

@@ -23,10 +23,12 @@ export function Image( { imageObject, aspectRatio, radius = '', featuredImage, p
 				{ props.isSelected && ! props.attributes.externalImage && (
 					<ImageSelectButton
 						onSelect={ ( value ) => {
+							console.log(value)
 							props.setAttributes( {
 								sideImage: {
 									id: value.id,
 									source_url: value.url,
+									caption: value.caption,
 								},
 							} );
 						} }
@@ -45,7 +47,11 @@ export function Image( { imageObject, aspectRatio, radius = '', featuredImage, p
 			<MediaPlaceholder
 				onSelect={ ( value ) => {
 					props.setAttributes( {
-						sideImage: { id: value.id, source_url: value.url },
+						sideImage: {
+							id: value.id,
+							source_url: value.url,
+							caption: value.caption,
+						},
 					} );
 				} }
 				value={ props.attributes.sideImage.id }
