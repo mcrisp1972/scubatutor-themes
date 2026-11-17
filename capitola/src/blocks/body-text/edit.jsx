@@ -249,6 +249,7 @@ export function Edit( props ) {
 						hasValue={ () => {
 							return headlineSize !== defaultAttributes.headlineSize.default;
 						} }
+						isShownByDefault={ true }
 						onDeselect={ () => {
 							setAttributes( {
 								headlineTag: defaultAttributes.headlineSize.default,
