@@ -95,6 +95,8 @@ export function Edit( props ) {
 		[ featuredImage, sideImage, externalImage, imageUrl ]
 	);
 
+	console.log(imageObject);
+
 	const showFocalPointControl =
 		mediaType === 'image' && imageRatio !== 'full' && !! sideImage?.id;
 
