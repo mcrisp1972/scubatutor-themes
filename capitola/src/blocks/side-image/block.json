@@ -76,7 +76,8 @@
 			"type": "object",
 			"default": {
 				"id": 0,
-				"source_url": ""
+				"source_url": "",
+				"caption": ""
 			}
 		},
 		"imageFocalPoint": {

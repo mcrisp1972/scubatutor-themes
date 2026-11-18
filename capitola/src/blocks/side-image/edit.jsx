@@ -90,12 +90,8 @@ export function Edit( props ) {
 				return select( 'core' ).getEntityRecord( 'postType', 'attachment', featuredImage );
 			}
 			return sideImage;
-			// const imageId = sideImage.id ? sideImage.id : featuredImage;
-			// return imageId
-			// 	? select( 'core' ).getEntityRecord( 'postType', 'attachment', imageId )
-			// 	: undefined;
 		},
-		[ featuredImage, sideImage, externalImage, imageUrl ]
+		[ externalImage, isHeroVariation, sideImage, imageUrl, featuredImage ]
 	);
 
 	const showFocalPointControl =
@@ -137,7 +133,7 @@ export function Edit( props ) {
 		<div { ...blockProps }>
 			<InspectorControls group="settings">
 				<PanelBody title="Media" initialOpen={ true }>
-					{ mediaType === 'image' && (
+					{ mediaType === 'image' && ! isHeroVariation && (
 						<ToggleControl
 							label="External Image?"
 							checked={ externalImage }
@@ -237,7 +233,7 @@ export function Edit( props ) {
 							} }
 						/>
 					) }
-					{ imageLayout === 'inner' && (
+					{ imageLayout === 'inner' && ! isHeroVariation && (
 						<ToggleControl
 							label="Show Caption"
 							checked={ showCaption }

@@ -26,14 +26,13 @@ $parallax_class = 'full' === $attributes['imageLayout'] ? img_scroll_animation_c
 
 $sticky_class = $attributes['stickyImage'] && 'inner' === $attributes['imageLayout'] && 'top' === $attributes['verticalAlign'] ? ' --sticky' : '';
 
+$caption = '';
 if ( 'inner' === $attributes['imageLayout'] && $attributes['showCaption'] ) {
 	if ( $attributes['imageCaption'] ) {
 		$caption = $attributes['imageCaption'];
-	} elseif ( $attributes['sideImage']['id'] ) {
-		$caption = wp_get_attachment_caption( $attributes['sideImage']['id'] );
+	} elseif ( isset( $attributes['sideImage']['caption'] ) ) { // keep isset check, block behavior has changed.
+		$caption = $attributes['sideImage']['caption'];
 	}
-} else {
-	$caption = '';
 }
 
 $wrapper_attributes = get_block_wrapper_attributes(

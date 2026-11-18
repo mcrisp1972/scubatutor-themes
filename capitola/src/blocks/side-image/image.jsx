@@ -23,7 +23,6 @@ export function Image( { imageObject, aspectRatio, radius = '', featuredImage, p
 				{ props.isSelected && ! props.attributes.externalImage && (
 					<ImageSelectButton
 						onSelect={ ( value ) => {
-							console.log(value)
 							props.setAttributes( {
 								sideImage: {
 									id: value.id,
