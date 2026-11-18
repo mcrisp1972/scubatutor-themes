@@ -3426,7 +3426,8 @@ return array(
 				'type' => 'object',
 				'default' => array(
 					'id' => 0,
-					'source_url' => ''
+					'source_url' => '',
+					'caption' => ''
 				)
 			),
 			'imageFocalPoint' => array(
